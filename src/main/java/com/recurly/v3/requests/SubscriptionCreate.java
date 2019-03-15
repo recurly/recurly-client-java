@@ -10,10 +10,10 @@ import java.util.Map;
 public class SubscriptionCreate extends Request {
 
   @SerializedName("account")
-  private Map<String, String> account;
+  private AccountCreate account;
 
   @SerializedName("add_ons")
-  private List<String> addOns;
+  private List<SubscriptionAddOnCreate> addOns;
 
   @SerializedName("auto_renew")
   private Boolean autoRenew;
@@ -36,11 +36,11 @@ public class SubscriptionCreate extends Request {
   @SerializedName("customer_notes")
   private String customerNotes;
 
-  @SerializedName("first_renewal_date")
-  private DateTime firstRenewalDate;
-
   @SerializedName("net_terms")
   private Integer netTerms;
+
+  @SerializedName("next_bill_date")
+  private DateTime nextBillDate;
 
   @SerializedName("plan_code")
   private String planCode;
@@ -79,11 +79,11 @@ public class SubscriptionCreate extends Request {
   private Float unitAmount;
 
 
-  public Map<String, String> getAccount() { return this.account; }
-  public void setAccount(final Map<String, String> account) { this.account = account; }
+  public AccountCreate getAccount() { return this.account; }
+  public void setAccount(final AccountCreate account) { this.account = account; }
 
-  public List<String> getAddOns() { return this.addOns; }
-  public void setAddOns(final List<String> addOns) { this.addOns = addOns; }
+  public List<SubscriptionAddOnCreate> getAddOns() { return this.addOns; }
+  public void setAddOns(final List<SubscriptionAddOnCreate> addOns) { this.addOns = addOns; }
 
   public Boolean getAutoRenew() { return this.autoRenew; }
   public void setAutoRenew(final Boolean autoRenew) { this.autoRenew = autoRenew; }
@@ -106,11 +106,11 @@ public class SubscriptionCreate extends Request {
   public String getCustomerNotes() { return this.customerNotes; }
   public void setCustomerNotes(final String customerNotes) { this.customerNotes = customerNotes; }
 
-  public DateTime getFirstRenewalDate() { return this.firstRenewalDate; }
-  public void setFirstRenewalDate(final DateTime firstRenewalDate) { this.firstRenewalDate = firstRenewalDate; }
-
   public Integer getNetTerms() { return this.netTerms; }
   public void setNetTerms(final Integer netTerms) { this.netTerms = netTerms; }
+
+  public DateTime getNextBillDate() { return this.nextBillDate; }
+  public void setNextBillDate(final DateTime nextBillDate) { this.nextBillDate = nextBillDate; }
 
   public String getPlanCode() { return this.planCode; }
   public void setPlanCode(final String planCode) { this.planCode = planCode; }

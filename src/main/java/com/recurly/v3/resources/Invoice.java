@@ -9,10 +9,10 @@ import java.util.Map;
 public class Invoice extends Resource {
 
   @SerializedName("account")
-  private Account account;
+  private AccountMini account;
 
   @SerializedName("address")
-  private Address address;
+  private InvoiceAddress address;
 
   @SerializedName("balance")
   private Float balance;
@@ -45,7 +45,7 @@ public class Invoice extends Resource {
   private String id;
 
   @SerializedName("line_items")
-  private List<LineItem> lineItems;
+  private LineItemList lineItems;
 
   @SerializedName("net_terms")
   private Integer netTerms;
@@ -108,11 +108,11 @@ public class Invoice extends Resource {
   private String vatReverseChargeNotes;
 
 
-  public Account getAccount() { return this.account; }
-  public void setAccount(final Account account) { this.account = account; }
+  public AccountMini getAccount() { return this.account; }
+  public void setAccount(final AccountMini account) { this.account = account; }
 
-  public Address getAddress() { return this.address; }
-  public void setAddress(final Address address) { this.address = address; }
+  public InvoiceAddress getAddress() { return this.address; }
+  public void setAddress(final InvoiceAddress address) { this.address = address; }
 
   public Float getBalance() { return this.balance; }
   public void setBalance(final Float balance) { this.balance = balance; }
@@ -144,8 +144,8 @@ public class Invoice extends Resource {
   public String getId() { return this.id; }
   public void setId(final String id) { this.id = id; }
 
-  public List<LineItem> getLineItems() { return this.lineItems; }
-  public void setLineItems(final List<LineItem> lineItems) { this.lineItems = lineItems; }
+  public LineItemList getLineItems() { return this.lineItems; }
+  public void setLineItems(final LineItemList lineItems) { this.lineItems = lineItems; }
 
   public Integer getNetTerms() { return this.netTerms; }
   public void setNetTerms(final Integer netTerms) { this.netTerms = netTerms; }

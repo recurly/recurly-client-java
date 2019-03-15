@@ -12,7 +12,7 @@ public class Error extends Resource {
   private String message;
 
   @SerializedName("params")
-  private List<String> params;
+  private List<Hash> params;
 
   @SerializedName("type")
   private String type;
@@ -21,8 +21,8 @@ public class Error extends Resource {
   public String getMessage() { return this.message; }
   public void setMessage(final String message) { this.message = message; }
 
-  public List<String> getParams() { return this.params; }
-  public void setParams(final List<String> params) { this.params = params; }
+  public List<Hash> getParams() { return this.params; }
+  public void setParams(final List<Hash> params) { this.params = params; }
 
   public String getType() { return this.type; }
   public void setType(final String type) { this.type = type; }

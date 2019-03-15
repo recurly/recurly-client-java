@@ -9,7 +9,7 @@ import java.util.Map;
 public class LineItem extends Resource {
 
   @SerializedName("account")
-  private Account account;
+  private AccountMini account;
 
   @SerializedName("accounting_code")
   private String accountingCode;
@@ -129,8 +129,8 @@ public class LineItem extends Resource {
   private String uuid;
 
 
-  public Account getAccount() { return this.account; }
-  public void setAccount(final Account account) { this.account = account; }
+  public AccountMini getAccount() { return this.account; }
+  public void setAccount(final AccountMini account) { this.account = account; }
 
   public String getAccountingCode() { return this.accountingCode; }
   public void setAccountingCode(final String accountingCode) { this.accountingCode = accountingCode; }

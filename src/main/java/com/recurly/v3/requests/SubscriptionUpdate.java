@@ -24,8 +24,8 @@ public class SubscriptionUpdate extends Request {
   @SerializedName("net_terms")
   private Integer netTerms;
 
-  @SerializedName("next_renewal_at")
-  private DateTime nextRenewalAt;
+  @SerializedName("next_bill_date")
+  private DateTime nextBillDate;
 
   @SerializedName("po_number")
   private String poNumber;
@@ -61,8 +61,8 @@ public class SubscriptionUpdate extends Request {
   public Integer getNetTerms() { return this.netTerms; }
   public void setNetTerms(final Integer netTerms) { this.netTerms = netTerms; }
 
-  public DateTime getNextRenewalAt() { return this.nextRenewalAt; }
-  public void setNextRenewalAt(final DateTime nextRenewalAt) { this.nextRenewalAt = nextRenewalAt; }
+  public DateTime getNextBillDate() { return this.nextBillDate; }
+  public void setNextBillDate(final DateTime nextBillDate) { this.nextBillDate = nextBillDate; }
 
   public String getPoNumber() { return this.poNumber; }
   public void setPoNumber(final String poNumber) { this.poNumber = poNumber; }

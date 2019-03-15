@@ -9,7 +9,7 @@ import java.util.Map;
 public class CouponDiscount extends Resource {
 
   @SerializedName("currencies")
-  private List<String> currencies;
+  private List<CouponDiscountPricing> currencies;
 
   @SerializedName("percent")
   private Integer percent;
@@ -21,8 +21,8 @@ public class CouponDiscount extends Resource {
   private String type;
 
 
-  public List<String> getCurrencies() { return this.currencies; }
-  public void setCurrencies(final List<String> currencies) { this.currencies = currencies; }
+  public List<CouponDiscountPricing> getCurrencies() { return this.currencies; }
+  public void setCurrencies(final List<CouponDiscountPricing> currencies) { this.currencies = currencies; }
 
   public Integer getPercent() { return this.percent; }
   public void setPercent(final Integer percent) { this.percent = percent; }

@@ -60,7 +60,7 @@ public class Coupon extends Resource {
   private String object;
 
   @SerializedName("plans")
-  private List<String> plans;
+  private List<PlanMini> plans;
 
   @SerializedName("plans_names")
   private List<String> plansNames;
@@ -138,8 +138,8 @@ public class Coupon extends Resource {
   public String getObject() { return this.object; }
   public void setObject(final String object) { this.object = object; }
 
-  public List<String> getPlans() { return this.plans; }
-  public void setPlans(final List<String> plans) { this.plans = plans; }
+  public List<PlanMini> getPlans() { return this.plans; }
+  public void setPlans(final List<PlanMini> plans) { this.plans = plans; }
 
   public List<String> getPlansNames() { return this.plansNames; }
   public void setPlansNames(final List<String> plansNames) { this.plansNames = plansNames; }

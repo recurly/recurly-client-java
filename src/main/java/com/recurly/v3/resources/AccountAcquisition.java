@@ -9,7 +9,7 @@ import java.util.Map;
 public class AccountAcquisition extends Resource {
 
   @SerializedName("account")
-  private Account account;
+  private AccountMini account;
 
   @SerializedName("campaign")
   private String campaign;
@@ -36,8 +36,8 @@ public class AccountAcquisition extends Resource {
   private DateTime updatedAt;
 
 
-  public Account getAccount() { return this.account; }
-  public void setAccount(final Account account) { this.account = account; }
+  public AccountMini getAccount() { return this.account; }
+  public void setAccount(final AccountMini account) { this.account = account; }
 
   public String getCampaign() { return this.campaign; }
   public void setCampaign(final String campaign) { this.campaign = campaign; }

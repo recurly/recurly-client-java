@@ -30,7 +30,7 @@ public class SubscriptionChange extends Resource {
   private String object;
 
   @SerializedName("plan")
-  private Plan plan;
+  private PlanMini plan;
 
   @SerializedName("quantity")
   private Integer quantity;
@@ -66,8 +66,8 @@ public class SubscriptionChange extends Resource {
   public String getObject() { return this.object; }
   public void setObject(final String object) { this.object = object; }
 
-  public Plan getPlan() { return this.plan; }
-  public void setPlan(final Plan plan) { this.plan = plan; }
+  public PlanMini getPlan() { return this.plan; }
+  public void setPlan(final PlanMini plan) { this.plan = plan; }
 
   public Integer getQuantity() { return this.quantity; }
   public void setQuantity(final Integer quantity) { this.quantity = quantity; }

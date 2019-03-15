@@ -18,7 +18,7 @@ public class AddOn extends Resource {
   private DateTime createdAt;
 
   @SerializedName("currencies")
-  private List<String> currencies;
+  private List<AddOnPricing> currencies;
 
   @SerializedName("default_quantity")
   private Integer defaultQuantity;
@@ -60,8 +60,8 @@ public class AddOn extends Resource {
   public DateTime getCreatedAt() { return this.createdAt; }
   public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
 
-  public List<String> getCurrencies() { return this.currencies; }
-  public void setCurrencies(final List<String> currencies) { this.currencies = currencies; }
+  public List<AddOnPricing> getCurrencies() { return this.currencies; }
+  public void setCurrencies(final List<AddOnPricing> currencies) { this.currencies = currencies; }
 
   public Integer getDefaultQuantity() { return this.defaultQuantity; }
   public void setDefaultQuantity(final Integer defaultQuantity) { this.defaultQuantity = defaultQuantity; }

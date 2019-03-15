@@ -9,7 +9,7 @@ import java.util.Map;
 public class CreditPayment extends Resource {
 
   @SerializedName("account")
-  private Account account;
+  private AccountMini account;
 
   @SerializedName("action")
   private String action;
@@ -18,7 +18,7 @@ public class CreditPayment extends Resource {
   private Float amount;
 
   @SerializedName("applied_to_invoice")
-  private Invoice appliedToInvoice;
+  private InvoiceMini appliedToInvoice;
 
   @SerializedName("created_at")
   private DateTime createdAt;
@@ -36,7 +36,7 @@ public class CreditPayment extends Resource {
   private String originalCreditPaymentId;
 
   @SerializedName("original_invoice")
-  private Invoice originalInvoice;
+  private InvoiceMini originalInvoice;
 
   @SerializedName("refund_transaction")
   private Transaction refundTransaction;
@@ -51,8 +51,8 @@ public class CreditPayment extends Resource {
   private DateTime voidedAt;
 
 
-  public Account getAccount() { return this.account; }
-  public void setAccount(final Account account) { this.account = account; }
+  public AccountMini getAccount() { return this.account; }
+  public void setAccount(final AccountMini account) { this.account = account; }
 
   public String getAction() { return this.action; }
   public void setAction(final String action) { this.action = action; }
@@ -60,8 +60,8 @@ public class CreditPayment extends Resource {
   public Float getAmount() { return this.amount; }
   public void setAmount(final Float amount) { this.amount = amount; }
 
-  public Invoice getAppliedToInvoice() { return this.appliedToInvoice; }
-  public void setAppliedToInvoice(final Invoice appliedToInvoice) { this.appliedToInvoice = appliedToInvoice; }
+  public InvoiceMini getAppliedToInvoice() { return this.appliedToInvoice; }
+  public void setAppliedToInvoice(final InvoiceMini appliedToInvoice) { this.appliedToInvoice = appliedToInvoice; }
 
   public DateTime getCreatedAt() { return this.createdAt; }
   public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
@@ -78,8 +78,8 @@ public class CreditPayment extends Resource {
   public String getOriginalCreditPaymentId() { return this.originalCreditPaymentId; }
   public void setOriginalCreditPaymentId(final String originalCreditPaymentId) { this.originalCreditPaymentId = originalCreditPaymentId; }
 
-  public Invoice getOriginalInvoice() { return this.originalInvoice; }
-  public void setOriginalInvoice(final Invoice originalInvoice) { this.originalInvoice = originalInvoice; }
+  public InvoiceMini getOriginalInvoice() { return this.originalInvoice; }
+  public void setOriginalInvoice(final InvoiceMini originalInvoice) { this.originalInvoice = originalInvoice; }
 
   public Transaction getRefundTransaction() { return this.refundTransaction; }
   public void setRefundTransaction(final Transaction refundTransaction) { this.refundTransaction = refundTransaction; }

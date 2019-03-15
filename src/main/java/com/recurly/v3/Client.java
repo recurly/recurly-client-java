@@ -11,7 +11,7 @@ import retrofit2.http.Path;
 import retrofit2.http.Body;
 
 public interface Client {
-  public static final String API_VERSION = "v2018-06-06";
+  public static final String API_VERSION = "v2018-08-09";
 
 
   @GET("/sites")
@@ -24,13 +24,13 @@ public interface Client {
   Call<Pager<Account>> listAccounts(@Path("site_id") String siteId);
 
   @POST("/sites/{site_id}/accounts")
-  Call<Account> createAccount(@Path("site_id") String siteId, @Body CreateAccount body);
+  Call<Account> createAccount(@Path("site_id") String siteId, @Body AccountCreate body);
 
   @GET("/sites/{site_id}/accounts/{account_id}")
   Call<Account> getAccount(@Path("site_id") String siteId, @Path("account_id") String accountId);
 
   @PUT("/sites/{site_id}/accounts/{account_id}")
-  Call<Account> updateAccount(@Path("site_id") String siteId, @Path("account_id") String accountId, @Body AccountUpdatable body);
+  Call<Account> updateAccount(@Path("site_id") String siteId, @Path("account_id") String accountId, @Body AccountUpdate body);
 
   @DELETE("/sites/{site_id}/accounts/{account_id}")
   Call<Account> deactivateAccount(@Path("site_id") String siteId, @Path("account_id") String accountId);
@@ -113,6 +113,9 @@ public interface Client {
   @GET("/sites/{site_id}/accounts/{account_id}/transactions")
   Call<Pager<Transaction>> listAccountTransactions(@Path("site_id") String siteId, @Path("account_id") String accountId);
 
+  @GET("/sites/{site_id}/accounts/{account_id}/accounts")
+  Call<Pager<Account>> listChildAccounts(@Path("site_id") String siteId, @Path("account_id") String accountId);
+
   @GET("/sites/{site_id}/acquisitions")
   Call<AccountAcquisition> listAccountAcquisition(@Path("site_id") String siteId);
 
@@ -120,13 +123,13 @@ public interface Client {
   Call<Pager<Coupon>> listCoupons(@Path("site_id") String siteId);
 
   @POST("/sites/{site_id}/coupons")
-  Call<Coupon> createCoupon(@Path("site_id") String siteId, @Body CreateCoupon body);
+  Call<Coupon> createCoupon(@Path("site_id") String siteId, @Body CouponCreate body);
 
   @GET("/sites/{site_id}/coupons/{coupon_id}")
   Call<Coupon> getCoupon(@Path("site_id") String siteId, @Path("coupon_id") String couponId);
 
   @PUT("/sites/{site_id}/coupons/{coupon_id}")
-  Call<Coupon> updateCoupon(@Path("site_id") String siteId, @Path("coupon_id") String couponId, @Body UpdateCoupon body);
+  Call<Coupon> updateCoupon(@Path("site_id") String siteId, @Path("coupon_id") String couponId, @Body CouponUpdate body);
 
   @GET("/sites/{site_id}/coupons/{coupon_id}/unique_coupon_codes")
   Call<Pager<UniqueCouponCode>> listUniqueCouponCodes(@Path("site_id") String siteId, @Path("coupon_id") String couponId);
@@ -148,6 +151,9 @@ public interface Client {
 
   @GET("/sites/{site_id}/invoices/{invoice_id}")
   Call<Invoice> getInvoice(@Path("site_id") String siteId, @Path("invoice_id") String invoiceId);
+
+  @PUT("/sites/{site_id}/invoices/{invoice_id}")
+  Call<Invoice> putInvoice(@Path("site_id") String siteId, @Path("invoice_id") String invoiceId, @Body InvoiceUpdatable body);
 
   @PUT("/sites/{site_id}/invoices/{invoice_id}/collect")
   Call<Invoice> collectInvoice(@Path("site_id") String siteId, @Path("invoice_id") String invoiceId);
@@ -253,6 +259,9 @@ public interface Client {
 
   @GET("/sites/{site_id}/subscriptions/{subscription_id}/invoices")
   Call<Pager<Invoice>> listSubscriptionInvoices(@Path("site_id") String siteId, @Path("subscription_id") String subscriptionId);
+
+  @GET("/sites/{site_id}/subscriptions/{subscription_id}/line_items")
+  Call<Pager<LineItem>> listSubscriptionLineItems(@Path("site_id") String siteId, @Path("subscription_id") String subscriptionId);
 
   @GET("/sites/{site_id}/transactions")
   Call<Pager<Transaction>> listTransactions(@Path("site_id") String siteId);

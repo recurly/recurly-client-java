@@ -13,7 +13,7 @@ public class PlanCreate extends Request {
   private String accountingCode;
 
   @SerializedName("add_ons")
-  private List<String> addOns;
+  private List<AddOnCreate> addOns;
 
   @SerializedName("auto_renew")
   private Boolean autoRenew;
@@ -22,7 +22,7 @@ public class PlanCreate extends Request {
   private String code;
 
   @SerializedName("currencies")
-  private List<String> currencies;
+  private List<PlanPricing> currencies;
 
   @SerializedName("description")
   private String description;
@@ -61,8 +61,8 @@ public class PlanCreate extends Request {
   public String getAccountingCode() { return this.accountingCode; }
   public void setAccountingCode(final String accountingCode) { this.accountingCode = accountingCode; }
 
-  public List<String> getAddOns() { return this.addOns; }
-  public void setAddOns(final List<String> addOns) { this.addOns = addOns; }
+  public List<AddOnCreate> getAddOns() { return this.addOns; }
+  public void setAddOns(final List<AddOnCreate> addOns) { this.addOns = addOns; }
 
   public Boolean getAutoRenew() { return this.autoRenew; }
   public void setAutoRenew(final Boolean autoRenew) { this.autoRenew = autoRenew; }
@@ -70,8 +70,8 @@ public class PlanCreate extends Request {
   public String getCode() { return this.code; }
   public void setCode(final String code) { this.code = code; }
 
-  public List<String> getCurrencies() { return this.currencies; }
-  public void setCurrencies(final List<String> currencies) { this.currencies = currencies; }
+  public List<PlanPricing> getCurrencies() { return this.currencies; }
+  public void setCurrencies(final List<PlanPricing> currencies) { this.currencies = currencies; }
 
   public String getDescription() { return this.description; }
   public void setDescription(final String description) { this.description = description; }

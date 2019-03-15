@@ -9,7 +9,7 @@ import java.util.Map;
 public class Subscription extends Resource {
 
   @SerializedName("account")
-  private Account account;
+  private AccountMini account;
 
   @SerializedName("activated_at")
   private DateTime activatedAt;
@@ -33,7 +33,7 @@ public class Subscription extends Resource {
   private String collectionMethod;
 
   @SerializedName("coupon_redemptions")
-  private List<CouponRedemption> couponRedemptions;
+  private List<CouponRedemptionMini> couponRedemptions;
 
   @SerializedName("created_at")
   private DateTime createdAt;
@@ -81,7 +81,7 @@ public class Subscription extends Resource {
   private SubscriptionChange pendingChange;
 
   @SerializedName("plan")
-  private Plan plan;
+  private PlanMini plan;
 
   @SerializedName("po_number")
   private String poNumber;
@@ -129,8 +129,8 @@ public class Subscription extends Resource {
   private String uuid;
 
 
-  public Account getAccount() { return this.account; }
-  public void setAccount(final Account account) { this.account = account; }
+  public AccountMini getAccount() { return this.account; }
+  public void setAccount(final AccountMini account) { this.account = account; }
 
   public DateTime getActivatedAt() { return this.activatedAt; }
   public void setActivatedAt(final DateTime activatedAt) { this.activatedAt = activatedAt; }
@@ -153,8 +153,8 @@ public class Subscription extends Resource {
   public String getCollectionMethod() { return this.collectionMethod; }
   public void setCollectionMethod(final String collectionMethod) { this.collectionMethod = collectionMethod; }
 
-  public List<CouponRedemption> getCouponRedemptions() { return this.couponRedemptions; }
-  public void setCouponRedemptions(final List<CouponRedemption> couponRedemptions) { this.couponRedemptions = couponRedemptions; }
+  public List<CouponRedemptionMini> getCouponRedemptions() { return this.couponRedemptions; }
+  public void setCouponRedemptions(final List<CouponRedemptionMini> couponRedemptions) { this.couponRedemptions = couponRedemptions; }
 
   public DateTime getCreatedAt() { return this.createdAt; }
   public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
@@ -201,8 +201,8 @@ public class Subscription extends Resource {
   public SubscriptionChange getPendingChange() { return this.pendingChange; }
   public void setPendingChange(final SubscriptionChange pendingChange) { this.pendingChange = pendingChange; }
 
-  public Plan getPlan() { return this.plan; }
-  public void setPlan(final Plan plan) { this.plan = plan; }
+  public PlanMini getPlan() { return this.plan; }
+  public void setPlan(final PlanMini plan) { this.plan = plan; }
 
   public String getPoNumber() { return this.poNumber; }
   public void setPoNumber(final String poNumber) { this.poNumber = poNumber; }

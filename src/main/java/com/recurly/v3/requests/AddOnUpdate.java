@@ -16,7 +16,7 @@ public class AddOnUpdate extends Request {
   private String code;
 
   @SerializedName("currencies")
-  private List<String> currencies;
+  private List<AddOnPricing> currencies;
 
   @SerializedName("default_quantity")
   private Integer defaultQuantity;
@@ -40,8 +40,8 @@ public class AddOnUpdate extends Request {
   public String getCode() { return this.code; }
   public void setCode(final String code) { this.code = code; }
 
-  public List<String> getCurrencies() { return this.currencies; }
-  public void setCurrencies(final List<String> currencies) { this.currencies = currencies; }
+  public List<AddOnPricing> getCurrencies() { return this.currencies; }
+  public void setCurrencies(final List<AddOnPricing> currencies) { this.currencies = currencies; }
 
   public Integer getDefaultQuantity() { return this.defaultQuantity; }
   public void setDefaultQuantity(final Integer defaultQuantity) { this.defaultQuantity = defaultQuantity; }

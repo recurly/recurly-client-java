@@ -9,7 +9,7 @@ import java.util.Map;
 public class AccountBalance extends Resource {
 
   @SerializedName("account")
-  private Account account;
+  private AccountMini account;
 
   @SerializedName("balances")
   private Map<String, String> balances;
@@ -21,8 +21,8 @@ public class AccountBalance extends Resource {
   private Boolean pastDue;
 
 
-  public Account getAccount() { return this.account; }
-  public void setAccount(final Account account) { this.account = account; }
+  public AccountMini getAccount() { return this.account; }
+  public void setAccount(final AccountMini account) { this.account = account; }
 
   public Map<String, String> getBalances() { return this.balances; }
   public void setBalances(final Map<String, String> balances) { this.balances = balances; }

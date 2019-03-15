@@ -9,7 +9,7 @@ import java.util.Map;
 public class SubscriptionAddOn extends Resource {
 
   @SerializedName("add_on")
-  private AddOn addOn;
+  private AddOnMini addOn;
 
   @SerializedName("created_at")
   private DateTime createdAt;
@@ -36,8 +36,8 @@ public class SubscriptionAddOn extends Resource {
   private DateTime updatedAt;
 
 
-  public AddOn getAddOn() { return this.addOn; }
-  public void setAddOn(final AddOn addOn) { this.addOn = addOn; }
+  public AddOnMini getAddOn() { return this.addOn; }
+  public void setAddOn(final AddOnMini addOn) { this.addOn = addOn; }
 
   public DateTime getCreatedAt() { return this.createdAt; }
   public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }

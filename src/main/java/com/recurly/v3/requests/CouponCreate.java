@@ -7,7 +7,7 @@ import org.joda.time.DateTime;
 import java.util.List;
 import java.util.Map;
 
-public class CreateCoupon extends Request {
+public class CouponCreate extends Request {
 
   @SerializedName("applies_to_all_plans")
   private Boolean appliesToAllPlans;
@@ -22,7 +22,7 @@ public class CreateCoupon extends Request {
   private String couponType;
 
   @SerializedName("currencies")
-  private List<String> currencies;
+  private List<CouponPricing> currencies;
 
   @SerializedName("discount_percent")
   private Integer discountPercent;
@@ -85,8 +85,8 @@ public class CreateCoupon extends Request {
   public String getCouponType() { return this.couponType; }
   public void setCouponType(final String couponType) { this.couponType = couponType; }
 
-  public List<String> getCurrencies() { return this.currencies; }
-  public void setCurrencies(final List<String> currencies) { this.currencies = currencies; }
+  public List<CouponPricing> getCurrencies() { return this.currencies; }
+  public void setCurrencies(final List<CouponPricing> currencies) { this.currencies = currencies; }
 
   public Integer getDiscountPercent() { return this.discountPercent; }
   public void setDiscountPercent(final Integer discountPercent) { this.discountPercent = discountPercent; }

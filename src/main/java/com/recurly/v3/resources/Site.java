@@ -29,6 +29,9 @@ public class Site extends Resource {
   @SerializedName("object")
   private String object;
 
+  @SerializedName("public_api_key")
+  private String publicApiKey;
+
   @SerializedName("settings")
   private Settings settings;
 
@@ -59,6 +62,9 @@ public class Site extends Resource {
 
   public String getObject() { return this.object; }
   public void setObject(final String object) { this.object = object; }
+
+  public String getPublicApiKey() { return this.publicApiKey; }
+  public void setPublicApiKey(final String publicApiKey) { this.publicApiKey = publicApiKey; }
 
   public Settings getSettings() { return this.settings; }
   public void setSettings(final Settings settings) { this.settings = settings; }

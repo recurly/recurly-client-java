@@ -9,7 +9,7 @@ import java.util.Map;
 public class Transaction extends Resource {
 
   @SerializedName("account")
-  private Account account;
+  private AccountMini account;
 
   @SerializedName("amount")
   private Float amount;
@@ -22,6 +22,9 @@ public class Transaction extends Resource {
 
   @SerializedName("collected_at")
   private DateTime collectedAt;
+
+  @SerializedName("collection_method")
+  private String collectionMethod;
 
   @SerializedName("created_at")
   private DateTime createdAt;
@@ -60,7 +63,7 @@ public class Transaction extends Resource {
   private String id;
 
   @SerializedName("invoice")
-  private Invoice invoice;
+  private InvoiceMini invoice;
 
   @SerializedName("ip_address_country")
   private String ipAddressCountry;
@@ -111,11 +114,11 @@ public class Transaction extends Resource {
   private DateTime voidedAt;
 
   @SerializedName("voided_by_invoice")
-  private Invoice voidedByInvoice;
+  private InvoiceMini voidedByInvoice;
 
 
-  public Account getAccount() { return this.account; }
-  public void setAccount(final Account account) { this.account = account; }
+  public AccountMini getAccount() { return this.account; }
+  public void setAccount(final AccountMini account) { this.account = account; }
 
   public Float getAmount() { return this.amount; }
   public void setAmount(final Float amount) { this.amount = amount; }
@@ -128,6 +131,9 @@ public class Transaction extends Resource {
 
   public DateTime getCollectedAt() { return this.collectedAt; }
   public void setCollectedAt(final DateTime collectedAt) { this.collectedAt = collectedAt; }
+
+  public String getCollectionMethod() { return this.collectionMethod; }
+  public void setCollectionMethod(final String collectionMethod) { this.collectionMethod = collectionMethod; }
 
   public DateTime getCreatedAt() { return this.createdAt; }
   public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
@@ -165,8 +171,8 @@ public class Transaction extends Resource {
   public String getId() { return this.id; }
   public void setId(final String id) { this.id = id; }
 
-  public Invoice getInvoice() { return this.invoice; }
-  public void setInvoice(final Invoice invoice) { this.invoice = invoice; }
+  public InvoiceMini getInvoice() { return this.invoice; }
+  public void setInvoice(final InvoiceMini invoice) { this.invoice = invoice; }
 
   public String getIpAddressCountry() { return this.ipAddressCountry; }
   public void setIpAddressCountry(final String ipAddressCountry) { this.ipAddressCountry = ipAddressCountry; }
@@ -216,7 +222,7 @@ public class Transaction extends Resource {
   public DateTime getVoidedAt() { return this.voidedAt; }
   public void setVoidedAt(final DateTime voidedAt) { this.voidedAt = voidedAt; }
 
-  public Invoice getVoidedByInvoice() { return this.voidedByInvoice; }
-  public void setVoidedByInvoice(final Invoice voidedByInvoice) { this.voidedByInvoice = voidedByInvoice; }
+  public InvoiceMini getVoidedByInvoice() { return this.voidedByInvoice; }
+  public void setVoidedByInvoice(final InvoiceMini voidedByInvoice) { this.voidedByInvoice = voidedByInvoice; }
 
 }

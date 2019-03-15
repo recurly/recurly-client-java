@@ -10,7 +10,7 @@ import java.util.Map;
 public class SubscriptionChangeCreate extends Request {
 
   @SerializedName("add_ons")
-  private List<String> addOns;
+  private List<SubscriptionAddOnCreate> addOns;
 
   @SerializedName("collection_method")
   private String collectionMethod;
@@ -23,6 +23,9 @@ public class SubscriptionChangeCreate extends Request {
 
   @SerializedName("plan_code")
   private String planCode;
+
+  @SerializedName("plan_id")
+  private String planId;
 
   @SerializedName("po_number")
   private String poNumber;
@@ -37,8 +40,8 @@ public class SubscriptionChangeCreate extends Request {
   private Float unitAmount;
 
 
-  public List<String> getAddOns() { return this.addOns; }
-  public void setAddOns(final List<String> addOns) { this.addOns = addOns; }
+  public List<SubscriptionAddOnCreate> getAddOns() { return this.addOns; }
+  public void setAddOns(final List<SubscriptionAddOnCreate> addOns) { this.addOns = addOns; }
 
   public String getCollectionMethod() { return this.collectionMethod; }
   public void setCollectionMethod(final String collectionMethod) { this.collectionMethod = collectionMethod; }
@@ -51,6 +54,9 @@ public class SubscriptionChangeCreate extends Request {
 
   public String getPlanCode() { return this.planCode; }
   public void setPlanCode(final String planCode) { this.planCode = planCode; }
+
+  public String getPlanId() { return this.planId; }
+  public void setPlanId(final String planId) { this.planId = planId; }
 
   public String getPoNumber() { return this.poNumber; }
   public void setPoNumber(final String poNumber) { this.poNumber = poNumber; }

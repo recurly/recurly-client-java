@@ -21,7 +21,7 @@ public class Plan extends Resource {
   private DateTime createdAt;
 
   @SerializedName("currencies")
-  private List<String> currencies;
+  private List<PlanPricing> currencies;
 
   @SerializedName("deleted_at")
   private DateTime deletedAt;
@@ -84,8 +84,8 @@ public class Plan extends Resource {
   public DateTime getCreatedAt() { return this.createdAt; }
   public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
 
-  public List<String> getCurrencies() { return this.currencies; }
-  public void setCurrencies(final List<String> currencies) { this.currencies = currencies; }
+  public List<PlanPricing> getCurrencies() { return this.currencies; }
+  public void setCurrencies(final List<PlanPricing> currencies) { this.currencies = currencies; }
 
   public DateTime getDeletedAt() { return this.deletedAt; }
   public void setDeletedAt(final DateTime deletedAt) { this.deletedAt = deletedAt; }

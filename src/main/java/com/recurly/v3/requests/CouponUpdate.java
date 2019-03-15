@@ -7,7 +7,7 @@ import org.joda.time.DateTime;
 import java.util.List;
 import java.util.Map;
 
-public class UpdateCoupon extends Request {
+public class CouponUpdate extends Request {
 
   @SerializedName("hosted_description")
   private String hostedDescription;

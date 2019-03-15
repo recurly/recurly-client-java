@@ -19,7 +19,7 @@ public class InvoiceRefund extends Request {
   private Map<String, String> externalRefund;
 
   @SerializedName("line_items")
-  private List<String> lineItems;
+  private List<LineItemRefund> lineItems;
 
   @SerializedName("refund_method")
   private String refundMethod;
@@ -37,8 +37,8 @@ public class InvoiceRefund extends Request {
   public Map<String, String> getExternalRefund() { return this.externalRefund; }
   public void setExternalRefund(final Map<String, String> externalRefund) { this.externalRefund = externalRefund; }
 
-  public List<String> getLineItems() { return this.lineItems; }
-  public void setLineItems(final List<String> lineItems) { this.lineItems = lineItems; }
+  public List<LineItemRefund> getLineItems() { return this.lineItems; }
+  public void setLineItems(final List<LineItemRefund> lineItems) { this.lineItems = lineItems; }
 
   public String getRefundMethod() { return this.refundMethod; }
   public void setRefundMethod(final String refundMethod) { this.refundMethod = refundMethod; }
