@@ -12,7 +12,7 @@ public class AccountBalance extends Resource {
   private AccountMini account;
 
   @SerializedName("balances")
-  private Map<String, String> balances;
+  private List<AccountBalanceAmount> balances;
 
   @SerializedName("object")
   private String object;
@@ -24,8 +24,8 @@ public class AccountBalance extends Resource {
   public AccountMini getAccount() { return this.account; }
   public void setAccount(final AccountMini account) { this.account = account; }
 
-  public Map<String, String> getBalances() { return this.balances; }
-  public void setBalances(final Map<String, String> balances) { this.balances = balances; }
+  public List<AccountBalanceAmount> getBalances() { return this.balances; }
+  public void setBalances(final List<AccountBalanceAmount> balances) { this.balances = balances; }
 
   public String getObject() { return this.object; }
   public void setObject(final String object) { this.object = object; }

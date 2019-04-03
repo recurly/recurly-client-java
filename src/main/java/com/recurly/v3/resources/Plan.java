@@ -30,7 +30,7 @@ public class Plan extends Resource {
   private String description;
 
   @SerializedName("hosted_pages")
-  private Map<String, String> hostedPages;
+  private PlanHostedPages hostedPages;
 
   @SerializedName("id")
   private String id;
@@ -93,8 +93,8 @@ public class Plan extends Resource {
   public String getDescription() { return this.description; }
   public void setDescription(final String description) { this.description = description; }
 
-  public Map<String, String> getHostedPages() { return this.hostedPages; }
-  public void setHostedPages(final Map<String, String> hostedPages) { this.hostedPages = hostedPages; }
+  public PlanHostedPages getHostedPages() { return this.hostedPages; }
+  public void setHostedPages(final PlanHostedPages hostedPages) { this.hostedPages = hostedPages; }
 
   public String getId() { return this.id; }
   public void setId(final String id) { this.id = id; }

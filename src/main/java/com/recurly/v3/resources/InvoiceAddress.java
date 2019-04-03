@@ -11,6 +11,9 @@ public class InvoiceAddress extends Resource {
   @SerializedName("city")
   private String city;
 
+  @SerializedName("company")
+  private String company;
+
   @SerializedName("country")
   private String country;
 
@@ -19,6 +22,9 @@ public class InvoiceAddress extends Resource {
 
   @SerializedName("last_name")
   private String lastName;
+
+  @SerializedName("name_on_account")
+  private String nameOnAccount;
 
   @SerializedName("phone")
   private String phone;
@@ -39,6 +45,9 @@ public class InvoiceAddress extends Resource {
   public String getCity() { return this.city; }
   public void setCity(final String city) { this.city = city; }
 
+  public String getCompany() { return this.company; }
+  public void setCompany(final String company) { this.company = company; }
+
   public String getCountry() { return this.country; }
   public void setCountry(final String country) { this.country = country; }
 
@@ -47,6 +56,9 @@ public class InvoiceAddress extends Resource {
 
   public String getLastName() { return this.lastName; }
   public void setLastName(final String lastName) { this.lastName = lastName; }
+
+  public String getNameOnAccount() { return this.nameOnAccount; }
+  public void setNameOnAccount(final String nameOnAccount) { this.nameOnAccount = nameOnAccount; }
 
   public String getPhone() { return this.phone; }
   public void setPhone(final String phone) { this.phone = phone; }

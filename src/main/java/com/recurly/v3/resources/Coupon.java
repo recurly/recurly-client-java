@@ -80,6 +80,9 @@ public class Coupon extends Resource {
   @SerializedName("temporal_unit")
   private String temporalUnit;
 
+  @SerializedName("unique_code_template")
+  private String uniqueCodeTemplate;
+
   @SerializedName("unique_coupon_codes_count")
   private Integer uniqueCouponCodesCount;
 
@@ -158,6 +161,9 @@ public class Coupon extends Resource {
 
   public String getTemporalUnit() { return this.temporalUnit; }
   public void setTemporalUnit(final String temporalUnit) { this.temporalUnit = temporalUnit; }
+
+  public String getUniqueCodeTemplate() { return this.uniqueCodeTemplate; }
+  public void setUniqueCodeTemplate(final String uniqueCodeTemplate) { this.uniqueCodeTemplate = uniqueCodeTemplate; }
 
   public Integer getUniqueCouponCodesCount() { return this.uniqueCouponCodesCount; }
   public void setUniqueCouponCodesCount(final Integer uniqueCouponCodesCount) { this.uniqueCouponCodesCount = uniqueCouponCodesCount; }
