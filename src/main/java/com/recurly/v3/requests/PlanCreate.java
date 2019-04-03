@@ -28,7 +28,7 @@ public class PlanCreate extends Request {
   private String description;
 
   @SerializedName("hosted_pages")
-  private Map<String, String> hostedPages;
+  private PlanHostedPages hostedPages;
 
   @SerializedName("interval_length")
   private Integer intervalLength;
@@ -76,8 +76,8 @@ public class PlanCreate extends Request {
   public String getDescription() { return this.description; }
   public void setDescription(final String description) { this.description = description; }
 
-  public Map<String, String> getHostedPages() { return this.hostedPages; }
-  public void setHostedPages(final Map<String, String> hostedPages) { this.hostedPages = hostedPages; }
+  public PlanHostedPages getHostedPages() { return this.hostedPages; }
+  public void setHostedPages(final PlanHostedPages hostedPages) { this.hostedPages = hostedPages; }
 
   public Integer getIntervalLength() { return this.intervalLength; }
   public void setIntervalLength(final Integer intervalLength) { this.intervalLength = intervalLength; }

@@ -58,7 +58,7 @@ public class SubscriptionCreate extends Request {
   private Integer renewalBillingCycles;
 
   @SerializedName("shipping_address")
-  private Map<String, String> shippingAddress;
+  private ShippingAddressCreate shippingAddress;
 
   @SerializedName("shipping_address_id")
   private String shippingAddressId;
@@ -127,8 +127,8 @@ public class SubscriptionCreate extends Request {
   public Integer getRenewalBillingCycles() { return this.renewalBillingCycles; }
   public void setRenewalBillingCycles(final Integer renewalBillingCycles) { this.renewalBillingCycles = renewalBillingCycles; }
 
-  public Map<String, String> getShippingAddress() { return this.shippingAddress; }
-  public void setShippingAddress(final Map<String, String> shippingAddress) { this.shippingAddress = shippingAddress; }
+  public ShippingAddressCreate getShippingAddress() { return this.shippingAddress; }
+  public void setShippingAddress(final ShippingAddressCreate shippingAddress) { this.shippingAddress = shippingAddress; }
 
   public String getShippingAddressId() { return this.shippingAddressId; }
   public void setShippingAddressId(final String shippingAddressId) { this.shippingAddressId = shippingAddressId; }

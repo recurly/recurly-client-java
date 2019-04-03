@@ -222,7 +222,7 @@ public interface Client {
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_acquisition">list_account_acquisition api documentation</a>
    */
   @GET("/sites/{site_id}/acquisitions")
-  Call<AccountAcquisition> listAccountAcquisition(@Path("site_id") String siteId);
+  Call<Pager<AccountAcquisition>> listAccountAcquisition(@Path("site_id") String siteId);
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_coupons">list_coupons api documentation</a>

@@ -89,6 +89,9 @@ public class LineItem extends Resource {
   @SerializedName("refunded_quantity")
   private Integer refundedQuantity;
 
+  @SerializedName("shipping_address")
+  private ShippingAddress shippingAddress;
+
   @SerializedName("start_date")
   private DateTime startDate;
 
@@ -209,6 +212,9 @@ public class LineItem extends Resource {
 
   public Integer getRefundedQuantity() { return this.refundedQuantity; }
   public void setRefundedQuantity(final Integer refundedQuantity) { this.refundedQuantity = refundedQuantity; }
+
+  public ShippingAddress getShippingAddress() { return this.shippingAddress; }
+  public void setShippingAddress(final ShippingAddress shippingAddress) { this.shippingAddress = shippingAddress; }
 
   public DateTime getStartDate() { return this.startDate; }
   public void setStartDate(final DateTime startDate) { this.startDate = startDate; }
