@@ -5,6 +5,7 @@ import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 public class ErrorMayHaveTransaction extends Resource {
 
@@ -12,7 +13,7 @@ public class ErrorMayHaveTransaction extends Resource {
   private String message;
 
   @SerializedName("params")
-  private List<Hash> params;
+  private List<HashMap> params;
 
   @SerializedName("transaction_error")
   private Map<String, String> transactionError;
@@ -24,8 +25,8 @@ public class ErrorMayHaveTransaction extends Resource {
   public String getMessage() { return this.message; }
   public void setMessage(final String message) { this.message = message; }
 
-  public List<Hash> getParams() { return this.params; }
-  public void setParams(final List<Hash> params) { this.params = params; }
+  public List<HashMap> getParams() { return this.params; }
+  public void setParams(final List<HashMap> params) { this.params = params; }
 
   public Map<String, String> getTransactionError() { return this.transactionError; }
   public void setTransactionError(final Map<String, String> transactionError) { this.transactionError = transactionError; }

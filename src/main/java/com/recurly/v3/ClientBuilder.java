@@ -8,8 +8,6 @@ import com.recurly.v3.http.HeaderInterceptor;
 import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -17,20 +15,20 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+
+import java.io.InvalidClassException;
 import java.security.cert.CertificateException;
 
 public class ClientBuilder {
-    private static final String API_URL = "https://partner-api.qa4.recurlyqa.com/";
-    //private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+    private static final String API_URL = "https://partner-api.recurly.com/";
+    //private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
     // TODO will want to use safe ^ version by default
-    private static OkHttpClient.Builder httpClient = getUnsafeOkHttpClientBuilder();
+    private static OkHttpClient.Builder httpClientBuilder = getUnsafeOkHttpClientBuilder();
     private static Gson gson = Converters.registerDateTime(new GsonBuilder()).create();
+    private String apiKey;
+    private String siteId;
 
-    private static Retrofit.Builder builder =
-            new Retrofit.Builder()
-                    .baseUrl(API_URL)
-                    .addConverterFactory(GsonConverterFactory.create(gson));
-    private static Retrofit retrofit = builder.build();
+    public ClientBuilder() {}
 
     private static OkHttpClient.Builder getUnsafeOkHttpClientBuilder() {
         try {
@@ -68,22 +66,40 @@ public class ClientBuilder {
         }
     }
 
-    public static Client build(final String apiKey) {
-        final String authToken = Credentials.basic(apiKey, "");
+    public ClientBuilder withApiKey(String apiKey){
+        this.apiKey = apiKey;
+        return this;
+    }
+    public ClientBuilder withSiteId(String siteId){
+        this.siteId = siteId;
+        return this;
+    }
+
+
+    public Client build() throws InvalidClassException {
+        if (this.apiKey == null || this.apiKey == "") {
+            throw new InvalidClassException("Client", "API Key must be set");
+        }
+        if (this.siteId == null || this.siteId == "") {
+            throw new InvalidClassException("Client", "Site ID must be set");
+        }
+        final String authToken = Credentials.basic(this.apiKey, "");
         final HeaderInterceptor headerInterceptor =
                 new HeaderInterceptor(authToken, Client.API_VERSION);
 
-        if (!httpClient.interceptors().contains(headerInterceptor)) {
-            httpClient.addInterceptor(headerInterceptor);
+        if (!httpClientBuilder.interceptors().contains(headerInterceptor)) {
+            httpClientBuilder.addInterceptor(headerInterceptor);
         }
 
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
-        httpClient.addInterceptor(logging);
+        if (System.getenv("RECURLY_INSECURE") != null && System.getenv("RECURLY_INSECURE").equals("true")) {
+            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+            logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
+            httpClientBuilder.addInterceptor(logging);
+        }
 
-        builder.client(httpClient.build());
-        retrofit = builder.build();
-
-        return retrofit.create(Client.class);
+        OkHttpClient client = httpClientBuilder.build();
+        Client recurlyClient = new Client(client, this.siteId, this.apiKey);
+        recurlyClient.apiUrl = API_URL;
+        return recurlyClient;
     }
 }

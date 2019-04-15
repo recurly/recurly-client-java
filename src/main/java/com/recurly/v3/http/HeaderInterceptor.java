@@ -23,9 +23,15 @@ public class HeaderInterceptor implements Interceptor {
                 .header("Authorization", authToken)
                 .header("Accept", "application/vnd.recurly." + apiVersion)
                 .header("Content-Type", "application/json")
-                .header("User-Agent", "Java v3 Client");
+                .header("User-Agent", userAgent());
 
         Request request = builder.build();
         return chain.proceed(request);
+    }
+
+    String userAgent() {
+        // TODO: pull version from pom.xml
+        String version = "1.0";
+        return String.format("Recurly/%s; Java v3 Client", version);
     }
 }
