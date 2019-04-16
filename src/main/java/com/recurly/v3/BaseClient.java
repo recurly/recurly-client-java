@@ -1,34 +1,48 @@
 package com.recurly.v3;
 import com.recurly.v3.Resource;
+import com.recurly.v3.http.HeaderInterceptor;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
+
+import com.fatboyindustrial.gsonjodatime.Converters;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.security.cert.CertificateException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Map;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import java.util.TimeZone;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+
+import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
+import okhttp3.Headers;
+import okhttp3.HttpUrl;
+import okhttp3.logging.HttpLoggingInterceptor;
+import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Request.Builder;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import okhttp3.Headers;
-import okhttp3.MediaType;
-import okhttp3.HttpUrl;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import org.joda.time.DateTime;
-import java.util.TimeZone;
-import java.util.Map;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 
 public abstract class BaseClient {
     class DateDeserializer implements JsonDeserializer<DateTime> {
@@ -41,13 +55,17 @@ public abstract class BaseClient {
             return formatter.parseDateTime(string);
         }
     }
+    private static final String API_URL = "https://partner-api.recurly.com/";
+    //private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
+    // TODO will want to use safe ^ version by default
+    private static final OkHttpClient.Builder httpClientBuilder = getUnsafeOkHttpClientBuilder();
+    private static final Gson gson = Converters.registerDateTime(new GsonBuilder()).create();
+    private final String apiKey;
+    private final String siteId;
+    private final OkHttpClient client;
+    private String apiUrl;
 
-    protected final OkHttpClient client;
-    protected final String apiKey;
-    protected final String siteId;
-    protected String apiUrl;
-
-    protected BaseClient(OkHttpClient client, String siteId, String apiKey) {
+    protected BaseClient(String siteId, String apiKey) {
         if (siteId == null || siteId.isEmpty()) {
             throw new IllegalArgumentException("siteId is required. You passed in " + siteId);
         }
@@ -56,9 +74,61 @@ public abstract class BaseClient {
             throw new IllegalArgumentException("apiKey is required. You passed in " + apiKey);
         }
 
-        this.client = client;
         this.siteId = siteId;
         this.apiKey = apiKey;
+
+        final String authToken = Credentials.basic(this.apiKey, "");
+        final HeaderInterceptor headerInterceptor =
+                new HeaderInterceptor(authToken, Client.API_VERSION);
+
+        if (!httpClientBuilder.interceptors().contains(headerInterceptor)) {
+            httpClientBuilder.addInterceptor(headerInterceptor);
+        }
+
+        if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
+            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+            logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
+            httpClientBuilder.addInterceptor(logging);
+        }
+
+        this.client = httpClientBuilder.build();
+        this.apiUrl = API_URL;
+    }
+
+    private static OkHttpClient.Builder getUnsafeOkHttpClientBuilder() {
+        try {
+            // Create a trust manager that does not validate certificate chains
+            final TrustManager[] trustAllCerts = new TrustManager[] {
+                    new X509TrustManager() {
+                        public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {
+                        }
+
+                        public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {
+                        }
+                        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                            return new java.security.cert.X509Certificate[]{};
+                        }
+                    }
+            };
+
+            // Install the all-trusting trust manager
+            final SSLContext sslContext = SSLContext.getInstance("SSL");
+            sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
+            // Create an ssl socket factory with our all-trusting manager
+            final SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
+
+            OkHttpClient.Builder builder = new OkHttpClient.Builder();
+            builder.sslSocketFactory(sslSocketFactory);
+            builder.hostnameVerifier(new HostnameVerifier() {
+                public boolean verify(String hostname, SSLSession session) {
+                    return true;
+                }
+            });
+
+            return builder;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     protected <T> T makeRequest(String method, String url, Class<T> resourceClass) throws IOException {
@@ -119,7 +189,7 @@ public abstract class BaseClient {
         }
     }
 
-    protected <T> T processResponse(String responseBody, Class<T> resourceClass) {
+    private <T> T processResponse(String responseBody, Class<T> resourceClass) {
         Gson gson = new GsonBuilder().registerTypeAdapter(DateTime.class, new DateDeserializer()).create();
         return gson.fromJson(responseBody, resourceClass);
     }
