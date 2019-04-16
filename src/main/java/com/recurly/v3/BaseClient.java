@@ -1,7 +1,4 @@
 package com.recurly.v3;
-
-import okhttp3.OkHttpClient;
-import java.util.HashMap;
 import com.recurly.v3.Resource;
 
 import okhttp3.OkHttpClient;
@@ -12,6 +9,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okhttp3.Headers;
 import okhttp3.MediaType;
+import okhttp3.HttpUrl;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -22,6 +20,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import org.joda.time.DateTime;
 import java.util.TimeZone;
+import java.util.Map;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
@@ -43,17 +42,17 @@ public abstract class BaseClient {
         }
     }
 
-    protected OkHttpClient client;
-    protected String apiKey;
-    protected String siteId;
+    protected final OkHttpClient client;
+    protected final String apiKey;
+    protected final String siteId;
     protected String apiUrl;
 
-    public BaseClient(OkHttpClient client, String siteId, String apiKey) {
-        if (siteId == null && siteId.isEmpty()) {
+    protected BaseClient(OkHttpClient client, String siteId, String apiKey) {
+        if (siteId == null || siteId.isEmpty()) {
             throw new IllegalArgumentException("siteId is required. You passed in " + siteId);
         }
 
-        if (apiKey == null && apiKey.isEmpty()) {
+        if (apiKey == null || apiKey.isEmpty()) {
             throw new IllegalArgumentException("apiKey is required. You passed in " + apiKey);
         }
 
@@ -62,22 +61,30 @@ public abstract class BaseClient {
         this.apiKey = apiKey;
     }
 
-    public <T> T makeRequest(String method, String url, Class<T> resourceClass) throws IOException {
+    protected <T> T makeRequest(String method, String url, Class<T> resourceClass) throws IOException {
         return makeRequest(method, url, null, null, resourceClass);
     }
 
-    public <T> T makeRequest(String method, String url, String body, Class<T> resourceClass) throws IOException {
+    protected <T> T makeRequest(String method, String url, String body, Class<T> resourceClass) throws IOException {
         return makeRequest(method, url, body, null, resourceClass);
     }
 
-    public <T> T makeRequest(String method, String url, HashMap<String, String> queryParams, Class<T> resourceClass) throws IOException {
+    protected <T> T makeRequest(String method, String url, Map<String, String> queryParams, Class<T> resourceClass) throws IOException {
         return makeRequest(method, url, null, queryParams, resourceClass);
     }
 
-    public <T> T makeRequest(String method, String url, String body, HashMap<String, String> queryParams, Class<T> resourceClass) throws IOException {
-        String requestUrl = this.apiUrl + url;
+    protected <T> T makeRequest(String method, String url, String body, Map<String, String> queryParams, Class<T> resourceClass) throws IOException {
+        HttpUrl.Builder httpBuilder = HttpUrl.parse(this.apiUrl + url).newBuilder();
 
-        if (System.getenv("RECURLY_INSECURE") == "true") {
+        if (queryParams != null) {
+            for(Map.Entry<String, String> param : queryParams.entrySet()) {
+                httpBuilder.addQueryParameter(param.getKey(),param.getValue());
+            }
+        }
+
+        HttpUrl requestUrl = httpBuilder.build();
+
+        if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
             System.out.println("Performing " + method + " request to " + requestUrl);
         }
 
@@ -93,12 +100,6 @@ public abstract class BaseClient {
             );
         }
 
-        if (queryParams != null) {
-            for(Map.Entry<String, String> param : queryParams.entrySet()) {
-                requestBuilder.addQueryParameter(param.getKey(),param.getValue());
-            }
-        }
-
         Request request = requestBuilder.build();
 
         try (Response response = client.newCall(request).execute()) {
@@ -107,7 +108,7 @@ public abstract class BaseClient {
             Headers responseHeaders = response.headers();
             String responseBody = response.body().string();
 
-            if (System.getenv("RECURLY_INSECURE") != null && System.getenv("RECURLY_INSECURE").equals("true")) {
+            if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
                 for (int i = 0; i < responseHeaders.size(); i++) {
                     System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
                 }
@@ -118,12 +119,12 @@ public abstract class BaseClient {
         }
     }
 
-    public <T> T processResponse(String ResponseBody, Class<T> resourceClass) {
+    protected <T> T processResponse(String responseBody, Class<T> resourceClass) {
         Gson gson = new GsonBuilder().registerTypeAdapter(DateTime.class, new DateDeserializer()).create();
         return gson.fromJson(responseBody, resourceClass);
     }
 
-    String interpolatePath(String path, HashMap<String, String> urlParams) {
+    protected String interpolatePath(String path, Map<String, String> urlParams) {
         urlParams.put("site_id", this.siteId);
         Pattern p = Pattern.compile("\\{([A-Za-z|_]*)\\}");
         Matcher m = p.matcher(path);
@@ -142,7 +143,7 @@ public abstract class BaseClient {
     public void _setApiUrl(String uri) {
         System.out.println("[SECURITY WARNING] _SetApiUrl is for testing only and not supported in production.");
 
-        if (System.getenv("RECURLY_INSECURE") != null && System.getenv("RECURLY_INSECURE").equals("true")) {
+        if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
             this.apiUrl = uri;
         } else {
             System.out.println("ApiUrl not changed. To change, set the environment variable RECURLY_INSECURE to true");

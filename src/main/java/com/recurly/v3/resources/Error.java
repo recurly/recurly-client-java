@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
 import java.util.List;
-import java.util.HashMap;
+import java.util.Map;
 
 public class Error extends Resource {
 
@@ -12,7 +12,7 @@ public class Error extends Resource {
   private String message;
 
   @SerializedName("params")
-  private List<HashMap> params;
+  private List<Map> params;
 
   @SerializedName("type")
   private String type;
@@ -21,8 +21,8 @@ public class Error extends Resource {
   public String getMessage() { return this.message; }
   public void setMessage(final String message) { this.message = message; }
 
-  public List<HashMap> getParams() { return this.params; }
-  public void setParams(final List<HashMap> params) { this.params = params; }
+  public List<Map> getParams() { return this.params; }
+  public void setParams(final List<Map> params) { this.params = params; }
 
   public String getType() { return this.type; }
   public void setType(final String type) { this.type = type; }

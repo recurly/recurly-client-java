@@ -16,15 +16,15 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-import java.io.InvalidClassException;
+import java.lang.IllegalStateException;
 import java.security.cert.CertificateException;
 
 public class ClientBuilder {
     private static final String API_URL = "https://partner-api.recurly.com/";
     //private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
     // TODO will want to use safe ^ version by default
-    private static OkHttpClient.Builder httpClientBuilder = getUnsafeOkHttpClientBuilder();
-    private static Gson gson = Converters.registerDateTime(new GsonBuilder()).create();
+    private static final OkHttpClient.Builder httpClientBuilder = getUnsafeOkHttpClientBuilder();
+    private static final Gson gson = Converters.registerDateTime(new GsonBuilder()).create();
     private String apiKey;
     private String siteId;
 
@@ -76,12 +76,12 @@ public class ClientBuilder {
     }
 
 
-    public Client build() throws InvalidClassException {
-        if (this.apiKey == null || this.apiKey == "") {
-            throw new InvalidClassException("Client", "API Key must be set");
+    public Client build() {
+        if (this.apiKey == null || this.apiKey.isEmpty()) {
+            throw new IllegalStateException("API Key must be set");
         }
-        if (this.siteId == null || this.siteId == "") {
-            throw new InvalidClassException("Client", "Site ID must be set");
+        if (this.siteId == null || this.siteId.isEmpty()) {
+            throw new IllegalStateException("Site ID must be set");
         }
         final String authToken = Credentials.basic(this.apiKey, "");
         final HeaderInterceptor headerInterceptor =
@@ -91,7 +91,7 @@ public class ClientBuilder {
             httpClientBuilder.addInterceptor(headerInterceptor);
         }
 
-        if (System.getenv("RECURLY_INSECURE") != null && System.getenv("RECURLY_INSECURE").equals("true")) {
+        if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
             httpClientBuilder.addInterceptor(logging);
