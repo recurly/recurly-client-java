@@ -14,12 +14,9 @@ import com.fatboyindustrial.gsonjodatime.Converters;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.security.cert.CertificateException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
-import java.util.TimeZone;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -38,7 +35,6 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Request.Builder;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
