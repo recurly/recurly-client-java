@@ -23,4 +23,10 @@ public class Client extends BaseClient {
     return this.makeRequest("GET", this.interpolatePath(url, urlParams), Account.class);
   }
 
+  public Account createAccount(AccountCreate accountReq) throws IOException {
+    String url = "sites/{site_id}/accounts";
+
+    return this.makeRequest("POST", this.interpolatePath(url), accountReq, Account.class);
+  }
+
 }

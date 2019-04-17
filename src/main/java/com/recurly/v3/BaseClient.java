@@ -1,5 +1,6 @@
 package com.recurly.v3;
 import com.recurly.v3.Resource;
+import com.recurly.v3.Request;
 import com.recurly.v3.http.HeaderInterceptor;
 
 import com.google.gson.Gson;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.security.cert.CertificateException;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -31,7 +33,6 @@ import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okhttp3.MediaType;
-import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Request.Builder;
 import okhttp3.Response;
@@ -131,7 +132,7 @@ public abstract class BaseClient {
         return makeRequest(method, url, null, null, resourceClass);
     }
 
-    protected <T> T makeRequest(String method, String url, String body, Class<T> resourceClass) throws IOException {
+    protected <T> T makeRequest(String method, String url, Request body, Class<T> resourceClass) throws IOException {
         return makeRequest(method, url, body, null, resourceClass);
     }
 
@@ -139,7 +140,7 @@ public abstract class BaseClient {
         return makeRequest(method, url, null, queryParams, resourceClass);
     }
 
-    protected <T> T makeRequest(String method, String url, String body, Map<String, String> queryParams, Class<T> resourceClass) throws IOException {
+    protected <T> T makeRequest(String method, String url, Request body, Map<String, String> queryParams, Class<T> resourceClass) throws IOException {
         HttpUrl.Builder httpBuilder = HttpUrl.parse(this.apiUrl + url).newBuilder();
 
         if (queryParams != null) {
@@ -154,19 +155,19 @@ public abstract class BaseClient {
             System.out.println("Performing " + method + " request to " + requestUrl);
         }
 
-        Builder requestBuilder = new Request.Builder()
+        Builder requestBuilder = new okhttp3.Request.Builder()
         .url(requestUrl);
 
-        if (body != null) {
+        if (method.equals("POST")) {
             requestBuilder = requestBuilder.post(
                 RequestBody.create(
                     MediaType.parse("application/json; charset=utf-8"),
-                    body
+                    new Gson().toJson(body)
                 )
             );
         }
 
-        Request request = requestBuilder.build();
+        okhttp3.Request request = requestBuilder.build();
 
         try (Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
@@ -190,7 +191,14 @@ public abstract class BaseClient {
         return gson.fromJson(responseBody, resourceClass);
     }
 
+    protected String interpolatePath(String path) {
+        return interpolatePath(path, null);
+    }
+
     protected String interpolatePath(String path, Map<String, String> urlParams) {
+        if (urlParams == null) {
+            urlParams = new HashMap<String, String>();
+        }
         urlParams.put("site_id", this.siteId);
         Pattern p = Pattern.compile("\\{([A-Za-z|_]*)\\}");
         Matcher m = p.matcher(path);
