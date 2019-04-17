@@ -167,6 +167,10 @@ public abstract class BaseClient {
             );
         }
 
+        if (method.equals("DELETE")) {
+            requestBuilder.delete();
+        }
+
         okhttp3.Request request = requestBuilder.build();
 
         try (Response response = client.newCall(request).execute()) {

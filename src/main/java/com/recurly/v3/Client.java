@@ -29,4 +29,11 @@ public class Client extends BaseClient {
     return this.makeRequest("POST", this.interpolatePath(url), accountReq, Account.class);
   }
 
+  public Account deactivateAccount(String accountId) throws IOException {
+    String url = "/sites/{site_id}/accounts/{account_id}";
+    HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    return this.makeRequest("DELETE", this.interpolatePath(url, urlParams), Account.class);
+  }
+
 }
