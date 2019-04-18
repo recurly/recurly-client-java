@@ -14,3 +14,6 @@
 # Maven
 log/
 target/
+.classpath
+.project
+.settings/

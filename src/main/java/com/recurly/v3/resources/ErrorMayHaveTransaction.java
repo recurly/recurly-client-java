@@ -12,7 +12,7 @@ public class ErrorMayHaveTransaction extends Resource {
   private String message;
 
   @SerializedName("params")
-  private List<Hash> params;
+  private List<Map> params;
 
   @SerializedName("transaction_error")
   private Map<String, String> transactionError;
@@ -24,8 +24,8 @@ public class ErrorMayHaveTransaction extends Resource {
   public String getMessage() { return this.message; }
   public void setMessage(final String message) { this.message = message; }
 
-  public List<Hash> getParams() { return this.params; }
-  public void setParams(final List<Hash> params) { this.params = params; }
+  public List<Map> getParams() { return this.params; }
+  public void setParams(final List<Map> params) { this.params = params; }
 
   public Map<String, String> getTransactionError() { return this.transactionError; }
   public void setTransactionError(final Map<String, String> transactionError) { this.transactionError = transactionError; }

@@ -8,8 +8,8 @@ import java.io.IOException;
 
 public class HeaderInterceptor implements Interceptor {
 
-    private String apiVersion;
-    private String authToken;
+    private final String apiVersion;
+    private final String authToken;
 
     public HeaderInterceptor(final String authToken, final String apiVersion) {
         this.apiVersion = apiVersion;
@@ -23,9 +23,15 @@ public class HeaderInterceptor implements Interceptor {
                 .header("Authorization", authToken)
                 .header("Accept", "application/vnd.recurly." + apiVersion)
                 .header("Content-Type", "application/json")
-                .header("User-Agent", "Java v3 Client");
+                .header("User-Agent", userAgent());
 
         Request request = builder.build();
         return chain.proceed(request);
+    }
+
+    private String userAgent() {
+        // TODO: pull version from pom.xml
+        final String version = "3.0.0-beta-1";
+        return String.format("Recurly/%s; Java V3 Client", version);
     }
 }
