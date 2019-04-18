@@ -5,7 +5,6 @@ import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
 import java.util.List;
 import java.util.Map;
-import java.util.Map;
 
 public class ErrorMayHaveTransaction extends Resource {
 

@@ -128,19 +128,35 @@ public abstract class BaseClient {
         }
     }
 
-    protected <T> T makeRequest(final String method, final String url, final Class<T> resourceClass) throws IOException {
+    protected void makeRequest(final String method, final String url) throws IOException {
+        final okhttp3.Request request = buildRequest(method, url, null, null);
+
+        try (final Response response = client.newCall(request).execute()) {
+            if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+
+            final Headers responseHeaders = response.headers();
+
+            if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
+                for (int i = 0; i < responseHeaders.size(); i++) {
+                    System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
+                }
+            }
+        }
+    }
+
+    protected <T> T makeRequest(final String method, final String url, final Type resourceClass) throws IOException {
         return makeRequest(method, url, null, null, resourceClass);
     }
 
-    protected <T> T makeRequest(final String method, final String url, final Request body, final Class<T> resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final Request body, final Type resourceClass) throws IOException {
         return makeRequest(method, url, body, null, resourceClass);
     }
 
-    protected <T> T makeRequest(final String method, final String url, final Map<String, String> queryParams, final Class<T> resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final Map<String, String> queryParams, final Type resourceClass) throws IOException {
         return makeRequest(method, url, null, queryParams, resourceClass);
     }
 
-    protected <T> T makeRequest(final String method, final String url, final Request body, final Map<String, String> queryParams, final Class<T> resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final Request body, final Map<String, String> queryParams, final Type resourceClass) throws IOException {
         final okhttp3.Request request = buildRequest(method, url, body, queryParams);
 
         try (final Response response = client.newCall(request).execute()) {
@@ -200,7 +216,7 @@ public abstract class BaseClient {
         }
     }
 
-    private <T> T processResponse(final String responseBody, final Class<T> resourceClass) {
+    private <T> T processResponse(final String responseBody, final Type resourceClass) {
         final Gson gson = new GsonBuilder().registerTypeAdapter(DateTime.class, new DateDeserializer()).create();
         return gson.fromJson(responseBody, resourceClass);
     }
