@@ -12,7 +12,6 @@ import java.io.IOException;
 public class Client extends BaseClient {
   public static final String API_VERSION = "v2018-08-09";
 
-  // No access modifier because this must be accessible by ClientBuilder
   public Client(final String siteId, final String apiKey) {
     super(siteId, apiKey);
   }
