@@ -62,13 +62,13 @@ public abstract class BaseClient {
     private final OkHttpClient client;
     private String apiUrl;
 
-    protected BaseClient(String siteId, String apiKey) {
+    protected BaseClient(final String siteId, final String apiKey) {
         if (siteId == null || siteId.isEmpty()) {
-            throw new IllegalArgumentException("siteId is required. You passed in " + siteId);
+            throw new IllegalArgumentException("siteId cannot be null or empty");
         }
 
         if (apiKey == null || apiKey.isEmpty()) {
-            throw new IllegalArgumentException("apiKey is required. You passed in " + apiKey);
+            throw new IllegalArgumentException("apiKey cannot be null or empty");
         }
 
         this.siteId = siteId;
@@ -83,7 +83,7 @@ public abstract class BaseClient {
         }
 
         if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
-            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+            final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
             httpClientBuilder.addInterceptor(logging);
         }
@@ -114,10 +114,10 @@ public abstract class BaseClient {
             // Create an ssl socket factory with our all-trusting manager
             final SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
 
-            OkHttpClient.Builder builder = new OkHttpClient.Builder();
+            final OkHttpClient.Builder builder = new OkHttpClient.Builder();
             builder.sslSocketFactory(sslSocketFactory);
             builder.hostnameVerifier(new HostnameVerifier() {
-                public boolean verify(String hostname, SSLSession session) {
+                public boolean verify(final String hostname, final SSLSession session) {
                     return true;
                 }
             });
@@ -128,56 +128,26 @@ public abstract class BaseClient {
         }
     }
 
-    protected <T> T makeRequest(String method, String url, Class<T> resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final Class<T> resourceClass) throws IOException {
         return makeRequest(method, url, null, null, resourceClass);
     }
 
-    protected <T> T makeRequest(String method, String url, Request body, Class<T> resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final Request body, final Class<T> resourceClass) throws IOException {
         return makeRequest(method, url, body, null, resourceClass);
     }
 
-    protected <T> T makeRequest(String method, String url, Map<String, String> queryParams, Class<T> resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final Map<String, String> queryParams, final Class<T> resourceClass) throws IOException {
         return makeRequest(method, url, null, queryParams, resourceClass);
     }
 
-    protected <T> T makeRequest(String method, String url, Request body, Map<String, String> queryParams, Class<T> resourceClass) throws IOException {
-        HttpUrl.Builder httpBuilder = HttpUrl.parse(this.apiUrl + url).newBuilder();
+    protected <T> T makeRequest(final String method, final String url, final Request body, final Map<String, String> queryParams, final Class<T> resourceClass) throws IOException {
+        final okhttp3.Request request = buildRequest(method, url, body, queryParams);
 
-        if (queryParams != null) {
-            for(Map.Entry<String, String> param : queryParams.entrySet()) {
-                httpBuilder.addQueryParameter(param.getKey(),param.getValue());
-            }
-        }
-
-        HttpUrl requestUrl = httpBuilder.build();
-
-        if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
-            System.out.println("Performing " + method + " request to " + requestUrl);
-        }
-
-        Builder requestBuilder = new okhttp3.Request.Builder()
-        .url(requestUrl);
-
-        if (method.equals("POST")) {
-            requestBuilder = requestBuilder.post(
-                RequestBody.create(
-                    MediaType.parse("application/json; charset=utf-8"),
-                    new Gson().toJson(body)
-                )
-            );
-        }
-
-        if (method.equals("DELETE")) {
-            requestBuilder.delete();
-        }
-
-        okhttp3.Request request = requestBuilder.build();
-
-        try (Response response = client.newCall(request).execute()) {
+        try (final Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
 
-            Headers responseHeaders = response.headers();
-            String responseBody = response.body().string();
+            final Headers responseHeaders = response.headers();
+            final String responseBody = response.body().string();
 
             if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
                 for (int i = 0; i < responseHeaders.size(); i++) {
@@ -190,35 +160,70 @@ public abstract class BaseClient {
         }
     }
 
-    private <T> T processResponse(String responseBody, Class<T> resourceClass) {
-        Gson gson = new GsonBuilder().registerTypeAdapter(DateTime.class, new DateDeserializer()).create();
+    private okhttp3.Request buildRequest(final String method, final String url, final Request body, final Map<String, String> queryParams) {
+        final HttpUrl.Builder httpBuilder = HttpUrl.parse(this.apiUrl + url).newBuilder();
+
+        final RequestBody requestBody = RequestBody.create(
+            MediaType.parse("application/json; charset=utf-8"),
+            new Gson().toJson(body)
+        );
+
+        if (queryParams != null) {
+            for(Map.Entry<String, String> param : queryParams.entrySet()) {
+                httpBuilder.addQueryParameter(param.getKey(),param.getValue());
+            }
+        }
+
+        final HttpUrl requestUrl = httpBuilder.build();
+
+        if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
+            System.out.println("Performing " + method + " request to " + requestUrl);
+        }
+
+        final Builder requestBuilder = new okhttp3.Request.Builder().url(requestUrl);
+
+        switch(method) {
+            case "GET":
+                return requestBuilder.build();
+
+            case "POST":
+                return requestBuilder.post(requestBody).build();
+
+            case "PUT":
+                return requestBuilder.put(requestBody).build();
+
+            case "DELETE":
+                return requestBuilder.delete().build();
+
+            default:
+                throw new RuntimeException("Invalid method (TODO: Make this a v3.resources.Error)");
+        }
+    }
+
+    private <T> T processResponse(final String responseBody, final Class<T> resourceClass) {
+        final Gson gson = new GsonBuilder().registerTypeAdapter(DateTime.class, new DateDeserializer()).create();
         return gson.fromJson(responseBody, resourceClass);
     }
 
-    protected String interpolatePath(String path) {
-        return interpolatePath(path, null);
+    protected String interpolatePath(final String path) {
+        return interpolatePath(path, new HashMap<String, String>());
     }
 
-    protected String interpolatePath(String path, Map<String, String> urlParams) {
-        if (urlParams == null) {
-            urlParams = new HashMap<String, String>();
-        }
+    protected String interpolatePath(String path, final Map<String, String> urlParams) {
         urlParams.put("site_id", this.siteId);
-        Pattern p = Pattern.compile("\\{([A-Za-z|_]*)\\}");
-        Matcher m = p.matcher(path);
+        final Pattern p = Pattern.compile("\\{([A-Za-z|_]*)\\}");
+        final Matcher m = p.matcher(path);
 
         while(m.find()) {
-            String key = m.group(1).replace("{", "").replace("}", "");
-            String value = urlParams.get(key);
+            final String key = m.group(1).replace("{", "").replace("}", "");
+            final String value = urlParams.get(key);
             path = path.replace(m.group(1), value);
         }
 
-        path = path.replaceAll("\\{", "").replaceAll("\\}", "");
-
-        return path;
+        return path.replaceAll("\\{", "").replaceAll("\\}", "");
     }
 
-    public void _setApiUrl(String uri) {
+    public void _setApiUrl(final String uri) {
         System.out.println("[SECURITY WARNING] _SetApiUrl is for testing only and not supported in production.");
 
         if ("true".equals(System.getenv("RECURLY_INSECURE"))) {

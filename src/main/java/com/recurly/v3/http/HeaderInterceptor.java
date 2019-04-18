@@ -31,7 +31,7 @@ public class HeaderInterceptor implements Interceptor {
 
     private String userAgent() {
         // TODO: pull version from pom.xml
-        String version = "3.0.0-beta-1";
-        return String.format("Recurly/%s; Java v3 Client", version);
+        final String version = "3.0.0-beta-1";
+        return String.format("Recurly/%s; Java V3 Client", version);
     }
 }
