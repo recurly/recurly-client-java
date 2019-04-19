@@ -152,11 +152,11 @@ public abstract class BaseClient {
         return makeRequest(method, url, body, null, resourceClass);
     }
 
-    protected <T> T makeRequest(final String method, final String url, final Map<String, String> queryParams, final Type resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final Map<String, Object> queryParams, final Type resourceClass) throws IOException {
         return makeRequest(method, url, null, queryParams, resourceClass);
     }
 
-    protected <T> T makeRequest(final String method, final String url, final Request body, final Map<String, String> queryParams, final Type resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final Request body, final Map<String, Object> queryParams, final Type resourceClass) throws IOException {
         final okhttp3.Request request = buildRequest(method, url, body, queryParams);
 
         try (final Response response = client.newCall(request).execute()) {
@@ -176,7 +176,7 @@ public abstract class BaseClient {
         }
     }
 
-    private okhttp3.Request buildRequest(final String method, final String url, final Request body, final Map<String, String> queryParams) {
+    private okhttp3.Request buildRequest(final String method, final String url, final Request body, final Map<String, Object> queryParams) {
         final HttpUrl.Builder httpBuilder = HttpUrl.parse(this.apiUrl + url).newBuilder();
 
         final RequestBody requestBody = RequestBody.create(
@@ -185,8 +185,8 @@ public abstract class BaseClient {
         );
 
         if (queryParams != null) {
-            for(Map.Entry<String, String> param : queryParams.entrySet()) {
-                httpBuilder.addQueryParameter(param.getKey(),param.getValue());
+            for(Map.Entry<String, Object> param : queryParams.entrySet()) {
+                httpBuilder.addQueryParameter(param.getKey(),param.getValue().toString());
             }
         }
 
