@@ -12,7 +12,6 @@ import java.util.Map;
 import java.io.IOException;
 
 import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
 
 public class Client extends BaseClient {
   public static final String API_VERSION = "v2018-08-09";

@@ -1,5 +1,5 @@
 package com.recurly.v3;
-import com.recurly.v3.Resource;
+
 import com.recurly.v3.Request;
 import com.recurly.v3.http.HeaderInterceptor;
 
@@ -38,8 +38,10 @@ import okhttp3.Request.Builder;
 import okhttp3.Response;
 
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.ISODateTimeFormat;
 
 public abstract class BaseClient {
     class DateDeserializer implements JsonDeserializer<DateTime> {
@@ -57,6 +59,7 @@ public abstract class BaseClient {
     // TODO will want to use safe ^ version by default
     private static final OkHttpClient.Builder httpClientBuilder = getUnsafeOkHttpClientBuilder();
     private static final Gson gson = Converters.registerDateTime(new GsonBuilder()).create();
+    private static final DateTimeFormatter DT_FORMATTER = ISODateTimeFormat.dateTime();
     private final String apiKey;
     private final String siteId;
     private final OkHttpClient client;
@@ -185,8 +188,27 @@ public abstract class BaseClient {
         );
 
         if (queryParams != null) {
-            for(Map.Entry<String, Object> param : queryParams.entrySet()) {
-                httpBuilder.addQueryParameter(param.getKey(),param.getValue().toString());
+            for (Map.Entry<String, Object> param : queryParams.entrySet()) {
+                final Object value = param.getValue();
+                final String stringValue;
+                if (value instanceof String) {
+                    stringValue = value.toString();
+                } else if (value instanceof DateTime) {
+                    final DateTime dt = (DateTime) value;
+                    stringValue = DT_FORMATTER.print(dt.withZone(DateTimeZone.UTC));
+                } else if (value instanceof Integer) {
+                    stringValue = Integer.toString((Integer) value);
+                } else if (value instanceof Float) {
+                    stringValue = Float.toString((Float) value);
+                } else if (value instanceof Double) {
+                    stringValue = Double.toString((Double) value);
+                } else if (value instanceof Long) {
+                    stringValue = Long.toString((Long) value);
+                } else {
+                    stringValue = value.toString();
+                }
+
+                httpBuilder.addQueryParameter(param.getKey(), stringValue);
             }
         }
 
