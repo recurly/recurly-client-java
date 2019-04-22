@@ -39,7 +39,6 @@ import okhttp3.Response;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
-import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
 
@@ -48,18 +47,20 @@ public abstract class BaseClient {
 
         @Override
         public DateTime deserialize(JsonElement element, Type arg1, JsonDeserializationContext arg2) throws JsonParseException {
-            String string = element.getAsString();
-            DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
+            final String string = element.getAsString();
+            final DateTimeFormatter formatter = ISODateTimeFormat.dateTime();
 
             return formatter.parseDateTime(string);
         }
     }
+
     private static final String API_URL = "https://partner-api.recurly.com/";
+    private static final DateTimeFormatter DT_FORMATTER = ISODateTimeFormat.dateTime();
+
     //private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
     // TODO will want to use safe ^ version by default
     private static final OkHttpClient.Builder httpClientBuilder = getUnsafeOkHttpClientBuilder();
     private static final Gson gson = Converters.registerDateTime(new GsonBuilder()).create();
-    private static final DateTimeFormatter DT_FORMATTER = ISODateTimeFormat.dateTime();
     private final String apiKey;
     private final String siteId;
     private final OkHttpClient client;
