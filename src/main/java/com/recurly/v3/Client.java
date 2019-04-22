@@ -20,10 +20,6 @@ public class Client extends BaseClient {
     super(siteId, apiKey);
   }
 
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_sites">list_sites api documentation</a>
    */
@@ -44,10 +40,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_site">get_site api documentation</a>
    */
@@ -64,10 +56,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_accounts">list_accounts api documentation</a>
    */
@@ -92,10 +80,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/create_account">create_account api documentation</a>
    */
@@ -112,10 +96,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("POST", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_account">get_account api documentation</a>
    */
@@ -133,10 +113,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/update_account">update_account api documentation</a>
    */
@@ -154,10 +130,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/deactivate_account">deactivate_account api documentation</a>
    */
@@ -175,10 +147,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("DELETE", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_account_acquisition">get_account_acquisition api documentation</a>
    */
@@ -196,10 +164,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/update_account_acquisition">update_account_acquisition api documentation</a>
    */
@@ -217,10 +181,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_account_acquisition">remove_account_acquisition api documentation</a>
    */
@@ -236,10 +196,6 @@ public class Client extends BaseClient {
 
     this.makeRequest("DELETE", path);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/reactivate_account">reactivate_account api documentation</a>
    */
@@ -257,10 +213,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_account_balance">get_account_balance api documentation</a>
    */
@@ -278,10 +230,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_billing_info">get_billing_info api documentation</a>
    */
@@ -299,10 +247,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/update_billing_info">update_billing_info api documentation</a>
    */
@@ -320,10 +264,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_billing_info">remove_billing_info api documentation</a>
    */
@@ -339,10 +279,6 @@ public class Client extends BaseClient {
 
     this.makeRequest("DELETE", path);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_coupon_redemptions">list_account_coupon_redemptions api documentation</a>
    */
@@ -364,10 +300,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_active_coupon_redemption">get_active_coupon_redemption api documentation</a>
    */
@@ -385,10 +317,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/create_coupon_redemption">create_coupon_redemption api documentation</a>
    */
@@ -406,10 +334,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("POST", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_coupon_redemption">remove_coupon_redemption api documentation</a>
    */
@@ -427,10 +351,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("DELETE", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_credit_payments">list_account_credit_payments api documentation</a>
    */
@@ -453,10 +373,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_invoices">list_account_invoices api documentation</a>
    */
@@ -481,10 +397,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/create_invoice">create_invoice api documentation</a>
    */
@@ -502,10 +414,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("POST", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/preview_invoice">preview_invoice api documentation</a>
    */
@@ -523,10 +431,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("POST", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_line_items">list_account_line_items api documentation</a>
    */
@@ -553,10 +457,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/create_line_item">create_line_item api documentation</a>
    */
@@ -574,10 +474,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("POST", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_notes">list_account_notes api documentation</a>
    */
@@ -596,10 +492,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_account_note">get_account_note api documentation</a>
    */
@@ -618,10 +510,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_shipping_addresses">list_shipping_addresses api documentation</a>
    */
@@ -645,10 +533,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/create_shipping_address">create_shipping_address api documentation</a>
    */
@@ -666,10 +550,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("POST", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_shipping_address">get_shipping_address api documentation</a>
    */
@@ -688,10 +568,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/update_shipping_address">update_shipping_address api documentation</a>
    */
@@ -710,10 +586,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_shipping_address">remove_shipping_address api documentation</a>
    */
@@ -730,10 +602,6 @@ public class Client extends BaseClient {
 
     this.makeRequest("DELETE", path);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_subscriptions">list_account_subscriptions api documentation</a>
    */
@@ -758,10 +626,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_transactions">list_account_transactions api documentation</a>
    */
@@ -787,10 +651,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_child_accounts">list_child_accounts api documentation</a>
    */
@@ -816,10 +676,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_acquisition">list_account_acquisition api documentation</a>
    */
@@ -842,10 +698,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_coupons">list_coupons api documentation</a>
    */
@@ -868,10 +720,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/create_coupon">create_coupon api documentation</a>
    */
@@ -888,10 +736,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("POST", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_coupon">get_coupon api documentation</a>
    */
@@ -909,10 +753,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/update_coupon">update_coupon api documentation</a>
    */
@@ -930,10 +770,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_unique_coupon_codes">list_unique_coupon_codes api documentation</a>
    */
@@ -957,10 +793,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_credit_payments">list_credit_payments api documentation</a>
    */
@@ -982,10 +814,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_credit_payment">get_credit_payment api documentation</a>
    */
@@ -1003,10 +831,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_custom_field_definitions">list_custom_field_definitions api documentation</a>
    */
@@ -1029,10 +853,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_custom_field_definition">get_custom_field_definition api documentation</a>
    */
@@ -1050,10 +870,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_invoices">list_invoices api documentation</a>
    */
@@ -1077,10 +893,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_invoice">get_invoice api documentation</a>
    */
@@ -1098,10 +910,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/put_invoice">put_invoice api documentation</a>
    */
@@ -1119,10 +927,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/collect_invoice">collect_invoice api documentation</a>
    */
@@ -1140,10 +944,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/fail_invoice">fail_invoice api documentation</a>
    */
@@ -1161,10 +961,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/mark_invoice_successful">mark_invoice_successful api documentation</a>
    */
@@ -1182,10 +978,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/reopen_invoice">reopen_invoice api documentation</a>
    */
@@ -1203,10 +995,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_invoice_line_items">list_invoice_line_items api documentation</a>
    */
@@ -1233,10 +1021,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_invoice_coupon_redemptions">list_invoice_coupon_redemptions api documentation</a>
    */
@@ -1258,10 +1042,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_related_invoices">list_related_invoices api documentation</a>
    */
@@ -1279,10 +1059,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/refund_invoice">refund_invoice api documentation</a>
    */
@@ -1300,10 +1076,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("POST", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_line_items">list_line_items api documentation</a>
    */
@@ -1329,10 +1101,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_line_item">get_line_item api documentation</a>
    */
@@ -1350,10 +1118,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_line_item">remove_line_item api documentation</a>
    */
@@ -1369,10 +1133,6 @@ public class Client extends BaseClient {
 
     this.makeRequest("DELETE", path);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_plans">list_plans api documentation</a>
    */
@@ -1396,10 +1156,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/create_plan">create_plan api documentation</a>
    */
@@ -1416,10 +1172,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("POST", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_plan">get_plan api documentation</a>
    */
@@ -1437,10 +1189,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/update_plan">update_plan api documentation</a>
    */
@@ -1458,10 +1206,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_plan">remove_plan api documentation</a>
    */
@@ -1479,10 +1223,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("DELETE", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_plan_add_ons">list_plan_add_ons api documentation</a>
    */
@@ -1507,10 +1247,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/create_plan_add_on">create_plan_add_on api documentation</a>
    */
@@ -1528,10 +1264,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("POST", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_plan_add_on">get_plan_add_on api documentation</a>
    */
@@ -1550,10 +1282,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/update_plan_add_on">update_plan_add_on api documentation</a>
    */
@@ -1572,10 +1300,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_plan_add_on">remove_plan_add_on api documentation</a>
    */
@@ -1594,10 +1318,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("DELETE", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_add_ons">list_add_ons api documentation</a>
    */
@@ -1621,10 +1341,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_add_on">get_add_on api documentation</a>
    */
@@ -1642,10 +1358,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_subscriptions">list_subscriptions api documentation</a>
    */
@@ -1669,10 +1381,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/create_subscription">create_subscription api documentation</a>
    */
@@ -1689,10 +1397,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("POST", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_subscription">get_subscription api documentation</a>
    */
@@ -1710,10 +1414,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/modify_subscription">modify_subscription api documentation</a>
    */
@@ -1731,10 +1431,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/terminate_subscription">terminate_subscription api documentation</a>
    */
@@ -1753,10 +1449,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("DELETE", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/cancel_subscription">cancel_subscription api documentation</a>
    */
@@ -1774,10 +1466,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/reactivate_subscription">reactivate_subscription api documentation</a>
    */
@@ -1795,10 +1483,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/pause_subscription">pause_subscription api documentation</a>
    */
@@ -1816,10 +1500,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/resume_subscription">resume_subscription api documentation</a>
    */
@@ -1837,10 +1517,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("PUT", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_subscription_change">get_subscription_change api documentation</a>
    */
@@ -1858,10 +1534,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/create_subscription_change">create_subscription_change api documentation</a>
    */
@@ -1879,10 +1551,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("POST", path, body, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_subscription_change">remove_subscription_change api documentation</a>
    */
@@ -1898,10 +1566,6 @@ public class Client extends BaseClient {
 
     this.makeRequest("DELETE", path);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_subscription_invoices">list_subscription_invoices api documentation</a>
    */
@@ -1926,10 +1590,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_subscription_line_items">list_subscription_line_items api documentation</a>
    */
@@ -1956,10 +1616,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_subscription_coupon_redemptions">list_subscription_coupon_redemptions api documentation</a>
    */
@@ -1981,10 +1637,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_transactions">list_transactions api documentation</a>
    */
@@ -2009,10 +1661,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, queryParams, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_transaction">get_transaction api documentation</a>
    */
@@ -2030,10 +1678,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_unique_coupon_code">get_unique_coupon_code api documentation</a>
    */
@@ -2051,10 +1695,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("GET", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/deactivate_unique_coupon_code">deactivate_unique_coupon_code api documentation</a>
    */
@@ -2072,10 +1712,6 @@ public class Client extends BaseClient {
 
     return this.makeRequest("DELETE", path, returnType);
   }
-
-
-
-
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/reactivate_unique_coupon_code">reactivate_unique_coupon_code api documentation</a>
    */
