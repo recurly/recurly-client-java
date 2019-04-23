@@ -48,14 +48,14 @@ public abstract class BaseClient {
         @Override
         public DateTime deserialize(JsonElement element, Type arg1, JsonDeserializationContext arg2) throws JsonParseException {
             final String string = element.getAsString();
-            final DateTimeFormatter formatter = ISODateTimeFormat.dateTime();
+            final DateTimeFormatter formatter = ISODateTimeFormat.dateTimeParser();
 
             return formatter.parseDateTime(string);
         }
     }
 
     private static final String API_URL = "https://partner-api.recurly.com/";
-    private static final DateTimeFormatter DT_FORMATTER = ISODateTimeFormat.dateTime();
+    private static final DateTimeFormatter DT_FORMATTER = ISODateTimeFormat.dateTimeParser();
 
     //private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
     // TODO will want to use safe ^ version by default
