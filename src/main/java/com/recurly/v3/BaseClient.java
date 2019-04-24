@@ -156,11 +156,11 @@ public abstract class BaseClient {
         return makeRequest(method, url, body, null, resourceClass);
     }
 
-    protected <T> T makeRequest(final String method, final String url, final Map<String, Object> queryParams, final Type resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final HashMap<String, Object> queryParams, final Type resourceClass) throws IOException {
         return makeRequest(method, url, null, queryParams, resourceClass);
     }
 
-    protected <T> T makeRequest(final String method, final String url, final Request body, final Map<String, Object> queryParams, final Type resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final Request body, final HashMap<String, Object> queryParams, final Type resourceClass) throws IOException {
         final okhttp3.Request request = buildRequest(method, url, body, queryParams);
 
         try (final Response response = client.newCall(request).execute()) {
@@ -180,7 +180,7 @@ public abstract class BaseClient {
         }
     }
 
-    private okhttp3.Request buildRequest(final String method, final String url, final Request body, final Map<String, Object> queryParams) {
+    private okhttp3.Request buildRequest(final String method, final String url, final Request body, final HashMap<String, Object> queryParams) {
         final HttpUrl.Builder httpBuilder = HttpUrl.parse(this.apiUrl + url).newBuilder();
 
         final RequestBody requestBody = RequestBody.create(
@@ -248,7 +248,7 @@ public abstract class BaseClient {
         return interpolatePath(path, new HashMap<String, String>());
     }
 
-    protected String interpolatePath(String path, final Map<String, String> urlParams) {
+    protected String interpolatePath(String path, final HashMap<String, String> urlParams) {
         urlParams.put("site_id", this.siteId);
         final Pattern p = Pattern.compile("\\{([A-Za-z|_]*)\\}");
         final Matcher m = p.matcher(path);

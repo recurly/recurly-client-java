@@ -8,7 +8,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
-import java.util.Map;
 import java.io.IOException;
 
 import org.joda.time.DateTime;
@@ -26,9 +25,9 @@ public class Client extends BaseClient {
   public Pager<Site> listSites(String ids, Integer limit, String order, String sort) throws IOException {
     final String url = "/sites"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -46,9 +45,9 @@ public class Client extends BaseClient {
   public Site getSite() throws IOException {
     final String url = "/sites/{site_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -62,9 +61,9 @@ public class Client extends BaseClient {
   public Pager<Account> listAccounts(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String subscriber, String pastDue) throws IOException {
     final String url = "/sites/{site_id}/accounts"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -86,9 +85,9 @@ public class Client extends BaseClient {
   public Account createAccount(AccountCreate body) throws IOException {
     final String url = "/sites/{site_id}/accounts"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -102,10 +101,10 @@ public class Client extends BaseClient {
   public Account getAccount(String accountId) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -119,10 +118,10 @@ public class Client extends BaseClient {
   public Account updateAccount(String accountId, AccountUpdate body) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -136,10 +135,10 @@ public class Client extends BaseClient {
   public Account deactivateAccount(String accountId) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -153,10 +152,10 @@ public class Client extends BaseClient {
   public AccountAcquisition getAccountAcquisition(String accountId) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/acquisition"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -170,10 +169,10 @@ public class Client extends BaseClient {
   public AccountAcquisition updateAccountAcquisition(String accountId, AccountAcquisitionUpdatable body) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/acquisition"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -187,10 +186,10 @@ public class Client extends BaseClient {
   public void removeAccountAcquisition(String accountId) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/acquisition"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -202,10 +201,10 @@ public class Client extends BaseClient {
   public Account reactivateAccount(String accountId) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/reactivate"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -219,10 +218,10 @@ public class Client extends BaseClient {
   public AccountBalance getAccountBalance(String accountId) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/balance"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -236,10 +235,10 @@ public class Client extends BaseClient {
   public BillingInfo getBillingInfo(String accountId) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/billing_info"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -253,10 +252,10 @@ public class Client extends BaseClient {
   public BillingInfo updateBillingInfo(String accountId, BillingInfoCreate body) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/billing_info"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -270,10 +269,10 @@ public class Client extends BaseClient {
   public void removeBillingInfo(String accountId) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/billing_info"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -285,10 +284,10 @@ public class Client extends BaseClient {
   public Pager<CouponRedemption> listAccountCouponRedemptions(String accountId, String ids, String sort, DateTime beginTime, DateTime endTime) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("sort", sort);
     queryParams.put("begin_time", beginTime);
@@ -306,10 +305,10 @@ public class Client extends BaseClient {
   public CouponRedemption getActiveCouponRedemption(String accountId) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions/active"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -323,10 +322,10 @@ public class Client extends BaseClient {
   public CouponRedemption createCouponRedemption(String accountId, CouponRedemptionCreate body) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions/active"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -340,10 +339,10 @@ public class Client extends BaseClient {
   public CouponRedemption removeCouponRedemption(String accountId) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions/active"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -357,10 +356,10 @@ public class Client extends BaseClient {
   public Pager<CreditPayment> listAccountCreditPayments(String accountId, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/credit_payments"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("limit", limit);
     queryParams.put("order", order);
     queryParams.put("sort", sort);
@@ -379,10 +378,10 @@ public class Client extends BaseClient {
   public Pager<Invoice> listAccountInvoices(String accountId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String type) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/invoices"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -403,10 +402,10 @@ public class Client extends BaseClient {
   public InvoiceCollection createInvoice(String accountId, InvoiceCreate body) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/invoices"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -420,10 +419,10 @@ public class Client extends BaseClient {
   public InvoiceCollection previewInvoice(String accountId, InvoiceCreate body) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/invoices/preview"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -437,10 +436,10 @@ public class Client extends BaseClient {
   public Pager<LineItem> listAccountLineItems(String accountId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String original, String state, String type) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/line_items"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -463,10 +462,10 @@ public class Client extends BaseClient {
   public LineItem createLineItem(String accountId, LineItemCreate body) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/line_items"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -480,10 +479,10 @@ public class Client extends BaseClient {
   public Pager<AccountNote> listAccountNotes(String accountId, String ids) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/notes"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
 
     final String path = this.interpolatePath(url, urlParams);
@@ -498,11 +497,11 @@ public class Client extends BaseClient {
   public AccountNote getAccountNote(String accountId, String accountNoteId) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/notes/{account_note_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     urlParams.put("account_note_id", accountNoteId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -516,10 +515,10 @@ public class Client extends BaseClient {
   public Pager<ShippingAddress> listShippingAddresses(String accountId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/shipping_addresses"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -539,10 +538,10 @@ public class Client extends BaseClient {
   public ShippingAddress createShippingAddress(String accountId, ShippingAddressCreate body) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/shipping_addresses"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -556,11 +555,11 @@ public class Client extends BaseClient {
   public ShippingAddress getShippingAddress(String accountId, String shippingAddressId) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/shipping_addresses/{shipping_address_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     urlParams.put("shipping_address_id", shippingAddressId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -574,11 +573,11 @@ public class Client extends BaseClient {
   public ShippingAddress updateShippingAddress(String accountId, String shippingAddressId, ShippingAddressUpdate body) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/shipping_addresses/{shipping_address_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     urlParams.put("shipping_address_id", shippingAddressId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -592,11 +591,11 @@ public class Client extends BaseClient {
   public void removeShippingAddress(String accountId, String shippingAddressId) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/shipping_addresses/{shipping_address_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     urlParams.put("shipping_address_id", shippingAddressId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -608,10 +607,10 @@ public class Client extends BaseClient {
   public Pager<Subscription> listAccountSubscriptions(String accountId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String state) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/subscriptions"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -632,10 +631,10 @@ public class Client extends BaseClient {
   public Pager<Transaction> listAccountTransactions(String accountId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String type, String success) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/transactions"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -657,10 +656,10 @@ public class Client extends BaseClient {
   public Pager<Account> listChildAccounts(String accountId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String subscriber, String pastDue) throws IOException {
     final String url = "/sites/{site_id}/accounts/{account_id}/accounts"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -682,9 +681,9 @@ public class Client extends BaseClient {
   public Pager<AccountAcquisition> listAccountAcquisition(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime) throws IOException {
     final String url = "/sites/{site_id}/acquisitions"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -704,9 +703,9 @@ public class Client extends BaseClient {
   public Pager<Coupon> listCoupons(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime) throws IOException {
     final String url = "/sites/{site_id}/coupons"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -726,9 +725,9 @@ public class Client extends BaseClient {
   public Coupon createCoupon(CouponCreate body) throws IOException {
     final String url = "/sites/{site_id}/coupons"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -742,10 +741,10 @@ public class Client extends BaseClient {
   public Coupon getCoupon(String couponId) throws IOException {
     final String url = "/sites/{site_id}/coupons/{coupon_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("coupon_id", couponId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -759,10 +758,10 @@ public class Client extends BaseClient {
   public Coupon updateCoupon(String couponId, CouponUpdate body) throws IOException {
     final String url = "/sites/{site_id}/coupons/{coupon_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("coupon_id", couponId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -776,10 +775,10 @@ public class Client extends BaseClient {
   public Pager<UniqueCouponCode> listUniqueCouponCodes(String couponId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime) throws IOException {
     final String url = "/sites/{site_id}/coupons/{coupon_id}/unique_coupon_codes"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("coupon_id", couponId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -799,9 +798,9 @@ public class Client extends BaseClient {
   public Pager<CreditPayment> listCreditPayments(Integer limit, String order, String sort, DateTime beginTime, DateTime endTime) throws IOException {
     final String url = "/sites/{site_id}/credit_payments"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("limit", limit);
     queryParams.put("order", order);
     queryParams.put("sort", sort);
@@ -820,10 +819,10 @@ public class Client extends BaseClient {
   public CreditPayment getCreditPayment(String creditPaymentId) throws IOException {
     final String url = "/sites/{site_id}/credit_payments/{credit_payment_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("credit_payment_id", creditPaymentId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -837,9 +836,9 @@ public class Client extends BaseClient {
   public Pager<CustomFieldDefinition> listCustomFieldDefinitions(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime) throws IOException {
     final String url = "/sites/{site_id}/custom_field_definitions"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -859,10 +858,10 @@ public class Client extends BaseClient {
   public CustomFieldDefinition getCustomFieldDefinition(String customFieldDefinitionId) throws IOException {
     final String url = "/sites/{site_id}/custom_field_definitions/{custom_field_definition_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("custom_field_definition_id", customFieldDefinitionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -876,9 +875,9 @@ public class Client extends BaseClient {
   public Pager<Invoice> listInvoices(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String type) throws IOException {
     final String url = "/sites/{site_id}/invoices"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -899,10 +898,10 @@ public class Client extends BaseClient {
   public Invoice getInvoice(String invoiceId) throws IOException {
     final String url = "/sites/{site_id}/invoices/{invoice_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -916,10 +915,10 @@ public class Client extends BaseClient {
   public Invoice putInvoice(String invoiceId, InvoiceUpdatable body) throws IOException {
     final String url = "/sites/{site_id}/invoices/{invoice_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -933,10 +932,10 @@ public class Client extends BaseClient {
   public Invoice collectInvoice(String invoiceId) throws IOException {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/collect"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -950,10 +949,10 @@ public class Client extends BaseClient {
   public Invoice failInvoice(String invoiceId) throws IOException {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/mark_failed"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -967,10 +966,10 @@ public class Client extends BaseClient {
   public Invoice markInvoiceSuccessful(String invoiceId) throws IOException {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/mark_successful"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -984,10 +983,10 @@ public class Client extends BaseClient {
   public Invoice reopenInvoice(String invoiceId) throws IOException {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/reopen"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1001,10 +1000,10 @@ public class Client extends BaseClient {
   public Pager<LineItem> listInvoiceLineItems(String invoiceId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String original, String state, String type) throws IOException {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/line_items"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -1027,10 +1026,10 @@ public class Client extends BaseClient {
   public Pager<CouponRedemption> listInvoiceCouponRedemptions(String invoiceId, String ids, String sort, DateTime beginTime, DateTime endTime) throws IOException {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/coupon_redemptions"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("sort", sort);
     queryParams.put("begin_time", beginTime);
@@ -1048,10 +1047,10 @@ public class Client extends BaseClient {
   public Pager<Invoice> listRelatedInvoices(String invoiceId) throws IOException {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/related_invoices"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1065,10 +1064,10 @@ public class Client extends BaseClient {
   public Invoice refundInvoice(String invoiceId, InvoiceRefund body) throws IOException {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/refund"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1082,9 +1081,9 @@ public class Client extends BaseClient {
   public Pager<LineItem> listLineItems(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String original, String state, String type) throws IOException {
     final String url = "/sites/{site_id}/line_items"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -1107,10 +1106,10 @@ public class Client extends BaseClient {
   public LineItem getLineItem(String lineItemId) throws IOException {
     final String url = "/sites/{site_id}/line_items/{line_item_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("line_item_id", lineItemId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1124,10 +1123,10 @@ public class Client extends BaseClient {
   public void removeLineItem(String lineItemId) throws IOException {
     final String url = "/sites/{site_id}/line_items/{line_item_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("line_item_id", lineItemId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1139,9 +1138,9 @@ public class Client extends BaseClient {
   public Pager<Plan> listPlans(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String state) throws IOException {
     final String url = "/sites/{site_id}/plans"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -1162,9 +1161,9 @@ public class Client extends BaseClient {
   public Plan createPlan(PlanCreate body) throws IOException {
     final String url = "/sites/{site_id}/plans"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1178,10 +1177,10 @@ public class Client extends BaseClient {
   public Plan getPlan(String planId) throws IOException {
     final String url = "/sites/{site_id}/plans/{plan_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1195,10 +1194,10 @@ public class Client extends BaseClient {
   public Plan updatePlan(String planId, PlanUpdate body) throws IOException {
     final String url = "/sites/{site_id}/plans/{plan_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1212,10 +1211,10 @@ public class Client extends BaseClient {
   public Plan removePlan(String planId) throws IOException {
     final String url = "/sites/{site_id}/plans/{plan_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1229,10 +1228,10 @@ public class Client extends BaseClient {
   public Pager<AddOn> listPlanAddOns(String planId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String state) throws IOException {
     final String url = "/sites/{site_id}/plans/{plan_id}/add_ons"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -1253,10 +1252,10 @@ public class Client extends BaseClient {
   public AddOn createPlanAddOn(String planId, AddOnCreate body) throws IOException {
     final String url = "/sites/{site_id}/plans/{plan_id}/add_ons"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1270,11 +1269,11 @@ public class Client extends BaseClient {
   public AddOn getPlanAddOn(String planId, String addOnId) throws IOException {
     final String url = "/sites/{site_id}/plans/{plan_id}/add_ons/{add_on_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
     urlParams.put("add_on_id", addOnId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1288,11 +1287,11 @@ public class Client extends BaseClient {
   public AddOn updatePlanAddOn(String planId, String addOnId, AddOnUpdate body) throws IOException {
     final String url = "/sites/{site_id}/plans/{plan_id}/add_ons/{add_on_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
     urlParams.put("add_on_id", addOnId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1306,11 +1305,11 @@ public class Client extends BaseClient {
   public AddOn removePlanAddOn(String planId, String addOnId) throws IOException {
     final String url = "/sites/{site_id}/plans/{plan_id}/add_ons/{add_on_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
     urlParams.put("add_on_id", addOnId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1324,9 +1323,9 @@ public class Client extends BaseClient {
   public Pager<AddOn> listAddOns(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String state) throws IOException {
     final String url = "/sites/{site_id}/add_ons"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -1347,10 +1346,10 @@ public class Client extends BaseClient {
   public AddOn getAddOn(String addOnId) throws IOException {
     final String url = "/sites/{site_id}/add_ons/{add_on_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("add_on_id", addOnId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1364,9 +1363,9 @@ public class Client extends BaseClient {
   public Pager<Subscription> listSubscriptions(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String state) throws IOException {
     final String url = "/sites/{site_id}/subscriptions"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -1387,9 +1386,9 @@ public class Client extends BaseClient {
   public Subscription createSubscription(SubscriptionCreate body) throws IOException {
     final String url = "/sites/{site_id}/subscriptions"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1403,10 +1402,10 @@ public class Client extends BaseClient {
   public Subscription getSubscription(String subscriptionId) throws IOException {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1420,10 +1419,10 @@ public class Client extends BaseClient {
   public Subscription modifySubscription(String subscriptionId, SubscriptionUpdate body) throws IOException {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1437,10 +1436,10 @@ public class Client extends BaseClient {
   public Subscription terminateSubscription(String subscriptionId, String refund) throws IOException {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("refund", refund);
 
     final String path = this.interpolatePath(url, urlParams);
@@ -1455,10 +1454,10 @@ public class Client extends BaseClient {
   public Subscription cancelSubscription(String subscriptionId) throws IOException {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/cancel"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1472,10 +1471,10 @@ public class Client extends BaseClient {
   public Subscription reactivateSubscription(String subscriptionId) throws IOException {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/reactivate"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1489,10 +1488,10 @@ public class Client extends BaseClient {
   public Subscription pauseSubscription(String subscriptionId, SubscriptionPause body) throws IOException {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/pause"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1506,10 +1505,10 @@ public class Client extends BaseClient {
   public Subscription resumeSubscription(String subscriptionId) throws IOException {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/resume"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1523,10 +1522,10 @@ public class Client extends BaseClient {
   public SubscriptionChange getSubscriptionChange(String subscriptionId) throws IOException {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/change"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1540,10 +1539,10 @@ public class Client extends BaseClient {
   public SubscriptionChange createSubscriptionChange(String subscriptionId, SubscriptionChangeCreate body) throws IOException {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/change"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1557,10 +1556,10 @@ public class Client extends BaseClient {
   public void removeSubscriptionChange(String subscriptionId) throws IOException {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/change"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1572,10 +1571,10 @@ public class Client extends BaseClient {
   public Pager<Invoice> listSubscriptionInvoices(String subscriptionId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String type) throws IOException {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/invoices"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -1596,10 +1595,10 @@ public class Client extends BaseClient {
   public Pager<LineItem> listSubscriptionLineItems(String subscriptionId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String original, String state, String type) throws IOException {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/line_items"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -1622,10 +1621,10 @@ public class Client extends BaseClient {
   public Pager<CouponRedemption> listSubscriptionCouponRedemptions(String subscriptionId, String ids, String sort, DateTime beginTime, DateTime endTime) throws IOException {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/coupon_redemptions"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("sort", sort);
     queryParams.put("begin_time", beginTime);
@@ -1643,9 +1642,9 @@ public class Client extends BaseClient {
   public Pager<Transaction> listTransactions(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String type, String success) throws IOException {
     final String url = "/sites/{site_id}/transactions"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     queryParams.put("limit", limit);
     queryParams.put("order", order);
@@ -1667,10 +1666,10 @@ public class Client extends BaseClient {
   public Transaction getTransaction(String transactionId) throws IOException {
     final String url = "/sites/{site_id}/transactions/{transaction_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("transaction_id", transactionId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1684,10 +1683,10 @@ public class Client extends BaseClient {
   public UniqueCouponCode getUniqueCouponCode(String uniqueCouponCodeId) throws IOException {
     final String url = "/sites/{site_id}/unique_coupon_codes/{unique_coupon_code_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("unique_coupon_code_id", uniqueCouponCodeId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1701,10 +1700,10 @@ public class Client extends BaseClient {
   public UniqueCouponCode deactivateUniqueCouponCode(String uniqueCouponCodeId) throws IOException {
     final String url = "/sites/{site_id}/unique_coupon_codes/{unique_coupon_code_id}"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("unique_coupon_code_id", uniqueCouponCodeId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
@@ -1718,10 +1717,10 @@ public class Client extends BaseClient {
   public UniqueCouponCode reactivateUniqueCouponCode(String uniqueCouponCodeId) throws IOException {
     final String url = "/sites/{site_id}/unique_coupon_codes/{unique_coupon_code_id}/restore"; 
 
-    final Map<String, String> urlParams = new HashMap<String, String>();
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("unique_coupon_code_id", uniqueCouponCodeId);
 
-    final Map<String, Object> queryParams = new HashMap<String, Object>();
+    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
 
     final String path = this.interpolatePath(url, urlParams);
 
