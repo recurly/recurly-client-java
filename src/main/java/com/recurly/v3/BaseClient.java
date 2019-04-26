@@ -1,5 +1,5 @@
 package com.recurly.v3;
-import com.recurly.v3.Resource;
+
 import com.recurly.v3.Request;
 import com.recurly.v3.http.HeaderInterceptor;
 
@@ -38,21 +38,25 @@ import okhttp3.Request.Builder;
 import okhttp3.Response;
 
 import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
+import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.ISODateTimeFormat;
 
 public abstract class BaseClient {
     class DateDeserializer implements JsonDeserializer<DateTime> {
 
         @Override
         public DateTime deserialize(JsonElement element, Type arg1, JsonDeserializationContext arg2) throws JsonParseException {
-            String string = element.getAsString();
-            DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
+            final String string = element.getAsString();
+            final DateTimeFormatter formatter = ISODateTimeFormat.dateTimeParser();
 
             return formatter.parseDateTime(string);
         }
     }
+
     private static final String API_URL = "https://partner-api.recurly.com/";
+    private static final DateTimeFormatter DT_FORMATTER = ISODateTimeFormat.dateTimeParser();
+
     //private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
     // TODO will want to use safe ^ version by default
     private static final OkHttpClient.Builder httpClientBuilder = getUnsafeOkHttpClientBuilder();
@@ -152,11 +156,11 @@ public abstract class BaseClient {
         return makeRequest(method, url, body, null, resourceClass);
     }
 
-    protected <T> T makeRequest(final String method, final String url, final Map<String, String> queryParams, final Type resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final HashMap<String, Object> queryParams, final Type resourceClass) throws IOException {
         return makeRequest(method, url, null, queryParams, resourceClass);
     }
 
-    protected <T> T makeRequest(final String method, final String url, final Request body, final Map<String, String> queryParams, final Type resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final Request body, final HashMap<String, Object> queryParams, final Type resourceClass) throws IOException {
         final okhttp3.Request request = buildRequest(method, url, body, queryParams);
 
         try (final Response response = client.newCall(request).execute()) {
@@ -176,7 +180,7 @@ public abstract class BaseClient {
         }
     }
 
-    private okhttp3.Request buildRequest(final String method, final String url, final Request body, final Map<String, String> queryParams) {
+    private okhttp3.Request buildRequest(final String method, final String url, final Request body, final HashMap<String, Object> queryParams) {
         final HttpUrl.Builder httpBuilder = HttpUrl.parse(this.apiUrl + url).newBuilder();
 
         final RequestBody requestBody = RequestBody.create(
@@ -185,8 +189,27 @@ public abstract class BaseClient {
         );
 
         if (queryParams != null) {
-            for(Map.Entry<String, String> param : queryParams.entrySet()) {
-                httpBuilder.addQueryParameter(param.getKey(),param.getValue());
+            for (Map.Entry<String, Object> param : queryParams.entrySet()) {
+                final Object value = param.getValue();
+                final String stringValue;
+                if (value instanceof String) {
+                    stringValue = value.toString();
+                } else if (value instanceof DateTime) {
+                    final DateTime dt = (DateTime) value;
+                    stringValue = DT_FORMATTER.print(dt.withZone(DateTimeZone.UTC));
+                } else if (value instanceof Integer) {
+                    stringValue = Integer.toString((Integer) value);
+                } else if (value instanceof Float) {
+                    stringValue = Float.toString((Float) value);
+                } else if (value instanceof Double) {
+                    stringValue = Double.toString((Double) value);
+                } else if (value instanceof Long) {
+                    stringValue = Long.toString((Long) value);
+                } else {
+                    stringValue = value.toString();
+                }
+
+                httpBuilder.addQueryParameter(param.getKey(), stringValue);
             }
         }
 
@@ -225,7 +248,7 @@ public abstract class BaseClient {
         return interpolatePath(path, new HashMap<String, String>());
     }
 
-    protected String interpolatePath(String path, final Map<String, String> urlParams) {
+    protected String interpolatePath(String path, final HashMap<String, String> urlParams) {
         urlParams.put("site_id", this.siteId);
         final Pattern p = Pattern.compile("\\{([A-Za-z|_]*)\\}");
         final Matcher m = p.matcher(path);
