@@ -5,6 +5,7 @@ import com.recurly.v3.requests.*;
 import com.recurly.v3.resources.*;
 
 import com.google.gson.reflect.TypeToken;
+import okhttp3.OkHttpClient;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -17,6 +18,10 @@ public class Client extends BaseClient {
 
   public Client(final String siteId, final String apiKey) {
     super(siteId, apiKey);
+  }
+
+  Client(final String siteId, final String apiKey, final OkHttpClient client) {
+    super(siteId, apiKey, client);
   }
 
   /**

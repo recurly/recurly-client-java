@@ -1,16 +1,9 @@
 package com.recurly.v3;
 
+import com.recurly.v3.Resource;
 import com.recurly.v3.Request;
+import com.recurly.v3.JsonSerializer;
 import com.recurly.v3.http.HeaderInterceptor;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
-
-import com.fatboyindustrial.gsonjodatime.Converters;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -43,30 +36,23 @@ import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
 
 public abstract class BaseClient {
-    class DateDeserializer implements JsonDeserializer<DateTime> {
-
-        @Override
-        public DateTime deserialize(JsonElement element, Type arg1, JsonDeserializationContext arg2) throws JsonParseException {
-            final String string = element.getAsString();
-            final DateTimeFormatter formatter = ISODateTimeFormat.dateTimeParser();
-
-            return formatter.parseDateTime(string);
-        }
-    }
-
     private static final String API_URL = "https://partner-api.recurly.com/";
     private static final DateTimeFormatter DT_FORMATTER = ISODateTimeFormat.dateTimeParser();
 
     //private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
     // TODO will want to use safe ^ version by default
     private static final OkHttpClient.Builder httpClientBuilder = getUnsafeOkHttpClientBuilder();
-    private static final Gson gson = Converters.registerDateTime(new GsonBuilder()).create();
+    private static final JsonSerializer jsonSerializer = new JsonSerializer();
     private final String apiKey;
     private final String siteId;
     private final OkHttpClient client;
     private String apiUrl;
 
     protected BaseClient(final String siteId, final String apiKey) {
+        this(siteId, apiKey, newHttpClient(apiKey));
+    }
+
+    protected BaseClient(final String siteId, final String apiKey, final OkHttpClient client) {
         if (siteId == null || siteId.isEmpty()) {
             throw new IllegalArgumentException("siteId cannot be null or empty");
         }
@@ -77,8 +63,12 @@ public abstract class BaseClient {
 
         this.siteId = siteId;
         this.apiKey = apiKey;
+        this.client = client;
+        this.apiUrl = API_URL;
+    }
 
-        final String authToken = Credentials.basic(this.apiKey, "");
+    private static OkHttpClient newHttpClient(final String apiKey) {
+        final String authToken = Credentials.basic(apiKey, "");
         final HeaderInterceptor headerInterceptor =
                 new HeaderInterceptor(authToken, Client.API_VERSION);
 
@@ -92,8 +82,7 @@ public abstract class BaseClient {
             httpClientBuilder.addInterceptor(logging);
         }
 
-        this.client = httpClientBuilder.build();
-        this.apiUrl = API_URL;
+        return httpClientBuilder.build();
     }
 
     private static OkHttpClient.Builder getUnsafeOkHttpClientBuilder() {
@@ -176,7 +165,7 @@ public abstract class BaseClient {
                 System.out.println(responseBody);
             }
 
-            return processResponse(responseBody, resourceClass);
+            return jsonSerializer.deserialize(responseBody, resourceClass);
         }
     }
 
@@ -185,7 +174,7 @@ public abstract class BaseClient {
 
         final RequestBody requestBody = RequestBody.create(
             MediaType.parse("application/json; charset=utf-8"),
-            new Gson().toJson(body)
+            jsonSerializer.serialize(body)
         );
 
         if (queryParams != null) {
@@ -239,11 +228,6 @@ public abstract class BaseClient {
         }
     }
 
-    private <T> T processResponse(final String responseBody, final Type resourceClass) {
-        final Gson gson = new GsonBuilder().registerTypeAdapter(DateTime.class, new DateDeserializer()).create();
-        return gson.fromJson(responseBody, resourceClass);
-    }
-
     protected String interpolatePath(final String path) {
         return interpolatePath(path, new HashMap<String, String>());
     }
@@ -263,12 +247,17 @@ public abstract class BaseClient {
     }
 
     public void _setApiUrl(final String uri) {
-        System.out.println("[SECURITY WARNING] _SetApiUrl is for testing only and not supported in production.");
+        System.out.println("[SECURITY WARNING] _setApiUrl is for testing only and not supported in production.");
 
         if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
             this.apiUrl = uri;
         } else {
             System.out.println("ApiUrl not changed. To change, set the environment variable RECURLY_INSECURE to true");
         }
+    }
+
+    public String getApiUrl()
+    {
+        return this.apiUrl;
     }
 }

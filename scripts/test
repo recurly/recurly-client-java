@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 
-mvn clean compile
+export RECURLY_INSECURE="true"
+if [[ -z "${TRAVIS}" ]]; then
+  mvn clean test jacoco:report
+else
+  mvn clean test jacoco:report coveralls:report
+fi
+unset RECURLY_INSECURE
