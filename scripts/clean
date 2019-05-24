@@ -3,3 +3,4 @@
 rm src/main/java/com/recurly/v3/Client.java
 rm src/main/java/com/recurly/v3/requests/*
 rm src/main/java/com/recurly/v3/resources/*
+rm src/main/java/com/recurly/v3/exception/*

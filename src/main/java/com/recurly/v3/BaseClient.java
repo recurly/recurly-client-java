@@ -4,6 +4,9 @@ import com.recurly.v3.Resource;
 import com.recurly.v3.Request;
 import com.recurly.v3.JsonSerializer;
 import com.recurly.v3.http.HeaderInterceptor;
+import com.recurly.v3.resources.Error;
+import com.recurly.v3.ApiException;
+import com.recurly.v3.NetworkException;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -121,11 +124,13 @@ public abstract class BaseClient {
         }
     }
 
-    protected void makeRequest(final String method, final String url) throws IOException {
+    protected void makeRequest(final String method, final String url) {
         final okhttp3.Request request = buildRequest(method, url, null, null);
 
         try (final Response response = client.newCall(request).execute()) {
-            if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+            if (!response.isSuccessful()) {
+                System.out.println(response);
+            }
 
             final Headers responseHeaders = response.headers();
 
@@ -134,29 +139,34 @@ public abstract class BaseClient {
                     System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
                 }
             }
+        } catch (IOException e) {
+            throw new NetworkException(e);
         }
     }
 
-    protected <T> T makeRequest(final String method, final String url, final Type resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final Type resourceClass){
         return makeRequest(method, url, null, null, resourceClass);
     }
 
-    protected <T> T makeRequest(final String method, final String url, final Request body, final Type resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final Request body, final Type resourceClass) {
         return makeRequest(method, url, body, null, resourceClass);
     }
 
-    protected <T> T makeRequest(final String method, final String url, final HashMap<String, Object> queryParams, final Type resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final HashMap<String, Object> queryParams, final Type resourceClass) {
         return makeRequest(method, url, null, queryParams, resourceClass);
     }
 
-    protected <T> T makeRequest(final String method, final String url, final Request body, final HashMap<String, Object> queryParams, final Type resourceClass) throws IOException {
+    protected <T> T makeRequest(final String method, final String url, final Request body, final HashMap<String, Object> queryParams, final Type resourceClass) {
         final okhttp3.Request request = buildRequest(method, url, body, queryParams);
 
         try (final Response response = client.newCall(request).execute()) {
-            if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
 
             final Headers responseHeaders = response.headers();
             final String responseBody = response.body().string();
+
+            if (!response.isSuccessful()) {
+                throw jsonSerializer.deserializeError(responseBody);
+            }
 
             if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
                 for (int i = 0; i < responseHeaders.size(); i++) {
@@ -165,7 +175,21 @@ public abstract class BaseClient {
                 System.out.println(responseBody);
             }
 
+            String deprecated = responseHeaders.get("Recurly-Deprecated");
+
+            if (deprecated != null && deprecated.toUpperCase() == "TRUE") {
+                String sunset = responseHeaders.get("Recurly-Sunset-Date");
+
+                String warning = "[recurly-client-java] WARNING: Your current API version \"" +
+                                 Client.API_VERSION +
+                                 "\" is deprecated and will be sunset on " + sunset;
+
+                System.out.println(warning);
+            }
+
             return jsonSerializer.deserialize(responseBody, resourceClass);
+        } catch (IOException e) {
+            throw new NetworkException(e);
         }
     }
 

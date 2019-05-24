@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import com.recurly.v3.ApiException;
 import org.joda.time.DateTime;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,15 @@ public class JsonSerializerTest {
         final JsonSerializer jsonSerializer = new JsonSerializer();
         final MockResource mockResource = jsonSerializer.deserialize(getMockResourceJson(), MockResource.class);
         assertEquals("My String", mockResource.getMyString());
+    }
+
+    @Test
+    public void testDeserializeError() {
+        final JsonSerializer jsonSerializer = new JsonSerializer();
+        final ApiException error = jsonSerializer.deserialize(getMockErrorJson(), ApiException.class);
+        assertEquals("not_found", error.getError().getType());
+        assertEquals("Couldn't find resource", error.getError().getMessage());
+        assertEquals("some_param", error.getError().getParams().get(0).get("param"));
     }
 
     @Test
@@ -54,6 +64,19 @@ public class JsonSerializerTest {
         "          \"my_string\": \"Nested String\"\n" +
         "       }\n" +
         "    ]\n" +
+        "}";
+    }
+
+    private static String getMockErrorJson() {
+        return "" +
+        "{\n" +
+        "    \"error\": {\n" +
+        "       \"type\": \"not_found\",\n" +
+        "       \"message\": \"Couldn't find resource\",\n" +
+        "       \"params\": [\n" +
+        "           {\"param\":\"some_param\"}\n" +
+        "        ]\n" +
+        "    }\n" +
         "}";
     }
 
