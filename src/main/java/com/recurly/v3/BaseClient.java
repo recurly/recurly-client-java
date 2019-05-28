@@ -79,7 +79,7 @@ public abstract class BaseClient {
             httpClientBuilder.addInterceptor(headerInterceptor);
         }
 
-        if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
+        if ("true".equals(System.getenv("RECURLY_INSECURE")) && "true".equals(System.getenv("RECURLY_DEBUG"))) {
             final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
             httpClientBuilder.addInterceptor(logging);
@@ -134,7 +134,7 @@ public abstract class BaseClient {
 
             final Headers responseHeaders = response.headers();
 
-            if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
+            if ("true".equals(System.getenv("RECURLY_INSECURE")) && "true".equals(System.getenv("RECURLY_DEBUG"))) {
                 for (int i = 0; i < responseHeaders.size(); i++) {
                     System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
                 }
@@ -168,7 +168,7 @@ public abstract class BaseClient {
                 throw jsonSerializer.deserializeError(responseBody);
             }
 
-            if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
+            if ("true".equals(System.getenv("RECURLY_INSECURE")) && "true".equals(System.getenv("RECURLY_DEBUG"))) {
                 for (int i = 0; i < responseHeaders.size(); i++) {
                     System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
                 }
@@ -228,7 +228,7 @@ public abstract class BaseClient {
 
         final HttpUrl requestUrl = httpBuilder.build();
 
-        if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
+        if ("true".equals(System.getenv("RECURLY_INSECURE")) && "true".equals(System.getenv("RECURLY_DEBUG"))) {
             System.out.println("Performing " + method + " request to " + requestUrl);
         }
 
