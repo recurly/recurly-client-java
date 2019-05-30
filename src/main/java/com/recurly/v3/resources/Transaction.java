@@ -54,7 +54,7 @@ public class Transaction extends Resource {
   private String gatewayResponseCode;
 
   @SerializedName("gateway_response_time")
-  private Integer gatewayResponseTime;
+  private Float gatewayResponseTime;
 
   @SerializedName("gateway_response_values")
   private Map<String, String> gatewayResponseValues;
@@ -162,8 +162,8 @@ public class Transaction extends Resource {
   public String getGatewayResponseCode() { return this.gatewayResponseCode; }
   public void setGatewayResponseCode(final String gatewayResponseCode) { this.gatewayResponseCode = gatewayResponseCode; }
 
-  public Integer getGatewayResponseTime() { return this.gatewayResponseTime; }
-  public void setGatewayResponseTime(final Integer gatewayResponseTime) { this.gatewayResponseTime = gatewayResponseTime; }
+  public Float getGatewayResponseTime() { return this.gatewayResponseTime; }
+  public void setGatewayResponseTime(final Float gatewayResponseTime) { this.gatewayResponseTime = gatewayResponseTime; }
 
   public Map<String, String> getGatewayResponseValues() { return this.gatewayResponseValues; }
   public void setGatewayResponseValues(final Map<String, String> gatewayResponseValues) { this.gatewayResponseValues = gatewayResponseValues; }
