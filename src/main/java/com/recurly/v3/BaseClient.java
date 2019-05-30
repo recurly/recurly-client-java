@@ -129,7 +129,7 @@ public abstract class BaseClient {
 
         try (final Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) {
-                System.out.println(response);
+                throw jsonSerializer.deserializeError(response.body().string());
             }
 
             final Headers responseHeaders = response.headers();
@@ -139,6 +139,19 @@ public abstract class BaseClient {
                     System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
                 }
             }
+
+            String deprecated = responseHeaders.get("Recurly-Deprecated");
+
+            if (deprecated != null && deprecated.toUpperCase() == "TRUE") {
+                String sunset = responseHeaders.get("Recurly-Sunset-Date");
+
+                String warning = "[recurly-client-java] WARNING: Your current API version \"" +
+                                 Client.API_VERSION +
+                                 "\" is deprecated and will be sunset on " + sunset;
+
+                System.out.println(warning);
+            }
+
         } catch (IOException e) {
             throw new NetworkException(e);
         }
