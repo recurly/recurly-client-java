@@ -8,8 +8,8 @@ import java.util.Map;
 
 public class CouponRedemption extends Resource {
 
-  @SerializedName("account_id")
-  private String accountId;
+  @SerializedName("account")
+  private AccountMini account;
 
   @SerializedName("coupon")
   private Coupon coupon;
@@ -39,8 +39,8 @@ public class CouponRedemption extends Resource {
   private DateTime updatedAt;
 
 
-  public String getAccountId() { return this.accountId; }
-  public void setAccountId(final String accountId) { this.accountId = accountId; }
+  public AccountMini getAccount() { return this.account; }
+  public void setAccount(final AccountMini account) { this.account = account; }
 
   public Coupon getCoupon() { return this.coupon; }
   public void setCoupon(final Coupon coupon) { this.coupon = coupon; }

@@ -1,6 +1,9 @@
 package com.recurly.v3;
 
 import com.recurly.v3.Request;
+import com.recurly.v3.ApiException;
+import com.recurly.v3.exception.ExceptionFactory;
+import com.recurly.v3.RecurlyException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
@@ -31,7 +34,13 @@ public class JsonSerializer {
         return gsonDeserializer.fromJson(responseBody, resourceClass);
     }
 
+    public <T extends RecurlyException> T deserializeError(String responseBody) {
+        ApiException apiException = gsonDeserializer.fromJson(responseBody, ApiException.class);
+        return (T) ExceptionFactory.getExceptionClass(apiException);
+    }
+
     public String serialize(Request body) {
         return gsonSerializer.toJson(body);
     }
+
 }
