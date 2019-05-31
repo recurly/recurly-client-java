@@ -37,6 +37,18 @@ public class JsonSerializerTest {
         assertEquals("{\"my_string\":\"aaron\"}", serialized);
     }
 
+    @Test
+    public void testDateDeserialization() {
+        final JsonSerializer jsonSerializer = new JsonSerializer();
+        final DateTimeTestClass dttc = jsonSerializer.deserialize(getDateTimesJson(), DateTimeTestClass.class);
+        checkDateTime(dttc.getDate1());
+        checkDateTime(dttc.getDate2());
+        checkDateTime(dttc.getDate3());
+        checkDateTime(dttc.getDate4());
+        checkDateTime(dttc.getDate5());
+        checkDateTime(dttc.getDate6());
+    }
+
     private static String getMockResourceJson() {
         return "" +
         "{\n" +
@@ -78,6 +90,28 @@ public class JsonSerializerTest {
         "        ]\n" +
         "    }\n" +
         "}";
+    }
+
+    private static String getDateTimesJson() {
+        return "" +
+        "{\n" +
+        "    \"date1\": \"2019-05-31T15:31:24\",\n" +
+        "    \"date2\": \"2019-05-31T15:31:24.0000000\",\n" +
+        "    \"date3\": \"2019-05-31T15:31:24.0000000Z\",\n" +
+        "    \"date4\": \"2019-05-31T15:31:24.0000000-07:00\",\n" +
+        "    \"date5\": \"2019-05-31T15:31:24.099Z\",\n" +
+        "    \"date6\": \"2019-05-31T15:31:24Z\"\n" +
+        "}";
+    }
+
+    private static void checkDateTime(DateTime date) {
+        assertEquals(DateTime.class, date.getClass());
+        assertEquals(2019, date.getYear());
+        assertEquals(5, date.getMonthOfYear());
+        assertEquals(31, date.getDayOfMonth());
+        assertEquals(15, date.getHourOfDay());
+        assertEquals(31, date.getMinuteOfHour());
+        assertEquals(24, date.getSecondOfMinute());
     }
 
     private class MockResource extends Resource {
@@ -188,5 +222,43 @@ public class JsonSerializerTest {
     private class NestedRequest extends Request {
         @SerializedName("my_nested_string")
         private String myNestedString;
+    }
+
+    private class DateTimeTestClass {
+        @SerializedName("date1")
+        private DateTime date1;
+
+        @SerializedName("date2")
+        private DateTime date2;
+
+        @SerializedName("date3")
+        private DateTime date3;
+
+        @SerializedName("date4")
+        private DateTime date4;
+
+        @SerializedName("date5")
+        private DateTime date5;
+
+        @SerializedName("date6")
+        private DateTime date6;
+
+        public DateTime getDate1() { return this.date1; }
+        public void setDate1(final DateTime date1) { this.date1 = date1; }
+
+        public DateTime getDate2() { return this.date2; }
+        public void setDate2(final DateTime date) { this.date2 = date2; }
+
+        public DateTime getDate3() { return this.date3; }
+        public void setDate3(final DateTime date3) { this.date3 = date3; }
+
+        public DateTime getDate4() { return this.date4; }
+        public void setDate4(final DateTime date4) { this.date4 = date4; }
+
+        public DateTime getDate5() { return this.date5; }
+        public void setDate5(final DateTime date5) { this.date5 = date5; }
+
+        public DateTime getDate6() { return this.date6; }
+        public void setDate6(final DateTime date6) { this.date6 = date6; }
     }
 }
