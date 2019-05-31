@@ -43,6 +43,7 @@
                         <exclude>**/v3/requests/*</exclude>
                         <exclude>**/v3/resources/*</exclude>
                         <exclude>**/v3/Client.*</exclude>
+                        <exclude>**/v3/exception/*</exclude>
                     </excludes>
                 </configuration>
                 <executions>

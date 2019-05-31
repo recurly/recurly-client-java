@@ -29,6 +29,7 @@ public class JsonSerializer {
         return gsonDeserializer.fromJson(responseBody, resourceClass);
     }
 
+    @SuppressWarnings("unchecked")
     public <T extends RecurlyException> T deserializeError(String responseBody) {
         ApiException apiException = gsonDeserializer.fromJson(responseBody, ApiException.class);
         return (T) ExceptionFactory.getExceptionClass(apiException);

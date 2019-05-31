@@ -88,16 +88,15 @@ public abstract class BaseClient {
         return httpClientBuilder.build();
     }
 
+    @SuppressWarnings("deprecation")
     private static OkHttpClient.Builder getUnsafeOkHttpClientBuilder() {
         try {
             // Create a trust manager that does not validate certificate chains
             final TrustManager[] trustAllCerts = new TrustManager[] {
                     new X509TrustManager() {
-                        public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {
-                        }
+                        public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException { }
 
-                        public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {
-                        }
+                        public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException { }
                         public java.security.cert.X509Certificate[] getAcceptedIssuers() {
                             return new java.security.cert.X509Certificate[]{};
                         }
@@ -129,7 +128,11 @@ public abstract class BaseClient {
 
         try (final Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) {
-                throw jsonSerializer.deserializeError(response.body().string());
+                String responseString = response.body().string();
+                if ("true".equals(System.getenv("RECURLY_INSECURE")) && "true".equals(System.getenv("RECURLY_DEBUG"))) {
+                    System.out.println(responseString);
+                }
+                throw jsonSerializer.deserializeError(responseString);
             }
 
             final Headers responseHeaders = response.headers();
@@ -261,7 +264,8 @@ public abstract class BaseClient {
                 return requestBuilder.delete().build();
 
             default:
-                throw new RuntimeException("Invalid method (TODO: Make this a v3.resources.Error)");
+                String message = method + " is not a valid Recurly HTTP method";
+                throw new IllegalArgumentException(message);
         }
     }
 

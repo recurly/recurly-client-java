@@ -1,35 +1,114 @@
 package com.recurly.v3;
 
-import com.recurly.v3.http.HeaderInterceptor;
-import com.recurly.v3.resources.*;
-import com.recurly.v3.requests.*;
-import com.recurly.v3.Request;
+import com.recurly.v3.exception.NotFoundException;
+import com.recurly.v3.exception.ValidationException;
+import com.recurly.v3.fixtures.MockClient;
+import com.recurly.v3.fixtures.MyRequest;
+import com.recurly.v3.fixtures.MyResource;
+import okhttp3.Request;
+import okhttp3.*;
+import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Collections;
-import java.lang.reflect.Field;
-
-import okhttp3.OkHttpClient;
-import okhttp3.Response;
-import static org.mockito.Mockito.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.*;
 
+@SuppressWarnings("unchecked")
 public class BaseClientTest {
 
     @Test
-    public void testMakeRequest() {
-        return; // TODO: Fix the below and actually test the makeRequest methods
-        // final OkHttpClient mockOkHttpClient = mock(OkHttpClient.class);
-        // final Request request = new AccountRequest();
-        // when(mockOkHttpClient.newCall(request).execute()).thenReturn(new Response());
+    public void testMakeRequestWithResource() {
+        OkHttpClient mockOkHttpClient = getMockOkHttpClient(true);
 
-        // final MockClient client = new MockClient(siteId, apiKey, mockOkHttpClient);
+        final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+        final MyResource resource = client.getResource("code-aaron");
 
-        // client.getAccount("code-aaron");
+        // TODO: Verify the request made was correct. MockWebServer?
+        assertEquals(MyResource.class, resource.getClass());
+    }
+
+    @Test
+    public void testMakeRequestWithBody() {
+        OkHttpClient mockOkHttpClient = getMockOkHttpClient(true);
+
+        final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+        final MyRequest newResource = new MyRequest();
+        newResource.setMyString("aaron");
+        final MyResource resource = client.createResource(newResource);
+
+        // TODO: Verify the request made was correct. MockWebServer?
+        assertEquals(MyResource.class, resource.getClass());
+        assertEquals("aaron", resource.getMyString());
+    }
+
+    @Test
+    public void testMakeRequestWithoutResource() {
+        OkHttpClient mockOkHttpClient = getMockOkHttpClient(false);
+
+        final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+        client.removeResource("resource-id");
+
+        // TODO: Verify the request made was correct. MockWebServer?
+    }
+
+    @Test
+    public void testNotFoundError() {
+        OkHttpClient mockOkHttpClient = getApiErrorMockOkHttpClient("not_found");
+
+        final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+
+        assertThrows(NotFoundException.class, () -> {
+            client.getResource("code-aaron");
+        });
+    }
+
+    @Test
+    public void testValidationError() {
+        OkHttpClient mockOkHttpClient = getApiErrorMockOkHttpClient("validation");
+
+        final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+
+        assertThrows(ValidationException.class, () -> {
+            client.removeResource("code-aaron");
+        });
+    }
+
+    @Test
+    public void testNetworkError() {
+        OkHttpClient mockOkHttpClient = getNetworkErrorMockOkHttpClient();
+
+        final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+        assertThrows(NetworkException.class, () -> {
+            client.getResource("code-aaron");
+        });
+    }
+
+    @Test
+    public void testNetworkErrorWithoutResource() {
+        OkHttpClient mockOkHttpClient = getNetworkErrorMockOkHttpClient();
+
+        final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+        assertThrows(NetworkException.class, () -> {
+            client.removeResource("code-aaron");
+        });
+    }
+
+    @Test
+    public void testBadMethodError() {
+        OkHttpClient mockOkHttpClient = getNetworkErrorMockOkHttpClient();
+
+        final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            client.badRequestMethod();
+        });
+
     }
 
     @Test
@@ -79,18 +158,6 @@ public class BaseClientTest {
         assertEquals("/sites/siteId/accounts/accountId/notes/noteId", interpolatedPath);
     }
 
-    private class MockClient extends BaseClient {
-        public MockClient(final String siteId, final String apiKey) {
-            super(siteId, apiKey);
-        }
-
-        public MockClient(final String siteId, final String apiKey, final OkHttpClient client) {
-            super(siteId, apiKey, client);
-        }
-
-        public String apiUrl;
-    }
-
     protected static void setEnv(Map<String, String> newenv) throws Exception {
         try {
             Class<?> processEnvironmentClass = Class.forName("java.lang.ProcessEnvironment");
@@ -116,5 +183,83 @@ public class BaseClientTest {
                 }
             }
         }
+    }
+
+    private static OkHttpClient getMockOkHttpClient(Boolean hasResponseBody) {
+        final OkHttpClient mockOkHttpClient = mock(OkHttpClient.class);
+        final Call mCall = mock(Call.class);
+        final Request mRequest = new Request.Builder()
+                .url("https://api.recurly.com")
+                .build();
+
+        final String responseJson = hasResponseBody ? "{ \"my_string\": \"aaron\" }" : "";
+        final Response mResponse = new Response.Builder()
+                .request(mRequest)
+                .protocol(okhttp3.Protocol.HTTP_1_1)
+                .code(200) // status code
+                .message("Created")
+                .body(ResponseBody.create(
+                        MediaType.get("application/json; charset=utf-8"),
+                        responseJson
+                ))
+                .build();
+        when(mockOkHttpClient.newCall(any())).thenReturn(mCall);
+        try {
+            when(mCall.execute()).thenReturn(mResponse);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return mockOkHttpClient;
+    }
+
+    private static OkHttpClient getApiErrorMockOkHttpClient(String exception) {
+        final OkHttpClient mockOkHttpClient = mock(OkHttpClient.class);
+        final Call mCall = mock(Call.class);
+        final Request mRequest = new Request.Builder()
+                .url("https://api.recurly.com")
+                .build();
+
+        final Response mResponse = new Response.Builder()
+                .request(mRequest)
+                .protocol(okhttp3.Protocol.HTTP_1_1)
+                .code(404) // status code
+                .message("Not Found")
+                .body(ResponseBody.create(
+                        MediaType.get("application/json; charset=utf-8"),
+                        getErrorJson(exception)
+                ))
+                .build();
+        when(mockOkHttpClient.newCall(any())).thenReturn(mCall);
+        try {
+            when(mCall.execute()).thenReturn(mResponse);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return mockOkHttpClient;
+    }
+
+    private static OkHttpClient getNetworkErrorMockOkHttpClient() {
+        final OkHttpClient mockOkHttpClient = mock(OkHttpClient.class);
+        final Call mCall = mock(Call.class);
+        when(mockOkHttpClient.newCall(any())).thenReturn(mCall);
+        try {
+            when(mCall.execute()).thenThrow(new IOException());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return mockOkHttpClient;
+    }
+
+    private static String getErrorJson(String exception) {
+        return "" +
+                "{\n" +
+                "    \"error\": {\n" +
+                "       \"type\":" + exception + ",\n" +
+                "       \"message\": \"Resource has an error\",\n" +
+                "       \"params\": [\n" +
+                "           {\"param\":\"some_param\"}\n" +
+                "        ]\n" +
+                "    }\n" +
+                "}";
     }
 }
