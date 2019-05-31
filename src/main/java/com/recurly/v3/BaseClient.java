@@ -79,7 +79,7 @@ public abstract class BaseClient {
             httpClientBuilder.addInterceptor(headerInterceptor);
         }
 
-        if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
+        if ("true".equals(System.getenv("RECURLY_INSECURE")) && "true".equals(System.getenv("RECURLY_DEBUG"))) {
             final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
             httpClientBuilder.addInterceptor(logging);
@@ -129,16 +129,29 @@ public abstract class BaseClient {
 
         try (final Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) {
-                System.out.println(response);
+                throw jsonSerializer.deserializeError(response.body().string());
             }
 
             final Headers responseHeaders = response.headers();
 
-            if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
+            if ("true".equals(System.getenv("RECURLY_INSECURE")) && "true".equals(System.getenv("RECURLY_DEBUG"))) {
                 for (int i = 0; i < responseHeaders.size(); i++) {
                     System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
                 }
             }
+
+            String deprecated = responseHeaders.get("Recurly-Deprecated");
+
+            if (deprecated != null && deprecated.toUpperCase() == "TRUE") {
+                String sunset = responseHeaders.get("Recurly-Sunset-Date");
+
+                String warning = "[recurly-client-java] WARNING: Your current API version \"" +
+                                 Client.API_VERSION +
+                                 "\" is deprecated and will be sunset on " + sunset;
+
+                System.out.println(warning);
+            }
+
         } catch (IOException e) {
             throw new NetworkException(e);
         }
@@ -168,7 +181,7 @@ public abstract class BaseClient {
                 throw jsonSerializer.deserializeError(responseBody);
             }
 
-            if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
+            if ("true".equals(System.getenv("RECURLY_INSECURE")) && "true".equals(System.getenv("RECURLY_DEBUG"))) {
                 for (int i = 0; i < responseHeaders.size(); i++) {
                     System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
                 }
@@ -228,7 +241,7 @@ public abstract class BaseClient {
 
         final HttpUrl requestUrl = httpBuilder.build();
 
-        if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
+        if ("true".equals(System.getenv("RECURLY_INSECURE")) && "true".equals(System.getenv("RECURLY_DEBUG"))) {
             System.out.println("Performing " + method + " request to " + requestUrl);
         }
 
