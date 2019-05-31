@@ -13,17 +13,12 @@ import com.google.gson.JsonParseException;
 import com.fatboyindustrial.gsonjodatime.Converters;
 import java.lang.reflect.Type;
 import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.ISODateTimeFormat;
 
 public class JsonSerializer {
     private class DateDeserializer implements JsonDeserializer<DateTime> {
         @Override
         public DateTime deserialize(JsonElement element, Type arg1, JsonDeserializationContext arg2) throws JsonParseException {
-            final String string = element.getAsString();
-            final DateTimeFormatter formatter = ISODateTimeFormat.dateTimeParser();
-
-            return formatter.parseDateTime(string);
+            return DateTime.parse(element.getAsString());
         }
     }
 
