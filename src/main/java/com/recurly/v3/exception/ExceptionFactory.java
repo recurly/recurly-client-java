@@ -6,6 +6,7 @@ import com.recurly.v3.RecurlyException;
 
 public class ExceptionFactory {
 
+    @SuppressWarnings("unchecked")
     public static <T extends RecurlyException> T getExceptionClass(ApiException apiException) {
         Error e = apiException.getError();
         switch (e.getType()) {
