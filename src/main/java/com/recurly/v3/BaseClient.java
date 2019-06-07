@@ -1,42 +1,22 @@
 package com.recurly.v3;
 
-import com.recurly.v3.Resource;
-import com.recurly.v3.Request;
-import com.recurly.v3.JsonSerializer;
 import com.recurly.v3.http.HeaderInterceptor;
-import com.recurly.v3.resources.Error;
-import com.recurly.v3.ApiException;
-import com.recurly.v3.NetworkException;
-
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.security.cert.CertificateException;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-
-import okhttp3.Credentials;
-import okhttp3.OkHttpClient;
-import okhttp3.Headers;
-import okhttp3.HttpUrl;
-import okhttp3.logging.HttpLoggingInterceptor;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
+import okhttp3.*;
 import okhttp3.Request.Builder;
-import okhttp3.Response;
-
+import okhttp3.logging.HttpLoggingInterceptor;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
+
+import javax.net.ssl.*;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.security.cert.CertificateException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public abstract class BaseClient {
     private static final String API_URL = "https://partner-api.recurly.com/";
@@ -221,7 +201,10 @@ public abstract class BaseClient {
             for (Map.Entry<String, Object> param : queryParams.entrySet()) {
                 final Object value = param.getValue();
                 final String stringValue;
-                if (value instanceof String) {
+
+                if (value == null) {
+                    continue;
+                } else if (value instanceof String) {
                     stringValue = value.toString();
                 } else if (value instanceof DateTime) {
                     final DateTime dt = (DateTime) value;

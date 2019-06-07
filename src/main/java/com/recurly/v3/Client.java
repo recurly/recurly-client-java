@@ -1,17 +1,13 @@
 package com.recurly.v3;
 
-import com.recurly.v3.BaseClient;
+import com.google.gson.reflect.TypeToken;
 import com.recurly.v3.requests.*;
 import com.recurly.v3.resources.*;
-
-import com.google.gson.reflect.TypeToken;
 import okhttp3.OkHttpClient;
+import org.joda.time.DateTime;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
-import java.io.IOException;
-
-import org.joda.time.DateTime;
 
 public class Client extends BaseClient {
   public static final String API_VERSION = "v2018-08-09";
@@ -36,8 +32,8 @@ public class Client extends BaseClient {
     queryParams.put("order", order);
     queryParams.put("sort", sort);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, Site.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Site.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -68,8 +64,8 @@ public class Client extends BaseClient {
     queryParams.put("subscriber", subscriber);
     queryParams.put("past_due", pastDue);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, Account.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Account.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -238,8 +234,8 @@ public class Client extends BaseClient {
     queryParams.put("begin_time", beginTime);
     queryParams.put("end_time", endTime);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, CouponRedemption.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, CouponRedemption.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -295,8 +291,8 @@ public class Client extends BaseClient {
     queryParams.put("begin_time", beginTime);
     queryParams.put("end_time", endTime);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, CreditPayment.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, CreditPayment.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -315,8 +311,8 @@ public class Client extends BaseClient {
     queryParams.put("end_time", endTime);
     queryParams.put("type", type);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -363,8 +359,8 @@ public class Client extends BaseClient {
     queryParams.put("state", state);
     queryParams.put("type", type);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -390,8 +386,8 @@ public class Client extends BaseClient {
     final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     queryParams.put("ids", ids);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, AccountNote.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, AccountNote.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -423,8 +419,8 @@ public class Client extends BaseClient {
     queryParams.put("begin_time", beginTime);
     queryParams.put("end_time", endTime);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, ShippingAddress.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, ShippingAddress.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -497,8 +493,8 @@ public class Client extends BaseClient {
     queryParams.put("end_time", endTime);
     queryParams.put("state", state);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, Subscription.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Subscription.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -518,8 +514,8 @@ public class Client extends BaseClient {
     queryParams.put("type", type);
     queryParams.put("success", success);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, Transaction.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Transaction.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -539,8 +535,8 @@ public class Client extends BaseClient {
     queryParams.put("subscriber", subscriber);
     queryParams.put("past_due", pastDue);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, Account.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Account.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -557,8 +553,8 @@ public class Client extends BaseClient {
     queryParams.put("begin_time", beginTime);
     queryParams.put("end_time", endTime);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, AccountAcquisition.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, AccountAcquisition.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -575,8 +571,8 @@ public class Client extends BaseClient {
     queryParams.put("begin_time", beginTime);
     queryParams.put("end_time", endTime);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, Coupon.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Coupon.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -632,8 +628,8 @@ public class Client extends BaseClient {
     queryParams.put("begin_time", beginTime);
     queryParams.put("end_time", endTime);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, UniqueCouponCode.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, UniqueCouponCode.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -649,8 +645,8 @@ public class Client extends BaseClient {
     queryParams.put("begin_time", beginTime);
     queryParams.put("end_time", endTime);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, CreditPayment.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, CreditPayment.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -680,8 +676,8 @@ public class Client extends BaseClient {
     queryParams.put("begin_time", beginTime);
     queryParams.put("end_time", endTime);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, CustomFieldDefinition.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, CustomFieldDefinition.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -712,8 +708,8 @@ public class Client extends BaseClient {
     queryParams.put("end_time", endTime);
     queryParams.put("type", type);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -812,8 +808,8 @@ public class Client extends BaseClient {
     queryParams.put("state", state);
     queryParams.put("type", type);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -829,8 +825,8 @@ public class Client extends BaseClient {
     queryParams.put("begin_time", beginTime);
     queryParams.put("end_time", endTime);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, CouponRedemption.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, CouponRedemption.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -842,8 +838,8 @@ public class Client extends BaseClient {
     urlParams.put("invoice_id", invoiceId);
     final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
-    return this.makeRequest("GET", path, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -876,8 +872,8 @@ public class Client extends BaseClient {
     queryParams.put("state", state);
     queryParams.put("type", type);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -920,8 +916,8 @@ public class Client extends BaseClient {
     queryParams.put("end_time", endTime);
     queryParams.put("state", state);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, Plan.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Plan.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -991,8 +987,8 @@ public class Client extends BaseClient {
     queryParams.put("end_time", endTime);
     queryParams.put("state", state);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, AddOn.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, AddOn.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -1065,8 +1061,8 @@ public class Client extends BaseClient {
     queryParams.put("end_time", endTime);
     queryParams.put("state", state);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, AddOn.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, AddOn.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -1097,8 +1093,8 @@ public class Client extends BaseClient {
     queryParams.put("end_time", endTime);
     queryParams.put("state", state);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, Subscription.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Subscription.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -1259,8 +1255,8 @@ public class Client extends BaseClient {
     queryParams.put("end_time", endTime);
     queryParams.put("type", type);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -1281,8 +1277,8 @@ public class Client extends BaseClient {
     queryParams.put("state", state);
     queryParams.put("type", type);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -1298,8 +1294,8 @@ public class Client extends BaseClient {
     queryParams.put("begin_time", beginTime);
     queryParams.put("end_time", endTime);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, CouponRedemption.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, CouponRedemption.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
@@ -1318,8 +1314,8 @@ public class Client extends BaseClient {
     queryParams.put("type", type);
     queryParams.put("success", success);
     final String path = this.interpolatePath(url, urlParams);
-    Type returnType = TypeToken.getParameterized(Pager.class, Transaction.class).getType();
-    return this.makeRequest("GET", path, queryParams, returnType);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Transaction.class).getType();
+    return new Pager<>(path, queryParams, this, parameterizedType);
   }
 
   /**
