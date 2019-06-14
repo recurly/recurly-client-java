@@ -22,18 +22,22 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_sites">list_sites api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *
    */
-  public Pager<Site> listSites(String ids, Integer limit, String order, String sort) {
+  public Pager<Site> listSites(QueryParams queryParams) {
     final String url = "/sites"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Site.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -42,7 +46,6 @@ public class Client extends BaseClient {
   public Site getSite() {
     final String url = "/sites/{site_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Site.class;
     return this.makeRequest("GET", path, returnType);
@@ -50,22 +53,26 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_accounts">list_accounts api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "subscriber"
+   *   - "past_due"
+   *
    */
-  public Pager<Account> listAccounts(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String subscriber, String pastDue) {
+  public Pager<Account> listAccounts(QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("subscriber", subscriber);
-    queryParams.put("past_due", pastDue);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Account.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -74,7 +81,6 @@ public class Client extends BaseClient {
   public Account createAccount(AccountCreate body) {
     final String url = "/sites/{site_id}/accounts"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Account.class;
     return this.makeRequest("POST", path, body, returnType);
@@ -87,7 +93,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Account.class;
     return this.makeRequest("GET", path, returnType);
@@ -100,7 +105,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Account.class;
     return this.makeRequest("PUT", path, body, returnType);
@@ -113,7 +117,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Account.class;
     return this.makeRequest("DELETE", path, returnType);
@@ -126,7 +129,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/acquisition"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = AccountAcquisition.class;
     return this.makeRequest("GET", path, returnType);
@@ -139,7 +141,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/acquisition"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = AccountAcquisition.class;
     return this.makeRequest("PUT", path, body, returnType);
@@ -152,7 +153,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/acquisition"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     this.makeRequest("DELETE", path);
   }
@@ -164,7 +164,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/reactivate"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Account.class;
     return this.makeRequest("PUT", path, returnType);
@@ -177,7 +176,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/balance"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = AccountBalance.class;
     return this.makeRequest("GET", path, returnType);
@@ -190,7 +188,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/billing_info"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = BillingInfo.class;
     return this.makeRequest("GET", path, returnType);
@@ -203,7 +200,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/billing_info"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = BillingInfo.class;
     return this.makeRequest("PUT", path, body, returnType);
@@ -216,26 +212,29 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/billing_info"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     this.makeRequest("DELETE", path);
   }
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_coupon_redemptions">list_account_coupon_redemptions api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *
    */
-  public Pager<CouponRedemption> listAccountCouponRedemptions(String accountId, String ids, String sort, DateTime beginTime, DateTime endTime) {
+  public Pager<CouponRedemption> listAccountCouponRedemptions(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, CouponRedemption.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -245,7 +244,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions/active"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = CouponRedemption.class;
     return this.makeRequest("GET", path, returnType);
@@ -258,7 +256,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions/active"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = CouponRedemption.class;
     return this.makeRequest("POST", path, body, returnType);
@@ -271,7 +268,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions/active"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = CouponRedemption.class;
     return this.makeRequest("DELETE", path, returnType);
@@ -279,40 +275,48 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_credit_payments">list_account_credit_payments api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *
    */
-  public Pager<CreditPayment> listAccountCreditPayments(String accountId, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime) {
+  public Pager<CreditPayment> listAccountCreditPayments(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/credit_payments"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, CreditPayment.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_invoices">list_account_invoices api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "type"
+   *
    */
-  public Pager<Invoice> listAccountInvoices(String accountId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String type) {
+  public Pager<Invoice> listAccountInvoices(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/invoices"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("type", type);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -322,7 +326,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/invoices"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = InvoiceCollection.class;
     return this.makeRequest("POST", path, body, returnType);
@@ -335,7 +338,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/invoices/preview"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = InvoiceCollection.class;
     return this.makeRequest("POST", path, body, returnType);
@@ -343,24 +345,28 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_line_items">list_account_line_items api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "original"
+   *   - "state"
+   *   - "type"
+   *
    */
-  public Pager<LineItem> listAccountLineItems(String accountId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String original, String state, String type) {
+  public Pager<LineItem> listAccountLineItems(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/line_items"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("original", original);
-    queryParams.put("state", state);
-    queryParams.put("type", type);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -370,7 +376,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/line_items"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = LineItem.class;
     return this.makeRequest("POST", path, body, returnType);
@@ -378,16 +383,20 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_notes">list_account_notes api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *
    */
-  public Pager<AccountNote> listAccountNotes(String accountId, String ids) {
+  public Pager<AccountNote> listAccountNotes(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/notes"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, AccountNote.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -398,7 +407,6 @@ public class Client extends BaseClient {
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     urlParams.put("account_note_id", accountNoteId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = AccountNote.class;
     return this.makeRequest("GET", path, returnType);
@@ -406,21 +414,25 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_shipping_addresses">list_shipping_addresses api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *
    */
-  public Pager<ShippingAddress> listShippingAddresses(String accountId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime) {
+  public Pager<ShippingAddress> listShippingAddresses(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/shipping_addresses"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, ShippingAddress.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -430,7 +442,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/accounts/{account_id}/shipping_addresses"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = ShippingAddress.class;
     return this.makeRequest("POST", path, body, returnType);
@@ -444,7 +455,6 @@ public class Client extends BaseClient {
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     urlParams.put("shipping_address_id", shippingAddressId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = ShippingAddress.class;
     return this.makeRequest("GET", path, returnType);
@@ -458,7 +468,6 @@ public class Client extends BaseClient {
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     urlParams.put("shipping_address_id", shippingAddressId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = ShippingAddress.class;
     return this.makeRequest("PUT", path, body, returnType);
@@ -472,107 +481,126 @@ public class Client extends BaseClient {
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     urlParams.put("shipping_address_id", shippingAddressId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     this.makeRequest("DELETE", path);
   }
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_subscriptions">list_account_subscriptions api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "state"
+   *
    */
-  public Pager<Subscription> listAccountSubscriptions(String accountId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String state) {
+  public Pager<Subscription> listAccountSubscriptions(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/subscriptions"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("state", state);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Subscription.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_transactions">list_account_transactions api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "type"
+   *   - "success"
+   *
    */
-  public Pager<Transaction> listAccountTransactions(String accountId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String type, String success) {
+  public Pager<Transaction> listAccountTransactions(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/transactions"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("type", type);
-    queryParams.put("success", success);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Transaction.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_child_accounts">list_child_accounts api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "subscriber"
+   *   - "past_due"
+   *
    */
-  public Pager<Account> listChildAccounts(String accountId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String subscriber, String pastDue) {
+  public Pager<Account> listChildAccounts(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/accounts"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("subscriber", subscriber);
-    queryParams.put("past_due", pastDue);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Account.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_acquisition">list_account_acquisition api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *
    */
-  public Pager<AccountAcquisition> listAccountAcquisition(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime) {
+  public Pager<AccountAcquisition> listAccountAcquisition(QueryParams queryParams) {
     final String url = "/sites/{site_id}/acquisitions"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, AccountAcquisition.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_coupons">list_coupons api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *
    */
-  public Pager<Coupon> listCoupons(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime) {
+  public Pager<Coupon> listCoupons(QueryParams queryParams) {
     final String url = "/sites/{site_id}/coupons"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Coupon.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -581,7 +609,6 @@ public class Client extends BaseClient {
   public Coupon createCoupon(CouponCreate body) {
     final String url = "/sites/{site_id}/coupons"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Coupon.class;
     return this.makeRequest("POST", path, body, returnType);
@@ -594,7 +621,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/coupons/{coupon_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("coupon_id", couponId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Coupon.class;
     return this.makeRequest("GET", path, returnType);
@@ -607,7 +633,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/coupons/{coupon_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("coupon_id", couponId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Coupon.class;
     return this.makeRequest("PUT", path, body, returnType);
@@ -615,38 +640,46 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_unique_coupon_codes">list_unique_coupon_codes api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *
    */
-  public Pager<UniqueCouponCode> listUniqueCouponCodes(String couponId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime) {
+  public Pager<UniqueCouponCode> listUniqueCouponCodes(String couponId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/coupons/{coupon_id}/unique_coupon_codes"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("coupon_id", couponId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, UniqueCouponCode.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_credit_payments">list_credit_payments api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *
    */
-  public Pager<CreditPayment> listCreditPayments(Integer limit, String order, String sort, DateTime beginTime, DateTime endTime) {
+  public Pager<CreditPayment> listCreditPayments(QueryParams queryParams) {
     final String url = "/sites/{site_id}/credit_payments"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, CreditPayment.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -656,7 +689,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/credit_payments/{credit_payment_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("credit_payment_id", creditPaymentId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = CreditPayment.class;
     return this.makeRequest("GET", path, returnType);
@@ -664,20 +696,24 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_custom_field_definitions">list_custom_field_definitions api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *
    */
-  public Pager<CustomFieldDefinition> listCustomFieldDefinitions(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime) {
+  public Pager<CustomFieldDefinition> listCustomFieldDefinitions(QueryParams queryParams) {
     final String url = "/sites/{site_id}/custom_field_definitions"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, CustomFieldDefinition.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -687,7 +723,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/custom_field_definitions/{custom_field_definition_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("custom_field_definition_id", customFieldDefinitionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = CustomFieldDefinition.class;
     return this.makeRequest("GET", path, returnType);
@@ -695,21 +730,25 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_invoices">list_invoices api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "type"
+   *
    */
-  public Pager<Invoice> listInvoices(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String type) {
+  public Pager<Invoice> listInvoices(QueryParams queryParams) {
     final String url = "/sites/{site_id}/invoices"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("type", type);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -719,7 +758,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/invoices/{invoice_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Invoice.class;
     return this.makeRequest("GET", path, returnType);
@@ -732,7 +770,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/invoices/{invoice_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Invoice.class;
     return this.makeRequest("PUT", path, body, returnType);
@@ -745,7 +782,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/collect"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Invoice.class;
     return this.makeRequest("PUT", path, returnType);
@@ -758,7 +794,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/mark_failed"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Invoice.class;
     return this.makeRequest("PUT", path, returnType);
@@ -771,7 +806,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/mark_successful"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Invoice.class;
     return this.makeRequest("PUT", path, returnType);
@@ -784,7 +818,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/reopen"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Invoice.class;
     return this.makeRequest("PUT", path, returnType);
@@ -792,41 +825,49 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_invoice_line_items">list_invoice_line_items api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "original"
+   *   - "state"
+   *   - "type"
+   *
    */
-  public Pager<LineItem> listInvoiceLineItems(String invoiceId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String original, String state, String type) {
+  public Pager<LineItem> listInvoiceLineItems(String invoiceId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/line_items"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("original", original);
-    queryParams.put("state", state);
-    queryParams.put("type", type);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_invoice_coupon_redemptions">list_invoice_coupon_redemptions api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *
    */
-  public Pager<CouponRedemption> listInvoiceCouponRedemptions(String invoiceId, String ids, String sort, DateTime beginTime, DateTime endTime) {
+  public Pager<CouponRedemption> listInvoiceCouponRedemptions(String invoiceId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/coupon_redemptions"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, CouponRedemption.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -836,10 +877,9 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/related_invoices"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, null, this, parameterizedType);
   }
 
   /**
@@ -849,7 +889,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/refund"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Invoice.class;
     return this.makeRequest("POST", path, body, returnType);
@@ -857,23 +896,27 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_line_items">list_line_items api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "original"
+   *   - "state"
+   *   - "type"
+   *
    */
-  public Pager<LineItem> listLineItems(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String original, String state, String type) {
+  public Pager<LineItem> listLineItems(QueryParams queryParams) {
     final String url = "/sites/{site_id}/line_items"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("original", original);
-    queryParams.put("state", state);
-    queryParams.put("type", type);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -883,7 +926,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/line_items/{line_item_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("line_item_id", lineItemId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = LineItem.class;
     return this.makeRequest("GET", path, returnType);
@@ -896,28 +938,31 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/line_items/{line_item_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("line_item_id", lineItemId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     this.makeRequest("DELETE", path);
   }
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_plans">list_plans api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "state"
+   *
    */
-  public Pager<Plan> listPlans(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String state) {
+  public Pager<Plan> listPlans(QueryParams queryParams) {
     final String url = "/sites/{site_id}/plans"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("state", state);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Plan.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -926,7 +971,6 @@ public class Client extends BaseClient {
   public Plan createPlan(PlanCreate body) {
     final String url = "/sites/{site_id}/plans"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Plan.class;
     return this.makeRequest("POST", path, body, returnType);
@@ -939,7 +983,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/plans/{plan_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Plan.class;
     return this.makeRequest("GET", path, returnType);
@@ -952,7 +995,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/plans/{plan_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Plan.class;
     return this.makeRequest("PUT", path, body, returnType);
@@ -965,7 +1007,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/plans/{plan_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Plan.class;
     return this.makeRequest("DELETE", path, returnType);
@@ -973,22 +1014,26 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_plan_add_ons">list_plan_add_ons api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "state"
+   *
    */
-  public Pager<AddOn> listPlanAddOns(String planId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String state) {
+  public Pager<AddOn> listPlanAddOns(String planId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/plans/{plan_id}/add_ons"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("state", state);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, AddOn.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -998,7 +1043,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/plans/{plan_id}/add_ons"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = AddOn.class;
     return this.makeRequest("POST", path, body, returnType);
@@ -1012,7 +1056,6 @@ public class Client extends BaseClient {
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
     urlParams.put("add_on_id", addOnId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = AddOn.class;
     return this.makeRequest("GET", path, returnType);
@@ -1026,7 +1069,6 @@ public class Client extends BaseClient {
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
     urlParams.put("add_on_id", addOnId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = AddOn.class;
     return this.makeRequest("PUT", path, body, returnType);
@@ -1040,7 +1082,6 @@ public class Client extends BaseClient {
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
     urlParams.put("add_on_id", addOnId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = AddOn.class;
     return this.makeRequest("DELETE", path, returnType);
@@ -1048,21 +1089,25 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_add_ons">list_add_ons api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "state"
+   *
    */
-  public Pager<AddOn> listAddOns(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String state) {
+  public Pager<AddOn> listAddOns(QueryParams queryParams) {
     final String url = "/sites/{site_id}/add_ons"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("state", state);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, AddOn.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -1072,7 +1117,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/add_ons/{add_on_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("add_on_id", addOnId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = AddOn.class;
     return this.makeRequest("GET", path, returnType);
@@ -1080,21 +1124,25 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_subscriptions">list_subscriptions api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "state"
+   *
    */
-  public Pager<Subscription> listSubscriptions(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String state) {
+  public Pager<Subscription> listSubscriptions(QueryParams queryParams) {
     final String url = "/sites/{site_id}/subscriptions"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("state", state);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Subscription.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -1103,7 +1151,6 @@ public class Client extends BaseClient {
   public Subscription createSubscription(SubscriptionCreate body) {
     final String url = "/sites/{site_id}/subscriptions"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Subscription.class;
     return this.makeRequest("POST", path, body, returnType);
@@ -1116,7 +1163,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Subscription.class;
     return this.makeRequest("GET", path, returnType);
@@ -1129,7 +1175,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Subscription.class;
     return this.makeRequest("PUT", path, body, returnType);
@@ -1137,16 +1182,20 @@ public class Client extends BaseClient {
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/terminate_subscription">terminate_subscription api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "refund"
+   *
    */
-  public Subscription terminateSubscription(String subscriptionId, String refund) {
+  public Subscription terminateSubscription(String subscriptionId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("refund", refund);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Subscription.class;
-    return this.makeRequest("DELETE", path, queryParams, returnType);
+    return this.makeRequest("DELETE", path, paramsMap, returnType);
   }
 
   /**
@@ -1156,7 +1205,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/cancel"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Subscription.class;
     return this.makeRequest("PUT", path, returnType);
@@ -1169,7 +1217,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/reactivate"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Subscription.class;
     return this.makeRequest("PUT", path, returnType);
@@ -1182,7 +1229,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/pause"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Subscription.class;
     return this.makeRequest("PUT", path, body, returnType);
@@ -1195,7 +1241,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/resume"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Subscription.class;
     return this.makeRequest("PUT", path, returnType);
@@ -1208,7 +1253,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/change"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = SubscriptionChange.class;
     return this.makeRequest("GET", path, returnType);
@@ -1221,7 +1265,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/change"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = SubscriptionChange.class;
     return this.makeRequest("POST", path, body, returnType);
@@ -1234,88 +1277,103 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/change"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     this.makeRequest("DELETE", path);
   }
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_subscription_invoices">list_subscription_invoices api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "type"
+   *
    */
-  public Pager<Invoice> listSubscriptionInvoices(String subscriptionId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String type) {
+  public Pager<Invoice> listSubscriptionInvoices(String subscriptionId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/invoices"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("type", type);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_subscription_line_items">list_subscription_line_items api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "original"
+   *   - "state"
+   *   - "type"
+   *
    */
-  public Pager<LineItem> listSubscriptionLineItems(String subscriptionId, String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String original, String state, String type) {
+  public Pager<LineItem> listSubscriptionLineItems(String subscriptionId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/line_items"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("original", original);
-    queryParams.put("state", state);
-    queryParams.put("type", type);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_subscription_coupon_redemptions">list_subscription_coupon_redemptions api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *
    */
-  public Pager<CouponRedemption> listSubscriptionCouponRedemptions(String subscriptionId, String ids, String sort, DateTime beginTime, DateTime endTime) {
+  public Pager<CouponRedemption> listSubscriptionCouponRedemptions(String subscriptionId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/coupon_redemptions"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, CouponRedemption.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_transactions">list_transactions api documentation</a>
+   *
+   * The QueryParam options available for this method are:
+   *   - "ids"
+   *   - "limit"
+   *   - "order"
+   *   - "sort"
+   *   - "begin_time"
+   *   - "end_time"
+   *   - "type"
+   *   - "success"
+   *
    */
-  public Pager<Transaction> listTransactions(String ids, Integer limit, String order, String sort, DateTime beginTime, DateTime endTime, String type, String success) {
+  public Pager<Transaction> listTransactions(QueryParams queryParams) {
     final String url = "/sites/{site_id}/transactions"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
-    queryParams.put("ids", ids);
-    queryParams.put("limit", limit);
-    queryParams.put("order", order);
-    queryParams.put("sort", sort);
-    queryParams.put("begin_time", beginTime);
-    queryParams.put("end_time", endTime);
-    queryParams.put("type", type);
-    queryParams.put("success", success);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Transaction.class).getType();
-    return new Pager<>(path, queryParams, this, parameterizedType);
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -1325,7 +1383,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/transactions/{transaction_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("transaction_id", transactionId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Transaction.class;
     return this.makeRequest("GET", path, returnType);
@@ -1338,7 +1395,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/unique_coupon_codes/{unique_coupon_code_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("unique_coupon_code_id", uniqueCouponCodeId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = UniqueCouponCode.class;
     return this.makeRequest("GET", path, returnType);
@@ -1351,7 +1407,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/unique_coupon_codes/{unique_coupon_code_id}"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("unique_coupon_code_id", uniqueCouponCodeId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = UniqueCouponCode.class;
     return this.makeRequest("DELETE", path, returnType);
@@ -1364,7 +1419,6 @@ public class Client extends BaseClient {
     final String url = "/sites/{site_id}/unique_coupon_codes/{unique_coupon_code_id}/restore"; 
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("unique_coupon_code_id", uniqueCouponCodeId);
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = UniqueCouponCode.class;
     return this.makeRequest("PUT", path, returnType);
