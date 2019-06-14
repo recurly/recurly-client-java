@@ -1,87 +1,161 @@
 # Recurly
 
-This library is the Java client to the v3, aka API next, aka PAPI, version of Recurly's API. Parts of this gem are generated
-by the `recurly-client-gen` project.
+This library is the Java client for Recurly's V3 API (or "partner api"). It's currently Beta software
+and is not yet an official release. Documentation for the API can be [found here](https://partner-docs.recurly.com).
 
 ## Getting Started
 
-Read this before starting to get an overview of how to use this library.
-
 ### Creating a client
 
-Client instances are now explicitly created and managed as opposed to the previous approach of opaque, statically
-initialized clients. This makes multithreaded environments a lot easier and also provides one place where every
-operation on recurly can be found (rather than having them spread out amongst classes).
-
-`ClientBuilder.build` initializes a new client. It requires an API key:
+Client instances provide one place where every operation on the Recurly API can be found (rather than
+having them spread out amongst classes). A new client can be initialized with its constructor. It requires
+a site id (or subdomain) and an API key:
 
 ```java
-final Client client = ClientBuilder.build("83749879bbde395b5fe0cc1a5abf8e5");
+import com.recurly.v3.Client;
+
+String apiKey = "83749879bbde395b5fe0cc1a5abf8e5";
+String subdomain = "mysubdomain";
+String siteId = "subdomain-" + subdomain;
+// You could also use the site's reference id
+// String siteId = "dqzlv9shi7wa";
+
+final Client client = new Client(siteId, apiKey);
+final Subscription sub = client.getSubscription("uuid-abcd123456");
 ```
 
-### Examples (more docs to come)
+### Operations
 
+Every operation that can be performed against the API has a corresponding method in the `Client` class.
+
+### Pagination
+
+Pagination is accomplished using the `Pager<>` object. A pager is created by the `list*` operations of the client.
+`Pager` implements [`Iterable`](https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html), so it exposes
+a `forEach` method and can be used with enhanced for loops and lambdas:
 
 ```java
-final Client client = ClientBuilder.build("83749879bbde395b5fe0cc1a5abf8e5");
+Pager<Account> accounts = client.listAccounts(new QueryParams());
 
-// Here is an example of async call
-service.getSite("subdomain-ben").enqueue(new Callback<Site>() {
-    public void onResponse(Call<Site> call, Response<Site> response) {
-        System.out.println("Response Code: " + response.code());
-        System.out.println("Body: "+ response.raw());
-        Site site = response.body();
-        System.out.println("Site id: " + site.getId());
-        System.out.println("Site subdomain: " + site.getSubdomain());
-        System.out.println("Site createdAt: " + site.getCreatedAt());
-        System.out.println("Site updatedAt: " + site.getCreatedAt());
-        System.out.println("Site address.country: " + site.getAddress().getCountry());
-    }
-    public void onFailure(Call<Site> call, Throwable throwable) {
-        System.out.println(throwable.getMessage());
-    }
-});
-
-try {
-    // Here is an example of creating something with a request class
-    final CreateAccount accountRequest = new CreateAccount();
-    accountRequest.setCode("benjamin.dumonde1234567@example.com");
-    accountRequest.setFirstName("benjamin");
-    accountRequest.setLastName("derp");
-
-    final Address address = new Address();
-    address.setCity("New Orleans");
-    address.setStreet1("123 Main St");
-    address.setCountry("US");
-    address.setRegion("LA");
-
-    accountRequest.setAddress(address);
-
-    // here is an example of a synchronous call
-    Response<Account> response = client.createAccount("subdomain-ben", accountRequest).execute();
-    final Account newAccount = response.body();
-    System.out.println("Account id: "+newAccount.getId());
-    System.out.println("Account created: "+newAccount.getCreatedAt());
-    System.out.println("Account updated: "+newAccount.getUpdatedAt());
-    System.out.println("Account address street: "+newAccount.getAddress().getStreet1());
-    System.out.println("Account address city: "+newAccount.getAddress().getCity());
-    System.out.println("Account address region: "+newAccount.getAddress().getRegion());
-    System.out.println("Account address country: "+newAccount.getAddress().getCountry());
-} catch (IOException e) {
-    e.printStackTrace();
+// For loop
+for (Account account : accounts) {
+    System.out.println(account.getCode());
 }
 
-// Here is an example of pagination
-service.getSites().enqueue(new Callback<Pager<Site>>() {
-    public void onResponse(Call<Pager<Site>> call, Response<Pager<Site>> response) {
-        Pager<Site> sites = response.body();
-        // You can use normal Java Iterable form
-        for (Site site : sites) {
-            System.out.println("Site: " + site.getId());
-        }
-    }
-    public void onFailure(Call<Pager<Site>> call, Throwable throwable) {
-        System.out.println(throwable.getMessage());
-    }
-});
+// Lambda
+accounts.forEach(account -> System.out.println(account.getCode()));
 ```
+
+Note that the `Pager` implementation of `forEach` fetches the next page automatically. For more control over the
+fetching of the next page, it is possible to use the `getNextPage()` and `hasMore()` methods directly. In order
+to work with the `List` of data directly, it is accessible via the `getData()` method. We recommend using this
+interface for writing scripts that iterate over many pages. This allows you to catch exceptions and safely retry
+without double processing or missing some elements:
+
+```java
+Pager<Account> accounts = client.listAccounts(new QueryParams());
+
+while (accounts.hasMore()) {
+    for (Account acct : accounts.getData()) {
+        System.out.println(acct.getCode());
+    }
+    System.out.println("Fetching next page...");
+    accounts = accounts.getNextPage();
+}
+```
+
+### Creating Resources
+
+Every `create*` and `update*` method on the client takes a `Request` object that forms the request. This allows you
+to create requests in a type-safe manner. Request types are not necessarily 1-to-1 mappings of response types.
+
+```java
+import com.recurly.v3.requests.AccountCreate;
+import com.recurly.v3.requests.Address;
+import com.recurly.v3.resources.Account;
+
+final AccountCreate accountReq = new AccountCreate();
+final Address address = new Address();
+
+accountReq.setCode("myaccountcode");
+accountReq.setFirstName("Aaron");
+accountReq.setLastName("Du Monde");
+
+address.setStreet1("900 Camp St.");
+address.setCity("New Orleans");
+address.setRegion("LA");
+address.setCountry("US");
+address.setPostalCode("70115");
+
+accountReq.setAddress(address);
+
+// createAccount takes an AccountCreate object and returns an Account object
+final Account account = client.createAccount(accountReq);
+System.out.println(account.getAddress().getCity()); // New Orleans
+```
+
+### Error Handling
+
+This library throws two types of unchecked exceptions. They both subclass from `RecurlyException`:
+
+1. `ApiException`
+2. `NetworkException`
+
+`ApiException` is thrown when the Recurly API responds with an error. Each endpoint in the reference documentation describes
+the types of errors it may return. These errors generally mean that something was wrong with the request. There are a number
+of subclasses to `ApiException` which are derived from the error responses `type` json key. A common scenario might be
+a `ValidationException`:
+
+```java
+import com.recurly.v3.requests.AccountCreate;
+import com.recurly.v3.exception.ValidationException;
+import com.recurly.v3.ApiException;
+
+try {
+    final AccountCreate accountReq = new AccountCreate();
+    accountReq.setCode("myaccountcode");
+
+    final Account account = client.createAccount(accountReq);
+} catch (ValidationException e) {
+    // Here we have a validation error and might want to
+    // pass this information back to the user to fix
+    System.out.println("Validation Error: " + e.getError().getMessage());
+} catch (ApiException e) {
+    // Use the base ApiException to catch a generic error from the API
+    System.out.println("Unexpected Recurly Error: " + e.getError().getMessage());
+}
+```
+
+`NetworkException`s don't come from Recurly's servers, but instead are triggered by some problem related to the network.
+Depending on the context, you can often automatically retry these calls. GETs are always safe to retry but be careful
+about automatically re-trying any other call that might mutate state on the server side as we cannot guarantee that it
+will not be executed twice.
+
+```java
+import com.recurly.v3.resources.Account;
+import com.recurly.v3.NetworkException;
+
+try {
+    final Account account = client.getAccount("code-myaccountcode");
+} catch (NetworkException e) {
+    // You may want to find out the root cause
+    System.out.println(e.getCause().getCause());
+} 
+```
+## Development
+
+### Testing
+The tests can be found in `src/test`. To run the tests, use the test script. This will run the tests as well as the
+code coverage reporter.
+
+```bash
+./scripts/test
+```
+
+## Support
+
+Looking for help? Please contact [support@recurly.com](mailto:support@recurly.com) or visit
+[support.recurly.com](https://support.recurly.com).
+
+It's also acceptable to post a question, problem, or request as a GitHub issue on this repository and the developers
+will try to get back to you in a timely manner.
