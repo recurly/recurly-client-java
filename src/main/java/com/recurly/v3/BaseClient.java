@@ -22,9 +22,7 @@ public abstract class BaseClient {
     private static final String API_URL = "https://partner-api.recurly.com/";
     private static final DateTimeFormatter DT_FORMATTER = ISODateTimeFormat.dateTimeParser();
 
-    //private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
-    // TODO will want to use safe ^ version by default
-    private static final OkHttpClient.Builder httpClientBuilder = getUnsafeOkHttpClientBuilder();
+    private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
     private static final JsonSerializer jsonSerializer = new JsonSerializer();
     private final String apiKey;
     private final String siteId;
@@ -66,41 +64,6 @@ public abstract class BaseClient {
         }
 
         return httpClientBuilder.build();
-    }
-
-    @SuppressWarnings("deprecation")
-    private static OkHttpClient.Builder getUnsafeOkHttpClientBuilder() {
-        try {
-            // Create a trust manager that does not validate certificate chains
-            final TrustManager[] trustAllCerts = new TrustManager[] {
-                    new X509TrustManager() {
-                        public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException { }
-
-                        public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException { }
-                        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                            return new java.security.cert.X509Certificate[]{};
-                        }
-                    }
-            };
-
-            // Install the all-trusting trust manager
-            final SSLContext sslContext = SSLContext.getInstance("SSL");
-            sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
-            // Create an ssl socket factory with our all-trusting manager
-            final SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
-
-            final OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            builder.sslSocketFactory(sslSocketFactory);
-            builder.hostnameVerifier(new HostnameVerifier() {
-                public boolean verify(final String hostname, final SSLSession session) {
-                    return true;
-                }
-            });
-
-            return builder;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
     }
 
     protected void makeRequest(final String method, final String url) {
