@@ -15,7 +15,7 @@ public class CouponDiscount extends Resource {
   private Integer percent;
 
   @SerializedName("trial")
-  private Map<String, String> trial;
+  private CouponDiscountTrial trial;
 
   @SerializedName("type")
   private String type;
@@ -27,8 +27,8 @@ public class CouponDiscount extends Resource {
   public Integer getPercent() { return this.percent; }
   public void setPercent(final Integer percent) { this.percent = percent; }
 
-  public Map<String, String> getTrial() { return this.trial; }
-  public void setTrial(final Map<String, String> trial) { this.trial = trial; }
+  public CouponDiscountTrial getTrial() { return this.trial; }
+  public void setTrial(final CouponDiscountTrial trial) { this.trial = trial; }
 
   public String getType() { return this.type; }
   public void setType(final String type) { this.type = type; }

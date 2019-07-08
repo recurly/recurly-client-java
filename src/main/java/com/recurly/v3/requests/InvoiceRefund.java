@@ -16,7 +16,7 @@ public class InvoiceRefund extends Request {
   private String creditCustomerNotes;
 
   @SerializedName("external_refund")
-  private Map<String, String> externalRefund;
+  private ExternalRefund externalRefund;
 
   @SerializedName("line_items")
   private List<LineItemRefund> lineItems;
@@ -34,8 +34,8 @@ public class InvoiceRefund extends Request {
   public String getCreditCustomerNotes() { return this.creditCustomerNotes; }
   public void setCreditCustomerNotes(final String creditCustomerNotes) { this.creditCustomerNotes = creditCustomerNotes; }
 
-  public Map<String, String> getExternalRefund() { return this.externalRefund; }
-  public void setExternalRefund(final Map<String, String> externalRefund) { this.externalRefund = externalRefund; }
+  public ExternalRefund getExternalRefund() { return this.externalRefund; }
+  public void setExternalRefund(final ExternalRefund externalRefund) { this.externalRefund = externalRefund; }
 
   public List<LineItemRefund> getLineItems() { return this.lineItems; }
   public void setLineItems(final List<LineItemRefund> lineItems) { this.lineItems = lineItems; }

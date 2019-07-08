@@ -24,7 +24,7 @@ public class BillingInfo extends Resource {
   private String firstName;
 
   @SerializedName("fraud")
-  private Map<String, String> fraud;
+  private FraudInfo fraud;
 
   @SerializedName("id")
   private String id;
@@ -36,13 +36,13 @@ public class BillingInfo extends Resource {
   private String object;
 
   @SerializedName("payment_method")
-  private Map<String, String> paymentMethod;
+  private BillingInfoPaymentMethod paymentMethod;
 
   @SerializedName("updated_at")
   private DateTime updatedAt;
 
   @SerializedName("updated_by")
-  private Map<String, String> updatedBy;
+  private BillingInfoUpdatedBy updatedBy;
 
   @SerializedName("valid")
   private Boolean valid;
@@ -66,8 +66,8 @@ public class BillingInfo extends Resource {
   public String getFirstName() { return this.firstName; }
   public void setFirstName(final String firstName) { this.firstName = firstName; }
 
-  public Map<String, String> getFraud() { return this.fraud; }
-  public void setFraud(final Map<String, String> fraud) { this.fraud = fraud; }
+  public FraudInfo getFraud() { return this.fraud; }
+  public void setFraud(final FraudInfo fraud) { this.fraud = fraud; }
 
   public String getId() { return this.id; }
   public void setId(final String id) { this.id = id; }
@@ -78,14 +78,14 @@ public class BillingInfo extends Resource {
   public String getObject() { return this.object; }
   public void setObject(final String object) { this.object = object; }
 
-  public Map<String, String> getPaymentMethod() { return this.paymentMethod; }
-  public void setPaymentMethod(final Map<String, String> paymentMethod) { this.paymentMethod = paymentMethod; }
+  public BillingInfoPaymentMethod getPaymentMethod() { return this.paymentMethod; }
+  public void setPaymentMethod(final BillingInfoPaymentMethod paymentMethod) { this.paymentMethod = paymentMethod; }
 
   public DateTime getUpdatedAt() { return this.updatedAt; }
   public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
 
-  public Map<String, String> getUpdatedBy() { return this.updatedBy; }
-  public void setUpdatedBy(final Map<String, String> updatedBy) { this.updatedBy = updatedBy; }
+  public BillingInfoUpdatedBy getUpdatedBy() { return this.updatedBy; }
+  public void setUpdatedBy(final BillingInfoUpdatedBy updatedBy) { this.updatedBy = updatedBy; }
 
   public Boolean getValid() { return this.valid; }
   public void setValid(final Boolean valid) { this.valid = valid; }

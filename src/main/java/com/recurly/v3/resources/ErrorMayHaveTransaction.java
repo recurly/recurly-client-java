@@ -15,7 +15,7 @@ public class ErrorMayHaveTransaction extends Resource {
   private List<Map> params;
 
   @SerializedName("transaction_error")
-  private Map<String, String> transactionError;
+  private TransactionError transactionError;
 
   @SerializedName("type")
   private String type;
@@ -27,8 +27,8 @@ public class ErrorMayHaveTransaction extends Resource {
   public List<Map> getParams() { return this.params; }
   public void setParams(final List<Map> params) { this.params = params; }
 
-  public Map<String, String> getTransactionError() { return this.transactionError; }
-  public void setTransactionError(final Map<String, String> transactionError) { this.transactionError = transactionError; }
+  public TransactionError getTransactionError() { return this.transactionError; }
+  public void setTransactionError(final TransactionError transactionError) { this.transactionError = transactionError; }
 
   public String getType() { return this.type; }
   public void setType(final String type) { this.type = type; }

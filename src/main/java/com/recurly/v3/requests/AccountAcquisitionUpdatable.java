@@ -16,7 +16,7 @@ public class AccountAcquisitionUpdatable extends Request {
   private String channel;
 
   @SerializedName("cost")
-  private Map<String, String> cost;
+  private AccountAcquisitionCost cost;
 
   @SerializedName("subchannel")
   private String subchannel;
@@ -28,8 +28,8 @@ public class AccountAcquisitionUpdatable extends Request {
   public String getChannel() { return this.channel; }
   public void setChannel(final String channel) { this.channel = channel; }
 
-  public Map<String, String> getCost() { return this.cost; }
-  public void setCost(final Map<String, String> cost) { this.cost = cost; }
+  public AccountAcquisitionCost getCost() { return this.cost; }
+  public void setCost(final AccountAcquisitionCost cost) { this.cost = cost; }
 
   public String getSubchannel() { return this.subchannel; }
   public void setSubchannel(final String subchannel) { this.subchannel = subchannel; }
