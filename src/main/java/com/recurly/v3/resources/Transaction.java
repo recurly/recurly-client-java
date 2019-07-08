@@ -81,10 +81,10 @@ public class Transaction extends Resource {
   private String originalTransactionId;
 
   @SerializedName("payment_gateway")
-  private Map<String, String> paymentGateway;
+  private TransactionPaymentGateway paymentGateway;
 
   @SerializedName("payment_method")
-  private Map<String, String> paymentMethod;
+  private TransactionPaymentMethod paymentMethod;
 
   @SerializedName("refunded")
   private Boolean refunded;
@@ -189,11 +189,11 @@ public class Transaction extends Resource {
   public String getOriginalTransactionId() { return this.originalTransactionId; }
   public void setOriginalTransactionId(final String originalTransactionId) { this.originalTransactionId = originalTransactionId; }
 
-  public Map<String, String> getPaymentGateway() { return this.paymentGateway; }
-  public void setPaymentGateway(final Map<String, String> paymentGateway) { this.paymentGateway = paymentGateway; }
+  public TransactionPaymentGateway getPaymentGateway() { return this.paymentGateway; }
+  public void setPaymentGateway(final TransactionPaymentGateway paymentGateway) { this.paymentGateway = paymentGateway; }
 
-  public Map<String, String> getPaymentMethod() { return this.paymentMethod; }
-  public void setPaymentMethod(final Map<String, String> paymentMethod) { this.paymentMethod = paymentMethod; }
+  public TransactionPaymentMethod getPaymentMethod() { return this.paymentMethod; }
+  public void setPaymentMethod(final TransactionPaymentMethod paymentMethod) { this.paymentMethod = paymentMethod; }
 
   public Boolean getRefunded() { return this.refunded; }
   public void setRefunded(final Boolean refunded) { this.refunded = refunded; }
