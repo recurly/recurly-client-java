@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+java -jar ./bin/google-java-format-1.7-all-deps.jar -i $(git ls-files|grep \.java$)
