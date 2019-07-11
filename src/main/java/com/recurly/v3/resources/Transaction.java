@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,111 +10,147 @@ import java.util.Map;
 public class Transaction extends Resource {
 
   @SerializedName("account")
+  @Expose
   private AccountMini account;
 
   @SerializedName("amount")
+  @Expose
   private Float amount;
 
   @SerializedName("avs_check")
+  @Expose
   private String avsCheck;
 
   @SerializedName("billing_address")
+  @Expose
   private Address billingAddress;
 
   @SerializedName("collected_at")
+  @Expose
   private DateTime collectedAt;
 
   @SerializedName("collection_method")
+  @Expose
   private String collectionMethod;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("currency")
+  @Expose
   private String currency;
 
   @SerializedName("customer_message")
+  @Expose
   private String customerMessage;
 
   @SerializedName("customer_message_locale")
+  @Expose
   private String customerMessageLocale;
 
   @SerializedName("cvv_check")
+  @Expose
   private String cvvCheck;
 
   @SerializedName("gateway_approval_code")
+  @Expose
   private String gatewayApprovalCode;
 
   @SerializedName("gateway_message")
+  @Expose
   private String gatewayMessage;
 
   @SerializedName("gateway_reference")
+  @Expose
   private String gatewayReference;
 
   @SerializedName("gateway_response_code")
+  @Expose
   private String gatewayResponseCode;
 
   @SerializedName("gateway_response_time")
+  @Expose
   private Float gatewayResponseTime;
 
   @SerializedName("gateway_response_values")
+  @Expose
   private Map<String, String> gatewayResponseValues;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("invoice")
+  @Expose
   private InvoiceMini invoice;
 
   @SerializedName("ip_address_country")
+  @Expose
   private String ipAddressCountry;
 
   @SerializedName("ip_address_v4")
+  @Expose
   private String ipAddressV4;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("origin")
+  @Expose
   private String origin;
 
   @SerializedName("original_transaction_id")
+  @Expose
   private String originalTransactionId;
 
   @SerializedName("payment_gateway")
+  @Expose
   private TransactionPaymentGateway paymentGateway;
 
   @SerializedName("payment_method")
+  @Expose
   private TransactionPaymentMethod paymentMethod;
 
   @SerializedName("refunded")
+  @Expose
   private Boolean refunded;
 
   @SerializedName("status")
+  @Expose
   private String status;
 
   @SerializedName("status_code")
+  @Expose
   private String statusCode;
 
   @SerializedName("status_message")
+  @Expose
   private String statusMessage;
 
   @SerializedName("subscription_ids")
+  @Expose
   private List<String> subscriptionIds;
 
   @SerializedName("success")
+  @Expose
   private Boolean success;
 
   @SerializedName("type")
+  @Expose
   private String type;
 
   @SerializedName("uuid")
+  @Expose
   private String uuid;
 
   @SerializedName("voided_at")
+  @Expose
   private DateTime voidedAt;
 
   @SerializedName("voided_by_invoice")
+  @Expose
   private InvoiceMini voidedByInvoice;
 
 

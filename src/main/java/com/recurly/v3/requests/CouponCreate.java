@@ -1,6 +1,7 @@
 package com.recurly.v3.requests;
 
 import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import org.joda.time.DateTime;
@@ -10,66 +11,87 @@ import java.util.Map;
 public class CouponCreate extends Request {
 
   @SerializedName("applies_to_all_plans")
+  @Expose
   private Boolean appliesToAllPlans;
 
   @SerializedName("applies_to_non_plan_charges")
+  @Expose
   private Boolean appliesToNonPlanCharges;
 
   @SerializedName("code")
+  @Expose
   private String code;
 
   @SerializedName("coupon_type")
+  @Expose
   private String couponType;
 
   @SerializedName("currencies")
+  @Expose
   private List<CouponPricing> currencies;
 
   @SerializedName("discount_percent")
+  @Expose
   private Integer discountPercent;
 
   @SerializedName("discount_type")
+  @Expose
   private String discountType;
 
   @SerializedName("duration")
+  @Expose
   private String duration;
 
   @SerializedName("free_trial_amount")
+  @Expose
   private Integer freeTrialAmount;
 
   @SerializedName("free_trial_unit")
+  @Expose
   private String freeTrialUnit;
 
   @SerializedName("hosted_description")
+  @Expose
   private String hostedDescription;
 
   @SerializedName("invoice_description")
+  @Expose
   private String invoiceDescription;
 
   @SerializedName("max_redemptions")
+  @Expose
   private Integer maxRedemptions;
 
   @SerializedName("max_redemptions_per_account")
+  @Expose
   private Integer maxRedemptionsPerAccount;
 
   @SerializedName("name")
+  @Expose
   private String name;
 
   @SerializedName("plan_codes")
+  @Expose
   private List<String> planCodes;
 
   @SerializedName("redeem_by_date")
+  @Expose
   private String redeemByDate;
 
   @SerializedName("redemption_resource")
+  @Expose
   private String redemptionResource;
 
   @SerializedName("temporal_amount")
+  @Expose
   private Integer temporalAmount;
 
   @SerializedName("temporal_unit")
+  @Expose
   private String temporalUnit;
 
   @SerializedName("unique_code_template")
+  @Expose
   private String uniqueCodeTemplate;
 
 

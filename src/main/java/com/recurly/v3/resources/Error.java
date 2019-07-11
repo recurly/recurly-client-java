@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,12 +10,15 @@ import java.util.Map;
 public class Error extends Resource {
 
   @SerializedName("message")
+  @Expose
   private String message;
 
   @SerializedName("params")
+  @Expose
   private List<Map> params;
 
   @SerializedName("type")
+  @Expose
   private String type;
 
 

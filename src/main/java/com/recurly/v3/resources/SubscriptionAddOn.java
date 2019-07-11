@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,30 +10,39 @@ import java.util.Map;
 public class SubscriptionAddOn extends Resource {
 
   @SerializedName("add_on")
+  @Expose
   private AddOnMini addOn;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("expired_at")
+  @Expose
   private DateTime expiredAt;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("quantity")
+  @Expose
   private Integer quantity;
 
   @SerializedName("subscription_id")
+  @Expose
   private String subscriptionId;
 
   @SerializedName("unit_amount")
+  @Expose
   private Float unitAmount;
 
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
 

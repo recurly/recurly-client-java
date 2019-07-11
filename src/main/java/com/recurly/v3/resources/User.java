@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,27 +10,35 @@ import java.util.Map;
 public class User extends Resource {
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("deleted_at")
+  @Expose
   private DateTime deletedAt;
 
   @SerializedName("email")
+  @Expose
   private String email;
 
   @SerializedName("first_name")
+  @Expose
   private String firstName;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("last_name")
+  @Expose
   private String lastName;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("time_zone")
+  @Expose
   private String timeZone;
 
 

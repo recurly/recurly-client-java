@@ -1,6 +1,7 @@
 package com.recurly.v3.requests;
 
 import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import org.joda.time.DateTime;
@@ -10,27 +11,35 @@ import java.util.Map;
 public class AddOnCreate extends Request {
 
   @SerializedName("accounting_code")
+  @Expose
   private String accountingCode;
 
   @SerializedName("code")
+  @Expose
   private String code;
 
   @SerializedName("currencies")
+  @Expose
   private List<AddOnPricing> currencies;
 
   @SerializedName("default_quantity")
+  @Expose
   private Integer defaultQuantity;
 
   @SerializedName("display_quantity")
+  @Expose
   private Boolean displayQuantity;
 
   @SerializedName("name")
+  @Expose
   private String name;
 
   @SerializedName("plan_id")
+  @Expose
   private String planId;
 
   @SerializedName("tax_code")
+  @Expose
   private String taxCode;
 
 

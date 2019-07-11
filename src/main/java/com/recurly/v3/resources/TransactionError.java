@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,18 +10,23 @@ import java.util.Map;
 public class TransactionError extends Resource {
 
   @SerializedName("category")
+  @Expose
   private String category;
 
   @SerializedName("code")
+  @Expose
   private String code;
 
   @SerializedName("merchant_advice")
+  @Expose
   private String merchantAdvice;
 
   @SerializedName("message")
+  @Expose
   private String message;
 
   @SerializedName("transaction_id")
+  @Expose
   private String transactionId;
 
 

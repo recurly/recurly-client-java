@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,33 +10,43 @@ import java.util.Map;
 public class CouponRedemption extends Resource {
 
   @SerializedName("account")
+  @Expose
   private AccountMini account;
 
   @SerializedName("coupon")
+  @Expose
   private Coupon coupon;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("currency")
+  @Expose
   private String currency;
 
   @SerializedName("discounted")
+  @Expose
   private String discounted;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("removed_at")
+  @Expose
   private DateTime removedAt;
 
   @SerializedName("state")
+  @Expose
   private String state;
 
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
 

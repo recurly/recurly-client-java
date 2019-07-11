@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,21 +10,27 @@ import java.util.Map;
 public class BillingInfoPaymentMethod extends Resource {
 
   @SerializedName("card_type")
+  @Expose
   private String cardType;
 
   @SerializedName("exp_month")
+  @Expose
   private Integer expMonth;
 
   @SerializedName("exp_year")
+  @Expose
   private Integer expYear;
 
   @SerializedName("first_six")
+  @Expose
   private String firstSix;
 
   @SerializedName("last_four")
+  @Expose
   private String lastFour;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
 

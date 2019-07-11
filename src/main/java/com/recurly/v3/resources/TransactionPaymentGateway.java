@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,15 +10,19 @@ import java.util.Map;
 public class TransactionPaymentGateway extends Resource {
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("name")
+  @Expose
   private String name;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("type")
+  @Expose
   private String type;
 
 

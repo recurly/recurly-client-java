@@ -1,6 +1,7 @@
 package com.recurly.v3.requests;
 
 import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import org.joda.time.DateTime;
@@ -10,21 +11,27 @@ import java.util.Map;
 public class InvoiceUpdatable extends Request {
 
   @SerializedName("address")
+  @Expose
   private InvoiceAddress address;
 
   @SerializedName("customer_notes")
+  @Expose
   private String customerNotes;
 
   @SerializedName("net_terms")
+  @Expose
   private Integer netTerms;
 
   @SerializedName("po_number")
+  @Expose
   private String poNumber;
 
   @SerializedName("terms_and_conditions")
+  @Expose
   private String termsAndConditions;
 
   @SerializedName("vat_reverse_charge_notes")
+  @Expose
   private String vatReverseChargeNotes;
 
 

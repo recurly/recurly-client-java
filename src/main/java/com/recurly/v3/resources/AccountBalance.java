@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,15 +10,19 @@ import java.util.Map;
 public class AccountBalance extends Resource {
 
   @SerializedName("account")
+  @Expose
   private AccountMini account;
 
   @SerializedName("balances")
+  @Expose
   private List<AccountBalanceAmount> balances;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("past_due")
+  @Expose
   private Boolean pastDue;
 
 

@@ -1,6 +1,7 @@
 package com.recurly.v3.requests;
 
 import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import org.joda.time.DateTime;
@@ -10,72 +11,95 @@ import java.util.Map;
 public class SubscriptionCreate extends Request {
 
   @SerializedName("account")
+  @Expose
   private AccountCreate account;
 
   @SerializedName("add_ons")
+  @Expose
   private List<SubscriptionAddOnCreate> addOns;
 
   @SerializedName("auto_renew")
+  @Expose
   private Boolean autoRenew;
 
   @SerializedName("collection_method")
+  @Expose
   private String collectionMethod;
 
   @SerializedName("coupon_code")
+  @Expose
   private String couponCode;
 
   @SerializedName("credit_customer_notes")
+  @Expose
   private String creditCustomerNotes;
 
   @SerializedName("currency")
+  @Expose
   private String currency;
 
   @SerializedName("custom_fields")
+  @Expose
   private List<CustomField> customFields;
 
   @SerializedName("customer_notes")
+  @Expose
   private String customerNotes;
 
   @SerializedName("net_terms")
+  @Expose
   private Integer netTerms;
 
   @SerializedName("next_bill_date")
+  @Expose
   private DateTime nextBillDate;
 
   @SerializedName("plan_code")
+  @Expose
   private String planCode;
 
   @SerializedName("plan_id")
+  @Expose
   private String planId;
 
   @SerializedName("po_number")
+  @Expose
   private String poNumber;
 
   @SerializedName("quantity")
+  @Expose
   private Integer quantity;
 
   @SerializedName("renewal_billing_cycles")
+  @Expose
   private Integer renewalBillingCycles;
 
   @SerializedName("shipping_address")
+  @Expose
   private ShippingAddressCreate shippingAddress;
 
   @SerializedName("shipping_address_id")
+  @Expose
   private String shippingAddressId;
 
   @SerializedName("starts_at")
+  @Expose
   private DateTime startsAt;
 
   @SerializedName("terms_and_conditions")
+  @Expose
   private String termsAndConditions;
 
   @SerializedName("total_billing_cycles")
+  @Expose
   private Integer totalBillingCycles;
 
   @SerializedName("trial_ends_at")
+  @Expose
   private DateTime trialEndsAt;
 
   @SerializedName("unit_amount")
+  @Expose
   private Float unitAmount;
 
 

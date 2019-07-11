@@ -1,6 +1,7 @@
 package com.recurly.v3.requests;
 
 import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import org.joda.time.DateTime;
@@ -10,39 +11,51 @@ import java.util.Map;
 public class SubscriptionUpdate extends Request {
 
   @SerializedName("auto_renew")
+  @Expose
   private Boolean autoRenew;
 
   @SerializedName("collection_method")
+  @Expose
   private String collectionMethod;
 
   @SerializedName("custom_fields")
+  @Expose
   private List<CustomField> customFields;
 
   @SerializedName("customer_notes")
+  @Expose
   private String customerNotes;
 
   @SerializedName("net_terms")
+  @Expose
   private Integer netTerms;
 
   @SerializedName("next_bill_date")
+  @Expose
   private DateTime nextBillDate;
 
   @SerializedName("po_number")
+  @Expose
   private String poNumber;
 
   @SerializedName("remaining_billing_cycles")
+  @Expose
   private Integer remainingBillingCycles;
 
   @SerializedName("renewal_billing_cycles")
+  @Expose
   private Integer renewalBillingCycles;
 
   @SerializedName("shipping_address")
+  @Expose
   private ShippingAddressCreate shippingAddress;
 
   @SerializedName("shipping_address_id")
+  @Expose
   private String shippingAddressId;
 
   @SerializedName("terms_and_conditions")
+  @Expose
   private String termsAndConditions;
 
 

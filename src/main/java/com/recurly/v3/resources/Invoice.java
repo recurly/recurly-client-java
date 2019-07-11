@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,102 +10,135 @@ import java.util.Map;
 public class Invoice extends Resource {
 
   @SerializedName("account")
+  @Expose
   private AccountMini account;
 
   @SerializedName("address")
+  @Expose
   private InvoiceAddress address;
 
   @SerializedName("balance")
+  @Expose
   private Float balance;
 
   @SerializedName("closed_at")
+  @Expose
   private DateTime closedAt;
 
   @SerializedName("collection_method")
+  @Expose
   private String collectionMethod;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("credit_payments")
+  @Expose
   private List<CreditPayment> creditPayments;
 
   @SerializedName("currency")
+  @Expose
   private String currency;
 
   @SerializedName("customer_notes")
+  @Expose
   private String customerNotes;
 
   @SerializedName("discount")
+  @Expose
   private Float discount;
 
   @SerializedName("due_at")
+  @Expose
   private DateTime dueAt;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("line_items")
+  @Expose
   private LineItemList lineItems;
 
   @SerializedName("net_terms")
+  @Expose
   private Integer netTerms;
 
   @SerializedName("number")
+  @Expose
   private String number;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("origin")
+  @Expose
   private String origin;
 
   @SerializedName("paid")
+  @Expose
   private Float paid;
 
   @SerializedName("po_number")
+  @Expose
   private String poNumber;
 
   @SerializedName("previous_invoice_id")
+  @Expose
   private String previousInvoiceId;
 
   @SerializedName("refundable_amount")
+  @Expose
   private Float refundableAmount;
 
   @SerializedName("state")
+  @Expose
   private String state;
 
   @SerializedName("subscription_ids")
+  @Expose
   private List<String> subscriptionIds;
 
   @SerializedName("subtotal")
+  @Expose
   private Float subtotal;
 
   @SerializedName("tax")
+  @Expose
   private Float tax;
 
   @SerializedName("tax_info")
+  @Expose
   private TaxInfo taxInfo;
 
   @SerializedName("terms_and_conditions")
+  @Expose
   private String termsAndConditions;
 
   @SerializedName("total")
+  @Expose
   private Float total;
 
   @SerializedName("transactions")
+  @Expose
   private List<Transaction> transactions;
 
   @SerializedName("type")
+  @Expose
   private String type;
 
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
   @SerializedName("vat_number")
+  @Expose
   private String vatNumber;
 
   @SerializedName("vat_reverse_charge_notes")
+  @Expose
   private String vatReverseChargeNotes;
 
 

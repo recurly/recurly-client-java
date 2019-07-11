@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,9 +10,11 @@ import java.util.Map;
 public class CustomField extends Resource {
 
   @SerializedName("name")
+  @Expose
   private String name;
 
   @SerializedName("value")
+  @Expose
   private String value;
 
 

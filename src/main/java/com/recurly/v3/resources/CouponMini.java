@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,27 +10,35 @@ import java.util.Map;
 public class CouponMini extends Resource {
 
   @SerializedName("code")
+  @Expose
   private String code;
 
   @SerializedName("coupon_type")
+  @Expose
   private String couponType;
 
   @SerializedName("discount")
+  @Expose
   private CouponDiscount discount;
 
   @SerializedName("expired_at")
+  @Expose
   private DateTime expiredAt;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("name")
+  @Expose
   private String name;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("state")
+  @Expose
   private String state;
 
 

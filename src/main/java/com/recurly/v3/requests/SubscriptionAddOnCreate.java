@@ -1,6 +1,7 @@
 package com.recurly.v3.requests;
 
 import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import org.joda.time.DateTime;
@@ -10,15 +11,19 @@ import java.util.Map;
 public class SubscriptionAddOnCreate extends Request {
 
   @SerializedName("code")
+  @Expose
   private String code;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("quantity")
+  @Expose
   private Integer quantity;
 
   @SerializedName("unit_amount")
+  @Expose
   private Float unitAmount;
 
 

@@ -1,6 +1,7 @@
 package com.recurly.v3.requests;
 
 import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import org.joda.time.DateTime;
@@ -10,30 +11,39 @@ import java.util.Map;
 public class InvoiceCreate extends Request {
 
   @SerializedName("charge_customer_notes")
+  @Expose
   private String chargeCustomerNotes;
 
   @SerializedName("collection_method")
+  @Expose
   private String collectionMethod;
 
   @SerializedName("credit_customer_notes")
+  @Expose
   private String creditCustomerNotes;
 
   @SerializedName("currency")
+  @Expose
   private String currency;
 
   @SerializedName("net_terms")
+  @Expose
   private Integer netTerms;
 
   @SerializedName("po_number")
+  @Expose
   private String poNumber;
 
   @SerializedName("terms_and_conditions")
+  @Expose
   private String termsAndConditions;
 
   @SerializedName("type")
+  @Expose
   private String type;
 
   @SerializedName("vat_reverse_charge_notes")
+  @Expose
   private String vatReverseChargeNotes;
 
 
