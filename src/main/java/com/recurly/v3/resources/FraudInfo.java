@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,12 +10,15 @@ import java.util.Map;
 public class FraudInfo extends Resource {
 
   @SerializedName("decision")
+  @Expose
   private String decision;
 
   @SerializedName("risk_rules_triggered")
+  @Expose
   private Map<String, String> riskRulesTriggered;
 
   @SerializedName("score")
+  @Expose
   private Integer score;
 
 

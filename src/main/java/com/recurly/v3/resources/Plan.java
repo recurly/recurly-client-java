@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,66 +10,87 @@ import java.util.Map;
 public class Plan extends Resource {
 
   @SerializedName("accounting_code")
+  @Expose
   private String accountingCode;
 
   @SerializedName("auto_renew")
+  @Expose
   private Boolean autoRenew;
 
   @SerializedName("code")
+  @Expose
   private String code;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("currencies")
+  @Expose
   private List<PlanPricing> currencies;
 
   @SerializedName("deleted_at")
+  @Expose
   private DateTime deletedAt;
 
   @SerializedName("description")
+  @Expose
   private String description;
 
   @SerializedName("hosted_pages")
+  @Expose
   private PlanHostedPages hostedPages;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("interval_length")
+  @Expose
   private Integer intervalLength;
 
   @SerializedName("interval_unit")
+  @Expose
   private String intervalUnit;
 
   @SerializedName("name")
+  @Expose
   private String name;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("setup_fee_accounting_code")
+  @Expose
   private String setupFeeAccountingCode;
 
   @SerializedName("state")
+  @Expose
   private String state;
 
   @SerializedName("tax_code")
+  @Expose
   private String taxCode;
 
   @SerializedName("tax_exempt")
+  @Expose
   private Boolean taxExempt;
 
   @SerializedName("total_billing_cycles")
+  @Expose
   private Integer totalBillingCycles;
 
   @SerializedName("trial_length")
+  @Expose
   private Integer trialLength;
 
   @SerializedName("trial_unit")
+  @Expose
   private String trialUnit;
 
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
 

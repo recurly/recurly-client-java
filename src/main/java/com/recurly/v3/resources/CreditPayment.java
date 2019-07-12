@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,45 +10,59 @@ import java.util.Map;
 public class CreditPayment extends Resource {
 
   @SerializedName("account")
+  @Expose
   private AccountMini account;
 
   @SerializedName("action")
+  @Expose
   private String action;
 
   @SerializedName("amount")
+  @Expose
   private Float amount;
 
   @SerializedName("applied_to_invoice")
+  @Expose
   private InvoiceMini appliedToInvoice;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("currency")
+  @Expose
   private String currency;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("original_credit_payment_id")
+  @Expose
   private String originalCreditPaymentId;
 
   @SerializedName("original_invoice")
+  @Expose
   private InvoiceMini originalInvoice;
 
   @SerializedName("refund_transaction")
+  @Expose
   private Transaction refundTransaction;
 
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
   @SerializedName("uuid")
+  @Expose
   private String uuid;
 
   @SerializedName("voided_at")
+  @Expose
   private DateTime voidedAt;
 
 

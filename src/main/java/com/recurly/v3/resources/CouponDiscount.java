@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,15 +10,19 @@ import java.util.Map;
 public class CouponDiscount extends Resource {
 
   @SerializedName("currencies")
+  @Expose
   private List<CouponDiscountPricing> currencies;
 
   @SerializedName("percent")
+  @Expose
   private Integer percent;
 
   @SerializedName("trial")
+  @Expose
   private CouponDiscountTrial trial;
 
   @SerializedName("type")
+  @Expose
   private String type;
 
 

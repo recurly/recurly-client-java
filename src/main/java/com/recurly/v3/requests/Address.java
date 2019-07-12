@@ -1,6 +1,7 @@
 package com.recurly.v3.requests;
 
 import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import org.joda.time.DateTime;
@@ -10,30 +11,39 @@ import java.util.Map;
 public class Address extends Request {
 
   @SerializedName("city")
+  @Expose
   private String city;
 
   @SerializedName("country")
+  @Expose
   private String country;
 
   @SerializedName("first_name")
+  @Expose
   private String firstName;
 
   @SerializedName("last_name")
+  @Expose
   private String lastName;
 
   @SerializedName("phone")
+  @Expose
   private String phone;
 
   @SerializedName("postal_code")
+  @Expose
   private String postalCode;
 
   @SerializedName("region")
+  @Expose
   private String region;
 
   @SerializedName("street1")
+  @Expose
   private String street1;
 
   @SerializedName("street2")
+  @Expose
   private String street2;
 
 

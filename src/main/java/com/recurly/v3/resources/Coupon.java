@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,81 +10,107 @@ import java.util.Map;
 public class Coupon extends Resource {
 
   @SerializedName("applies_to_all_plans")
+  @Expose
   private Boolean appliesToAllPlans;
 
   @SerializedName("applies_to_non_plan_charges")
+  @Expose
   private Boolean appliesToNonPlanCharges;
 
   @SerializedName("code")
+  @Expose
   private String code;
 
   @SerializedName("coupon_type")
+  @Expose
   private String couponType;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("discount")
+  @Expose
   private CouponDiscount discount;
 
   @SerializedName("duration")
+  @Expose
   private String duration;
 
   @SerializedName("expired_at")
+  @Expose
   private DateTime expiredAt;
 
   @SerializedName("free_trial_amount")
+  @Expose
   private Integer freeTrialAmount;
 
   @SerializedName("free_trial_unit")
+  @Expose
   private String freeTrialUnit;
 
   @SerializedName("hosted_page_description")
+  @Expose
   private String hostedPageDescription;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("invoice_description")
+  @Expose
   private String invoiceDescription;
 
   @SerializedName("max_redemptions")
+  @Expose
   private Integer maxRedemptions;
 
   @SerializedName("max_redemptions_per_account")
+  @Expose
   private Integer maxRedemptionsPerAccount;
 
   @SerializedName("name")
+  @Expose
   private String name;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("plans_names")
+  @Expose
   private List<String> plansNames;
 
   @SerializedName("redeem_by")
+  @Expose
   private DateTime redeemBy;
 
   @SerializedName("redemption_resource")
+  @Expose
   private String redemptionResource;
 
   @SerializedName("state")
+  @Expose
   private String state;
 
   @SerializedName("temporal_amount")
+  @Expose
   private Integer temporalAmount;
 
   @SerializedName("temporal_unit")
+  @Expose
   private String temporalUnit;
 
   @SerializedName("unique_code_template")
+  @Expose
   private String uniqueCodeTemplate;
 
   @SerializedName("unique_coupon_codes_count")
+  @Expose
   private Integer uniqueCouponCodesCount;
 
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
 

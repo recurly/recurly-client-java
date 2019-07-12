@@ -1,6 +1,7 @@
 package com.recurly.v3.requests;
 
 import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import org.joda.time.DateTime;
@@ -10,21 +11,27 @@ import java.util.Map;
 public class CouponUpdate extends Request {
 
   @SerializedName("hosted_description")
+  @Expose
   private String hostedDescription;
 
   @SerializedName("invoice_description")
+  @Expose
   private String invoiceDescription;
 
   @SerializedName("max_redemptions")
+  @Expose
   private Integer maxRedemptions;
 
   @SerializedName("max_redemptions_per_account")
+  @Expose
   private Integer maxRedemptionsPerAccount;
 
   @SerializedName("name")
+  @Expose
   private String name;
 
   @SerializedName("redeem_by_date")
+  @Expose
   private String redeemByDate;
 
 

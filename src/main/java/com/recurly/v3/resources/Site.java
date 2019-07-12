@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,36 +10,47 @@ import java.util.Map;
 public class Site extends Resource {
 
   @SerializedName("address")
+  @Expose
   private Address address;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("deleted_at")
+  @Expose
   private DateTime deletedAt;
 
   @SerializedName("features")
+  @Expose
   private List<String> features;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("mode")
+  @Expose
   private String mode;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("public_api_key")
+  @Expose
   private String publicApiKey;
 
   @SerializedName("settings")
+  @Expose
   private Settings settings;
 
   @SerializedName("subdomain")
+  @Expose
   private String subdomain;
 
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
 

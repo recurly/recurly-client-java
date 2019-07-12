@@ -1,3 +1,14 @@
 #!/usr/bin/env bash
 
 mvn clean compile
+
+if [ ! -d ./bin ]; then
+  mkdir -p ./bin;
+fi
+
+FORMAT=./bin/google-java-format-1.7-all-deps.jar
+if test -f $FORMAT; then
+    echo "formatter file exists"
+else
+    curl -L https://github.com/google/google-java-format/releases/download/google-java-format-1.7/google-java-format-1.7-all-deps.jar > ./bin/google-java-format-1.7-all-deps.jar
+fi

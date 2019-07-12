@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,30 +10,39 @@ import java.util.Map;
 public class AccountMini extends Resource {
 
   @SerializedName("bill_to")
+  @Expose
   private String billTo;
 
   @SerializedName("code")
+  @Expose
   private String code;
 
   @SerializedName("company")
+  @Expose
   private String company;
 
   @SerializedName("email")
+  @Expose
   private String email;
 
   @SerializedName("first_name")
+  @Expose
   private String firstName;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("last_name")
+  @Expose
   private String lastName;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("parent_account_id")
+  @Expose
   private String parentAccountId;
 
 

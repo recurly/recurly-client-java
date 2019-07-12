@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,12 +10,15 @@ import java.util.Map;
 public class Settings extends Resource {
 
   @SerializedName("accepted_currencies")
+  @Expose
   private List<String> acceptedCurrencies;
 
   @SerializedName("billing_address_requirement")
+  @Expose
   private String billingAddressRequirement;
 
   @SerializedName("default_currency")
+  @Expose
   private String defaultCurrency;
 
 

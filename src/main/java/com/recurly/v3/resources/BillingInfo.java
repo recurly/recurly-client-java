@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,45 +10,59 @@ import java.util.Map;
 public class BillingInfo extends Resource {
 
   @SerializedName("account_id")
+  @Expose
   private String accountId;
 
   @SerializedName("address")
+  @Expose
   private Address address;
 
   @SerializedName("company")
+  @Expose
   private String company;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("first_name")
+  @Expose
   private String firstName;
 
   @SerializedName("fraud")
+  @Expose
   private FraudInfo fraud;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("last_name")
+  @Expose
   private String lastName;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("payment_method")
+  @Expose
   private BillingInfoPaymentMethod paymentMethod;
 
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
   @SerializedName("updated_by")
+  @Expose
   private BillingInfoUpdatedBy updatedBy;
 
   @SerializedName("valid")
+  @Expose
   private Boolean valid;
 
   @SerializedName("vat_number")
+  @Expose
   private String vatNumber;
 
 

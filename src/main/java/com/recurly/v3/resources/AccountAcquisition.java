@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,30 +10,39 @@ import java.util.Map;
 public class AccountAcquisition extends Resource {
 
   @SerializedName("account")
+  @Expose
   private AccountMini account;
 
   @SerializedName("campaign")
+  @Expose
   private String campaign;
 
   @SerializedName("channel")
+  @Expose
   private String channel;
 
   @SerializedName("cost")
+  @Expose
   private AccountAcquisitionCost cost;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("subchannel")
+  @Expose
   private String subchannel;
 
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
 

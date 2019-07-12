@@ -1,6 +1,7 @@
 package com.recurly.v3.requests;
 
 import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import org.joda.time.DateTime;
@@ -10,51 +11,67 @@ import java.util.Map;
 public class AccountUpdate extends Request {
 
   @SerializedName("address")
+  @Expose
   private Address address;
 
   @SerializedName("bill_to")
+  @Expose
   private String billTo;
 
   @SerializedName("billing_info")
+  @Expose
   private BillingInfoCreate billingInfo;
 
   @SerializedName("cc_emails")
+  @Expose
   private String ccEmails;
 
   @SerializedName("company")
+  @Expose
   private String company;
 
   @SerializedName("custom_fields")
+  @Expose
   private List<CustomField> customFields;
 
   @SerializedName("email")
+  @Expose
   private String email;
 
   @SerializedName("exemption_certificate")
+  @Expose
   private String exemptionCertificate;
 
   @SerializedName("first_name")
+  @Expose
   private String firstName;
 
   @SerializedName("last_name")
+  @Expose
   private String lastName;
 
   @SerializedName("parent_account_code")
+  @Expose
   private String parentAccountCode;
 
   @SerializedName("parent_account_id")
+  @Expose
   private String parentAccountId;
 
   @SerializedName("preferred_locale")
+  @Expose
   private String preferredLocale;
 
   @SerializedName("tax_exempt")
+  @Expose
   private Boolean taxExempt;
 
   @SerializedName("username")
+  @Expose
   private String username;
 
   @SerializedName("vat_number")
+  @Expose
   private String vatNumber;
 
 

@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,126 +10,167 @@ import java.util.Map;
 public class LineItem extends Resource {
 
   @SerializedName("account")
+  @Expose
   private AccountMini account;
 
   @SerializedName("accounting_code")
+  @Expose
   private String accountingCode;
 
   @SerializedName("add_on_code")
+  @Expose
   private String addOnCode;
 
   @SerializedName("add_on_id")
+  @Expose
   private String addOnId;
 
   @SerializedName("amount")
+  @Expose
   private Float amount;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("credit_applied")
+  @Expose
   private Float creditApplied;
 
   @SerializedName("credit_reason_code")
+  @Expose
   private String creditReasonCode;
 
   @SerializedName("currency")
+  @Expose
   private String currency;
 
   @SerializedName("description")
+  @Expose
   private String description;
 
   @SerializedName("discount")
+  @Expose
   private Float discount;
 
   @SerializedName("end_date")
+  @Expose
   private DateTime endDate;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("invoice_id")
+  @Expose
   private String invoiceId;
 
   @SerializedName("invoice_number")
+  @Expose
   private String invoiceNumber;
 
   @SerializedName("legacy_category")
+  @Expose
   private String legacyCategory;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("origin")
+  @Expose
   private String origin;
 
   @SerializedName("original_line_item_invoice_id")
+  @Expose
   private String originalLineItemInvoiceId;
 
   @SerializedName("plan_code")
+  @Expose
   private String planCode;
 
   @SerializedName("plan_id")
+  @Expose
   private String planId;
 
   @SerializedName("previous_line_item_id")
+  @Expose
   private String previousLineItemId;
 
   @SerializedName("product_code")
+  @Expose
   private String productCode;
 
   @SerializedName("proration_rate")
+  @Expose
   private Float prorationRate;
 
   @SerializedName("quantity")
+  @Expose
   private Integer quantity;
 
   @SerializedName("refund")
+  @Expose
   private Boolean refund;
 
   @SerializedName("refunded_quantity")
+  @Expose
   private Integer refundedQuantity;
 
   @SerializedName("shipping_address")
+  @Expose
   private ShippingAddress shippingAddress;
 
   @SerializedName("start_date")
+  @Expose
   private DateTime startDate;
 
   @SerializedName("state")
+  @Expose
   private String state;
 
   @SerializedName("subscription_id")
+  @Expose
   private String subscriptionId;
 
   @SerializedName("subtotal")
+  @Expose
   private Float subtotal;
 
   @SerializedName("tax")
+  @Expose
   private Float tax;
 
   @SerializedName("tax_code")
+  @Expose
   private String taxCode;
 
   @SerializedName("tax_exempt")
+  @Expose
   private Boolean taxExempt;
 
   @SerializedName("tax_info")
+  @Expose
   private TaxInfo taxInfo;
 
   @SerializedName("taxable")
+  @Expose
   private Boolean taxable;
 
   @SerializedName("type")
+  @Expose
   private String type;
 
   @SerializedName("unit_amount")
+  @Expose
   private Float unitAmount;
 
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
   @SerializedName("uuid")
+  @Expose
   private String uuid;
 
 

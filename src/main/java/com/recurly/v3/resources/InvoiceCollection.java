@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,12 +10,15 @@ import java.util.Map;
 public class InvoiceCollection extends Resource {
 
   @SerializedName("charge_invoice")
+  @Expose
   private Invoice chargeInvoice;
 
   @SerializedName("credit_invoices")
+  @Expose
   private List<Invoice> creditInvoices;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
 

@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,123 +10,163 @@ import java.util.Map;
 public class Subscription extends Resource {
 
   @SerializedName("account")
+  @Expose
   private AccountMini account;
 
   @SerializedName("activated_at")
+  @Expose
   private DateTime activatedAt;
 
   @SerializedName("add_ons")
+  @Expose
   private List<SubscriptionAddOn> addOns;
 
   @SerializedName("add_ons_total")
+  @Expose
   private Float addOnsTotal;
 
   @SerializedName("auto_renew")
+  @Expose
   private Boolean autoRenew;
 
   @SerializedName("bank_account_authorized_at")
+  @Expose
   private DateTime bankAccountAuthorizedAt;
 
   @SerializedName("canceled_at")
+  @Expose
   private DateTime canceledAt;
 
   @SerializedName("collection_method")
+  @Expose
   private String collectionMethod;
 
   @SerializedName("coupon_redemptions")
+  @Expose
   private List<CouponRedemptionMini> couponRedemptions;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("currency")
+  @Expose
   private String currency;
 
   @SerializedName("current_period_ends_at")
+  @Expose
   private DateTime currentPeriodEndsAt;
 
   @SerializedName("current_period_started_at")
+  @Expose
   private DateTime currentPeriodStartedAt;
 
   @SerializedName("current_term_ends_at")
+  @Expose
   private DateTime currentTermEndsAt;
 
   @SerializedName("current_term_started_at")
+  @Expose
   private DateTime currentTermStartedAt;
 
   @SerializedName("custom_fields")
+  @Expose
   private List<CustomField> customFields;
 
   @SerializedName("customer_notes")
+  @Expose
   private String customerNotes;
 
   @SerializedName("expiration_reason")
+  @Expose
   private String expirationReason;
 
   @SerializedName("expires_at")
+  @Expose
   private DateTime expiresAt;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("net_terms")
+  @Expose
   private Integer netTerms;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("paused_at")
+  @Expose
   private DateTime pausedAt;
 
   @SerializedName("pending_change")
+  @Expose
   private SubscriptionChange pendingChange;
 
   @SerializedName("plan")
+  @Expose
   private PlanMini plan;
 
   @SerializedName("po_number")
+  @Expose
   private String poNumber;
 
   @SerializedName("quantity")
+  @Expose
   private Integer quantity;
 
   @SerializedName("remaining_billing_cycles")
+  @Expose
   private Integer remainingBillingCycles;
 
   @SerializedName("remaining_pause_cycles")
+  @Expose
   private Integer remainingPauseCycles;
 
   @SerializedName("renewal_billing_cycles")
+  @Expose
   private Integer renewalBillingCycles;
 
   @SerializedName("shipping_address")
+  @Expose
   private ShippingAddress shippingAddress;
 
   @SerializedName("state")
+  @Expose
   private String state;
 
   @SerializedName("subtotal")
+  @Expose
   private Float subtotal;
 
   @SerializedName("terms_and_conditions")
+  @Expose
   private String termsAndConditions;
 
   @SerializedName("total_billing_cycles")
+  @Expose
   private Integer totalBillingCycles;
 
   @SerializedName("trial_ends_at")
+  @Expose
   private DateTime trialEndsAt;
 
   @SerializedName("trial_started_at")
+  @Expose
   private DateTime trialStartedAt;
 
   @SerializedName("unit_amount")
+  @Expose
   private Float unitAmount;
 
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
   @SerializedName("uuid")
+  @Expose
   private String uuid;
 
 

@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,54 +10,71 @@ import java.util.Map;
 public class ShippingAddress extends Resource {
 
   @SerializedName("account_id")
+  @Expose
   private String accountId;
 
   @SerializedName("city")
+  @Expose
   private String city;
 
   @SerializedName("company")
+  @Expose
   private String company;
 
   @SerializedName("country")
+  @Expose
   private String country;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("email")
+  @Expose
   private String email;
 
   @SerializedName("first_name")
+  @Expose
   private String firstName;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("last_name")
+  @Expose
   private String lastName;
 
   @SerializedName("nickname")
+  @Expose
   private String nickname;
 
   @SerializedName("phone")
+  @Expose
   private String phone;
 
   @SerializedName("postal_code")
+  @Expose
   private String postalCode;
 
   @SerializedName("region")
+  @Expose
   private String region;
 
   @SerializedName("street1")
+  @Expose
   private String street1;
 
   @SerializedName("street2")
+  @Expose
   private String street2;
 
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
   @SerializedName("vat_number")
+  @Expose
   private String vatNumber;
 
 

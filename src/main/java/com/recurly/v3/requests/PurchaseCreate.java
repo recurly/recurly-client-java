@@ -1,6 +1,7 @@
 package com.recurly.v3.requests;
 
 import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import org.joda.time.DateTime;
@@ -10,51 +11,67 @@ import java.util.Map;
 public class PurchaseCreate extends Request {
 
   @SerializedName("account")
+  @Expose
   private AccountPurchase account;
 
   @SerializedName("collection_method")
+  @Expose
   private String collectionMethod;
 
   @SerializedName("coupon_codes")
+  @Expose
   private List<String> couponCodes;
 
   @SerializedName("credit_customer_notes")
+  @Expose
   private String creditCustomerNotes;
 
   @SerializedName("currency")
+  @Expose
   private String currency;
 
   @SerializedName("customer_notes")
+  @Expose
   private String customerNotes;
 
   @SerializedName("gateway_code")
+  @Expose
   private String gatewayCode;
 
   @SerializedName("gift_card_redemption_code")
+  @Expose
   private String giftCardRedemptionCode;
 
   @SerializedName("line_items")
+  @Expose
   private List<LineItemCreate> lineItems;
 
   @SerializedName("net_terms")
+  @Expose
   private Integer netTerms;
 
   @SerializedName("po_number")
+  @Expose
   private String poNumber;
 
   @SerializedName("shipping_address")
+  @Expose
   private ShippingAddressCreate shippingAddress;
 
   @SerializedName("shipping_address_id")
+  @Expose
   private String shippingAddressId;
 
   @SerializedName("subscriptions")
+  @Expose
   private List<SubscriptionPurchase> subscriptions;
 
   @SerializedName("terms_and_conditions")
+  @Expose
   private String termsAndConditions;
 
   @SerializedName("vat_reverse_charge_notes")
+  @Expose
   private String vatReverseChargeNotes;
 
 

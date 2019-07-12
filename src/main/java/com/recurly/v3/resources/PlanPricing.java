@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,12 +10,15 @@ import java.util.Map;
 public class PlanPricing extends Resource {
 
   @SerializedName("currency")
+  @Expose
   private String currency;
 
   @SerializedName("setup_fee")
+  @Expose
   private Float setupFee;
 
   @SerializedName("unit_amount")
+  @Expose
   private Float unitAmount;
 
 

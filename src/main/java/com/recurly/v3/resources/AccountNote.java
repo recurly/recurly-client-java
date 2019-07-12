@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,21 +10,27 @@ import java.util.Map;
 public class AccountNote extends Resource {
 
   @SerializedName("account_id")
+  @Expose
   private String accountId;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("message")
+  @Expose
   private String message;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("user")
+  @Expose
   private User user;
 
 

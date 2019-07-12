@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,18 +10,23 @@ import java.util.Map;
 public class InvoiceMini extends Resource {
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("number")
+  @Expose
   private String number;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("state")
+  @Expose
   private String state;
 
   @SerializedName("type")
+  @Expose
   private String type;
 
 

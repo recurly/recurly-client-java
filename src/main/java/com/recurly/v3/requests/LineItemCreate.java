@@ -1,6 +1,7 @@
 package com.recurly.v3.requests;
 
 import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import org.joda.time.DateTime;
@@ -10,33 +11,43 @@ import java.util.Map;
 public class LineItemCreate extends Request {
 
   @SerializedName("credit_reason_code")
+  @Expose
   private String creditReasonCode;
 
   @SerializedName("currency")
+  @Expose
   private String currency;
 
   @SerializedName("description")
+  @Expose
   private String description;
 
   @SerializedName("end_date")
+  @Expose
   private DateTime endDate;
 
   @SerializedName("quantity")
+  @Expose
   private Integer quantity;
 
   @SerializedName("start_date")
+  @Expose
   private DateTime startDate;
 
   @SerializedName("tax_code")
+  @Expose
   private String taxCode;
 
   @SerializedName("tax_exempt")
+  @Expose
   private Boolean taxExempt;
 
   @SerializedName("type")
+  @Expose
   private String type;
 
   @SerializedName("unit_amount")
+  @Expose
   private Float unitAmount;
 
 

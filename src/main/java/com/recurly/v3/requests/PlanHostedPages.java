@@ -1,6 +1,7 @@
 package com.recurly.v3.requests;
 
 import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import org.joda.time.DateTime;
@@ -10,15 +11,19 @@ import java.util.Map;
 public class PlanHostedPages extends Request {
 
   @SerializedName("bypass_confirmation")
+  @Expose
   private Boolean bypassConfirmation;
 
   @SerializedName("cancel_url")
+  @Expose
   private String cancelUrl;
 
   @SerializedName("display_quantity")
+  @Expose
   private Boolean displayQuantity;
 
   @SerializedName("success_url")
+  @Expose
   private String successUrl;
 
 

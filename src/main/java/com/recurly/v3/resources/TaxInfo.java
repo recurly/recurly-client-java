@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,12 +10,15 @@ import java.util.Map;
 public class TaxInfo extends Resource {
 
   @SerializedName("rate")
+  @Expose
   private Float rate;
 
   @SerializedName("region")
+  @Expose
   private String region;
 
   @SerializedName("type")
+  @Expose
   private String type;
 
 

@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,15 +10,19 @@ import java.util.Map;
 public class LineItemList extends Resource {
 
   @SerializedName("data")
+  @Expose
   private List<LineItem> data;
 
   @SerializedName("has_more")
+  @Expose
   private Boolean hasMore;
 
   @SerializedName("next")
+  @Expose
   private String next;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
 

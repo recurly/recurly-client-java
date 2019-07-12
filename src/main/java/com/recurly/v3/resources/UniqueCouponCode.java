@@ -1,5 +1,6 @@
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
@@ -9,27 +10,35 @@ import java.util.Map;
 public class UniqueCouponCode extends Resource {
 
   @SerializedName("code")
+  @Expose
   private String code;
 
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("expired_at")
+  @Expose
   private DateTime expiredAt;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("redeemed_at")
+  @Expose
   private DateTime redeemedAt;
 
   @SerializedName("state")
+  @Expose
   private String state;
 
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
 
