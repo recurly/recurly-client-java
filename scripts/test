@@ -3,5 +3,6 @@
 if [[ -z "${TRAVIS}" ]]; then
   RECURLY_INSECURE=true mvn clean test jacoco:report
 else
-  RECURLY_INSECURE=true mvn clean test jacoco:report coveralls:report
+    RECURLY_INSECURE=true mvn clean test
+#   RECURLY_INSECURE=true mvn clean test jacoco:report coveralls:report
 fi
