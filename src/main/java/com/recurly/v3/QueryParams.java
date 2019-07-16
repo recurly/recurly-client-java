@@ -1,13 +1,7 @@
 package com.recurly.v3;
 
-import com.google.gson.annotations.SerializedName;
 import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
-import org.joda.time.format.ISODateTimeFormat;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class QueryParams {
 
