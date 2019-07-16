@@ -6,13 +6,8 @@ import com.recurly.v3.fixtures.DateTimeTestClass;
 import com.recurly.v3.fixtures.MyRequest;
 import com.recurly.v3.fixtures.MyResource;
 import org.junit.jupiter.api.Test;
-
-import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Resource;
 import com.recurly.v3.ApiException;
 import org.joda.time.DateTime;
-import java.util.List;
-import java.util.Map;
 
 public class JsonSerializerTest {
 

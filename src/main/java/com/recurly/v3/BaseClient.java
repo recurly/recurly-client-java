@@ -1,8 +1,6 @@
 package com.recurly.v3;
 
-import com.google.gson.reflect.TypeToken;
 import com.recurly.v3.http.HeaderInterceptor;
-import com.recurly.v3.resources.AccountAcquisition;
 import okhttp3.*;
 import okhttp3.Request.Builder;
 import okhttp3.logging.HttpLoggingInterceptor;
