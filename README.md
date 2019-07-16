@@ -142,16 +142,6 @@ try {
     System.out.println(e.getCause().getCause());
 } 
 ```
-## Development
-
-### Testing
-The tests can be found in `src/test`. To run the tests, use the test script. This will run the tests as well as the
-code coverage reporter.
-
-```bash
-./scripts/test
-```
-
 ## Support
 
 Looking for help? Please contact [support@recurly.com](mailto:support@recurly.com) or visit
@@ -159,3 +149,7 @@ Looking for help? Please contact [support@recurly.com](mailto:support@recurly.co
 
 It's also acceptable to post a question, problem, or request as a GitHub issue on this repository and the developers
 will try to get back to you in a timely manner.
+
+### Contributing
+
+Please see our [Contributing Guide](CONTRIBUTING.md).
