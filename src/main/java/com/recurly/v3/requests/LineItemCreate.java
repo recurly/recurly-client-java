@@ -26,6 +26,10 @@ public class LineItemCreate extends Request {
   @Expose
   private DateTime endDate;
 
+  @SerializedName("product_code")
+  @Expose
+  private String productCode;
+
   @SerializedName("quantity")
   @Expose
   private Integer quantity;
@@ -62,6 +66,9 @@ public class LineItemCreate extends Request {
 
   public DateTime getEndDate() { return this.endDate; }
   public void setEndDate(final DateTime endDate) { this.endDate = endDate; }
+
+  public String getProductCode() { return this.productCode; }
+  public void setProductCode(final String productCode) { this.productCode = productCode; }
 
   public Integer getQuantity() { return this.quantity; }
   public void setQuantity(final Integer quantity) { this.quantity = quantity; }
