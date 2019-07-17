@@ -8,3 +8,6 @@ matrix:
     - jdk: openjdk-ea
 script:
   - ./scripts/test
+after_success:
+  - mvn clean -DforkCount=1 test jacoco:report coveralls:report
+

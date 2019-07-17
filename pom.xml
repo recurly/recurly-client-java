@@ -58,6 +58,12 @@
                 </configuration>
                 <executions>
                     <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
                         <id>pre-unit-test</id>
                         <goals>
                             <goal>prepare-agent</goal>
@@ -85,12 +91,17 @@
                 <artifactId>coveralls-maven-plugin</artifactId>
                 <version>4.3.0</version>
                 <configuration>
-                    <!-- TODO: Don't commit repoToken pubically! Find a way to integrate securely -->
-                    <repoToken>yourcoverallsprojectrepositorytoken</repoToken>
                     <jacocoReports>
                         <param>${project.reporting.outputDirectory}/jacoco-ut/jacoco.xml</param>
                     </jacocoReports>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>javax.xml.bind</groupId>
+                        <artifactId>jaxb-api</artifactId>
+                        <version>2.3.1</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
