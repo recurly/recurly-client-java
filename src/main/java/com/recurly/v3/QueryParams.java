@@ -7,22 +7,27 @@
 package com.recurly.v3;
 
 import org.joda.time.DateTime;
+
 import java.util.HashMap;
 
 public class QueryParams {
 
   private HashMap<String, Object> params;
 
+  public QueryParams() {
+    this.params = new HashMap<String, Object>();
+  }
+
   public HashMap<String, Object> getParams() {
-      return this.params;
+    return this.params;
   }
 
   public void setParams(HashMap<String, Object> params) {
-      this.params = params;
+    this.params = params;
   }
 
   public void add(String key, Object value) {
-      params.put(key, value);
+    this.params.put(key, value);
   }
 
   public void setIds(String ids) {
