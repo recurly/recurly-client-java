@@ -54,6 +54,7 @@
                         <exclude>**/v3/resources/*</exclude>
                         <exclude>**/v3/Client.*</exclude>
                         <exclude>**/v3/exception/*</exclude>
+                        <exclude>**/v3/QueryParams.*</exclude>
                     </excludes>
                 </configuration>
                 <executions>

@@ -6,7 +6,6 @@ import com.recurly.v3.fixtures.DateTimeTestClass;
 import com.recurly.v3.fixtures.MyRequest;
 import com.recurly.v3.fixtures.MyResource;
 import org.junit.jupiter.api.Test;
-import com.recurly.v3.ApiException;
 import org.joda.time.DateTime;
 
 public class JsonSerializerTest {
