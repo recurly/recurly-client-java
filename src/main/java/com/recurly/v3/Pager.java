@@ -7,15 +7,13 @@ import java.util.*;
 import java.util.function.Consumer;
 
 public class Pager<T extends Resource> implements Iterable<T> {
-  Pager(String path, HashMap<String, Object> queryParams, Client client, Type parameterizedType) {
+  public Pager(String path, HashMap<String, Object> queryParams, BaseClient client, Type parameterizedType) {
     this.next = path;
     this.queryParams = queryParams;
     this.client = client;
     this.data = new ArrayList<>();
     this.parameterizedType = parameterizedType;
-    if (this.next != null) {
-      this.getNextPage();
-    }
+    this.more = true;
   }
 
   @SerializedName("has_more")
@@ -29,14 +27,15 @@ public class Pager<T extends Resource> implements Iterable<T> {
   @Expose
   private List<T> data;
 
-  private Client client;
+  private BaseClient client;
 
   private Type parameterizedType;
 
   private HashMap<String, Object> queryParams;
 
-  public Iterator<T> iterator() {
-    return data.iterator();
+  public Pager<T>.PagerIterator iterator() {
+    if (data.size() == 0 && this.hasMore()) this.getNextPage();
+    return new PagerIterator(data.toArray(), this);
   }
 
   public Spliterator<T> spliterator() {
@@ -44,10 +43,10 @@ public class Pager<T extends Resource> implements Iterable<T> {
   }
 
   public void forEach(Consumer<? super T> action) {
-    do {
-      for (T t : this) action.accept(t);
+    while (this.next != null) {
       this.getNextPage();
-    } while (this.next != null);
+      for (T t : this) action.accept(t);
+    }
   }
 
   public void eachItem(Consumer<? super T> action) {
@@ -92,5 +91,49 @@ public class Pager<T extends Resource> implements Iterable<T> {
     this.next = pager.getNext();
     this.more = pager.hasMore();
     this.data = pager.getData();
+  }
+
+  private class PagerIterator implements Iterator {
+    public PagerIterator(Object[] data, Pager<T> pager) {
+      this.data = data;
+      this.pager = pager;
+    }
+
+    private int position = 0;
+    private Object[] data;
+    private Pager<T> pager;
+
+    public boolean hasNext() {
+      if (position < this.data.length) {
+        return true;
+      }
+      else {
+        if (pager.hasMore()) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
+
+    public Object next() {
+      if (this.hasNext()) {
+        if (position == this.data.length && pager.hasMore()) {
+          pager.getNextPage();
+          this.data = pager.getData().toArray();
+          position = 0;
+          return this.data.length > 0 ? this.data[0] : null;
+        }
+        return this.data[position++];
+      }
+      else {
+        return null;
+      }
+    }
+
+    @Override
+    public void remove() {
+
+    }
   }
 }

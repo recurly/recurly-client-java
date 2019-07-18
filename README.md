@@ -60,11 +60,11 @@ without double processing or missing some elements:
 Pager<Account> accounts = client.listAccounts(new QueryParams());
 
 while (accounts.hasMore()) {
+    System.out.println("Fetching next page...");
+    accounts = accounts.getNextPage();
     for (Account acct : accounts.getData()) {
         System.out.println(acct.getCode());
     }
-    System.out.println("Fetching next page...");
-    accounts = accounts.getNextPage();
 }
 ```
 
