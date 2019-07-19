@@ -22,11 +22,7 @@ public class QueryParams {
     return this.params;
   }
 
-  public void setParams(HashMap<String, Object> params) {
-    this.params = params;
-  }
-
-  public void add(String key, Object value) {
+  private void add(String key, Object value) {
     this.params.put(key, value);
   }
 
