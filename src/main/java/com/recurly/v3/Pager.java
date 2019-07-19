@@ -38,10 +38,6 @@ public class Pager<T extends Resource> implements Iterable<T> {
     return new PagerIterator(data.toArray(), this);
   }
 
-  public Spliterator<T> spliterator() {
-    return data.spliterator();
-  }
-
   public void forEach(Consumer<? super T> action) {
     while (this.next != null) {
       this.getNextPage();
@@ -57,7 +53,7 @@ public class Pager<T extends Resource> implements Iterable<T> {
     return more;
   }
 
-  protected void setMore(final boolean more) {
+  private void setMore(final boolean more) {
     this.more = more;
   }
 
@@ -65,15 +61,15 @@ public class Pager<T extends Resource> implements Iterable<T> {
     return next;
   }
 
-  protected void setNext(final String something) {
-    this.next = something;
+  private void setNext(final String path) {
+    this.next = path;
   }
 
   public List<T> getData() {
     return data;
   }
 
-  public void setData(final List<T> data) {
+  private void setData(final List<T> data) {
     this.data = data;
   }
 
@@ -104,16 +100,7 @@ public class Pager<T extends Resource> implements Iterable<T> {
     private Pager<T> pager;
 
     public boolean hasNext() {
-      if (position < this.data.length) {
-        return true;
-      }
-      else {
-        if (pager.hasMore()) {
-          return true;
-        } else {
-          return false;
-        }
-      }
+      return position < this.data.length || pager.hasMore();
     }
 
     public Object next() {
@@ -122,18 +109,10 @@ public class Pager<T extends Resource> implements Iterable<T> {
           pager.getNextPage();
           this.data = pager.getData().toArray();
           position = 0;
-          return this.data.length > 0 ? this.data[0] : null;
         }
         return this.data[position++];
       }
-      else {
-        return null;
-      }
-    }
-
-    @Override
-    public void remove() {
-
+      return null;
     }
   }
 }
