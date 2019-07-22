@@ -33,6 +33,8 @@ public class Pager<T extends Resource> implements Iterable<T> {
 
   private HashMap<String, Object> queryParams;
 
+  private boolean paramsConsumed;
+
   public Pager<T>.PagerIterator iterator() {
     if (data.size() == 0 && this.hasMore()) this.getNextPage();
     return new PagerIterator(data.toArray(), this);
@@ -73,20 +75,25 @@ public class Pager<T extends Resource> implements Iterable<T> {
     this.data = data;
   }
 
-  public Pager<T> getNextPage() {
+  public void getNextPage() {
     if (this.next == null) {
       throw new NoSuchElementException();
     }
     Pager<T> pager =
-        this.client.makeRequest("GET", this.next, this.queryParams, this.parameterizedType);
+        this.client.makeRequest("GET", this.next, this.consumeParams(), this.parameterizedType);
     this.clone(pager);
-    return this;
   }
 
   private void clone(Pager<T> pager) {
     this.next = pager.getNext();
     this.more = pager.hasMore();
     this.data = pager.getData();
+  }
+
+  private HashMap<String, Object> consumeParams() {
+    if (this.paramsConsumed) return null;
+    this.paramsConsumed = true;
+    return this.queryParams;
   }
 
   private class PagerIterator implements Iterator {
@@ -104,15 +111,12 @@ public class Pager<T extends Resource> implements Iterable<T> {
     }
 
     public Object next() {
-      if (this.hasNext()) {
-        if (position == this.data.length && pager.hasMore()) {
-          pager.getNextPage();
-          this.data = pager.getData().toArray();
-          position = 0;
-        }
-        return this.data[position++];
+      if (position == this.data.length && pager.hasMore()) {
+        pager.getNextPage();
+        this.data = pager.getData().toArray();
+        position = 0;
       }
-      return null;
+      return this.data[position++];
     }
   }
 }

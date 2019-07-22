@@ -7,15 +7,18 @@ import static org.mockito.Mockito.*;
 import com.recurly.v3.exception.NotFoundException;
 import com.recurly.v3.exception.ValidationException;
 import com.recurly.v3.fixtures.MockClient;
+import com.recurly.v3.fixtures.MockQueryParams;
 import com.recurly.v3.fixtures.MyRequest;
 import com.recurly.v3.fixtures.MyResource;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import okhttp3.*;
 import okhttp3.Request;
+import org.joda.time.DateTime;
 import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("unchecked")
@@ -23,7 +26,7 @@ public class BaseClientTest {
 
   @Test
   public void testMakeRequestWithResource() {
-    OkHttpClient mockOkHttpClient = getMockOkHttpClient(true);
+    OkHttpClient mockOkHttpClient = getMockOkHttpClient(getResponseJson());
 
     final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
     final MyResource resource = client.getResource("code-aaron");
@@ -34,7 +37,7 @@ public class BaseClientTest {
 
   @Test
   public void testMakeRequestWithBody() {
-    OkHttpClient mockOkHttpClient = getMockOkHttpClient(true);
+    OkHttpClient mockOkHttpClient = getMockOkHttpClient(getResponseJson());
 
     final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
     final MyRequest newResource = new MyRequest();
@@ -44,11 +47,16 @@ public class BaseClientTest {
     // TODO: Verify the request made was correct. MockWebServer?
     assertEquals(MyResource.class, resource.getClass());
     assertEquals("aaron", resource.getMyString());
+
+    // Ensure that update works as well
+    final MyResource anotherResource = client.updateResource("someId", newResource);
+    assertEquals(MyResource.class, anotherResource.getClass());
+    assertEquals("aaron", anotherResource.getMyString());
   }
 
   @Test
   public void testMakeRequestWithoutResource() {
-    OkHttpClient mockOkHttpClient = getMockOkHttpClient(false);
+    OkHttpClient mockOkHttpClient = getMockOkHttpClient("");
 
     final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
     client.removeResource("resource-id");
@@ -57,8 +65,28 @@ public class BaseClientTest {
   }
 
   @Test
+  public void testMakeRequestWithQueryParams() {
+    OkHttpClient mockOkHttpClient = getMockOkHttpClient(getResponseListJson());
+
+    final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+    final MockQueryParams qp = new MockQueryParams();
+    qp.setMyString("Aaron");
+    qp.setMyDateTime(new DateTime());
+    qp.setMyInteger(1);
+    qp.setMyFloat(2.3f);
+    qp.setMyDouble(4.5);
+    qp.setMyLong(6L);
+    qp.setMyRandom(null);
+    qp.setUnsupported(new ArrayList());
+    final Pager<MyResource> pager = client.listResources(qp);
+    pager.getNextPage();
+
+    // Todo: Assert that the query params all made it into the request
+  }
+
+  @Test
   public void testNotFoundError() {
-    OkHttpClient mockOkHttpClient = getApiErrorMockOkHttpClient("not_found");
+    OkHttpClient mockOkHttpClient = getApiErrorMockOkHttpClient(getErrorJson("not_found"));
 
     final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
 
@@ -71,7 +99,7 @@ public class BaseClientTest {
 
   @Test
   public void testValidationError() {
-    OkHttpClient mockOkHttpClient = getApiErrorMockOkHttpClient("validation");
+    OkHttpClient mockOkHttpClient = getApiErrorMockOkHttpClient(getErrorJson("validation"));
 
     final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
 
@@ -195,12 +223,11 @@ public class BaseClientTest {
     }
   }
 
-  private static OkHttpClient getMockOkHttpClient(Boolean hasResponseBody) {
+  private static OkHttpClient getMockOkHttpClient(String response) {
     final OkHttpClient mockOkHttpClient = mock(OkHttpClient.class);
     final Call mCall = mock(Call.class);
     final Request mRequest = new Request.Builder().url("https://api.recurly.com").build();
 
-    final String responseJson = hasResponseBody ? "{ \"my_string\": \"aaron\" }" : "";
     final Response mResponse =
         new Response.Builder()
             .request(mRequest)
@@ -208,18 +235,28 @@ public class BaseClientTest {
             .code(200) // status code
             .message("Created")
             .body(
-                ResponseBody.create(MediaType.get("application/json; charset=utf-8"), responseJson))
+                ResponseBody.create(MediaType.get("application/json; charset=utf-8"), response))
+            .build();
+
+    final Response mResponse2 =
+        new Response.Builder()
+            .request(mRequest)
+            .protocol(okhttp3.Protocol.HTTP_1_1)
+            .code(200) // status code
+            .message("updated")
+            .body(
+                ResponseBody.create(MediaType.get("application/json; charset=utf-8"), response))
             .build();
     when(mockOkHttpClient.newCall(any())).thenReturn(mCall);
     try {
-      when(mCall.execute()).thenReturn(mResponse);
+      when(mCall.execute()).thenReturn(mResponse).thenReturn(mResponse2);
     } catch (IOException e) {
       e.printStackTrace();
     }
     return mockOkHttpClient;
   }
 
-  private static OkHttpClient getApiErrorMockOkHttpClient(String exception) {
+  private static OkHttpClient getApiErrorMockOkHttpClient(String response) {
     final OkHttpClient mockOkHttpClient = mock(OkHttpClient.class);
     final Call mCall = mock(Call.class);
     final Request mRequest = new Request.Builder().url("https://api.recurly.com").build();
@@ -232,7 +269,7 @@ public class BaseClientTest {
             .message("Not Found")
             .body(
                 ResponseBody.create(
-                    MediaType.get("application/json; charset=utf-8"), getErrorJson(exception)))
+                    MediaType.get("application/json; charset=utf-8"), response))
             .build();
     when(mockOkHttpClient.newCall(any())).thenReturn(mCall);
     try {
@@ -253,6 +290,24 @@ public class BaseClientTest {
       e.printStackTrace();
     }
     return mockOkHttpClient;
+  }
+
+  private static String getResponseJson() {
+    return "{ \"my_string\": \"aaron\" }";
+  }
+
+  private static String getResponseListJson() {
+    return "" +
+        "{" +
+          "\"object\":\"list\"," +
+          "\"has_more\":false," +
+          "\"next\":null," +
+          "\"data\": [" +
+            "{" +
+              "\"my_string\":\"Du Monde\"" +
+            "}," +
+          "]" +
+        "}";
   }
 
   private static String getErrorJson(String exception) {
