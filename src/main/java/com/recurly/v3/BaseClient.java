@@ -18,7 +18,6 @@ import java.util.regex.Pattern;
 
 public abstract class BaseClient {
   private static final String API_URL = "https://partner-api.recurly.com/";
-  // private static final DateTimeFormatter DT_FORMATTER = ISODateTimeFormat.basicOrdinalDateTime();
 
   private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
   private static final JsonSerializer jsonSerializer = new JsonSerializer();
@@ -166,7 +165,6 @@ public abstract class BaseClient {
           stringValue = value.toString();
         } else if (value instanceof DateTime) {
           final DateTime dt = (DateTime) value;
-          // stringValue = DT_FORMATTER.print(dt);
           stringValue = value.toString();
         } else if (value instanceof Integer) {
           stringValue = Integer.toString((Integer) value);
