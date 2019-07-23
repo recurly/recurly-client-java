@@ -22,7 +22,7 @@ public class QueryParams {
     return this.params;
   }
 
-  private void add(String key, Object value) {
+  protected void add(String key, Object value) {
     this.params.put(key, value);
   }
 

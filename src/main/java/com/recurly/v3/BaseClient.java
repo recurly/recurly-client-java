@@ -18,7 +18,6 @@ import java.util.regex.Pattern;
 
 public abstract class BaseClient {
   private static final String API_URL = "https://partner-api.recurly.com/";
-  private static final DateTimeFormatter DT_FORMATTER = ISODateTimeFormat.dateTimeParser();
 
   private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
   private static final JsonSerializer jsonSerializer = new JsonSerializer();
@@ -87,19 +86,7 @@ public abstract class BaseClient {
         }
       }
 
-      String deprecated = responseHeaders.get("Recurly-Deprecated");
-
-      if (deprecated != null && deprecated.toUpperCase() == "TRUE") {
-        String sunset = responseHeaders.get("Recurly-Sunset-Date");
-
-        String warning =
-            "[recurly-client-java] WARNING: Your current API version \""
-                + Client.API_VERSION
-                + "\" is deprecated and will be sunset on "
-                + sunset;
-
-        System.out.println(warning);
-      }
+      this.warnIfDeprecated(responseHeaders);
 
     } catch (IOException e) {
       throw new NetworkException(e);
@@ -148,19 +135,7 @@ public abstract class BaseClient {
         System.out.println(responseBody);
       }
 
-      String deprecated = responseHeaders.get("Recurly-Deprecated");
-
-      if (deprecated != null && deprecated.toUpperCase() == "TRUE") {
-        String sunset = responseHeaders.get("Recurly-Sunset-Date");
-
-        String warning =
-            "[recurly-client-java] WARNING: Your current API version \""
-                + Client.API_VERSION
-                + "\" is deprecated and will be sunset on "
-                + sunset;
-
-        System.out.println(warning);
-      }
+      this.warnIfDeprecated(responseHeaders);
 
       return jsonSerializer.deserialize(responseBody, resourceClass);
     } catch (IOException e) {
@@ -190,7 +165,7 @@ public abstract class BaseClient {
           stringValue = value.toString();
         } else if (value instanceof DateTime) {
           final DateTime dt = (DateTime) value;
-          stringValue = DT_FORMATTER.print(dt.withZone(DateTimeZone.UTC));
+          stringValue = value.toString();
         } else if (value instanceof Integer) {
           stringValue = Integer.toString((Integer) value);
         } else if (value instanceof Float) {
@@ -267,5 +242,21 @@ public abstract class BaseClient {
 
   public String getApiUrl() {
     return this.apiUrl;
+  }
+
+  private void warnIfDeprecated(Headers responseHeaders) {
+    String deprecated = responseHeaders.get("Recurly-Deprecated");
+
+    if (deprecated != null && deprecated.toUpperCase() == "TRUE") {
+      String sunset = responseHeaders.get("Recurly-Sunset-Date");
+
+      String warning =
+          "[recurly-client-java] WARNING: Your current API version \""
+              + Client.API_VERSION
+              + "\" is deprecated and will be sunset on "
+              + sunset;
+
+      System.out.println(warning);
+    }
   }
 }
