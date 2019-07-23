@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.NoSuchElementException;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -16,16 +17,24 @@ import static org.mockito.Mockito.*;
 public class PagerTest {
   @Test
   public void testForEach() {
-    OkHttpClient mockOkHttpClient = getMockOkHttpClientSingleRequest(getResourceListJson());
+    OkHttpClient mockOkHttpClient = getMockOkHttpClient(getResourceFirstPageJson(), getResourceSecondPageJson());
 
     final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
     Pager<MyResource> pager = client.listResources(null);
-    pager.forEach(resource -> assertNotNull(resource.getMyString()));
+    AtomicInteger count = new AtomicInteger(0);
+    pager.forEach(resource -> {
+      if (count.get() < 3) {
+        assertEquals("Resource Page 1", resource.getMyString());
+      } else {
+        assertEquals("Resource Page 2", resource.getMyString());
+      }
+      count.incrementAndGet();
+    });
   }
 
   @Test
   public void testEachItem() {
-    OkHttpClient mockOkHttpClient = getMockOkHttpClientSingleRequest(getResourceListJson());
+    OkHttpClient mockOkHttpClient = getMockOkHttpClientSingleRequest(getResourceSecondPageJson());
 
     final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
     Pager<MyResource> pager = client.listResources(null);
@@ -47,17 +56,22 @@ public class PagerTest {
   }
 
   @Test
-  public void testMultiplePages() {
-    OkHttpClient mockOkHttpClient = getMockOkHttpClientMultipleRequest(getResourceFirstPageJson(), getResourceListJson());
+  public void testForLoop() {
+    OkHttpClient mockOkHttpClient = getMockOkHttpClient(getResourceFirstPageJson(), getResourceSecondPageJson());
 
     final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
     Pager<MyResource> pager = client.listResources(null);
     int count = 0;
     for (MyResource res : pager) {
-      assertNotNull(res.getMyString());
+      if (count < 3) {
+        assertEquals("Resource Page 1", res.getMyString());
+      }
+      else {
+        assertEquals("Resource Page 2", res.getMyString());
+      }
       count++;
     }
-    assertEquals(4, count);
+    assertEquals(5, count);
   }
 
   @Test
@@ -71,7 +85,7 @@ public class PagerTest {
     final OkHttpClient mockOkHttpClient = mock(OkHttpClient.class);
     final Call mCall = mock(Call.class);
     final Request mRequest = new Request.Builder().url("https://api.recurly.com").build();
-    final Response mResponse = getResponse(mRequest, getResourceListJson());
+    final Response mResponse = getResponse(mRequest, responseJson);
 
 
     when(mockOkHttpClient.newCall(any())).thenReturn(mCall);
@@ -83,12 +97,12 @@ public class PagerTest {
     return mockOkHttpClient;
   }
 
-  private OkHttpClient getMockOkHttpClientMultipleRequest(String responseJson1, String responseJson2) {
+  private OkHttpClient getMockOkHttpClient(String responseJson1, String responseJson2) {
     final OkHttpClient mockOkHttpClient = mock(OkHttpClient.class);
     final Call mCall = mock(Call.class);
     final Request mRequest = new Request.Builder().url("https://api.recurly.com").build();
-    final Response mResponse1 = getResponse(mRequest, getResourceFirstPageJson());
-    final Response mResponse2 = getResponse(mRequest, getResourceListJson());
+    final Response mResponse1 = getResponse(mRequest, responseJson1);
+    final Response mResponse2 = getResponse(mRequest, responseJson2);
 
     when(mockOkHttpClient.newCall(any())).thenReturn(mCall);
     try {
@@ -110,23 +124,6 @@ public class PagerTest {
             .build();
   }
 
-  private String getResourceListJson() {
-    return "" +
-        "{" +
-          "\"object\":\"list\"," +
-          "\"has_more\":false," +
-          "\"next\":null," +
-          "\"data\": [" +
-            "{" +
-              "\"my_string\":\"myString\"" +
-            "}," +
-            "{" +
-              "\"my_string\":\"myOtherString\"" +
-            "}" +
-          "]" +
-        "}";
-  }
-
   private String getResourceFirstPageJson() {
     return "" +
         "{" +
@@ -135,10 +132,30 @@ public class PagerTest {
           "\"next\":\"/next\"," +
           "\"data\": [" +
             "{" +
-              "\"my_string\":\"myString\"" +
+              "\"my_string\":\"Resource Page 1\"" +
             "}," +
             "{" +
-              "\"my_string\":\"myOtherString\"" +
+              "\"my_string\":\"Resource Page 1\"" +
+            "}," +
+            "{" +
+              "\"my_string\":\"Resource Page 1\"" +
+            "}" +
+          "]" +
+        "}";
+  }
+
+  private String getResourceSecondPageJson() {
+    return "" +
+        "{" +
+          "\"object\":\"list\"," +
+          "\"has_more\":false," +
+          "\"next\":null," +
+          "\"data\": [" +
+            "{" +
+              "\"my_string\":\"Resource Page 2\"" +
+            "}," +
+            "{" +
+              "\"my_string\":\"Resource Page 2\"" +
             "}" +
           "]" +
         "}";

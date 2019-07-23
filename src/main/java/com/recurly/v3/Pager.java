@@ -55,24 +55,12 @@ public class Pager<T extends Resource> implements Iterable<T> {
     return more;
   }
 
-  private void setMore(final boolean more) {
-    this.more = more;
-  }
-
   public String getNext() {
     return next;
   }
 
-  private void setNext(final String path) {
-    this.next = path;
-  }
-
   public List<T> getData() {
     return data;
-  }
-
-  private void setData(final List<T> data) {
-    this.data = data;
   }
 
   public void getNextPage() {
