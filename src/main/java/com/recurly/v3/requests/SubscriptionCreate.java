@@ -1,18 +1,16 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.requests;
 
-import com.recurly.v3.resources.*;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
-import org.joda.time.DateTime;
+import com.recurly.v3.resources.*;
 import java.util.List;
-import java.util.Map;
+import org.joda.time.DateTime;
 
 public class SubscriptionCreate extends Request {
 
@@ -108,74 +106,187 @@ public class SubscriptionCreate extends Request {
   @Expose
   private Float unitAmount;
 
+  public AccountCreate getAccount() {
+    return this.account;
+  }
 
-  public AccountCreate getAccount() { return this.account; }
-  public void setAccount(final AccountCreate account) { this.account = account; }
+  public void setAccount(final AccountCreate account) {
+    this.account = account;
+  }
 
-  public List<SubscriptionAddOnCreate> getAddOns() { return this.addOns; }
-  public void setAddOns(final List<SubscriptionAddOnCreate> addOns) { this.addOns = addOns; }
+  public List<SubscriptionAddOnCreate> getAddOns() {
+    return this.addOns;
+  }
 
-  public Boolean getAutoRenew() { return this.autoRenew; }
-  public void setAutoRenew(final Boolean autoRenew) { this.autoRenew = autoRenew; }
+  public void setAddOns(final List<SubscriptionAddOnCreate> addOns) {
+    this.addOns = addOns;
+  }
 
-  public String getCollectionMethod() { return this.collectionMethod; }
-  public void setCollectionMethod(final String collectionMethod) { this.collectionMethod = collectionMethod; }
+  public Boolean getAutoRenew() {
+    return this.autoRenew;
+  }
 
-  public String getCouponCode() { return this.couponCode; }
-  public void setCouponCode(final String couponCode) { this.couponCode = couponCode; }
+  public void setAutoRenew(final Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+  }
 
-  public String getCreditCustomerNotes() { return this.creditCustomerNotes; }
-  public void setCreditCustomerNotes(final String creditCustomerNotes) { this.creditCustomerNotes = creditCustomerNotes; }
+  public String getCollectionMethod() {
+    return this.collectionMethod;
+  }
 
-  public String getCurrency() { return this.currency; }
-  public void setCurrency(final String currency) { this.currency = currency; }
+  public void setCollectionMethod(final String collectionMethod) {
+    this.collectionMethod = collectionMethod;
+  }
 
-  public List<CustomField> getCustomFields() { return this.customFields; }
-  public void setCustomFields(final List<CustomField> customFields) { this.customFields = customFields; }
+  public String getCouponCode() {
+    return this.couponCode;
+  }
 
-  public String getCustomerNotes() { return this.customerNotes; }
-  public void setCustomerNotes(final String customerNotes) { this.customerNotes = customerNotes; }
+  public void setCouponCode(final String couponCode) {
+    this.couponCode = couponCode;
+  }
 
-  public Integer getNetTerms() { return this.netTerms; }
-  public void setNetTerms(final Integer netTerms) { this.netTerms = netTerms; }
+  public String getCreditCustomerNotes() {
+    return this.creditCustomerNotes;
+  }
 
-  public DateTime getNextBillDate() { return this.nextBillDate; }
-  public void setNextBillDate(final DateTime nextBillDate) { this.nextBillDate = nextBillDate; }
+  public void setCreditCustomerNotes(final String creditCustomerNotes) {
+    this.creditCustomerNotes = creditCustomerNotes;
+  }
 
-  public String getPlanCode() { return this.planCode; }
-  public void setPlanCode(final String planCode) { this.planCode = planCode; }
+  public String getCurrency() {
+    return this.currency;
+  }
 
-  public String getPlanId() { return this.planId; }
-  public void setPlanId(final String planId) { this.planId = planId; }
+  public void setCurrency(final String currency) {
+    this.currency = currency;
+  }
 
-  public String getPoNumber() { return this.poNumber; }
-  public void setPoNumber(final String poNumber) { this.poNumber = poNumber; }
+  public List<CustomField> getCustomFields() {
+    return this.customFields;
+  }
 
-  public Integer getQuantity() { return this.quantity; }
-  public void setQuantity(final Integer quantity) { this.quantity = quantity; }
+  public void setCustomFields(final List<CustomField> customFields) {
+    this.customFields = customFields;
+  }
 
-  public Integer getRenewalBillingCycles() { return this.renewalBillingCycles; }
-  public void setRenewalBillingCycles(final Integer renewalBillingCycles) { this.renewalBillingCycles = renewalBillingCycles; }
+  public String getCustomerNotes() {
+    return this.customerNotes;
+  }
 
-  public ShippingAddressCreate getShippingAddress() { return this.shippingAddress; }
-  public void setShippingAddress(final ShippingAddressCreate shippingAddress) { this.shippingAddress = shippingAddress; }
+  public void setCustomerNotes(final String customerNotes) {
+    this.customerNotes = customerNotes;
+  }
 
-  public String getShippingAddressId() { return this.shippingAddressId; }
-  public void setShippingAddressId(final String shippingAddressId) { this.shippingAddressId = shippingAddressId; }
+  public Integer getNetTerms() {
+    return this.netTerms;
+  }
 
-  public DateTime getStartsAt() { return this.startsAt; }
-  public void setStartsAt(final DateTime startsAt) { this.startsAt = startsAt; }
+  public void setNetTerms(final Integer netTerms) {
+    this.netTerms = netTerms;
+  }
 
-  public String getTermsAndConditions() { return this.termsAndConditions; }
-  public void setTermsAndConditions(final String termsAndConditions) { this.termsAndConditions = termsAndConditions; }
+  public DateTime getNextBillDate() {
+    return this.nextBillDate;
+  }
 
-  public Integer getTotalBillingCycles() { return this.totalBillingCycles; }
-  public void setTotalBillingCycles(final Integer totalBillingCycles) { this.totalBillingCycles = totalBillingCycles; }
+  public void setNextBillDate(final DateTime nextBillDate) {
+    this.nextBillDate = nextBillDate;
+  }
 
-  public DateTime getTrialEndsAt() { return this.trialEndsAt; }
-  public void setTrialEndsAt(final DateTime trialEndsAt) { this.trialEndsAt = trialEndsAt; }
+  public String getPlanCode() {
+    return this.planCode;
+  }
 
-  public Float getUnitAmount() { return this.unitAmount; }
-  public void setUnitAmount(final Float unitAmount) { this.unitAmount = unitAmount; }
+  public void setPlanCode(final String planCode) {
+    this.planCode = planCode;
+  }
 
+  public String getPlanId() {
+    return this.planId;
+  }
+
+  public void setPlanId(final String planId) {
+    this.planId = planId;
+  }
+
+  public String getPoNumber() {
+    return this.poNumber;
+  }
+
+  public void setPoNumber(final String poNumber) {
+    this.poNumber = poNumber;
+  }
+
+  public Integer getQuantity() {
+    return this.quantity;
+  }
+
+  public void setQuantity(final Integer quantity) {
+    this.quantity = quantity;
+  }
+
+  public Integer getRenewalBillingCycles() {
+    return this.renewalBillingCycles;
+  }
+
+  public void setRenewalBillingCycles(final Integer renewalBillingCycles) {
+    this.renewalBillingCycles = renewalBillingCycles;
+  }
+
+  public ShippingAddressCreate getShippingAddress() {
+    return this.shippingAddress;
+  }
+
+  public void setShippingAddress(final ShippingAddressCreate shippingAddress) {
+    this.shippingAddress = shippingAddress;
+  }
+
+  public String getShippingAddressId() {
+    return this.shippingAddressId;
+  }
+
+  public void setShippingAddressId(final String shippingAddressId) {
+    this.shippingAddressId = shippingAddressId;
+  }
+
+  public DateTime getStartsAt() {
+    return this.startsAt;
+  }
+
+  public void setStartsAt(final DateTime startsAt) {
+    this.startsAt = startsAt;
+  }
+
+  public String getTermsAndConditions() {
+    return this.termsAndConditions;
+  }
+
+  public void setTermsAndConditions(final String termsAndConditions) {
+    this.termsAndConditions = termsAndConditions;
+  }
+
+  public Integer getTotalBillingCycles() {
+    return this.totalBillingCycles;
+  }
+
+  public void setTotalBillingCycles(final Integer totalBillingCycles) {
+    this.totalBillingCycles = totalBillingCycles;
+  }
+
+  public DateTime getTrialEndsAt() {
+    return this.trialEndsAt;
+  }
+
+  public void setTrialEndsAt(final DateTime trialEndsAt) {
+    this.trialEndsAt = trialEndsAt;
+  }
+
+  public Float getUnitAmount() {
+    return this.unitAmount;
+  }
+
+  public void setUnitAmount(final Float unitAmount) {
+    this.unitAmount = unitAmount;
+  }
 }

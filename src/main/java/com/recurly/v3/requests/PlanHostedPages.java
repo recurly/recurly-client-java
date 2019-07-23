@@ -1,18 +1,14 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.requests;
 
-import com.recurly.v3.resources.*;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
-import org.joda.time.DateTime;
-import java.util.List;
-import java.util.Map;
+import com.recurly.v3.resources.*;
 
 public class PlanHostedPages extends Request {
 
@@ -32,17 +28,35 @@ public class PlanHostedPages extends Request {
   @Expose
   private String successUrl;
 
+  public Boolean getBypassConfirmation() {
+    return this.bypassConfirmation;
+  }
 
-  public Boolean getBypassConfirmation() { return this.bypassConfirmation; }
-  public void setBypassConfirmation(final Boolean bypassConfirmation) { this.bypassConfirmation = bypassConfirmation; }
+  public void setBypassConfirmation(final Boolean bypassConfirmation) {
+    this.bypassConfirmation = bypassConfirmation;
+  }
 
-  public String getCancelUrl() { return this.cancelUrl; }
-  public void setCancelUrl(final String cancelUrl) { this.cancelUrl = cancelUrl; }
+  public String getCancelUrl() {
+    return this.cancelUrl;
+  }
 
-  public Boolean getDisplayQuantity() { return this.displayQuantity; }
-  public void setDisplayQuantity(final Boolean displayQuantity) { this.displayQuantity = displayQuantity; }
+  public void setCancelUrl(final String cancelUrl) {
+    this.cancelUrl = cancelUrl;
+  }
 
-  public String getSuccessUrl() { return this.successUrl; }
-  public void setSuccessUrl(final String successUrl) { this.successUrl = successUrl; }
+  public Boolean getDisplayQuantity() {
+    return this.displayQuantity;
+  }
 
+  public void setDisplayQuantity(final Boolean displayQuantity) {
+    this.displayQuantity = displayQuantity;
+  }
+
+  public String getSuccessUrl() {
+    return this.successUrl;
+  }
+
+  public void setSuccessUrl(final String successUrl) {
+    this.successUrl = successUrl;
+  }
 }

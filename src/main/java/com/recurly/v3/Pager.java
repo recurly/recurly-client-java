@@ -7,7 +7,8 @@ import java.util.*;
 import java.util.function.Consumer;
 
 public class Pager<T extends Resource> implements Iterable<T> {
-  public Pager(String path, HashMap<String, Object> queryParams, BaseClient client, Type parameterizedType) {
+  public Pager(
+      String path, HashMap<String, Object> queryParams, BaseClient client, Type parameterizedType) {
     this.next = path;
     this.queryParams = queryParams;
     this.client = client;
@@ -24,8 +25,7 @@ public class Pager<T extends Resource> implements Iterable<T> {
   @Expose
   private String next;
 
-  @Expose
-  private List<T> data;
+  @Expose private List<T> data;
 
   private BaseClient client;
 

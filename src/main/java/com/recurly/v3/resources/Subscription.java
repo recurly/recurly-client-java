@@ -1,17 +1,15 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
 import java.util.List;
-import java.util.Map;
+import org.joda.time.DateTime;
 
 public class Subscription extends Resource {
 
@@ -175,125 +173,323 @@ public class Subscription extends Resource {
   @Expose
   private String uuid;
 
+  public AccountMini getAccount() {
+    return this.account;
+  }
 
-  public AccountMini getAccount() { return this.account; }
-  public void setAccount(final AccountMini account) { this.account = account; }
+  public void setAccount(final AccountMini account) {
+    this.account = account;
+  }
 
-  public DateTime getActivatedAt() { return this.activatedAt; }
-  public void setActivatedAt(final DateTime activatedAt) { this.activatedAt = activatedAt; }
+  public DateTime getActivatedAt() {
+    return this.activatedAt;
+  }
 
-  public List<SubscriptionAddOn> getAddOns() { return this.addOns; }
-  public void setAddOns(final List<SubscriptionAddOn> addOns) { this.addOns = addOns; }
+  public void setActivatedAt(final DateTime activatedAt) {
+    this.activatedAt = activatedAt;
+  }
 
-  public Float getAddOnsTotal() { return this.addOnsTotal; }
-  public void setAddOnsTotal(final Float addOnsTotal) { this.addOnsTotal = addOnsTotal; }
+  public List<SubscriptionAddOn> getAddOns() {
+    return this.addOns;
+  }
 
-  public Boolean getAutoRenew() { return this.autoRenew; }
-  public void setAutoRenew(final Boolean autoRenew) { this.autoRenew = autoRenew; }
+  public void setAddOns(final List<SubscriptionAddOn> addOns) {
+    this.addOns = addOns;
+  }
 
-  public DateTime getBankAccountAuthorizedAt() { return this.bankAccountAuthorizedAt; }
-  public void setBankAccountAuthorizedAt(final DateTime bankAccountAuthorizedAt) { this.bankAccountAuthorizedAt = bankAccountAuthorizedAt; }
+  public Float getAddOnsTotal() {
+    return this.addOnsTotal;
+  }
 
-  public DateTime getCanceledAt() { return this.canceledAt; }
-  public void setCanceledAt(final DateTime canceledAt) { this.canceledAt = canceledAt; }
+  public void setAddOnsTotal(final Float addOnsTotal) {
+    this.addOnsTotal = addOnsTotal;
+  }
 
-  public String getCollectionMethod() { return this.collectionMethod; }
-  public void setCollectionMethod(final String collectionMethod) { this.collectionMethod = collectionMethod; }
+  public Boolean getAutoRenew() {
+    return this.autoRenew;
+  }
 
-  public List<CouponRedemptionMini> getCouponRedemptions() { return this.couponRedemptions; }
-  public void setCouponRedemptions(final List<CouponRedemptionMini> couponRedemptions) { this.couponRedemptions = couponRedemptions; }
+  public void setAutoRenew(final Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+  }
 
-  public DateTime getCreatedAt() { return this.createdAt; }
-  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
+  public DateTime getBankAccountAuthorizedAt() {
+    return this.bankAccountAuthorizedAt;
+  }
 
-  public String getCurrency() { return this.currency; }
-  public void setCurrency(final String currency) { this.currency = currency; }
+  public void setBankAccountAuthorizedAt(final DateTime bankAccountAuthorizedAt) {
+    this.bankAccountAuthorizedAt = bankAccountAuthorizedAt;
+  }
 
-  public DateTime getCurrentPeriodEndsAt() { return this.currentPeriodEndsAt; }
-  public void setCurrentPeriodEndsAt(final DateTime currentPeriodEndsAt) { this.currentPeriodEndsAt = currentPeriodEndsAt; }
+  public DateTime getCanceledAt() {
+    return this.canceledAt;
+  }
 
-  public DateTime getCurrentPeriodStartedAt() { return this.currentPeriodStartedAt; }
-  public void setCurrentPeriodStartedAt(final DateTime currentPeriodStartedAt) { this.currentPeriodStartedAt = currentPeriodStartedAt; }
+  public void setCanceledAt(final DateTime canceledAt) {
+    this.canceledAt = canceledAt;
+  }
 
-  public DateTime getCurrentTermEndsAt() { return this.currentTermEndsAt; }
-  public void setCurrentTermEndsAt(final DateTime currentTermEndsAt) { this.currentTermEndsAt = currentTermEndsAt; }
+  public String getCollectionMethod() {
+    return this.collectionMethod;
+  }
 
-  public DateTime getCurrentTermStartedAt() { return this.currentTermStartedAt; }
-  public void setCurrentTermStartedAt(final DateTime currentTermStartedAt) { this.currentTermStartedAt = currentTermStartedAt; }
+  public void setCollectionMethod(final String collectionMethod) {
+    this.collectionMethod = collectionMethod;
+  }
 
-  public List<CustomField> getCustomFields() { return this.customFields; }
-  public void setCustomFields(final List<CustomField> customFields) { this.customFields = customFields; }
+  public List<CouponRedemptionMini> getCouponRedemptions() {
+    return this.couponRedemptions;
+  }
 
-  public String getCustomerNotes() { return this.customerNotes; }
-  public void setCustomerNotes(final String customerNotes) { this.customerNotes = customerNotes; }
+  public void setCouponRedemptions(final List<CouponRedemptionMini> couponRedemptions) {
+    this.couponRedemptions = couponRedemptions;
+  }
 
-  public String getExpirationReason() { return this.expirationReason; }
-  public void setExpirationReason(final String expirationReason) { this.expirationReason = expirationReason; }
+  public DateTime getCreatedAt() {
+    return this.createdAt;
+  }
 
-  public DateTime getExpiresAt() { return this.expiresAt; }
-  public void setExpiresAt(final DateTime expiresAt) { this.expiresAt = expiresAt; }
+  public void setCreatedAt(final DateTime createdAt) {
+    this.createdAt = createdAt;
+  }
 
-  public String getId() { return this.id; }
-  public void setId(final String id) { this.id = id; }
+  public String getCurrency() {
+    return this.currency;
+  }
 
-  public Integer getNetTerms() { return this.netTerms; }
-  public void setNetTerms(final Integer netTerms) { this.netTerms = netTerms; }
+  public void setCurrency(final String currency) {
+    this.currency = currency;
+  }
 
-  public String getObject() { return this.object; }
-  public void setObject(final String object) { this.object = object; }
+  public DateTime getCurrentPeriodEndsAt() {
+    return this.currentPeriodEndsAt;
+  }
 
-  public DateTime getPausedAt() { return this.pausedAt; }
-  public void setPausedAt(final DateTime pausedAt) { this.pausedAt = pausedAt; }
+  public void setCurrentPeriodEndsAt(final DateTime currentPeriodEndsAt) {
+    this.currentPeriodEndsAt = currentPeriodEndsAt;
+  }
 
-  public SubscriptionChange getPendingChange() { return this.pendingChange; }
-  public void setPendingChange(final SubscriptionChange pendingChange) { this.pendingChange = pendingChange; }
+  public DateTime getCurrentPeriodStartedAt() {
+    return this.currentPeriodStartedAt;
+  }
 
-  public PlanMini getPlan() { return this.plan; }
-  public void setPlan(final PlanMini plan) { this.plan = plan; }
+  public void setCurrentPeriodStartedAt(final DateTime currentPeriodStartedAt) {
+    this.currentPeriodStartedAt = currentPeriodStartedAt;
+  }
 
-  public String getPoNumber() { return this.poNumber; }
-  public void setPoNumber(final String poNumber) { this.poNumber = poNumber; }
+  public DateTime getCurrentTermEndsAt() {
+    return this.currentTermEndsAt;
+  }
 
-  public Integer getQuantity() { return this.quantity; }
-  public void setQuantity(final Integer quantity) { this.quantity = quantity; }
+  public void setCurrentTermEndsAt(final DateTime currentTermEndsAt) {
+    this.currentTermEndsAt = currentTermEndsAt;
+  }
 
-  public Integer getRemainingBillingCycles() { return this.remainingBillingCycles; }
-  public void setRemainingBillingCycles(final Integer remainingBillingCycles) { this.remainingBillingCycles = remainingBillingCycles; }
+  public DateTime getCurrentTermStartedAt() {
+    return this.currentTermStartedAt;
+  }
 
-  public Integer getRemainingPauseCycles() { return this.remainingPauseCycles; }
-  public void setRemainingPauseCycles(final Integer remainingPauseCycles) { this.remainingPauseCycles = remainingPauseCycles; }
+  public void setCurrentTermStartedAt(final DateTime currentTermStartedAt) {
+    this.currentTermStartedAt = currentTermStartedAt;
+  }
 
-  public Integer getRenewalBillingCycles() { return this.renewalBillingCycles; }
-  public void setRenewalBillingCycles(final Integer renewalBillingCycles) { this.renewalBillingCycles = renewalBillingCycles; }
+  public List<CustomField> getCustomFields() {
+    return this.customFields;
+  }
 
-  public ShippingAddress getShippingAddress() { return this.shippingAddress; }
-  public void setShippingAddress(final ShippingAddress shippingAddress) { this.shippingAddress = shippingAddress; }
+  public void setCustomFields(final List<CustomField> customFields) {
+    this.customFields = customFields;
+  }
 
-  public String getState() { return this.state; }
-  public void setState(final String state) { this.state = state; }
+  public String getCustomerNotes() {
+    return this.customerNotes;
+  }
 
-  public Float getSubtotal() { return this.subtotal; }
-  public void setSubtotal(final Float subtotal) { this.subtotal = subtotal; }
+  public void setCustomerNotes(final String customerNotes) {
+    this.customerNotes = customerNotes;
+  }
 
-  public String getTermsAndConditions() { return this.termsAndConditions; }
-  public void setTermsAndConditions(final String termsAndConditions) { this.termsAndConditions = termsAndConditions; }
+  public String getExpirationReason() {
+    return this.expirationReason;
+  }
 
-  public Integer getTotalBillingCycles() { return this.totalBillingCycles; }
-  public void setTotalBillingCycles(final Integer totalBillingCycles) { this.totalBillingCycles = totalBillingCycles; }
+  public void setExpirationReason(final String expirationReason) {
+    this.expirationReason = expirationReason;
+  }
 
-  public DateTime getTrialEndsAt() { return this.trialEndsAt; }
-  public void setTrialEndsAt(final DateTime trialEndsAt) { this.trialEndsAt = trialEndsAt; }
+  public DateTime getExpiresAt() {
+    return this.expiresAt;
+  }
 
-  public DateTime getTrialStartedAt() { return this.trialStartedAt; }
-  public void setTrialStartedAt(final DateTime trialStartedAt) { this.trialStartedAt = trialStartedAt; }
+  public void setExpiresAt(final DateTime expiresAt) {
+    this.expiresAt = expiresAt;
+  }
 
-  public Float getUnitAmount() { return this.unitAmount; }
-  public void setUnitAmount(final Float unitAmount) { this.unitAmount = unitAmount; }
+  public String getId() {
+    return this.id;
+  }
 
-  public DateTime getUpdatedAt() { return this.updatedAt; }
-  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+  public void setId(final String id) {
+    this.id = id;
+  }
 
-  public String getUuid() { return this.uuid; }
-  public void setUuid(final String uuid) { this.uuid = uuid; }
+  public Integer getNetTerms() {
+    return this.netTerms;
+  }
 
+  public void setNetTerms(final Integer netTerms) {
+    this.netTerms = netTerms;
+  }
+
+  public String getObject() {
+    return this.object;
+  }
+
+  public void setObject(final String object) {
+    this.object = object;
+  }
+
+  public DateTime getPausedAt() {
+    return this.pausedAt;
+  }
+
+  public void setPausedAt(final DateTime pausedAt) {
+    this.pausedAt = pausedAt;
+  }
+
+  public SubscriptionChange getPendingChange() {
+    return this.pendingChange;
+  }
+
+  public void setPendingChange(final SubscriptionChange pendingChange) {
+    this.pendingChange = pendingChange;
+  }
+
+  public PlanMini getPlan() {
+    return this.plan;
+  }
+
+  public void setPlan(final PlanMini plan) {
+    this.plan = plan;
+  }
+
+  public String getPoNumber() {
+    return this.poNumber;
+  }
+
+  public void setPoNumber(final String poNumber) {
+    this.poNumber = poNumber;
+  }
+
+  public Integer getQuantity() {
+    return this.quantity;
+  }
+
+  public void setQuantity(final Integer quantity) {
+    this.quantity = quantity;
+  }
+
+  public Integer getRemainingBillingCycles() {
+    return this.remainingBillingCycles;
+  }
+
+  public void setRemainingBillingCycles(final Integer remainingBillingCycles) {
+    this.remainingBillingCycles = remainingBillingCycles;
+  }
+
+  public Integer getRemainingPauseCycles() {
+    return this.remainingPauseCycles;
+  }
+
+  public void setRemainingPauseCycles(final Integer remainingPauseCycles) {
+    this.remainingPauseCycles = remainingPauseCycles;
+  }
+
+  public Integer getRenewalBillingCycles() {
+    return this.renewalBillingCycles;
+  }
+
+  public void setRenewalBillingCycles(final Integer renewalBillingCycles) {
+    this.renewalBillingCycles = renewalBillingCycles;
+  }
+
+  public ShippingAddress getShippingAddress() {
+    return this.shippingAddress;
+  }
+
+  public void setShippingAddress(final ShippingAddress shippingAddress) {
+    this.shippingAddress = shippingAddress;
+  }
+
+  public String getState() {
+    return this.state;
+  }
+
+  public void setState(final String state) {
+    this.state = state;
+  }
+
+  public Float getSubtotal() {
+    return this.subtotal;
+  }
+
+  public void setSubtotal(final Float subtotal) {
+    this.subtotal = subtotal;
+  }
+
+  public String getTermsAndConditions() {
+    return this.termsAndConditions;
+  }
+
+  public void setTermsAndConditions(final String termsAndConditions) {
+    this.termsAndConditions = termsAndConditions;
+  }
+
+  public Integer getTotalBillingCycles() {
+    return this.totalBillingCycles;
+  }
+
+  public void setTotalBillingCycles(final Integer totalBillingCycles) {
+    this.totalBillingCycles = totalBillingCycles;
+  }
+
+  public DateTime getTrialEndsAt() {
+    return this.trialEndsAt;
+  }
+
+  public void setTrialEndsAt(final DateTime trialEndsAt) {
+    this.trialEndsAt = trialEndsAt;
+  }
+
+  public DateTime getTrialStartedAt() {
+    return this.trialStartedAt;
+  }
+
+  public void setTrialStartedAt(final DateTime trialStartedAt) {
+    this.trialStartedAt = trialStartedAt;
+  }
+
+  public Float getUnitAmount() {
+    return this.unitAmount;
+  }
+
+  public void setUnitAmount(final Float unitAmount) {
+    this.unitAmount = unitAmount;
+  }
+
+  public DateTime getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(final DateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public String getUuid() {
+    return this.uuid;
+  }
+
+  public void setUuid(final String uuid) {
+    this.uuid = uuid;
+  }
 }

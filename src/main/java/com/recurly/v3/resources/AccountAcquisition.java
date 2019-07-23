@@ -1,8 +1,7 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
@@ -10,8 +9,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
-import java.util.List;
-import java.util.Map;
 
 public class AccountAcquisition extends Resource {
 
@@ -51,32 +48,75 @@ public class AccountAcquisition extends Resource {
   @Expose
   private DateTime updatedAt;
 
+  public AccountMini getAccount() {
+    return this.account;
+  }
 
-  public AccountMini getAccount() { return this.account; }
-  public void setAccount(final AccountMini account) { this.account = account; }
+  public void setAccount(final AccountMini account) {
+    this.account = account;
+  }
 
-  public String getCampaign() { return this.campaign; }
-  public void setCampaign(final String campaign) { this.campaign = campaign; }
+  public String getCampaign() {
+    return this.campaign;
+  }
 
-  public String getChannel() { return this.channel; }
-  public void setChannel(final String channel) { this.channel = channel; }
+  public void setCampaign(final String campaign) {
+    this.campaign = campaign;
+  }
 
-  public AccountAcquisitionCost getCost() { return this.cost; }
-  public void setCost(final AccountAcquisitionCost cost) { this.cost = cost; }
+  public String getChannel() {
+    return this.channel;
+  }
 
-  public DateTime getCreatedAt() { return this.createdAt; }
-  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
+  public void setChannel(final String channel) {
+    this.channel = channel;
+  }
 
-  public String getId() { return this.id; }
-  public void setId(final String id) { this.id = id; }
+  public AccountAcquisitionCost getCost() {
+    return this.cost;
+  }
 
-  public String getObject() { return this.object; }
-  public void setObject(final String object) { this.object = object; }
+  public void setCost(final AccountAcquisitionCost cost) {
+    this.cost = cost;
+  }
 
-  public String getSubchannel() { return this.subchannel; }
-  public void setSubchannel(final String subchannel) { this.subchannel = subchannel; }
+  public DateTime getCreatedAt() {
+    return this.createdAt;
+  }
 
-  public DateTime getUpdatedAt() { return this.updatedAt; }
-  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+  public void setCreatedAt(final DateTime createdAt) {
+    this.createdAt = createdAt;
+  }
 
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(final String id) {
+    this.id = id;
+  }
+
+  public String getObject() {
+    return this.object;
+  }
+
+  public void setObject(final String object) {
+    this.object = object;
+  }
+
+  public String getSubchannel() {
+    return this.subchannel;
+  }
+
+  public void setSubchannel(final String subchannel) {
+    this.subchannel = subchannel;
+  }
+
+  public DateTime getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(final DateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
 }

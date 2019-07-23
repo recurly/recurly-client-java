@@ -1,17 +1,15 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
 import java.util.List;
-import java.util.Map;
+import org.joda.time.DateTime;
 
 public class Site extends Resource {
 
@@ -59,38 +57,91 @@ public class Site extends Resource {
   @Expose
   private DateTime updatedAt;
 
+  public Address getAddress() {
+    return this.address;
+  }
 
-  public Address getAddress() { return this.address; }
-  public void setAddress(final Address address) { this.address = address; }
+  public void setAddress(final Address address) {
+    this.address = address;
+  }
 
-  public DateTime getCreatedAt() { return this.createdAt; }
-  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
+  public DateTime getCreatedAt() {
+    return this.createdAt;
+  }
 
-  public DateTime getDeletedAt() { return this.deletedAt; }
-  public void setDeletedAt(final DateTime deletedAt) { this.deletedAt = deletedAt; }
+  public void setCreatedAt(final DateTime createdAt) {
+    this.createdAt = createdAt;
+  }
 
-  public List<String> getFeatures() { return this.features; }
-  public void setFeatures(final List<String> features) { this.features = features; }
+  public DateTime getDeletedAt() {
+    return this.deletedAt;
+  }
 
-  public String getId() { return this.id; }
-  public void setId(final String id) { this.id = id; }
+  public void setDeletedAt(final DateTime deletedAt) {
+    this.deletedAt = deletedAt;
+  }
 
-  public String getMode() { return this.mode; }
-  public void setMode(final String mode) { this.mode = mode; }
+  public List<String> getFeatures() {
+    return this.features;
+  }
 
-  public String getObject() { return this.object; }
-  public void setObject(final String object) { this.object = object; }
+  public void setFeatures(final List<String> features) {
+    this.features = features;
+  }
 
-  public String getPublicApiKey() { return this.publicApiKey; }
-  public void setPublicApiKey(final String publicApiKey) { this.publicApiKey = publicApiKey; }
+  public String getId() {
+    return this.id;
+  }
 
-  public Settings getSettings() { return this.settings; }
-  public void setSettings(final Settings settings) { this.settings = settings; }
+  public void setId(final String id) {
+    this.id = id;
+  }
 
-  public String getSubdomain() { return this.subdomain; }
-  public void setSubdomain(final String subdomain) { this.subdomain = subdomain; }
+  public String getMode() {
+    return this.mode;
+  }
 
-  public DateTime getUpdatedAt() { return this.updatedAt; }
-  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+  public void setMode(final String mode) {
+    this.mode = mode;
+  }
 
+  public String getObject() {
+    return this.object;
+  }
+
+  public void setObject(final String object) {
+    this.object = object;
+  }
+
+  public String getPublicApiKey() {
+    return this.publicApiKey;
+  }
+
+  public void setPublicApiKey(final String publicApiKey) {
+    this.publicApiKey = publicApiKey;
+  }
+
+  public Settings getSettings() {
+    return this.settings;
+  }
+
+  public void setSettings(final Settings settings) {
+    this.settings = settings;
+  }
+
+  public String getSubdomain() {
+    return this.subdomain;
+  }
+
+  public void setSubdomain(final String subdomain) {
+    this.subdomain = subdomain;
+  }
+
+  public DateTime getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(final DateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
 }

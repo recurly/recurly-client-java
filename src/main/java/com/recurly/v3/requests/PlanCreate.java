@@ -1,18 +1,15 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.requests;
 
-import com.recurly.v3.resources.*;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
-import org.joda.time.DateTime;
+import com.recurly.v3.resources.*;
 import java.util.List;
-import java.util.Map;
 
 public class PlanCreate extends Request {
 
@@ -80,53 +77,131 @@ public class PlanCreate extends Request {
   @Expose
   private String trialUnit;
 
+  public String getAccountingCode() {
+    return this.accountingCode;
+  }
 
-  public String getAccountingCode() { return this.accountingCode; }
-  public void setAccountingCode(final String accountingCode) { this.accountingCode = accountingCode; }
+  public void setAccountingCode(final String accountingCode) {
+    this.accountingCode = accountingCode;
+  }
 
-  public List<AddOnCreate> getAddOns() { return this.addOns; }
-  public void setAddOns(final List<AddOnCreate> addOns) { this.addOns = addOns; }
+  public List<AddOnCreate> getAddOns() {
+    return this.addOns;
+  }
 
-  public Boolean getAutoRenew() { return this.autoRenew; }
-  public void setAutoRenew(final Boolean autoRenew) { this.autoRenew = autoRenew; }
+  public void setAddOns(final List<AddOnCreate> addOns) {
+    this.addOns = addOns;
+  }
 
-  public String getCode() { return this.code; }
-  public void setCode(final String code) { this.code = code; }
+  public Boolean getAutoRenew() {
+    return this.autoRenew;
+  }
 
-  public List<PlanPricing> getCurrencies() { return this.currencies; }
-  public void setCurrencies(final List<PlanPricing> currencies) { this.currencies = currencies; }
+  public void setAutoRenew(final Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+  }
 
-  public String getDescription() { return this.description; }
-  public void setDescription(final String description) { this.description = description; }
+  public String getCode() {
+    return this.code;
+  }
 
-  public PlanHostedPages getHostedPages() { return this.hostedPages; }
-  public void setHostedPages(final PlanHostedPages hostedPages) { this.hostedPages = hostedPages; }
+  public void setCode(final String code) {
+    this.code = code;
+  }
 
-  public Integer getIntervalLength() { return this.intervalLength; }
-  public void setIntervalLength(final Integer intervalLength) { this.intervalLength = intervalLength; }
+  public List<PlanPricing> getCurrencies() {
+    return this.currencies;
+  }
 
-  public String getIntervalUnit() { return this.intervalUnit; }
-  public void setIntervalUnit(final String intervalUnit) { this.intervalUnit = intervalUnit; }
+  public void setCurrencies(final List<PlanPricing> currencies) {
+    this.currencies = currencies;
+  }
 
-  public String getName() { return this.name; }
-  public void setName(final String name) { this.name = name; }
+  public String getDescription() {
+    return this.description;
+  }
 
-  public String getSetupFeeAccountingCode() { return this.setupFeeAccountingCode; }
-  public void setSetupFeeAccountingCode(final String setupFeeAccountingCode) { this.setupFeeAccountingCode = setupFeeAccountingCode; }
+  public void setDescription(final String description) {
+    this.description = description;
+  }
 
-  public String getTaxCode() { return this.taxCode; }
-  public void setTaxCode(final String taxCode) { this.taxCode = taxCode; }
+  public PlanHostedPages getHostedPages() {
+    return this.hostedPages;
+  }
 
-  public Boolean getTaxExempt() { return this.taxExempt; }
-  public void setTaxExempt(final Boolean taxExempt) { this.taxExempt = taxExempt; }
+  public void setHostedPages(final PlanHostedPages hostedPages) {
+    this.hostedPages = hostedPages;
+  }
 
-  public Integer getTotalBillingCycles() { return this.totalBillingCycles; }
-  public void setTotalBillingCycles(final Integer totalBillingCycles) { this.totalBillingCycles = totalBillingCycles; }
+  public Integer getIntervalLength() {
+    return this.intervalLength;
+  }
 
-  public Integer getTrialLength() { return this.trialLength; }
-  public void setTrialLength(final Integer trialLength) { this.trialLength = trialLength; }
+  public void setIntervalLength(final Integer intervalLength) {
+    this.intervalLength = intervalLength;
+  }
 
-  public String getTrialUnit() { return this.trialUnit; }
-  public void setTrialUnit(final String trialUnit) { this.trialUnit = trialUnit; }
+  public String getIntervalUnit() {
+    return this.intervalUnit;
+  }
 
+  public void setIntervalUnit(final String intervalUnit) {
+    this.intervalUnit = intervalUnit;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(final String name) {
+    this.name = name;
+  }
+
+  public String getSetupFeeAccountingCode() {
+    return this.setupFeeAccountingCode;
+  }
+
+  public void setSetupFeeAccountingCode(final String setupFeeAccountingCode) {
+    this.setupFeeAccountingCode = setupFeeAccountingCode;
+  }
+
+  public String getTaxCode() {
+    return this.taxCode;
+  }
+
+  public void setTaxCode(final String taxCode) {
+    this.taxCode = taxCode;
+  }
+
+  public Boolean getTaxExempt() {
+    return this.taxExempt;
+  }
+
+  public void setTaxExempt(final Boolean taxExempt) {
+    this.taxExempt = taxExempt;
+  }
+
+  public Integer getTotalBillingCycles() {
+    return this.totalBillingCycles;
+  }
+
+  public void setTotalBillingCycles(final Integer totalBillingCycles) {
+    this.totalBillingCycles = totalBillingCycles;
+  }
+
+  public Integer getTrialLength() {
+    return this.trialLength;
+  }
+
+  public void setTrialLength(final Integer trialLength) {
+    this.trialLength = trialLength;
+  }
+
+  public String getTrialUnit() {
+    return this.trialUnit;
+  }
+
+  public void setTrialUnit(final String trialUnit) {
+    this.trialUnit = trialUnit;
+  }
 }

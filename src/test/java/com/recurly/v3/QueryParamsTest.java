@@ -1,11 +1,9 @@
 package com.recurly.v3;
 
-import org.junit.jupiter.api.Test;
-
-import javax.management.Query;
-import java.util.HashMap;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.HashMap;
+import org.junit.jupiter.api.Test;
 
 public class QueryParamsTest {
   @Test

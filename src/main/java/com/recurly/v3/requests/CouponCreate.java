@@ -1,18 +1,15 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.requests;
 
-import com.recurly.v3.resources.*;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
-import org.joda.time.DateTime;
+import com.recurly.v3.resources.*;
 import java.util.List;
-import java.util.Map;
 
 public class CouponCreate extends Request {
 
@@ -100,68 +97,171 @@ public class CouponCreate extends Request {
   @Expose
   private String uniqueCodeTemplate;
 
+  public Boolean getAppliesToAllPlans() {
+    return this.appliesToAllPlans;
+  }
 
-  public Boolean getAppliesToAllPlans() { return this.appliesToAllPlans; }
-  public void setAppliesToAllPlans(final Boolean appliesToAllPlans) { this.appliesToAllPlans = appliesToAllPlans; }
+  public void setAppliesToAllPlans(final Boolean appliesToAllPlans) {
+    this.appliesToAllPlans = appliesToAllPlans;
+  }
 
-  public Boolean getAppliesToNonPlanCharges() { return this.appliesToNonPlanCharges; }
-  public void setAppliesToNonPlanCharges(final Boolean appliesToNonPlanCharges) { this.appliesToNonPlanCharges = appliesToNonPlanCharges; }
+  public Boolean getAppliesToNonPlanCharges() {
+    return this.appliesToNonPlanCharges;
+  }
 
-  public String getCode() { return this.code; }
-  public void setCode(final String code) { this.code = code; }
+  public void setAppliesToNonPlanCharges(final Boolean appliesToNonPlanCharges) {
+    this.appliesToNonPlanCharges = appliesToNonPlanCharges;
+  }
 
-  public String getCouponType() { return this.couponType; }
-  public void setCouponType(final String couponType) { this.couponType = couponType; }
+  public String getCode() {
+    return this.code;
+  }
 
-  public List<CouponPricing> getCurrencies() { return this.currencies; }
-  public void setCurrencies(final List<CouponPricing> currencies) { this.currencies = currencies; }
+  public void setCode(final String code) {
+    this.code = code;
+  }
 
-  public Integer getDiscountPercent() { return this.discountPercent; }
-  public void setDiscountPercent(final Integer discountPercent) { this.discountPercent = discountPercent; }
+  public String getCouponType() {
+    return this.couponType;
+  }
 
-  public String getDiscountType() { return this.discountType; }
-  public void setDiscountType(final String discountType) { this.discountType = discountType; }
+  public void setCouponType(final String couponType) {
+    this.couponType = couponType;
+  }
 
-  public String getDuration() { return this.duration; }
-  public void setDuration(final String duration) { this.duration = duration; }
+  public List<CouponPricing> getCurrencies() {
+    return this.currencies;
+  }
 
-  public Integer getFreeTrialAmount() { return this.freeTrialAmount; }
-  public void setFreeTrialAmount(final Integer freeTrialAmount) { this.freeTrialAmount = freeTrialAmount; }
+  public void setCurrencies(final List<CouponPricing> currencies) {
+    this.currencies = currencies;
+  }
 
-  public String getFreeTrialUnit() { return this.freeTrialUnit; }
-  public void setFreeTrialUnit(final String freeTrialUnit) { this.freeTrialUnit = freeTrialUnit; }
+  public Integer getDiscountPercent() {
+    return this.discountPercent;
+  }
 
-  public String getHostedDescription() { return this.hostedDescription; }
-  public void setHostedDescription(final String hostedDescription) { this.hostedDescription = hostedDescription; }
+  public void setDiscountPercent(final Integer discountPercent) {
+    this.discountPercent = discountPercent;
+  }
 
-  public String getInvoiceDescription() { return this.invoiceDescription; }
-  public void setInvoiceDescription(final String invoiceDescription) { this.invoiceDescription = invoiceDescription; }
+  public String getDiscountType() {
+    return this.discountType;
+  }
 
-  public Integer getMaxRedemptions() { return this.maxRedemptions; }
-  public void setMaxRedemptions(final Integer maxRedemptions) { this.maxRedemptions = maxRedemptions; }
+  public void setDiscountType(final String discountType) {
+    this.discountType = discountType;
+  }
 
-  public Integer getMaxRedemptionsPerAccount() { return this.maxRedemptionsPerAccount; }
-  public void setMaxRedemptionsPerAccount(final Integer maxRedemptionsPerAccount) { this.maxRedemptionsPerAccount = maxRedemptionsPerAccount; }
+  public String getDuration() {
+    return this.duration;
+  }
 
-  public String getName() { return this.name; }
-  public void setName(final String name) { this.name = name; }
+  public void setDuration(final String duration) {
+    this.duration = duration;
+  }
 
-  public List<String> getPlanCodes() { return this.planCodes; }
-  public void setPlanCodes(final List<String> planCodes) { this.planCodes = planCodes; }
+  public Integer getFreeTrialAmount() {
+    return this.freeTrialAmount;
+  }
 
-  public String getRedeemByDate() { return this.redeemByDate; }
-  public void setRedeemByDate(final String redeemByDate) { this.redeemByDate = redeemByDate; }
+  public void setFreeTrialAmount(final Integer freeTrialAmount) {
+    this.freeTrialAmount = freeTrialAmount;
+  }
 
-  public String getRedemptionResource() { return this.redemptionResource; }
-  public void setRedemptionResource(final String redemptionResource) { this.redemptionResource = redemptionResource; }
+  public String getFreeTrialUnit() {
+    return this.freeTrialUnit;
+  }
 
-  public Integer getTemporalAmount() { return this.temporalAmount; }
-  public void setTemporalAmount(final Integer temporalAmount) { this.temporalAmount = temporalAmount; }
+  public void setFreeTrialUnit(final String freeTrialUnit) {
+    this.freeTrialUnit = freeTrialUnit;
+  }
 
-  public String getTemporalUnit() { return this.temporalUnit; }
-  public void setTemporalUnit(final String temporalUnit) { this.temporalUnit = temporalUnit; }
+  public String getHostedDescription() {
+    return this.hostedDescription;
+  }
 
-  public String getUniqueCodeTemplate() { return this.uniqueCodeTemplate; }
-  public void setUniqueCodeTemplate(final String uniqueCodeTemplate) { this.uniqueCodeTemplate = uniqueCodeTemplate; }
+  public void setHostedDescription(final String hostedDescription) {
+    this.hostedDescription = hostedDescription;
+  }
 
+  public String getInvoiceDescription() {
+    return this.invoiceDescription;
+  }
+
+  public void setInvoiceDescription(final String invoiceDescription) {
+    this.invoiceDescription = invoiceDescription;
+  }
+
+  public Integer getMaxRedemptions() {
+    return this.maxRedemptions;
+  }
+
+  public void setMaxRedemptions(final Integer maxRedemptions) {
+    this.maxRedemptions = maxRedemptions;
+  }
+
+  public Integer getMaxRedemptionsPerAccount() {
+    return this.maxRedemptionsPerAccount;
+  }
+
+  public void setMaxRedemptionsPerAccount(final Integer maxRedemptionsPerAccount) {
+    this.maxRedemptionsPerAccount = maxRedemptionsPerAccount;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(final String name) {
+    this.name = name;
+  }
+
+  public List<String> getPlanCodes() {
+    return this.planCodes;
+  }
+
+  public void setPlanCodes(final List<String> planCodes) {
+    this.planCodes = planCodes;
+  }
+
+  public String getRedeemByDate() {
+    return this.redeemByDate;
+  }
+
+  public void setRedeemByDate(final String redeemByDate) {
+    this.redeemByDate = redeemByDate;
+  }
+
+  public String getRedemptionResource() {
+    return this.redemptionResource;
+  }
+
+  public void setRedemptionResource(final String redemptionResource) {
+    this.redemptionResource = redemptionResource;
+  }
+
+  public Integer getTemporalAmount() {
+    return this.temporalAmount;
+  }
+
+  public void setTemporalAmount(final Integer temporalAmount) {
+    this.temporalAmount = temporalAmount;
+  }
+
+  public String getTemporalUnit() {
+    return this.temporalUnit;
+  }
+
+  public void setTemporalUnit(final String temporalUnit) {
+    this.temporalUnit = temporalUnit;
+  }
+
+  public String getUniqueCodeTemplate() {
+    return this.uniqueCodeTemplate;
+  }
+
+  public void setUniqueCodeTemplate(final String uniqueCodeTemplate) {
+    this.uniqueCodeTemplate = uniqueCodeTemplate;
+  }
 }

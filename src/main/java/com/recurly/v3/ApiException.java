@@ -5,8 +5,7 @@ import com.recurly.v3.resources.Error;
 
 public class ApiException extends RecurlyException {
 
-  @Expose
-  public Error error;
+  @Expose public Error error;
 
   public ApiException(String message, Error e) {
     super(message);

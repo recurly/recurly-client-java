@@ -234,8 +234,7 @@ public class BaseClientTest {
             .protocol(okhttp3.Protocol.HTTP_1_1)
             .code(200) // status code
             .message("Created")
-            .body(
-                ResponseBody.create(MediaType.get("application/json; charset=utf-8"), response))
+            .body(ResponseBody.create(MediaType.get("application/json; charset=utf-8"), response))
             .build();
 
     final Response mResponse2 =
@@ -244,8 +243,7 @@ public class BaseClientTest {
             .protocol(okhttp3.Protocol.HTTP_1_1)
             .code(200) // status code
             .message("updated")
-            .body(
-                ResponseBody.create(MediaType.get("application/json; charset=utf-8"), response))
+            .body(ResponseBody.create(MediaType.get("application/json; charset=utf-8"), response))
             .build();
     when(mockOkHttpClient.newCall(any())).thenReturn(mCall);
     try {
@@ -267,9 +265,7 @@ public class BaseClientTest {
             .protocol(okhttp3.Protocol.HTTP_1_1)
             .code(404) // status code
             .message("Not Found")
-            .body(
-                ResponseBody.create(
-                    MediaType.get("application/json; charset=utf-8"), response))
+            .body(ResponseBody.create(MediaType.get("application/json; charset=utf-8"), response))
             .build();
     when(mockOkHttpClient.newCall(any())).thenReturn(mCall);
     try {
@@ -297,29 +293,31 @@ public class BaseClientTest {
   }
 
   private static String getResponseListJson() {
-    return "" +
-        "{" +
-          "\"object\":\"list\"," +
-          "\"has_more\":false," +
-          "\"next\":null," +
-          "\"data\": [" +
-            "{" +
-              "\"my_string\":\"Du Monde\"" +
-            "}," +
-          "]" +
-        "}";
+    return ""
+        + "{"
+        + "\"object\":\"list\","
+        + "\"has_more\":false,"
+        + "\"next\":null,"
+        + "\"data\": ["
+        + "{"
+        + "\"my_string\":\"Du Monde\""
+        + "},"
+        + "]"
+        + "}";
   }
 
   private static String getErrorJson(String exception) {
-    return "" +
-      "{\n" +
-      "    \"error\": {\n" +
-      "       \"type\":" + exception + ",\n" +
-      "       \"message\": \"Resource has an error\",\n" +
-      "       \"params\": [\n" +
-      "           {\"param\":\"some_param\"}\n" +
-      "        ]\n" +
-      "    }\n" +
-      "}";
+    return ""
+        + "{\n"
+        + "    \"error\": {\n"
+        + "       \"type\":"
+        + exception
+        + ",\n"
+        + "       \"message\": \"Resource has an error\",\n"
+        + "       \"params\": [\n"
+        + "           {\"param\":\"some_param\"}\n"
+        + "        ]\n"
+        + "    }\n"
+        + "}";
   }
 }

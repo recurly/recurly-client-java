@@ -1,20 +1,16 @@
 package com.recurly.v3;
 
 import com.recurly.v3.http.HeaderInterceptor;
-import okhttp3.*;
-import okhttp3.Request.Builder;
-import okhttp3.logging.HttpLoggingInterceptor;
-import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
-import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.ISODateTimeFormat;
-
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import okhttp3.*;
+import okhttp3.Request.Builder;
+import okhttp3.logging.HttpLoggingInterceptor;
+import org.joda.time.DateTime;
 
 public abstract class BaseClient {
   private static final String API_URL = "https://partner-api.recurly.com/";

@@ -1,17 +1,15 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
 import java.util.List;
-import java.util.Map;
+import org.joda.time.DateTime;
 
 public class Plan extends Resource {
 
@@ -99,68 +97,171 @@ public class Plan extends Resource {
   @Expose
   private DateTime updatedAt;
 
+  public String getAccountingCode() {
+    return this.accountingCode;
+  }
 
-  public String getAccountingCode() { return this.accountingCode; }
-  public void setAccountingCode(final String accountingCode) { this.accountingCode = accountingCode; }
+  public void setAccountingCode(final String accountingCode) {
+    this.accountingCode = accountingCode;
+  }
 
-  public Boolean getAutoRenew() { return this.autoRenew; }
-  public void setAutoRenew(final Boolean autoRenew) { this.autoRenew = autoRenew; }
+  public Boolean getAutoRenew() {
+    return this.autoRenew;
+  }
 
-  public String getCode() { return this.code; }
-  public void setCode(final String code) { this.code = code; }
+  public void setAutoRenew(final Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+  }
 
-  public DateTime getCreatedAt() { return this.createdAt; }
-  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
+  public String getCode() {
+    return this.code;
+  }
 
-  public List<PlanPricing> getCurrencies() { return this.currencies; }
-  public void setCurrencies(final List<PlanPricing> currencies) { this.currencies = currencies; }
+  public void setCode(final String code) {
+    this.code = code;
+  }
 
-  public DateTime getDeletedAt() { return this.deletedAt; }
-  public void setDeletedAt(final DateTime deletedAt) { this.deletedAt = deletedAt; }
+  public DateTime getCreatedAt() {
+    return this.createdAt;
+  }
 
-  public String getDescription() { return this.description; }
-  public void setDescription(final String description) { this.description = description; }
+  public void setCreatedAt(final DateTime createdAt) {
+    this.createdAt = createdAt;
+  }
 
-  public PlanHostedPages getHostedPages() { return this.hostedPages; }
-  public void setHostedPages(final PlanHostedPages hostedPages) { this.hostedPages = hostedPages; }
+  public List<PlanPricing> getCurrencies() {
+    return this.currencies;
+  }
 
-  public String getId() { return this.id; }
-  public void setId(final String id) { this.id = id; }
+  public void setCurrencies(final List<PlanPricing> currencies) {
+    this.currencies = currencies;
+  }
 
-  public Integer getIntervalLength() { return this.intervalLength; }
-  public void setIntervalLength(final Integer intervalLength) { this.intervalLength = intervalLength; }
+  public DateTime getDeletedAt() {
+    return this.deletedAt;
+  }
 
-  public String getIntervalUnit() { return this.intervalUnit; }
-  public void setIntervalUnit(final String intervalUnit) { this.intervalUnit = intervalUnit; }
+  public void setDeletedAt(final DateTime deletedAt) {
+    this.deletedAt = deletedAt;
+  }
 
-  public String getName() { return this.name; }
-  public void setName(final String name) { this.name = name; }
+  public String getDescription() {
+    return this.description;
+  }
 
-  public String getObject() { return this.object; }
-  public void setObject(final String object) { this.object = object; }
+  public void setDescription(final String description) {
+    this.description = description;
+  }
 
-  public String getSetupFeeAccountingCode() { return this.setupFeeAccountingCode; }
-  public void setSetupFeeAccountingCode(final String setupFeeAccountingCode) { this.setupFeeAccountingCode = setupFeeAccountingCode; }
+  public PlanHostedPages getHostedPages() {
+    return this.hostedPages;
+  }
 
-  public String getState() { return this.state; }
-  public void setState(final String state) { this.state = state; }
+  public void setHostedPages(final PlanHostedPages hostedPages) {
+    this.hostedPages = hostedPages;
+  }
 
-  public String getTaxCode() { return this.taxCode; }
-  public void setTaxCode(final String taxCode) { this.taxCode = taxCode; }
+  public String getId() {
+    return this.id;
+  }
 
-  public Boolean getTaxExempt() { return this.taxExempt; }
-  public void setTaxExempt(final Boolean taxExempt) { this.taxExempt = taxExempt; }
+  public void setId(final String id) {
+    this.id = id;
+  }
 
-  public Integer getTotalBillingCycles() { return this.totalBillingCycles; }
-  public void setTotalBillingCycles(final Integer totalBillingCycles) { this.totalBillingCycles = totalBillingCycles; }
+  public Integer getIntervalLength() {
+    return this.intervalLength;
+  }
 
-  public Integer getTrialLength() { return this.trialLength; }
-  public void setTrialLength(final Integer trialLength) { this.trialLength = trialLength; }
+  public void setIntervalLength(final Integer intervalLength) {
+    this.intervalLength = intervalLength;
+  }
 
-  public String getTrialUnit() { return this.trialUnit; }
-  public void setTrialUnit(final String trialUnit) { this.trialUnit = trialUnit; }
+  public String getIntervalUnit() {
+    return this.intervalUnit;
+  }
 
-  public DateTime getUpdatedAt() { return this.updatedAt; }
-  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+  public void setIntervalUnit(final String intervalUnit) {
+    this.intervalUnit = intervalUnit;
+  }
 
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(final String name) {
+    this.name = name;
+  }
+
+  public String getObject() {
+    return this.object;
+  }
+
+  public void setObject(final String object) {
+    this.object = object;
+  }
+
+  public String getSetupFeeAccountingCode() {
+    return this.setupFeeAccountingCode;
+  }
+
+  public void setSetupFeeAccountingCode(final String setupFeeAccountingCode) {
+    this.setupFeeAccountingCode = setupFeeAccountingCode;
+  }
+
+  public String getState() {
+    return this.state;
+  }
+
+  public void setState(final String state) {
+    this.state = state;
+  }
+
+  public String getTaxCode() {
+    return this.taxCode;
+  }
+
+  public void setTaxCode(final String taxCode) {
+    this.taxCode = taxCode;
+  }
+
+  public Boolean getTaxExempt() {
+    return this.taxExempt;
+  }
+
+  public void setTaxExempt(final Boolean taxExempt) {
+    this.taxExempt = taxExempt;
+  }
+
+  public Integer getTotalBillingCycles() {
+    return this.totalBillingCycles;
+  }
+
+  public void setTotalBillingCycles(final Integer totalBillingCycles) {
+    this.totalBillingCycles = totalBillingCycles;
+  }
+
+  public Integer getTrialLength() {
+    return this.trialLength;
+  }
+
+  public void setTrialLength(final Integer trialLength) {
+    this.trialLength = trialLength;
+  }
+
+  public String getTrialUnit() {
+    return this.trialUnit;
+  }
+
+  public void setTrialUnit(final String trialUnit) {
+    this.trialUnit = trialUnit;
+  }
+
+  public DateTime getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(final DateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
 }

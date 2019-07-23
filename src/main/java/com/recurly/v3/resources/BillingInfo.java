@@ -1,8 +1,7 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
@@ -10,8 +9,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
-import java.util.List;
-import java.util.Map;
 
 public class BillingInfo extends Resource {
 
@@ -71,47 +68,115 @@ public class BillingInfo extends Resource {
   @Expose
   private String vatNumber;
 
+  public String getAccountId() {
+    return this.accountId;
+  }
 
-  public String getAccountId() { return this.accountId; }
-  public void setAccountId(final String accountId) { this.accountId = accountId; }
+  public void setAccountId(final String accountId) {
+    this.accountId = accountId;
+  }
 
-  public Address getAddress() { return this.address; }
-  public void setAddress(final Address address) { this.address = address; }
+  public Address getAddress() {
+    return this.address;
+  }
 
-  public String getCompany() { return this.company; }
-  public void setCompany(final String company) { this.company = company; }
+  public void setAddress(final Address address) {
+    this.address = address;
+  }
 
-  public DateTime getCreatedAt() { return this.createdAt; }
-  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
+  public String getCompany() {
+    return this.company;
+  }
 
-  public String getFirstName() { return this.firstName; }
-  public void setFirstName(final String firstName) { this.firstName = firstName; }
+  public void setCompany(final String company) {
+    this.company = company;
+  }
 
-  public FraudInfo getFraud() { return this.fraud; }
-  public void setFraud(final FraudInfo fraud) { this.fraud = fraud; }
+  public DateTime getCreatedAt() {
+    return this.createdAt;
+  }
 
-  public String getId() { return this.id; }
-  public void setId(final String id) { this.id = id; }
+  public void setCreatedAt(final DateTime createdAt) {
+    this.createdAt = createdAt;
+  }
 
-  public String getLastName() { return this.lastName; }
-  public void setLastName(final String lastName) { this.lastName = lastName; }
+  public String getFirstName() {
+    return this.firstName;
+  }
 
-  public String getObject() { return this.object; }
-  public void setObject(final String object) { this.object = object; }
+  public void setFirstName(final String firstName) {
+    this.firstName = firstName;
+  }
 
-  public BillingInfoPaymentMethod getPaymentMethod() { return this.paymentMethod; }
-  public void setPaymentMethod(final BillingInfoPaymentMethod paymentMethod) { this.paymentMethod = paymentMethod; }
+  public FraudInfo getFraud() {
+    return this.fraud;
+  }
 
-  public DateTime getUpdatedAt() { return this.updatedAt; }
-  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+  public void setFraud(final FraudInfo fraud) {
+    this.fraud = fraud;
+  }
 
-  public BillingInfoUpdatedBy getUpdatedBy() { return this.updatedBy; }
-  public void setUpdatedBy(final BillingInfoUpdatedBy updatedBy) { this.updatedBy = updatedBy; }
+  public String getId() {
+    return this.id;
+  }
 
-  public Boolean getValid() { return this.valid; }
-  public void setValid(final Boolean valid) { this.valid = valid; }
+  public void setId(final String id) {
+    this.id = id;
+  }
 
-  public String getVatNumber() { return this.vatNumber; }
-  public void setVatNumber(final String vatNumber) { this.vatNumber = vatNumber; }
+  public String getLastName() {
+    return this.lastName;
+  }
 
+  public void setLastName(final String lastName) {
+    this.lastName = lastName;
+  }
+
+  public String getObject() {
+    return this.object;
+  }
+
+  public void setObject(final String object) {
+    this.object = object;
+  }
+
+  public BillingInfoPaymentMethod getPaymentMethod() {
+    return this.paymentMethod;
+  }
+
+  public void setPaymentMethod(final BillingInfoPaymentMethod paymentMethod) {
+    this.paymentMethod = paymentMethod;
+  }
+
+  public DateTime getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(final DateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public BillingInfoUpdatedBy getUpdatedBy() {
+    return this.updatedBy;
+  }
+
+  public void setUpdatedBy(final BillingInfoUpdatedBy updatedBy) {
+    this.updatedBy = updatedBy;
+  }
+
+  public Boolean getValid() {
+    return this.valid;
+  }
+
+  public void setValid(final Boolean valid) {
+    this.valid = valid;
+  }
+
+  public String getVatNumber() {
+    return this.vatNumber;
+  }
+
+  public void setVatNumber(final String vatNumber) {
+    this.vatNumber = vatNumber;
+  }
 }
