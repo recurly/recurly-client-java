@@ -31,8 +31,10 @@ public class HeaderInterceptorTest {
     assertEquals("application/vnd.recurly.version", request.getHeader("Accept"));
     assertEquals("application/json", request.getHeader("Content-Type"));
 
-    // TODO: pull this from pom.xml
-    assertEquals("Recurly/3.0.0-beta-1; Java V3 Client", request.getHeader("User-Agent"));
+    // TODO this regex will change on GA
+    // BETA semver sequence is forced until then
+    final String agentFormat = "Recurly/3\\.\\d+\\.\\d+-beta-\\d+-SNAPSHOT;\\s+java\\s+\\d+\\.\\d+\\.\\d+.*";
+    assertEquals(request.getHeader("User-Agent").matches(agentFormat), true);
 
     mockWebServer.shutdown();
   }

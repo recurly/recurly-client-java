@@ -6,7 +6,50 @@
 
     <groupId>com.recurly.v3</groupId>
     <artifactId>api-client</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>3.0.0-beta-1-SNAPSHOT</version>
+
+    <name>Recurly API V3 Java Client</name>
+    <description>The official Java client for Recurly's V3 API.</description>
+    <url>https://github.com/recurly/recurly-client-java</url>
+
+    <licenses>
+      <license>
+        <name>MIT License</name>
+        <url>http://www.opensource.org/licenses/mit-license.php</url>
+      </license>
+    </licenses>
+
+    <developers>
+      <developer>
+        <name>Benjamin Eckel</name>
+        <email>dx@recurly.com</email>
+        <organization>Recurly</organization>
+        <organizationUrl>https://recurly.com</organizationUrl>
+      </developer>
+      <developer>
+        <name>Aaron Suarez</name>
+        <email>dx@recurly.com</email>
+        <organization>Recurly</organization>
+        <organizationUrl>https://recurly.com</organizationUrl>
+      </developer>
+    </developers>
+
+    <scm>
+      <connection>scm:git:git://github.com/recurly/recurly-client-java.git</connection>
+      <developerConnection>scm:git:ssh://github.com:recurly/recurly-client-java.git</developerConnection>
+      <url>https://github.com/recurly/recurly-client-java</url>
+    </scm>
+
+    <distributionManagement>
+      <snapshotRepository>
+        <id>ossrh</id>
+        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      </snapshotRepository>
+      <repository>
+        <id>ossrh</id>
+        <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      </repository>
+    </distributionManagement>
 
     <properties>
         <java.version>1.8</java.version>
@@ -20,6 +63,16 @@
     <build>
         <defaultGoal>install</defaultGoal>
         <finalName>${project.artifactId}-${project.version}</finalName>
+
+        <resources>
+          <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+              <include>version.properties</include>
+            </includes>
+            <filtering>true</filtering>
+          </resource>
+        </resources>
 
         <plugins>
             <plugin>
@@ -82,16 +135,89 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.eluder.coveralls</groupId>
-                <artifactId>coveralls-maven-plugin</artifactId>
-                <version>4.3.0</version>
-                <configuration>
-                    <!-- TODO: Don't commit repoToken pubically! Find a way to integrate securely -->
-                    <repoToken>yourcoverallsprojectrepositorytoken</repoToken>
-                    <jacocoReports>
-                        <param>${project.reporting.outputDirectory}/jacoco-ut/jacoco.xml</param>
-                    </jacocoReports>
-                </configuration>
+              <groupId>org.eluder.coveralls</groupId>
+              <artifactId>coveralls-maven-plugin</artifactId>
+              <version>4.3.0</version>
+              <configuration>
+                <!-- TODO: Don't commit repoToken pubically! Find a way to integrate securely -->
+                <repoToken>yourcoverallsprojectrepositorytoken</repoToken>
+                <jacocoReports>
+                  <param>${project.reporting.outputDirectory}/jacoco-ut/jacoco.xml</param>
+                </jacocoReports>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-source-plugin</artifactId>
+              <version>2.2.1</version>
+              <executions>
+                <execution>
+                  <id>attach-sources</id>
+                  <goals>
+                    <goal>jar-no-fork</goal>
+                  </goals>
+                </execution>
+              </executions>
+            </plugin>
+            <!-- <plugin> -->
+            <!--   <groupId>org.apache.maven.plugins</groupId> -->
+            <!--   <artifactId>maven&#45;javadoc&#45;plugin</artifactId> -->
+            <!--   <version>2.9.1</version> -->
+            <!--   <configuration> -->
+            <!--     <release>jdk11</release> -->
+            <!--   </configuration> -->
+            <!--   <executions> -->
+            <!--     <execution> -->
+            <!--       <id>attach&#45;javadocs</id> -->
+            <!--       <goals> -->
+            <!--         <goal>jar</goal> -->
+            <!--       </goals> -->
+            <!--     </execution> -->
+            <!--   </executions> -->
+            <!-- </plugin> -->
+
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId> 
+              <artifactId>maven-gpg-plugin</artifactId>
+              <version>1.5</version> 
+              <executions>
+                <execution>
+                  <id>sign-artifacts</id> 
+                  <phase>deploy</phase>
+                  <goals>
+                    <goal>sign</goal>
+                  </goals>
+                  <configuration>
+                    <gpgArguments>
+                      <arg>--pinentry-mode</arg>
+                      <arg>loopback</arg> 
+                    </gpgArguments> 
+                  </configuration>
+                </execution> 
+              </executions>
+            </plugin>
+            <plugin>
+              <groupId>org.sonatype.plugins</groupId>
+              <artifactId>nexus-staging-maven-plugin</artifactId>
+              <version>1.6.7</version>
+              <extensions>true</extensions>
+              <configuration>
+                <serverId>ossrh</serverId>
+                <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                <autoReleaseAfterClose>true</autoReleaseAfterClose>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.sonatype.plugins</groupId>
+              <artifactId>nexus-staging-maven-plugin</artifactId>
+              <version>1.6.7</version>
+              <extensions>true</extensions>
+              <configuration>
+                <serverId>ossrh</serverId>
+                <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                <!--<autoReleaseAfterClose>true</autoReleaseAfterClose>-->
+              </configuration>
             </plugin>
         </plugins>
     </build>
