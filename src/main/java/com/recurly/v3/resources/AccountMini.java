@@ -1,17 +1,13 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
-import java.util.List;
-import java.util.Map;
 
 public class AccountMini extends Resource {
 
@@ -51,32 +47,75 @@ public class AccountMini extends Resource {
   @Expose
   private String parentAccountId;
 
+  public String getBillTo() {
+    return this.billTo;
+  }
 
-  public String getBillTo() { return this.billTo; }
-  public void setBillTo(final String billTo) { this.billTo = billTo; }
+  public void setBillTo(final String billTo) {
+    this.billTo = billTo;
+  }
 
-  public String getCode() { return this.code; }
-  public void setCode(final String code) { this.code = code; }
+  public String getCode() {
+    return this.code;
+  }
 
-  public String getCompany() { return this.company; }
-  public void setCompany(final String company) { this.company = company; }
+  public void setCode(final String code) {
+    this.code = code;
+  }
 
-  public String getEmail() { return this.email; }
-  public void setEmail(final String email) { this.email = email; }
+  public String getCompany() {
+    return this.company;
+  }
 
-  public String getFirstName() { return this.firstName; }
-  public void setFirstName(final String firstName) { this.firstName = firstName; }
+  public void setCompany(final String company) {
+    this.company = company;
+  }
 
-  public String getId() { return this.id; }
-  public void setId(final String id) { this.id = id; }
+  public String getEmail() {
+    return this.email;
+  }
 
-  public String getLastName() { return this.lastName; }
-  public void setLastName(final String lastName) { this.lastName = lastName; }
+  public void setEmail(final String email) {
+    this.email = email;
+  }
 
-  public String getObject() { return this.object; }
-  public void setObject(final String object) { this.object = object; }
+  public String getFirstName() {
+    return this.firstName;
+  }
 
-  public String getParentAccountId() { return this.parentAccountId; }
-  public void setParentAccountId(final String parentAccountId) { this.parentAccountId = parentAccountId; }
+  public void setFirstName(final String firstName) {
+    this.firstName = firstName;
+  }
 
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(final String id) {
+    this.id = id;
+  }
+
+  public String getLastName() {
+    return this.lastName;
+  }
+
+  public void setLastName(final String lastName) {
+    this.lastName = lastName;
+  }
+
+  public String getObject() {
+    return this.object;
+  }
+
+  public void setObject(final String object) {
+    this.object = object;
+  }
+
+  public String getParentAccountId() {
+    return this.parentAccountId;
+  }
+
+  public void setParentAccountId(final String parentAccountId) {
+    this.parentAccountId = parentAccountId;
+  }
 }

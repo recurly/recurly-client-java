@@ -1,18 +1,15 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.requests;
 
-import com.recurly.v3.resources.*;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
-import org.joda.time.DateTime;
+import com.recurly.v3.resources.*;
 import java.util.List;
-import java.util.Map;
 
 public class PurchaseCreate extends Request {
 
@@ -80,53 +77,131 @@ public class PurchaseCreate extends Request {
   @Expose
   private String vatReverseChargeNotes;
 
+  public AccountPurchase getAccount() {
+    return this.account;
+  }
 
-  public AccountPurchase getAccount() { return this.account; }
-  public void setAccount(final AccountPurchase account) { this.account = account; }
+  public void setAccount(final AccountPurchase account) {
+    this.account = account;
+  }
 
-  public String getCollectionMethod() { return this.collectionMethod; }
-  public void setCollectionMethod(final String collectionMethod) { this.collectionMethod = collectionMethod; }
+  public String getCollectionMethod() {
+    return this.collectionMethod;
+  }
 
-  public List<String> getCouponCodes() { return this.couponCodes; }
-  public void setCouponCodes(final List<String> couponCodes) { this.couponCodes = couponCodes; }
+  public void setCollectionMethod(final String collectionMethod) {
+    this.collectionMethod = collectionMethod;
+  }
 
-  public String getCreditCustomerNotes() { return this.creditCustomerNotes; }
-  public void setCreditCustomerNotes(final String creditCustomerNotes) { this.creditCustomerNotes = creditCustomerNotes; }
+  public List<String> getCouponCodes() {
+    return this.couponCodes;
+  }
 
-  public String getCurrency() { return this.currency; }
-  public void setCurrency(final String currency) { this.currency = currency; }
+  public void setCouponCodes(final List<String> couponCodes) {
+    this.couponCodes = couponCodes;
+  }
 
-  public String getCustomerNotes() { return this.customerNotes; }
-  public void setCustomerNotes(final String customerNotes) { this.customerNotes = customerNotes; }
+  public String getCreditCustomerNotes() {
+    return this.creditCustomerNotes;
+  }
 
-  public String getGatewayCode() { return this.gatewayCode; }
-  public void setGatewayCode(final String gatewayCode) { this.gatewayCode = gatewayCode; }
+  public void setCreditCustomerNotes(final String creditCustomerNotes) {
+    this.creditCustomerNotes = creditCustomerNotes;
+  }
 
-  public String getGiftCardRedemptionCode() { return this.giftCardRedemptionCode; }
-  public void setGiftCardRedemptionCode(final String giftCardRedemptionCode) { this.giftCardRedemptionCode = giftCardRedemptionCode; }
+  public String getCurrency() {
+    return this.currency;
+  }
 
-  public List<LineItemCreate> getLineItems() { return this.lineItems; }
-  public void setLineItems(final List<LineItemCreate> lineItems) { this.lineItems = lineItems; }
+  public void setCurrency(final String currency) {
+    this.currency = currency;
+  }
 
-  public Integer getNetTerms() { return this.netTerms; }
-  public void setNetTerms(final Integer netTerms) { this.netTerms = netTerms; }
+  public String getCustomerNotes() {
+    return this.customerNotes;
+  }
 
-  public String getPoNumber() { return this.poNumber; }
-  public void setPoNumber(final String poNumber) { this.poNumber = poNumber; }
+  public void setCustomerNotes(final String customerNotes) {
+    this.customerNotes = customerNotes;
+  }
 
-  public ShippingAddressCreate getShippingAddress() { return this.shippingAddress; }
-  public void setShippingAddress(final ShippingAddressCreate shippingAddress) { this.shippingAddress = shippingAddress; }
+  public String getGatewayCode() {
+    return this.gatewayCode;
+  }
 
-  public String getShippingAddressId() { return this.shippingAddressId; }
-  public void setShippingAddressId(final String shippingAddressId) { this.shippingAddressId = shippingAddressId; }
+  public void setGatewayCode(final String gatewayCode) {
+    this.gatewayCode = gatewayCode;
+  }
 
-  public List<SubscriptionPurchase> getSubscriptions() { return this.subscriptions; }
-  public void setSubscriptions(final List<SubscriptionPurchase> subscriptions) { this.subscriptions = subscriptions; }
+  public String getGiftCardRedemptionCode() {
+    return this.giftCardRedemptionCode;
+  }
 
-  public String getTermsAndConditions() { return this.termsAndConditions; }
-  public void setTermsAndConditions(final String termsAndConditions) { this.termsAndConditions = termsAndConditions; }
+  public void setGiftCardRedemptionCode(final String giftCardRedemptionCode) {
+    this.giftCardRedemptionCode = giftCardRedemptionCode;
+  }
 
-  public String getVatReverseChargeNotes() { return this.vatReverseChargeNotes; }
-  public void setVatReverseChargeNotes(final String vatReverseChargeNotes) { this.vatReverseChargeNotes = vatReverseChargeNotes; }
+  public List<LineItemCreate> getLineItems() {
+    return this.lineItems;
+  }
 
+  public void setLineItems(final List<LineItemCreate> lineItems) {
+    this.lineItems = lineItems;
+  }
+
+  public Integer getNetTerms() {
+    return this.netTerms;
+  }
+
+  public void setNetTerms(final Integer netTerms) {
+    this.netTerms = netTerms;
+  }
+
+  public String getPoNumber() {
+    return this.poNumber;
+  }
+
+  public void setPoNumber(final String poNumber) {
+    this.poNumber = poNumber;
+  }
+
+  public ShippingAddressCreate getShippingAddress() {
+    return this.shippingAddress;
+  }
+
+  public void setShippingAddress(final ShippingAddressCreate shippingAddress) {
+    this.shippingAddress = shippingAddress;
+  }
+
+  public String getShippingAddressId() {
+    return this.shippingAddressId;
+  }
+
+  public void setShippingAddressId(final String shippingAddressId) {
+    this.shippingAddressId = shippingAddressId;
+  }
+
+  public List<SubscriptionPurchase> getSubscriptions() {
+    return this.subscriptions;
+  }
+
+  public void setSubscriptions(final List<SubscriptionPurchase> subscriptions) {
+    this.subscriptions = subscriptions;
+  }
+
+  public String getTermsAndConditions() {
+    return this.termsAndConditions;
+  }
+
+  public void setTermsAndConditions(final String termsAndConditions) {
+    this.termsAndConditions = termsAndConditions;
+  }
+
+  public String getVatReverseChargeNotes() {
+    return this.vatReverseChargeNotes;
+  }
+
+  public void setVatReverseChargeNotes(final String vatReverseChargeNotes) {
+    this.vatReverseChargeNotes = vatReverseChargeNotes;
+  }
 }

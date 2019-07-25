@@ -1,17 +1,15 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
 import java.util.List;
-import java.util.Map;
+import org.joda.time.DateTime;
 
 public class Invoice extends Resource {
 
@@ -147,104 +145,267 @@ public class Invoice extends Resource {
   @Expose
   private String vatReverseChargeNotes;
 
+  public AccountMini getAccount() {
+    return this.account;
+  }
 
-  public AccountMini getAccount() { return this.account; }
-  public void setAccount(final AccountMini account) { this.account = account; }
+  public void setAccount(final AccountMini account) {
+    this.account = account;
+  }
 
-  public InvoiceAddress getAddress() { return this.address; }
-  public void setAddress(final InvoiceAddress address) { this.address = address; }
+  public InvoiceAddress getAddress() {
+    return this.address;
+  }
 
-  public Float getBalance() { return this.balance; }
-  public void setBalance(final Float balance) { this.balance = balance; }
+  public void setAddress(final InvoiceAddress address) {
+    this.address = address;
+  }
 
-  public DateTime getClosedAt() { return this.closedAt; }
-  public void setClosedAt(final DateTime closedAt) { this.closedAt = closedAt; }
+  public Float getBalance() {
+    return this.balance;
+  }
 
-  public String getCollectionMethod() { return this.collectionMethod; }
-  public void setCollectionMethod(final String collectionMethod) { this.collectionMethod = collectionMethod; }
+  public void setBalance(final Float balance) {
+    this.balance = balance;
+  }
 
-  public DateTime getCreatedAt() { return this.createdAt; }
-  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
+  public DateTime getClosedAt() {
+    return this.closedAt;
+  }
 
-  public List<CreditPayment> getCreditPayments() { return this.creditPayments; }
-  public void setCreditPayments(final List<CreditPayment> creditPayments) { this.creditPayments = creditPayments; }
+  public void setClosedAt(final DateTime closedAt) {
+    this.closedAt = closedAt;
+  }
 
-  public String getCurrency() { return this.currency; }
-  public void setCurrency(final String currency) { this.currency = currency; }
+  public String getCollectionMethod() {
+    return this.collectionMethod;
+  }
 
-  public String getCustomerNotes() { return this.customerNotes; }
-  public void setCustomerNotes(final String customerNotes) { this.customerNotes = customerNotes; }
+  public void setCollectionMethod(final String collectionMethod) {
+    this.collectionMethod = collectionMethod;
+  }
 
-  public Float getDiscount() { return this.discount; }
-  public void setDiscount(final Float discount) { this.discount = discount; }
+  public DateTime getCreatedAt() {
+    return this.createdAt;
+  }
 
-  public DateTime getDueAt() { return this.dueAt; }
-  public void setDueAt(final DateTime dueAt) { this.dueAt = dueAt; }
+  public void setCreatedAt(final DateTime createdAt) {
+    this.createdAt = createdAt;
+  }
 
-  public String getId() { return this.id; }
-  public void setId(final String id) { this.id = id; }
+  public List<CreditPayment> getCreditPayments() {
+    return this.creditPayments;
+  }
 
-  public LineItemList getLineItems() { return this.lineItems; }
-  public void setLineItems(final LineItemList lineItems) { this.lineItems = lineItems; }
+  public void setCreditPayments(final List<CreditPayment> creditPayments) {
+    this.creditPayments = creditPayments;
+  }
 
-  public Integer getNetTerms() { return this.netTerms; }
-  public void setNetTerms(final Integer netTerms) { this.netTerms = netTerms; }
+  public String getCurrency() {
+    return this.currency;
+  }
 
-  public String getNumber() { return this.number; }
-  public void setNumber(final String number) { this.number = number; }
+  public void setCurrency(final String currency) {
+    this.currency = currency;
+  }
 
-  public String getObject() { return this.object; }
-  public void setObject(final String object) { this.object = object; }
+  public String getCustomerNotes() {
+    return this.customerNotes;
+  }
 
-  public String getOrigin() { return this.origin; }
-  public void setOrigin(final String origin) { this.origin = origin; }
+  public void setCustomerNotes(final String customerNotes) {
+    this.customerNotes = customerNotes;
+  }
 
-  public Float getPaid() { return this.paid; }
-  public void setPaid(final Float paid) { this.paid = paid; }
+  public Float getDiscount() {
+    return this.discount;
+  }
 
-  public String getPoNumber() { return this.poNumber; }
-  public void setPoNumber(final String poNumber) { this.poNumber = poNumber; }
+  public void setDiscount(final Float discount) {
+    this.discount = discount;
+  }
 
-  public String getPreviousInvoiceId() { return this.previousInvoiceId; }
-  public void setPreviousInvoiceId(final String previousInvoiceId) { this.previousInvoiceId = previousInvoiceId; }
+  public DateTime getDueAt() {
+    return this.dueAt;
+  }
 
-  public Float getRefundableAmount() { return this.refundableAmount; }
-  public void setRefundableAmount(final Float refundableAmount) { this.refundableAmount = refundableAmount; }
+  public void setDueAt(final DateTime dueAt) {
+    this.dueAt = dueAt;
+  }
 
-  public String getState() { return this.state; }
-  public void setState(final String state) { this.state = state; }
+  public String getId() {
+    return this.id;
+  }
 
-  public List<String> getSubscriptionIds() { return this.subscriptionIds; }
-  public void setSubscriptionIds(final List<String> subscriptionIds) { this.subscriptionIds = subscriptionIds; }
+  public void setId(final String id) {
+    this.id = id;
+  }
 
-  public Float getSubtotal() { return this.subtotal; }
-  public void setSubtotal(final Float subtotal) { this.subtotal = subtotal; }
+  public LineItemList getLineItems() {
+    return this.lineItems;
+  }
 
-  public Float getTax() { return this.tax; }
-  public void setTax(final Float tax) { this.tax = tax; }
+  public void setLineItems(final LineItemList lineItems) {
+    this.lineItems = lineItems;
+  }
 
-  public TaxInfo getTaxInfo() { return this.taxInfo; }
-  public void setTaxInfo(final TaxInfo taxInfo) { this.taxInfo = taxInfo; }
+  public Integer getNetTerms() {
+    return this.netTerms;
+  }
 
-  public String getTermsAndConditions() { return this.termsAndConditions; }
-  public void setTermsAndConditions(final String termsAndConditions) { this.termsAndConditions = termsAndConditions; }
+  public void setNetTerms(final Integer netTerms) {
+    this.netTerms = netTerms;
+  }
 
-  public Float getTotal() { return this.total; }
-  public void setTotal(final Float total) { this.total = total; }
+  public String getNumber() {
+    return this.number;
+  }
 
-  public List<Transaction> getTransactions() { return this.transactions; }
-  public void setTransactions(final List<Transaction> transactions) { this.transactions = transactions; }
+  public void setNumber(final String number) {
+    this.number = number;
+  }
 
-  public String getType() { return this.type; }
-  public void setType(final String type) { this.type = type; }
+  public String getObject() {
+    return this.object;
+  }
 
-  public DateTime getUpdatedAt() { return this.updatedAt; }
-  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+  public void setObject(final String object) {
+    this.object = object;
+  }
 
-  public String getVatNumber() { return this.vatNumber; }
-  public void setVatNumber(final String vatNumber) { this.vatNumber = vatNumber; }
+  public String getOrigin() {
+    return this.origin;
+  }
 
-  public String getVatReverseChargeNotes() { return this.vatReverseChargeNotes; }
-  public void setVatReverseChargeNotes(final String vatReverseChargeNotes) { this.vatReverseChargeNotes = vatReverseChargeNotes; }
+  public void setOrigin(final String origin) {
+    this.origin = origin;
+  }
 
+  public Float getPaid() {
+    return this.paid;
+  }
+
+  public void setPaid(final Float paid) {
+    this.paid = paid;
+  }
+
+  public String getPoNumber() {
+    return this.poNumber;
+  }
+
+  public void setPoNumber(final String poNumber) {
+    this.poNumber = poNumber;
+  }
+
+  public String getPreviousInvoiceId() {
+    return this.previousInvoiceId;
+  }
+
+  public void setPreviousInvoiceId(final String previousInvoiceId) {
+    this.previousInvoiceId = previousInvoiceId;
+  }
+
+  public Float getRefundableAmount() {
+    return this.refundableAmount;
+  }
+
+  public void setRefundableAmount(final Float refundableAmount) {
+    this.refundableAmount = refundableAmount;
+  }
+
+  public String getState() {
+    return this.state;
+  }
+
+  public void setState(final String state) {
+    this.state = state;
+  }
+
+  public List<String> getSubscriptionIds() {
+    return this.subscriptionIds;
+  }
+
+  public void setSubscriptionIds(final List<String> subscriptionIds) {
+    this.subscriptionIds = subscriptionIds;
+  }
+
+  public Float getSubtotal() {
+    return this.subtotal;
+  }
+
+  public void setSubtotal(final Float subtotal) {
+    this.subtotal = subtotal;
+  }
+
+  public Float getTax() {
+    return this.tax;
+  }
+
+  public void setTax(final Float tax) {
+    this.tax = tax;
+  }
+
+  public TaxInfo getTaxInfo() {
+    return this.taxInfo;
+  }
+
+  public void setTaxInfo(final TaxInfo taxInfo) {
+    this.taxInfo = taxInfo;
+  }
+
+  public String getTermsAndConditions() {
+    return this.termsAndConditions;
+  }
+
+  public void setTermsAndConditions(final String termsAndConditions) {
+    this.termsAndConditions = termsAndConditions;
+  }
+
+  public Float getTotal() {
+    return this.total;
+  }
+
+  public void setTotal(final Float total) {
+    this.total = total;
+  }
+
+  public List<Transaction> getTransactions() {
+    return this.transactions;
+  }
+
+  public void setTransactions(final List<Transaction> transactions) {
+    this.transactions = transactions;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(final String type) {
+    this.type = type;
+  }
+
+  public DateTime getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(final DateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public String getVatNumber() {
+    return this.vatNumber;
+  }
+
+  public void setVatNumber(final String vatNumber) {
+    this.vatNumber = vatNumber;
+  }
+
+  public String getVatReverseChargeNotes() {
+    return this.vatReverseChargeNotes;
+  }
+
+  public void setVatReverseChargeNotes(final String vatReverseChargeNotes) {
+    this.vatReverseChargeNotes = vatReverseChargeNotes;
+  }
 }

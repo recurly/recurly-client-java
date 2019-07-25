@@ -1,8 +1,7 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
@@ -10,8 +9,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
-import java.util.List;
-import java.util.Map;
 
 public class UniqueCouponCode extends Resource {
 
@@ -47,29 +44,67 @@ public class UniqueCouponCode extends Resource {
   @Expose
   private DateTime updatedAt;
 
+  public String getCode() {
+    return this.code;
+  }
 
-  public String getCode() { return this.code; }
-  public void setCode(final String code) { this.code = code; }
+  public void setCode(final String code) {
+    this.code = code;
+  }
 
-  public DateTime getCreatedAt() { return this.createdAt; }
-  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
+  public DateTime getCreatedAt() {
+    return this.createdAt;
+  }
 
-  public DateTime getExpiredAt() { return this.expiredAt; }
-  public void setExpiredAt(final DateTime expiredAt) { this.expiredAt = expiredAt; }
+  public void setCreatedAt(final DateTime createdAt) {
+    this.createdAt = createdAt;
+  }
 
-  public String getId() { return this.id; }
-  public void setId(final String id) { this.id = id; }
+  public DateTime getExpiredAt() {
+    return this.expiredAt;
+  }
 
-  public String getObject() { return this.object; }
-  public void setObject(final String object) { this.object = object; }
+  public void setExpiredAt(final DateTime expiredAt) {
+    this.expiredAt = expiredAt;
+  }
 
-  public DateTime getRedeemedAt() { return this.redeemedAt; }
-  public void setRedeemedAt(final DateTime redeemedAt) { this.redeemedAt = redeemedAt; }
+  public String getId() {
+    return this.id;
+  }
 
-  public String getState() { return this.state; }
-  public void setState(final String state) { this.state = state; }
+  public void setId(final String id) {
+    this.id = id;
+  }
 
-  public DateTime getUpdatedAt() { return this.updatedAt; }
-  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+  public String getObject() {
+    return this.object;
+  }
 
+  public void setObject(final String object) {
+    this.object = object;
+  }
+
+  public DateTime getRedeemedAt() {
+    return this.redeemedAt;
+  }
+
+  public void setRedeemedAt(final DateTime redeemedAt) {
+    this.redeemedAt = redeemedAt;
+  }
+
+  public String getState() {
+    return this.state;
+  }
+
+  public void setState(final String state) {
+    this.state = state;
+  }
+
+  public DateTime getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(final DateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
 }

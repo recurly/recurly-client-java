@@ -1,8 +1,7 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
@@ -10,8 +9,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
-import java.util.List;
-import java.util.Map;
 
 public class ShippingAddress extends Resource {
 
@@ -83,56 +80,139 @@ public class ShippingAddress extends Resource {
   @Expose
   private String vatNumber;
 
+  public String getAccountId() {
+    return this.accountId;
+  }
 
-  public String getAccountId() { return this.accountId; }
-  public void setAccountId(final String accountId) { this.accountId = accountId; }
+  public void setAccountId(final String accountId) {
+    this.accountId = accountId;
+  }
 
-  public String getCity() { return this.city; }
-  public void setCity(final String city) { this.city = city; }
+  public String getCity() {
+    return this.city;
+  }
 
-  public String getCompany() { return this.company; }
-  public void setCompany(final String company) { this.company = company; }
+  public void setCity(final String city) {
+    this.city = city;
+  }
 
-  public String getCountry() { return this.country; }
-  public void setCountry(final String country) { this.country = country; }
+  public String getCompany() {
+    return this.company;
+  }
 
-  public DateTime getCreatedAt() { return this.createdAt; }
-  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
+  public void setCompany(final String company) {
+    this.company = company;
+  }
 
-  public String getEmail() { return this.email; }
-  public void setEmail(final String email) { this.email = email; }
+  public String getCountry() {
+    return this.country;
+  }
 
-  public String getFirstName() { return this.firstName; }
-  public void setFirstName(final String firstName) { this.firstName = firstName; }
+  public void setCountry(final String country) {
+    this.country = country;
+  }
 
-  public String getId() { return this.id; }
-  public void setId(final String id) { this.id = id; }
+  public DateTime getCreatedAt() {
+    return this.createdAt;
+  }
 
-  public String getLastName() { return this.lastName; }
-  public void setLastName(final String lastName) { this.lastName = lastName; }
+  public void setCreatedAt(final DateTime createdAt) {
+    this.createdAt = createdAt;
+  }
 
-  public String getNickname() { return this.nickname; }
-  public void setNickname(final String nickname) { this.nickname = nickname; }
+  public String getEmail() {
+    return this.email;
+  }
 
-  public String getPhone() { return this.phone; }
-  public void setPhone(final String phone) { this.phone = phone; }
+  public void setEmail(final String email) {
+    this.email = email;
+  }
 
-  public String getPostalCode() { return this.postalCode; }
-  public void setPostalCode(final String postalCode) { this.postalCode = postalCode; }
+  public String getFirstName() {
+    return this.firstName;
+  }
 
-  public String getRegion() { return this.region; }
-  public void setRegion(final String region) { this.region = region; }
+  public void setFirstName(final String firstName) {
+    this.firstName = firstName;
+  }
 
-  public String getStreet1() { return this.street1; }
-  public void setStreet1(final String street1) { this.street1 = street1; }
+  public String getId() {
+    return this.id;
+  }
 
-  public String getStreet2() { return this.street2; }
-  public void setStreet2(final String street2) { this.street2 = street2; }
+  public void setId(final String id) {
+    this.id = id;
+  }
 
-  public DateTime getUpdatedAt() { return this.updatedAt; }
-  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+  public String getLastName() {
+    return this.lastName;
+  }
 
-  public String getVatNumber() { return this.vatNumber; }
-  public void setVatNumber(final String vatNumber) { this.vatNumber = vatNumber; }
+  public void setLastName(final String lastName) {
+    this.lastName = lastName;
+  }
 
+  public String getNickname() {
+    return this.nickname;
+  }
+
+  public void setNickname(final String nickname) {
+    this.nickname = nickname;
+  }
+
+  public String getPhone() {
+    return this.phone;
+  }
+
+  public void setPhone(final String phone) {
+    this.phone = phone;
+  }
+
+  public String getPostalCode() {
+    return this.postalCode;
+  }
+
+  public void setPostalCode(final String postalCode) {
+    this.postalCode = postalCode;
+  }
+
+  public String getRegion() {
+    return this.region;
+  }
+
+  public void setRegion(final String region) {
+    this.region = region;
+  }
+
+  public String getStreet1() {
+    return this.street1;
+  }
+
+  public void setStreet1(final String street1) {
+    this.street1 = street1;
+  }
+
+  public String getStreet2() {
+    return this.street2;
+  }
+
+  public void setStreet2(final String street2) {
+    this.street2 = street2;
+  }
+
+  public DateTime getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(final DateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public String getVatNumber() {
+    return this.vatNumber;
+  }
+
+  public void setVatNumber(final String vatNumber) {
+    this.vatNumber = vatNumber;
+  }
 }

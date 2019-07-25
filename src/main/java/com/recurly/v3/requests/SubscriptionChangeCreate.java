@@ -1,18 +1,15 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.requests;
 
-import com.recurly.v3.resources.*;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
-import org.joda.time.DateTime;
+import com.recurly.v3.resources.*;
 import java.util.List;
-import java.util.Map;
 
 public class SubscriptionChangeCreate extends Request {
 
@@ -56,35 +53,83 @@ public class SubscriptionChangeCreate extends Request {
   @Expose
   private Float unitAmount;
 
+  public List<SubscriptionAddOnCreate> getAddOns() {
+    return this.addOns;
+  }
 
-  public List<SubscriptionAddOnCreate> getAddOns() { return this.addOns; }
-  public void setAddOns(final List<SubscriptionAddOnCreate> addOns) { this.addOns = addOns; }
+  public void setAddOns(final List<SubscriptionAddOnCreate> addOns) {
+    this.addOns = addOns;
+  }
 
-  public String getCollectionMethod() { return this.collectionMethod; }
-  public void setCollectionMethod(final String collectionMethod) { this.collectionMethod = collectionMethod; }
+  public String getCollectionMethod() {
+    return this.collectionMethod;
+  }
 
-  public List<String> getCouponCodes() { return this.couponCodes; }
-  public void setCouponCodes(final List<String> couponCodes) { this.couponCodes = couponCodes; }
+  public void setCollectionMethod(final String collectionMethod) {
+    this.collectionMethod = collectionMethod;
+  }
 
-  public Integer getNetTerms() { return this.netTerms; }
-  public void setNetTerms(final Integer netTerms) { this.netTerms = netTerms; }
+  public List<String> getCouponCodes() {
+    return this.couponCodes;
+  }
 
-  public String getPlanCode() { return this.planCode; }
-  public void setPlanCode(final String planCode) { this.planCode = planCode; }
+  public void setCouponCodes(final List<String> couponCodes) {
+    this.couponCodes = couponCodes;
+  }
 
-  public String getPlanId() { return this.planId; }
-  public void setPlanId(final String planId) { this.planId = planId; }
+  public Integer getNetTerms() {
+    return this.netTerms;
+  }
 
-  public String getPoNumber() { return this.poNumber; }
-  public void setPoNumber(final String poNumber) { this.poNumber = poNumber; }
+  public void setNetTerms(final Integer netTerms) {
+    this.netTerms = netTerms;
+  }
 
-  public Integer getQuantity() { return this.quantity; }
-  public void setQuantity(final Integer quantity) { this.quantity = quantity; }
+  public String getPlanCode() {
+    return this.planCode;
+  }
 
-  public String getTimeframe() { return this.timeframe; }
-  public void setTimeframe(final String timeframe) { this.timeframe = timeframe; }
+  public void setPlanCode(final String planCode) {
+    this.planCode = planCode;
+  }
 
-  public Float getUnitAmount() { return this.unitAmount; }
-  public void setUnitAmount(final Float unitAmount) { this.unitAmount = unitAmount; }
+  public String getPlanId() {
+    return this.planId;
+  }
 
+  public void setPlanId(final String planId) {
+    this.planId = planId;
+  }
+
+  public String getPoNumber() {
+    return this.poNumber;
+  }
+
+  public void setPoNumber(final String poNumber) {
+    this.poNumber = poNumber;
+  }
+
+  public Integer getQuantity() {
+    return this.quantity;
+  }
+
+  public void setQuantity(final Integer quantity) {
+    this.quantity = quantity;
+  }
+
+  public String getTimeframe() {
+    return this.timeframe;
+  }
+
+  public void setTimeframe(final String timeframe) {
+    this.timeframe = timeframe;
+  }
+
+  public Float getUnitAmount() {
+    return this.unitAmount;
+  }
+
+  public void setUnitAmount(final Float unitAmount) {
+    this.unitAmount = unitAmount;
+  }
 }

@@ -1,18 +1,15 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.requests;
 
-import com.recurly.v3.resources.*;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
+import com.recurly.v3.resources.*;
 import org.joda.time.DateTime;
-import java.util.List;
-import java.util.Map;
 
 public class LineItemCreate extends Request {
 
@@ -60,38 +57,91 @@ public class LineItemCreate extends Request {
   @Expose
   private Float unitAmount;
 
+  public String getCreditReasonCode() {
+    return this.creditReasonCode;
+  }
 
-  public String getCreditReasonCode() { return this.creditReasonCode; }
-  public void setCreditReasonCode(final String creditReasonCode) { this.creditReasonCode = creditReasonCode; }
+  public void setCreditReasonCode(final String creditReasonCode) {
+    this.creditReasonCode = creditReasonCode;
+  }
 
-  public String getCurrency() { return this.currency; }
-  public void setCurrency(final String currency) { this.currency = currency; }
+  public String getCurrency() {
+    return this.currency;
+  }
 
-  public String getDescription() { return this.description; }
-  public void setDescription(final String description) { this.description = description; }
+  public void setCurrency(final String currency) {
+    this.currency = currency;
+  }
 
-  public DateTime getEndDate() { return this.endDate; }
-  public void setEndDate(final DateTime endDate) { this.endDate = endDate; }
+  public String getDescription() {
+    return this.description;
+  }
 
-  public String getProductCode() { return this.productCode; }
-  public void setProductCode(final String productCode) { this.productCode = productCode; }
+  public void setDescription(final String description) {
+    this.description = description;
+  }
 
-  public Integer getQuantity() { return this.quantity; }
-  public void setQuantity(final Integer quantity) { this.quantity = quantity; }
+  public DateTime getEndDate() {
+    return this.endDate;
+  }
 
-  public DateTime getStartDate() { return this.startDate; }
-  public void setStartDate(final DateTime startDate) { this.startDate = startDate; }
+  public void setEndDate(final DateTime endDate) {
+    this.endDate = endDate;
+  }
 
-  public String getTaxCode() { return this.taxCode; }
-  public void setTaxCode(final String taxCode) { this.taxCode = taxCode; }
+  public String getProductCode() {
+    return this.productCode;
+  }
 
-  public Boolean getTaxExempt() { return this.taxExempt; }
-  public void setTaxExempt(final Boolean taxExempt) { this.taxExempt = taxExempt; }
+  public void setProductCode(final String productCode) {
+    this.productCode = productCode;
+  }
 
-  public String getType() { return this.type; }
-  public void setType(final String type) { this.type = type; }
+  public Integer getQuantity() {
+    return this.quantity;
+  }
 
-  public Float getUnitAmount() { return this.unitAmount; }
-  public void setUnitAmount(final Float unitAmount) { this.unitAmount = unitAmount; }
+  public void setQuantity(final Integer quantity) {
+    this.quantity = quantity;
+  }
 
+  public DateTime getStartDate() {
+    return this.startDate;
+  }
+
+  public void setStartDate(final DateTime startDate) {
+    this.startDate = startDate;
+  }
+
+  public String getTaxCode() {
+    return this.taxCode;
+  }
+
+  public void setTaxCode(final String taxCode) {
+    this.taxCode = taxCode;
+  }
+
+  public Boolean getTaxExempt() {
+    return this.taxExempt;
+  }
+
+  public void setTaxExempt(final Boolean taxExempt) {
+    this.taxExempt = taxExempt;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(final String type) {
+    this.type = type;
+  }
+
+  public Float getUnitAmount() {
+    return this.unitAmount;
+  }
+
+  public void setUnitAmount(final Float unitAmount) {
+    this.unitAmount = unitAmount;
+  }
 }

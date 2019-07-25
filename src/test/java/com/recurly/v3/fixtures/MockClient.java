@@ -2,11 +2,10 @@ package com.recurly.v3.fixtures;
 
 import com.google.gson.reflect.TypeToken;
 import com.recurly.v3.BaseClient;
-import java.lang.reflect.Type;
-import java.util.HashMap;
-
 import com.recurly.v3.Pager;
 import com.recurly.v3.QueryParams;
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import okhttp3.OkHttpClient;
 
 public class MockClient extends BaseClient {

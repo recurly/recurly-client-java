@@ -17,7 +17,10 @@ public class JsonSerializer {
 
   private final Gson gsonSerializer = Converters.registerDateTime(new GsonBuilder()).create();
   private final Gson gsonDeserializer =
-      new GsonBuilder().excludeFieldsWithoutExposeAnnotation().registerTypeAdapter(DateTime.class, new DateDeserializer()).create();
+      new GsonBuilder()
+          .excludeFieldsWithoutExposeAnnotation()
+          .registerTypeAdapter(DateTime.class, new DateDeserializer())
+          .create();
 
   public <T> T deserialize(String responseBody, final Type resourceClass) {
     return gsonDeserializer.fromJson(responseBody, resourceClass);

@@ -1,17 +1,13 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process
- * and thus any edits you make by hand will be lost. If you wish to make a
- * change to this file, please create a Github issue explaining the changes you
- * need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
-import java.util.List;
-import java.util.Map;
 
 public class InvoiceAddress extends Resource {
 
@@ -59,38 +55,91 @@ public class InvoiceAddress extends Resource {
   @Expose
   private String street2;
 
+  public String getCity() {
+    return this.city;
+  }
 
-  public String getCity() { return this.city; }
-  public void setCity(final String city) { this.city = city; }
+  public void setCity(final String city) {
+    this.city = city;
+  }
 
-  public String getCompany() { return this.company; }
-  public void setCompany(final String company) { this.company = company; }
+  public String getCompany() {
+    return this.company;
+  }
 
-  public String getCountry() { return this.country; }
-  public void setCountry(final String country) { this.country = country; }
+  public void setCompany(final String company) {
+    this.company = company;
+  }
 
-  public String getFirstName() { return this.firstName; }
-  public void setFirstName(final String firstName) { this.firstName = firstName; }
+  public String getCountry() {
+    return this.country;
+  }
 
-  public String getLastName() { return this.lastName; }
-  public void setLastName(final String lastName) { this.lastName = lastName; }
+  public void setCountry(final String country) {
+    this.country = country;
+  }
 
-  public String getNameOnAccount() { return this.nameOnAccount; }
-  public void setNameOnAccount(final String nameOnAccount) { this.nameOnAccount = nameOnAccount; }
+  public String getFirstName() {
+    return this.firstName;
+  }
 
-  public String getPhone() { return this.phone; }
-  public void setPhone(final String phone) { this.phone = phone; }
+  public void setFirstName(final String firstName) {
+    this.firstName = firstName;
+  }
 
-  public String getPostalCode() { return this.postalCode; }
-  public void setPostalCode(final String postalCode) { this.postalCode = postalCode; }
+  public String getLastName() {
+    return this.lastName;
+  }
 
-  public String getRegion() { return this.region; }
-  public void setRegion(final String region) { this.region = region; }
+  public void setLastName(final String lastName) {
+    this.lastName = lastName;
+  }
 
-  public String getStreet1() { return this.street1; }
-  public void setStreet1(final String street1) { this.street1 = street1; }
+  public String getNameOnAccount() {
+    return this.nameOnAccount;
+  }
 
-  public String getStreet2() { return this.street2; }
-  public void setStreet2(final String street2) { this.street2 = street2; }
+  public void setNameOnAccount(final String nameOnAccount) {
+    this.nameOnAccount = nameOnAccount;
+  }
 
+  public String getPhone() {
+    return this.phone;
+  }
+
+  public void setPhone(final String phone) {
+    this.phone = phone;
+  }
+
+  public String getPostalCode() {
+    return this.postalCode;
+  }
+
+  public void setPostalCode(final String postalCode) {
+    this.postalCode = postalCode;
+  }
+
+  public String getRegion() {
+    return this.region;
+  }
+
+  public void setRegion(final String region) {
+    this.region = region;
+  }
+
+  public String getStreet1() {
+    return this.street1;
+  }
+
+  public void setStreet1(final String street1) {
+    this.street1 = street1;
+  }
+
+  public String getStreet2() {
+    return this.street2;
+  }
+
+  public void setStreet2(final String street2) {
+    this.street2 = street2;
+  }
 }
