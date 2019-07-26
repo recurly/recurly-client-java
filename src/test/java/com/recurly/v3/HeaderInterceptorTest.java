@@ -33,7 +33,7 @@ public class HeaderInterceptorTest {
 
     // TODO this regex will change on GA
     // BETA semver sequence is forced until then
-    final String agentFormat = "Recurly/3\\.\\d+\\.\\d+-beta-\\d+-SNAPSHOT;\\s+java\\s+\\d+\\.\\d+\\.\\d+.*";
+    final String agentFormat = "Recurly/3\\.\\d+\\.\\d+-beta-\\d+(-SNAPSHOT)?;\\s+java\\s+\\d+\\.\\d+\\.\\d+.*";
     assertEquals(request.getHeader("User-Agent").matches(agentFormat), true);
 
     mockWebServer.shutdown();
