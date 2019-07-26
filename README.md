@@ -9,6 +9,15 @@ and is not yet an official release. Documentation for the API can be [found here
 
 ## Getting Started
 
+### Installing
+
+You can find the compiled releases and installing instructions at
+[Maven Central](https://search.maven.org/artifact/com.recurly.v3/api-client/)
+
+This library is currently a pre-release. It's important that you lock on a specific
+version as there may be breaking changes between releases. All beta releases will
+have the format `3.0.0-beta-x` until we go live starting with `3.0.0`.
+
 ### Creating a client
 
 Client instances provide one place where every operation on the Recurly API can be found (rather than
