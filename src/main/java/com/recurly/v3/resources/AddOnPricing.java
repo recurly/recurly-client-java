@@ -11,26 +11,32 @@ import com.recurly.v3.Resource;
 
 public class AddOnPricing extends Resource {
 
+  /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
   @Expose
   private String currency;
 
+  /** Unit price */
   @SerializedName("unit_amount")
   @Expose
   private Float unitAmount;
 
+  /** 3-letter ISO 4217 currency code. */
   public String getCurrency() {
     return this.currency;
   }
 
+  /** @param currency 3-letter ISO 4217 currency code. */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
 
+  /** Unit price */
   public Float getUnitAmount() {
     return this.unitAmount;
   }
 
+  /** @param unitAmount Unit price */
   public void setUnitAmount(final Float unitAmount) {
     this.unitAmount = unitAmount;
   }

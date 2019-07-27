@@ -16,10 +16,14 @@ public class AccountAcquisition extends Resource {
   @Expose
   private AccountMini account;
 
+  /**
+   * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.
+   */
   @SerializedName("campaign")
   @Expose
   private String campaign;
 
+  /** The channel through which the account was acquired. */
   @SerializedName("channel")
   @Expose
   private String channel;
@@ -28,6 +32,7 @@ public class AccountAcquisition extends Resource {
   @Expose
   private AccountAcquisitionCost cost;
 
+  /** When the account acquisition data was created. */
   @SerializedName("created_at")
   @Expose
   private DateTime createdAt;
@@ -36,14 +41,19 @@ public class AccountAcquisition extends Resource {
   @Expose
   private String id;
 
+  /** Object type */
   @SerializedName("object")
   @Expose
   private String object;
 
+  /**
+   * An arbitrary subchannel string representing a distinction/subcategory within a broader channel.
+   */
   @SerializedName("subchannel")
   @Expose
   private String subchannel;
 
+  /** When the account acquisition data was last changed. */
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
@@ -52,22 +62,32 @@ public class AccountAcquisition extends Resource {
     return this.account;
   }
 
+  /** @param account */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
 
+  /**
+   * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.
+   */
   public String getCampaign() {
     return this.campaign;
   }
 
+  /**
+   * @param campaign An arbitrary identifier for the marketing campaign that led to the acquisition
+   *     of this account.
+   */
   public void setCampaign(final String campaign) {
     this.campaign = campaign;
   }
 
+  /** The channel through which the account was acquired. */
   public String getChannel() {
     return this.channel;
   }
 
+  /** @param channel The channel through which the account was acquired. */
   public void setChannel(final String channel) {
     this.channel = channel;
   }
@@ -76,14 +96,17 @@ public class AccountAcquisition extends Resource {
     return this.cost;
   }
 
+  /** @param cost */
   public void setCost(final AccountAcquisitionCost cost) {
     this.cost = cost;
   }
 
+  /** When the account acquisition data was created. */
   public DateTime getCreatedAt() {
     return this.createdAt;
   }
 
+  /** @param createdAt When the account acquisition data was created. */
   public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -92,30 +115,42 @@ public class AccountAcquisition extends Resource {
     return this.id;
   }
 
+  /** @param id */
   public void setId(final String id) {
     this.id = id;
   }
 
+  /** Object type */
   public String getObject() {
     return this.object;
   }
 
+  /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
   }
 
+  /**
+   * An arbitrary subchannel string representing a distinction/subcategory within a broader channel.
+   */
   public String getSubchannel() {
     return this.subchannel;
   }
 
+  /**
+   * @param subchannel An arbitrary subchannel string representing a distinction/subcategory within
+   *     a broader channel.
+   */
   public void setSubchannel(final String subchannel) {
     this.subchannel = subchannel;
   }
 
+  /** When the account acquisition data was last changed. */
   public DateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
+  /** @param updatedAt When the account acquisition data was last changed. */
   public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

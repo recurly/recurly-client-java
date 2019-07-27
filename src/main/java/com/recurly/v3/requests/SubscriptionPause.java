@@ -12,14 +12,17 @@ import com.recurly.v3.resources.*;
 
 public class SubscriptionPause extends Request {
 
+  /** Number of billing cycles to pause the subscriptions. */
   @SerializedName("remaining_pause_cycles")
   @Expose
   private Integer remainingPauseCycles;
 
+  /** Number of billing cycles to pause the subscriptions. */
   public Integer getRemainingPauseCycles() {
     return this.remainingPauseCycles;
   }
 
+  /** @param remainingPauseCycles Number of billing cycles to pause the subscriptions. */
   public void setRemainingPauseCycles(final Integer remainingPauseCycles) {
     this.remainingPauseCycles = remainingPauseCycles;
   }

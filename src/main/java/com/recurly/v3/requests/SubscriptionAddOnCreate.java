@@ -12,50 +12,62 @@ import com.recurly.v3.resources.*;
 
 public class SubscriptionAddOnCreate extends Request {
 
+  /** Add-on code */
   @SerializedName("code")
   @Expose
   private String code;
 
+  /** Setting this field allows you to reference an existing add-on. */
   @SerializedName("id")
   @Expose
   private String id;
 
+  /** Optionally override the default quantity. */
   @SerializedName("quantity")
   @Expose
   private Integer quantity;
 
+  /** Override the default unit amount of the add-on by setting this value. */
   @SerializedName("unit_amount")
   @Expose
   private Float unitAmount;
 
+  /** Add-on code */
   public String getCode() {
     return this.code;
   }
 
+  /** @param code Add-on code */
   public void setCode(final String code) {
     this.code = code;
   }
 
+  /** Setting this field allows you to reference an existing add-on. */
   public String getId() {
     return this.id;
   }
 
+  /** @param id Setting this field allows you to reference an existing add-on. */
   public void setId(final String id) {
     this.id = id;
   }
 
+  /** Optionally override the default quantity. */
   public Integer getQuantity() {
     return this.quantity;
   }
 
+  /** @param quantity Optionally override the default quantity. */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
   }
 
+  /** Override the default unit amount of the add-on by setting this value. */
   public Float getUnitAmount() {
     return this.unitAmount;
   }
 
+  /** @param unitAmount Override the default unit amount of the add-on by setting this value. */
   public void setUnitAmount(final Float unitAmount) {
     this.unitAmount = unitAmount;
   }

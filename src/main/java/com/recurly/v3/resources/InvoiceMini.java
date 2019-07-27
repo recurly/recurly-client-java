@@ -11,62 +11,77 @@ import com.recurly.v3.Resource;
 
 public class InvoiceMini extends Resource {
 
+  /** Invoice ID */
   @SerializedName("id")
   @Expose
   private String id;
 
+  /** Invoice number */
   @SerializedName("number")
   @Expose
   private String number;
 
+  /** Object type */
   @SerializedName("object")
   @Expose
   private String object;
 
+  /** Invoice state */
   @SerializedName("state")
   @Expose
   private String state;
 
+  /** Invoice type */
   @SerializedName("type")
   @Expose
   private String type;
 
+  /** Invoice ID */
   public String getId() {
     return this.id;
   }
 
+  /** @param id Invoice ID */
   public void setId(final String id) {
     this.id = id;
   }
 
+  /** Invoice number */
   public String getNumber() {
     return this.number;
   }
 
+  /** @param number Invoice number */
   public void setNumber(final String number) {
     this.number = number;
   }
 
+  /** Object type */
   public String getObject() {
     return this.object;
   }
 
+  /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
   }
 
+  /** Invoice state */
   public String getState() {
     return this.state;
   }
 
+  /** @param state Invoice state */
   public void setState(final String state) {
     this.state = state;
   }
 
+  /** Invoice type */
   public String getType() {
     return this.type;
   }
 
+  /** @param type Invoice type */
   public void setType(final String type) {
     this.type = type;
   }

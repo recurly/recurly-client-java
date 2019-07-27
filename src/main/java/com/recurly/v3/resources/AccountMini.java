@@ -15,6 +15,7 @@ public class AccountMini extends Resource {
   @Expose
   private String billTo;
 
+  /** The unique identifier of the account. */
   @SerializedName("code")
   @Expose
   private String code;
@@ -23,6 +24,7 @@ public class AccountMini extends Resource {
   @Expose
   private String company;
 
+  /** The email address used for communicating with this customer. */
   @SerializedName("email")
   @Expose
   private String email;
@@ -39,6 +41,7 @@ public class AccountMini extends Resource {
   @Expose
   private String lastName;
 
+  /** Object type */
   @SerializedName("object")
   @Expose
   private String object;
@@ -51,14 +54,17 @@ public class AccountMini extends Resource {
     return this.billTo;
   }
 
+  /** @param billTo */
   public void setBillTo(final String billTo) {
     this.billTo = billTo;
   }
 
+  /** The unique identifier of the account. */
   public String getCode() {
     return this.code;
   }
 
+  /** @param code The unique identifier of the account. */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -67,14 +73,17 @@ public class AccountMini extends Resource {
     return this.company;
   }
 
+  /** @param company */
   public void setCompany(final String company) {
     this.company = company;
   }
 
+  /** The email address used for communicating with this customer. */
   public String getEmail() {
     return this.email;
   }
 
+  /** @param email The email address used for communicating with this customer. */
   public void setEmail(final String email) {
     this.email = email;
   }
@@ -83,6 +92,7 @@ public class AccountMini extends Resource {
     return this.firstName;
   }
 
+  /** @param firstName */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
   }
@@ -91,6 +101,7 @@ public class AccountMini extends Resource {
     return this.id;
   }
 
+  /** @param id */
   public void setId(final String id) {
     this.id = id;
   }
@@ -99,14 +110,17 @@ public class AccountMini extends Resource {
     return this.lastName;
   }
 
+  /** @param lastName */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
   }
 
+  /** Object type */
   public String getObject() {
     return this.object;
   }
 
+  /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -115,6 +129,7 @@ public class AccountMini extends Resource {
     return this.parentAccountId;
   }
 
+  /** @param parentAccountId */
   public void setParentAccountId(final String parentAccountId) {
     this.parentAccountId = parentAccountId;
   }

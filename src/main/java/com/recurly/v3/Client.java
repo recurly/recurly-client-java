@@ -10,7 +10,6 @@ import com.recurly.v3.requests.*;
 import com.recurly.v3.resources.*;
 import java.lang.reflect.Type;
 import java.util.HashMap;
-import okhttp3.OkHttpClient;
 
 public class Client extends BaseClient {
   public static final String API_VERSION = "v2018-08-09";
@@ -19,15 +18,13 @@ public class Client extends BaseClient {
     super(siteId, apiKey);
   }
 
-  Client(final String siteId, final String apiKey, final OkHttpClient client) {
-    super(siteId, apiKey, client);
-  }
-
   /**
+   * List sites
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_sites">list_sites api
    *     documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort"
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of sites.
    */
   public Pager<Site> listSites(QueryParams queryParams) {
     final String url = "/sites";
@@ -40,8 +37,11 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch a site
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_site">get_site api
    *     documentation</a>
+   * @return A site.
    */
   public Site getSite() {
     final String url = "/sites/{site_id}";
@@ -52,11 +52,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a site's accounts
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_accounts">list_accounts
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "subscriber" - "past_due"
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the site's accounts.
    */
   public Pager<Account> listAccounts(QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts";
@@ -69,9 +71,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Create an account
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/create_account">create_account
    *     api documentation</a>
+   * @param body The body of the request.
+   * @return An account.
    */
   public Account createAccount(AccountCreate body) {
     final String url = "/sites/{site_id}/accounts";
@@ -82,8 +88,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch an account
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_account">get_account
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @return An account.
    */
   public Account getAccount(String accountId) {
     final String url = "/sites/{site_id}/accounts/{account_id}";
@@ -95,9 +105,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Modify an account
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/update_account">update_account
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param body The body of the request.
+   * @return An account.
    */
   public Account updateAccount(String accountId, AccountUpdate body) {
     final String url = "/sites/{site_id}/accounts/{account_id}";
@@ -109,9 +124,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Deactivate an account
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/deactivate_account">deactivate_account
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @return An account.
    */
   public Account deactivateAccount(String accountId) {
     final String url = "/sites/{site_id}/accounts/{account_id}";
@@ -123,9 +142,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch an account's acquisition data
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/get_account_acquisition">get_account_acquisition
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @return An account's acquisition data.
    */
   public AccountAcquisition getAccountAcquisition(String accountId) {
     final String url = "/sites/{site_id}/accounts/{account_id}/acquisition";
@@ -137,9 +160,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Update an account's acquisition data
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/update_account_acquisition">update_account_acquisition
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param body The body of the request.
+   * @return An account's updated acquisition data.
    */
   public AccountAcquisition updateAccountAcquisition(
       String accountId, AccountAcquisitionUpdatable body) {
@@ -152,9 +180,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Remove an account's acquisition data
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_account_acquisition">remove_account_acquisition
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
    */
   public void removeAccountAcquisition(String accountId) {
     final String url = "/sites/{site_id}/accounts/{account_id}/acquisition";
@@ -165,9 +196,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Reactivate an inactive account
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/reactivate_account">reactivate_account
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @return An account.
    */
   public Account reactivateAccount(String accountId) {
     final String url = "/sites/{site_id}/accounts/{account_id}/reactivate";
@@ -179,9 +214,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch an account's balance and past due status
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/get_account_balance">get_account_balance
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @return An account's balance.
    */
   public AccountBalance getAccountBalance(String accountId) {
     final String url = "/sites/{site_id}/accounts/{account_id}/balance";
@@ -193,9 +232,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch an account's billing information
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/get_billing_info">get_billing_info
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @return An account's billing information.
    */
   public BillingInfo getBillingInfo(String accountId) {
     final String url = "/sites/{site_id}/accounts/{account_id}/billing_info";
@@ -207,9 +250,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Set an account's billing information
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/update_billing_info">update_billing_info
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param body The body of the request.
+   * @return Updated billing information.
    */
   public BillingInfo updateBillingInfo(String accountId, BillingInfoCreate body) {
     final String url = "/sites/{site_id}/accounts/{account_id}/billing_info";
@@ -221,9 +269,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Remove an account's billing information
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_billing_info">remove_billing_info
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
    */
   public void removeBillingInfo(String accountId) {
     final String url = "/sites/{site_id}/accounts/{account_id}/billing_info";
@@ -234,11 +285,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Show the coupon redemptions for an account
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_coupon_redemptions">list_account_coupon_redemptions
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "sort" - "begin_time" -
-   *     "end_time"
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the the coupon redemptions on an account.
    */
   public Pager<CouponRedemption> listAccountCouponRedemptions(
       String accountId, QueryParams queryParams) {
@@ -254,9 +308,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Show the coupon redemption that is active on an account
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/get_active_coupon_redemption">get_active_coupon_redemption
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @return An active coupon redemption on an account.
    */
   public CouponRedemption getActiveCouponRedemption(String accountId) {
     final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions/active";
@@ -268,9 +326,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Generate an active coupon redemption on an account
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/create_coupon_redemption">create_coupon_redemption
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param body The body of the request.
+   * @return Returns the new coupon redemption.
    */
   public CouponRedemption createCouponRedemption(String accountId, CouponRedemptionCreate body) {
     final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions/active";
@@ -282,9 +345,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Delete the active coupon redemption from an account
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_coupon_redemption">remove_coupon_redemption
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @return Coupon redemption deleted.
    */
   public CouponRedemption removeCouponRedemption(String accountId) {
     final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions/active";
@@ -296,11 +363,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List an account's credit payments
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_credit_payments">list_account_credit_payments
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "limit" - "order" - "sort" -
-   *     "begin_time" - "end_time"
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the account's credit payments.
    */
   public Pager<CreditPayment> listAccountCreditPayments(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/credit_payments";
@@ -314,11 +384,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List an account's invoices
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_invoices">list_account_invoices
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "type"
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the account's invoices.
    */
   public Pager<Invoice> listAccountInvoices(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/invoices";
@@ -332,9 +405,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Create an invoice for pending line items
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/create_invoice">create_invoice
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param body The body of the request.
+   * @return Returns the new invoices.
    */
   public InvoiceCollection createInvoice(String accountId, InvoiceCreate body) {
     final String url = "/sites/{site_id}/accounts/{account_id}/invoices";
@@ -346,9 +424,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Preview new invoice for pending line items
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/preview_invoice">preview_invoice
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param body The body of the request.
+   * @return Returns the invoice previews.
    */
   public InvoiceCollection previewInvoice(String accountId, InvoiceCreate body) {
     final String url = "/sites/{site_id}/accounts/{account_id}/invoices/preview";
@@ -360,11 +443,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List an account's line items
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_line_items">list_account_line_items
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "original" - "state" - "type"
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the account's line items.
    */
   public Pager<LineItem> listAccountLineItems(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/line_items";
@@ -378,9 +464,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Create a new line item for the account
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/create_line_item">create_line_item
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param body The body of the request.
+   * @return Returns the new line item.
    */
   public LineItem createLineItem(String accountId, LineItemCreate body) {
     final String url = "/sites/{site_id}/accounts/{account_id}/line_items";
@@ -392,10 +483,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch a list of an account's notes
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_notes">list_account_notes
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids"
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of an account's notes.
    */
   public Pager<AccountNote> listAccountNotes(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/notes";
@@ -409,9 +504,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch an account note
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/get_account_note">get_account_note
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param accountNoteId Account Note ID.
+   * @return An account note.
    */
   public AccountNote getAccountNote(String accountId, String accountNoteId) {
     final String url = "/sites/{site_id}/accounts/{account_id}/notes/{account_note_id}";
@@ -424,11 +524,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch a list of an account's shipping addresses
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_shipping_addresses">list_shipping_addresses
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time"
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of an account's shipping addresses.
    */
   public Pager<ShippingAddress> listShippingAddresses(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/shipping_addresses";
@@ -443,9 +546,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Create a new shipping address for the account
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/create_shipping_address">create_shipping_address
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param body The body of the request.
+   * @return Returns the new shipping address.
    */
   public ShippingAddress createShippingAddress(String accountId, ShippingAddressCreate body) {
     final String url = "/sites/{site_id}/accounts/{account_id}/shipping_addresses";
@@ -457,9 +565,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch an account's shipping address
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/get_shipping_address">get_shipping_address
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param shippingAddressId Shipping Address ID.
+   * @return A shipping address.
    */
   public ShippingAddress getShippingAddress(String accountId, String shippingAddressId) {
     final String url =
@@ -473,9 +586,15 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Update an account's shipping address
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/update_shipping_address">update_shipping_address
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param shippingAddressId Shipping Address ID.
+   * @param body The body of the request.
+   * @return The updated shipping address.
    */
   public ShippingAddress updateShippingAddress(
       String accountId, String shippingAddressId, ShippingAddressUpdate body) {
@@ -490,9 +609,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Remove an account's shipping address
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_shipping_address">remove_shipping_address
    *     api documentation</a>
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param shippingAddressId Shipping Address ID.
    */
   public void removeShippingAddress(String accountId, String shippingAddressId) {
     final String url =
@@ -505,11 +628,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List an account's subscriptions
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_subscriptions">list_account_subscriptions
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "state"
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the account's subscriptions.
    */
   public Pager<Subscription> listAccountSubscriptions(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/subscriptions";
@@ -523,11 +649,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List an account's transactions
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_transactions">list_account_transactions
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "type" - "success"
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the account's transactions.
    */
   public Pager<Transaction> listAccountTransactions(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/transactions";
@@ -541,11 +670,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List an account's child accounts
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_child_accounts">list_child_accounts
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "subscriber" - "past_due"
+   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of an account's child accounts.
    */
   public Pager<Account> listChildAccounts(String accountId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/accounts/{account_id}/accounts";
@@ -559,11 +691,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a site's account acquisition data
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_account_acquisition">list_account_acquisition
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time"
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the site's account acquisition data.
    */
   public Pager<AccountAcquisition> listAccountAcquisition(QueryParams queryParams) {
     final String url = "/sites/{site_id}/acquisitions";
@@ -577,10 +711,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a site's coupons
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_coupons">list_coupons
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time"
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the site's coupons.
    */
   public Pager<Coupon> listCoupons(QueryParams queryParams) {
     final String url = "/sites/{site_id}/coupons";
@@ -593,9 +729,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Create a new coupon
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/create_coupon">create_coupon
    *     api documentation</a>
+   * @param body The body of the request.
+   * @return A new coupon.
    */
   public Coupon createCoupon(CouponCreate body) {
     final String url = "/sites/{site_id}/coupons";
@@ -606,8 +746,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch a coupon
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_coupon">get_coupon api
    *     documentation</a>
+   * @param couponId Coupon ID or code (use prefix: `code-`, e.g. `code-10off`).
+   * @return A coupon.
    */
   public Coupon getCoupon(String couponId) {
     final String url = "/sites/{site_id}/coupons/{coupon_id}";
@@ -619,9 +763,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Update an active coupon
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/update_coupon">update_coupon
    *     api documentation</a>
+   * @param couponId Coupon ID or code (use prefix: `code-`, e.g. `code-10off`).
+   * @param body The body of the request.
+   * @return The updated coupon.
    */
   public Coupon updateCoupon(String couponId, CouponUpdate body) {
     final String url = "/sites/{site_id}/coupons/{coupon_id}";
@@ -633,11 +782,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List unique coupon codes associated with a bulk coupon
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_unique_coupon_codes">list_unique_coupon_codes
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time"
+   * @param couponId Coupon ID or code (use prefix: `code-`, e.g. `code-10off`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of unique coupon codes that were generated
    */
   public Pager<UniqueCouponCode> listUniqueCouponCodes(String couponId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/coupons/{coupon_id}/unique_coupon_codes";
@@ -652,11 +804,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a site's credit payments
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_credit_payments">list_credit_payments
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "limit" - "order" - "sort" -
-   *     "begin_time" - "end_time"
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the site's credit payments.
    */
   public Pager<CreditPayment> listCreditPayments(QueryParams queryParams) {
     final String url = "/sites/{site_id}/credit_payments";
@@ -669,9 +823,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch a credit payment
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/get_credit_payment">get_credit_payment
    *     api documentation</a>
+   * @param creditPaymentId Credit Payment ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @return A credit payment.
    */
   public CreditPayment getCreditPayment(String creditPaymentId) {
     final String url = "/sites/{site_id}/credit_payments/{credit_payment_id}";
@@ -683,11 +841,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a site's custom field definitions
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_custom_field_definitions">list_custom_field_definitions
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time"
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the site's custom field definitions.
    */
   public Pager<CustomFieldDefinition> listCustomFieldDefinitions(QueryParams queryParams) {
     final String url = "/sites/{site_id}/custom_field_definitions";
@@ -701,9 +861,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch an custom field definition
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/get_custom_field_definition">get_custom_field_definition
    *     api documentation</a>
+   * @param customFieldDefinitionId Custom Field Definition ID
+   * @return An custom field definition.
    */
   public CustomFieldDefinition getCustomFieldDefinition(String customFieldDefinitionId) {
     final String url = "/sites/{site_id}/custom_field_definitions/{custom_field_definition_id}";
@@ -715,11 +879,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a site's invoices
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_invoices">list_invoices
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "type"
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the site's invoices.
    */
   public Pager<Invoice> listInvoices(QueryParams queryParams) {
     final String url = "/sites/{site_id}/invoices";
@@ -732,8 +898,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch an invoice
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_invoice">get_invoice
    *     api documentation</a>
+   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @return An invoice.
    */
   public Invoice getInvoice(String invoiceId) {
     final String url = "/sites/{site_id}/invoices/{invoice_id}";
@@ -745,8 +915,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Update an invoice
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/put_invoice">put_invoice
    *     api documentation</a>
+   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @param body The body of the request.
+   * @return An invoice.
    */
   public Invoice putInvoice(String invoiceId, InvoiceUpdatable body) {
     final String url = "/sites/{site_id}/invoices/{invoice_id}";
@@ -758,9 +933,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Collect a pending or past due, automatic invoice
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/collect_invoice">collect_invoice
    *     api documentation</a>
+   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @return The updated invoice.
    */
   public Invoice collectInvoice(String invoiceId) {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/collect";
@@ -772,8 +951,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Mark an open invoice as failed
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/fail_invoice">fail_invoice
    *     api documentation</a>
+   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @return The updated invoice.
    */
   public Invoice failInvoice(String invoiceId) {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/mark_failed";
@@ -785,9 +968,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Mark an open invoice as successful
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/mark_invoice_successful">mark_invoice_successful
    *     api documentation</a>
+   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @return The updated invoice.
    */
   public Invoice markInvoiceSuccessful(String invoiceId) {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/mark_successful";
@@ -799,9 +986,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Reopen a closed, manual invoice
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/reopen_invoice">reopen_invoice
    *     api documentation</a>
+   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @return The updated invoice.
    */
   public Invoice reopenInvoice(String invoiceId) {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/reopen";
@@ -813,11 +1004,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List an invoice's line items
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_invoice_line_items">list_invoice_line_items
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "original" - "state" - "type"
+   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the invoice's line items.
    */
   public Pager<LineItem> listInvoiceLineItems(String invoiceId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/line_items";
@@ -831,11 +1025,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Show the coupon redemptions applied to an invoice
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_invoice_coupon_redemptions">list_invoice_coupon_redemptions
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "sort" - "begin_time" -
-   *     "end_time"
+   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the the coupon redemptions associated with the invoice.
    */
   public Pager<CouponRedemption> listInvoiceCouponRedemptions(
       String invoiceId, QueryParams queryParams) {
@@ -851,9 +1048,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List an invoice's related credit or charge invoices
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_related_invoices">list_related_invoices
    *     api documentation</a>
+   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @return A list of the credit or charge invoices associated with the invoice.
    */
   public Pager<Invoice> listRelatedInvoices(String invoiceId) {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/related_invoices";
@@ -865,9 +1066,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Refund an invoice
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/refund_invoice">refund_invoice
    *     api documentation</a>
+   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @param body The body of the request.
+   * @return Returns the new credit invoice.
    */
   public Invoice refundInvoice(String invoiceId, InvoiceRefund body) {
     final String url = "/sites/{site_id}/invoices/{invoice_id}/refund";
@@ -879,11 +1085,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a site's line items
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_line_items">list_line_items
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "original" - "state" - "type"
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the site's line items.
    */
   public Pager<LineItem> listLineItems(QueryParams queryParams) {
     final String url = "/sites/{site_id}/line_items";
@@ -896,9 +1104,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch a line item
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/get_line_item">get_line_item
    *     api documentation</a>
+   * @param lineItemId Line Item ID.
+   * @return A line item.
    */
   public LineItem getLineItem(String lineItemId) {
     final String url = "/sites/{site_id}/line_items/{line_item_id}";
@@ -910,9 +1122,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Delete an uninvoiced line item
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_line_item">remove_line_item
    *     api documentation</a>
+   * @param lineItemId Line Item ID.
    */
   public void removeLineItem(String lineItemId) {
     final String url = "/sites/{site_id}/line_items/{line_item_id}";
@@ -923,10 +1138,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a site's plans
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_plans">list_plans api
    *     documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "state"
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of plans.
    */
   public Pager<Plan> listPlans(QueryParams queryParams) {
     final String url = "/sites/{site_id}/plans";
@@ -939,8 +1156,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Create a plan
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/create_plan">create_plan
    *     api documentation</a>
+   * @param body The body of the request.
+   * @return A plan.
    */
   public Plan createPlan(PlanCreate body) {
     final String url = "/sites/{site_id}/plans";
@@ -951,8 +1172,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch a plan
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_plan">get_plan api
    *     documentation</a>
+   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @return A plan.
    */
   public Plan getPlan(String planId) {
     final String url = "/sites/{site_id}/plans/{plan_id}";
@@ -964,8 +1189,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Update a plan
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/update_plan">update_plan
    *     api documentation</a>
+   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @param body The body of the request.
+   * @return A plan.
    */
   public Plan updatePlan(String planId, PlanUpdate body) {
     final String url = "/sites/{site_id}/plans/{plan_id}";
@@ -977,8 +1207,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Remove a plan
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_plan">remove_plan
    *     api documentation</a>
+   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @return Plan deleted
    */
   public Plan removePlan(String planId) {
     final String url = "/sites/{site_id}/plans/{plan_id}";
@@ -990,11 +1224,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a plan's add-ons
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_plan_add_ons">list_plan_add_ons
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "state"
+   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of add-ons.
    */
   public Pager<AddOn> listPlanAddOns(String planId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/plans/{plan_id}/add_ons";
@@ -1008,9 +1245,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Create an add-on
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/create_plan_add_on">create_plan_add_on
    *     api documentation</a>
+   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @param body The body of the request.
+   * @return An add-on.
    */
   public AddOn createPlanAddOn(String planId, AddOnCreate body) {
     final String url = "/sites/{site_id}/plans/{plan_id}/add_ons";
@@ -1022,9 +1264,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch a plan's add-on
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/get_plan_add_on">get_plan_add_on
    *     api documentation</a>
+   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @param addOnId Add-on ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @return An add-on.
    */
   public AddOn getPlanAddOn(String planId, String addOnId) {
     final String url = "/sites/{site_id}/plans/{plan_id}/add_ons/{add_on_id}";
@@ -1037,9 +1284,15 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Update an add-on
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/update_plan_add_on">update_plan_add_on
    *     api documentation</a>
+   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @param addOnId Add-on ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @param body The body of the request.
+   * @return An add-on.
    */
   public AddOn updatePlanAddOn(String planId, String addOnId, AddOnUpdate body) {
     final String url = "/sites/{site_id}/plans/{plan_id}/add_ons/{add_on_id}";
@@ -1052,9 +1305,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Remove an add-on
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_plan_add_on">remove_plan_add_on
    *     api documentation</a>
+   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @param addOnId Add-on ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @return Add-on deleted
    */
   public AddOn removePlanAddOn(String planId, String addOnId) {
     final String url = "/sites/{site_id}/plans/{plan_id}/add_ons/{add_on_id}";
@@ -1067,10 +1325,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a site's add-ons
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/list_add_ons">list_add_ons
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "state"
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of add-ons.
    */
   public Pager<AddOn> listAddOns(QueryParams queryParams) {
     final String url = "/sites/{site_id}/add_ons";
@@ -1083,8 +1343,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch an add-on
+   *
    * @see <a href="https://partner-docs.recurly.com/v2018-08-09#operation/get_add_on">get_add_on api
    *     documentation</a>
+   * @param addOnId Add-on ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @return An add-on.
    */
   public AddOn getAddOn(String addOnId) {
     final String url = "/sites/{site_id}/add_ons/{add_on_id}";
@@ -1096,11 +1360,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a site's subscriptions
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_subscriptions">list_subscriptions
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "state"
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the site's subscriptions.
    */
   public Pager<Subscription> listSubscriptions(QueryParams queryParams) {
     final String url = "/sites/{site_id}/subscriptions";
@@ -1113,9 +1379,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Create a new subscription
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/create_subscription">create_subscription
    *     api documentation</a>
+   * @param body The body of the request.
+   * @return A subscription.
    */
   public Subscription createSubscription(SubscriptionCreate body) {
     final String url = "/sites/{site_id}/subscriptions";
@@ -1126,9 +1396,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch a subscription
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/get_subscription">get_subscription
    *     api documentation</a>
+   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @return A subscription.
    */
   public Subscription getSubscription(String subscriptionId) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}";
@@ -1140,9 +1414,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Modify a subscription
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/modify_subscription">modify_subscription
    *     api documentation</a>
+   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @param body The body of the request.
+   * @return A subscription.
    */
   public Subscription modifySubscription(String subscriptionId, SubscriptionUpdate body) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}";
@@ -1154,10 +1433,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Terminate a subscription
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/terminate_subscription">terminate_subscription
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "refund"
+   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return An expired subscription.
    */
   public Subscription terminateSubscription(String subscriptionId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}";
@@ -1171,9 +1454,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Cancel a subscription
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/cancel_subscription">cancel_subscription
    *     api documentation</a>
+   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @return A canceled or failed subscription.
    */
   public Subscription cancelSubscription(String subscriptionId) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/cancel";
@@ -1185,9 +1472,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Reactivate a canceled subscription
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/reactivate_subscription">reactivate_subscription
    *     api documentation</a>
+   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @return An active subscription.
    */
   public Subscription reactivateSubscription(String subscriptionId) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/reactivate";
@@ -1199,9 +1490,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Pause subscription
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/pause_subscription">pause_subscription
    *     api documentation</a>
+   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @param body The body of the request.
+   * @return A subscription.
    */
   public Subscription pauseSubscription(String subscriptionId, SubscriptionPause body) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/pause";
@@ -1213,9 +1509,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Resume subscription
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/resume_subscription">resume_subscription
    *     api documentation</a>
+   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @return A subscription.
    */
   public Subscription resumeSubscription(String subscriptionId) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/resume";
@@ -1227,9 +1527,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch a subscription's pending change
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/get_subscription_change">get_subscription_change
    *     api documentation</a>
+   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @return A subscription's pending change.
    */
   public SubscriptionChange getSubscriptionChange(String subscriptionId) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/change";
@@ -1241,9 +1545,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Create a new subscription change
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/create_subscription_change">create_subscription_change
    *     api documentation</a>
+   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @param body The body of the request.
+   * @return A subscription change.
    */
   public SubscriptionChange createSubscriptionChange(
       String subscriptionId, SubscriptionChangeCreate body) {
@@ -1256,9 +1565,12 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Delete the pending subscription change
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/remove_subscription_change">remove_subscription_change
    *     api documentation</a>
+   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
    */
   public void removeSubscriptionChange(String subscriptionId) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/change";
@@ -1269,11 +1581,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a subscription's invoices
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_subscription_invoices">list_subscription_invoices
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "type"
+   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the subscription's invoices.
    */
   public Pager<Invoice> listSubscriptionInvoices(String subscriptionId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/invoices";
@@ -1287,11 +1602,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a subscription's line items
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_subscription_line_items">list_subscription_line_items
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "original" - "state" - "type"
+   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the subscription's line items.
    */
   public Pager<LineItem> listSubscriptionLineItems(String subscriptionId, QueryParams queryParams) {
     final String url = "/sites/{site_id}/subscriptions/{subscription_id}/line_items";
@@ -1305,11 +1623,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Show the coupon redemptions for a subscription
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_subscription_coupon_redemptions">list_subscription_coupon_redemptions
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "sort" - "begin_time" -
-   *     "end_time"
+   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the the coupon redemptions on a subscription.
    */
   public Pager<CouponRedemption> listSubscriptionCouponRedemptions(
       String subscriptionId, QueryParams queryParams) {
@@ -1325,11 +1646,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a site's transactions
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/list_transactions">list_transactions
    *     api documentation</a>
-   *     <p>The QueryParam options available for this method are: - "ids" - "limit" - "order" -
-   *     "sort" - "begin_time" - "end_time" - "type" - "success"
+   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @return A list of the site's transactions.
    */
   public Pager<Transaction> listTransactions(QueryParams queryParams) {
     final String url = "/sites/{site_id}/transactions";
@@ -1342,9 +1665,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch a transaction
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/get_transaction">get_transaction
    *     api documentation</a>
+   * @param transactionId Transaction ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @return A transaction.
    */
   public Transaction getTransaction(String transactionId) {
     final String url = "/sites/{site_id}/transactions/{transaction_id}";
@@ -1356,9 +1683,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Fetch a unique coupon code
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/get_unique_coupon_code">get_unique_coupon_code
    *     api documentation</a>
+   * @param uniqueCouponCodeId Unique Coupon Code ID or code (use prefix: `code-`, e.g.
+   *     `code-abc-8dh2-def`).
+   * @return A unique coupon code.
    */
   public UniqueCouponCode getUniqueCouponCode(String uniqueCouponCodeId) {
     final String url = "/sites/{site_id}/unique_coupon_codes/{unique_coupon_code_id}";
@@ -1370,9 +1702,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Deactivate a unique coupon code
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/deactivate_unique_coupon_code">deactivate_unique_coupon_code
    *     api documentation</a>
+   * @param uniqueCouponCodeId Unique Coupon Code ID or code (use prefix: `code-`, e.g.
+   *     `code-abc-8dh2-def`).
+   * @return A unique coupon code.
    */
   public UniqueCouponCode deactivateUniqueCouponCode(String uniqueCouponCodeId) {
     final String url = "/sites/{site_id}/unique_coupon_codes/{unique_coupon_code_id}";
@@ -1384,9 +1721,14 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Restore a unique coupon code
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/reactivate_unique_coupon_code">reactivate_unique_coupon_code
    *     api documentation</a>
+   * @param uniqueCouponCodeId Unique Coupon Code ID or code (use prefix: `code-`, e.g.
+   *     `code-abc-8dh2-def`).
+   * @return A unique coupon code.
    */
   public UniqueCouponCode reactivateUniqueCouponCode(String uniqueCouponCodeId) {
     final String url = "/sites/{site_id}/unique_coupon_codes/{unique_coupon_code_id}/restore";
@@ -1398,9 +1740,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Create a new purchase
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/create_purchase">create_purchase
    *     api documentation</a>
+   * @param body The body of the request.
+   * @return Returns the new invoices
    */
   public InvoiceCollection createPurchase(PurchaseCreate body) {
     final String url = "/sites/{site_id}/purchases";
@@ -1411,9 +1757,13 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Preview a new purchase
+   *
    * @see <a
    *     href="https://partner-docs.recurly.com/v2018-08-09#operation/preview_purchase">preview_purchase
    *     api documentation</a>
+   * @param body The body of the request.
+   * @return Returns preview of the new invoices
    */
   public InvoiceCollection previewPurchase(PurchaseCreate body) {
     final String url = "/sites/{site_id}/purchases/preview";

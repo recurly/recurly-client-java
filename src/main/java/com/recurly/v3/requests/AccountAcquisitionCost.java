@@ -12,26 +12,32 @@ import com.recurly.v3.resources.*;
 
 public class AccountAcquisitionCost extends Request {
 
+  /** The amount of the corresponding currency used to acquire the account. */
   @SerializedName("amount")
   @Expose
   private Float amount;
 
+  /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
   @Expose
   private String currency;
 
+  /** The amount of the corresponding currency used to acquire the account. */
   public Float getAmount() {
     return this.amount;
   }
 
+  /** @param amount The amount of the corresponding currency used to acquire the account. */
   public void setAmount(final Float amount) {
     this.amount = amount;
   }
 
+  /** 3-letter ISO 4217 currency code. */
   public String getCurrency() {
     return this.currency;
   }
 
+  /** @param currency 3-letter ISO 4217 currency code. */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }

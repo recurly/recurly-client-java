@@ -11,26 +11,32 @@ import com.recurly.v3.Resource;
 
 public class CouponDiscountTrial extends Resource {
 
+  /** Trial length measured in the units specified by the sibling `unit` property */
   @SerializedName("length")
   @Expose
   private Integer length;
 
+  /** Temporal unit of the free trial */
   @SerializedName("unit")
   @Expose
   private String unit;
 
+  /** Trial length measured in the units specified by the sibling `unit` property */
   public Integer getLength() {
     return this.length;
   }
 
+  /** @param length Trial length measured in the units specified by the sibling `unit` property */
   public void setLength(final Integer length) {
     this.length = length;
   }
 
+  /** Temporal unit of the free trial */
   public String getUnit() {
     return this.unit;
   }
 
+  /** @param unit Temporal unit of the free trial */
   public void setUnit(final String unit) {
     this.unit = unit;
   }

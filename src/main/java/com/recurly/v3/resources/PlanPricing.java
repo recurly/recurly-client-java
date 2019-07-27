@@ -11,38 +11,60 @@ import com.recurly.v3.Resource;
 
 public class PlanPricing extends Resource {
 
+  /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
   @Expose
   private String currency;
 
+  /**
+   * Amount of one-time setup fee automatically charged at the beginning of a subscription billing
+   * cycle. For subscription plans with a trial, the setup fee will be charged at the time of
+   * signup. Setup fees do not increase with the quantity of a subscription plan.
+   */
   @SerializedName("setup_fee")
   @Expose
   private Float setupFee;
 
+  /** Unit price */
   @SerializedName("unit_amount")
   @Expose
   private Float unitAmount;
 
+  /** 3-letter ISO 4217 currency code. */
   public String getCurrency() {
     return this.currency;
   }
 
+  /** @param currency 3-letter ISO 4217 currency code. */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
 
+  /**
+   * Amount of one-time setup fee automatically charged at the beginning of a subscription billing
+   * cycle. For subscription plans with a trial, the setup fee will be charged at the time of
+   * signup. Setup fees do not increase with the quantity of a subscription plan.
+   */
   public Float getSetupFee() {
     return this.setupFee;
   }
 
+  /**
+   * @param setupFee Amount of one-time setup fee automatically charged at the beginning of a
+   *     subscription billing cycle. For subscription plans with a trial, the setup fee will be
+   *     charged at the time of signup. Setup fees do not increase with the quantity of a
+   *     subscription plan.
+   */
   public void setSetupFee(final Float setupFee) {
     this.setupFee = setupFee;
   }
 
+  /** Unit price */
   public Float getUnitAmount() {
     return this.unitAmount;
   }
 
+  /** @param unitAmount Unit price */
   public void setUnitAmount(final Float unitAmount) {
     this.unitAmount = unitAmount;
   }

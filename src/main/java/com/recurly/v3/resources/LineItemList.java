@@ -16,14 +16,17 @@ public class LineItemList extends Resource {
   @Expose
   private List<LineItem> data;
 
+  /** Indicates there are more results on subsequent pages. */
   @SerializedName("has_more")
   @Expose
   private Boolean hasMore;
 
+  /** Path to subsequent page of results. */
   @SerializedName("next")
   @Expose
   private String next;
 
+  /** Will always be List. */
   @SerializedName("object")
   @Expose
   private String object;
@@ -32,30 +35,37 @@ public class LineItemList extends Resource {
     return this.data;
   }
 
+  /** @param data */
   public void setData(final List<LineItem> data) {
     this.data = data;
   }
 
+  /** Indicates there are more results on subsequent pages. */
   public Boolean getHasMore() {
     return this.hasMore;
   }
 
+  /** @param hasMore Indicates there are more results on subsequent pages. */
   public void setHasMore(final Boolean hasMore) {
     this.hasMore = hasMore;
   }
 
+  /** Path to subsequent page of results. */
   public String getNext() {
     return this.next;
   }
 
+  /** @param next Path to subsequent page of results. */
   public void setNext(final String next) {
     this.next = next;
   }
 
+  /** Will always be List. */
   public String getObject() {
     return this.object;
   }
 
+  /** @param object Will always be List. */
   public void setObject(final String object) {
     this.object = object;
   }

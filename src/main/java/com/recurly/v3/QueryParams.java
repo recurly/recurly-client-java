@@ -20,59 +20,59 @@ public class QueryParams {
     return this.params;
   }
 
-  protected void add(String key, Object value) {
+  protected void add(final String key, final Object value) {
     this.params.put(key, value);
   }
 
-  public void setIds(String ids) {
+  public void setIds(final String ids) {
     this.add("ids", ids);
   }
 
-  public void setLimit(Integer limit) {
+  public void setLimit(final Integer limit) {
     this.add("limit", limit);
   }
 
-  public void setOrder(String order) {
+  public void setOrder(final String order) {
     this.add("order", order);
   }
 
-  public void setSort(String sort) {
+  public void setSort(final String sort) {
     this.add("sort", sort);
   }
 
-  public void setBeginTime(DateTime begin_time) {
-    this.add("begin_time", begin_time);
+  public void setBeginTime(final DateTime beginTime) {
+    this.add("begin_time", beginTime);
   }
 
-  public void setEndTime(DateTime end_time) {
-    this.add("end_time", end_time);
+  public void setEndTime(final DateTime endTime) {
+    this.add("end_time", endTime);
   }
 
-  public void setSubscriber(String subscriber) {
+  public void setSubscriber(final String subscriber) {
     this.add("subscriber", subscriber);
   }
 
-  public void setPastDue(String past_due) {
-    this.add("past_due", past_due);
+  public void setPastDue(final String pastDue) {
+    this.add("past_due", pastDue);
   }
 
-  public void setType(String type) {
+  public void setType(final String type) {
     this.add("type", type);
   }
 
-  public void setOriginal(String original) {
+  public void setOriginal(final String original) {
     this.add("original", original);
   }
 
-  public void setState(String state) {
+  public void setState(final String state) {
     this.add("state", state);
   }
 
-  public void setSuccess(String success) {
+  public void setSuccess(final String success) {
     this.add("success", success);
   }
 
-  public void setRefund(String refund) {
+  public void setRefund(final String refund) {
     this.add("refund", refund);
   }
 }

@@ -12,98 +12,125 @@ import org.joda.time.DateTime;
 
 public class UniqueCouponCode extends Resource {
 
+  /** The code the customer enters to redeem the coupon. */
   @SerializedName("code")
   @Expose
   private String code;
 
+  /** Created at */
   @SerializedName("created_at")
   @Expose
   private DateTime createdAt;
 
+  /** The date and time the coupon was expired early or reached its `max_redemptions`. */
   @SerializedName("expired_at")
   @Expose
   private DateTime expiredAt;
 
+  /** Unique Coupon Code ID */
   @SerializedName("id")
   @Expose
   private String id;
 
+  /** Object type */
   @SerializedName("object")
   @Expose
   private String object;
 
+  /** The date and time the unique coupon code was redeemed. */
   @SerializedName("redeemed_at")
   @Expose
   private DateTime redeemedAt;
 
+  /** Indicates if the unique coupon code is redeemable or why not. */
   @SerializedName("state")
   @Expose
   private String state;
 
+  /** Updated at */
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
 
+  /** The code the customer enters to redeem the coupon. */
   public String getCode() {
     return this.code;
   }
 
+  /** @param code The code the customer enters to redeem the coupon. */
   public void setCode(final String code) {
     this.code = code;
   }
 
+  /** Created at */
   public DateTime getCreatedAt() {
     return this.createdAt;
   }
 
+  /** @param createdAt Created at */
   public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
+  /** The date and time the coupon was expired early or reached its `max_redemptions`. */
   public DateTime getExpiredAt() {
     return this.expiredAt;
   }
 
+  /**
+   * @param expiredAt The date and time the coupon was expired early or reached its
+   *     `max_redemptions`.
+   */
   public void setExpiredAt(final DateTime expiredAt) {
     this.expiredAt = expiredAt;
   }
 
+  /** Unique Coupon Code ID */
   public String getId() {
     return this.id;
   }
 
+  /** @param id Unique Coupon Code ID */
   public void setId(final String id) {
     this.id = id;
   }
 
+  /** Object type */
   public String getObject() {
     return this.object;
   }
 
+  /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
   }
 
+  /** The date and time the unique coupon code was redeemed. */
   public DateTime getRedeemedAt() {
     return this.redeemedAt;
   }
 
+  /** @param redeemedAt The date and time the unique coupon code was redeemed. */
   public void setRedeemedAt(final DateTime redeemedAt) {
     this.redeemedAt = redeemedAt;
   }
 
+  /** Indicates if the unique coupon code is redeemable or why not. */
   public String getState() {
     return this.state;
   }
 
+  /** @param state Indicates if the unique coupon code is redeemable or why not. */
   public void setState(final String state) {
     this.state = state;
   }
 
+  /** Updated at */
   public DateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
+  /** @param updatedAt Updated at */
   public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

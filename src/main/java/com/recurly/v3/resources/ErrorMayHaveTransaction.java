@@ -13,50 +13,62 @@ import java.util.Map;
 
 public class ErrorMayHaveTransaction extends Resource {
 
+  /** Message */
   @SerializedName("message")
   @Expose
   private String message;
 
+  /** Parameter specific errors */
   @SerializedName("params")
   @Expose
   private List<Map> params;
 
+  /** This is only included on errors with `type=transaction`. */
   @SerializedName("transaction_error")
   @Expose
   private TransactionError transactionError;
 
+  /** Type */
   @SerializedName("type")
   @Expose
   private String type;
 
+  /** Message */
   public String getMessage() {
     return this.message;
   }
 
+  /** @param message Message */
   public void setMessage(final String message) {
     this.message = message;
   }
 
+  /** Parameter specific errors */
   public List<Map> getParams() {
     return this.params;
   }
 
+  /** @param params Parameter specific errors */
   public void setParams(final List<Map> params) {
     this.params = params;
   }
 
+  /** This is only included on errors with `type=transaction`. */
   public TransactionError getTransactionError() {
     return this.transactionError;
   }
 
+  /** @param transactionError This is only included on errors with `type=transaction`. */
   public void setTransactionError(final TransactionError transactionError) {
     this.transactionError = transactionError;
   }
 
+  /** Type */
   public String getType() {
     return this.type;
   }
 
+  /** @param type Type */
   public void setType(final String type) {
     this.type = type;
   }

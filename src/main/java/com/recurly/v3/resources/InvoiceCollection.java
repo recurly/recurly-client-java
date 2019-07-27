@@ -16,10 +16,12 @@ public class InvoiceCollection extends Resource {
   @Expose
   private Invoice chargeInvoice;
 
+  /** Credit invoices */
   @SerializedName("credit_invoices")
   @Expose
   private List<Invoice> creditInvoices;
 
+  /** Object type */
   @SerializedName("object")
   @Expose
   private String object;
@@ -28,22 +30,27 @@ public class InvoiceCollection extends Resource {
     return this.chargeInvoice;
   }
 
+  /** @param chargeInvoice */
   public void setChargeInvoice(final Invoice chargeInvoice) {
     this.chargeInvoice = chargeInvoice;
   }
 
+  /** Credit invoices */
   public List<Invoice> getCreditInvoices() {
     return this.creditInvoices;
   }
 
+  /** @param creditInvoices Credit invoices */
   public void setCreditInvoices(final List<Invoice> creditInvoices) {
     this.creditInvoices = creditInvoices;
   }
 
+  /** Object type */
   public String getObject() {
     return this.object;
   }
 
+  /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
   }

@@ -11,26 +11,32 @@ import com.recurly.v3.Resource;
 
 public class CouponDiscountPricing extends Resource {
 
+  /** Value of the fixed discount that this coupon applies. */
   @SerializedName("amount")
   @Expose
   private Float amount;
 
+  /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
   @Expose
   private String currency;
 
+  /** Value of the fixed discount that this coupon applies. */
   public Float getAmount() {
     return this.amount;
   }
 
+  /** @param amount Value of the fixed discount that this coupon applies. */
   public void setAmount(final Float amount) {
     this.amount = amount;
   }
 
+  /** 3-letter ISO 4217 currency code. */
   public String getCurrency() {
     return this.currency;
   }
 
+  /** @param currency 3-letter ISO 4217 currency code. */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }

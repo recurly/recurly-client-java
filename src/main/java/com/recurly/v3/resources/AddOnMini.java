@@ -11,62 +11,86 @@ import com.recurly.v3.Resource;
 
 public class AddOnMini extends Resource {
 
+  /**
+   * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
+   * add-on's code.
+   */
   @SerializedName("accounting_code")
   @Expose
   private String accountingCode;
 
+  /** The unique identifier for the add-on within its plan. */
   @SerializedName("code")
   @Expose
   private String code;
 
+  /** Add-on ID */
   @SerializedName("id")
   @Expose
   private String id;
 
+  /** Describes your add-on and will appear in subscribers' invoices. */
   @SerializedName("name")
   @Expose
   private String name;
 
+  /** Object type */
   @SerializedName("object")
   @Expose
   private String object;
 
+  /**
+   * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
+   * add-on's code.
+   */
   public String getAccountingCode() {
     return this.accountingCode;
   }
 
+  /**
+   * @param accountingCode Accounting code for invoice line items for this add-on. If no value is
+   *     provided, it defaults to add-on's code.
+   */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
   }
 
+  /** The unique identifier for the add-on within its plan. */
   public String getCode() {
     return this.code;
   }
 
+  /** @param code The unique identifier for the add-on within its plan. */
   public void setCode(final String code) {
     this.code = code;
   }
 
+  /** Add-on ID */
   public String getId() {
     return this.id;
   }
 
+  /** @param id Add-on ID */
   public void setId(final String id) {
     this.id = id;
   }
 
+  /** Describes your add-on and will appear in subscribers' invoices. */
   public String getName() {
     return this.name;
   }
 
+  /** @param name Describes your add-on and will appear in subscribers' invoices. */
   public void setName(final String name) {
     this.name = name;
   }
 
+  /** Object type */
   public String getObject() {
     return this.object;
   }
 
+  /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
   }

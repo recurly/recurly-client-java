@@ -20,6 +20,7 @@ public class ShippingAddressUpdate extends Request {
   @Expose
   private String company;
 
+  /** Country, 2-letter ISO code. */
   @SerializedName("country")
   @Expose
   private String country;
@@ -32,6 +33,7 @@ public class ShippingAddressUpdate extends Request {
   @Expose
   private String firstName;
 
+  /** Shipping Address ID */
   @SerializedName("id")
   @Expose
   private String id;
@@ -48,10 +50,12 @@ public class ShippingAddressUpdate extends Request {
   @Expose
   private String phone;
 
+  /** Zip or postal code. */
   @SerializedName("postal_code")
   @Expose
   private String postalCode;
 
+  /** State or province. */
   @SerializedName("region")
   @Expose
   private String region;
@@ -72,6 +76,7 @@ public class ShippingAddressUpdate extends Request {
     return this.city;
   }
 
+  /** @param city */
   public void setCity(final String city) {
     this.city = city;
   }
@@ -80,14 +85,17 @@ public class ShippingAddressUpdate extends Request {
     return this.company;
   }
 
+  /** @param company */
   public void setCompany(final String company) {
     this.company = company;
   }
 
+  /** Country, 2-letter ISO code. */
   public String getCountry() {
     return this.country;
   }
 
+  /** @param country Country, 2-letter ISO code. */
   public void setCountry(final String country) {
     this.country = country;
   }
@@ -96,6 +104,7 @@ public class ShippingAddressUpdate extends Request {
     return this.email;
   }
 
+  /** @param email */
   public void setEmail(final String email) {
     this.email = email;
   }
@@ -104,14 +113,17 @@ public class ShippingAddressUpdate extends Request {
     return this.firstName;
   }
 
+  /** @param firstName */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
   }
 
+  /** Shipping Address ID */
   public String getId() {
     return this.id;
   }
 
+  /** @param id Shipping Address ID */
   public void setId(final String id) {
     this.id = id;
   }
@@ -120,6 +132,7 @@ public class ShippingAddressUpdate extends Request {
     return this.lastName;
   }
 
+  /** @param lastName */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
   }
@@ -128,6 +141,7 @@ public class ShippingAddressUpdate extends Request {
     return this.nickname;
   }
 
+  /** @param nickname */
   public void setNickname(final String nickname) {
     this.nickname = nickname;
   }
@@ -136,22 +150,27 @@ public class ShippingAddressUpdate extends Request {
     return this.phone;
   }
 
+  /** @param phone */
   public void setPhone(final String phone) {
     this.phone = phone;
   }
 
+  /** Zip or postal code. */
   public String getPostalCode() {
     return this.postalCode;
   }
 
+  /** @param postalCode Zip or postal code. */
   public void setPostalCode(final String postalCode) {
     this.postalCode = postalCode;
   }
 
+  /** State or province. */
   public String getRegion() {
     return this.region;
   }
 
+  /** @param region State or province. */
   public void setRegion(final String region) {
     this.region = region;
   }
@@ -160,6 +179,7 @@ public class ShippingAddressUpdate extends Request {
     return this.street1;
   }
 
+  /** @param street1 */
   public void setStreet1(final String street1) {
     this.street1 = street1;
   }
@@ -168,6 +188,7 @@ public class ShippingAddressUpdate extends Request {
     return this.street2;
   }
 
+  /** @param street2 */
   public void setStreet2(final String street2) {
     this.street2 = street2;
   }
@@ -176,6 +197,7 @@ public class ShippingAddressUpdate extends Request {
     return this.vatNumber;
   }
 
+  /** @param vatNumber */
   public void setVatNumber(final String vatNumber) {
     this.vatNumber = vatNumber;
   }
