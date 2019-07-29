@@ -12,10 +12,14 @@ import com.recurly.v3.resources.*;
 
 public class AccountAcquisitionUpdatable extends Request {
 
+  /**
+   * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.
+   */
   @SerializedName("campaign")
   @Expose
   private String campaign;
 
+  /** The channel through which the account was acquired. */
   @SerializedName("channel")
   @Expose
   private String channel;
@@ -24,22 +28,34 @@ public class AccountAcquisitionUpdatable extends Request {
   @Expose
   private AccountAcquisitionCost cost;
 
+  /**
+   * An arbitrary subchannel string representing a distinction/subcategory within a broader channel.
+   */
   @SerializedName("subchannel")
   @Expose
   private String subchannel;
 
+  /**
+   * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.
+   */
   public String getCampaign() {
     return this.campaign;
   }
 
+  /**
+   * @param campaign An arbitrary identifier for the marketing campaign that led to the acquisition
+   *     of this account.
+   */
   public void setCampaign(final String campaign) {
     this.campaign = campaign;
   }
 
+  /** The channel through which the account was acquired. */
   public String getChannel() {
     return this.channel;
   }
 
+  /** @param channel The channel through which the account was acquired. */
   public void setChannel(final String channel) {
     this.channel = channel;
   }
@@ -48,14 +64,22 @@ public class AccountAcquisitionUpdatable extends Request {
     return this.cost;
   }
 
+  /** @param cost */
   public void setCost(final AccountAcquisitionCost cost) {
     this.cost = cost;
   }
 
+  /**
+   * An arbitrary subchannel string representing a distinction/subcategory within a broader channel.
+   */
   public String getSubchannel() {
     return this.subchannel;
   }
 
+  /**
+   * @param subchannel An arbitrary subchannel string representing a distinction/subcategory within
+   *     a broader channel.
+   */
   public void setSubchannel(final String subchannel) {
     this.subchannel = subchannel;
   }

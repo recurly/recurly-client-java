@@ -12,26 +12,32 @@ import com.recurly.v3.resources.*;
 
 public class CouponRedemptionCreate extends Request {
 
+  /** Coupon ID */
   @SerializedName("coupon_id")
   @Expose
   private String couponId;
 
+  /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
   @Expose
   private String currency;
 
+  /** Coupon ID */
   public String getCouponId() {
     return this.couponId;
   }
 
+  /** @param couponId Coupon ID */
   public void setCouponId(final String couponId) {
     this.couponId = couponId;
   }
 
+  /** 3-letter ISO 4217 currency code. */
   public String getCurrency() {
     return this.currency;
   }
 
+  /** @param currency 3-letter ISO 4217 currency code. */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }

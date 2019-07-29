@@ -16,22 +16,29 @@ public class CouponRedemptionMini extends Resource {
   @Expose
   private CouponMini coupon;
 
+  /** Created at */
   @SerializedName("created_at")
   @Expose
   private DateTime createdAt;
 
+  /**
+   * The amount that was discounted upon the application of the coupon, formatted with the currency.
+   */
   @SerializedName("discounted")
   @Expose
   private String discounted;
 
+  /** Coupon Redemption ID */
   @SerializedName("id")
   @Expose
   private String id;
 
+  /** Will always be `coupon`. */
   @SerializedName("object")
   @Expose
   private String object;
 
+  /** Invoice state */
   @SerializedName("state")
   @Expose
   private String state;
@@ -40,46 +47,62 @@ public class CouponRedemptionMini extends Resource {
     return this.coupon;
   }
 
+  /** @param coupon */
   public void setCoupon(final CouponMini coupon) {
     this.coupon = coupon;
   }
 
+  /** Created at */
   public DateTime getCreatedAt() {
     return this.createdAt;
   }
 
+  /** @param createdAt Created at */
   public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
+  /**
+   * The amount that was discounted upon the application of the coupon, formatted with the currency.
+   */
   public String getDiscounted() {
     return this.discounted;
   }
 
+  /**
+   * @param discounted The amount that was discounted upon the application of the coupon, formatted
+   *     with the currency.
+   */
   public void setDiscounted(final String discounted) {
     this.discounted = discounted;
   }
 
+  /** Coupon Redemption ID */
   public String getId() {
     return this.id;
   }
 
+  /** @param id Coupon Redemption ID */
   public void setId(final String id) {
     this.id = id;
   }
 
+  /** Will always be `coupon`. */
   public String getObject() {
     return this.object;
   }
 
+  /** @param object Will always be `coupon`. */
   public void setObject(final String object) {
     this.object = object;
   }
 
+  /** Invoice state */
   public String getState() {
     return this.state;
   }
 
+  /** @param state Invoice state */
   public void setState(final String state) {
     this.state = state;
   }

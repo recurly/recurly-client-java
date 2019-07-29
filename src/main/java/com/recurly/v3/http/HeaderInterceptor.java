@@ -3,7 +3,6 @@ package com.recurly.v3.http;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -40,7 +39,8 @@ public class HeaderInterceptor implements Interceptor {
     final Properties properties = new Properties();
 
     try {
-      final InputStream inputStream = HeaderInterceptor.class.getResourceAsStream("/version.properties");
+      final InputStream inputStream =
+          HeaderInterceptor.class.getResourceAsStream("/version.properties");
       if (inputStream != null) {
         properties.load(inputStream);
         final String version = properties.getProperty("version", defaultVersion);

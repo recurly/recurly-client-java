@@ -12,38 +12,56 @@ import com.recurly.v3.resources.*;
 
 public class LineItemRefund extends Request {
 
+  /** Line item ID */
   @SerializedName("id")
   @Expose
   private String id;
 
+  /**
+   * Set to `true` if the line item should be prorated; set to `false` if not. This can only be used
+   * on line items that have a start and end date.
+   */
   @SerializedName("prorate")
   @Expose
   private Boolean prorate;
 
+  /** Line item quantity to be refunded. */
   @SerializedName("quantity")
   @Expose
   private Integer quantity;
 
+  /** Line item ID */
   public String getId() {
     return this.id;
   }
 
+  /** @param id Line item ID */
   public void setId(final String id) {
     this.id = id;
   }
 
+  /**
+   * Set to `true` if the line item should be prorated; set to `false` if not. This can only be used
+   * on line items that have a start and end date.
+   */
   public Boolean getProrate() {
     return this.prorate;
   }
 
+  /**
+   * @param prorate Set to `true` if the line item should be prorated; set to `false` if not. This
+   *     can only be used on line items that have a start and end date.
+   */
   public void setProrate(final Boolean prorate) {
     this.prorate = prorate;
   }
 
+  /** Line item quantity to be refunded. */
   public Integer getQuantity() {
     return this.quantity;
   }
 
+  /** @param quantity Line item quantity to be refunded. */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
   }

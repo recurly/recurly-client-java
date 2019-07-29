@@ -19,6 +19,7 @@ public class TransactionPaymentGateway extends Resource {
   @Expose
   private String name;
 
+  /** Object type */
   @SerializedName("object")
   @Expose
   private String object;
@@ -31,6 +32,7 @@ public class TransactionPaymentGateway extends Resource {
     return this.id;
   }
 
+  /** @param id */
   public void setId(final String id) {
     this.id = id;
   }
@@ -39,14 +41,17 @@ public class TransactionPaymentGateway extends Resource {
     return this.name;
   }
 
+  /** @param name */
   public void setName(final String name) {
     this.name = name;
   }
 
+  /** Object type */
   public String getObject() {
     return this.object;
   }
 
+  /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -55,6 +60,7 @@ public class TransactionPaymentGateway extends Resource {
     return this.type;
   }
 
+  /** @param type */
   public void setType(final String type) {
     this.type = type;
   }

@@ -12,14 +12,17 @@ import java.util.List;
 
 public class CouponDiscount extends Resource {
 
+  /** This is only present when `type=fixed`. */
   @SerializedName("currencies")
   @Expose
   private List<CouponDiscountPricing> currencies;
 
+  /** This is only present when `type=percent`. */
   @SerializedName("percent")
   @Expose
   private Integer percent;
 
+  /** This is only present when `type=free_trial`. */
   @SerializedName("trial")
   @Expose
   private CouponDiscountTrial trial;
@@ -28,26 +31,32 @@ public class CouponDiscount extends Resource {
   @Expose
   private String type;
 
+  /** This is only present when `type=fixed`. */
   public List<CouponDiscountPricing> getCurrencies() {
     return this.currencies;
   }
 
+  /** @param currencies This is only present when `type=fixed`. */
   public void setCurrencies(final List<CouponDiscountPricing> currencies) {
     this.currencies = currencies;
   }
 
+  /** This is only present when `type=percent`. */
   public Integer getPercent() {
     return this.percent;
   }
 
+  /** @param percent This is only present when `type=percent`. */
   public void setPercent(final Integer percent) {
     this.percent = percent;
   }
 
+  /** This is only present when `type=free_trial`. */
   public CouponDiscountTrial getTrial() {
     return this.trial;
   }
 
+  /** @param trial This is only present when `type=free_trial`. */
   public void setTrial(final CouponDiscountTrial trial) {
     this.trial = trial;
   }
@@ -56,6 +65,7 @@ public class CouponDiscount extends Resource {
     return this.type;
   }
 
+  /** @param type */
   public void setType(final String type) {
     this.type = type;
   }

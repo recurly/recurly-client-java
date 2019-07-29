@@ -13,38 +13,47 @@ import java.util.Map;
 
 public class Error extends Resource {
 
+  /** Message */
   @SerializedName("message")
   @Expose
   private String message;
 
+  /** Parameter specific errors */
   @SerializedName("params")
   @Expose
   private List<Map> params;
 
+  /** Type */
   @SerializedName("type")
   @Expose
   private String type;
 
+  /** Message */
   public String getMessage() {
     return this.message;
   }
 
+  /** @param message Message */
   public void setMessage(final String message) {
     this.message = message;
   }
 
+  /** Parameter specific errors */
   public List<Map> getParams() {
     return this.params;
   }
 
+  /** @param params Parameter specific errors */
   public void setParams(final List<Map> params) {
     this.params = params;
   }
 
+  /** Type */
   public String getType() {
     return this.type;
   }
 
+  /** @param type Type */
   public void setType(final String type) {
     this.type = type;
   }

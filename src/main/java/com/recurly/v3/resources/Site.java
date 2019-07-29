@@ -1,7 +1,8 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
- * make by hand will be lost. If you wish to make a change to this file, please create a Github
- * issue explaining the changes you need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process
+ * and thus any edits you make by hand will be lost. If you wish to make a
+ * change to this file, please create a Github issue explaining the changes you
+ * need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
@@ -9,139 +10,240 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import java.util.List;
+import java.util.Map;
 import org.joda.time.DateTime;
 
 public class Site extends Resource {
 
+  
   @SerializedName("address")
   @Expose
   private Address address;
 
+  
+  /**
+   * Created at
+   */
+  
   @SerializedName("created_at")
   @Expose
   private DateTime createdAt;
 
+  
+  /**
+   * Deleted at
+   */
+  
   @SerializedName("deleted_at")
   @Expose
   private DateTime deletedAt;
 
+  
+  /**
+   * A list of features enabled for the site.
+   */
+  
   @SerializedName("features")
   @Expose
   private List<String> features;
 
+  
+  /**
+   * Site ID
+   */
+  
   @SerializedName("id")
   @Expose
   private String id;
 
+  
+  /**
+   * Mode
+   */
+  
   @SerializedName("mode")
   @Expose
   private String mode;
 
+  
+  /**
+   * Object type
+   */
+  
   @SerializedName("object")
   @Expose
   private String object;
 
+  
+  /**
+   * This value is used to configure RecurlyJS to submit tokenized billing information.
+   */
+  
   @SerializedName("public_api_key")
   @Expose
   private String publicApiKey;
 
+  
   @SerializedName("settings")
   @Expose
   private Settings settings;
 
+  
   @SerializedName("subdomain")
   @Expose
   private String subdomain;
 
+  
+  /**
+   * Updated at
+   */
+  
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
 
-  public Address getAddress() {
-    return this.address;
-  }
 
-  public void setAddress(final Address address) {
-    this.address = address;
-  }
 
-  public DateTime getCreatedAt() {
-    return this.createdAt;
-  }
+  
+  public Address getAddress() { return this.address; }
 
-  public void setCreatedAt(final DateTime createdAt) {
-    this.createdAt = createdAt;
-  }
+  
+  /**
+   * @param address 
+   */
+  
+  public void setAddress(final Address address) { this.address = address; }
 
-  public DateTime getDeletedAt() {
-    return this.deletedAt;
-  }
+  
+  /**
+   * Created at
+   */
+  
+  public DateTime getCreatedAt() { return this.createdAt; }
 
-  public void setDeletedAt(final DateTime deletedAt) {
-    this.deletedAt = deletedAt;
-  }
+  
+  /**
+   * @param createdAt Created at
+   */
+  
+  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
 
-  public List<String> getFeatures() {
-    return this.features;
-  }
+  
+  /**
+   * Deleted at
+   */
+  
+  public DateTime getDeletedAt() { return this.deletedAt; }
 
-  public void setFeatures(final List<String> features) {
-    this.features = features;
-  }
+  
+  /**
+   * @param deletedAt Deleted at
+   */
+  
+  public void setDeletedAt(final DateTime deletedAt) { this.deletedAt = deletedAt; }
 
-  public String getId() {
-    return this.id;
-  }
+  
+  /**
+   * A list of features enabled for the site.
+   */
+  
+  public List<String> getFeatures() { return this.features; }
 
-  public void setId(final String id) {
-    this.id = id;
-  }
+  
+  /**
+   * @param features A list of features enabled for the site.
+   */
+  
+  public void setFeatures(final List<String> features) { this.features = features; }
 
-  public String getMode() {
-    return this.mode;
-  }
+  
+  /**
+   * Site ID
+   */
+  
+  public String getId() { return this.id; }
 
-  public void setMode(final String mode) {
-    this.mode = mode;
-  }
+  
+  /**
+   * @param id Site ID
+   */
+  
+  public void setId(final String id) { this.id = id; }
 
-  public String getObject() {
-    return this.object;
-  }
+  
+  /**
+   * Mode
+   */
+  
+  public String getMode() { return this.mode; }
 
-  public void setObject(final String object) {
-    this.object = object;
-  }
+  
+  /**
+   * @param mode Mode
+   */
+  
+  public void setMode(final String mode) { this.mode = mode; }
 
-  public String getPublicApiKey() {
-    return this.publicApiKey;
-  }
+  
+  /**
+   * Object type
+   */
+  
+  public String getObject() { return this.object; }
 
-  public void setPublicApiKey(final String publicApiKey) {
-    this.publicApiKey = publicApiKey;
-  }
+  
+  /**
+   * @param object Object type
+   */
+  
+  public void setObject(final String object) { this.object = object; }
 
-  public Settings getSettings() {
-    return this.settings;
-  }
+  
+  /**
+   * This value is used to configure RecurlyJS to submit tokenized billing information.
+   */
+  
+  public String getPublicApiKey() { return this.publicApiKey; }
 
-  public void setSettings(final Settings settings) {
-    this.settings = settings;
-  }
+  
+  /**
+   * @param publicApiKey This value is used to configure RecurlyJS to submit tokenized billing information.
+   */
+  
+  public void setPublicApiKey(final String publicApiKey) { this.publicApiKey = publicApiKey; }
 
-  public String getSubdomain() {
-    return this.subdomain;
-  }
+  
+  public Settings getSettings() { return this.settings; }
 
-  public void setSubdomain(final String subdomain) {
-    this.subdomain = subdomain;
-  }
+  
+  /**
+   * @param settings 
+   */
+  
+  public void setSettings(final Settings settings) { this.settings = settings; }
 
-  public DateTime getUpdatedAt() {
-    return this.updatedAt;
-  }
+  
+  public String getSubdomain() { return this.subdomain; }
 
-  public void setUpdatedAt(final DateTime updatedAt) {
-    this.updatedAt = updatedAt;
-  }
+  
+  /**
+   * @param subdomain 
+   */
+  
+  public void setSubdomain(final String subdomain) { this.subdomain = subdomain; }
+
+  
+  /**
+   * Updated at
+   */
+  
+  public DateTime getUpdatedAt() { return this.updatedAt; }
+
+  
+  /**
+   * @param updatedAt Updated at
+   */
+  
+  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+
 }

@@ -12,38 +12,47 @@ import java.util.Map;
 
 public class FraudInfo extends Resource {
 
+  /** Kount decision */
   @SerializedName("decision")
   @Expose
   private String decision;
 
+  /** Kount rules */
   @SerializedName("risk_rules_triggered")
   @Expose
   private Map<String, String> riskRulesTriggered;
 
+  /** Kount score */
   @SerializedName("score")
   @Expose
   private Integer score;
 
+  /** Kount decision */
   public String getDecision() {
     return this.decision;
   }
 
+  /** @param decision Kount decision */
   public void setDecision(final String decision) {
     this.decision = decision;
   }
 
+  /** Kount rules */
   public Map<String, String> getRiskRulesTriggered() {
     return this.riskRulesTriggered;
   }
 
+  /** @param riskRulesTriggered Kount rules */
   public void setRiskRulesTriggered(final Map<String, String> riskRulesTriggered) {
     this.riskRulesTriggered = riskRulesTriggered;
   }
 
+  /** Kount score */
   public Integer getScore() {
     return this.score;
   }
 
+  /** @param score Kount score */
   public void setScore(final Integer score) {
     this.score = score;
   }

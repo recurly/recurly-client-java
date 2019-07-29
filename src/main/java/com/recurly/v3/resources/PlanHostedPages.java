@@ -11,50 +11,74 @@ import com.recurly.v3.Resource;
 
 public class PlanHostedPages extends Resource {
 
+  /**
+   * If `true`, the customer will be sent directly to your `success_url` after a successful signup,
+   * bypassing Recurly's hosted confirmation page.
+   */
   @SerializedName("bypass_confirmation")
   @Expose
   private Boolean bypassConfirmation;
 
+  /** URL to redirect to on canceled signup on the hosted payment pages. */
   @SerializedName("cancel_url")
   @Expose
   private String cancelUrl;
 
+  /** Determines if the quantity field is displayed on the hosted pages for the plan. */
   @SerializedName("display_quantity")
   @Expose
   private Boolean displayQuantity;
 
+  /** URL to redirect to after signup on the hosted payment pages. */
   @SerializedName("success_url")
   @Expose
   private String successUrl;
 
+  /**
+   * If `true`, the customer will be sent directly to your `success_url` after a successful signup,
+   * bypassing Recurly's hosted confirmation page.
+   */
   public Boolean getBypassConfirmation() {
     return this.bypassConfirmation;
   }
 
+  /**
+   * @param bypassConfirmation If `true`, the customer will be sent directly to your `success_url`
+   *     after a successful signup, bypassing Recurly's hosted confirmation page.
+   */
   public void setBypassConfirmation(final Boolean bypassConfirmation) {
     this.bypassConfirmation = bypassConfirmation;
   }
 
+  /** URL to redirect to on canceled signup on the hosted payment pages. */
   public String getCancelUrl() {
     return this.cancelUrl;
   }
 
+  /** @param cancelUrl URL to redirect to on canceled signup on the hosted payment pages. */
   public void setCancelUrl(final String cancelUrl) {
     this.cancelUrl = cancelUrl;
   }
 
+  /** Determines if the quantity field is displayed on the hosted pages for the plan. */
   public Boolean getDisplayQuantity() {
     return this.displayQuantity;
   }
 
+  /**
+   * @param displayQuantity Determines if the quantity field is displayed on the hosted pages for
+   *     the plan.
+   */
   public void setDisplayQuantity(final Boolean displayQuantity) {
     this.displayQuantity = displayQuantity;
   }
 
+  /** URL to redirect to after signup on the hosted payment pages. */
   public String getSuccessUrl() {
     return this.successUrl;
   }
 
+  /** @param successUrl URL to redirect to after signup on the hosted payment pages. */
   public void setSuccessUrl(final String successUrl) {
     this.successUrl = successUrl;
   }

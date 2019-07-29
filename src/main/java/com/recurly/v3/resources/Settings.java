@@ -16,10 +16,15 @@ public class Settings extends Resource {
   @Expose
   private List<String> acceptedCurrencies;
 
+  /**
+   * - full: Full Address (Street, City, State, Postal Code and Country) - streetzip: Street and
+   * Postal Code only - zip: Postal Code only - none: No Address
+   */
   @SerializedName("billing_address_requirement")
   @Expose
   private String billingAddressRequirement;
 
+  /** The default 3-letter ISO 4217 currency code. */
   @SerializedName("default_currency")
   @Expose
   private String defaultCurrency;
@@ -28,22 +33,34 @@ public class Settings extends Resource {
     return this.acceptedCurrencies;
   }
 
+  /** @param acceptedCurrencies */
   public void setAcceptedCurrencies(final List<String> acceptedCurrencies) {
     this.acceptedCurrencies = acceptedCurrencies;
   }
 
+  /**
+   * - full: Full Address (Street, City, State, Postal Code and Country) - streetzip: Street and
+   * Postal Code only - zip: Postal Code only - none: No Address
+   */
   public String getBillingAddressRequirement() {
     return this.billingAddressRequirement;
   }
 
+  /**
+   * @param billingAddressRequirement - full: Full Address (Street, City, State, Postal Code and
+   *     Country) - streetzip: Street and Postal Code only - zip: Postal Code only - none: No
+   *     Address
+   */
   public void setBillingAddressRequirement(final String billingAddressRequirement) {
     this.billingAddressRequirement = billingAddressRequirement;
   }
 
+  /** The default 3-letter ISO 4217 currency code. */
   public String getDefaultCurrency() {
     return this.defaultCurrency;
   }
 
+  /** @param defaultCurrency The default 3-letter ISO 4217 currency code. */
   public void setDefaultCurrency(final String defaultCurrency) {
     this.defaultCurrency = defaultCurrency;
   }

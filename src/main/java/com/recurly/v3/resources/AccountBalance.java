@@ -20,6 +20,7 @@ public class AccountBalance extends Resource {
   @Expose
   private List<AccountBalanceAmount> balances;
 
+  /** Object type */
   @SerializedName("object")
   @Expose
   private String object;
@@ -32,6 +33,7 @@ public class AccountBalance extends Resource {
     return this.account;
   }
 
+  /** @param account */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -40,14 +42,17 @@ public class AccountBalance extends Resource {
     return this.balances;
   }
 
+  /** @param balances */
   public void setBalances(final List<AccountBalanceAmount> balances) {
     this.balances = balances;
   }
 
+  /** Object type */
   public String getObject() {
     return this.object;
   }
 
+  /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -56,6 +61,7 @@ public class AccountBalance extends Resource {
     return this.pastDue;
   }
 
+  /** @param pastDue */
   public void setPastDue(final Boolean pastDue) {
     this.pastDue = pastDue;
   }

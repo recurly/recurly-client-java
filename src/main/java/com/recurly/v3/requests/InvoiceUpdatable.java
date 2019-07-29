@@ -16,22 +16,36 @@ public class InvoiceUpdatable extends Request {
   @Expose
   private InvoiceAddress address;
 
+  /** Customer notes are an optional note field. */
   @SerializedName("customer_notes")
   @Expose
   private String customerNotes;
 
+  /**
+   * Integer representing the number of days after an invoice's creation that the invoice will
+   * become past due. Changing Net terms changes due_on, and the invoice could move between past due
+   * and pending.
+   */
   @SerializedName("net_terms")
   @Expose
   private Integer netTerms;
 
+  /**
+   * This identifies the PO number associated with the invoice. Not editable for credit invoices.
+   */
   @SerializedName("po_number")
   @Expose
   private String poNumber;
 
+  /** Terms and conditions are an optional note field. Not editable for credit invoices. */
   @SerializedName("terms_and_conditions")
   @Expose
   private String termsAndConditions;
 
+  /**
+   * VAT Reverse Charge Notes are editable only if there was a VAT reverse charge applied to the
+   * invoice.
+   */
   @SerializedName("vat_reverse_charge_notes")
   @Expose
   private String vatReverseChargeNotes;
@@ -40,46 +54,79 @@ public class InvoiceUpdatable extends Request {
     return this.address;
   }
 
+  /** @param address */
   public void setAddress(final InvoiceAddress address) {
     this.address = address;
   }
 
+  /** Customer notes are an optional note field. */
   public String getCustomerNotes() {
     return this.customerNotes;
   }
 
+  /** @param customerNotes Customer notes are an optional note field. */
   public void setCustomerNotes(final String customerNotes) {
     this.customerNotes = customerNotes;
   }
 
+  /**
+   * Integer representing the number of days after an invoice's creation that the invoice will
+   * become past due. Changing Net terms changes due_on, and the invoice could move between past due
+   * and pending.
+   */
   public Integer getNetTerms() {
     return this.netTerms;
   }
 
+  /**
+   * @param netTerms Integer representing the number of days after an invoice's creation that the
+   *     invoice will become past due. Changing Net terms changes due_on, and the invoice could move
+   *     between past due and pending.
+   */
   public void setNetTerms(final Integer netTerms) {
     this.netTerms = netTerms;
   }
 
+  /**
+   * This identifies the PO number associated with the invoice. Not editable for credit invoices.
+   */
   public String getPoNumber() {
     return this.poNumber;
   }
 
+  /**
+   * @param poNumber This identifies the PO number associated with the invoice. Not editable for
+   *     credit invoices.
+   */
   public void setPoNumber(final String poNumber) {
     this.poNumber = poNumber;
   }
 
+  /** Terms and conditions are an optional note field. Not editable for credit invoices. */
   public String getTermsAndConditions() {
     return this.termsAndConditions;
   }
 
+  /**
+   * @param termsAndConditions Terms and conditions are an optional note field. Not editable for
+   *     credit invoices.
+   */
   public void setTermsAndConditions(final String termsAndConditions) {
     this.termsAndConditions = termsAndConditions;
   }
 
+  /**
+   * VAT Reverse Charge Notes are editable only if there was a VAT reverse charge applied to the
+   * invoice.
+   */
   public String getVatReverseChargeNotes() {
     return this.vatReverseChargeNotes;
   }
 
+  /**
+   * @param vatReverseChargeNotes VAT Reverse Charge Notes are editable only if there was a VAT
+   *     reverse charge applied to the invoice.
+   */
   public void setVatReverseChargeNotes(final String vatReverseChargeNotes) {
     this.vatReverseChargeNotes = vatReverseChargeNotes;
   }

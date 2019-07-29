@@ -36,6 +36,7 @@ public class User extends Resource {
   @Expose
   private String lastName;
 
+  /** Object type */
   @SerializedName("object")
   @Expose
   private String object;
@@ -48,6 +49,7 @@ public class User extends Resource {
     return this.createdAt;
   }
 
+  /** @param createdAt */
   public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -56,6 +58,7 @@ public class User extends Resource {
     return this.deletedAt;
   }
 
+  /** @param deletedAt */
   public void setDeletedAt(final DateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
@@ -64,6 +67,7 @@ public class User extends Resource {
     return this.email;
   }
 
+  /** @param email */
   public void setEmail(final String email) {
     this.email = email;
   }
@@ -72,6 +76,7 @@ public class User extends Resource {
     return this.firstName;
   }
 
+  /** @param firstName */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
   }
@@ -80,6 +85,7 @@ public class User extends Resource {
     return this.id;
   }
 
+  /** @param id */
   public void setId(final String id) {
     this.id = id;
   }
@@ -88,14 +94,17 @@ public class User extends Resource {
     return this.lastName;
   }
 
+  /** @param lastName */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
   }
 
+  /** Object type */
   public String getObject() {
     return this.object;
   }
 
+  /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -104,6 +113,7 @@ public class User extends Resource {
     return this.timeZone;
   }
 
+  /** @param timeZone */
   public void setTimeZone(final String timeZone) {
     this.timeZone = timeZone;
   }

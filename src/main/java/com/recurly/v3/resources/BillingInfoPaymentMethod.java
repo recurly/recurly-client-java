@@ -11,22 +11,27 @@ import com.recurly.v3.Resource;
 
 public class BillingInfoPaymentMethod extends Resource {
 
+  /** Visa, MasterCard, American Express, Discover, JCB, etc. */
   @SerializedName("card_type")
   @Expose
   private String cardType;
 
+  /** Expiration month. */
   @SerializedName("exp_month")
   @Expose
   private Integer expMonth;
 
+  /** Expiration year. */
   @SerializedName("exp_year")
   @Expose
   private Integer expYear;
 
+  /** Credit card number's first six digits. */
   @SerializedName("first_six")
   @Expose
   private String firstSix;
 
+  /** Credit card number's last four digits. */
   @SerializedName("last_four")
   @Expose
   private String lastFour;
@@ -35,42 +40,52 @@ public class BillingInfoPaymentMethod extends Resource {
   @Expose
   private String object;
 
+  /** Visa, MasterCard, American Express, Discover, JCB, etc. */
   public String getCardType() {
     return this.cardType;
   }
 
+  /** @param cardType Visa, MasterCard, American Express, Discover, JCB, etc. */
   public void setCardType(final String cardType) {
     this.cardType = cardType;
   }
 
+  /** Expiration month. */
   public Integer getExpMonth() {
     return this.expMonth;
   }
 
+  /** @param expMonth Expiration month. */
   public void setExpMonth(final Integer expMonth) {
     this.expMonth = expMonth;
   }
 
+  /** Expiration year. */
   public Integer getExpYear() {
     return this.expYear;
   }
 
+  /** @param expYear Expiration year. */
   public void setExpYear(final Integer expYear) {
     this.expYear = expYear;
   }
 
+  /** Credit card number's first six digits. */
   public String getFirstSix() {
     return this.firstSix;
   }
 
+  /** @param firstSix Credit card number's first six digits. */
   public void setFirstSix(final String firstSix) {
     this.firstSix = firstSix;
   }
 
+  /** Credit card number's last four digits. */
   public String getLastFour() {
     return this.lastFour;
   }
 
+  /** @param lastFour Credit card number's last four digits. */
   public void setLastFour(final String lastFour) {
     this.lastFour = lastFour;
   }
@@ -79,6 +94,7 @@ public class BillingInfoPaymentMethod extends Resource {
     return this.object;
   }
 
+  /** @param object */
   public void setObject(final String object) {
     this.object = object;
   }

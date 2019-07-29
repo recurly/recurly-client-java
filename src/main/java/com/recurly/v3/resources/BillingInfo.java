@@ -24,6 +24,7 @@ public class BillingInfo extends Resource {
   @Expose
   private String company;
 
+  /** When the billing information was created. */
   @SerializedName("created_at")
   @Expose
   private DateTime createdAt;
@@ -32,6 +33,7 @@ public class BillingInfo extends Resource {
   @Expose
   private String firstName;
 
+  /** Most recent fraud result. */
   @SerializedName("fraud")
   @Expose
   private FraudInfo fraud;
@@ -44,6 +46,7 @@ public class BillingInfo extends Resource {
   @Expose
   private String lastName;
 
+  /** Object type */
   @SerializedName("object")
   @Expose
   private String object;
@@ -52,6 +55,7 @@ public class BillingInfo extends Resource {
   @Expose
   private BillingInfoPaymentMethod paymentMethod;
 
+  /** When the billing information was last changed. */
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
@@ -64,6 +68,10 @@ public class BillingInfo extends Resource {
   @Expose
   private Boolean valid;
 
+  /**
+   * Customer's VAT number (to avoid having the VAT applied). This is only used for automatically
+   * collected invoices.
+   */
   @SerializedName("vat_number")
   @Expose
   private String vatNumber;
@@ -72,6 +80,7 @@ public class BillingInfo extends Resource {
     return this.accountId;
   }
 
+  /** @param accountId */
   public void setAccountId(final String accountId) {
     this.accountId = accountId;
   }
@@ -80,6 +89,7 @@ public class BillingInfo extends Resource {
     return this.address;
   }
 
+  /** @param address */
   public void setAddress(final Address address) {
     this.address = address;
   }
@@ -88,14 +98,17 @@ public class BillingInfo extends Resource {
     return this.company;
   }
 
+  /** @param company */
   public void setCompany(final String company) {
     this.company = company;
   }
 
+  /** When the billing information was created. */
   public DateTime getCreatedAt() {
     return this.createdAt;
   }
 
+  /** @param createdAt When the billing information was created. */
   public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -104,14 +117,17 @@ public class BillingInfo extends Resource {
     return this.firstName;
   }
 
+  /** @param firstName */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
   }
 
+  /** Most recent fraud result. */
   public FraudInfo getFraud() {
     return this.fraud;
   }
 
+  /** @param fraud Most recent fraud result. */
   public void setFraud(final FraudInfo fraud) {
     this.fraud = fraud;
   }
@@ -120,6 +136,7 @@ public class BillingInfo extends Resource {
     return this.id;
   }
 
+  /** @param id */
   public void setId(final String id) {
     this.id = id;
   }
@@ -128,14 +145,17 @@ public class BillingInfo extends Resource {
     return this.lastName;
   }
 
+  /** @param lastName */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
   }
 
+  /** Object type */
   public String getObject() {
     return this.object;
   }
 
+  /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -144,14 +164,17 @@ public class BillingInfo extends Resource {
     return this.paymentMethod;
   }
 
+  /** @param paymentMethod */
   public void setPaymentMethod(final BillingInfoPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
+  /** When the billing information was last changed. */
   public DateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
+  /** @param updatedAt When the billing information was last changed. */
   public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -160,6 +183,7 @@ public class BillingInfo extends Resource {
     return this.updatedBy;
   }
 
+  /** @param updatedBy */
   public void setUpdatedBy(final BillingInfoUpdatedBy updatedBy) {
     this.updatedBy = updatedBy;
   }
@@ -168,14 +192,23 @@ public class BillingInfo extends Resource {
     return this.valid;
   }
 
+  /** @param valid */
   public void setValid(final Boolean valid) {
     this.valid = valid;
   }
 
+  /**
+   * Customer's VAT number (to avoid having the VAT applied). This is only used for automatically
+   * collected invoices.
+   */
   public String getVatNumber() {
     return this.vatNumber;
   }
 
+  /**
+   * @param vatNumber Customer's VAT number (to avoid having the VAT applied). This is only used for
+   *     automatically collected invoices.
+   */
   public void setVatNumber(final String vatNumber) {
     this.vatNumber = vatNumber;
   }

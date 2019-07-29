@@ -13,38 +13,49 @@ import org.joda.time.DateTime;
 
 public class ExternalRefund extends Request {
 
+  /** Used as the refund transactions' description. */
   @SerializedName("description")
   @Expose
   private String description;
 
+  /** Payment method used for external refund transaction. */
   @SerializedName("payment_method")
   @Expose
   private String paymentMethod;
 
+  /** Date the external refund payment was made. Defaults to the current date-time. */
   @SerializedName("refunded_at")
   @Expose
   private DateTime refundedAt;
 
+  /** Used as the refund transactions' description. */
   public String getDescription() {
     return this.description;
   }
 
+  /** @param description Used as the refund transactions' description. */
   public void setDescription(final String description) {
     this.description = description;
   }
 
+  /** Payment method used for external refund transaction. */
   public String getPaymentMethod() {
     return this.paymentMethod;
   }
 
+  /** @param paymentMethod Payment method used for external refund transaction. */
   public void setPaymentMethod(final String paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
+  /** Date the external refund payment was made. Defaults to the current date-time. */
   public DateTime getRefundedAt() {
     return this.refundedAt;
   }
 
+  /**
+   * @param refundedAt Date the external refund payment was made. Defaults to the current date-time.
+   */
   public void setRefundedAt(final DateTime refundedAt) {
     this.refundedAt = refundedAt;
   }

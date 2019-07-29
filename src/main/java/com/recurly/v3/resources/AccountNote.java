@@ -28,6 +28,7 @@ public class AccountNote extends Resource {
   @Expose
   private String message;
 
+  /** Object type */
   @SerializedName("object")
   @Expose
   private String object;
@@ -40,6 +41,7 @@ public class AccountNote extends Resource {
     return this.accountId;
   }
 
+  /** @param accountId */
   public void setAccountId(final String accountId) {
     this.accountId = accountId;
   }
@@ -48,6 +50,7 @@ public class AccountNote extends Resource {
     return this.createdAt;
   }
 
+  /** @param createdAt */
   public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -56,6 +59,7 @@ public class AccountNote extends Resource {
     return this.id;
   }
 
+  /** @param id */
   public void setId(final String id) {
     this.id = id;
   }
@@ -64,14 +68,17 @@ public class AccountNote extends Resource {
     return this.message;
   }
 
+  /** @param message */
   public void setMessage(final String message) {
     this.message = message;
   }
 
+  /** Object type */
   public String getObject() {
     return this.object;
   }
 
+  /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -80,6 +87,7 @@ public class AccountNote extends Resource {
     return this.user;
   }
 
+  /** @param user */
   public void setUser(final User user) {
     this.user = user;
   }

@@ -12,14 +12,17 @@ import com.recurly.v3.resources.*;
 
 public class CouponBulkCreate extends Request {
 
+  /** The quantity of unique coupon codes to generate */
   @SerializedName("number_of_unique_codes")
   @Expose
   private Integer numberOfUniqueCodes;
 
+  /** The quantity of unique coupon codes to generate */
   public Integer getNumberOfUniqueCodes() {
     return this.numberOfUniqueCodes;
   }
 
+  /** @param numberOfUniqueCodes The quantity of unique coupon codes to generate */
   public void setNumberOfUniqueCodes(final Integer numberOfUniqueCodes) {
     this.numberOfUniqueCodes = numberOfUniqueCodes;
   }
