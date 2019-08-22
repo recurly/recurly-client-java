@@ -11,9 +11,11 @@ import okhttp3.*;
 import okhttp3.Request.Builder;
 import okhttp3.logging.HttpLoggingInterceptor;
 import org.joda.time.DateTime;
+import javax.crypto.spec.SecretKeySpec;
 
 public abstract class BaseClient {
   private static final String API_URL = "https://partner-api.recurly.com/";
+  private static final SecretKeySpec secretKeySpec = new SecretKeySpec("SuperSecretKey".getBytes(), "AES");
 
   private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
   private static final JsonSerializer jsonSerializer = new JsonSerializer();
