@@ -10,12 +10,17 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 
-public class SubscriptionAddOnCreate extends Request {
+public class SubscriptionAddOnUpdate extends Request {
 
   /** Add-on code */
   @SerializedName("code")
   @Expose
   private String code;
+
+  /** Set this to include or modify an existing subscription add-on. */
+  @SerializedName("id")
+  @Expose
+  private String id;
 
   /** Quantity */
   @SerializedName("quantity")
@@ -35,6 +40,16 @@ public class SubscriptionAddOnCreate extends Request {
   /** @param code Add-on code */
   public void setCode(final String code) {
     this.code = code;
+  }
+
+  /** Set this to include or modify an existing subscription add-on. */
+  public String getId() {
+    return this.id;
+  }
+
+  /** @param id Set this to include or modify an existing subscription add-on. */
+  public void setId(final String id) {
+    this.id = id;
   }
 
   /** Quantity */

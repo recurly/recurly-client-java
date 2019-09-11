@@ -14,12 +14,13 @@ import java.util.List;
 public class SubscriptionChangeCreate extends Request {
 
   /**
-   * If you set this value you include all the add-ons and their quantities and amounts. The values
-   * you include will replace the previous values entirely.
+   * If you provide a value for this field it will replace any existing add-ons. So, when adding or
+   * modifying an add-on, you need to include the existing subscription add-ons. Unchanged add-ons
+   * can be included just using the subscription add-on's ID: `{"id": "abc123"}`.
    */
   @SerializedName("add_ons")
   @Expose
-  private List<SubscriptionAddOnCreate> addOns;
+  private List<SubscriptionAddOnUpdate> addOns;
 
   /** Collection method */
   @SerializedName("collection_method")
@@ -90,18 +91,21 @@ public class SubscriptionChangeCreate extends Request {
   private Float unitAmount;
 
   /**
-   * If you set this value you include all the add-ons and their quantities and amounts. The values
-   * you include will replace the previous values entirely.
+   * If you provide a value for this field it will replace any existing add-ons. So, when adding or
+   * modifying an add-on, you need to include the existing subscription add-ons. Unchanged add-ons
+   * can be included just using the subscription add-on's ID: `{"id": "abc123"}`.
    */
-  public List<SubscriptionAddOnCreate> getAddOns() {
+  public List<SubscriptionAddOnUpdate> getAddOns() {
     return this.addOns;
   }
 
   /**
-   * @param addOns If you set this value you include all the add-ons and their quantities and
-   *     amounts. The values you include will replace the previous values entirely.
+   * @param addOns If you provide a value for this field it will replace any existing add-ons. So,
+   *     when adding or modifying an add-on, you need to include the existing subscription add-ons.
+   *     Unchanged add-ons can be included just using the subscription add-on's ID: `{"id":
+   *     "abc123"}`.
    */
-  public void setAddOns(final List<SubscriptionAddOnCreate> addOns) {
+  public void setAddOns(final List<SubscriptionAddOnUpdate> addOns) {
     this.addOns = addOns;
   }
 

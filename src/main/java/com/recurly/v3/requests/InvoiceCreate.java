@@ -67,11 +67,6 @@ public class InvoiceCreate extends Request {
   @Expose
   private String termsAndConditions;
 
-  /** Specify a type to limit the type of line items that will be invoiced. */
-  @SerializedName("type")
-  @Expose
-  private String type;
-
   /**
    * VAT Reverse Charge Notes only appear if you have EU VAT enabled or are using your own Avalara
    * AvaTax account and the customer is in the EU, has a VAT number, and is in a different country
@@ -197,16 +192,6 @@ public class InvoiceCreate extends Request {
    */
   public void setTermsAndConditions(final String termsAndConditions) {
     this.termsAndConditions = termsAndConditions;
-  }
-
-  /** Specify a type to limit the type of line items that will be invoiced. */
-  public String getType() {
-    return this.type;
-  }
-
-  /** @param type Specify a type to limit the type of line items that will be invoiced. */
-  public void setType(final String type) {
-    this.type = type;
   }
 
   /**

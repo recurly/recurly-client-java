@@ -4,8 +4,8 @@
 This library does not use the V2 API. If you are attempting to build an
 integration with V2, please see [https://dev.recurly.com/](https://dev.recurly.com/).
 
-This library is the Java client for Recurly's V3 API (or "partner api"). It's currently Beta software
-and is not yet an official release. Documentation for the API can be [found here](https://partner-docs.recurly.com).
+This library is the Java client for Recurly's V3 API. It's currently Beta software
+and is not yet an official release. Documentation for the API can be [found here](https://developers.recurly.com/api/v2019-10-01/).
 
 ## Getting Started
 

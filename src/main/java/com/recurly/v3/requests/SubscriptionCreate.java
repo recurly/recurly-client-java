@@ -171,9 +171,8 @@ public class SubscriptionCreate extends Request {
   private DateTime trialEndsAt;
 
   /**
-   * Override the unit amount of the subscription plan by setting this value in cents. If not
-   * provided, the subscription will inherit the price from the subscription plan for the provided
-   * currency.
+   * Override the unit amount of the subscription plan by setting this value. If not provided, the
+   * subscription will inherit the price from the subscription plan for the provided currency.
    */
   @SerializedName("unit_amount")
   @Expose
@@ -503,18 +502,17 @@ public class SubscriptionCreate extends Request {
   }
 
   /**
-   * Override the unit amount of the subscription plan by setting this value in cents. If not
-   * provided, the subscription will inherit the price from the subscription plan for the provided
-   * currency.
+   * Override the unit amount of the subscription plan by setting this value. If not provided, the
+   * subscription will inherit the price from the subscription plan for the provided currency.
    */
   public Float getUnitAmount() {
     return this.unitAmount;
   }
 
   /**
-   * @param unitAmount Override the unit amount of the subscription plan by setting this value in
-   *     cents. If not provided, the subscription will inherit the price from the subscription plan
-   *     for the provided currency.
+   * @param unitAmount Override the unit amount of the subscription plan by setting this value. If
+   *     not provided, the subscription will inherit the price from the subscription plan for the
+   *     provided currency.
    */
   public void setUnitAmount(final Float unitAmount) {
     this.unitAmount = unitAmount;
