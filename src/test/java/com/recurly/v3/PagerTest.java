@@ -19,7 +19,7 @@ public class PagerTest {
     OkHttpClient mockOkHttpClient =
         getMockOkHttpClient(getResourceFirstPageJson(), getResourceSecondPageJson());
 
-    final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
     Pager<MyResource> pager = client.listResources(null);
     AtomicInteger count = new AtomicInteger(0);
     pager.forEach(
@@ -37,7 +37,7 @@ public class PagerTest {
   public void testEachItem() {
     OkHttpClient mockOkHttpClient = getMockOkHttpClientSingleRequest(getResourceSecondPageJson());
 
-    final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
     Pager<MyResource> pager = client.listResources(null);
     pager.eachItem(resource -> assertNotNull(resource.getMyString()));
   }
@@ -46,7 +46,7 @@ public class PagerTest {
   public void testEmptyList() {
     OkHttpClient mockOkHttpClient = getMockOkHttpClientSingleRequest(getEmptyListJson());
 
-    final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
     Pager<MyResource> pager = client.listResources(null);
     assertEquals(0, pager.getData().size());
 
@@ -63,7 +63,7 @@ public class PagerTest {
     OkHttpClient mockOkHttpClient =
         getMockOkHttpClient(getResourceFirstPageJson(), getResourceSecondPageJson());
 
-    final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
     Pager<MyResource> pager = client.listResources(null);
     int count = 0;
     for (MyResource res : pager) {

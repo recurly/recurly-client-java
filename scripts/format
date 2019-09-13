@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+set -e
 
 java -jar ./bin/google-java-format-1.7-all-deps.jar -i $(ls src/main/java/com/recurly/v3/**/*.java)

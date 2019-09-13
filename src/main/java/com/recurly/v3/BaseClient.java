@@ -18,24 +18,18 @@ public abstract class BaseClient {
   private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
   private static final JsonSerializer jsonSerializer = new JsonSerializer();
   private final String apiKey;
-  private final String siteId;
   private final OkHttpClient client;
   private String apiUrl;
 
-  protected BaseClient(final String siteId, final String apiKey) {
-    this(siteId, apiKey, newHttpClient(apiKey));
+  protected BaseClient(final String apiKey) {
+    this(apiKey, newHttpClient(apiKey));
   }
 
-  protected BaseClient(final String siteId, final String apiKey, final OkHttpClient client) {
-    if (siteId == null || siteId.isEmpty()) {
-      throw new IllegalArgumentException("siteId cannot be null or empty");
-    }
-
+  protected BaseClient(final String apiKey, final OkHttpClient client) {
     if (apiKey == null || apiKey.isEmpty()) {
       throw new IllegalArgumentException("apiKey cannot be null or empty");
     }
 
-    this.siteId = siteId;
     this.apiKey = apiKey;
     this.client = client;
     this.apiUrl = API_URL;
@@ -211,7 +205,6 @@ public abstract class BaseClient {
   }
 
   protected String interpolatePath(String path, final HashMap<String, String> urlParams) {
-    urlParams.put("site_id", this.siteId);
     final Pattern p = Pattern.compile("\\{([A-Za-z|_]*)\\}");
     final Matcher m = p.matcher(path);
 

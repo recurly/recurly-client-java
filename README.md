@@ -21,19 +21,14 @@ have the format `3.0.0-beta-x` until we go live starting with `3.0.0`.
 ### Creating a client
 
 Client instances provide one place where every operation on the Recurly API can be found (rather than
-having them spread out amongst classes). A new client can be initialized with its constructor. It requires
-a site id (or subdomain) and an API key:
+having them spread out amongst classes). A new client can be initialized with its constructor. It only requires
+an API key:
 
 ```java
 import com.recurly.v3.Client;
 
 String apiKey = "83749879bbde395b5fe0cc1a5abf8e5";
-String subdomain = "mysubdomain";
-String siteId = "subdomain-" + subdomain;
-// You could also use the site's reference id
-// String siteId = "dqzlv9shi7wa";
-
-final Client client = new Client(siteId, apiKey);
+final Client client = new Client(apiKey);
 final Subscription sub = client.getSubscription("uuid-abcd123456");
 ```
 
