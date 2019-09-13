@@ -18,8 +18,8 @@ import java.util.HashMap;
 public class Client extends BaseClient {
   public static final String API_VERSION = "v2018-08-09";
 
-  public Client(final String siteId, final String apiKey) {
-    super(siteId, apiKey);
+  public Client(final String apiKey) {
+    super(apiKey);
   }
 
 
@@ -44,11 +44,13 @@ public class Client extends BaseClient {
    * Fetch a site
    *
    * @see <a href="https://developers.recurly.com/api/v2018-08-09#operation/get_site">get_site api documentation</a>
+   * @param siteId Site ID or subdomain (use prefix: `subdomain-`, e.g. `subdomain-recurly`).
      * @return A site.
    */
-  public Site getSite() {
+  public Site getSite(String siteId) {
     final String url = "/sites/{site_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("site_id", siteId);
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Site.class;
     return this.makeRequest("GET", path, returnType);
@@ -62,7 +64,7 @@ public class Client extends BaseClient {
      * @return A list of the site's accounts.
    */
   public Pager<Account> listAccounts(QueryParams queryParams) {
-    final String url = "/sites/{site_id}/accounts";
+    final String url = "/accounts";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     if (queryParams == null) queryParams = new QueryParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
@@ -79,7 +81,7 @@ public class Client extends BaseClient {
      * @return An account.
    */
   public Account createAccount(AccountCreate body) {
-    final String url = "/sites/{site_id}/accounts";
+    final String url = "/accounts";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Account.class;
@@ -94,7 +96,7 @@ public class Client extends BaseClient {
      * @return An account.
    */
   public Account getAccount(String accountId) {
-    final String url = "/sites/{site_id}/accounts/{account_id}";
+    final String url = "/accounts/{account_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -111,7 +113,7 @@ public class Client extends BaseClient {
      * @return An account.
    */
   public Account updateAccount(String accountId, AccountUpdate body) {
-    final String url = "/sites/{site_id}/accounts/{account_id}";
+    final String url = "/accounts/{account_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -127,7 +129,7 @@ public class Client extends BaseClient {
      * @return An account.
    */
   public Account deactivateAccount(String accountId) {
-    final String url = "/sites/{site_id}/accounts/{account_id}";
+    final String url = "/accounts/{account_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -143,7 +145,7 @@ public class Client extends BaseClient {
      * @return An account's acquisition data.
    */
   public AccountAcquisition getAccountAcquisition(String accountId) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/acquisition";
+    final String url = "/accounts/{account_id}/acquisition";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -160,7 +162,7 @@ public class Client extends BaseClient {
      * @return An account's updated acquisition data.
    */
   public AccountAcquisition updateAccountAcquisition(String accountId, AccountAcquisitionUpdatable body) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/acquisition";
+    final String url = "/accounts/{account_id}/acquisition";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -175,7 +177,7 @@ public class Client extends BaseClient {
    * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
    */
   public void removeAccountAcquisition(String accountId) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/acquisition";
+    final String url = "/accounts/{account_id}/acquisition";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -190,7 +192,7 @@ public class Client extends BaseClient {
      * @return An account.
    */
   public Account reactivateAccount(String accountId) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/reactivate";
+    final String url = "/accounts/{account_id}/reactivate";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -206,7 +208,7 @@ public class Client extends BaseClient {
      * @return An account's balance.
    */
   public AccountBalance getAccountBalance(String accountId) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/balance";
+    final String url = "/accounts/{account_id}/balance";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -222,7 +224,7 @@ public class Client extends BaseClient {
      * @return An account's billing information.
    */
   public BillingInfo getBillingInfo(String accountId) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/billing_info";
+    final String url = "/accounts/{account_id}/billing_info";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -239,7 +241,7 @@ public class Client extends BaseClient {
      * @return Updated billing information.
    */
   public BillingInfo updateBillingInfo(String accountId, BillingInfoCreate body) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/billing_info";
+    final String url = "/accounts/{account_id}/billing_info";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -254,7 +256,7 @@ public class Client extends BaseClient {
    * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
    */
   public void removeBillingInfo(String accountId) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/billing_info";
+    final String url = "/accounts/{account_id}/billing_info";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -270,7 +272,7 @@ public class Client extends BaseClient {
      * @return A list of the the coupon redemptions on an account.
    */
   public Pager<CouponRedemption> listAccountCouponRedemptions(String accountId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions";
+    final String url = "/accounts/{account_id}/coupon_redemptions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -288,7 +290,7 @@ public class Client extends BaseClient {
      * @return An active coupon redemption on an account.
    */
   public CouponRedemption getActiveCouponRedemption(String accountId) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions/active";
+    final String url = "/accounts/{account_id}/coupon_redemptions/active";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -305,7 +307,7 @@ public class Client extends BaseClient {
      * @return Returns the new coupon redemption.
    */
   public CouponRedemption createCouponRedemption(String accountId, CouponRedemptionCreate body) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions/active";
+    final String url = "/accounts/{account_id}/coupon_redemptions/active";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -321,7 +323,7 @@ public class Client extends BaseClient {
      * @return Coupon redemption deleted.
    */
   public CouponRedemption removeCouponRedemption(String accountId) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/coupon_redemptions/active";
+    final String url = "/accounts/{account_id}/coupon_redemptions/active";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -338,7 +340,7 @@ public class Client extends BaseClient {
      * @return A list of the account's credit payments.
    */
   public Pager<CreditPayment> listAccountCreditPayments(String accountId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/credit_payments";
+    final String url = "/accounts/{account_id}/credit_payments";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -357,7 +359,7 @@ public class Client extends BaseClient {
      * @return A list of the account's invoices.
    */
   public Pager<Invoice> listAccountInvoices(String accountId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/invoices";
+    final String url = "/accounts/{account_id}/invoices";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -376,7 +378,7 @@ public class Client extends BaseClient {
      * @return Returns the new invoices.
    */
   public InvoiceCollection createInvoice(String accountId, InvoiceCreate body) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/invoices";
+    final String url = "/accounts/{account_id}/invoices";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -393,7 +395,7 @@ public class Client extends BaseClient {
      * @return Returns the invoice previews.
    */
   public InvoiceCollection previewInvoice(String accountId, InvoiceCreate body) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/invoices/preview";
+    final String url = "/accounts/{account_id}/invoices/preview";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -410,7 +412,7 @@ public class Client extends BaseClient {
      * @return A list of the account's line items.
    */
   public Pager<LineItem> listAccountLineItems(String accountId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/line_items";
+    final String url = "/accounts/{account_id}/line_items";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -429,7 +431,7 @@ public class Client extends BaseClient {
      * @return Returns the new line item.
    */
   public LineItem createLineItem(String accountId, LineItemCreate body) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/line_items";
+    final String url = "/accounts/{account_id}/line_items";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -446,7 +448,7 @@ public class Client extends BaseClient {
      * @return A list of an account's notes.
    */
   public Pager<AccountNote> listAccountNotes(String accountId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/notes";
+    final String url = "/accounts/{account_id}/notes";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -465,7 +467,7 @@ public class Client extends BaseClient {
      * @return An account note.
    */
   public AccountNote getAccountNote(String accountId, String accountNoteId) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/notes/{account_note_id}";
+    final String url = "/accounts/{account_id}/notes/{account_note_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     urlParams.put("account_note_id", accountNoteId);
@@ -483,7 +485,7 @@ public class Client extends BaseClient {
      * @return A list of an account's shipping addresses.
    */
   public Pager<ShippingAddress> listShippingAddresses(String accountId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/shipping_addresses";
+    final String url = "/accounts/{account_id}/shipping_addresses";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -502,7 +504,7 @@ public class Client extends BaseClient {
      * @return Returns the new shipping address.
    */
   public ShippingAddress createShippingAddress(String accountId, ShippingAddressCreate body) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/shipping_addresses";
+    final String url = "/accounts/{account_id}/shipping_addresses";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
@@ -519,7 +521,7 @@ public class Client extends BaseClient {
      * @return A shipping address.
    */
   public ShippingAddress getShippingAddress(String accountId, String shippingAddressId) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/shipping_addresses/{shipping_address_id}";
+    final String url = "/accounts/{account_id}/shipping_addresses/{shipping_address_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     urlParams.put("shipping_address_id", shippingAddressId);
@@ -538,7 +540,7 @@ public class Client extends BaseClient {
      * @return The updated shipping address.
    */
   public ShippingAddress updateShippingAddress(String accountId, String shippingAddressId, ShippingAddressUpdate body) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/shipping_addresses/{shipping_address_id}";
+    final String url = "/accounts/{account_id}/shipping_addresses/{shipping_address_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     urlParams.put("shipping_address_id", shippingAddressId);
@@ -555,7 +557,7 @@ public class Client extends BaseClient {
    * @param shippingAddressId Shipping Address ID.
    */
   public void removeShippingAddress(String accountId, String shippingAddressId) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/shipping_addresses/{shipping_address_id}";
+    final String url = "/accounts/{account_id}/shipping_addresses/{shipping_address_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     urlParams.put("shipping_address_id", shippingAddressId);
@@ -572,7 +574,7 @@ public class Client extends BaseClient {
      * @return A list of the account's subscriptions.
    */
   public Pager<Subscription> listAccountSubscriptions(String accountId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/subscriptions";
+    final String url = "/accounts/{account_id}/subscriptions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -591,7 +593,7 @@ public class Client extends BaseClient {
      * @return A list of the account's transactions.
    */
   public Pager<Transaction> listAccountTransactions(String accountId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/transactions";
+    final String url = "/accounts/{account_id}/transactions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -610,7 +612,7 @@ public class Client extends BaseClient {
      * @return A list of an account's child accounts.
    */
   public Pager<Account> listChildAccounts(String accountId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/accounts/{account_id}/accounts";
+    final String url = "/accounts/{account_id}/accounts";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -628,7 +630,7 @@ public class Client extends BaseClient {
      * @return A list of the site's account acquisition data.
    */
   public Pager<AccountAcquisition> listAccountAcquisition(QueryParams queryParams) {
-    final String url = "/sites/{site_id}/acquisitions";
+    final String url = "/acquisitions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     if (queryParams == null) queryParams = new QueryParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
@@ -645,7 +647,7 @@ public class Client extends BaseClient {
      * @return A list of the site's coupons.
    */
   public Pager<Coupon> listCoupons(QueryParams queryParams) {
-    final String url = "/sites/{site_id}/coupons";
+    final String url = "/coupons";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     if (queryParams == null) queryParams = new QueryParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
@@ -662,7 +664,7 @@ public class Client extends BaseClient {
      * @return A new coupon.
    */
   public Coupon createCoupon(CouponCreate body) {
-    final String url = "/sites/{site_id}/coupons";
+    final String url = "/coupons";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Coupon.class;
@@ -677,7 +679,7 @@ public class Client extends BaseClient {
      * @return A coupon.
    */
   public Coupon getCoupon(String couponId) {
-    final String url = "/sites/{site_id}/coupons/{coupon_id}";
+    final String url = "/coupons/{coupon_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("coupon_id", couponId);
     final String path = this.interpolatePath(url, urlParams);
@@ -694,7 +696,7 @@ public class Client extends BaseClient {
      * @return The updated coupon.
    */
   public Coupon updateCoupon(String couponId, CouponUpdate body) {
-    final String url = "/sites/{site_id}/coupons/{coupon_id}";
+    final String url = "/coupons/{coupon_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("coupon_id", couponId);
     final String path = this.interpolatePath(url, urlParams);
@@ -711,7 +713,7 @@ public class Client extends BaseClient {
      * @return A list of unique coupon codes that were generated
    */
   public Pager<UniqueCouponCode> listUniqueCouponCodes(String couponId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/coupons/{coupon_id}/unique_coupon_codes";
+    final String url = "/coupons/{coupon_id}/unique_coupon_codes";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("coupon_id", couponId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -729,7 +731,7 @@ public class Client extends BaseClient {
      * @return A list of the site's credit payments.
    */
   public Pager<CreditPayment> listCreditPayments(QueryParams queryParams) {
-    final String url = "/sites/{site_id}/credit_payments";
+    final String url = "/credit_payments";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     if (queryParams == null) queryParams = new QueryParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
@@ -746,7 +748,7 @@ public class Client extends BaseClient {
      * @return A credit payment.
    */
   public CreditPayment getCreditPayment(String creditPaymentId) {
-    final String url = "/sites/{site_id}/credit_payments/{credit_payment_id}";
+    final String url = "/credit_payments/{credit_payment_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("credit_payment_id", creditPaymentId);
     final String path = this.interpolatePath(url, urlParams);
@@ -762,7 +764,7 @@ public class Client extends BaseClient {
      * @return A list of the site's custom field definitions.
    */
   public Pager<CustomFieldDefinition> listCustomFieldDefinitions(QueryParams queryParams) {
-    final String url = "/sites/{site_id}/custom_field_definitions";
+    final String url = "/custom_field_definitions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     if (queryParams == null) queryParams = new QueryParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
@@ -779,7 +781,7 @@ public class Client extends BaseClient {
      * @return An custom field definition.
    */
   public CustomFieldDefinition getCustomFieldDefinition(String customFieldDefinitionId) {
-    final String url = "/sites/{site_id}/custom_field_definitions/{custom_field_definition_id}";
+    final String url = "/custom_field_definitions/{custom_field_definition_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("custom_field_definition_id", customFieldDefinitionId);
     final String path = this.interpolatePath(url, urlParams);
@@ -795,7 +797,7 @@ public class Client extends BaseClient {
      * @return A list of the site's invoices.
    */
   public Pager<Invoice> listInvoices(QueryParams queryParams) {
-    final String url = "/sites/{site_id}/invoices";
+    final String url = "/invoices";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     if (queryParams == null) queryParams = new QueryParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
@@ -812,7 +814,7 @@ public class Client extends BaseClient {
      * @return An invoice.
    */
   public Invoice getInvoice(String invoiceId) {
-    final String url = "/sites/{site_id}/invoices/{invoice_id}";
+    final String url = "/invoices/{invoice_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
     final String path = this.interpolatePath(url, urlParams);
@@ -829,7 +831,7 @@ public class Client extends BaseClient {
      * @return An invoice.
    */
   public Invoice putInvoice(String invoiceId, InvoiceUpdatable body) {
-    final String url = "/sites/{site_id}/invoices/{invoice_id}";
+    final String url = "/invoices/{invoice_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
     final String path = this.interpolatePath(url, urlParams);
@@ -845,7 +847,7 @@ public class Client extends BaseClient {
      * @return The updated invoice.
    */
   public Invoice collectInvoice(String invoiceId) {
-    final String url = "/sites/{site_id}/invoices/{invoice_id}/collect";
+    final String url = "/invoices/{invoice_id}/collect";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
     final String path = this.interpolatePath(url, urlParams);
@@ -861,7 +863,7 @@ public class Client extends BaseClient {
      * @return The updated invoice.
    */
   public Invoice failInvoice(String invoiceId) {
-    final String url = "/sites/{site_id}/invoices/{invoice_id}/mark_failed";
+    final String url = "/invoices/{invoice_id}/mark_failed";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
     final String path = this.interpolatePath(url, urlParams);
@@ -877,7 +879,7 @@ public class Client extends BaseClient {
      * @return The updated invoice.
    */
   public Invoice markInvoiceSuccessful(String invoiceId) {
-    final String url = "/sites/{site_id}/invoices/{invoice_id}/mark_successful";
+    final String url = "/invoices/{invoice_id}/mark_successful";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
     final String path = this.interpolatePath(url, urlParams);
@@ -893,7 +895,7 @@ public class Client extends BaseClient {
      * @return The updated invoice.
    */
   public Invoice reopenInvoice(String invoiceId) {
-    final String url = "/sites/{site_id}/invoices/{invoice_id}/reopen";
+    final String url = "/invoices/{invoice_id}/reopen";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
     final String path = this.interpolatePath(url, urlParams);
@@ -910,7 +912,7 @@ public class Client extends BaseClient {
      * @return A list of the invoice's line items.
    */
   public Pager<LineItem> listInvoiceLineItems(String invoiceId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/invoices/{invoice_id}/line_items";
+    final String url = "/invoices/{invoice_id}/line_items";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -929,7 +931,7 @@ public class Client extends BaseClient {
      * @return A list of the the coupon redemptions associated with the invoice.
    */
   public Pager<CouponRedemption> listInvoiceCouponRedemptions(String invoiceId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/invoices/{invoice_id}/coupon_redemptions";
+    final String url = "/invoices/{invoice_id}/coupon_redemptions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -947,7 +949,7 @@ public class Client extends BaseClient {
      * @return A list of the credit or charge invoices associated with the invoice.
    */
   public Pager<Invoice> listRelatedInvoices(String invoiceId) {
-    final String url = "/sites/{site_id}/invoices/{invoice_id}/related_invoices";
+    final String url = "/invoices/{invoice_id}/related_invoices";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
     final String path = this.interpolatePath(url, urlParams);
@@ -964,7 +966,7 @@ public class Client extends BaseClient {
      * @return Returns the new credit invoice.
    */
   public Invoice refundInvoice(String invoiceId, InvoiceRefund body) {
-    final String url = "/sites/{site_id}/invoices/{invoice_id}/refund";
+    final String url = "/invoices/{invoice_id}/refund";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
     final String path = this.interpolatePath(url, urlParams);
@@ -980,7 +982,7 @@ public class Client extends BaseClient {
      * @return A list of the site's line items.
    */
   public Pager<LineItem> listLineItems(QueryParams queryParams) {
-    final String url = "/sites/{site_id}/line_items";
+    final String url = "/line_items";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     if (queryParams == null) queryParams = new QueryParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
@@ -997,7 +999,7 @@ public class Client extends BaseClient {
      * @return A line item.
    */
   public LineItem getLineItem(String lineItemId) {
-    final String url = "/sites/{site_id}/line_items/{line_item_id}";
+    final String url = "/line_items/{line_item_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("line_item_id", lineItemId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1012,7 +1014,7 @@ public class Client extends BaseClient {
    * @param lineItemId Line Item ID.
    */
   public void removeLineItem(String lineItemId) {
-    final String url = "/sites/{site_id}/line_items/{line_item_id}";
+    final String url = "/line_items/{line_item_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("line_item_id", lineItemId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1027,7 +1029,7 @@ public class Client extends BaseClient {
      * @return A list of plans.
    */
   public Pager<Plan> listPlans(QueryParams queryParams) {
-    final String url = "/sites/{site_id}/plans";
+    final String url = "/plans";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     if (queryParams == null) queryParams = new QueryParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
@@ -1044,7 +1046,7 @@ public class Client extends BaseClient {
      * @return A plan.
    */
   public Plan createPlan(PlanCreate body) {
-    final String url = "/sites/{site_id}/plans";
+    final String url = "/plans";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Plan.class;
@@ -1059,7 +1061,7 @@ public class Client extends BaseClient {
      * @return A plan.
    */
   public Plan getPlan(String planId) {
-    final String url = "/sites/{site_id}/plans/{plan_id}";
+    final String url = "/plans/{plan_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1076,7 +1078,7 @@ public class Client extends BaseClient {
      * @return A plan.
    */
   public Plan updatePlan(String planId, PlanUpdate body) {
-    final String url = "/sites/{site_id}/plans/{plan_id}";
+    final String url = "/plans/{plan_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1092,7 +1094,7 @@ public class Client extends BaseClient {
      * @return Plan deleted
    */
   public Plan removePlan(String planId) {
-    final String url = "/sites/{site_id}/plans/{plan_id}";
+    final String url = "/plans/{plan_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1109,7 +1111,7 @@ public class Client extends BaseClient {
      * @return A list of add-ons.
    */
   public Pager<AddOn> listPlanAddOns(String planId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/plans/{plan_id}/add_ons";
+    final String url = "/plans/{plan_id}/add_ons";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -1128,7 +1130,7 @@ public class Client extends BaseClient {
      * @return An add-on.
    */
   public AddOn createPlanAddOn(String planId, AddOnCreate body) {
-    final String url = "/sites/{site_id}/plans/{plan_id}/add_ons";
+    final String url = "/plans/{plan_id}/add_ons";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1145,7 +1147,7 @@ public class Client extends BaseClient {
      * @return An add-on.
    */
   public AddOn getPlanAddOn(String planId, String addOnId) {
-    final String url = "/sites/{site_id}/plans/{plan_id}/add_ons/{add_on_id}";
+    final String url = "/plans/{plan_id}/add_ons/{add_on_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
     urlParams.put("add_on_id", addOnId);
@@ -1164,7 +1166,7 @@ public class Client extends BaseClient {
      * @return An add-on.
    */
   public AddOn updatePlanAddOn(String planId, String addOnId, AddOnUpdate body) {
-    final String url = "/sites/{site_id}/plans/{plan_id}/add_ons/{add_on_id}";
+    final String url = "/plans/{plan_id}/add_ons/{add_on_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
     urlParams.put("add_on_id", addOnId);
@@ -1182,7 +1184,7 @@ public class Client extends BaseClient {
      * @return Add-on deleted
    */
   public AddOn removePlanAddOn(String planId, String addOnId) {
-    final String url = "/sites/{site_id}/plans/{plan_id}/add_ons/{add_on_id}";
+    final String url = "/plans/{plan_id}/add_ons/{add_on_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
     urlParams.put("add_on_id", addOnId);
@@ -1199,7 +1201,7 @@ public class Client extends BaseClient {
      * @return A list of add-ons.
    */
   public Pager<AddOn> listAddOns(QueryParams queryParams) {
-    final String url = "/sites/{site_id}/add_ons";
+    final String url = "/add_ons";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     if (queryParams == null) queryParams = new QueryParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
@@ -1216,7 +1218,7 @@ public class Client extends BaseClient {
      * @return An add-on.
    */
   public AddOn getAddOn(String addOnId) {
-    final String url = "/sites/{site_id}/add_ons/{add_on_id}";
+    final String url = "/add_ons/{add_on_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("add_on_id", addOnId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1232,7 +1234,7 @@ public class Client extends BaseClient {
      * @return A list of the site's subscriptions.
    */
   public Pager<Subscription> listSubscriptions(QueryParams queryParams) {
-    final String url = "/sites/{site_id}/subscriptions";
+    final String url = "/subscriptions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     if (queryParams == null) queryParams = new QueryParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
@@ -1249,7 +1251,7 @@ public class Client extends BaseClient {
      * @return A subscription.
    */
   public Subscription createSubscription(SubscriptionCreate body) {
-    final String url = "/sites/{site_id}/subscriptions";
+    final String url = "/subscriptions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Subscription.class;
@@ -1264,7 +1266,7 @@ public class Client extends BaseClient {
      * @return A subscription.
    */
   public Subscription getSubscription(String subscriptionId) {
-    final String url = "/sites/{site_id}/subscriptions/{subscription_id}";
+    final String url = "/subscriptions/{subscription_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1281,7 +1283,7 @@ public class Client extends BaseClient {
      * @return A subscription.
    */
   public Subscription modifySubscription(String subscriptionId, SubscriptionUpdate body) {
-    final String url = "/sites/{site_id}/subscriptions/{subscription_id}";
+    final String url = "/subscriptions/{subscription_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1298,7 +1300,7 @@ public class Client extends BaseClient {
      * @return An expired subscription.
    */
   public Subscription terminateSubscription(String subscriptionId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/subscriptions/{subscription_id}";
+    final String url = "/subscriptions/{subscription_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -1316,7 +1318,7 @@ public class Client extends BaseClient {
      * @return A canceled or failed subscription.
    */
   public Subscription cancelSubscription(String subscriptionId) {
-    final String url = "/sites/{site_id}/subscriptions/{subscription_id}/cancel";
+    final String url = "/subscriptions/{subscription_id}/cancel";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1332,7 +1334,7 @@ public class Client extends BaseClient {
      * @return An active subscription.
    */
   public Subscription reactivateSubscription(String subscriptionId) {
-    final String url = "/sites/{site_id}/subscriptions/{subscription_id}/reactivate";
+    final String url = "/subscriptions/{subscription_id}/reactivate";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1349,7 +1351,7 @@ public class Client extends BaseClient {
      * @return A subscription.
    */
   public Subscription pauseSubscription(String subscriptionId, SubscriptionPause body) {
-    final String url = "/sites/{site_id}/subscriptions/{subscription_id}/pause";
+    final String url = "/subscriptions/{subscription_id}/pause";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1365,7 +1367,7 @@ public class Client extends BaseClient {
      * @return A subscription.
    */
   public Subscription resumeSubscription(String subscriptionId) {
-    final String url = "/sites/{site_id}/subscriptions/{subscription_id}/resume";
+    final String url = "/subscriptions/{subscription_id}/resume";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1381,7 +1383,7 @@ public class Client extends BaseClient {
      * @return A subscription's pending change.
    */
   public SubscriptionChange getSubscriptionChange(String subscriptionId) {
-    final String url = "/sites/{site_id}/subscriptions/{subscription_id}/change";
+    final String url = "/subscriptions/{subscription_id}/change";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1398,7 +1400,7 @@ public class Client extends BaseClient {
      * @return A subscription change.
    */
   public SubscriptionChange createSubscriptionChange(String subscriptionId, SubscriptionChangeCreate body) {
-    final String url = "/sites/{site_id}/subscriptions/{subscription_id}/change";
+    final String url = "/subscriptions/{subscription_id}/change";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1413,7 +1415,7 @@ public class Client extends BaseClient {
    * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
    */
   public void removeSubscriptionChange(String subscriptionId) {
-    final String url = "/sites/{site_id}/subscriptions/{subscription_id}/change";
+    final String url = "/subscriptions/{subscription_id}/change";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1429,7 +1431,7 @@ public class Client extends BaseClient {
      * @return A list of the subscription's invoices.
    */
   public Pager<Invoice> listSubscriptionInvoices(String subscriptionId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/subscriptions/{subscription_id}/invoices";
+    final String url = "/subscriptions/{subscription_id}/invoices";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -1448,7 +1450,7 @@ public class Client extends BaseClient {
      * @return A list of the subscription's line items.
    */
   public Pager<LineItem> listSubscriptionLineItems(String subscriptionId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/subscriptions/{subscription_id}/line_items";
+    final String url = "/subscriptions/{subscription_id}/line_items";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -1467,7 +1469,7 @@ public class Client extends BaseClient {
      * @return A list of the the coupon redemptions on a subscription.
    */
   public Pager<CouponRedemption> listSubscriptionCouponRedemptions(String subscriptionId, QueryParams queryParams) {
-    final String url = "/sites/{site_id}/subscriptions/{subscription_id}/coupon_redemptions";
+    final String url = "/subscriptions/{subscription_id}/coupon_redemptions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
     if (queryParams == null) queryParams = new QueryParams();
@@ -1485,7 +1487,7 @@ public class Client extends BaseClient {
      * @return A list of the site's transactions.
    */
   public Pager<Transaction> listTransactions(QueryParams queryParams) {
-    final String url = "/sites/{site_id}/transactions";
+    final String url = "/transactions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     if (queryParams == null) queryParams = new QueryParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
@@ -1502,7 +1504,7 @@ public class Client extends BaseClient {
      * @return A transaction.
    */
   public Transaction getTransaction(String transactionId) {
-    final String url = "/sites/{site_id}/transactions/{transaction_id}";
+    final String url = "/transactions/{transaction_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("transaction_id", transactionId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1518,7 +1520,7 @@ public class Client extends BaseClient {
      * @return A unique coupon code.
    */
   public UniqueCouponCode getUniqueCouponCode(String uniqueCouponCodeId) {
-    final String url = "/sites/{site_id}/unique_coupon_codes/{unique_coupon_code_id}";
+    final String url = "/unique_coupon_codes/{unique_coupon_code_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("unique_coupon_code_id", uniqueCouponCodeId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1534,7 +1536,7 @@ public class Client extends BaseClient {
      * @return A unique coupon code.
    */
   public UniqueCouponCode deactivateUniqueCouponCode(String uniqueCouponCodeId) {
-    final String url = "/sites/{site_id}/unique_coupon_codes/{unique_coupon_code_id}";
+    final String url = "/unique_coupon_codes/{unique_coupon_code_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("unique_coupon_code_id", uniqueCouponCodeId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1550,7 +1552,7 @@ public class Client extends BaseClient {
      * @return A unique coupon code.
    */
   public UniqueCouponCode reactivateUniqueCouponCode(String uniqueCouponCodeId) {
-    final String url = "/sites/{site_id}/unique_coupon_codes/{unique_coupon_code_id}/restore";
+    final String url = "/unique_coupon_codes/{unique_coupon_code_id}/restore";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("unique_coupon_code_id", uniqueCouponCodeId);
     final String path = this.interpolatePath(url, urlParams);
@@ -1566,7 +1568,7 @@ public class Client extends BaseClient {
      * @return Returns the new invoices
    */
   public InvoiceCollection createPurchase(PurchaseCreate body) {
-    final String url = "/sites/{site_id}/purchases";
+    final String url = "/purchases";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = InvoiceCollection.class;
@@ -1581,7 +1583,7 @@ public class Client extends BaseClient {
      * @return Returns preview of the new invoices
    */
   public InvoiceCollection previewPurchase(PurchaseCreate body) {
-    final String url = "/sites/{site_id}/purchases/preview";
+    final String url = "/purchases/preview";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = InvoiceCollection.class;

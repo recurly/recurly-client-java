@@ -7,30 +7,19 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
 public class ClientTest {
-  private static final String siteId = "subdomain-mysubdomain";
   private static final String apiKey = "myapikey";
 
   @Test
-  public void testCantInitializeWithoutSiteIdAndApiKey() {
+  public void testCantInitializeWithoutApiKey() {
     assertThrows(
         IllegalArgumentException.class,
         () -> {
-          new Client("SITEID", null);
+          new Client(null);
         });
     assertThrows(
         IllegalArgumentException.class,
         () -> {
-          new Client("SITEID", "");
-        });
-    assertThrows(
-        IllegalArgumentException.class,
-        () -> {
-          new Client(null, "APIKEY");
-        });
-    assertThrows(
-        IllegalArgumentException.class,
-        () -> {
-          new Client("", "APIKEY");
+          new Client("");
         });
   }
 

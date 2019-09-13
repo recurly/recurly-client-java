@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 if [[ -z "${TRAVIS}" ]]; then
   RECURLY_INSECURE=true mvn clean test jacoco:report

@@ -9,18 +9,18 @@ import java.util.HashMap;
 import okhttp3.OkHttpClient;
 
 public class MockClient extends BaseClient {
-  public MockClient(final String siteId, final String apiKey) {
-    super(siteId, apiKey);
+  public MockClient(final String apiKey) {
+    super(apiKey);
   }
 
-  public MockClient(final String siteId, final String apiKey, final OkHttpClient client) {
-    super(siteId, apiKey, client);
+  public MockClient(final String apiKey, final OkHttpClient client) {
+    super(apiKey, client);
   }
 
   public String apiUrl;
 
   public MyResource getResource(String resourceId) {
-    final String url = "/sites/{site_id}/resources/{resource_id}";
+    final String url = "/resources/{resource_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("resource_id", resourceId);
     final HashMap<String, Object> queryParams = new HashMap<String, Object>();
@@ -30,7 +30,7 @@ public class MockClient extends BaseClient {
   }
 
   public Pager<MyResource> listResources(QueryParams queryParams) {
-    final String url = "/sites/{site_id}/resources";
+    final String url = "/resources";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     if (queryParams == null) queryParams = new QueryParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
@@ -40,7 +40,7 @@ public class MockClient extends BaseClient {
   }
 
   public MyResource createResource(MyRequest body) {
-    final String url = "/sites/{site_id}/resources";
+    final String url = "/resources";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
@@ -49,7 +49,7 @@ public class MockClient extends BaseClient {
   }
 
   public MyResource updateResource(String resourceId, MyRequest body) {
-    final String url = "/sites/{site_id}/resources/{resource_id}";
+    final String url = "/resources/{resource_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("resource_id", resourceId);
     final String path = this.interpolatePath(url, urlParams);
@@ -58,7 +58,7 @@ public class MockClient extends BaseClient {
   }
 
   public void removeResource(String resourceId) {
-    final String url = "/sites/{site_id}/resources/{resource_id}";
+    final String url = "/resources/{resource_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("resource_id", resourceId);
     final HashMap<String, Object> queryParams = new HashMap<String, Object>();
@@ -67,6 +67,6 @@ public class MockClient extends BaseClient {
   }
 
   public void badRequestMethod() {
-    this.makeRequest("BOGUS", "/sites/{site_id}");
+    this.makeRequest("BOGUS", "/accounts");
   }
 }

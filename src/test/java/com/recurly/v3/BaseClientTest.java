@@ -28,7 +28,7 @@ public class BaseClientTest {
   public void testMakeRequestWithResource() {
     OkHttpClient mockOkHttpClient = getMockOkHttpClient(getResponseJson());
 
-    final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
     final MyResource resource = client.getResource("code-aaron");
 
     // TODO: Verify the request made was correct. MockWebServer?
@@ -39,7 +39,7 @@ public class BaseClientTest {
   public void testMakeRequestWithBody() {
     OkHttpClient mockOkHttpClient = getMockOkHttpClient(getResponseJson());
 
-    final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
     final MyRequest newResource = new MyRequest();
     newResource.setMyString("aaron");
     final MyResource resource = client.createResource(newResource);
@@ -58,7 +58,7 @@ public class BaseClientTest {
   public void testMakeRequestWithoutResource() {
     OkHttpClient mockOkHttpClient = getMockOkHttpClient("");
 
-    final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
     client.removeResource("resource-id");
 
     // TODO: Verify the request made was correct. MockWebServer?
@@ -68,7 +68,7 @@ public class BaseClientTest {
   public void testMakeRequestWithQueryParams() {
     OkHttpClient mockOkHttpClient = getMockOkHttpClient(getResponseListJson());
 
-    final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
     final MockQueryParams qp = new MockQueryParams();
     qp.setMyString("Aaron");
     qp.setMyDateTime(new DateTime());
@@ -88,7 +88,7 @@ public class BaseClientTest {
   public void testNotFoundError() {
     OkHttpClient mockOkHttpClient = getApiErrorMockOkHttpClient(getErrorJson("not_found"));
 
-    final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
 
     assertThrows(
         NotFoundException.class,
@@ -101,7 +101,7 @@ public class BaseClientTest {
   public void testValidationError() {
     OkHttpClient mockOkHttpClient = getApiErrorMockOkHttpClient(getErrorJson("validation"));
 
-    final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
 
     assertThrows(
         ValidationException.class,
@@ -114,7 +114,7 @@ public class BaseClientTest {
   public void testNetworkError() {
     OkHttpClient mockOkHttpClient = getNetworkErrorMockOkHttpClient();
 
-    final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
     assertThrows(
         NetworkException.class,
         () -> {
@@ -126,7 +126,7 @@ public class BaseClientTest {
   public void testNetworkErrorWithoutResource() {
     OkHttpClient mockOkHttpClient = getNetworkErrorMockOkHttpClient();
 
-    final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
     assertThrows(
         NetworkException.class,
         () -> {
@@ -138,7 +138,7 @@ public class BaseClientTest {
   public void testBadMethodError() {
     OkHttpClient mockOkHttpClient = getNetworkErrorMockOkHttpClient();
 
-    final MockClient client = new MockClient("siteId", "apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
 
     assertThrows(
         IllegalArgumentException.class,
@@ -149,7 +149,7 @@ public class BaseClientTest {
 
   @Test
   public void testSetApiUrl() {
-    final MockClient client = new MockClient("siteId", "apiKey");
+    final MockClient client = new MockClient("apiKey");
     final String newApiUrl = "https://my.base.url/";
     client._setApiUrl(newApiUrl);
 
@@ -161,7 +161,7 @@ public class BaseClientTest {
     final HashMap<String, String> environmentVariables = new HashMap<String, String>();
     environmentVariables.put("RECURLY_INSECURE", "false");
     setEnv(environmentVariables);
-    final MockClient client = new MockClient("siteId", "apiKey");
+    final MockClient client = new MockClient("apiKey");
     final String originalUrl = client.getApiUrl();
     final String newApiUrl = "https://my.base.url/";
     client._setApiUrl(newApiUrl);
@@ -175,23 +175,23 @@ public class BaseClientTest {
 
   @Test
   public void testInterpolatePathWithoutParams() {
-    final MockClient client = new MockClient("siteId", "apiKey");
-    final String path = "/sites/{site_id}/accounts";
+    final MockClient client = new MockClient("apiKey");
+    final String path = "/accounts";
     final String interpolatedPath = client.interpolatePath(path);
 
-    assertEquals("/sites/siteId/accounts", interpolatedPath);
+    assertEquals("/accounts", interpolatedPath);
   }
 
   @Test
   public void testInterpolatePathWithParams() {
-    final MockClient client = new MockClient("siteId", "apiKey");
-    final String path = "/sites/{site_id}/accounts/{account_id}/notes/{account_note_id}";
+    final MockClient client = new MockClient("apiKey");
+    final String path = "/accounts/{account_id}/notes/{account_note_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", "accountId");
     urlParams.put("account_note_id", "noteId");
     final String interpolatedPath = client.interpolatePath(path, urlParams);
 
-    assertEquals("/sites/siteId/accounts/accountId/notes/noteId", interpolatedPath);
+    assertEquals("/accounts/accountId/notes/noteId", interpolatedPath);
   }
 
   protected static void setEnv(Map<String, String> newenv) throws Exception {
