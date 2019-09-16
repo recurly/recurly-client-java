@@ -9,7 +9,17 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 
-public class TransactionPaymentMethod extends Resource {
+public class PaymentMethod extends Resource {
+
+  /** The bank account type. Only present for ACH payment methods. */
+  @SerializedName("account_type")
+  @Expose
+  private String accountType;
+
+  /** Billing Agreement identifier. Only present for Amazon or Paypal payment methods. */
+  @SerializedName("billing_agreement_id")
+  @Expose
+  private String billingAgreementId;
 
   /** Visa, MasterCard, American Express, Discover, JCB, etc. */
   @SerializedName("card_type")
@@ -31,7 +41,7 @@ public class TransactionPaymentMethod extends Resource {
   @Expose
   private String firstSix;
 
-  /** Credit card number's last four digits. */
+  /** Credit card number's last four digits. Will refer to bank account if payment method is ACH. */
   @SerializedName("last_four")
   @Expose
   private String lastFour;
@@ -39,6 +49,34 @@ public class TransactionPaymentMethod extends Resource {
   @SerializedName("object")
   @Expose
   private String object;
+
+  /** The bank account's routing number. Only present for ACH payment methods. */
+  @SerializedName("routing_number")
+  @Expose
+  private String routingNumber;
+
+  /** The bank account type. Only present for ACH payment methods. */
+  public String getAccountType() {
+    return this.accountType;
+  }
+
+  /** @param accountType The bank account type. Only present for ACH payment methods. */
+  public void setAccountType(final String accountType) {
+    this.accountType = accountType;
+  }
+
+  /** Billing Agreement identifier. Only present for Amazon or Paypal payment methods. */
+  public String getBillingAgreementId() {
+    return this.billingAgreementId;
+  }
+
+  /**
+   * @param billingAgreementId Billing Agreement identifier. Only present for Amazon or Paypal
+   *     payment methods.
+   */
+  public void setBillingAgreementId(final String billingAgreementId) {
+    this.billingAgreementId = billingAgreementId;
+  }
 
   /** Visa, MasterCard, American Express, Discover, JCB, etc. */
   public String getCardType() {
@@ -80,12 +118,15 @@ public class TransactionPaymentMethod extends Resource {
     this.firstSix = firstSix;
   }
 
-  /** Credit card number's last four digits. */
+  /** Credit card number's last four digits. Will refer to bank account if payment method is ACH. */
   public String getLastFour() {
     return this.lastFour;
   }
 
-  /** @param lastFour Credit card number's last four digits. */
+  /**
+   * @param lastFour Credit card number's last four digits. Will refer to bank account if payment
+   *     method is ACH.
+   */
   public void setLastFour(final String lastFour) {
     this.lastFour = lastFour;
   }
@@ -97,5 +138,17 @@ public class TransactionPaymentMethod extends Resource {
   /** @param object */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  /** The bank account's routing number. Only present for ACH payment methods. */
+  public String getRoutingNumber() {
+    return this.routingNumber;
+  }
+
+  /**
+   * @param routingNumber The bank account's routing number. Only present for ACH payment methods.
+   */
+  public void setRoutingNumber(final String routingNumber) {
+    this.routingNumber = routingNumber;
   }
 }

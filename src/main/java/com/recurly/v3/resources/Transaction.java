@@ -147,7 +147,7 @@ public class Transaction extends Resource {
 
   @SerializedName("payment_method")
   @Expose
-  private TransactionPaymentMethod paymentMethod;
+  private PaymentMethod paymentMethod;
 
   /** Indicates if part or all of this transaction was refunded. */
   @SerializedName("refunded")
@@ -484,12 +484,12 @@ public class Transaction extends Resource {
     this.paymentGateway = paymentGateway;
   }
 
-  public TransactionPaymentMethod getPaymentMethod() {
+  public PaymentMethod getPaymentMethod() {
     return this.paymentMethod;
   }
 
   /** @param paymentMethod */
-  public void setPaymentMethod(final TransactionPaymentMethod paymentMethod) {
+  public void setPaymentMethod(final PaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 

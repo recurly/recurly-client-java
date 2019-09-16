@@ -53,7 +53,7 @@ public class BillingInfo extends Resource {
 
   @SerializedName("payment_method")
   @Expose
-  private BillingInfoPaymentMethod paymentMethod;
+  private PaymentMethod paymentMethod;
 
   /** When the billing information was last changed. */
   @SerializedName("updated_at")
@@ -160,12 +160,12 @@ public class BillingInfo extends Resource {
     this.object = object;
   }
 
-  public BillingInfoPaymentMethod getPaymentMethod() {
+  public PaymentMethod getPaymentMethod() {
     return this.paymentMethod;
   }
 
   /** @param paymentMethod */
-  public void setPaymentMethod(final BillingInfoPaymentMethod paymentMethod) {
+  public void setPaymentMethod(final PaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
