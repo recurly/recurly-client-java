@@ -22,7 +22,7 @@ have the format `3.0.0-beta-x` until we go live starting with `3.0.0`.
 
 Client instances provide one place where every operation on the Recurly API can be found (rather than
 having them spread out amongst classes). A new client can be initialized with its constructor. It only requires
-an API key:
+an API key which can be obtained on the [API Credentials Page](https://app.recurly.com/go/integrations/api_keys).
 
 ```java
 import com.recurly.v3.Client;
