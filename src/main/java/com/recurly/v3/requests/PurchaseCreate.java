@@ -75,17 +75,9 @@ public class PurchaseCreate extends Request {
   @Expose
   private String poNumber;
 
-  @SerializedName("shipping_address")
+  @SerializedName("shipping")
   @Expose
-  private ShippingAddressCreate shippingAddress;
-
-  /**
-   * Assign a shipping address from the account's existing shipping addresses. If this and
-   * `shipping_address` are both present, `shipping_address` will take precedence.
-   */
-  @SerializedName("shipping_address_id")
-  @Expose
-  private String shippingAddressId;
+  private ShippingPurchase shipping;
 
   /** A list of subscriptions to be created with the purchase. */
   @SerializedName("subscriptions")
@@ -96,6 +88,14 @@ public class PurchaseCreate extends Request {
   @SerializedName("terms_and_conditions")
   @Expose
   private String termsAndConditions;
+
+  /**
+   * An optional type designation for the payment gateway transaction created by this request.
+   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  @SerializedName("transaction_type")
+  @Expose
+  private String transactionType;
 
   /** VAT reverse charge notes for cross border European tax settlement. */
   @SerializedName("vat_reverse_charge_notes")
@@ -240,30 +240,13 @@ public class PurchaseCreate extends Request {
     this.poNumber = poNumber;
   }
 
-  public ShippingAddressCreate getShippingAddress() {
-    return this.shippingAddress;
+  public ShippingPurchase getShipping() {
+    return this.shipping;
   }
 
-  /** @param shippingAddress */
-  public void setShippingAddress(final ShippingAddressCreate shippingAddress) {
-    this.shippingAddress = shippingAddress;
-  }
-
-  /**
-   * Assign a shipping address from the account's existing shipping addresses. If this and
-   * `shipping_address` are both present, `shipping_address` will take precedence.
-   */
-  public String getShippingAddressId() {
-    return this.shippingAddressId;
-  }
-
-  /**
-   * @param shippingAddressId Assign a shipping address from the account's existing shipping
-   *     addresses. If this and `shipping_address` are both present, `shipping_address` will take
-   *     precedence.
-   */
-  public void setShippingAddressId(final String shippingAddressId) {
-    this.shippingAddressId = shippingAddressId;
+  /** @param shipping */
+  public void setShipping(final ShippingPurchase shipping) {
+    this.shipping = shipping;
   }
 
   /** A list of subscriptions to be created with the purchase. */
@@ -284,6 +267,23 @@ public class PurchaseCreate extends Request {
   /** @param termsAndConditions Terms and conditions to be put on the purchase invoice. */
   public void setTermsAndConditions(final String termsAndConditions) {
     this.termsAndConditions = termsAndConditions;
+  }
+
+  /**
+   * An optional type designation for the payment gateway transaction created by this request.
+   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  public String getTransactionType() {
+    return this.transactionType;
+  }
+
+  /**
+   * @param transactionType An optional type designation for the payment gateway transaction created
+   *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
+   *     transactions.
+   */
+  public void setTransactionType(final String transactionType) {
+    this.transactionType = transactionType;
   }
 
   /** VAT reverse charge notes for cross border European tax settlement. */

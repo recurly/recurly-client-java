@@ -9,7 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 
-public class AddOnPricing extends Resource {
+public class Pricing extends Resource {
 
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")

@@ -11,17 +11,14 @@ import com.recurly.v3.Resource;
 import java.util.List;
 import org.joda.time.DateTime;
 
-public class AddOn extends Resource {
+public class Item extends Resource {
 
-  /**
-   * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
-   * add-on's code.
-   */
+  /** Accounting code for invoice line items. */
   @SerializedName("accounting_code")
   @Expose
   private String accountingCode;
 
-  /** The unique identifier for the add-on within its plan. */
+  /** Unique code to identify the item. */
   @SerializedName("code")
   @Expose
   private String code;
@@ -31,32 +28,39 @@ public class AddOn extends Resource {
   @Expose
   private DateTime createdAt;
 
-  /** Add-on pricing */
+  /** Item Pricing */
   @SerializedName("currencies")
   @Expose
   private List<Pricing> currencies;
 
-  /** Default quantity for the hosted pages. */
-  @SerializedName("default_quantity")
+  @SerializedName("custom_fields")
   @Expose
-  private Integer defaultQuantity;
+  private List<CustomField> customFields;
 
   /** Deleted at */
   @SerializedName("deleted_at")
   @Expose
   private DateTime deletedAt;
 
-  /** Determines if the quantity field is displayed on the hosted pages for the add-on. */
-  @SerializedName("display_quantity")
+  /** Optional, description. */
+  @SerializedName("description")
   @Expose
-  private Boolean displayQuantity;
+  private String description;
 
-  /** Add-on ID */
+  /** Optional, stock keeping unit to link the item to other inventory systems. */
+  @SerializedName("external_sku")
+  @Expose
+  private String externalSku;
+
+  /** Item ID */
   @SerializedName("id")
   @Expose
   private String id;
 
-  /** Describes your add-on and will appear in subscribers' invoices. */
+  /**
+   * This name describes your item and will appear on the invoice when it's purchased on a one time
+   * basis.
+   */
   @SerializedName("name")
   @Expose
   private String name;
@@ -66,12 +70,12 @@ public class AddOn extends Resource {
   @Expose
   private String object;
 
-  /** Plan ID */
-  @SerializedName("plan_id")
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
   @Expose
-  private String planId;
+  private String revenueScheduleType;
 
-  /** Add-ons can be either active or inactive. */
+  /** The current state of the item. */
   @SerializedName("state")
   @Expose
   private String state;
@@ -85,33 +89,32 @@ public class AddOn extends Resource {
   @Expose
   private String taxCode;
 
+  /** `true` exempts tax on the item, `false` applies tax on the item. */
+  @SerializedName("tax_exempt")
+  @Expose
+  private Boolean taxExempt;
+
   /** Last updated at */
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
 
-  /**
-   * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
-   * add-on's code.
-   */
+  /** Accounting code for invoice line items. */
   public String getAccountingCode() {
     return this.accountingCode;
   }
 
-  /**
-   * @param accountingCode Accounting code for invoice line items for this add-on. If no value is
-   *     provided, it defaults to add-on's code.
-   */
+  /** @param accountingCode Accounting code for invoice line items. */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
   }
 
-  /** The unique identifier for the add-on within its plan. */
+  /** Unique code to identify the item. */
   public String getCode() {
     return this.code;
   }
 
-  /** @param code The unique identifier for the add-on within its plan. */
+  /** @param code Unique code to identify the item. */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -126,24 +129,23 @@ public class AddOn extends Resource {
     this.createdAt = createdAt;
   }
 
-  /** Add-on pricing */
+  /** Item Pricing */
   public List<Pricing> getCurrencies() {
     return this.currencies;
   }
 
-  /** @param currencies Add-on pricing */
+  /** @param currencies Item Pricing */
   public void setCurrencies(final List<Pricing> currencies) {
     this.currencies = currencies;
   }
 
-  /** Default quantity for the hosted pages. */
-  public Integer getDefaultQuantity() {
-    return this.defaultQuantity;
+  public List<CustomField> getCustomFields() {
+    return this.customFields;
   }
 
-  /** @param defaultQuantity Default quantity for the hosted pages. */
-  public void setDefaultQuantity(final Integer defaultQuantity) {
-    this.defaultQuantity = defaultQuantity;
+  /** @param customFields */
+  public void setCustomFields(final List<CustomField> customFields) {
+    this.customFields = customFields;
   }
 
   /** Deleted at */
@@ -156,35 +158,50 @@ public class AddOn extends Resource {
     this.deletedAt = deletedAt;
   }
 
-  /** Determines if the quantity field is displayed on the hosted pages for the add-on. */
-  public Boolean getDisplayQuantity() {
-    return this.displayQuantity;
+  /** Optional, description. */
+  public String getDescription() {
+    return this.description;
+  }
+
+  /** @param description Optional, description. */
+  public void setDescription(final String description) {
+    this.description = description;
+  }
+
+  /** Optional, stock keeping unit to link the item to other inventory systems. */
+  public String getExternalSku() {
+    return this.externalSku;
   }
 
   /**
-   * @param displayQuantity Determines if the quantity field is displayed on the hosted pages for
-   *     the add-on.
+   * @param externalSku Optional, stock keeping unit to link the item to other inventory systems.
    */
-  public void setDisplayQuantity(final Boolean displayQuantity) {
-    this.displayQuantity = displayQuantity;
+  public void setExternalSku(final String externalSku) {
+    this.externalSku = externalSku;
   }
 
-  /** Add-on ID */
+  /** Item ID */
   public String getId() {
     return this.id;
   }
 
-  /** @param id Add-on ID */
+  /** @param id Item ID */
   public void setId(final String id) {
     this.id = id;
   }
 
-  /** Describes your add-on and will appear in subscribers' invoices. */
+  /**
+   * This name describes your item and will appear on the invoice when it's purchased on a one time
+   * basis.
+   */
   public String getName() {
     return this.name;
   }
 
-  /** @param name Describes your add-on and will appear in subscribers' invoices. */
+  /**
+   * @param name This name describes your item and will appear on the invoice when it's purchased on
+   *     a one time basis.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -199,22 +216,22 @@ public class AddOn extends Resource {
     this.object = object;
   }
 
-  /** Plan ID */
-  public String getPlanId() {
-    return this.planId;
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
   }
 
-  /** @param planId Plan ID */
-  public void setPlanId(final String planId) {
-    this.planId = planId;
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
   }
 
-  /** Add-ons can be either active or inactive. */
+  /** The current state of the item. */
   public String getState() {
     return this.state;
   }
 
-  /** @param state Add-ons can be either active or inactive. */
+  /** @param state The current state of the item. */
   public void setState(final String state) {
     this.state = state;
   }
@@ -235,6 +252,16 @@ public class AddOn extends Resource {
    */
   public void setTaxCode(final String taxCode) {
     this.taxCode = taxCode;
+  }
+
+  /** `true` exempts tax on the item, `false` applies tax on the item. */
+  public Boolean getTaxExempt() {
+    return this.taxExempt;
+  }
+
+  /** @param taxExempt `true` exempts tax on the item, `false` applies tax on the item. */
+  public void setTaxExempt(final Boolean taxExempt) {
+    this.taxExempt = taxExempt;
   }
 
   /** Last updated at */

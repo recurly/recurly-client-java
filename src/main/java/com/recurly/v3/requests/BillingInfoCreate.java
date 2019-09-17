@@ -71,6 +71,14 @@ public class BillingInfoCreate extends Request {
   @Expose
   private String tokenId;
 
+  /**
+   * An optional type designation for the payment gateway transaction created by this request.
+   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  @SerializedName("transaction_type")
+  @Expose
+  private String transactionType;
+
   /** VAT number */
   @SerializedName("vat_number")
   @Expose
@@ -203,6 +211,23 @@ public class BillingInfoCreate extends Request {
    */
   public void setTokenId(final String tokenId) {
     this.tokenId = tokenId;
+  }
+
+  /**
+   * An optional type designation for the payment gateway transaction created by this request.
+   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  public String getTransactionType() {
+    return this.transactionType;
+  }
+
+  /**
+   * @param transactionType An optional type designation for the payment gateway transaction created
+   *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
+   *     transactions.
+   */
+  public void setTransactionType(final String transactionType) {
+    this.transactionType = transactionType;
   }
 
   /** VAT number */

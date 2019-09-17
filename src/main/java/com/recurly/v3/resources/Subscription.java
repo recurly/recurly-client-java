@@ -117,6 +117,11 @@ public class Subscription extends Resource {
   @Expose
   private DateTime expiresAt;
 
+  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  @SerializedName("gateway_code")
+  @Expose
+  private String gatewayCode;
+
   /** Subscription ID */
   @SerializedName("id")
   @Expose
@@ -178,9 +183,9 @@ public class Subscription extends Resource {
   @Expose
   private Integer renewalBillingCycles;
 
-  @SerializedName("shipping_address")
+  @SerializedName("shipping")
   @Expose
-  private ShippingAddress shippingAddress;
+  private SubscriptionShipping shipping;
 
   /** State */
   @SerializedName("state")
@@ -445,6 +450,19 @@ public class Subscription extends Resource {
     this.expiresAt = expiresAt;
   }
 
+  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  public String getGatewayCode() {
+    return this.gatewayCode;
+  }
+
+  /**
+   * @param gatewayCode If present, this subscription's transactions will use the payment gateway
+   *     with this code.
+   */
+  public void setGatewayCode(final String gatewayCode) {
+    this.gatewayCode = gatewayCode;
+  }
+
   /** Subscription ID */
   public String getId() {
     return this.id;
@@ -579,13 +597,13 @@ public class Subscription extends Resource {
     this.renewalBillingCycles = renewalBillingCycles;
   }
 
-  public ShippingAddress getShippingAddress() {
-    return this.shippingAddress;
+  public SubscriptionShipping getShipping() {
+    return this.shipping;
   }
 
-  /** @param shippingAddress */
-  public void setShippingAddress(final ShippingAddress shippingAddress) {
-    this.shippingAddress = shippingAddress;
+  /** @param shipping */
+  public void setShipping(final SubscriptionShipping shipping) {
+    this.shipping = shipping;
   }
 
   /** State */

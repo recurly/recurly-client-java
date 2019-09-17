@@ -67,6 +67,11 @@ public class SubscriptionCreate extends Request {
   @Expose
   private String customerNotes;
 
+  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  @SerializedName("gateway_code")
+  @Expose
+  private String gatewayCode;
+
   /**
    * Integer representing the number of days after an invoice's creation that the invoice will
    * become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will
@@ -124,17 +129,9 @@ public class SubscriptionCreate extends Request {
   private Integer renewalBillingCycles;
 
   /** Create a shipping address on the account and assign it to the subscription. */
-  @SerializedName("shipping_address")
+  @SerializedName("shipping")
   @Expose
-  private ShippingAddressCreate shippingAddress;
-
-  /**
-   * Assign a shipping address from the account's existing shipping addresses. If this and
-   * `shipping_address` are both present, `shipping_address` will take precedence.
-   */
-  @SerializedName("shipping_address_id")
-  @Expose
-  private String shippingAddressId;
+  private SubscriptionShippingCreate shipping;
 
   /**
    * If set, the subscription will begin in the future on this date. The subscription will apply the
@@ -161,6 +158,14 @@ public class SubscriptionCreate extends Request {
   @SerializedName("total_billing_cycles")
   @Expose
   private Integer totalBillingCycles;
+
+  /**
+   * An optional type designation for the payment gateway transaction created by this request.
+   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  @SerializedName("transaction_type")
+  @Expose
+  private String transactionType;
 
   /**
    * If set, overrides the default trial behavior for the subscription. The date must be in the
@@ -287,6 +292,19 @@ public class SubscriptionCreate extends Request {
     this.customerNotes = customerNotes;
   }
 
+  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  public String getGatewayCode() {
+    return this.gatewayCode;
+  }
+
+  /**
+   * @param gatewayCode If present, this subscription's transactions will use the payment gateway
+   *     with this code.
+   */
+  public void setGatewayCode(final String gatewayCode) {
+    this.gatewayCode = gatewayCode;
+  }
+
   /**
    * Integer representing the number of days after an invoice's creation that the invoice will
    * become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will
@@ -404,33 +422,13 @@ public class SubscriptionCreate extends Request {
   }
 
   /** Create a shipping address on the account and assign it to the subscription. */
-  public ShippingAddressCreate getShippingAddress() {
-    return this.shippingAddress;
+  public SubscriptionShippingCreate getShipping() {
+    return this.shipping;
   }
 
-  /**
-   * @param shippingAddress Create a shipping address on the account and assign it to the
-   *     subscription.
-   */
-  public void setShippingAddress(final ShippingAddressCreate shippingAddress) {
-    this.shippingAddress = shippingAddress;
-  }
-
-  /**
-   * Assign a shipping address from the account's existing shipping addresses. If this and
-   * `shipping_address` are both present, `shipping_address` will take precedence.
-   */
-  public String getShippingAddressId() {
-    return this.shippingAddressId;
-  }
-
-  /**
-   * @param shippingAddressId Assign a shipping address from the account's existing shipping
-   *     addresses. If this and `shipping_address` are both present, `shipping_address` will take
-   *     precedence.
-   */
-  public void setShippingAddressId(final String shippingAddressId) {
-    this.shippingAddressId = shippingAddressId;
+  /** @param shipping Create a shipping address on the account and assign it to the subscription. */
+  public void setShipping(final SubscriptionShippingCreate shipping) {
+    this.shipping = shipping;
   }
 
   /**
@@ -483,6 +481,23 @@ public class SubscriptionCreate extends Request {
    */
   public void setTotalBillingCycles(final Integer totalBillingCycles) {
     this.totalBillingCycles = totalBillingCycles;
+  }
+
+  /**
+   * An optional type designation for the payment gateway transaction created by this request.
+   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  public String getTransactionType() {
+    return this.transactionType;
+  }
+
+  /**
+   * @param transactionType An optional type designation for the payment gateway transaction created
+   *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
+   *     transactions.
+   */
+  public void setTransactionType(final String transactionType) {
+    this.transactionType = transactionType;
   }
 
   /**

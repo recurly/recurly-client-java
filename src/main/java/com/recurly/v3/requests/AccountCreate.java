@@ -122,6 +122,14 @@ public class AccountCreate extends Request {
   @Expose
   private Boolean taxExempt;
 
+  /**
+   * An optional type designation for the payment gateway transaction created by this request.
+   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  @SerializedName("transaction_type")
+  @Expose
+  private String transactionType;
+
   /** A secondary value for the account. */
   @SerializedName("username")
   @Expose
@@ -364,6 +372,23 @@ public class AccountCreate extends Request {
    */
   public void setTaxExempt(final Boolean taxExempt) {
     this.taxExempt = taxExempt;
+  }
+
+  /**
+   * An optional type designation for the payment gateway transaction created by this request.
+   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  public String getTransactionType() {
+    return this.transactionType;
+  }
+
+  /**
+   * @param transactionType An optional type designation for the payment gateway transaction created
+   *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
+   *     transactions.
+   */
+  public void setTransactionType(final String transactionType) {
+    this.transactionType = transactionType;
   }
 
   /** A secondary value for the account. */

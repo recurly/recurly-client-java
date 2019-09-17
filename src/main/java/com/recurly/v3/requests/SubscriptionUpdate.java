@@ -36,6 +36,11 @@ public class SubscriptionUpdate extends Request {
   @Expose
   private String customerNotes;
 
+  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  @SerializedName("gateway_code")
+  @Expose
+  private String gatewayCode;
+
   /**
    * Integer representing the number of days after an invoice's creation that the invoice will
    * become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will
@@ -74,18 +79,9 @@ public class SubscriptionUpdate extends Request {
   @Expose
   private Integer renewalBillingCycles;
 
-  /**
-   * Create a shipping address on the account and assign it to the subscription. If this and
-   * `shipping_address_id` are both present, `shipping_address_id` will take precedence.
-   */
-  @SerializedName("shipping_address")
+  @SerializedName("shipping")
   @Expose
-  private ShippingAddressCreate shippingAddress;
-
-  /** Assign a shipping address from the account's existing shipping addresses. */
-  @SerializedName("shipping_address_id")
-  @Expose
-  private String shippingAddressId;
+  private SubscriptionShippingUpdate shipping;
 
   /**
    * Specify custom notes to add or override Terms and Conditions. Custom notes will stay with a
@@ -138,6 +134,19 @@ public class SubscriptionUpdate extends Request {
    */
   public void setCustomerNotes(final String customerNotes) {
     this.customerNotes = customerNotes;
+  }
+
+  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  public String getGatewayCode() {
+    return this.gatewayCode;
+  }
+
+  /**
+   * @param gatewayCode If present, this subscription's transactions will use the payment gateway
+   *     with this code.
+   */
+  public void setGatewayCode(final String gatewayCode) {
+    this.gatewayCode = gatewayCode;
   }
 
   /**
@@ -220,34 +229,13 @@ public class SubscriptionUpdate extends Request {
     this.renewalBillingCycles = renewalBillingCycles;
   }
 
-  /**
-   * Create a shipping address on the account and assign it to the subscription. If this and
-   * `shipping_address_id` are both present, `shipping_address_id` will take precedence.
-   */
-  public ShippingAddressCreate getShippingAddress() {
-    return this.shippingAddress;
+  public SubscriptionShippingUpdate getShipping() {
+    return this.shipping;
   }
 
-  /**
-   * @param shippingAddress Create a shipping address on the account and assign it to the
-   *     subscription. If this and `shipping_address_id` are both present, `shipping_address_id`
-   *     will take precedence.
-   */
-  public void setShippingAddress(final ShippingAddressCreate shippingAddress) {
-    this.shippingAddress = shippingAddress;
-  }
-
-  /** Assign a shipping address from the account's existing shipping addresses. */
-  public String getShippingAddressId() {
-    return this.shippingAddressId;
-  }
-
-  /**
-   * @param shippingAddressId Assign a shipping address from the account's existing shipping
-   *     addresses.
-   */
-  public void setShippingAddressId(final String shippingAddressId) {
-    this.shippingAddressId = shippingAddressId;
+  /** @param shipping */
+  public void setShipping(final SubscriptionShippingUpdate shipping) {
+    this.shipping = shipping;
   }
 
   /**
