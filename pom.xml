@@ -55,7 +55,7 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <okhttp3.version>3.14.0</okhttp3.version>
+        <okhttp3.version>3.14.3</okhttp3.version>
         <surefire.version>3.0.0-M3</surefire.version>
         <jacoco.version>0.8.3</jacoco.version>
     </properties>
@@ -215,6 +215,7 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.8.1</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -252,6 +253,7 @@
             <artifactId>surefire</artifactId>
             <version>${surefire.version}</version>
             <type>pom</type>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -264,6 +266,7 @@
             <artifactId>jacoco-maven-plugin</artifactId>
             <version>${jacoco.version}</version>
             <type>maven-plugin</type>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
