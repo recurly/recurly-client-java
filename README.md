@@ -1,11 +1,12 @@
 # Recurly
 
-*Warning*:
-This library does not use the V2 API. If you are attempting to build an
-integration with V2, please see [https://dev.recurly.com/](https://dev.recurly.com/).
+This repository houses the official java client for Recurly's V3 API.
 
-This library is the Java client for Recurly's V3 API. It's currently Beta software
-and is not yet an official release. Documentation for the API can be [found here](https://developers.recurly.com/api/v2019-10-01/).
+> *Note*:
+> If you were looking for a V2 client, we recommend the [open source KillBilling library](https://github.com/killbilling/recurly-java-library/).
+
+Documentation for the HTTP API and example code can be found
+[on our Developer Portal](https://developers.recurly.com/api/v2019-10-10/).
 
 ## Getting Started
 
