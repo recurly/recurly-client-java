@@ -26,7 +26,7 @@ public class CouponRedemptionMini extends Resource {
    */
   @SerializedName("discounted")
   @Expose
-  private String discounted;
+  private Float discounted;
 
   /** Coupon Redemption ID */
   @SerializedName("id")
@@ -65,7 +65,7 @@ public class CouponRedemptionMini extends Resource {
   /**
    * The amount that was discounted upon the application of the coupon, formatted with the currency.
    */
-  public String getDiscounted() {
+  public Float getDiscounted() {
     return this.discounted;
   }
 
@@ -73,7 +73,7 @@ public class CouponRedemptionMini extends Resource {
    * @param discounted The amount that was discounted upon the application of the coupon, formatted
    *     with the currency.
    */
-  public void setDiscounted(final String discounted) {
+  public void setDiscounted(final Float discounted) {
     this.discounted = discounted;
   }
 

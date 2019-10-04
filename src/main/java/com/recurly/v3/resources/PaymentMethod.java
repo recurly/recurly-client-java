@@ -55,6 +55,11 @@ public class PaymentMethod extends Resource {
   @Expose
   private String routingNumber;
 
+  /** The bank name of this routing number. */
+  @SerializedName("routing_number_bank")
+  @Expose
+  private String routingNumberBank;
+
   /** The bank account type. Only present for ACH payment methods. */
   public String getAccountType() {
     return this.accountType;
@@ -150,5 +155,15 @@ public class PaymentMethod extends Resource {
    */
   public void setRoutingNumber(final String routingNumber) {
     this.routingNumber = routingNumber;
+  }
+
+  /** The bank name of this routing number. */
+  public String getRoutingNumberBank() {
+    return this.routingNumberBank;
+  }
+
+  /** @param routingNumberBank The bank name of this routing number. */
+  public void setRoutingNumberBank(final String routingNumberBank) {
+    this.routingNumberBank = routingNumberBank;
   }
 }

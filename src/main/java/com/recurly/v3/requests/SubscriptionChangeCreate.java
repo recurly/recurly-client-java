@@ -71,12 +71,16 @@ public class SubscriptionChangeCreate extends Request {
   @Expose
   private Integer quantity;
 
+  @SerializedName("shipping")
+  @Expose
+  private SubscriptionChangeShippingCreate shipping;
+
   /**
    * The timeframe parameter controls when the upgrade or downgrade takes place. The subscription
-   * change can occur now or when the subscription renews. Generally, if you're performing an
-   * upgrade, you will want the change to occur immediately (now). If you're performing a downgrade,
-   * you should set the timeframe to "renewal" so the change takes affect at the end of the current
-   * billing cycle.
+   * change can occur now, when the subscription is next billed, or when the subscription renews.
+   * Generally, if you're performing an upgrade, you will want the change to occur immediately
+   * (now). If you're performing a downgrade, you should set the timeframe to "renewal" so the
+   * change takes affect at the end of the current subscription term.
    */
   @SerializedName("timeframe")
   @Expose
@@ -211,12 +215,21 @@ public class SubscriptionChangeCreate extends Request {
     this.quantity = quantity;
   }
 
+  public SubscriptionChangeShippingCreate getShipping() {
+    return this.shipping;
+  }
+
+  /** @param shipping */
+  public void setShipping(final SubscriptionChangeShippingCreate shipping) {
+    this.shipping = shipping;
+  }
+
   /**
    * The timeframe parameter controls when the upgrade or downgrade takes place. The subscription
-   * change can occur now or when the subscription renews. Generally, if you're performing an
-   * upgrade, you will want the change to occur immediately (now). If you're performing a downgrade,
-   * you should set the timeframe to "renewal" so the change takes affect at the end of the current
-   * billing cycle.
+   * change can occur now, when the subscription is next billed, or when the subscription renews.
+   * Generally, if you're performing an upgrade, you will want the change to occur immediately
+   * (now). If you're performing a downgrade, you should set the timeframe to "renewal" so the
+   * change takes affect at the end of the current subscription term.
    */
   public String getTimeframe() {
     return this.timeframe;
@@ -224,10 +237,10 @@ public class SubscriptionChangeCreate extends Request {
 
   /**
    * @param timeframe The timeframe parameter controls when the upgrade or downgrade takes place.
-   *     The subscription change can occur now or when the subscription renews. Generally, if you're
-   *     performing an upgrade, you will want the change to occur immediately (now). If you're
-   *     performing a downgrade, you should set the timeframe to "renewal" so the change takes
-   *     affect at the end of the current billing cycle.
+   *     The subscription change can occur now, when the subscription is next billed, or when the
+   *     subscription renews. Generally, if you're performing an upgrade, you will want the change
+   *     to occur immediately (now). If you're performing a downgrade, you should set the timeframe
+   *     to "renewal" so the change takes affect at the end of the current subscription term.
    */
   public void setTimeframe(final String timeframe) {
     this.timeframe = timeframe;

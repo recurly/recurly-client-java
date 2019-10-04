@@ -7,6 +7,7 @@
 package com.recurly.v3;
 
 import java.util.HashMap;
+import java.util.List;
 import org.joda.time.DateTime;
 
 public class QueryParams {
@@ -25,7 +26,7 @@ public class QueryParams {
     this.params.put(key, value);
   }
 
-  public void setIds(final String ids) {
+  public void setIds(final List<String> ids) {
     this.add("ids", ids);
   }
 
@@ -47,6 +48,10 @@ public class QueryParams {
 
   public void setEndTime(final DateTime endTime) {
     this.add("end_time", endTime);
+  }
+
+  public void setEmail(final String email) {
+    this.add("email", email);
   }
 
   public void setSubscriber(final Boolean subscriber) {

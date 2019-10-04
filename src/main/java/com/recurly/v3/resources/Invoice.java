@@ -136,6 +136,10 @@ public class Invoice extends Resource {
   @Expose
   private Float refundableAmount;
 
+  @SerializedName("shipping_address")
+  @Expose
+  private ShippingAddress shippingAddress;
+
   /** Invoice state */
   @SerializedName("state")
   @Expose
@@ -463,6 +467,15 @@ public class Invoice extends Resource {
    */
   public void setRefundableAmount(final Float refundableAmount) {
     this.refundableAmount = refundableAmount;
+  }
+
+  public ShippingAddress getShippingAddress() {
+    return this.shippingAddress;
+  }
+
+  /** @param shippingAddress */
+  public void setShippingAddress(final ShippingAddress shippingAddress) {
+    this.shippingAddress = shippingAddress;
   }
 
   /** Invoice state */
