@@ -20,7 +20,7 @@ public class FraudInfo extends Resource {
   /** Kount rules */
   @SerializedName("risk_rules_triggered")
   @Expose
-  private Map<String, String> riskRulesTriggered;
+  private Map riskRulesTriggered;
 
   /** Kount score */
   @SerializedName("score")
@@ -38,12 +38,12 @@ public class FraudInfo extends Resource {
   }
 
   /** Kount rules */
-  public Map<String, String> getRiskRulesTriggered() {
+  public Map getRiskRulesTriggered() {
     return this.riskRulesTriggered;
   }
 
   /** @param riskRulesTriggered Kount rules */
-  public void setRiskRulesTriggered(final Map<String, String> riskRulesTriggered) {
+  public void setRiskRulesTriggered(final Map riskRulesTriggered) {
     this.riskRulesTriggered = riskRulesTriggered;
   }
 

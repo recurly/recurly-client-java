@@ -75,17 +75,9 @@ public class PurchaseCreate extends Request {
   @Expose
   private String poNumber;
 
-  @SerializedName("shipping_address")
+  @SerializedName("shipping")
   @Expose
-  private ShippingAddressCreate shippingAddress;
-
-  /**
-   * Assign a shipping address from the account's existing shipping addresses. If this and
-   * `shipping_address` are both present, `shipping_address` will take precedence.
-   */
-  @SerializedName("shipping_address_id")
-  @Expose
-  private String shippingAddressId;
+  private ShippingPurchase shipping;
 
   /** A list of subscriptions to be created with the purchase. */
   @SerializedName("subscriptions")
@@ -240,30 +232,13 @@ public class PurchaseCreate extends Request {
     this.poNumber = poNumber;
   }
 
-  public ShippingAddressCreate getShippingAddress() {
-    return this.shippingAddress;
+  public ShippingPurchase getShipping() {
+    return this.shipping;
   }
 
-  /** @param shippingAddress */
-  public void setShippingAddress(final ShippingAddressCreate shippingAddress) {
-    this.shippingAddress = shippingAddress;
-  }
-
-  /**
-   * Assign a shipping address from the account's existing shipping addresses. If this and
-   * `shipping_address` are both present, `shipping_address` will take precedence.
-   */
-  public String getShippingAddressId() {
-    return this.shippingAddressId;
-  }
-
-  /**
-   * @param shippingAddressId Assign a shipping address from the account's existing shipping
-   *     addresses. If this and `shipping_address` are both present, `shipping_address` will take
-   *     precedence.
-   */
-  public void setShippingAddressId(final String shippingAddressId) {
-    this.shippingAddressId = shippingAddressId;
+  /** @param shipping */
+  public void setShipping(final ShippingPurchase shipping) {
+    this.shipping = shipping;
   }
 
   /** A list of subscriptions to be created with the purchase. */

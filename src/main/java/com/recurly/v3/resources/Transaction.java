@@ -95,7 +95,7 @@ public class Transaction extends Resource {
   /** The values in this field will vary from gateway to gateway. */
   @SerializedName("gateway_response_values")
   @Expose
-  private Map<String, String> gatewayResponseValues;
+  private Map gatewayResponseValues;
 
   /** Transaction ID */
   @SerializedName("id")
@@ -378,12 +378,12 @@ public class Transaction extends Resource {
   }
 
   /** The values in this field will vary from gateway to gateway. */
-  public Map<String, String> getGatewayResponseValues() {
+  public Map getGatewayResponseValues() {
     return this.gatewayResponseValues;
   }
 
   /** @param gatewayResponseValues The values in this field will vary from gateway to gateway. */
-  public void setGatewayResponseValues(final Map<String, String> gatewayResponseValues) {
+  public void setGatewayResponseValues(final Map gatewayResponseValues) {
     this.gatewayResponseValues = gatewayResponseValues;
   }
 

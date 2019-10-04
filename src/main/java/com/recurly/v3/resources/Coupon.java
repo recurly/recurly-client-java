@@ -119,6 +119,14 @@ public class Coupon extends Resource {
   @Expose
   private String object;
 
+  /**
+   * A list of plans for which this coupon applies. This will be `null` if
+   * `applies_to_all_plans=true`.
+   */
+  @SerializedName("plans")
+  @Expose
+  private List<PlanMini> plans;
+
   /** TODO */
   @SerializedName("plans_names")
   @Expose
@@ -393,6 +401,22 @@ public class Coupon extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  /**
+   * A list of plans for which this coupon applies. This will be `null` if
+   * `applies_to_all_plans=true`.
+   */
+  public List<PlanMini> getPlans() {
+    return this.plans;
+  }
+
+  /**
+   * @param plans A list of plans for which this coupon applies. This will be `null` if
+   *     `applies_to_all_plans=true`.
+   */
+  public void setPlans(final List<PlanMini> plans) {
+    this.plans = plans;
   }
 
   /** TODO */
