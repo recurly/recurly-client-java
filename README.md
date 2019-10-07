@@ -12,12 +12,26 @@ Documentation for the HTTP API and example code can be found
 
 ### Installing
 
-You can find the compiled releases and installing instructions at
+As a Maven dependency:
+
+```xml
+<dependency>
+  <groupId>com.recurly.v3</groupId>
+  <artifactId>api-client</artifactId>
+  <version>3.0.0</version>
+</dependency>
+```
+
+Gradle:
+
+```groovy
+implementation 'com.recurly.v3:api-client:3.0.0'
+```
+
+You can find further release and distribution details on
 [Maven Central](https://search.maven.org/artifact/com.recurly.v3/api-client/)
 
-This library is currently a pre-release. It's important that you lock on a specific
-version as there may be breaking changes between releases. All beta releases will
-have the format `3.0.0-beta-x` until we go live starting with `3.0.0`.
+> *Note*: We try to follow [semantic versioning](https://semver.org/) and will only apply breaking changes to major versions.
 
 ### Creating a client
 
