@@ -1,252 +1,693 @@
+/**
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
+ */
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
 import java.util.List;
-import java.util.Map;
+import org.joda.time.DateTime;
 
 public class Subscription extends Resource {
 
   @SerializedName("account")
-  private Account account;
+  @Expose
+  private AccountMini account;
 
+  /** Activated at */
   @SerializedName("activated_at")
+  @Expose
   private DateTime activatedAt;
 
+  /** Add-ons */
   @SerializedName("add_ons")
+  @Expose
   private List<SubscriptionAddOn> addOns;
 
+  /** Total price of add-ons */
   @SerializedName("add_ons_total")
+  @Expose
   private Float addOnsTotal;
 
+  /** Whether the subscription renews at the end of its term. */
   @SerializedName("auto_renew")
+  @Expose
   private Boolean autoRenew;
 
+  /**
+   * Recurring subscriptions paid with ACH will have this attribute set. This timestamp is used for
+   * alerting customers to reauthorize in 3 years in accordance with NACHA rules. If a subscription
+   * becomes inactive or the billing info is no longer a bank account, this timestamp is cleared.
+   */
   @SerializedName("bank_account_authorized_at")
+  @Expose
   private DateTime bankAccountAuthorizedAt;
 
+  /** Canceled at */
   @SerializedName("canceled_at")
+  @Expose
   private DateTime canceledAt;
 
+  /** Collection method */
   @SerializedName("collection_method")
+  @Expose
   private String collectionMethod;
 
+  /** Coupon redemptions */
   @SerializedName("coupon_redemptions")
-  private List<CouponRedemption> couponRedemptions;
+  @Expose
+  private List<CouponRedemptionMini> couponRedemptions;
 
+  /** Created at */
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
+  /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
+  @Expose
   private String currency;
 
+  /** Current billing period ends at */
   @SerializedName("current_period_ends_at")
+  @Expose
   private DateTime currentPeriodEndsAt;
 
+  /** Current billing period started at */
   @SerializedName("current_period_started_at")
+  @Expose
   private DateTime currentPeriodStartedAt;
 
+  /**
+   * When the term ends. This is calculated by a plan's interval and `total_billing_cycles` in a
+   * term. Subscription changes with a `timeframe=renewal` will be applied on this date.
+   */
   @SerializedName("current_term_ends_at")
+  @Expose
   private DateTime currentTermEndsAt;
 
+  /**
+   * The start date of the term when the first billing period starts. The subscription term is the
+   * length of time that a customer will be committed to a subscription. A term can span multiple
+   * billing periods.
+   */
   @SerializedName("current_term_started_at")
+  @Expose
   private DateTime currentTermStartedAt;
 
   @SerializedName("custom_fields")
+  @Expose
   private List<CustomField> customFields;
 
+  /** Customer notes */
   @SerializedName("customer_notes")
+  @Expose
   private String customerNotes;
 
+  /** Expiration reason */
   @SerializedName("expiration_reason")
+  @Expose
   private String expirationReason;
 
+  /** Expires at */
   @SerializedName("expires_at")
+  @Expose
   private DateTime expiresAt;
 
+  /** Subscription ID */
   @SerializedName("id")
+  @Expose
   private String id;
 
+  /**
+   * Integer representing the number of days after an invoice's creation that the invoice will
+   * become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will
+   * become past due 24 hours after it’s created. If an invoice is due net 30, it will become past
+   * due at 31 days exactly.
+   */
   @SerializedName("net_terms")
+  @Expose
   private Integer netTerms;
 
+  /** Object type */
   @SerializedName("object")
+  @Expose
   private String object;
 
+  /** Null unless subscription is paused or will pause at the end of the current billing period. */
   @SerializedName("paused_at")
+  @Expose
   private DateTime pausedAt;
 
   @SerializedName("pending_change")
+  @Expose
   private SubscriptionChange pendingChange;
 
   @SerializedName("plan")
-  private Plan plan;
+  @Expose
+  private PlanMini plan;
 
+  /** For manual invoicing, this identifies the PO number associated with the subscription. */
   @SerializedName("po_number")
+  @Expose
   private String poNumber;
 
+  /** Subscription quantity */
   @SerializedName("quantity")
+  @Expose
   private Integer quantity;
 
+  /** The remaining billing cycles in the current term. */
   @SerializedName("remaining_billing_cycles")
+  @Expose
   private Integer remainingBillingCycles;
 
+  /** Null unless subscription is paused or will pause at the end of the current billing period. */
   @SerializedName("remaining_pause_cycles")
+  @Expose
   private Integer remainingPauseCycles;
 
+  /**
+   * If `auto_renew=true`, when a term completes, `total_billing_cycles` takes this value as the
+   * length of subsequent terms. Defaults to the plan's `total_billing_cycles`.
+   */
   @SerializedName("renewal_billing_cycles")
+  @Expose
   private Integer renewalBillingCycles;
 
-  @SerializedName("shipping_address")
-  private ShippingAddress shippingAddress;
+  @SerializedName("shipping")
+  @Expose
+  private SubscriptionShipping shipping;
 
+  /** State */
   @SerializedName("state")
+  @Expose
   private String state;
 
+  /** Estimated total, before tax. */
   @SerializedName("subtotal")
+  @Expose
   private Float subtotal;
 
+  /** Terms and conditions */
   @SerializedName("terms_and_conditions")
+  @Expose
   private String termsAndConditions;
 
+  /**
+   * The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if
+   * `auto_renew=true` the subscription will renew and a new term will begin, otherwise the
+   * subscription will expire.
+   */
   @SerializedName("total_billing_cycles")
+  @Expose
   private Integer totalBillingCycles;
 
+  /** Trial period ends at */
   @SerializedName("trial_ends_at")
+  @Expose
   private DateTime trialEndsAt;
 
+  /** Trial period started at */
   @SerializedName("trial_started_at")
+  @Expose
   private DateTime trialStartedAt;
 
+  /** Subscription unit price */
   @SerializedName("unit_amount")
+  @Expose
   private Float unitAmount;
 
+  /** Last updated at */
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
+  /**
+   * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
+   */
   @SerializedName("uuid")
+  @Expose
   private String uuid;
 
+  public AccountMini getAccount() {
+    return this.account;
+  }
 
-  public Account getAccount() { return this.account; }
-  public void setAccount(final Account account) { this.account = account; }
+  /** @param account */
+  public void setAccount(final AccountMini account) {
+    this.account = account;
+  }
 
-  public DateTime getActivatedAt() { return this.activatedAt; }
-  public void setActivatedAt(final DateTime activatedAt) { this.activatedAt = activatedAt; }
+  /** Activated at */
+  public DateTime getActivatedAt() {
+    return this.activatedAt;
+  }
 
-  public List<SubscriptionAddOn> getAddOns() { return this.addOns; }
-  public void setAddOns(final List<SubscriptionAddOn> addOns) { this.addOns = addOns; }
+  /** @param activatedAt Activated at */
+  public void setActivatedAt(final DateTime activatedAt) {
+    this.activatedAt = activatedAt;
+  }
 
-  public Float getAddOnsTotal() { return this.addOnsTotal; }
-  public void setAddOnsTotal(final Float addOnsTotal) { this.addOnsTotal = addOnsTotal; }
+  /** Add-ons */
+  public List<SubscriptionAddOn> getAddOns() {
+    return this.addOns;
+  }
 
-  public Boolean getAutoRenew() { return this.autoRenew; }
-  public void setAutoRenew(final Boolean autoRenew) { this.autoRenew = autoRenew; }
+  /** @param addOns Add-ons */
+  public void setAddOns(final List<SubscriptionAddOn> addOns) {
+    this.addOns = addOns;
+  }
 
-  public DateTime getBankAccountAuthorizedAt() { return this.bankAccountAuthorizedAt; }
-  public void setBankAccountAuthorizedAt(final DateTime bankAccountAuthorizedAt) { this.bankAccountAuthorizedAt = bankAccountAuthorizedAt; }
+  /** Total price of add-ons */
+  public Float getAddOnsTotal() {
+    return this.addOnsTotal;
+  }
 
-  public DateTime getCanceledAt() { return this.canceledAt; }
-  public void setCanceledAt(final DateTime canceledAt) { this.canceledAt = canceledAt; }
+  /** @param addOnsTotal Total price of add-ons */
+  public void setAddOnsTotal(final Float addOnsTotal) {
+    this.addOnsTotal = addOnsTotal;
+  }
 
-  public String getCollectionMethod() { return this.collectionMethod; }
-  public void setCollectionMethod(final String collectionMethod) { this.collectionMethod = collectionMethod; }
+  /** Whether the subscription renews at the end of its term. */
+  public Boolean getAutoRenew() {
+    return this.autoRenew;
+  }
 
-  public List<CouponRedemption> getCouponRedemptions() { return this.couponRedemptions; }
-  public void setCouponRedemptions(final List<CouponRedemption> couponRedemptions) { this.couponRedemptions = couponRedemptions; }
+  /** @param autoRenew Whether the subscription renews at the end of its term. */
+  public void setAutoRenew(final Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+  }
 
-  public DateTime getCreatedAt() { return this.createdAt; }
-  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
+  /**
+   * Recurring subscriptions paid with ACH will have this attribute set. This timestamp is used for
+   * alerting customers to reauthorize in 3 years in accordance with NACHA rules. If a subscription
+   * becomes inactive or the billing info is no longer a bank account, this timestamp is cleared.
+   */
+  public DateTime getBankAccountAuthorizedAt() {
+    return this.bankAccountAuthorizedAt;
+  }
 
-  public String getCurrency() { return this.currency; }
-  public void setCurrency(final String currency) { this.currency = currency; }
+  /**
+   * @param bankAccountAuthorizedAt Recurring subscriptions paid with ACH will have this attribute
+   *     set. This timestamp is used for alerting customers to reauthorize in 3 years in accordance
+   *     with NACHA rules. If a subscription becomes inactive or the billing info is no longer a
+   *     bank account, this timestamp is cleared.
+   */
+  public void setBankAccountAuthorizedAt(final DateTime bankAccountAuthorizedAt) {
+    this.bankAccountAuthorizedAt = bankAccountAuthorizedAt;
+  }
 
-  public DateTime getCurrentPeriodEndsAt() { return this.currentPeriodEndsAt; }
-  public void setCurrentPeriodEndsAt(final DateTime currentPeriodEndsAt) { this.currentPeriodEndsAt = currentPeriodEndsAt; }
+  /** Canceled at */
+  public DateTime getCanceledAt() {
+    return this.canceledAt;
+  }
 
-  public DateTime getCurrentPeriodStartedAt() { return this.currentPeriodStartedAt; }
-  public void setCurrentPeriodStartedAt(final DateTime currentPeriodStartedAt) { this.currentPeriodStartedAt = currentPeriodStartedAt; }
+  /** @param canceledAt Canceled at */
+  public void setCanceledAt(final DateTime canceledAt) {
+    this.canceledAt = canceledAt;
+  }
 
-  public DateTime getCurrentTermEndsAt() { return this.currentTermEndsAt; }
-  public void setCurrentTermEndsAt(final DateTime currentTermEndsAt) { this.currentTermEndsAt = currentTermEndsAt; }
+  /** Collection method */
+  public String getCollectionMethod() {
+    return this.collectionMethod;
+  }
 
-  public DateTime getCurrentTermStartedAt() { return this.currentTermStartedAt; }
-  public void setCurrentTermStartedAt(final DateTime currentTermStartedAt) { this.currentTermStartedAt = currentTermStartedAt; }
+  /** @param collectionMethod Collection method */
+  public void setCollectionMethod(final String collectionMethod) {
+    this.collectionMethod = collectionMethod;
+  }
 
-  public List<CustomField> getCustomFields() { return this.customFields; }
-  public void setCustomFields(final List<CustomField> customFields) { this.customFields = customFields; }
+  /** Coupon redemptions */
+  public List<CouponRedemptionMini> getCouponRedemptions() {
+    return this.couponRedemptions;
+  }
 
-  public String getCustomerNotes() { return this.customerNotes; }
-  public void setCustomerNotes(final String customerNotes) { this.customerNotes = customerNotes; }
+  /** @param couponRedemptions Coupon redemptions */
+  public void setCouponRedemptions(final List<CouponRedemptionMini> couponRedemptions) {
+    this.couponRedemptions = couponRedemptions;
+  }
 
-  public String getExpirationReason() { return this.expirationReason; }
-  public void setExpirationReason(final String expirationReason) { this.expirationReason = expirationReason; }
+  /** Created at */
+  public DateTime getCreatedAt() {
+    return this.createdAt;
+  }
 
-  public DateTime getExpiresAt() { return this.expiresAt; }
-  public void setExpiresAt(final DateTime expiresAt) { this.expiresAt = expiresAt; }
+  /** @param createdAt Created at */
+  public void setCreatedAt(final DateTime createdAt) {
+    this.createdAt = createdAt;
+  }
 
-  public String getId() { return this.id; }
-  public void setId(final String id) { this.id = id; }
+  /** 3-letter ISO 4217 currency code. */
+  public String getCurrency() {
+    return this.currency;
+  }
 
-  public Integer getNetTerms() { return this.netTerms; }
-  public void setNetTerms(final Integer netTerms) { this.netTerms = netTerms; }
+  /** @param currency 3-letter ISO 4217 currency code. */
+  public void setCurrency(final String currency) {
+    this.currency = currency;
+  }
 
-  public String getObject() { return this.object; }
-  public void setObject(final String object) { this.object = object; }
+  /** Current billing period ends at */
+  public DateTime getCurrentPeriodEndsAt() {
+    return this.currentPeriodEndsAt;
+  }
 
-  public DateTime getPausedAt() { return this.pausedAt; }
-  public void setPausedAt(final DateTime pausedAt) { this.pausedAt = pausedAt; }
+  /** @param currentPeriodEndsAt Current billing period ends at */
+  public void setCurrentPeriodEndsAt(final DateTime currentPeriodEndsAt) {
+    this.currentPeriodEndsAt = currentPeriodEndsAt;
+  }
 
-  public SubscriptionChange getPendingChange() { return this.pendingChange; }
-  public void setPendingChange(final SubscriptionChange pendingChange) { this.pendingChange = pendingChange; }
+  /** Current billing period started at */
+  public DateTime getCurrentPeriodStartedAt() {
+    return this.currentPeriodStartedAt;
+  }
 
-  public Plan getPlan() { return this.plan; }
-  public void setPlan(final Plan plan) { this.plan = plan; }
+  /** @param currentPeriodStartedAt Current billing period started at */
+  public void setCurrentPeriodStartedAt(final DateTime currentPeriodStartedAt) {
+    this.currentPeriodStartedAt = currentPeriodStartedAt;
+  }
 
-  public String getPoNumber() { return this.poNumber; }
-  public void setPoNumber(final String poNumber) { this.poNumber = poNumber; }
+  /**
+   * When the term ends. This is calculated by a plan's interval and `total_billing_cycles` in a
+   * term. Subscription changes with a `timeframe=renewal` will be applied on this date.
+   */
+  public DateTime getCurrentTermEndsAt() {
+    return this.currentTermEndsAt;
+  }
 
-  public Integer getQuantity() { return this.quantity; }
-  public void setQuantity(final Integer quantity) { this.quantity = quantity; }
+  /**
+   * @param currentTermEndsAt When the term ends. This is calculated by a plan's interval and
+   *     `total_billing_cycles` in a term. Subscription changes with a `timeframe=renewal` will be
+   *     applied on this date.
+   */
+  public void setCurrentTermEndsAt(final DateTime currentTermEndsAt) {
+    this.currentTermEndsAt = currentTermEndsAt;
+  }
 
-  public Integer getRemainingBillingCycles() { return this.remainingBillingCycles; }
-  public void setRemainingBillingCycles(final Integer remainingBillingCycles) { this.remainingBillingCycles = remainingBillingCycles; }
+  /**
+   * The start date of the term when the first billing period starts. The subscription term is the
+   * length of time that a customer will be committed to a subscription. A term can span multiple
+   * billing periods.
+   */
+  public DateTime getCurrentTermStartedAt() {
+    return this.currentTermStartedAt;
+  }
 
-  public Integer getRemainingPauseCycles() { return this.remainingPauseCycles; }
-  public void setRemainingPauseCycles(final Integer remainingPauseCycles) { this.remainingPauseCycles = remainingPauseCycles; }
+  /**
+   * @param currentTermStartedAt The start date of the term when the first billing period starts.
+   *     The subscription term is the length of time that a customer will be committed to a
+   *     subscription. A term can span multiple billing periods.
+   */
+  public void setCurrentTermStartedAt(final DateTime currentTermStartedAt) {
+    this.currentTermStartedAt = currentTermStartedAt;
+  }
 
-  public Integer getRenewalBillingCycles() { return this.renewalBillingCycles; }
-  public void setRenewalBillingCycles(final Integer renewalBillingCycles) { this.renewalBillingCycles = renewalBillingCycles; }
+  public List<CustomField> getCustomFields() {
+    return this.customFields;
+  }
 
-  public ShippingAddress getShippingAddress() { return this.shippingAddress; }
-  public void setShippingAddress(final ShippingAddress shippingAddress) { this.shippingAddress = shippingAddress; }
+  /** @param customFields */
+  public void setCustomFields(final List<CustomField> customFields) {
+    this.customFields = customFields;
+  }
 
-  public String getState() { return this.state; }
-  public void setState(final String state) { this.state = state; }
+  /** Customer notes */
+  public String getCustomerNotes() {
+    return this.customerNotes;
+  }
 
-  public Float getSubtotal() { return this.subtotal; }
-  public void setSubtotal(final Float subtotal) { this.subtotal = subtotal; }
+  /** @param customerNotes Customer notes */
+  public void setCustomerNotes(final String customerNotes) {
+    this.customerNotes = customerNotes;
+  }
 
-  public String getTermsAndConditions() { return this.termsAndConditions; }
-  public void setTermsAndConditions(final String termsAndConditions) { this.termsAndConditions = termsAndConditions; }
+  /** Expiration reason */
+  public String getExpirationReason() {
+    return this.expirationReason;
+  }
 
-  public Integer getTotalBillingCycles() { return this.totalBillingCycles; }
-  public void setTotalBillingCycles(final Integer totalBillingCycles) { this.totalBillingCycles = totalBillingCycles; }
+  /** @param expirationReason Expiration reason */
+  public void setExpirationReason(final String expirationReason) {
+    this.expirationReason = expirationReason;
+  }
 
-  public DateTime getTrialEndsAt() { return this.trialEndsAt; }
-  public void setTrialEndsAt(final DateTime trialEndsAt) { this.trialEndsAt = trialEndsAt; }
+  /** Expires at */
+  public DateTime getExpiresAt() {
+    return this.expiresAt;
+  }
 
-  public DateTime getTrialStartedAt() { return this.trialStartedAt; }
-  public void setTrialStartedAt(final DateTime trialStartedAt) { this.trialStartedAt = trialStartedAt; }
+  /** @param expiresAt Expires at */
+  public void setExpiresAt(final DateTime expiresAt) {
+    this.expiresAt = expiresAt;
+  }
 
-  public Float getUnitAmount() { return this.unitAmount; }
-  public void setUnitAmount(final Float unitAmount) { this.unitAmount = unitAmount; }
+  /** Subscription ID */
+  public String getId() {
+    return this.id;
+  }
 
-  public DateTime getUpdatedAt() { return this.updatedAt; }
-  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+  /** @param id Subscription ID */
+  public void setId(final String id) {
+    this.id = id;
+  }
 
-  public String getUuid() { return this.uuid; }
-  public void setUuid(final String uuid) { this.uuid = uuid; }
+  /**
+   * Integer representing the number of days after an invoice's creation that the invoice will
+   * become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will
+   * become past due 24 hours after it’s created. If an invoice is due net 30, it will become past
+   * due at 31 days exactly.
+   */
+  public Integer getNetTerms() {
+    return this.netTerms;
+  }
 
+  /**
+   * @param netTerms Integer representing the number of days after an invoice's creation that the
+   *     invoice will become past due. If an invoice's net terms are set to '0', it is due 'On
+   *     Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30,
+   *     it will become past due at 31 days exactly.
+   */
+  public void setNetTerms(final Integer netTerms) {
+    this.netTerms = netTerms;
+  }
+
+  /** Object type */
+  public String getObject() {
+    return this.object;
+  }
+
+  /** @param object Object type */
+  public void setObject(final String object) {
+    this.object = object;
+  }
+
+  /** Null unless subscription is paused or will pause at the end of the current billing period. */
+  public DateTime getPausedAt() {
+    return this.pausedAt;
+  }
+
+  /**
+   * @param pausedAt Null unless subscription is paused or will pause at the end of the current
+   *     billing period.
+   */
+  public void setPausedAt(final DateTime pausedAt) {
+    this.pausedAt = pausedAt;
+  }
+
+  public SubscriptionChange getPendingChange() {
+    return this.pendingChange;
+  }
+
+  /** @param pendingChange */
+  public void setPendingChange(final SubscriptionChange pendingChange) {
+    this.pendingChange = pendingChange;
+  }
+
+  public PlanMini getPlan() {
+    return this.plan;
+  }
+
+  /** @param plan */
+  public void setPlan(final PlanMini plan) {
+    this.plan = plan;
+  }
+
+  /** For manual invoicing, this identifies the PO number associated with the subscription. */
+  public String getPoNumber() {
+    return this.poNumber;
+  }
+
+  /**
+   * @param poNumber For manual invoicing, this identifies the PO number associated with the
+   *     subscription.
+   */
+  public void setPoNumber(final String poNumber) {
+    this.poNumber = poNumber;
+  }
+
+  /** Subscription quantity */
+  public Integer getQuantity() {
+    return this.quantity;
+  }
+
+  /** @param quantity Subscription quantity */
+  public void setQuantity(final Integer quantity) {
+    this.quantity = quantity;
+  }
+
+  /** The remaining billing cycles in the current term. */
+  public Integer getRemainingBillingCycles() {
+    return this.remainingBillingCycles;
+  }
+
+  /** @param remainingBillingCycles The remaining billing cycles in the current term. */
+  public void setRemainingBillingCycles(final Integer remainingBillingCycles) {
+    this.remainingBillingCycles = remainingBillingCycles;
+  }
+
+  /** Null unless subscription is paused or will pause at the end of the current billing period. */
+  public Integer getRemainingPauseCycles() {
+    return this.remainingPauseCycles;
+  }
+
+  /**
+   * @param remainingPauseCycles Null unless subscription is paused or will pause at the end of the
+   *     current billing period.
+   */
+  public void setRemainingPauseCycles(final Integer remainingPauseCycles) {
+    this.remainingPauseCycles = remainingPauseCycles;
+  }
+
+  /**
+   * If `auto_renew=true`, when a term completes, `total_billing_cycles` takes this value as the
+   * length of subsequent terms. Defaults to the plan's `total_billing_cycles`.
+   */
+  public Integer getRenewalBillingCycles() {
+    return this.renewalBillingCycles;
+  }
+
+  /**
+   * @param renewalBillingCycles If `auto_renew=true`, when a term completes, `total_billing_cycles`
+   *     takes this value as the length of subsequent terms. Defaults to the plan's
+   *     `total_billing_cycles`.
+   */
+  public void setRenewalBillingCycles(final Integer renewalBillingCycles) {
+    this.renewalBillingCycles = renewalBillingCycles;
+  }
+
+  public SubscriptionShipping getShipping() {
+    return this.shipping;
+  }
+
+  /** @param shipping */
+  public void setShipping(final SubscriptionShipping shipping) {
+    this.shipping = shipping;
+  }
+
+  /** State */
+  public String getState() {
+    return this.state;
+  }
+
+  /** @param state State */
+  public void setState(final String state) {
+    this.state = state;
+  }
+
+  /** Estimated total, before tax. */
+  public Float getSubtotal() {
+    return this.subtotal;
+  }
+
+  /** @param subtotal Estimated total, before tax. */
+  public void setSubtotal(final Float subtotal) {
+    this.subtotal = subtotal;
+  }
+
+  /** Terms and conditions */
+  public String getTermsAndConditions() {
+    return this.termsAndConditions;
+  }
+
+  /** @param termsAndConditions Terms and conditions */
+  public void setTermsAndConditions(final String termsAndConditions) {
+    this.termsAndConditions = termsAndConditions;
+  }
+
+  /**
+   * The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if
+   * `auto_renew=true` the subscription will renew and a new term will begin, otherwise the
+   * subscription will expire.
+   */
+  public Integer getTotalBillingCycles() {
+    return this.totalBillingCycles;
+  }
+
+  /**
+   * @param totalBillingCycles The number of cycles/billing periods in a term. When
+   *     `remaining_billing_cycles=0`, if `auto_renew=true` the subscription will renew and a new
+   *     term will begin, otherwise the subscription will expire.
+   */
+  public void setTotalBillingCycles(final Integer totalBillingCycles) {
+    this.totalBillingCycles = totalBillingCycles;
+  }
+
+  /** Trial period ends at */
+  public DateTime getTrialEndsAt() {
+    return this.trialEndsAt;
+  }
+
+  /** @param trialEndsAt Trial period ends at */
+  public void setTrialEndsAt(final DateTime trialEndsAt) {
+    this.trialEndsAt = trialEndsAt;
+  }
+
+  /** Trial period started at */
+  public DateTime getTrialStartedAt() {
+    return this.trialStartedAt;
+  }
+
+  /** @param trialStartedAt Trial period started at */
+  public void setTrialStartedAt(final DateTime trialStartedAt) {
+    this.trialStartedAt = trialStartedAt;
+  }
+
+  /** Subscription unit price */
+  public Float getUnitAmount() {
+    return this.unitAmount;
+  }
+
+  /** @param unitAmount Subscription unit price */
+  public void setUnitAmount(final Float unitAmount) {
+    this.unitAmount = unitAmount;
+  }
+
+  /** Last updated at */
+  public DateTime getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  /** @param updatedAt Last updated at */
+  public void setUpdatedAt(final DateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  /**
+   * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
+   */
+  public String getUuid() {
+    return this.uuid;
+  }
+
+  /**
+   * @param uuid The UUID is useful for matching data with the CSV exports and building URLs into
+   *     Recurly's UI.
+   */
+  public void setUuid(final String uuid) {
+    this.uuid = uuid;
+  }
 }

@@ -1,37 +1,86 @@
+/**
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
+ */
 package com.recurly.v3.requests;
 
-import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
-import org.joda.time.DateTime;
-import java.util.List;
-import java.util.Map;
+import com.recurly.v3.resources.*;
 
 public class AccountAcquisitionUpdatable extends Request {
 
+  /**
+   * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.
+   */
   @SerializedName("campaign")
+  @Expose
   private String campaign;
 
+  /** The channel through which the account was acquired. */
   @SerializedName("channel")
+  @Expose
   private String channel;
 
   @SerializedName("cost")
-  private Map<String, String> cost;
+  @Expose
+  private AccountAcquisitionCost cost;
 
+  /**
+   * An arbitrary subchannel string representing a distinction/subcategory within a broader channel.
+   */
   @SerializedName("subchannel")
+  @Expose
   private String subchannel;
 
+  /**
+   * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.
+   */
+  public String getCampaign() {
+    return this.campaign;
+  }
 
-  public String getCampaign() { return this.campaign; }
-  public void setCampaign(final String campaign) { this.campaign = campaign; }
+  /**
+   * @param campaign An arbitrary identifier for the marketing campaign that led to the acquisition
+   *     of this account.
+   */
+  public void setCampaign(final String campaign) {
+    this.campaign = campaign;
+  }
 
-  public String getChannel() { return this.channel; }
-  public void setChannel(final String channel) { this.channel = channel; }
+  /** The channel through which the account was acquired. */
+  public String getChannel() {
+    return this.channel;
+  }
 
-  public Map<String, String> getCost() { return this.cost; }
-  public void setCost(final Map<String, String> cost) { this.cost = cost; }
+  /** @param channel The channel through which the account was acquired. */
+  public void setChannel(final String channel) {
+    this.channel = channel;
+  }
 
-  public String getSubchannel() { return this.subchannel; }
-  public void setSubchannel(final String subchannel) { this.subchannel = subchannel; }
+  public AccountAcquisitionCost getCost() {
+    return this.cost;
+  }
 
+  /** @param cost */
+  public void setCost(final AccountAcquisitionCost cost) {
+    this.cost = cost;
+  }
+
+  /**
+   * An arbitrary subchannel string representing a distinction/subcategory within a broader channel.
+   */
+  public String getSubchannel() {
+    return this.subchannel;
+  }
+
+  /**
+   * @param subchannel An arbitrary subchannel string representing a distinction/subcategory within
+   *     a broader channel.
+   */
+  public void setSubchannel(final String subchannel) {
+    this.subchannel = subchannel;
+  }
 }

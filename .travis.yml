@@ -1,0 +1,10 @@
+language: java
+jdk:
+  - openjdk8
+  - openjdk11
+  - openjdk-ea
+matrix:
+  allow_failures:
+    - jdk: openjdk-ea
+script:
+  - ./scripts/test

@@ -1,66 +1,157 @@
+/**
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
+ */
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
-import java.util.List;
-import java.util.Map;
 
 public class AccountAcquisition extends Resource {
 
   @SerializedName("account")
-  private Account account;
+  @Expose
+  private AccountMini account;
 
+  /**
+   * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.
+   */
   @SerializedName("campaign")
+  @Expose
   private String campaign;
 
+  /** The channel through which the account was acquired. */
   @SerializedName("channel")
+  @Expose
   private String channel;
 
   @SerializedName("cost")
-  private Map<String, String> cost;
+  @Expose
+  private AccountAcquisitionCost cost;
 
+  /** When the account acquisition data was created. */
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
   @SerializedName("id")
+  @Expose
   private String id;
 
+  /** Object type */
   @SerializedName("object")
+  @Expose
   private String object;
 
+  /**
+   * An arbitrary subchannel string representing a distinction/subcategory within a broader channel.
+   */
   @SerializedName("subchannel")
+  @Expose
   private String subchannel;
 
+  /** When the account acquisition data was last changed. */
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
+  public AccountMini getAccount() {
+    return this.account;
+  }
 
-  public Account getAccount() { return this.account; }
-  public void setAccount(final Account account) { this.account = account; }
+  /** @param account */
+  public void setAccount(final AccountMini account) {
+    this.account = account;
+  }
 
-  public String getCampaign() { return this.campaign; }
-  public void setCampaign(final String campaign) { this.campaign = campaign; }
+  /**
+   * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.
+   */
+  public String getCampaign() {
+    return this.campaign;
+  }
 
-  public String getChannel() { return this.channel; }
-  public void setChannel(final String channel) { this.channel = channel; }
+  /**
+   * @param campaign An arbitrary identifier for the marketing campaign that led to the acquisition
+   *     of this account.
+   */
+  public void setCampaign(final String campaign) {
+    this.campaign = campaign;
+  }
 
-  public Map<String, String> getCost() { return this.cost; }
-  public void setCost(final Map<String, String> cost) { this.cost = cost; }
+  /** The channel through which the account was acquired. */
+  public String getChannel() {
+    return this.channel;
+  }
 
-  public DateTime getCreatedAt() { return this.createdAt; }
-  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
+  /** @param channel The channel through which the account was acquired. */
+  public void setChannel(final String channel) {
+    this.channel = channel;
+  }
 
-  public String getId() { return this.id; }
-  public void setId(final String id) { this.id = id; }
+  public AccountAcquisitionCost getCost() {
+    return this.cost;
+  }
 
-  public String getObject() { return this.object; }
-  public void setObject(final String object) { this.object = object; }
+  /** @param cost */
+  public void setCost(final AccountAcquisitionCost cost) {
+    this.cost = cost;
+  }
 
-  public String getSubchannel() { return this.subchannel; }
-  public void setSubchannel(final String subchannel) { this.subchannel = subchannel; }
+  /** When the account acquisition data was created. */
+  public DateTime getCreatedAt() {
+    return this.createdAt;
+  }
 
-  public DateTime getUpdatedAt() { return this.updatedAt; }
-  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+  /** @param createdAt When the account acquisition data was created. */
+  public void setCreatedAt(final DateTime createdAt) {
+    this.createdAt = createdAt;
+  }
 
+  public String getId() {
+    return this.id;
+  }
+
+  /** @param id */
+  public void setId(final String id) {
+    this.id = id;
+  }
+
+  /** Object type */
+  public String getObject() {
+    return this.object;
+  }
+
+  /** @param object Object type */
+  public void setObject(final String object) {
+    this.object = object;
+  }
+
+  /**
+   * An arbitrary subchannel string representing a distinction/subcategory within a broader channel.
+   */
+  public String getSubchannel() {
+    return this.subchannel;
+  }
+
+  /**
+   * @param subchannel An arbitrary subchannel string representing a distinction/subcategory within
+   *     a broader channel.
+   */
+  public void setSubchannel(final String subchannel) {
+    this.subchannel = subchannel;
+  }
+
+  /** When the account acquisition data was last changed. */
+  public DateTime getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  /** @param updatedAt When the account acquisition data was last changed. */
+  public void setUpdatedAt(final DateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
 }

@@ -1,4 +1,3 @@
 package com.recurly.v3;
 
-public class Resource {
-}
+public class Resource {}

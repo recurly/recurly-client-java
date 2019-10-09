@@ -1,72 +1,171 @@
+/**
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
+ */
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
-import java.util.List;
-import java.util.Map;
 
 public class CouponRedemption extends Resource {
 
-  @SerializedName("account_id")
-  private String accountId;
+  /** The Account on which the coupon was applied. */
+  @SerializedName("account")
+  @Expose
+  private AccountMini account;
 
   @SerializedName("coupon")
+  @Expose
   private Coupon coupon;
 
+  /** Created at */
   @SerializedName("created_at")
+  @Expose
   private DateTime createdAt;
 
+  /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
+  @Expose
   private String currency;
 
+  /**
+   * The amount that was discounted upon the application of the coupon, formatted with the currency.
+   */
   @SerializedName("discounted")
-  private String discounted;
+  @Expose
+  private Float discounted;
 
+  /** Coupon Redemption ID */
   @SerializedName("id")
+  @Expose
   private String id;
 
+  /** Will always be `coupon`. */
   @SerializedName("object")
+  @Expose
   private String object;
 
+  /** The date and time the redemption was removed from the account (un-redeemed). */
   @SerializedName("removed_at")
+  @Expose
   private DateTime removedAt;
 
+  /** Coupon Redemption state */
   @SerializedName("state")
+  @Expose
   private String state;
 
+  /** Last updated at */
   @SerializedName("updated_at")
+  @Expose
   private DateTime updatedAt;
 
+  /** The Account on which the coupon was applied. */
+  public AccountMini getAccount() {
+    return this.account;
+  }
 
-  public String getAccountId() { return this.accountId; }
-  public void setAccountId(final String accountId) { this.accountId = accountId; }
+  /** @param account The Account on which the coupon was applied. */
+  public void setAccount(final AccountMini account) {
+    this.account = account;
+  }
 
-  public Coupon getCoupon() { return this.coupon; }
-  public void setCoupon(final Coupon coupon) { this.coupon = coupon; }
+  public Coupon getCoupon() {
+    return this.coupon;
+  }
 
-  public DateTime getCreatedAt() { return this.createdAt; }
-  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
+  /** @param coupon */
+  public void setCoupon(final Coupon coupon) {
+    this.coupon = coupon;
+  }
 
-  public String getCurrency() { return this.currency; }
-  public void setCurrency(final String currency) { this.currency = currency; }
+  /** Created at */
+  public DateTime getCreatedAt() {
+    return this.createdAt;
+  }
 
-  public String getDiscounted() { return this.discounted; }
-  public void setDiscounted(final String discounted) { this.discounted = discounted; }
+  /** @param createdAt Created at */
+  public void setCreatedAt(final DateTime createdAt) {
+    this.createdAt = createdAt;
+  }
 
-  public String getId() { return this.id; }
-  public void setId(final String id) { this.id = id; }
+  /** 3-letter ISO 4217 currency code. */
+  public String getCurrency() {
+    return this.currency;
+  }
 
-  public String getObject() { return this.object; }
-  public void setObject(final String object) { this.object = object; }
+  /** @param currency 3-letter ISO 4217 currency code. */
+  public void setCurrency(final String currency) {
+    this.currency = currency;
+  }
 
-  public DateTime getRemovedAt() { return this.removedAt; }
-  public void setRemovedAt(final DateTime removedAt) { this.removedAt = removedAt; }
+  /**
+   * The amount that was discounted upon the application of the coupon, formatted with the currency.
+   */
+  public Float getDiscounted() {
+    return this.discounted;
+  }
 
-  public String getState() { return this.state; }
-  public void setState(final String state) { this.state = state; }
+  /**
+   * @param discounted The amount that was discounted upon the application of the coupon, formatted
+   *     with the currency.
+   */
+  public void setDiscounted(final Float discounted) {
+    this.discounted = discounted;
+  }
 
-  public DateTime getUpdatedAt() { return this.updatedAt; }
-  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+  /** Coupon Redemption ID */
+  public String getId() {
+    return this.id;
+  }
 
+  /** @param id Coupon Redemption ID */
+  public void setId(final String id) {
+    this.id = id;
+  }
+
+  /** Will always be `coupon`. */
+  public String getObject() {
+    return this.object;
+  }
+
+  /** @param object Will always be `coupon`. */
+  public void setObject(final String object) {
+    this.object = object;
+  }
+
+  /** The date and time the redemption was removed from the account (un-redeemed). */
+  public DateTime getRemovedAt() {
+    return this.removedAt;
+  }
+
+  /**
+   * @param removedAt The date and time the redemption was removed from the account (un-redeemed).
+   */
+  public void setRemovedAt(final DateTime removedAt) {
+    this.removedAt = removedAt;
+  }
+
+  /** Coupon Redemption state */
+  public String getState() {
+    return this.state;
+  }
+
+  /** @param state Coupon Redemption state */
+  public void setState(final String state) {
+    this.state = state;
+  }
+
+  /** Last updated at */
+  public DateTime getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  /** @param updatedAt Last updated at */
+  public void setUpdatedAt(final DateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
 }

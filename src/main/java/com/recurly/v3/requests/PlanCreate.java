@@ -1,109 +1,324 @@
+/**
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
+ */
 package com.recurly.v3.requests;
 
-import com.recurly.v3.resources.*;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
-import org.joda.time.DateTime;
+import com.recurly.v3.resources.*;
 import java.util.List;
-import java.util.Map;
 
 public class PlanCreate extends Request {
 
+  /**
+   * Accounting code for invoice line items for the plan. If no value is provided, it defaults to
+   * plan's code.
+   */
   @SerializedName("accounting_code")
+  @Expose
   private String accountingCode;
 
+  /** Add Ons */
   @SerializedName("add_ons")
-  private List<String> addOns;
+  @Expose
+  private List<AddOnCreate> addOns;
 
+  /**
+   * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is
+   * `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is
+   * `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden
+   * on the subscription record itself.
+   */
   @SerializedName("auto_renew")
+  @Expose
   private Boolean autoRenew;
 
+  /**
+   * Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice
+   * exports.
+   */
   @SerializedName("code")
+  @Expose
   private String code;
 
+  /** Pricing */
   @SerializedName("currencies")
-  private List<String> currencies;
+  @Expose
+  private List<PlanPricing> currencies;
 
+  /** Optional description, not displayed. */
   @SerializedName("description")
+  @Expose
   private String description;
 
+  /** Hosted pages settings */
   @SerializedName("hosted_pages")
-  private Map<String, String> hostedPages;
+  @Expose
+  private PlanHostedPages hostedPages;
 
+  /** Length of the plan's billing interval in `interval_unit`. */
   @SerializedName("interval_length")
+  @Expose
   private Integer intervalLength;
 
+  /** Unit for the plan's billing interval. */
   @SerializedName("interval_unit")
+  @Expose
   private String intervalUnit;
 
+  /**
+   * This name describes your plan and will appear on the Hosted Payment Page and the subscriber's
+   * invoice.
+   */
   @SerializedName("name")
+  @Expose
   private String name;
 
+  /**
+   * Accounting code for invoice line items for the plan's setup fee. If no value is provided, it
+   * defaults to plan's accounting code.
+   */
   @SerializedName("setup_fee_accounting_code")
+  @Expose
   private String setupFeeAccountingCode;
 
+  /**
+   * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
+   * rules. If you have your own AvaTax or Vertex account configured, use their tax codes to assign
+   * specific tax rules. If you are using Recurly's EU VAT feature, you can use values of `unknown`,
+   * `physical`, or `digital`.
+   */
   @SerializedName("tax_code")
+  @Expose
   private String taxCode;
 
+  /** `true` exempts tax on the plan, `false` applies tax on the plan. */
   @SerializedName("tax_exempt")
+  @Expose
   private Boolean taxExempt;
 
+  /** Automatically terminate plans after a defined number of billing cycles. */
   @SerializedName("total_billing_cycles")
+  @Expose
   private Integer totalBillingCycles;
 
+  /** Length of plan's trial period in `trial_units`. `0` means `no trial`. */
   @SerializedName("trial_length")
+  @Expose
   private Integer trialLength;
 
+  /** Units for the plan's trial period. */
   @SerializedName("trial_unit")
+  @Expose
   private String trialUnit;
 
+  /**
+   * Accounting code for invoice line items for the plan. If no value is provided, it defaults to
+   * plan's code.
+   */
+  public String getAccountingCode() {
+    return this.accountingCode;
+  }
 
-  public String getAccountingCode() { return this.accountingCode; }
-  public void setAccountingCode(final String accountingCode) { this.accountingCode = accountingCode; }
+  /**
+   * @param accountingCode Accounting code for invoice line items for the plan. If no value is
+   *     provided, it defaults to plan's code.
+   */
+  public void setAccountingCode(final String accountingCode) {
+    this.accountingCode = accountingCode;
+  }
 
-  public List<String> getAddOns() { return this.addOns; }
-  public void setAddOns(final List<String> addOns) { this.addOns = addOns; }
+  /** Add Ons */
+  public List<AddOnCreate> getAddOns() {
+    return this.addOns;
+  }
 
-  public Boolean getAutoRenew() { return this.autoRenew; }
-  public void setAutoRenew(final Boolean autoRenew) { this.autoRenew = autoRenew; }
+  /** @param addOns Add Ons */
+  public void setAddOns(final List<AddOnCreate> addOns) {
+    this.addOns = addOns;
+  }
 
-  public String getCode() { return this.code; }
-  public void setCode(final String code) { this.code = code; }
+  /**
+   * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is
+   * `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is
+   * `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden
+   * on the subscription record itself.
+   */
+  public Boolean getAutoRenew() {
+    return this.autoRenew;
+  }
 
-  public List<String> getCurrencies() { return this.currencies; }
-  public void setCurrencies(final List<String> currencies) { this.currencies = currencies; }
+  /**
+   * @param autoRenew Subscriptions will automatically inherit this value once they are active. If
+   *     `auto_renew` is `true`, then a subscription will automatically renew its term at renewal.
+   *     If `auto_renew` is `false`, then a subscription will expire at the end of its term.
+   *     `auto_renew` can be overridden on the subscription record itself.
+   */
+  public void setAutoRenew(final Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+  }
 
-  public String getDescription() { return this.description; }
-  public void setDescription(final String description) { this.description = description; }
+  /**
+   * Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice
+   * exports.
+   */
+  public String getCode() {
+    return this.code;
+  }
 
-  public Map<String, String> getHostedPages() { return this.hostedPages; }
-  public void setHostedPages(final Map<String, String> hostedPages) { this.hostedPages = hostedPages; }
+  /**
+   * @param code Unique code to identify the plan. This is used in Hosted Payment Page URLs and in
+   *     the invoice exports.
+   */
+  public void setCode(final String code) {
+    this.code = code;
+  }
 
-  public Integer getIntervalLength() { return this.intervalLength; }
-  public void setIntervalLength(final Integer intervalLength) { this.intervalLength = intervalLength; }
+  /** Pricing */
+  public List<PlanPricing> getCurrencies() {
+    return this.currencies;
+  }
 
-  public String getIntervalUnit() { return this.intervalUnit; }
-  public void setIntervalUnit(final String intervalUnit) { this.intervalUnit = intervalUnit; }
+  /** @param currencies Pricing */
+  public void setCurrencies(final List<PlanPricing> currencies) {
+    this.currencies = currencies;
+  }
 
-  public String getName() { return this.name; }
-  public void setName(final String name) { this.name = name; }
+  /** Optional description, not displayed. */
+  public String getDescription() {
+    return this.description;
+  }
 
-  public String getSetupFeeAccountingCode() { return this.setupFeeAccountingCode; }
-  public void setSetupFeeAccountingCode(final String setupFeeAccountingCode) { this.setupFeeAccountingCode = setupFeeAccountingCode; }
+  /** @param description Optional description, not displayed. */
+  public void setDescription(final String description) {
+    this.description = description;
+  }
 
-  public String getTaxCode() { return this.taxCode; }
-  public void setTaxCode(final String taxCode) { this.taxCode = taxCode; }
+  /** Hosted pages settings */
+  public PlanHostedPages getHostedPages() {
+    return this.hostedPages;
+  }
 
-  public Boolean getTaxExempt() { return this.taxExempt; }
-  public void setTaxExempt(final Boolean taxExempt) { this.taxExempt = taxExempt; }
+  /** @param hostedPages Hosted pages settings */
+  public void setHostedPages(final PlanHostedPages hostedPages) {
+    this.hostedPages = hostedPages;
+  }
 
-  public Integer getTotalBillingCycles() { return this.totalBillingCycles; }
-  public void setTotalBillingCycles(final Integer totalBillingCycles) { this.totalBillingCycles = totalBillingCycles; }
+  /** Length of the plan's billing interval in `interval_unit`. */
+  public Integer getIntervalLength() {
+    return this.intervalLength;
+  }
 
-  public Integer getTrialLength() { return this.trialLength; }
-  public void setTrialLength(final Integer trialLength) { this.trialLength = trialLength; }
+  /** @param intervalLength Length of the plan's billing interval in `interval_unit`. */
+  public void setIntervalLength(final Integer intervalLength) {
+    this.intervalLength = intervalLength;
+  }
 
-  public String getTrialUnit() { return this.trialUnit; }
-  public void setTrialUnit(final String trialUnit) { this.trialUnit = trialUnit; }
+  /** Unit for the plan's billing interval. */
+  public String getIntervalUnit() {
+    return this.intervalUnit;
+  }
 
+  /** @param intervalUnit Unit for the plan's billing interval. */
+  public void setIntervalUnit(final String intervalUnit) {
+    this.intervalUnit = intervalUnit;
+  }
+
+  /**
+   * This name describes your plan and will appear on the Hosted Payment Page and the subscriber's
+   * invoice.
+   */
+  public String getName() {
+    return this.name;
+  }
+
+  /**
+   * @param name This name describes your plan and will appear on the Hosted Payment Page and the
+   *     subscriber's invoice.
+   */
+  public void setName(final String name) {
+    this.name = name;
+  }
+
+  /**
+   * Accounting code for invoice line items for the plan's setup fee. If no value is provided, it
+   * defaults to plan's accounting code.
+   */
+  public String getSetupFeeAccountingCode() {
+    return this.setupFeeAccountingCode;
+  }
+
+  /**
+   * @param setupFeeAccountingCode Accounting code for invoice line items for the plan's setup fee.
+   *     If no value is provided, it defaults to plan's accounting code.
+   */
+  public void setSetupFeeAccountingCode(final String setupFeeAccountingCode) {
+    this.setupFeeAccountingCode = setupFeeAccountingCode;
+  }
+
+  /**
+   * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
+   * rules. If you have your own AvaTax or Vertex account configured, use their tax codes to assign
+   * specific tax rules. If you are using Recurly's EU VAT feature, you can use values of `unknown`,
+   * `physical`, or `digital`.
+   */
+  public String getTaxCode() {
+    return this.taxCode;
+  }
+
+  /**
+   * @param taxCode Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to
+   *     determine taxation rules. If you have your own AvaTax or Vertex account configured, use
+   *     their tax codes to assign specific tax rules. If you are using Recurly's EU VAT feature,
+   *     you can use values of `unknown`, `physical`, or `digital`.
+   */
+  public void setTaxCode(final String taxCode) {
+    this.taxCode = taxCode;
+  }
+
+  /** `true` exempts tax on the plan, `false` applies tax on the plan. */
+  public Boolean getTaxExempt() {
+    return this.taxExempt;
+  }
+
+  /** @param taxExempt `true` exempts tax on the plan, `false` applies tax on the plan. */
+  public void setTaxExempt(final Boolean taxExempt) {
+    this.taxExempt = taxExempt;
+  }
+
+  /** Automatically terminate plans after a defined number of billing cycles. */
+  public Integer getTotalBillingCycles() {
+    return this.totalBillingCycles;
+  }
+
+  /**
+   * @param totalBillingCycles Automatically terminate plans after a defined number of billing
+   *     cycles.
+   */
+  public void setTotalBillingCycles(final Integer totalBillingCycles) {
+    this.totalBillingCycles = totalBillingCycles;
+  }
+
+  /** Length of plan's trial period in `trial_units`. `0` means `no trial`. */
+  public Integer getTrialLength() {
+    return this.trialLength;
+  }
+
+  /** @param trialLength Length of plan's trial period in `trial_units`. `0` means `no trial`. */
+  public void setTrialLength(final Integer trialLength) {
+    this.trialLength = trialLength;
+  }
+
+  /** Units for the plan's trial period. */
+  public String getTrialUnit() {
+    return this.trialUnit;
+  }
+
+  /** @param trialUnit Units for the plan's trial period. */
+  public void setTrialUnit(final String trialUnit) {
+    this.trialUnit = trialUnit;
+  }
 }

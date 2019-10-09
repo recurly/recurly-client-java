@@ -1,36 +1,68 @@
+/**
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
+ */
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
 import java.util.List;
-import java.util.Map;
 
 public class AccountBalance extends Resource {
 
   @SerializedName("account")
-  private Account account;
+  @Expose
+  private AccountMini account;
 
   @SerializedName("balances")
-  private Map<String, String> balances;
+  @Expose
+  private List<AccountBalanceAmount> balances;
 
+  /** Object type */
   @SerializedName("object")
+  @Expose
   private String object;
 
   @SerializedName("past_due")
+  @Expose
   private Boolean pastDue;
 
+  public AccountMini getAccount() {
+    return this.account;
+  }
 
-  public Account getAccount() { return this.account; }
-  public void setAccount(final Account account) { this.account = account; }
+  /** @param account */
+  public void setAccount(final AccountMini account) {
+    this.account = account;
+  }
 
-  public Map<String, String> getBalances() { return this.balances; }
-  public void setBalances(final Map<String, String> balances) { this.balances = balances; }
+  public List<AccountBalanceAmount> getBalances() {
+    return this.balances;
+  }
 
-  public String getObject() { return this.object; }
-  public void setObject(final String object) { this.object = object; }
+  /** @param balances */
+  public void setBalances(final List<AccountBalanceAmount> balances) {
+    this.balances = balances;
+  }
 
-  public Boolean getPastDue() { return this.pastDue; }
-  public void setPastDue(final Boolean pastDue) { this.pastDue = pastDue; }
+  /** Object type */
+  public String getObject() {
+    return this.object;
+  }
 
+  /** @param object Object type */
+  public void setObject(final String object) {
+    this.object = object;
+  }
+
+  public Boolean getPastDue() {
+    return this.pastDue;
+  }
+
+  /** @param pastDue */
+  public void setPastDue(final Boolean pastDue) {
+    this.pastDue = pastDue;
+  }
 }

@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
+set -e
 
-mvn clean compile -f src/main/
+if [[ -z "${TRAVIS}" ]]; then
+  RECURLY_INSECURE=true mvn clean test jacoco:report
+else
+    RECURLY_INSECURE=true mvn clean test
+#   RECURLY_INSECURE=true mvn clean test jacoco:report coveralls:report
+fi

@@ -1,36 +1,72 @@
+/**
+ * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
+ * make by hand will be lost. If you wish to make a change to this file, please create a Github
+ * issue explaining the changes you need and we will usher them to the appropriate places.
+ */
 package com.recurly.v3.resources;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
 import java.util.List;
-import java.util.Map;
 
 public class CouponDiscount extends Resource {
 
+  /** This is only present when `type=fixed`. */
   @SerializedName("currencies")
-  private List<String> currencies;
+  @Expose
+  private List<CouponDiscountPricing> currencies;
 
+  /** This is only present when `type=percent`. */
   @SerializedName("percent")
+  @Expose
   private Integer percent;
 
+  /** This is only present when `type=free_trial`. */
   @SerializedName("trial")
-  private Map<String, String> trial;
+  @Expose
+  private CouponDiscountTrial trial;
 
   @SerializedName("type")
+  @Expose
   private String type;
 
+  /** This is only present when `type=fixed`. */
+  public List<CouponDiscountPricing> getCurrencies() {
+    return this.currencies;
+  }
 
-  public List<String> getCurrencies() { return this.currencies; }
-  public void setCurrencies(final List<String> currencies) { this.currencies = currencies; }
+  /** @param currencies This is only present when `type=fixed`. */
+  public void setCurrencies(final List<CouponDiscountPricing> currencies) {
+    this.currencies = currencies;
+  }
 
-  public Integer getPercent() { return this.percent; }
-  public void setPercent(final Integer percent) { this.percent = percent; }
+  /** This is only present when `type=percent`. */
+  public Integer getPercent() {
+    return this.percent;
+  }
 
-  public Map<String, String> getTrial() { return this.trial; }
-  public void setTrial(final Map<String, String> trial) { this.trial = trial; }
+  /** @param percent This is only present when `type=percent`. */
+  public void setPercent(final Integer percent) {
+    this.percent = percent;
+  }
 
-  public String getType() { return this.type; }
-  public void setType(final String type) { this.type = type; }
+  /** This is only present when `type=free_trial`. */
+  public CouponDiscountTrial getTrial() {
+    return this.trial;
+  }
 
+  /** @param trial This is only present when `type=free_trial`. */
+  public void setTrial(final CouponDiscountTrial trial) {
+    this.trial = trial;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  /** @param type */
+  public void setType(final String type) {
+    this.type = type;
+  }
 }
