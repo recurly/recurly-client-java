@@ -41,6 +41,7 @@ an API key which can be obtained on the [API Credentials Page](https://app.recur
 
 ```java
 import com.recurly.v3.Client;
+import com.recurly.v3.resources.Subscription;
 
 String apiKey = "83749879bbde395b5fe0cc1a5abf8e5";
 final Client client = new Client(apiKey);
