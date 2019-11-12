@@ -27,16 +27,6 @@ public class PlanUpdate extends Request {
   private List<AddOnCreate> addOns;
 
   /**
-   * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is
-   * `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is
-   * `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden
-   * on the subscription record itself.
-   */
-  @SerializedName("auto_renew")
-  @Expose
-  private Boolean autoRenew;
-
-  /**
    * Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice
    * exports.
    */
@@ -54,7 +44,6 @@ public class PlanUpdate extends Request {
   @Expose
   private String description;
 
-  /** Hosted pages settings */
   @SerializedName("hosted_pages")
   @Expose
   private PlanHostedPages hostedPages;
@@ -63,6 +52,16 @@ public class PlanUpdate extends Request {
   @SerializedName("id")
   @Expose
   private String id;
+
+  /** Length of the plan's billing interval in `interval_unit`. */
+  @SerializedName("interval_length")
+  @Expose
+  private Integer intervalLength;
+
+  /** Unit for the plan's billing interval. */
+  @SerializedName("interval_unit")
+  @Expose
+  private String intervalUnit;
 
   /**
    * This name describes your plan and will appear on the Hosted Payment Page and the subscriber's
@@ -137,26 +136,6 @@ public class PlanUpdate extends Request {
   }
 
   /**
-   * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is
-   * `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is
-   * `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden
-   * on the subscription record itself.
-   */
-  public Boolean getAutoRenew() {
-    return this.autoRenew;
-  }
-
-  /**
-   * @param autoRenew Subscriptions will automatically inherit this value once they are active. If
-   *     `auto_renew` is `true`, then a subscription will automatically renew its term at renewal.
-   *     If `auto_renew` is `false`, then a subscription will expire at the end of its term.
-   *     `auto_renew` can be overridden on the subscription record itself.
-   */
-  public void setAutoRenew(final Boolean autoRenew) {
-    this.autoRenew = autoRenew;
-  }
-
-  /**
    * Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice
    * exports.
    */
@@ -192,12 +171,11 @@ public class PlanUpdate extends Request {
     this.description = description;
   }
 
-  /** Hosted pages settings */
   public PlanHostedPages getHostedPages() {
     return this.hostedPages;
   }
 
-  /** @param hostedPages Hosted pages settings */
+  /** @param hostedPages */
   public void setHostedPages(final PlanHostedPages hostedPages) {
     this.hostedPages = hostedPages;
   }
@@ -210,6 +188,26 @@ public class PlanUpdate extends Request {
   /** @param id Plan ID */
   public void setId(final String id) {
     this.id = id;
+  }
+
+  /** Length of the plan's billing interval in `interval_unit`. */
+  public Integer getIntervalLength() {
+    return this.intervalLength;
+  }
+
+  /** @param intervalLength Length of the plan's billing interval in `interval_unit`. */
+  public void setIntervalLength(final Integer intervalLength) {
+    this.intervalLength = intervalLength;
+  }
+
+  /** Unit for the plan's billing interval. */
+  public String getIntervalUnit() {
+    return this.intervalUnit;
+  }
+
+  /** @param intervalUnit Unit for the plan's billing interval. */
+  public void setIntervalUnit(final String intervalUnit) {
+    this.intervalUnit = intervalUnit;
   }
 
   /**

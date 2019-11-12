@@ -32,11 +32,6 @@ public class Subscription extends Resource {
   @Expose
   private Float addOnsTotal;
 
-  /** Whether the subscription renews at the end of its term. */
-  @SerializedName("auto_renew")
-  @Expose
-  private Boolean autoRenew;
-
   /**
    * Recurring subscriptions paid with ACH will have this attribute set. This timestamp is used for
    * alerting customers to reauthorize in 3 years in accordance with NACHA rules. If a subscription
@@ -80,23 +75,6 @@ public class Subscription extends Resource {
   @SerializedName("current_period_started_at")
   @Expose
   private DateTime currentPeriodStartedAt;
-
-  /**
-   * When the term ends. This is calculated by a plan's interval and `total_billing_cycles` in a
-   * term. Subscription changes with a `timeframe=renewal` will be applied on this date.
-   */
-  @SerializedName("current_term_ends_at")
-  @Expose
-  private DateTime currentTermEndsAt;
-
-  /**
-   * The start date of the term when the first billing period starts. The subscription term is the
-   * length of time that a customer will be committed to a subscription. A term can span multiple
-   * billing periods.
-   */
-  @SerializedName("current_term_started_at")
-  @Expose
-  private DateTime currentTermStartedAt;
 
   @SerializedName("custom_fields")
   @Expose
@@ -160,7 +138,7 @@ public class Subscription extends Resource {
   @Expose
   private Integer quantity;
 
-  /** The remaining billing cycles in the current term. */
+  /** Remaining billing cycles */
   @SerializedName("remaining_billing_cycles")
   @Expose
   private Integer remainingBillingCycles;
@@ -170,17 +148,9 @@ public class Subscription extends Resource {
   @Expose
   private Integer remainingPauseCycles;
 
-  /**
-   * If `auto_renew=true`, when a term completes, `total_billing_cycles` takes this value as the
-   * length of subsequent terms. Defaults to the plan's `total_billing_cycles`.
-   */
-  @SerializedName("renewal_billing_cycles")
+  @SerializedName("shipping_address")
   @Expose
-  private Integer renewalBillingCycles;
-
-  @SerializedName("shipping")
-  @Expose
-  private SubscriptionShipping shipping;
+  private ShippingAddress shippingAddress;
 
   /** State */
   @SerializedName("state")
@@ -196,15 +166,6 @@ public class Subscription extends Resource {
   @SerializedName("terms_and_conditions")
   @Expose
   private String termsAndConditions;
-
-  /**
-   * The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if
-   * `auto_renew=true` the subscription will renew and a new term will begin, otherwise the
-   * subscription will expire.
-   */
-  @SerializedName("total_billing_cycles")
-  @Expose
-  private Integer totalBillingCycles;
 
   /** Trial period ends at */
   @SerializedName("trial_ends_at")
@@ -270,16 +231,6 @@ public class Subscription extends Resource {
   /** @param addOnsTotal Total price of add-ons */
   public void setAddOnsTotal(final Float addOnsTotal) {
     this.addOnsTotal = addOnsTotal;
-  }
-
-  /** Whether the subscription renews at the end of its term. */
-  public Boolean getAutoRenew() {
-    return this.autoRenew;
-  }
-
-  /** @param autoRenew Whether the subscription renews at the end of its term. */
-  public void setAutoRenew(final Boolean autoRenew) {
-    this.autoRenew = autoRenew;
   }
 
   /**
@@ -369,41 +320,6 @@ public class Subscription extends Resource {
   /** @param currentPeriodStartedAt Current billing period started at */
   public void setCurrentPeriodStartedAt(final DateTime currentPeriodStartedAt) {
     this.currentPeriodStartedAt = currentPeriodStartedAt;
-  }
-
-  /**
-   * When the term ends. This is calculated by a plan's interval and `total_billing_cycles` in a
-   * term. Subscription changes with a `timeframe=renewal` will be applied on this date.
-   */
-  public DateTime getCurrentTermEndsAt() {
-    return this.currentTermEndsAt;
-  }
-
-  /**
-   * @param currentTermEndsAt When the term ends. This is calculated by a plan's interval and
-   *     `total_billing_cycles` in a term. Subscription changes with a `timeframe=renewal` will be
-   *     applied on this date.
-   */
-  public void setCurrentTermEndsAt(final DateTime currentTermEndsAt) {
-    this.currentTermEndsAt = currentTermEndsAt;
-  }
-
-  /**
-   * The start date of the term when the first billing period starts. The subscription term is the
-   * length of time that a customer will be committed to a subscription. A term can span multiple
-   * billing periods.
-   */
-  public DateTime getCurrentTermStartedAt() {
-    return this.currentTermStartedAt;
-  }
-
-  /**
-   * @param currentTermStartedAt The start date of the term when the first billing period starts.
-   *     The subscription term is the length of time that a customer will be committed to a
-   *     subscription. A term can span multiple billing periods.
-   */
-  public void setCurrentTermStartedAt(final DateTime currentTermStartedAt) {
-    this.currentTermStartedAt = currentTermStartedAt;
   }
 
   public List<CustomField> getCustomFields() {
@@ -539,12 +455,12 @@ public class Subscription extends Resource {
     this.quantity = quantity;
   }
 
-  /** The remaining billing cycles in the current term. */
+  /** Remaining billing cycles */
   public Integer getRemainingBillingCycles() {
     return this.remainingBillingCycles;
   }
 
-  /** @param remainingBillingCycles The remaining billing cycles in the current term. */
+  /** @param remainingBillingCycles Remaining billing cycles */
   public void setRemainingBillingCycles(final Integer remainingBillingCycles) {
     this.remainingBillingCycles = remainingBillingCycles;
   }
@@ -562,30 +478,13 @@ public class Subscription extends Resource {
     this.remainingPauseCycles = remainingPauseCycles;
   }
 
-  /**
-   * If `auto_renew=true`, when a term completes, `total_billing_cycles` takes this value as the
-   * length of subsequent terms. Defaults to the plan's `total_billing_cycles`.
-   */
-  public Integer getRenewalBillingCycles() {
-    return this.renewalBillingCycles;
+  public ShippingAddress getShippingAddress() {
+    return this.shippingAddress;
   }
 
-  /**
-   * @param renewalBillingCycles If `auto_renew=true`, when a term completes, `total_billing_cycles`
-   *     takes this value as the length of subsequent terms. Defaults to the plan's
-   *     `total_billing_cycles`.
-   */
-  public void setRenewalBillingCycles(final Integer renewalBillingCycles) {
-    this.renewalBillingCycles = renewalBillingCycles;
-  }
-
-  public SubscriptionShipping getShipping() {
-    return this.shipping;
-  }
-
-  /** @param shipping */
-  public void setShipping(final SubscriptionShipping shipping) {
-    this.shipping = shipping;
+  /** @param shippingAddress */
+  public void setShippingAddress(final ShippingAddress shippingAddress) {
+    this.shippingAddress = shippingAddress;
   }
 
   /** State */
@@ -616,24 +515,6 @@ public class Subscription extends Resource {
   /** @param termsAndConditions Terms and conditions */
   public void setTermsAndConditions(final String termsAndConditions) {
     this.termsAndConditions = termsAndConditions;
-  }
-
-  /**
-   * The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if
-   * `auto_renew=true` the subscription will renew and a new term will begin, otherwise the
-   * subscription will expire.
-   */
-  public Integer getTotalBillingCycles() {
-    return this.totalBillingCycles;
-  }
-
-  /**
-   * @param totalBillingCycles The number of cycles/billing periods in a term. When
-   *     `remaining_billing_cycles=0`, if `auto_renew=true` the subscription will renew and a new
-   *     term will begin, otherwise the subscription will expire.
-   */
-  public void setTotalBillingCycles(final Integer totalBillingCycles) {
-    this.totalBillingCycles = totalBillingCycles;
   }
 
   /** Trial period ends at */

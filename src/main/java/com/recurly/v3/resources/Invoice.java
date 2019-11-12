@@ -19,7 +19,7 @@ public class Invoice extends Resource {
 
   @SerializedName("address")
   @Expose
-  private InvoiceAddress address;
+  private Address address;
 
   /** The outstanding balance remaining on this invoice. */
   @SerializedName("balance")
@@ -136,10 +136,6 @@ public class Invoice extends Resource {
   @Expose
   private Float refundableAmount;
 
-  @SerializedName("shipping_address")
-  @Expose
-  private ShippingAddress shippingAddress;
-
   /** Invoice state */
   @SerializedName("state")
   @Expose
@@ -223,12 +219,12 @@ public class Invoice extends Resource {
     this.account = account;
   }
 
-  public InvoiceAddress getAddress() {
+  public Address getAddress() {
     return this.address;
   }
 
   /** @param address */
-  public void setAddress(final InvoiceAddress address) {
+  public void setAddress(final Address address) {
     this.address = address;
   }
 
@@ -467,15 +463,6 @@ public class Invoice extends Resource {
    */
   public void setRefundableAmount(final Float refundableAmount) {
     this.refundableAmount = refundableAmount;
-  }
-
-  public ShippingAddress getShippingAddress() {
-    return this.shippingAddress;
-  }
-
-  /** @param shippingAddress */
-  public void setShippingAddress(final ShippingAddress shippingAddress) {
-    this.shippingAddress = shippingAddress;
   }
 
   /** Invoice state */

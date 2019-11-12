@@ -27,16 +27,6 @@ public class PlanCreate extends Request {
   private List<AddOnCreate> addOns;
 
   /**
-   * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is
-   * `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is
-   * `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden
-   * on the subscription record itself.
-   */
-  @SerializedName("auto_renew")
-  @Expose
-  private Boolean autoRenew;
-
-  /**
    * Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice
    * exports.
    */
@@ -139,26 +129,6 @@ public class PlanCreate extends Request {
   /** @param addOns Add Ons */
   public void setAddOns(final List<AddOnCreate> addOns) {
     this.addOns = addOns;
-  }
-
-  /**
-   * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is
-   * `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is
-   * `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden
-   * on the subscription record itself.
-   */
-  public Boolean getAutoRenew() {
-    return this.autoRenew;
-  }
-
-  /**
-   * @param autoRenew Subscriptions will automatically inherit this value once they are active. If
-   *     `auto_renew` is `true`, then a subscription will automatically renew its term at renewal.
-   *     If `auto_renew` is `false`, then a subscription will expire at the end of its term.
-   *     `auto_renew` can be overridden on the subscription record itself.
-   */
-  public void setAutoRenew(final Boolean autoRenew) {
-    this.autoRenew = autoRenew;
   }
 
   /**
