@@ -117,6 +117,11 @@ public class Subscription extends Resource {
   @Expose
   private DateTime expiresAt;
 
+  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  @SerializedName("gateway_code")
+  @Expose
+  private String gatewayCode;
+
   /** Subscription ID */
   @SerializedName("id")
   @Expose
@@ -443,6 +448,19 @@ public class Subscription extends Resource {
   /** @param expiresAt Expires at */
   public void setExpiresAt(final DateTime expiresAt) {
     this.expiresAt = expiresAt;
+  }
+
+  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  public String getGatewayCode() {
+    return this.gatewayCode;
+  }
+
+  /**
+   * @param gatewayCode If present, this subscription's transactions will use the payment gateway
+   *     with this code.
+   */
+  public void setGatewayCode(final String gatewayCode) {
+    this.gatewayCode = gatewayCode;
   }
 
   /** Subscription ID */

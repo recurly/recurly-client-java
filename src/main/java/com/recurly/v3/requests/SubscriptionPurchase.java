@@ -69,6 +69,14 @@ public class SubscriptionPurchase extends Request {
   private SubscriptionShippingPurchase shipping;
 
   /**
+   * If set, the subscription will begin in the future on this date. The subscription will apply the
+   * setup fee and trial period, unless the plan has no trial.
+   */
+  @SerializedName("starts_at")
+  @Expose
+  private DateTime startsAt;
+
+  /**
    * The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if
    * `auto_renew=true` the subscription will renew and a new term will begin, otherwise the
    * subscription will expire.
@@ -202,6 +210,22 @@ public class SubscriptionPurchase extends Request {
   /** @param shipping Create a shipping address on the account and assign it to the subscription. */
   public void setShipping(final SubscriptionShippingPurchase shipping) {
     this.shipping = shipping;
+  }
+
+  /**
+   * If set, the subscription will begin in the future on this date. The subscription will apply the
+   * setup fee and trial period, unless the plan has no trial.
+   */
+  public DateTime getStartsAt() {
+    return this.startsAt;
+  }
+
+  /**
+   * @param startsAt If set, the subscription will begin in the future on this date. The
+   *     subscription will apply the setup fee and trial period, unless the plan has no trial.
+   */
+  public void setStartsAt(final DateTime startsAt) {
+    this.startsAt = startsAt;
   }
 
   /**

@@ -29,7 +29,7 @@ public class AddOnUpdate extends Request {
   /** Add-on pricing */
   @SerializedName("currencies")
   @Expose
-  private List<AddOnPricing> currencies;
+  private List<Pricing> currencies;
 
   /** Default quantity for the hosted pages. */
   @SerializedName("default_quantity")
@@ -88,12 +88,12 @@ public class AddOnUpdate extends Request {
   }
 
   /** Add-on pricing */
-  public List<AddOnPricing> getCurrencies() {
+  public List<Pricing> getCurrencies() {
     return this.currencies;
   }
 
   /** @param currencies Add-on pricing */
-  public void setCurrencies(final List<AddOnPricing> currencies) {
+  public void setCurrencies(final List<Pricing> currencies) {
     this.currencies = currencies;
   }
 
