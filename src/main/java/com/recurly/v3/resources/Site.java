@@ -8,7 +8,6 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import java.util.List;
 import org.joda.time.DateTime;
 
 public class Site extends Resource {
@@ -27,11 +26,6 @@ public class Site extends Resource {
   @Expose
   private DateTime deletedAt;
 
-  /** A list of features enabled for the site. */
-  @SerializedName("features")
-  @Expose
-  private List<String> features;
-
   /** Site ID */
   @SerializedName("id")
   @Expose
@@ -46,11 +40,6 @@ public class Site extends Resource {
   @SerializedName("object")
   @Expose
   private String object;
-
-  /** This value is used to configure RecurlyJS to submit tokenized billing information. */
-  @SerializedName("public_api_key")
-  @Expose
-  private String publicApiKey;
 
   @SerializedName("settings")
   @Expose
@@ -94,16 +83,6 @@ public class Site extends Resource {
     this.deletedAt = deletedAt;
   }
 
-  /** A list of features enabled for the site. */
-  public List<String> getFeatures() {
-    return this.features;
-  }
-
-  /** @param features A list of features enabled for the site. */
-  public void setFeatures(final List<String> features) {
-    this.features = features;
-  }
-
   /** Site ID */
   public String getId() {
     return this.id;
@@ -132,19 +111,6 @@ public class Site extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
-  }
-
-  /** This value is used to configure RecurlyJS to submit tokenized billing information. */
-  public String getPublicApiKey() {
-    return this.publicApiKey;
-  }
-
-  /**
-   * @param publicApiKey This value is used to configure RecurlyJS to submit tokenized billing
-   *     information.
-   */
-  public void setPublicApiKey(final String publicApiKey) {
-    this.publicApiKey = publicApiKey;
   }
 
   public Settings getSettings() {

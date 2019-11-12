@@ -10,6 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.util.List;
+import java.util.Map;
 
 public class PlanCreate extends Request {
 
@@ -27,16 +28,6 @@ public class PlanCreate extends Request {
   private List<AddOnCreate> addOns;
 
   /**
-   * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is
-   * `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is
-   * `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden
-   * on the subscription record itself.
-   */
-  @SerializedName("auto_renew")
-  @Expose
-  private Boolean autoRenew;
-
-  /**
    * Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice
    * exports.
    */
@@ -47,7 +38,7 @@ public class PlanCreate extends Request {
   /** Pricing */
   @SerializedName("currencies")
   @Expose
-  private List<PlanPricing> currencies;
+  private List<Map> currencies;
 
   /** Optional description, not displayed. */
   @SerializedName("description")
@@ -142,26 +133,6 @@ public class PlanCreate extends Request {
   }
 
   /**
-   * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is
-   * `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is
-   * `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden
-   * on the subscription record itself.
-   */
-  public Boolean getAutoRenew() {
-    return this.autoRenew;
-  }
-
-  /**
-   * @param autoRenew Subscriptions will automatically inherit this value once they are active. If
-   *     `auto_renew` is `true`, then a subscription will automatically renew its term at renewal.
-   *     If `auto_renew` is `false`, then a subscription will expire at the end of its term.
-   *     `auto_renew` can be overridden on the subscription record itself.
-   */
-  public void setAutoRenew(final Boolean autoRenew) {
-    this.autoRenew = autoRenew;
-  }
-
-  /**
    * Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice
    * exports.
    */
@@ -178,12 +149,12 @@ public class PlanCreate extends Request {
   }
 
   /** Pricing */
-  public List<PlanPricing> getCurrencies() {
+  public List<Map> getCurrencies() {
     return this.currencies;
   }
 
   /** @param currencies Pricing */
-  public void setCurrencies(final List<PlanPricing> currencies) {
+  public void setCurrencies(final List<Map> currencies) {
     this.currencies = currencies;
   }
 

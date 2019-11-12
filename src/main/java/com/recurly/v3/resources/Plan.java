@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import java.util.List;
+import java.util.Map;
 import org.joda.time.DateTime;
 
 public class Plan extends Resource {
@@ -20,16 +21,6 @@ public class Plan extends Resource {
   @SerializedName("accounting_code")
   @Expose
   private String accountingCode;
-
-  /**
-   * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is
-   * `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is
-   * `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden
-   * on the subscription record itself.
-   */
-  @SerializedName("auto_renew")
-  @Expose
-  private Boolean autoRenew;
 
   /**
    * Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice
@@ -47,7 +38,7 @@ public class Plan extends Resource {
   /** Pricing */
   @SerializedName("currencies")
   @Expose
-  private List<PlanPricing> currencies;
+  private List<Map> currencies;
 
   /** Deleted at */
   @SerializedName("deleted_at")
@@ -100,15 +91,15 @@ public class Plan extends Resource {
   @Expose
   private String setupFeeAccountingCode;
 
-  /** The current state of the plan. */
+  /** Plans can be either active or inactive. */
   @SerializedName("state")
   @Expose
   private String state;
 
   /**
    * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
-   * each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`,
-   * or `digital`.
+   * each tax system. If you are using Recurly’s EU VAT feature `P0000000` is `physical`, `D0000000`
+   * is `digital`, and an empty string is `unknown`.
    */
   @SerializedName("tax_code")
   @Expose
@@ -160,26 +151,6 @@ public class Plan extends Resource {
   }
 
   /**
-   * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is
-   * `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is
-   * `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden
-   * on the subscription record itself.
-   */
-  public Boolean getAutoRenew() {
-    return this.autoRenew;
-  }
-
-  /**
-   * @param autoRenew Subscriptions will automatically inherit this value once they are active. If
-   *     `auto_renew` is `true`, then a subscription will automatically renew its term at renewal.
-   *     If `auto_renew` is `false`, then a subscription will expire at the end of its term.
-   *     `auto_renew` can be overridden on the subscription record itself.
-   */
-  public void setAutoRenew(final Boolean autoRenew) {
-    this.autoRenew = autoRenew;
-  }
-
-  /**
    * Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice
    * exports.
    */
@@ -206,12 +177,12 @@ public class Plan extends Resource {
   }
 
   /** Pricing */
-  public List<PlanPricing> getCurrencies() {
+  public List<Map> getCurrencies() {
     return this.currencies;
   }
 
   /** @param currencies Pricing */
-  public void setCurrencies(final List<PlanPricing> currencies) {
+  public void setCurrencies(final List<Map> currencies) {
     this.currencies = currencies;
   }
 
@@ -317,20 +288,20 @@ public class Plan extends Resource {
     this.setupFeeAccountingCode = setupFeeAccountingCode;
   }
 
-  /** The current state of the plan. */
+  /** Plans can be either active or inactive. */
   public String getState() {
     return this.state;
   }
 
-  /** @param state The current state of the plan. */
+  /** @param state Plans can be either active or inactive. */
   public void setState(final String state) {
     this.state = state;
   }
 
   /**
    * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
-   * each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`,
-   * or `digital`.
+   * each tax system. If you are using Recurly’s EU VAT feature `P0000000` is `physical`, `D0000000`
+   * is `digital`, and an empty string is `unknown`.
    */
   public String getTaxCode() {
     return this.taxCode;
@@ -338,8 +309,8 @@ public class Plan extends Resource {
 
   /**
    * @param taxCode Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values
-   *     are specific to each tax system. If you are using Recurly’s EU VAT feature you can use
-   *     `unknown`, `physical`, or `digital`.
+   *     are specific to each tax system. If you are using Recurly’s EU VAT feature `P0000000` is
+   *     `physical`, `D0000000` is `digital`, and an empty string is `unknown`.
    */
   public void setTaxCode(final String taxCode) {
     this.taxCode = taxCode;

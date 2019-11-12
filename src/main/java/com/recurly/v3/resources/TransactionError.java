@@ -31,6 +31,11 @@ public class TransactionError extends Resource {
   @Expose
   private String message;
 
+  /** Object type */
+  @SerializedName("object")
+  @Expose
+  private String object;
+
   /** Transaction ID */
   @SerializedName("transaction_id")
   @Expose
@@ -74,6 +79,16 @@ public class TransactionError extends Resource {
   /** @param message Customer message */
   public void setMessage(final String message) {
     this.message = message;
+  }
+
+  /** Object type */
+  public String getObject() {
+    return this.object;
+  }
+
+  /** @param object Object type */
+  public void setObject(final String object) {
+    this.object = object;
   }
 
   /** Transaction ID */

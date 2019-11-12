@@ -8,7 +8,6 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import java.util.List;
 import java.util.Map;
 import org.joda.time.DateTime;
 
@@ -36,11 +35,6 @@ public class Transaction extends Resource {
   @SerializedName("collected_at")
   @Expose
   private DateTime collectedAt;
-
-  /** The method by which the payment was collected. */
-  @SerializedName("collection_method")
-  @Expose
-  private String collectionMethod;
 
   /** Created at */
   @SerializedName("created_at")
@@ -106,6 +100,14 @@ public class Transaction extends Resource {
   @Expose
   private InvoiceMini invoice;
 
+  /**
+   * If this transaction pays (`type=payment`) for or refunds (`type=refund`) an invoice, this will
+   * be the invoice's ID. It will be null for verification (`type=verify`) transactions.
+   */
+  @SerializedName("invoice_id")
+  @Expose
+  private String invoiceId;
+
   /** IP address's country */
   @SerializedName("ip_address_country")
   @Expose
@@ -114,7 +116,7 @@ public class Transaction extends Resource {
   /**
    * IP address provided when the billing information was collected:
    *
-   * <p>- When the customer enters billing information into the Recurly.JS or Hosted Payment Pages,
+   * <p>- When the customer enters billing information into the Recurly.js or Hosted Payment Pages,
    * Recurly records the IP address. - When the merchant enters billing information using the API,
    * the merchant may provide an IP address. - When the merchant enters billing information using
    * the UI, no IP address is recorded.
@@ -172,12 +174,10 @@ public class Transaction extends Resource {
   @Expose
   private String statusMessage;
 
-  /**
-   * If the transaction is charging or refunding for one or more subscriptions, these are their IDs.
-   */
-  @SerializedName("subscription_ids")
+  /** If the transaction is charging or refunding for a subscription, this is its ID. */
+  @SerializedName("subscription_id")
   @Expose
-  private List<String> subscriptionIds;
+  private String subscriptionId;
 
   /** Did this transaction complete successfully? */
   @SerializedName("success")
@@ -206,10 +206,6 @@ public class Transaction extends Resource {
   @SerializedName("voided_at")
   @Expose
   private DateTime voidedAt;
-
-  @SerializedName("voided_by_invoice")
-  @Expose
-  private InvoiceMini voidedByInvoice;
 
   public AccountMini getAccount() {
     return this.account;
@@ -259,16 +255,6 @@ public class Transaction extends Resource {
    */
   public void setCollectedAt(final DateTime collectedAt) {
     this.collectedAt = collectedAt;
-  }
-
-  /** The method by which the payment was collected. */
-  public String getCollectionMethod() {
-    return this.collectionMethod;
-  }
-
-  /** @param collectionMethod The method by which the payment was collected. */
-  public void setCollectionMethod(final String collectionMethod) {
-    this.collectionMethod = collectionMethod;
   }
 
   /** Created at */
@@ -406,6 +392,23 @@ public class Transaction extends Resource {
     this.invoice = invoice;
   }
 
+  /**
+   * If this transaction pays (`type=payment`) for or refunds (`type=refund`) an invoice, this will
+   * be the invoice's ID. It will be null for verification (`type=verify`) transactions.
+   */
+  public String getInvoiceId() {
+    return this.invoiceId;
+  }
+
+  /**
+   * @param invoiceId If this transaction pays (`type=payment`) for or refunds (`type=refund`) an
+   *     invoice, this will be the invoice's ID. It will be null for verification (`type=verify`)
+   *     transactions.
+   */
+  public void setInvoiceId(final String invoiceId) {
+    this.invoiceId = invoiceId;
+  }
+
   /** IP address's country */
   public String getIpAddressCountry() {
     return this.ipAddressCountry;
@@ -419,7 +422,7 @@ public class Transaction extends Resource {
   /**
    * IP address provided when the billing information was collected:
    *
-   * <p>- When the customer enters billing information into the Recurly.JS or Hosted Payment Pages,
+   * <p>- When the customer enters billing information into the Recurly.js or Hosted Payment Pages,
    * Recurly records the IP address. - When the merchant enters billing information using the API,
    * the merchant may provide an IP address. - When the merchant enters billing information using
    * the UI, no IP address is recorded.
@@ -430,7 +433,7 @@ public class Transaction extends Resource {
 
   /**
    * @param ipAddressV4 IP address provided when the billing information was collected:
-   *     <p>- When the customer enters billing information into the Recurly.JS or Hosted Payment
+   *     <p>- When the customer enters billing information into the Recurly.js or Hosted Payment
    *     Pages, Recurly records the IP address. - When the merchant enters billing information using
    *     the API, the merchant may provide an IP address. - When the merchant enters billing
    *     information using the UI, no IP address is recorded.
@@ -542,19 +545,17 @@ public class Transaction extends Resource {
     this.statusMessage = statusMessage;
   }
 
-  /**
-   * If the transaction is charging or refunding for one or more subscriptions, these are their IDs.
-   */
-  public List<String> getSubscriptionIds() {
-    return this.subscriptionIds;
+  /** If the transaction is charging or refunding for a subscription, this is its ID. */
+  public String getSubscriptionId() {
+    return this.subscriptionId;
   }
 
   /**
-   * @param subscriptionIds If the transaction is charging or refunding for one or more
-   *     subscriptions, these are their IDs.
+   * @param subscriptionId If the transaction is charging or refunding for a subscription, this is
+   *     its ID.
    */
-  public void setSubscriptionIds(final List<String> subscriptionIds) {
-    this.subscriptionIds = subscriptionIds;
+  public void setSubscriptionId(final String subscriptionId) {
+    this.subscriptionId = subscriptionId;
   }
 
   /** Did this transaction complete successfully? */
@@ -613,14 +614,5 @@ public class Transaction extends Resource {
   /** @param voidedAt Voided at */
   public void setVoidedAt(final DateTime voidedAt) {
     this.voidedAt = voidedAt;
-  }
-
-  public InvoiceMini getVoidedByInvoice() {
-    return this.voidedByInvoice;
-  }
-
-  /** @param voidedByInvoice */
-  public void setVoidedByInvoice(final InvoiceMini voidedByInvoice) {
-    this.voidedByInvoice = voidedByInvoice;
   }
 }

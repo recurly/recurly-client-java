@@ -50,10 +50,6 @@ public class QueryParams {
     this.add("end_time", endTime);
   }
 
-  public void setEmail(final String email) {
-    this.add("email", email);
-  }
-
   public void setSubscriber(final Boolean subscriber) {
     this.add("subscriber", subscriber);
   }
@@ -62,16 +58,16 @@ public class QueryParams {
     this.add("past_due", pastDue);
   }
 
-  public void setType(final String type) {
-    this.add("type", type);
-  }
-
   public void setOriginal(final String original) {
     this.add("original", original);
   }
 
   public void setState(final String state) {
     this.add("state", state);
+  }
+
+  public void setType(final String type) {
+    this.add("type", type);
   }
 
   public void setSuccess(final String success) {

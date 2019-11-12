@@ -9,24 +9,14 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
-import java.util.List;
 import org.joda.time.DateTime;
 
 public class SubscriptionUpdate extends Request {
-
-  /** Whether the subscription renews at the end of its term. */
-  @SerializedName("auto_renew")
-  @Expose
-  private Boolean autoRenew;
 
   /** Change collection method */
   @SerializedName("collection_method")
   @Expose
   private String collectionMethod;
-
-  @SerializedName("custom_fields")
-  @Expose
-  private List<CustomField> customFields;
 
   /**
    * Specify custom notes to add or override Customer Notes. Custom notes will stay with a
@@ -47,36 +37,35 @@ public class SubscriptionUpdate extends Request {
   private Integer netTerms;
 
   /**
-   * If present, this sets the date the subscription's next billing period will start
-   * (`current_period_ends_at`). This can be used to align the subscription’s billing to a specific
-   * day of the month. For a subscription in a trial period, this will change when the trial
-   * expires.
+   * For an active subscription, this will change the next renewal date. For a subscription in a
+   * trial period, modifying the renewal date will change when the trial expires.
    */
-  @SerializedName("next_bill_date")
+  @SerializedName("next_renewal_at")
   @Expose
-  private DateTime nextBillDate;
+  private DateTime nextRenewalAt;
 
   /** For manual invoicing, this identifies the PO number associated with the subscription. */
   @SerializedName("po_number")
   @Expose
   private String poNumber;
 
-  /** The remaining billing cycles in the current term. */
+  /** Renews the subscription for a specified number of cycles, then automatically cancels. */
   @SerializedName("remaining_billing_cycles")
   @Expose
   private Integer remainingBillingCycles;
 
   /**
-   * If `auto_renew=true`, when a term completes, `total_billing_cycles` takes this value as the
-   * length of subsequent terms. Defaults to the plan's `total_billing_cycles`.
+   * Create a shipping address on the account and assign it to the subscription. If this and
+   * `shipping_address_id` are both present, `shipping_address_id` will take precedence.
    */
-  @SerializedName("renewal_billing_cycles")
+  @SerializedName("shipping_address")
   @Expose
-  private Integer renewalBillingCycles;
+  private ShippingAddressCreate shippingAddress;
 
-  @SerializedName("shipping")
+  /** Assign a shipping address from the account's existing shipping addresses. */
+  @SerializedName("shipping_address_id")
   @Expose
-  private SubscriptionShippingUpdate shipping;
+  private String shippingAddressId;
 
   /**
    * Specify custom notes to add or override Terms and Conditions. Custom notes will stay with a
@@ -86,16 +75,6 @@ public class SubscriptionUpdate extends Request {
   @Expose
   private String termsAndConditions;
 
-  /** Whether the subscription renews at the end of its term. */
-  public Boolean getAutoRenew() {
-    return this.autoRenew;
-  }
-
-  /** @param autoRenew Whether the subscription renews at the end of its term. */
-  public void setAutoRenew(final Boolean autoRenew) {
-    this.autoRenew = autoRenew;
-  }
-
   /** Change collection method */
   public String getCollectionMethod() {
     return this.collectionMethod;
@@ -104,15 +83,6 @@ public class SubscriptionUpdate extends Request {
   /** @param collectionMethod Change collection method */
   public void setCollectionMethod(final String collectionMethod) {
     this.collectionMethod = collectionMethod;
-  }
-
-  public List<CustomField> getCustomFields() {
-    return this.customFields;
-  }
-
-  /** @param customFields */
-  public void setCustomFields(final List<CustomField> customFields) {
-    this.customFields = customFields;
   }
 
   /**
@@ -152,23 +122,20 @@ public class SubscriptionUpdate extends Request {
   }
 
   /**
-   * If present, this sets the date the subscription's next billing period will start
-   * (`current_period_ends_at`). This can be used to align the subscription’s billing to a specific
-   * day of the month. For a subscription in a trial period, this will change when the trial
-   * expires.
+   * For an active subscription, this will change the next renewal date. For a subscription in a
+   * trial period, modifying the renewal date will change when the trial expires.
    */
-  public DateTime getNextBillDate() {
-    return this.nextBillDate;
+  public DateTime getNextRenewalAt() {
+    return this.nextRenewalAt;
   }
 
   /**
-   * @param nextBillDate If present, this sets the date the subscription's next billing period will
-   *     start (`current_period_ends_at`). This can be used to align the subscription’s billing to a
-   *     specific day of the month. For a subscription in a trial period, this will change when the
-   *     trial expires.
+   * @param nextRenewalAt For an active subscription, this will change the next renewal date. For a
+   *     subscription in a trial period, modifying the renewal date will change when the trial
+   *     expires.
    */
-  public void setNextBillDate(final DateTime nextBillDate) {
-    this.nextBillDate = nextBillDate;
+  public void setNextRenewalAt(final DateTime nextRenewalAt) {
+    this.nextRenewalAt = nextRenewalAt;
   }
 
   /** For manual invoicing, this identifies the PO number associated with the subscription. */
@@ -184,40 +151,47 @@ public class SubscriptionUpdate extends Request {
     this.poNumber = poNumber;
   }
 
-  /** The remaining billing cycles in the current term. */
+  /** Renews the subscription for a specified number of cycles, then automatically cancels. */
   public Integer getRemainingBillingCycles() {
     return this.remainingBillingCycles;
   }
 
-  /** @param remainingBillingCycles The remaining billing cycles in the current term. */
+  /**
+   * @param remainingBillingCycles Renews the subscription for a specified number of cycles, then
+   *     automatically cancels.
+   */
   public void setRemainingBillingCycles(final Integer remainingBillingCycles) {
     this.remainingBillingCycles = remainingBillingCycles;
   }
 
   /**
-   * If `auto_renew=true`, when a term completes, `total_billing_cycles` takes this value as the
-   * length of subsequent terms. Defaults to the plan's `total_billing_cycles`.
+   * Create a shipping address on the account and assign it to the subscription. If this and
+   * `shipping_address_id` are both present, `shipping_address_id` will take precedence.
    */
-  public Integer getRenewalBillingCycles() {
-    return this.renewalBillingCycles;
+  public ShippingAddressCreate getShippingAddress() {
+    return this.shippingAddress;
   }
 
   /**
-   * @param renewalBillingCycles If `auto_renew=true`, when a term completes, `total_billing_cycles`
-   *     takes this value as the length of subsequent terms. Defaults to the plan's
-   *     `total_billing_cycles`.
+   * @param shippingAddress Create a shipping address on the account and assign it to the
+   *     subscription. If this and `shipping_address_id` are both present, `shipping_address_id`
+   *     will take precedence.
    */
-  public void setRenewalBillingCycles(final Integer renewalBillingCycles) {
-    this.renewalBillingCycles = renewalBillingCycles;
+  public void setShippingAddress(final ShippingAddressCreate shippingAddress) {
+    this.shippingAddress = shippingAddress;
   }
 
-  public SubscriptionShippingUpdate getShipping() {
-    return this.shipping;
+  /** Assign a shipping address from the account's existing shipping addresses. */
+  public String getShippingAddressId() {
+    return this.shippingAddressId;
   }
 
-  /** @param shipping */
-  public void setShipping(final SubscriptionShippingUpdate shipping) {
-    this.shipping = shipping;
+  /**
+   * @param shippingAddressId Assign a shipping address from the account's existing shipping
+   *     addresses.
+   */
+  public void setShippingAddressId(final String shippingAddressId) {
+    this.shippingAddressId = shippingAddressId;
   }
 
   /**

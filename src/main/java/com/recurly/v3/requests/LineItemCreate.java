@@ -13,15 +13,6 @@ import org.joda.time.DateTime;
 
 public class LineItemCreate extends Request {
 
-  /**
-   * The reason the credit was given when line item is `type=credit`. When the Credit Invoices
-   * feature is enabled, the value can be set and will default to `general`. When the Credit
-   * Invoices feature is not enabled, the value will always be `null`.
-   */
-  @SerializedName("credit_reason_code")
-  @Expose
-  private String creditReasonCode;
-
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
   @Expose
@@ -36,15 +27,6 @@ public class LineItemCreate extends Request {
   @SerializedName("end_date")
   @Expose
   private DateTime endDate;
-
-  /**
-   * Optional field to track a product code or SKU for the line item. This can be used to later
-   * reporting on product purchases. For Vertex tax calculations, this field will be used as the
-   * Vertex `product` field.
-   */
-  @SerializedName("product_code")
-  @Expose
-  private String productCode;
 
   /**
    * This number will be multiplied by the unit amount to compute the subtotal before any discounts
@@ -95,24 +77,6 @@ public class LineItemCreate extends Request {
   @Expose
   private Float unitAmount;
 
-  /**
-   * The reason the credit was given when line item is `type=credit`. When the Credit Invoices
-   * feature is enabled, the value can be set and will default to `general`. When the Credit
-   * Invoices feature is not enabled, the value will always be `null`.
-   */
-  public String getCreditReasonCode() {
-    return this.creditReasonCode;
-  }
-
-  /**
-   * @param creditReasonCode The reason the credit was given when line item is `type=credit`. When
-   *     the Credit Invoices feature is enabled, the value can be set and will default to `general`.
-   *     When the Credit Invoices feature is not enabled, the value will always be `null`.
-   */
-  public void setCreditReasonCode(final String creditReasonCode) {
-    this.creditReasonCode = creditReasonCode;
-  }
-
   /** 3-letter ISO 4217 currency code. */
   public String getCurrency() {
     return this.currency;
@@ -141,24 +105,6 @@ public class LineItemCreate extends Request {
   /** @param endDate If this date is provided, it indicates the end of a time range. */
   public void setEndDate(final DateTime endDate) {
     this.endDate = endDate;
-  }
-
-  /**
-   * Optional field to track a product code or SKU for the line item. This can be used to later
-   * reporting on product purchases. For Vertex tax calculations, this field will be used as the
-   * Vertex `product` field.
-   */
-  public String getProductCode() {
-    return this.productCode;
-  }
-
-  /**
-   * @param productCode Optional field to track a product code or SKU for the line item. This can be
-   *     used to later reporting on product purchases. For Vertex tax calculations, this field will
-   *     be used as the Vertex `product` field.
-   */
-  public void setProductCode(final String productCode) {
-    this.productCode = productCode;
   }
 
   /**

@@ -13,14 +13,6 @@ import com.recurly.v3.resources.*;
 public class InvoiceCreate extends Request {
 
   /**
-   * This will default to the Customer Notes text specified on the Invoice Settings for charge
-   * invoices. Specify custom notes to add or override Customer Notes on charge invoices.
-   */
-  @SerializedName("charge_customer_notes")
-  @Expose
-  private String chargeCustomerNotes;
-
-  /**
    * An automatic invoice means a corresponding transaction is run using the account's billing
    * information at the same time the invoice is created. Manual invoices are created without a
    * corresponding transaction. The merchant must enter a manual payment transaction or have the
@@ -31,18 +23,18 @@ public class InvoiceCreate extends Request {
   @Expose
   private String collectionMethod;
 
-  /**
-   * This will default to the Customer Notes text specified on the Invoice Settings for credit
-   * invoices. Specify customer notes to add or override Customer Notes on credit invoices.
-   */
-  @SerializedName("credit_customer_notes")
-  @Expose
-  private String creditCustomerNotes;
-
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
   @Expose
   private String currency;
+
+  /**
+   * This will default to the Customer Notes text specified on the Invoice Settings. Specify custom
+   * notes to add or override Customer Notes.
+   */
+  @SerializedName("customer_notes")
+  @Expose
+  private String customerNotes;
 
   /**
    * Integer representing the number of days after an invoice's creation that the invoice will
@@ -79,23 +71,6 @@ public class InvoiceCreate extends Request {
   private String vatReverseChargeNotes;
 
   /**
-   * This will default to the Customer Notes text specified on the Invoice Settings for charge
-   * invoices. Specify custom notes to add or override Customer Notes on charge invoices.
-   */
-  public String getChargeCustomerNotes() {
-    return this.chargeCustomerNotes;
-  }
-
-  /**
-   * @param chargeCustomerNotes This will default to the Customer Notes text specified on the
-   *     Invoice Settings for charge invoices. Specify custom notes to add or override Customer
-   *     Notes on charge invoices.
-   */
-  public void setChargeCustomerNotes(final String chargeCustomerNotes) {
-    this.chargeCustomerNotes = chargeCustomerNotes;
-  }
-
-  /**
    * An automatic invoice means a corresponding transaction is run using the account's billing
    * information at the same time the invoice is created. Manual invoices are created without a
    * corresponding transaction. The merchant must enter a manual payment transaction or have the
@@ -117,23 +92,6 @@ public class InvoiceCreate extends Request {
     this.collectionMethod = collectionMethod;
   }
 
-  /**
-   * This will default to the Customer Notes text specified on the Invoice Settings for credit
-   * invoices. Specify customer notes to add or override Customer Notes on credit invoices.
-   */
-  public String getCreditCustomerNotes() {
-    return this.creditCustomerNotes;
-  }
-
-  /**
-   * @param creditCustomerNotes This will default to the Customer Notes text specified on the
-   *     Invoice Settings for credit invoices. Specify customer notes to add or override Customer
-   *     Notes on credit invoices.
-   */
-  public void setCreditCustomerNotes(final String creditCustomerNotes) {
-    this.creditCustomerNotes = creditCustomerNotes;
-  }
-
   /** 3-letter ISO 4217 currency code. */
   public String getCurrency() {
     return this.currency;
@@ -142,6 +100,22 @@ public class InvoiceCreate extends Request {
   /** @param currency 3-letter ISO 4217 currency code. */
   public void setCurrency(final String currency) {
     this.currency = currency;
+  }
+
+  /**
+   * This will default to the Customer Notes text specified on the Invoice Settings. Specify custom
+   * notes to add or override Customer Notes.
+   */
+  public String getCustomerNotes() {
+    return this.customerNotes;
+  }
+
+  /**
+   * @param customerNotes This will default to the Customer Notes text specified on the Invoice
+   *     Settings. Specify custom notes to add or override Customer Notes.
+   */
+  public void setCustomerNotes(final String customerNotes) {
+    this.customerNotes = customerNotes;
   }
 
   /**

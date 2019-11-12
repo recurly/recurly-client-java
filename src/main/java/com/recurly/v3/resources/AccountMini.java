@@ -11,18 +11,10 @@ import com.recurly.v3.Resource;
 
 public class AccountMini extends Resource {
 
-  @SerializedName("bill_to")
-  @Expose
-  private String billTo;
-
   /** The unique identifier of the account. */
   @SerializedName("code")
   @Expose
   private String code;
-
-  @SerializedName("company")
-  @Expose
-  private String company;
 
   /** The email address used for communicating with this customer. */
   @SerializedName("email")
@@ -46,19 +38,6 @@ public class AccountMini extends Resource {
   @Expose
   private String object;
 
-  @SerializedName("parent_account_id")
-  @Expose
-  private String parentAccountId;
-
-  public String getBillTo() {
-    return this.billTo;
-  }
-
-  /** @param billTo */
-  public void setBillTo(final String billTo) {
-    this.billTo = billTo;
-  }
-
   /** The unique identifier of the account. */
   public String getCode() {
     return this.code;
@@ -67,15 +46,6 @@ public class AccountMini extends Resource {
   /** @param code The unique identifier of the account. */
   public void setCode(final String code) {
     this.code = code;
-  }
-
-  public String getCompany() {
-    return this.company;
-  }
-
-  /** @param company */
-  public void setCompany(final String company) {
-    this.company = company;
   }
 
   /** The email address used for communicating with this customer. */
@@ -123,14 +93,5 @@ public class AccountMini extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
-  }
-
-  public String getParentAccountId() {
-    return this.parentAccountId;
-  }
-
-  /** @param parentAccountId */
-  public void setParentAccountId(final String parentAccountId) {
-    this.parentAccountId = parentAccountId;
   }
 }

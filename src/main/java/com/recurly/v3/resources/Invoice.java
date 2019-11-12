@@ -19,12 +19,7 @@ public class Invoice extends Resource {
 
   @SerializedName("address")
   @Expose
-  private InvoiceAddress address;
-
-  /** The outstanding balance remaining on this invoice. */
-  @SerializedName("balance")
-  @Expose
-  private Float balance;
+  private Address address;
 
   /** Date invoice was marked paid or failed. */
   @SerializedName("closed_at")
@@ -47,11 +42,6 @@ public class Invoice extends Resource {
   @Expose
   private DateTime createdAt;
 
-  /** Credit payments */
-  @SerializedName("credit_payments")
-  @Expose
-  private List<CreditPayment> creditPayments;
-
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
   @Expose
@@ -70,6 +60,11 @@ public class Invoice extends Resource {
   @Expose
   private Float discount;
 
+  /** The outstanding balance remaining on this invoice. */
+  @SerializedName("due")
+  @Expose
+  private Float due;
+
   /** Date invoice is due. This is the date the net terms are reached. */
   @SerializedName("due_at")
   @Expose
@@ -80,9 +75,10 @@ public class Invoice extends Resource {
   @Expose
   private String id;
 
+  /** Line items are grouped by the role they play. */
   @SerializedName("line_items")
   @Expose
-  private LineItemList lineItems;
+  private InvoiceLineItems lineItems;
 
   /**
    * Integer representing the number of days after an invoice's creation that the invoice will
@@ -108,11 +104,6 @@ public class Invoice extends Resource {
   @Expose
   private String object;
 
-  /** The event that created the invoice. */
-  @SerializedName("origin")
-  @Expose
-  private String origin;
-
   /** The total amount of successful payments transaction on this invoice. */
   @SerializedName("paid")
   @Expose
@@ -131,24 +122,15 @@ public class Invoice extends Resource {
   @Expose
   private String previousInvoiceId;
 
-  /** The refundable amount on a charge invoice. It will be null for all other invoices. */
-  @SerializedName("refundable_amount")
-  @Expose
-  private Float refundableAmount;
-
-  @SerializedName("shipping_address")
-  @Expose
-  private ShippingAddress shippingAddress;
-
   /** Invoice state */
   @SerializedName("state")
   @Expose
   private String state;
 
-  /** If the invoice is charging or refunding for one or more subscriptions, these are their IDs. */
-  @SerializedName("subscription_ids")
+  /** If the invoice is charging or refunding for a subscription, this is its ID. */
+  @SerializedName("subscription_id")
   @Expose
-  private List<String> subscriptionIds;
+  private String subscriptionId;
 
   /** The summation of charges, discounts, and credits, before tax. */
   @SerializedName("subtotal")
@@ -184,7 +166,11 @@ public class Invoice extends Resource {
   @Expose
   private List<Transaction> transactions;
 
-  /** Invoices are either charge, credit, or legacy invoices. */
+  /**
+   * The original invoice will have a type of `purchase`. Any refunds or voids will create a
+   * negative invoice to cancel out the original. `line_item_refund` indicates that specific line
+   * items were refunded, while `open_amount_refund` only indicates money was refunded.
+   */
   @SerializedName("type")
   @Expose
   private String type;
@@ -223,23 +209,13 @@ public class Invoice extends Resource {
     this.account = account;
   }
 
-  public InvoiceAddress getAddress() {
+  public Address getAddress() {
     return this.address;
   }
 
   /** @param address */
-  public void setAddress(final InvoiceAddress address) {
+  public void setAddress(final Address address) {
     this.address = address;
-  }
-
-  /** The outstanding balance remaining on this invoice. */
-  public Float getBalance() {
-    return this.balance;
-  }
-
-  /** @param balance The outstanding balance remaining on this invoice. */
-  public void setBalance(final Float balance) {
-    this.balance = balance;
   }
 
   /** Date invoice was marked paid or failed. */
@@ -284,16 +260,6 @@ public class Invoice extends Resource {
     this.createdAt = createdAt;
   }
 
-  /** Credit payments */
-  public List<CreditPayment> getCreditPayments() {
-    return this.creditPayments;
-  }
-
-  /** @param creditPayments Credit payments */
-  public void setCreditPayments(final List<CreditPayment> creditPayments) {
-    this.creditPayments = creditPayments;
-  }
-
   /** 3-letter ISO 4217 currency code. */
   public String getCurrency() {
     return this.currency;
@@ -330,6 +296,16 @@ public class Invoice extends Resource {
     this.discount = discount;
   }
 
+  /** The outstanding balance remaining on this invoice. */
+  public Float getDue() {
+    return this.due;
+  }
+
+  /** @param due The outstanding balance remaining on this invoice. */
+  public void setDue(final Float due) {
+    this.due = due;
+  }
+
   /** Date invoice is due. This is the date the net terms are reached. */
   public DateTime getDueAt() {
     return this.dueAt;
@@ -350,12 +326,13 @@ public class Invoice extends Resource {
     this.id = id;
   }
 
-  public LineItemList getLineItems() {
+  /** Line items are grouped by the role they play. */
+  public InvoiceLineItems getLineItems() {
     return this.lineItems;
   }
 
-  /** @param lineItems */
-  public void setLineItems(final LineItemList lineItems) {
+  /** @param lineItems Line items are grouped by the role they play. */
+  public void setLineItems(final InvoiceLineItems lineItems) {
     this.lineItems = lineItems;
   }
 
@@ -407,16 +384,6 @@ public class Invoice extends Resource {
     this.object = object;
   }
 
-  /** The event that created the invoice. */
-  public String getOrigin() {
-    return this.origin;
-  }
-
-  /** @param origin The event that created the invoice. */
-  public void setOrigin(final String origin) {
-    this.origin = origin;
-  }
-
   /** The total amount of successful payments transaction on this invoice. */
   public Float getPaid() {
     return this.paid;
@@ -456,28 +423,6 @@ public class Invoice extends Resource {
     this.previousInvoiceId = previousInvoiceId;
   }
 
-  /** The refundable amount on a charge invoice. It will be null for all other invoices. */
-  public Float getRefundableAmount() {
-    return this.refundableAmount;
-  }
-
-  /**
-   * @param refundableAmount The refundable amount on a charge invoice. It will be null for all
-   *     other invoices.
-   */
-  public void setRefundableAmount(final Float refundableAmount) {
-    this.refundableAmount = refundableAmount;
-  }
-
-  public ShippingAddress getShippingAddress() {
-    return this.shippingAddress;
-  }
-
-  /** @param shippingAddress */
-  public void setShippingAddress(final ShippingAddress shippingAddress) {
-    this.shippingAddress = shippingAddress;
-  }
-
   /** Invoice state */
   public String getState() {
     return this.state;
@@ -488,17 +433,17 @@ public class Invoice extends Resource {
     this.state = state;
   }
 
-  /** If the invoice is charging or refunding for one or more subscriptions, these are their IDs. */
-  public List<String> getSubscriptionIds() {
-    return this.subscriptionIds;
+  /** If the invoice is charging or refunding for a subscription, this is its ID. */
+  public String getSubscriptionId() {
+    return this.subscriptionId;
   }
 
   /**
-   * @param subscriptionIds If the invoice is charging or refunding for one or more subscriptions,
-   *     these are their IDs.
+   * @param subscriptionId If the invoice is charging or refunding for a subscription, this is its
+   *     ID.
    */
-  public void setSubscriptionIds(final List<String> subscriptionIds) {
-    this.subscriptionIds = subscriptionIds;
+  public void setSubscriptionId(final String subscriptionId) {
+    this.subscriptionId = subscriptionId;
   }
 
   /** The summation of charges, discounts, and credits, before tax. */
@@ -572,12 +517,21 @@ public class Invoice extends Resource {
     this.transactions = transactions;
   }
 
-  /** Invoices are either charge, credit, or legacy invoices. */
+  /**
+   * The original invoice will have a type of `purchase`. Any refunds or voids will create a
+   * negative invoice to cancel out the original. `line_item_refund` indicates that specific line
+   * items were refunded, while `open_amount_refund` only indicates money was refunded.
+   */
   public String getType() {
     return this.type;
   }
 
-  /** @param type Invoices are either charge, credit, or legacy invoices. */
+  /**
+   * @param type The original invoice will have a type of `purchase`. Any refunds or voids will
+   *     create a negative invoice to cancel out the original. `line_item_refund` indicates that
+   *     specific line items were refunded, while `open_amount_refund` only indicates money was
+   *     refunded.
+   */
   public void setType(final String type) {
     this.type = type;
   }

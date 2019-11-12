@@ -119,14 +119,6 @@ public class Coupon extends Resource {
   @Expose
   private String object;
 
-  /**
-   * A list of plans for which this coupon applies. This will be `null` if
-   * `applies_to_all_plans=true`.
-   */
-  @SerializedName("plans")
-  @Expose
-  private List<PlanMini> plans;
-
   /** TODO */
   @SerializedName("plans_names")
   @Expose
@@ -168,11 +160,6 @@ public class Coupon extends Resource {
   @SerializedName("temporal_unit")
   @Expose
   private String temporalUnit;
-
-  /** On a bulk coupon, the template from which unique coupon codes are generated. */
-  @SerializedName("unique_code_template")
-  @Expose
-  private String uniqueCodeTemplate;
 
   /** When this number reaches `max_redemptions` the coupon will no longer be redeemable. */
   @SerializedName("unique_coupon_codes_count")
@@ -403,22 +390,6 @@ public class Coupon extends Resource {
     this.object = object;
   }
 
-  /**
-   * A list of plans for which this coupon applies. This will be `null` if
-   * `applies_to_all_plans=true`.
-   */
-  public List<PlanMini> getPlans() {
-    return this.plans;
-  }
-
-  /**
-   * @param plans A list of plans for which this coupon applies. This will be `null` if
-   *     `applies_to_all_plans=true`.
-   */
-  public void setPlans(final List<PlanMini> plans) {
-    this.plans = plans;
-  }
-
   /** TODO */
   public List<String> getPlansNames() {
     return this.plansNames;
@@ -502,19 +473,6 @@ public class Coupon extends Resource {
    */
   public void setTemporalUnit(final String temporalUnit) {
     this.temporalUnit = temporalUnit;
-  }
-
-  /** On a bulk coupon, the template from which unique coupon codes are generated. */
-  public String getUniqueCodeTemplate() {
-    return this.uniqueCodeTemplate;
-  }
-
-  /**
-   * @param uniqueCodeTemplate On a bulk coupon, the template from which unique coupon codes are
-   *     generated.
-   */
-  public void setUniqueCodeTemplate(final String uniqueCodeTemplate) {
-    this.uniqueCodeTemplate = uniqueCodeTemplate;
   }
 
   /** When this number reaches `max_redemptions` the coupon will no longer be redeemable. */

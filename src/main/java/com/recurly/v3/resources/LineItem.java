@@ -51,11 +51,6 @@ public class LineItem extends Resource {
   @Expose
   private Float creditApplied;
 
-  /** The reason the credit was given when line item is `type=credit`. */
-  @SerializedName("credit_reason_code")
-  @Expose
-  private String creditReasonCode;
-
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
   @Expose
@@ -99,18 +94,6 @@ public class LineItem extends Resource {
   @Expose
   private String invoiceNumber;
 
-  /**
-   * Category to describe the role of a line item on a legacy invoice: - "charges" refers to charges
-   * being billed for on this invoice. - "credits" refers to refund or proration credits. This
-   * portion of the invoice can be considered a credit memo. - "applied_credits" refers to previous
-   * credits applied to this invoice. See their original_line_item_id to determine where the credit
-   * first originated. - "carryforwards" can be ignored. They exist to consume any remaining credit
-   * balance. A new credit with the same amount will be created and placed back on the account.
-   */
-  @SerializedName("legacy_category")
-  @Expose
-  private String legacyCategory;
-
   /** Object type */
   @SerializedName("object")
   @Expose
@@ -120,6 +103,15 @@ public class LineItem extends Resource {
   @SerializedName("origin")
   @Expose
   private String origin;
+
+  /**
+   * The line item where the credit originated. Will only have a value if the line item is a credit
+   * created from a previous credit, or if the credit was created from a charge refund. For some
+   * older invoices this may reference a carryforward charge.
+   */
+  @SerializedName("original_line_item_id")
+  @Expose
+  private String originalLineItemId;
 
   /**
    * The invoice where the credit originated. Will only have a value if the line item is a credit
@@ -154,15 +146,6 @@ public class LineItem extends Resource {
   @SerializedName("product_code")
   @Expose
   private String productCode;
-
-  /**
-   * When a line item has been prorated, this is the rate of the proration. Proration rates were
-   * made available for line items created after March 30, 2017. For line items created prior to
-   * that date, the proration rate will be `null`, even if the line item was prorated.
-   */
-  @SerializedName("proration_rate")
-  @Expose
-  private Float prorationRate;
 
   /**
    * This number will be multiplied by the unit amount to compute the subtotal before any discounts
@@ -222,8 +205,8 @@ public class LineItem extends Resource {
 
   /**
    * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
-   * each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`,
-   * or `digital`.
+   * each tax system. If you are using Recurly’s EU VAT feature `P0000000` is `physical`, `D0000000`
+   * is `digital`, and an empty string is `unknown`.
    */
   @SerializedName("tax_code")
   @Expose
@@ -237,10 +220,6 @@ public class LineItem extends Resource {
   @SerializedName("tax_exempt")
   @Expose
   private Boolean taxExempt;
-
-  @SerializedName("tax_info")
-  @Expose
-  private TaxInfo taxInfo;
 
   /** `true` if the line item is taxable, `false` if it is not. */
   @SerializedName("taxable")
@@ -353,16 +332,6 @@ public class LineItem extends Resource {
     this.creditApplied = creditApplied;
   }
 
-  /** The reason the credit was given when line item is `type=credit`. */
-  public String getCreditReasonCode() {
-    return this.creditReasonCode;
-  }
-
-  /** @param creditReasonCode The reason the credit was given when line item is `type=credit`. */
-  public void setCreditReasonCode(final String creditReasonCode) {
-    this.creditReasonCode = creditReasonCode;
-  }
-
   /** 3-letter ISO 4217 currency code. */
   public String getCurrency() {
     return this.currency;
@@ -449,31 +418,6 @@ public class LineItem extends Resource {
     this.invoiceNumber = invoiceNumber;
   }
 
-  /**
-   * Category to describe the role of a line item on a legacy invoice: - "charges" refers to charges
-   * being billed for on this invoice. - "credits" refers to refund or proration credits. This
-   * portion of the invoice can be considered a credit memo. - "applied_credits" refers to previous
-   * credits applied to this invoice. See their original_line_item_id to determine where the credit
-   * first originated. - "carryforwards" can be ignored. They exist to consume any remaining credit
-   * balance. A new credit with the same amount will be created and placed back on the account.
-   */
-  public String getLegacyCategory() {
-    return this.legacyCategory;
-  }
-
-  /**
-   * @param legacyCategory Category to describe the role of a line item on a legacy invoice: -
-   *     "charges" refers to charges being billed for on this invoice. - "credits" refers to refund
-   *     or proration credits. This portion of the invoice can be considered a credit memo. -
-   *     "applied_credits" refers to previous credits applied to this invoice. See their
-   *     original_line_item_id to determine where the credit first originated. - "carryforwards" can
-   *     be ignored. They exist to consume any remaining credit balance. A new credit with the same
-   *     amount will be created and placed back on the account.
-   */
-  public void setLegacyCategory(final String legacyCategory) {
-    this.legacyCategory = legacyCategory;
-  }
-
   /** Object type */
   public String getObject() {
     return this.object;
@@ -495,6 +439,24 @@ public class LineItem extends Resource {
    */
   public void setOrigin(final String origin) {
     this.origin = origin;
+  }
+
+  /**
+   * The line item where the credit originated. Will only have a value if the line item is a credit
+   * created from a previous credit, or if the credit was created from a charge refund. For some
+   * older invoices this may reference a carryforward charge.
+   */
+  public String getOriginalLineItemId() {
+    return this.originalLineItemId;
+  }
+
+  /**
+   * @param originalLineItemId The line item where the credit originated. Will only have a value if
+   *     the line item is a credit created from a previous credit, or if the credit was created from
+   *     a charge refund. For some older invoices this may reference a carryforward charge.
+   */
+  public void setOriginalLineItemId(final String originalLineItemId) {
+    this.originalLineItemId = originalLineItemId;
   }
 
   /**
@@ -570,25 +532,6 @@ public class LineItem extends Resource {
    */
   public void setProductCode(final String productCode) {
     this.productCode = productCode;
-  }
-
-  /**
-   * When a line item has been prorated, this is the rate of the proration. Proration rates were
-   * made available for line items created after March 30, 2017. For line items created prior to
-   * that date, the proration rate will be `null`, even if the line item was prorated.
-   */
-  public Float getProrationRate() {
-    return this.prorationRate;
-  }
-
-  /**
-   * @param prorationRate When a line item has been prorated, this is the rate of the proration.
-   *     Proration rates were made available for line items created after March 30, 2017. For line
-   *     items created prior to that date, the proration rate will be `null`, even if the line item
-   *     was prorated.
-   */
-  public void setProrationRate(final Float prorationRate) {
-    this.prorationRate = prorationRate;
   }
 
   /**
@@ -709,8 +652,8 @@ public class LineItem extends Resource {
 
   /**
    * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
-   * each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`,
-   * or `digital`.
+   * each tax system. If you are using Recurly’s EU VAT feature `P0000000` is `physical`, `D0000000`
+   * is `digital`, and an empty string is `unknown`.
    */
   public String getTaxCode() {
     return this.taxCode;
@@ -718,8 +661,8 @@ public class LineItem extends Resource {
 
   /**
    * @param taxCode Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values
-   *     are specific to each tax system. If you are using Recurly’s EU VAT feature you can use
-   *     `unknown`, `physical`, or `digital`.
+   *     are specific to each tax system. If you are using Recurly’s EU VAT feature `P0000000` is
+   *     `physical`, `D0000000` is `digital`, and an empty string is `unknown`.
    */
   public void setTaxCode(final String taxCode) {
     this.taxCode = taxCode;
@@ -742,15 +685,6 @@ public class LineItem extends Resource {
    */
   public void setTaxExempt(final Boolean taxExempt) {
     this.taxExempt = taxExempt;
-  }
-
-  public TaxInfo getTaxInfo() {
-    return this.taxInfo;
-  }
-
-  /** @param taxInfo */
-  public void setTaxInfo(final TaxInfo taxInfo) {
-    this.taxInfo = taxInfo;
   }
 
   /** `true` if the line item is taxable, `false` if it is not. */
