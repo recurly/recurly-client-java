@@ -17,14 +17,6 @@ public class Account extends Resource {
   @Expose
   private Address address;
 
-  /**
-   * An enumerable describing the billing behavior of the account, specifically whether the account
-   * is self-paying or will rely on the parent account to pay.
-   */
-  @SerializedName("bill_to")
-  @Expose
-  private String billTo;
-
   @SerializedName("billing_info")
   @Expose
   private BillingInfo billingInfo;
@@ -69,15 +61,6 @@ public class Account extends Resource {
   @Expose
   private String email;
 
-  /**
-   * The tax exemption certificate number for the account. If the merchant has an integration for
-   * the Vertex tax provider, this optional value will be sent in any tax calculation requests for
-   * the account.
-   */
-  @SerializedName("exemption_certificate")
-  @Expose
-  private String exemptionCertificate;
-
   @SerializedName("first_name")
   @Expose
   private String firstName;
@@ -103,11 +86,6 @@ public class Account extends Resource {
   @SerializedName("object")
   @Expose
   private String object;
-
-  /** The UUID of the parent account associated with this account. */
-  @SerializedName("parent_account_id")
-  @Expose
-  private String parentAccountId;
 
   /**
    * Used to determine the language and locale of emails sent on behalf of the merchant to the
@@ -160,22 +138,6 @@ public class Account extends Resource {
   /** @param address */
   public void setAddress(final Address address) {
     this.address = address;
-  }
-
-  /**
-   * An enumerable describing the billing behavior of the account, specifically whether the account
-   * is self-paying or will rely on the parent account to pay.
-   */
-  public String getBillTo() {
-    return this.billTo;
-  }
-
-  /**
-   * @param billTo An enumerable describing the billing behavior of the account, specifically
-   *     whether the account is self-paying or will rely on the parent account to pay.
-   */
-  public void setBillTo(final String billTo) {
-    this.billTo = billTo;
   }
 
   public BillingInfo getBillingInfo() {
@@ -273,24 +235,6 @@ public class Account extends Resource {
     this.email = email;
   }
 
-  /**
-   * The tax exemption certificate number for the account. If the merchant has an integration for
-   * the Vertex tax provider, this optional value will be sent in any tax calculation requests for
-   * the account.
-   */
-  public String getExemptionCertificate() {
-    return this.exemptionCertificate;
-  }
-
-  /**
-   * @param exemptionCertificate The tax exemption certificate number for the account. If the
-   *     merchant has an integration for the Vertex tax provider, this optional value will be sent
-   *     in any tax calculation requests for the account.
-   */
-  public void setExemptionCertificate(final String exemptionCertificate) {
-    this.exemptionCertificate = exemptionCertificate;
-  }
-
   public String getFirstName() {
     return this.firstName;
   }
@@ -344,16 +288,6 @@ public class Account extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
-  }
-
-  /** The UUID of the parent account associated with this account. */
-  public String getParentAccountId() {
-    return this.parentAccountId;
-  }
-
-  /** @param parentAccountId The UUID of the parent account associated with this account. */
-  public void setParentAccountId(final String parentAccountId) {
-    this.parentAccountId = parentAccountId;
   }
 
   /**

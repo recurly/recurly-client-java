@@ -16,7 +16,7 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 
 public class Client extends BaseClient {
-  public static final String API_VERSION = "v2019-10-10";
+  public static final String API_VERSION = "v2018-06-06";
 
   public Client(final String apiKey) {
     super(apiKey);
@@ -26,7 +26,7 @@ public class Client extends BaseClient {
   /**
    * List sites
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_sites">list_sites api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_sites">list_sites api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of sites.
    */
@@ -43,8 +43,8 @@ public class Client extends BaseClient {
   /**
    * Fetch a site
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_site">get_site api documentation</a>
-   * @param siteId Site ID or subdomain (use prefix: `subdomain-`, e.g. `subdomain-recurly`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_site">get_site api documentation</a>
+   * @param siteId Site ID or subdomain. For ID no prefix is used e.g. `e28zov4fw0v2`. For subdomain use prefix `subdomain-`, e.g. `subdomain-recurly`.
      * @return A site.
    */
   public Site getSite(String siteId) {
@@ -59,7 +59,7 @@ public class Client extends BaseClient {
   /**
    * List a site's accounts
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_accounts">list_accounts api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_accounts">list_accounts api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the site's accounts.
    */
@@ -76,7 +76,7 @@ public class Client extends BaseClient {
   /**
    * Create an account
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_account">create_account api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/create_account">create_account api documentation</a>
    * @param body The body of the request.
      * @return An account.
    */
@@ -91,8 +91,8 @@ public class Client extends BaseClient {
   /**
    * Fetch an account
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_account">get_account api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_account">get_account api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @return An account.
    */
   public Account getAccount(String accountId) {
@@ -107,8 +107,8 @@ public class Client extends BaseClient {
   /**
    * Modify an account
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/update_account">update_account api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/update_account">update_account api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param body The body of the request.
      * @return An account.
    */
@@ -124,8 +124,8 @@ public class Client extends BaseClient {
   /**
    * Deactivate an account
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/deactivate_account">deactivate_account api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/deactivate_account">deactivate_account api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @return An account.
    */
   public Account deactivateAccount(String accountId) {
@@ -140,8 +140,8 @@ public class Client extends BaseClient {
   /**
    * Fetch an account's acquisition data
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_account_acquisition">get_account_acquisition api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_account_acquisition">get_account_acquisition api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @return An account's acquisition data.
    */
   public AccountAcquisition getAccountAcquisition(String accountId) {
@@ -156,8 +156,8 @@ public class Client extends BaseClient {
   /**
    * Update an account's acquisition data
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/update_account_acquisition">update_account_acquisition api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/update_account_acquisition">update_account_acquisition api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param body The body of the request.
      * @return An account's updated acquisition data.
    */
@@ -173,8 +173,8 @@ public class Client extends BaseClient {
   /**
    * Remove an account's acquisition data
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/remove_account_acquisition">remove_account_acquisition api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/remove_account_acquisition">remove_account_acquisition api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    */
   public void removeAccountAcquisition(String accountId) {
     final String url = "/accounts/{account_id}/acquisition";
@@ -187,8 +187,8 @@ public class Client extends BaseClient {
   /**
    * Reactivate an inactive account
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/reactivate_account">reactivate_account api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/reactivate_account">reactivate_account api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @return An account.
    */
   public Account reactivateAccount(String accountId) {
@@ -203,8 +203,8 @@ public class Client extends BaseClient {
   /**
    * Fetch an account's balance and past due status
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_account_balance">get_account_balance api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_account_balance">get_account_balance api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @return An account's balance.
    */
   public AccountBalance getAccountBalance(String accountId) {
@@ -219,8 +219,8 @@ public class Client extends BaseClient {
   /**
    * Fetch an account's billing information
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_billing_info">get_billing_info api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_billing_info">get_billing_info api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @return An account's billing information.
    */
   public BillingInfo getBillingInfo(String accountId) {
@@ -235,8 +235,8 @@ public class Client extends BaseClient {
   /**
    * Set an account's billing information
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/update_billing_info">update_billing_info api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/update_billing_info">update_billing_info api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param body The body of the request.
      * @return Updated billing information.
    */
@@ -252,8 +252,8 @@ public class Client extends BaseClient {
   /**
    * Remove an account's billing information
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/remove_billing_info">remove_billing_info api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/remove_billing_info">remove_billing_info api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    */
   public void removeBillingInfo(String accountId) {
     final String url = "/accounts/{account_id}/billing_info";
@@ -266,8 +266,8 @@ public class Client extends BaseClient {
   /**
    * Show the coupon redemptions for an account
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_account_coupon_redemptions">list_account_coupon_redemptions api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_account_coupon_redemptions">list_account_coupon_redemptions api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the the coupon redemptions on an account.
    */
@@ -285,8 +285,8 @@ public class Client extends BaseClient {
   /**
    * Show the coupon redemption that is active on an account
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_active_coupon_redemption">get_active_coupon_redemption api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_active_coupon_redemption">get_active_coupon_redemption api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @return An active coupon redemption on an account.
    */
   public CouponRedemption getActiveCouponRedemption(String accountId) {
@@ -301,8 +301,8 @@ public class Client extends BaseClient {
   /**
    * Generate an active coupon redemption on an account
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_coupon_redemption">create_coupon_redemption api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/create_coupon_redemption">create_coupon_redemption api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param body The body of the request.
      * @return Returns the new coupon redemption.
    */
@@ -318,8 +318,8 @@ public class Client extends BaseClient {
   /**
    * Delete the active coupon redemption from an account
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/remove_coupon_redemption">remove_coupon_redemption api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/remove_coupon_redemption">remove_coupon_redemption api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @return Coupon redemption deleted.
    */
   public CouponRedemption removeCouponRedemption(String accountId) {
@@ -334,8 +334,8 @@ public class Client extends BaseClient {
   /**
    * List an account's credit payments
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_account_credit_payments">list_account_credit_payments api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_account_credit_payments">list_account_credit_payments api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the account's credit payments.
    */
@@ -353,8 +353,8 @@ public class Client extends BaseClient {
   /**
    * List an account's invoices
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_account_invoices">list_account_invoices api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_account_invoices">list_account_invoices api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the account's invoices.
    */
@@ -372,8 +372,8 @@ public class Client extends BaseClient {
   /**
    * Create an invoice for pending line items
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_invoice">create_invoice api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/create_invoice">create_invoice api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param body The body of the request.
      * @return Returns the new invoices.
    */
@@ -389,8 +389,8 @@ public class Client extends BaseClient {
   /**
    * Preview new invoice for pending line items
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/preview_invoice">preview_invoice api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/preview_invoice">preview_invoice api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param body The body of the request.
      * @return Returns the invoice previews.
    */
@@ -406,8 +406,8 @@ public class Client extends BaseClient {
   /**
    * List an account's line items
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_account_line_items">list_account_line_items api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_account_line_items">list_account_line_items api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the account's line items.
    */
@@ -425,8 +425,8 @@ public class Client extends BaseClient {
   /**
    * Create a new line item for the account
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_line_item">create_line_item api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/create_line_item">create_line_item api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param body The body of the request.
      * @return Returns the new line item.
    */
@@ -442,8 +442,8 @@ public class Client extends BaseClient {
   /**
    * Fetch a list of an account's notes
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_account_notes">list_account_notes api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_account_notes">list_account_notes api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of an account's notes.
    */
@@ -461,8 +461,8 @@ public class Client extends BaseClient {
   /**
    * Fetch an account note
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_account_note">get_account_note api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_account_note">get_account_note api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param accountNoteId Account Note ID.
      * @return An account note.
    */
@@ -479,8 +479,8 @@ public class Client extends BaseClient {
   /**
    * Fetch a list of an account's shipping addresses
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_shipping_addresses">list_shipping_addresses api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_shipping_addresses">list_shipping_addresses api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of an account's shipping addresses.
    */
@@ -498,8 +498,8 @@ public class Client extends BaseClient {
   /**
    * Create a new shipping address for the account
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_shipping_address">create_shipping_address api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/create_shipping_address">create_shipping_address api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param body The body of the request.
      * @return Returns the new shipping address.
    */
@@ -515,8 +515,8 @@ public class Client extends BaseClient {
   /**
    * Fetch an account's shipping address
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_shipping_address">get_shipping_address api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_shipping_address">get_shipping_address api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param shippingAddressId Shipping Address ID.
      * @return A shipping address.
    */
@@ -533,8 +533,8 @@ public class Client extends BaseClient {
   /**
    * Update an account's shipping address
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/update_shipping_address">update_shipping_address api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/update_shipping_address">update_shipping_address api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param shippingAddressId Shipping Address ID.
    * @param body The body of the request.
      * @return The updated shipping address.
@@ -552,8 +552,8 @@ public class Client extends BaseClient {
   /**
    * Remove an account's shipping address
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/remove_shipping_address">remove_shipping_address api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/remove_shipping_address">remove_shipping_address api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param shippingAddressId Shipping Address ID.
    */
   public void removeShippingAddress(String accountId, String shippingAddressId) {
@@ -568,8 +568,8 @@ public class Client extends BaseClient {
   /**
    * List an account's subscriptions
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_account_subscriptions">list_account_subscriptions api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_account_subscriptions">list_account_subscriptions api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the account's subscriptions.
    */
@@ -587,8 +587,8 @@ public class Client extends BaseClient {
   /**
    * List an account's transactions
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_account_transactions">list_account_transactions api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_account_transactions">list_account_transactions api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the account's transactions.
    */
@@ -604,28 +604,9 @@ public class Client extends BaseClient {
   }
 
   /**
-   * List an account's child accounts
-   *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_child_accounts">list_child_accounts api documentation</a>
-   * @param accountId Account ID or code (use prefix: `code-`, e.g. `code-bob`).
-   * @param queryParams The {@link QueryParams} for this endpoint.
-     * @return A list of an account's child accounts.
-   */
-  public Pager<Account> listChildAccounts(String accountId, QueryParams queryParams) {
-    final String url = "/accounts/{account_id}/accounts";
-    final HashMap<String, String> urlParams = new HashMap<String, String>();
-    urlParams.put("account_id", accountId);
-    if (queryParams == null) queryParams = new QueryParams();
-    final HashMap<String, Object> paramsMap = queryParams.getParams();
-    final String path = this.interpolatePath(url, urlParams);
-    Type parameterizedType = TypeToken.getParameterized(Pager.class, Account.class).getType();
-    return new Pager<>(path, paramsMap, this, parameterizedType);
-  }
-
-  /**
    * List a site's account acquisition data
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_account_acquisition">list_account_acquisition api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_account_acquisition">list_account_acquisition api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the site's account acquisition data.
    */
@@ -642,7 +623,7 @@ public class Client extends BaseClient {
   /**
    * List a site's coupons
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_coupons">list_coupons api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_coupons">list_coupons api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the site's coupons.
    */
@@ -659,7 +640,7 @@ public class Client extends BaseClient {
   /**
    * Create a new coupon
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_coupon">create_coupon api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/create_coupon">create_coupon api documentation</a>
    * @param body The body of the request.
      * @return A new coupon.
    */
@@ -674,8 +655,8 @@ public class Client extends BaseClient {
   /**
    * Fetch a coupon
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_coupon">get_coupon api documentation</a>
-   * @param couponId Coupon ID or code (use prefix: `code-`, e.g. `code-10off`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_coupon">get_coupon api documentation</a>
+   * @param couponId Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
      * @return A coupon.
    */
   public Coupon getCoupon(String couponId) {
@@ -690,8 +671,8 @@ public class Client extends BaseClient {
   /**
    * Update an active coupon
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/update_coupon">update_coupon api documentation</a>
-   * @param couponId Coupon ID or code (use prefix: `code-`, e.g. `code-10off`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/update_coupon">update_coupon api documentation</a>
+   * @param couponId Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
    * @param body The body of the request.
      * @return The updated coupon.
    */
@@ -707,8 +688,8 @@ public class Client extends BaseClient {
   /**
    * List unique coupon codes associated with a bulk coupon
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_unique_coupon_codes">list_unique_coupon_codes api documentation</a>
-   * @param couponId Coupon ID or code (use prefix: `code-`, e.g. `code-10off`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_unique_coupon_codes">list_unique_coupon_codes api documentation</a>
+   * @param couponId Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of unique coupon codes that were generated
    */
@@ -726,7 +707,7 @@ public class Client extends BaseClient {
   /**
    * List a site's credit payments
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_credit_payments">list_credit_payments api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_credit_payments">list_credit_payments api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the site's credit payments.
    */
@@ -743,8 +724,8 @@ public class Client extends BaseClient {
   /**
    * Fetch a credit payment
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_credit_payment">get_credit_payment api documentation</a>
-   * @param creditPaymentId Credit Payment ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_credit_payment">get_credit_payment api documentation</a>
+   * @param creditPaymentId Credit Payment ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @return A credit payment.
    */
   public CreditPayment getCreditPayment(String creditPaymentId) {
@@ -759,7 +740,7 @@ public class Client extends BaseClient {
   /**
    * List a site's custom field definitions
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_custom_field_definitions">list_custom_field_definitions api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_custom_field_definitions">list_custom_field_definitions api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the site's custom field definitions.
    */
@@ -776,7 +757,7 @@ public class Client extends BaseClient {
   /**
    * Fetch an custom field definition
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_custom_field_definition">get_custom_field_definition api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_custom_field_definition">get_custom_field_definition api documentation</a>
    * @param customFieldDefinitionId Custom Field Definition ID
      * @return An custom field definition.
    */
@@ -792,7 +773,7 @@ public class Client extends BaseClient {
   /**
    * List a site's invoices
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_invoices">list_invoices api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_invoices">list_invoices api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the site's invoices.
    */
@@ -809,8 +790,8 @@ public class Client extends BaseClient {
   /**
    * Fetch an invoice
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_invoice">get_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_invoice">get_invoice api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @return An invoice.
    */
   public Invoice getInvoice(String invoiceId) {
@@ -823,27 +804,10 @@ public class Client extends BaseClient {
   }
 
   /**
-   * Update an invoice
-   *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/put_invoice">put_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
-   * @param body The body of the request.
-     * @return An invoice.
-   */
-  public Invoice putInvoice(String invoiceId, InvoiceUpdatable body) {
-    final String url = "/invoices/{invoice_id}";
-    final HashMap<String, String> urlParams = new HashMap<String, String>();
-    urlParams.put("invoice_id", invoiceId);
-    final String path = this.interpolatePath(url, urlParams);
-    Type returnType = Invoice.class;
-    return this.makeRequest("PUT", path, body, returnType);
-  }
-
-  /**
    * Collect a pending or past due, automatic invoice
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/collect_invoice">collect_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/collect_invoice">collect_invoice api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @return The updated invoice.
    */
   public Invoice collectInvoice(String invoiceId) {
@@ -858,8 +822,8 @@ public class Client extends BaseClient {
   /**
    * Mark an open invoice as failed
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/fail_invoice">fail_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/fail_invoice">fail_invoice api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @return The updated invoice.
    */
   public Invoice failInvoice(String invoiceId) {
@@ -874,8 +838,8 @@ public class Client extends BaseClient {
   /**
    * Mark an open invoice as successful
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/mark_invoice_successful">mark_invoice_successful api documentation</a>
-   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/mark_invoice_successful">mark_invoice_successful api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @return The updated invoice.
    */
   public Invoice markInvoiceSuccessful(String invoiceId) {
@@ -890,8 +854,8 @@ public class Client extends BaseClient {
   /**
    * Reopen a closed, manual invoice
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/reopen_invoice">reopen_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/reopen_invoice">reopen_invoice api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @return The updated invoice.
    */
   public Invoice reopenInvoice(String invoiceId) {
@@ -906,8 +870,8 @@ public class Client extends BaseClient {
   /**
    * Void a credit invoice.
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/void_invoice">void_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/void_invoice">void_invoice api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @return The updated invoice.
    */
   public Invoice voidInvoice(String invoiceId) {
@@ -922,8 +886,8 @@ public class Client extends BaseClient {
   /**
    * List an invoice's line items
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_invoice_line_items">list_invoice_line_items api documentation</a>
-   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_invoice_line_items">list_invoice_line_items api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the invoice's line items.
    */
@@ -941,8 +905,8 @@ public class Client extends BaseClient {
   /**
    * Show the coupon redemptions applied to an invoice
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_invoice_coupon_redemptions">list_invoice_coupon_redemptions api documentation</a>
-   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_invoice_coupon_redemptions">list_invoice_coupon_redemptions api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the the coupon redemptions associated with the invoice.
    */
@@ -960,8 +924,8 @@ public class Client extends BaseClient {
   /**
    * List an invoice's related credit or charge invoices
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_related_invoices">list_related_invoices api documentation</a>
-   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_related_invoices">list_related_invoices api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @return A list of the credit or charge invoices associated with the invoice.
    */
   public Pager<Invoice> listRelatedInvoices(String invoiceId) {
@@ -976,8 +940,8 @@ public class Client extends BaseClient {
   /**
    * Refund an invoice
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/refund_invoice">refund_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number (use prefix: `number-`, e.g. `number-1000`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/refund_invoice">refund_invoice api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
    * @param body The body of the request.
      * @return Returns the new credit invoice.
    */
@@ -993,7 +957,7 @@ public class Client extends BaseClient {
   /**
    * List a site's line items
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_line_items">list_line_items api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_line_items">list_line_items api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the site's line items.
    */
@@ -1010,7 +974,7 @@ public class Client extends BaseClient {
   /**
    * Fetch a line item
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_line_item">get_line_item api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_line_item">get_line_item api documentation</a>
    * @param lineItemId Line Item ID.
      * @return A line item.
    */
@@ -1026,7 +990,7 @@ public class Client extends BaseClient {
   /**
    * Delete an uninvoiced line item
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/remove_line_item">remove_line_item api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/remove_line_item">remove_line_item api documentation</a>
    * @param lineItemId Line Item ID.
    */
   public void removeLineItem(String lineItemId) {
@@ -1040,7 +1004,7 @@ public class Client extends BaseClient {
   /**
    * List a site's plans
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_plans">list_plans api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_plans">list_plans api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of plans.
    */
@@ -1057,7 +1021,7 @@ public class Client extends BaseClient {
   /**
    * Create a plan
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_plan">create_plan api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/create_plan">create_plan api documentation</a>
    * @param body The body of the request.
      * @return A plan.
    */
@@ -1072,8 +1036,8 @@ public class Client extends BaseClient {
   /**
    * Fetch a plan
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_plan">get_plan api documentation</a>
-   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_plan">get_plan api documentation</a>
+   * @param planId Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @return A plan.
    */
   public Plan getPlan(String planId) {
@@ -1088,8 +1052,8 @@ public class Client extends BaseClient {
   /**
    * Update a plan
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/update_plan">update_plan api documentation</a>
-   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/update_plan">update_plan api documentation</a>
+   * @param planId Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
    * @param body The body of the request.
      * @return A plan.
    */
@@ -1105,8 +1069,8 @@ public class Client extends BaseClient {
   /**
    * Remove a plan
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/remove_plan">remove_plan api documentation</a>
-   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/remove_plan">remove_plan api documentation</a>
+   * @param planId Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @return Plan deleted
    */
   public Plan removePlan(String planId) {
@@ -1121,8 +1085,8 @@ public class Client extends BaseClient {
   /**
    * List a plan's add-ons
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_plan_add_ons">list_plan_add_ons api documentation</a>
-   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_plan_add_ons">list_plan_add_ons api documentation</a>
+   * @param planId Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of add-ons.
    */
@@ -1140,8 +1104,8 @@ public class Client extends BaseClient {
   /**
    * Create an add-on
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_plan_add_on">create_plan_add_on api documentation</a>
-   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/create_plan_add_on">create_plan_add_on api documentation</a>
+   * @param planId Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
    * @param body The body of the request.
      * @return An add-on.
    */
@@ -1157,9 +1121,9 @@ public class Client extends BaseClient {
   /**
    * Fetch a plan's add-on
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_plan_add_on">get_plan_add_on api documentation</a>
-   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
-   * @param addOnId Add-on ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_plan_add_on">get_plan_add_on api documentation</a>
+   * @param planId Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
+   * @param addOnId Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @return An add-on.
    */
   public AddOn getPlanAddOn(String planId, String addOnId) {
@@ -1175,9 +1139,9 @@ public class Client extends BaseClient {
   /**
    * Update an add-on
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/update_plan_add_on">update_plan_add_on api documentation</a>
-   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
-   * @param addOnId Add-on ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/update_plan_add_on">update_plan_add_on api documentation</a>
+   * @param planId Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
+   * @param addOnId Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
    * @param body The body of the request.
      * @return An add-on.
    */
@@ -1194,9 +1158,9 @@ public class Client extends BaseClient {
   /**
    * Remove an add-on
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/remove_plan_add_on">remove_plan_add_on api documentation</a>
-   * @param planId Plan ID or code (use prefix: `code-`, e.g. `code-gold`).
-   * @param addOnId Add-on ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/remove_plan_add_on">remove_plan_add_on api documentation</a>
+   * @param planId Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
+   * @param addOnId Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @return Add-on deleted
    */
   public AddOn removePlanAddOn(String planId, String addOnId) {
@@ -1212,7 +1176,7 @@ public class Client extends BaseClient {
   /**
    * List a site's add-ons
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_add_ons">list_add_ons api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_add_ons">list_add_ons api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of add-ons.
    */
@@ -1229,8 +1193,8 @@ public class Client extends BaseClient {
   /**
    * Fetch an add-on
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_add_on">get_add_on api documentation</a>
-   * @param addOnId Add-on ID or code (use prefix: `code-`, e.g. `code-gold`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_add_on">get_add_on api documentation</a>
+   * @param addOnId Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @return An add-on.
    */
   public AddOn getAddOn(String addOnId) {
@@ -1243,42 +1207,9 @@ public class Client extends BaseClient {
   }
 
   /**
-   * List a site's shipping methods
-   *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_shipping_methods">list_shipping_methods api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
-     * @return A list of the site's shipping methods.
-   */
-  public Pager<ShippingMethod> listShippingMethods(QueryParams queryParams) {
-    final String url = "/shipping_methods";
-    final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
-    final HashMap<String, Object> paramsMap = queryParams.getParams();
-    final String path = this.interpolatePath(url, urlParams);
-    Type parameterizedType = TypeToken.getParameterized(Pager.class, ShippingMethod.class).getType();
-    return new Pager<>(path, paramsMap, this, parameterizedType);
-  }
-
-  /**
-   * Fetch a shipping method
-   *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_shipping_method">get_shipping_method api documentation</a>
-   * @param id Shipping Method ID or code (use prefix: `code-`, e.g. `code-usps_2-day`).
-     * @return A shipping_method.
-   */
-  public ShippingMethod getShippingMethod(String id) {
-    final String url = "/shipping_methods/{id}";
-    final HashMap<String, String> urlParams = new HashMap<String, String>();
-    urlParams.put("id", id);
-    final String path = this.interpolatePath(url, urlParams);
-    Type returnType = ShippingMethod.class;
-    return this.makeRequest("GET", path, returnType);
-  }
-
-  /**
    * List a site's subscriptions
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_subscriptions">list_subscriptions api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_subscriptions">list_subscriptions api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the site's subscriptions.
    */
@@ -1295,7 +1226,7 @@ public class Client extends BaseClient {
   /**
    * Create a new subscription
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_subscription">create_subscription api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/create_subscription">create_subscription api documentation</a>
    * @param body The body of the request.
      * @return A subscription.
    */
@@ -1310,8 +1241,8 @@ public class Client extends BaseClient {
   /**
    * Fetch a subscription
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_subscription">get_subscription api documentation</a>
-   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_subscription">get_subscription api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @return A subscription.
    */
   public Subscription getSubscription(String subscriptionId) {
@@ -1326,8 +1257,8 @@ public class Client extends BaseClient {
   /**
    * Modify a subscription
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/modify_subscription">modify_subscription api documentation</a>
-   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/modify_subscription">modify_subscription api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
    * @param body The body of the request.
      * @return A subscription.
    */
@@ -1343,8 +1274,8 @@ public class Client extends BaseClient {
   /**
    * Terminate a subscription
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/terminate_subscription">terminate_subscription api documentation</a>
-   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/terminate_subscription">terminate_subscription api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return An expired subscription.
    */
@@ -1362,8 +1293,8 @@ public class Client extends BaseClient {
   /**
    * Cancel a subscription
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/cancel_subscription">cancel_subscription api documentation</a>
-   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/cancel_subscription">cancel_subscription api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @return A canceled or failed subscription.
    */
   public Subscription cancelSubscription(String subscriptionId) {
@@ -1378,8 +1309,8 @@ public class Client extends BaseClient {
   /**
    * Reactivate a canceled subscription
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/reactivate_subscription">reactivate_subscription api documentation</a>
-   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/reactivate_subscription">reactivate_subscription api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @return An active subscription.
    */
   public Subscription reactivateSubscription(String subscriptionId) {
@@ -1394,8 +1325,8 @@ public class Client extends BaseClient {
   /**
    * Pause subscription
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/pause_subscription">pause_subscription api documentation</a>
-   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/pause_subscription">pause_subscription api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
    * @param body The body of the request.
      * @return A subscription.
    */
@@ -1411,8 +1342,8 @@ public class Client extends BaseClient {
   /**
    * Resume subscription
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/resume_subscription">resume_subscription api documentation</a>
-   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/resume_subscription">resume_subscription api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @return A subscription.
    */
   public Subscription resumeSubscription(String subscriptionId) {
@@ -1427,8 +1358,8 @@ public class Client extends BaseClient {
   /**
    * Fetch a subscription's pending change
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_subscription_change">get_subscription_change api documentation</a>
-   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_subscription_change">get_subscription_change api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @return A subscription's pending change.
    */
   public SubscriptionChange getSubscriptionChange(String subscriptionId) {
@@ -1443,8 +1374,8 @@ public class Client extends BaseClient {
   /**
    * Create a new subscription change
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_subscription_change">create_subscription_change api documentation</a>
-   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/create_subscription_change">create_subscription_change api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
    * @param body The body of the request.
      * @return A subscription change.
    */
@@ -1460,8 +1391,8 @@ public class Client extends BaseClient {
   /**
    * Delete the pending subscription change
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/remove_subscription_change">remove_subscription_change api documentation</a>
-   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/remove_subscription_change">remove_subscription_change api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
    */
   public void removeSubscriptionChange(String subscriptionId) {
     final String url = "/subscriptions/{subscription_id}/change";
@@ -1474,8 +1405,8 @@ public class Client extends BaseClient {
   /**
    * List a subscription's invoices
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_subscription_invoices">list_subscription_invoices api documentation</a>
-   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_subscription_invoices">list_subscription_invoices api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the subscription's invoices.
    */
@@ -1493,8 +1424,8 @@ public class Client extends BaseClient {
   /**
    * List a subscription's line items
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_subscription_line_items">list_subscription_line_items api documentation</a>
-   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_subscription_line_items">list_subscription_line_items api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the subscription's line items.
    */
@@ -1510,28 +1441,9 @@ public class Client extends BaseClient {
   }
 
   /**
-   * Show the coupon redemptions for a subscription
-   *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_subscription_coupon_redemptions">list_subscription_coupon_redemptions api documentation</a>
-   * @param subscriptionId Subscription ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
-   * @param queryParams The {@link QueryParams} for this endpoint.
-     * @return A list of the the coupon redemptions on a subscription.
-   */
-  public Pager<CouponRedemption> listSubscriptionCouponRedemptions(String subscriptionId, QueryParams queryParams) {
-    final String url = "/subscriptions/{subscription_id}/coupon_redemptions";
-    final HashMap<String, String> urlParams = new HashMap<String, String>();
-    urlParams.put("subscription_id", subscriptionId);
-    if (queryParams == null) queryParams = new QueryParams();
-    final HashMap<String, Object> paramsMap = queryParams.getParams();
-    final String path = this.interpolatePath(url, urlParams);
-    Type parameterizedType = TypeToken.getParameterized(Pager.class, CouponRedemption.class).getType();
-    return new Pager<>(path, paramsMap, this, parameterizedType);
-  }
-
-  /**
    * List a site's transactions
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_transactions">list_transactions api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/list_transactions">list_transactions api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the site's transactions.
    */
@@ -1548,8 +1460,8 @@ public class Client extends BaseClient {
   /**
    * Fetch a transaction
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_transaction">get_transaction api documentation</a>
-   * @param transactionId Transaction ID or UUID (use prefix: `uuid-`, e.g. `uuid-123457890`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_transaction">get_transaction api documentation</a>
+   * @param transactionId Transaction ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @return A transaction.
    */
   public Transaction getTransaction(String transactionId) {
@@ -1564,8 +1476,8 @@ public class Client extends BaseClient {
   /**
    * Fetch a unique coupon code
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_unique_coupon_code">get_unique_coupon_code api documentation</a>
-   * @param uniqueCouponCodeId Unique Coupon Code ID or code (use prefix: `code-`, e.g. `code-abc-8dh2-def`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/get_unique_coupon_code">get_unique_coupon_code api documentation</a>
+   * @param uniqueCouponCodeId Unique Coupon Code ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-abc-8dh2-def`.
      * @return A unique coupon code.
    */
   public UniqueCouponCode getUniqueCouponCode(String uniqueCouponCodeId) {
@@ -1580,8 +1492,8 @@ public class Client extends BaseClient {
   /**
    * Deactivate a unique coupon code
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/deactivate_unique_coupon_code">deactivate_unique_coupon_code api documentation</a>
-   * @param uniqueCouponCodeId Unique Coupon Code ID or code (use prefix: `code-`, e.g. `code-abc-8dh2-def`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/deactivate_unique_coupon_code">deactivate_unique_coupon_code api documentation</a>
+   * @param uniqueCouponCodeId Unique Coupon Code ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-abc-8dh2-def`.
      * @return A unique coupon code.
    */
   public UniqueCouponCode deactivateUniqueCouponCode(String uniqueCouponCodeId) {
@@ -1596,8 +1508,8 @@ public class Client extends BaseClient {
   /**
    * Restore a unique coupon code
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/reactivate_unique_coupon_code">reactivate_unique_coupon_code api documentation</a>
-   * @param uniqueCouponCodeId Unique Coupon Code ID or code (use prefix: `code-`, e.g. `code-abc-8dh2-def`).
+   * @see <a href="https://developers.recurly.com/api/v2018-06-06#operation/reactivate_unique_coupon_code">reactivate_unique_coupon_code api documentation</a>
+   * @param uniqueCouponCodeId Unique Coupon Code ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-abc-8dh2-def`.
      * @return A unique coupon code.
    */
   public UniqueCouponCode reactivateUniqueCouponCode(String uniqueCouponCodeId) {
@@ -1607,35 +1519,5 @@ public class Client extends BaseClient {
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = UniqueCouponCode.class;
     return this.makeRequest("PUT", path, returnType);
-  }
-
-  /**
-   * Create a new purchase
-   *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_purchase">create_purchase api documentation</a>
-   * @param body The body of the request.
-     * @return Returns the new invoices
-   */
-  public InvoiceCollection createPurchase(PurchaseCreate body) {
-    final String url = "/purchases";
-    final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final String path = this.interpolatePath(url, urlParams);
-    Type returnType = InvoiceCollection.class;
-    return this.makeRequest("POST", path, body, returnType);
-  }
-
-  /**
-   * Preview a new purchase
-   *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/preview_purchase">preview_purchase api documentation</a>
-   * @param body The body of the request.
-     * @return Returns preview of the new invoices
-   */
-  public InvoiceCollection previewPurchase(PurchaseCreate body) {
-    final String url = "/purchases/preview";
-    final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final String path = this.interpolatePath(url, urlParams);
-    Type returnType = InvoiceCollection.class;
-    return this.makeRequest("POST", path, body, returnType);
   }
 }

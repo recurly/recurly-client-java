@@ -50,10 +50,6 @@ public class QueryParams {
     this.add("end_time", endTime);
   }
 
-  public void setEmail(final String email) {
-    this.add("email", email);
-  }
-
   public void setSubscriber(final Boolean subscriber) {
     this.add("subscriber", subscriber);
   }

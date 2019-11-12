@@ -89,18 +89,12 @@ public class SubscriptionCreate extends Request {
   @Expose
   private DateTime nextBillDate;
 
-  /**
-   * You must provide either a `plan_code` or `plan_id`. If both are provided the `plan_id` will be
-   * used.
-   */
+  /** Plan code */
   @SerializedName("plan_code")
   @Expose
   private String planCode;
 
-  /**
-   * You must provide either a `plan_code` or `plan_id`. If both are provided the `plan_id` will be
-   * used.
-   */
+  /** Plan ID */
   @SerializedName("plan_id")
   @Expose
   private String planId;
@@ -124,9 +118,17 @@ public class SubscriptionCreate extends Request {
   private Integer renewalBillingCycles;
 
   /** Create a shipping address on the account and assign it to the subscription. */
-  @SerializedName("shipping")
+  @SerializedName("shipping_address")
   @Expose
-  private SubscriptionShippingCreate shipping;
+  private ShippingAddressCreate shippingAddress;
+
+  /**
+   * Assign a shipping address from the account's existing shipping addresses. If this and
+   * `shipping_address` are both present, `shipping_address` will take precedence.
+   */
+  @SerializedName("shipping_address_id")
+  @Expose
+  private String shippingAddressId;
 
   /**
    * If set, the subscription will begin in the future on this date. The subscription will apply the
@@ -323,34 +325,22 @@ public class SubscriptionCreate extends Request {
     this.nextBillDate = nextBillDate;
   }
 
-  /**
-   * You must provide either a `plan_code` or `plan_id`. If both are provided the `plan_id` will be
-   * used.
-   */
+  /** Plan code */
   public String getPlanCode() {
     return this.planCode;
   }
 
-  /**
-   * @param planCode You must provide either a `plan_code` or `plan_id`. If both are provided the
-   *     `plan_id` will be used.
-   */
+  /** @param planCode Plan code */
   public void setPlanCode(final String planCode) {
     this.planCode = planCode;
   }
 
-  /**
-   * You must provide either a `plan_code` or `plan_id`. If both are provided the `plan_id` will be
-   * used.
-   */
+  /** Plan ID */
   public String getPlanId() {
     return this.planId;
   }
 
-  /**
-   * @param planId You must provide either a `plan_code` or `plan_id`. If both are provided the
-   *     `plan_id` will be used.
-   */
+  /** @param planId Plan ID */
   public void setPlanId(final String planId) {
     this.planId = planId;
   }
@@ -396,13 +386,33 @@ public class SubscriptionCreate extends Request {
   }
 
   /** Create a shipping address on the account and assign it to the subscription. */
-  public SubscriptionShippingCreate getShipping() {
-    return this.shipping;
+  public ShippingAddressCreate getShippingAddress() {
+    return this.shippingAddress;
   }
 
-  /** @param shipping Create a shipping address on the account and assign it to the subscription. */
-  public void setShipping(final SubscriptionShippingCreate shipping) {
-    this.shipping = shipping;
+  /**
+   * @param shippingAddress Create a shipping address on the account and assign it to the
+   *     subscription.
+   */
+  public void setShippingAddress(final ShippingAddressCreate shippingAddress) {
+    this.shippingAddress = shippingAddress;
+  }
+
+  /**
+   * Assign a shipping address from the account's existing shipping addresses. If this and
+   * `shipping_address` are both present, `shipping_address` will take precedence.
+   */
+  public String getShippingAddressId() {
+    return this.shippingAddressId;
+  }
+
+  /**
+   * @param shippingAddressId Assign a shipping address from the account's existing shipping
+   *     addresses. If this and `shipping_address` are both present, `shipping_address` will take
+   *     precedence.
+   */
+  public void setShippingAddressId(final String shippingAddressId) {
+    this.shippingAddressId = shippingAddressId;
   }
 
   /**

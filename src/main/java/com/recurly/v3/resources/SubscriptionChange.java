@@ -57,10 +57,6 @@ public class SubscriptionChange extends Resource {
   @Expose
   private Integer quantity;
 
-  @SerializedName("shipping")
-  @Expose
-  private SubscriptionShipping shipping;
-
   /** The ID of the subscription that is going to be changed. */
   @SerializedName("subscription_id")
   @Expose
@@ -163,15 +159,6 @@ public class SubscriptionChange extends Resource {
   /** @param quantity Subscription quantity */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
-  }
-
-  public SubscriptionShipping getShipping() {
-    return this.shipping;
-  }
-
-  /** @param shipping */
-  public void setShipping(final SubscriptionShipping shipping) {
-    this.shipping = shipping;
   }
 
   /** The ID of the subscription that is going to be changed. */

@@ -14,13 +14,12 @@ import java.util.List;
 public class SubscriptionChangeCreate extends Request {
 
   /**
-   * If you provide a value for this field it will replace any existing add-ons. So, when adding or
-   * modifying an add-on, you need to include the existing subscription add-ons. Unchanged add-ons
-   * can be included just using the subscription add-on's ID: `{"id": "abc123"}`.
+   * If you set this value you include all the add-ons and their quantities and amounts. The values
+   * you include will replace the previous values entirely.
    */
   @SerializedName("add_ons")
   @Expose
-  private List<SubscriptionAddOnUpdate> addOns;
+  private List<SubscriptionAddOnCreate> addOns;
 
   /** Collection method */
   @SerializedName("collection_method")
@@ -45,21 +44,10 @@ public class SubscriptionChangeCreate extends Request {
   @Expose
   private Integer netTerms;
 
-  /**
-   * If you want to change to a new plan, you can provide the plan's code or id. If both are
-   * provided the `plan_id` will be used.
-   */
+  /** The plan code. */
   @SerializedName("plan_code")
   @Expose
   private String planCode;
-
-  /**
-   * If you want to change to a new plan, you can provide the plan's code or id. If both are
-   * provided the `plan_id` will be used.
-   */
-  @SerializedName("plan_id")
-  @Expose
-  private String planId;
 
   /** For manual invoicing, this identifies the PO number associated with the subscription. */
   @SerializedName("po_number")
@@ -71,16 +59,12 @@ public class SubscriptionChangeCreate extends Request {
   @Expose
   private Integer quantity;
 
-  @SerializedName("shipping")
-  @Expose
-  private SubscriptionChangeShippingCreate shipping;
-
   /**
    * The timeframe parameter controls when the upgrade or downgrade takes place. The subscription
-   * change can occur now, when the subscription is next billed, or when the subscription renews.
-   * Generally, if you're performing an upgrade, you will want the change to occur immediately
-   * (now). If you're performing a downgrade, you should set the timeframe to "renewal" so the
-   * change takes affect at the end of the current subscription term.
+   * change can occur now or when the subscription renews. Generally, if you're performing an
+   * upgrade, you will want the change to occur immediately (now). If you're performing a downgrade,
+   * you should set the timeframe to "renewal" so the change takes affect at the end of the current
+   * billing cycle.
    */
   @SerializedName("timeframe")
   @Expose
@@ -95,21 +79,18 @@ public class SubscriptionChangeCreate extends Request {
   private Float unitAmount;
 
   /**
-   * If you provide a value for this field it will replace any existing add-ons. So, when adding or
-   * modifying an add-on, you need to include the existing subscription add-ons. Unchanged add-ons
-   * can be included just using the subscription add-on's ID: `{"id": "abc123"}`.
+   * If you set this value you include all the add-ons and their quantities and amounts. The values
+   * you include will replace the previous values entirely.
    */
-  public List<SubscriptionAddOnUpdate> getAddOns() {
+  public List<SubscriptionAddOnCreate> getAddOns() {
     return this.addOns;
   }
 
   /**
-   * @param addOns If you provide a value for this field it will replace any existing add-ons. So,
-   *     when adding or modifying an add-on, you need to include the existing subscription add-ons.
-   *     Unchanged add-ons can be included just using the subscription add-on's ID: `{"id":
-   *     "abc123"}`.
+   * @param addOns If you set this value you include all the add-ons and their quantities and
+   *     amounts. The values you include will replace the previous values entirely.
    */
-  public void setAddOns(final List<SubscriptionAddOnUpdate> addOns) {
+  public void setAddOns(final List<SubscriptionAddOnCreate> addOns) {
     this.addOns = addOns;
   }
 
@@ -160,36 +141,14 @@ public class SubscriptionChangeCreate extends Request {
     this.netTerms = netTerms;
   }
 
-  /**
-   * If you want to change to a new plan, you can provide the plan's code or id. If both are
-   * provided the `plan_id` will be used.
-   */
+  /** The plan code. */
   public String getPlanCode() {
     return this.planCode;
   }
 
-  /**
-   * @param planCode If you want to change to a new plan, you can provide the plan's code or id. If
-   *     both are provided the `plan_id` will be used.
-   */
+  /** @param planCode The plan code. */
   public void setPlanCode(final String planCode) {
     this.planCode = planCode;
-  }
-
-  /**
-   * If you want to change to a new plan, you can provide the plan's code or id. If both are
-   * provided the `plan_id` will be used.
-   */
-  public String getPlanId() {
-    return this.planId;
-  }
-
-  /**
-   * @param planId If you want to change to a new plan, you can provide the plan's code or id. If
-   *     both are provided the `plan_id` will be used.
-   */
-  public void setPlanId(final String planId) {
-    this.planId = planId;
   }
 
   /** For manual invoicing, this identifies the PO number associated with the subscription. */
@@ -215,21 +174,12 @@ public class SubscriptionChangeCreate extends Request {
     this.quantity = quantity;
   }
 
-  public SubscriptionChangeShippingCreate getShipping() {
-    return this.shipping;
-  }
-
-  /** @param shipping */
-  public void setShipping(final SubscriptionChangeShippingCreate shipping) {
-    this.shipping = shipping;
-  }
-
   /**
    * The timeframe parameter controls when the upgrade or downgrade takes place. The subscription
-   * change can occur now, when the subscription is next billed, or when the subscription renews.
-   * Generally, if you're performing an upgrade, you will want the change to occur immediately
-   * (now). If you're performing a downgrade, you should set the timeframe to "renewal" so the
-   * change takes affect at the end of the current subscription term.
+   * change can occur now or when the subscription renews. Generally, if you're performing an
+   * upgrade, you will want the change to occur immediately (now). If you're performing a downgrade,
+   * you should set the timeframe to "renewal" so the change takes affect at the end of the current
+   * billing cycle.
    */
   public String getTimeframe() {
     return this.timeframe;
@@ -237,10 +187,10 @@ public class SubscriptionChangeCreate extends Request {
 
   /**
    * @param timeframe The timeframe parameter controls when the upgrade or downgrade takes place.
-   *     The subscription change can occur now, when the subscription is next billed, or when the
-   *     subscription renews. Generally, if you're performing an upgrade, you will want the change
-   *     to occur immediately (now). If you're performing a downgrade, you should set the timeframe
-   *     to "renewal" so the change takes affect at the end of the current subscription term.
+   *     The subscription change can occur now or when the subscription renews. Generally, if you're
+   *     performing an upgrade, you will want the change to occur immediately (now). If you're
+   *     performing a downgrade, you should set the timeframe to "renewal" so the change takes
+   *     affect at the end of the current billing cycle.
    */
   public void setTimeframe(final String timeframe) {
     this.timeframe = timeframe;
