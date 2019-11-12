@@ -155,6 +155,14 @@ public class SubscriptionCreate extends Request {
   private Integer totalBillingCycles;
 
   /**
+   * An optional type designation for the payment gateway transaction created by this request.
+   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  @SerializedName("transaction_type")
+  @Expose
+  private String transactionType;
+
+  /**
    * If set, overrides the default trial behavior for the subscription. The date must be in the
    * future.
    */
@@ -455,6 +463,23 @@ public class SubscriptionCreate extends Request {
    */
   public void setTotalBillingCycles(final Integer totalBillingCycles) {
     this.totalBillingCycles = totalBillingCycles;
+  }
+
+  /**
+   * An optional type designation for the payment gateway transaction created by this request.
+   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  public String getTransactionType() {
+    return this.transactionType;
+  }
+
+  /**
+   * @param transactionType An optional type designation for the payment gateway transaction created
+   *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
+   *     transactions.
+   */
+  public void setTransactionType(final String transactionType) {
+    this.transactionType = transactionType;
   }
 
   /**

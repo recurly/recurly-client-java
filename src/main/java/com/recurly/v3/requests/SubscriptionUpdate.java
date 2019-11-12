@@ -50,7 +50,8 @@ public class SubscriptionUpdate extends Request {
    * If present, this sets the date the subscription's next billing period will start
    * (`current_period_ends_at`). This can be used to align the subscription’s billing to a specific
    * day of the month. For a subscription in a trial period, this will change when the trial
-   * expires.
+   * expires. This parameter is useful for postponement of a subscription to change its billing date
+   * without proration.
    */
   @SerializedName("next_bill_date")
   @Expose
@@ -155,7 +156,8 @@ public class SubscriptionUpdate extends Request {
    * If present, this sets the date the subscription's next billing period will start
    * (`current_period_ends_at`). This can be used to align the subscription’s billing to a specific
    * day of the month. For a subscription in a trial period, this will change when the trial
-   * expires.
+   * expires. This parameter is useful for postponement of a subscription to change its billing date
+   * without proration.
    */
   public DateTime getNextBillDate() {
     return this.nextBillDate;
@@ -165,7 +167,8 @@ public class SubscriptionUpdate extends Request {
    * @param nextBillDate If present, this sets the date the subscription's next billing period will
    *     start (`current_period_ends_at`). This can be used to align the subscription’s billing to a
    *     specific day of the month. For a subscription in a trial period, this will change when the
-   *     trial expires.
+   *     trial expires. This parameter is useful for postponement of a subscription to change its
+   *     billing date without proration.
    */
   public void setNextBillDate(final DateTime nextBillDate) {
     this.nextBillDate = nextBillDate;
