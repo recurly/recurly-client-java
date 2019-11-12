@@ -103,9 +103,10 @@ public class LineItem extends Resource {
    * Category to describe the role of a line item on a legacy invoice: - "charges" refers to charges
    * being billed for on this invoice. - "credits" refers to refund or proration credits. This
    * portion of the invoice can be considered a credit memo. - "applied_credits" refers to previous
-   * credits applied to this invoice. See their original_line_item_id to determine where the credit
-   * first originated. - "carryforwards" can be ignored. They exist to consume any remaining credit
-   * balance. A new credit with the same amount will be created and placed back on the account.
+   * credits applied to this invoice. See their `original_line_item_invoice_id` to determine where
+   * the credit first originated. - "carryforwards" can be ignored. They exist to consume any
+   * remaining credit balance. A new credit with the same amount will be created and placed back on
+   * the account.
    */
   @SerializedName("legacy_category")
   @Expose
@@ -222,8 +223,8 @@ public class LineItem extends Resource {
 
   /**
    * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
-   * each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`,
-   * or `digital`.
+   * each tax system. If you are using Recurly’s EU VAT feature `P0000000` is `physical`, `D0000000`
+   * is `digital`, and an empty string is `unknown`.
    */
   @SerializedName("tax_code")
   @Expose
@@ -453,9 +454,10 @@ public class LineItem extends Resource {
    * Category to describe the role of a line item on a legacy invoice: - "charges" refers to charges
    * being billed for on this invoice. - "credits" refers to refund or proration credits. This
    * portion of the invoice can be considered a credit memo. - "applied_credits" refers to previous
-   * credits applied to this invoice. See their original_line_item_id to determine where the credit
-   * first originated. - "carryforwards" can be ignored. They exist to consume any remaining credit
-   * balance. A new credit with the same amount will be created and placed back on the account.
+   * credits applied to this invoice. See their `original_line_item_invoice_id` to determine where
+   * the credit first originated. - "carryforwards" can be ignored. They exist to consume any
+   * remaining credit balance. A new credit with the same amount will be created and placed back on
+   * the account.
    */
   public String getLegacyCategory() {
     return this.legacyCategory;
@@ -466,9 +468,9 @@ public class LineItem extends Resource {
    *     "charges" refers to charges being billed for on this invoice. - "credits" refers to refund
    *     or proration credits. This portion of the invoice can be considered a credit memo. -
    *     "applied_credits" refers to previous credits applied to this invoice. See their
-   *     original_line_item_id to determine where the credit first originated. - "carryforwards" can
-   *     be ignored. They exist to consume any remaining credit balance. A new credit with the same
-   *     amount will be created and placed back on the account.
+   *     `original_line_item_invoice_id` to determine where the credit first originated. -
+   *     "carryforwards" can be ignored. They exist to consume any remaining credit balance. A new
+   *     credit with the same amount will be created and placed back on the account.
    */
   public void setLegacyCategory(final String legacyCategory) {
     this.legacyCategory = legacyCategory;
@@ -709,8 +711,8 @@ public class LineItem extends Resource {
 
   /**
    * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
-   * each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`,
-   * or `digital`.
+   * each tax system. If you are using Recurly’s EU VAT feature `P0000000` is `physical`, `D0000000`
+   * is `digital`, and an empty string is `unknown`.
    */
   public String getTaxCode() {
     return this.taxCode;
@@ -718,8 +720,8 @@ public class LineItem extends Resource {
 
   /**
    * @param taxCode Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values
-   *     are specific to each tax system. If you are using Recurly’s EU VAT feature you can use
-   *     `unknown`, `physical`, or `digital`.
+   *     are specific to each tax system. If you are using Recurly’s EU VAT feature `P0000000` is
+   *     `physical`, `D0000000` is `digital`, and an empty string is `unknown`.
    */
   public void setTaxCode(final String taxCode) {
     this.taxCode = taxCode;

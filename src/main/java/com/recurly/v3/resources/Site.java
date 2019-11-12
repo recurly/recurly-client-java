@@ -47,11 +47,6 @@ public class Site extends Resource {
   @Expose
   private String object;
 
-  /** This value is used to configure RecurlyJS to submit tokenized billing information. */
-  @SerializedName("public_api_key")
-  @Expose
-  private String publicApiKey;
-
   @SerializedName("settings")
   @Expose
   private Settings settings;
@@ -132,19 +127,6 @@ public class Site extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
-  }
-
-  /** This value is used to configure RecurlyJS to submit tokenized billing information. */
-  public String getPublicApiKey() {
-    return this.publicApiKey;
-  }
-
-  /**
-   * @param publicApiKey This value is used to configure RecurlyJS to submit tokenized billing
-   *     information.
-   */
-  public void setPublicApiKey(final String publicApiKey) {
-    this.publicApiKey = publicApiKey;
   }
 
   public Settings getSettings() {

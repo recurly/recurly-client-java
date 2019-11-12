@@ -38,15 +38,6 @@ public class LineItemCreate extends Request {
   private DateTime endDate;
 
   /**
-   * Optional field to track a product code or SKU for the line item. This can be used to later
-   * reporting on product purchases. For Vertex tax calculations, this field will be used as the
-   * Vertex `product` field.
-   */
-  @SerializedName("product_code")
-  @Expose
-  private String productCode;
-
-  /**
    * This number will be multiplied by the unit amount to compute the subtotal before any discounts
    * or taxes.
    */
@@ -141,24 +132,6 @@ public class LineItemCreate extends Request {
   /** @param endDate If this date is provided, it indicates the end of a time range. */
   public void setEndDate(final DateTime endDate) {
     this.endDate = endDate;
-  }
-
-  /**
-   * Optional field to track a product code or SKU for the line item. This can be used to later
-   * reporting on product purchases. For Vertex tax calculations, this field will be used as the
-   * Vertex `product` field.
-   */
-  public String getProductCode() {
-    return this.productCode;
-  }
-
-  /**
-   * @param productCode Optional field to track a product code or SKU for the line item. This can be
-   *     used to later reporting on product purchases. For Vertex tax calculations, this field will
-   *     be used as the Vertex `product` field.
-   */
-  public void setProductCode(final String productCode) {
-    this.productCode = productCode;
   }
 
   /**

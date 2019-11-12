@@ -9,21 +9,12 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
-import java.util.List;
 
 public class AccountUpdate extends Request {
 
   @SerializedName("address")
   @Expose
   private Address address;
-
-  /**
-   * An enumerable describing the billing behavior of the account, specifically whether the account
-   * is self-paying or will rely on the parent account to pay.
-   */
-  @SerializedName("bill_to")
-  @Expose
-  private String billTo;
 
   @SerializedName("billing_info")
   @Expose
@@ -41,10 +32,6 @@ public class AccountUpdate extends Request {
   @Expose
   private String company;
 
-  @SerializedName("custom_fields")
-  @Expose
-  private List<CustomField> customFields;
-
   /**
    * The email address used for communicating with this customer. The customer will also use this
    * email address to log into your hosted account management pages. This value does not need to be
@@ -54,15 +41,6 @@ public class AccountUpdate extends Request {
   @Expose
   private String email;
 
-  /**
-   * The tax exemption certificate number for the account. If the merchant has an integration for
-   * the Vertex tax provider, this optional value will be sent in any tax calculation requests for
-   * the account.
-   */
-  @SerializedName("exemption_certificate")
-  @Expose
-  private String exemptionCertificate;
-
   @SerializedName("first_name")
   @Expose
   private String firstName;
@@ -70,28 +48,6 @@ public class AccountUpdate extends Request {
   @SerializedName("last_name")
   @Expose
   private String lastName;
-
-  /**
-   * The account code of the parent account to be associated with this account. Passing an empty
-   * value removes any existing parent association from this account. If both `parent_account_code`
-   * and `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used.
-   * Only one level of parent child relationship is allowed. You cannot assign a parent account that
-   * itself has a parent account.
-   */
-  @SerializedName("parent_account_code")
-  @Expose
-  private String parentAccountCode;
-
-  /**
-   * The UUID of the parent account to be associated with this account. Passing an empty value
-   * removes any existing parent association from this account. If both `parent_account_code` and
-   * `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used. Only
-   * one level of parent child relationship is allowed. You cannot assign a parent account that
-   * itself has a parent account.
-   */
-  @SerializedName("parent_account_id")
-  @Expose
-  private String parentAccountId;
 
   /**
    * Used to determine the language and locale of emails sent on behalf of the merchant to the
@@ -131,22 +87,6 @@ public class AccountUpdate extends Request {
     this.address = address;
   }
 
-  /**
-   * An enumerable describing the billing behavior of the account, specifically whether the account
-   * is self-paying or will rely on the parent account to pay.
-   */
-  public String getBillTo() {
-    return this.billTo;
-  }
-
-  /**
-   * @param billTo An enumerable describing the billing behavior of the account, specifically
-   *     whether the account is self-paying or will rely on the parent account to pay.
-   */
-  public void setBillTo(final String billTo) {
-    this.billTo = billTo;
-  }
-
   public BillingInfoCreate getBillingInfo() {
     return this.billingInfo;
   }
@@ -182,15 +122,6 @@ public class AccountUpdate extends Request {
     this.company = company;
   }
 
-  public List<CustomField> getCustomFields() {
-    return this.customFields;
-  }
-
-  /** @param customFields */
-  public void setCustomFields(final List<CustomField> customFields) {
-    this.customFields = customFields;
-  }
-
   /**
    * The email address used for communicating with this customer. The customer will also use this
    * email address to log into your hosted account management pages. This value does not need to be
@@ -209,24 +140,6 @@ public class AccountUpdate extends Request {
     this.email = email;
   }
 
-  /**
-   * The tax exemption certificate number for the account. If the merchant has an integration for
-   * the Vertex tax provider, this optional value will be sent in any tax calculation requests for
-   * the account.
-   */
-  public String getExemptionCertificate() {
-    return this.exemptionCertificate;
-  }
-
-  /**
-   * @param exemptionCertificate The tax exemption certificate number for the account. If the
-   *     merchant has an integration for the Vertex tax provider, this optional value will be sent
-   *     in any tax calculation requests for the account.
-   */
-  public void setExemptionCertificate(final String exemptionCertificate) {
-    this.exemptionCertificate = exemptionCertificate;
-  }
-
   public String getFirstName() {
     return this.firstName;
   }
@@ -243,50 +156,6 @@ public class AccountUpdate extends Request {
   /** @param lastName */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
-  }
-
-  /**
-   * The account code of the parent account to be associated with this account. Passing an empty
-   * value removes any existing parent association from this account. If both `parent_account_code`
-   * and `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used.
-   * Only one level of parent child relationship is allowed. You cannot assign a parent account that
-   * itself has a parent account.
-   */
-  public String getParentAccountCode() {
-    return this.parentAccountCode;
-  }
-
-  /**
-   * @param parentAccountCode The account code of the parent account to be associated with this
-   *     account. Passing an empty value removes any existing parent association from this account.
-   *     If both `parent_account_code` and `parent_account_id` are passed, the non-blank value in
-   *     `parent_account_id` will be used. Only one level of parent child relationship is allowed.
-   *     You cannot assign a parent account that itself has a parent account.
-   */
-  public void setParentAccountCode(final String parentAccountCode) {
-    this.parentAccountCode = parentAccountCode;
-  }
-
-  /**
-   * The UUID of the parent account to be associated with this account. Passing an empty value
-   * removes any existing parent association from this account. If both `parent_account_code` and
-   * `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used. Only
-   * one level of parent child relationship is allowed. You cannot assign a parent account that
-   * itself has a parent account.
-   */
-  public String getParentAccountId() {
-    return this.parentAccountId;
-  }
-
-  /**
-   * @param parentAccountId The UUID of the parent account to be associated with this account.
-   *     Passing an empty value removes any existing parent association from this account. If both
-   *     `parent_account_code` and `parent_account_id` are passed, the non-blank value in
-   *     `parent_account_id` will be used. Only one level of parent child relationship is allowed.
-   *     You cannot assign a parent account that itself has a parent account.
-   */
-  public void setParentAccountId(final String parentAccountId) {
-    this.parentAccountId = parentAccountId;
   }
 
   /**

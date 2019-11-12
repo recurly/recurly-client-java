@@ -23,11 +23,6 @@ public class SubscriptionCreate extends Request {
   @Expose
   private List<SubscriptionAddOnCreate> addOns;
 
-  /** Whether the subscription renews at the end of its term. */
-  @SerializedName("auto_renew")
-  @Expose
-  private Boolean autoRenew;
-
   /** Collection method */
   @SerializedName("collection_method")
   @Expose
@@ -54,10 +49,6 @@ public class SubscriptionCreate extends Request {
   @Expose
   private String currency;
 
-  @SerializedName("custom_fields")
-  @Expose
-  private List<CustomField> customFields;
-
   /**
    * This will default to the Customer Notes text specified on the Invoice Settings. Specify custom
    * notes to add or override Customer Notes. Custom notes will stay with a subscription on all
@@ -66,6 +57,16 @@ public class SubscriptionCreate extends Request {
   @SerializedName("customer_notes")
   @Expose
   private String customerNotes;
+
+  /**
+   * If set,indicates when the first renewal should occur. Subsequent renewals will be offset from
+   * this date. The first invoice will be prorated appropriately so that the customer only pays for
+   * the portion of the first billing period for which the subscription applies. Useful for forcing
+   * a subscription to renew on the first of the month.
+   */
+  @SerializedName("first_renewal_date")
+  @Expose
+  private DateTime firstRenewalDate;
 
   /**
    * Integer representing the number of days after an invoice's creation that the invoice will
@@ -77,30 +78,12 @@ public class SubscriptionCreate extends Request {
   @Expose
   private Integer netTerms;
 
-  /**
-   * If present, this sets the date the subscription's next billing period will start
-   * (`current_period_ends_at`). This can be used to align the subscription’s billing to a specific
-   * day of the month. The initial invoice will be prorated for the period between the
-   * subscription's activation date and the billing period end date. Subsequent periods will be
-   * based off the plan interval. For a subscription with a trial period, this will change when the
-   * trial expires.
-   */
-  @SerializedName("next_bill_date")
-  @Expose
-  private DateTime nextBillDate;
-
-  /**
-   * You must provide either a `plan_code` or `plan_id`. If both are provided the `plan_id` will be
-   * used.
-   */
+  /** Plan code */
   @SerializedName("plan_code")
   @Expose
   private String planCode;
 
-  /**
-   * You must provide either a `plan_code` or `plan_id`. If both are provided the `plan_id` will be
-   * used.
-   */
+  /** Plan ID */
   @SerializedName("plan_id")
   @Expose
   private String planId;
@@ -115,18 +98,18 @@ public class SubscriptionCreate extends Request {
   @Expose
   private Integer quantity;
 
-  /**
-   * If `auto_renew=true`, when a term completes, `total_billing_cycles` takes this value as the
-   * length of subsequent terms. Defaults to the plan's `total_billing_cycles`.
-   */
-  @SerializedName("renewal_billing_cycles")
-  @Expose
-  private Integer renewalBillingCycles;
-
   /** Create a shipping address on the account and assign it to the subscription. */
-  @SerializedName("shipping")
+  @SerializedName("shipping_address")
   @Expose
-  private SubscriptionShippingCreate shipping;
+  private ShippingAddressCreate shippingAddress;
+
+  /**
+   * Assign a shipping address from the account's existing shipping addresses. If this and
+   * `shipping_address` are both present, `shipping_address` will take precedence.
+   */
+  @SerializedName("shipping_address_id")
+  @Expose
+  private String shippingAddressId;
 
   /**
    * If set, the subscription will begin in the future on this date. The subscription will apply the
@@ -146,9 +129,8 @@ public class SubscriptionCreate extends Request {
   private String termsAndConditions;
 
   /**
-   * The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if
-   * `auto_renew=true` the subscription will renew and a new term will begin, otherwise the
-   * subscription will expire.
+   * Renews the subscription for a specified number of total cycles, then automatically cancels.
+   * Defaults to the subscription renewing indefinitely.
    */
   @SerializedName("total_billing_cycles")
   @Expose
@@ -187,16 +169,6 @@ public class SubscriptionCreate extends Request {
   /** @param addOns Add-ons */
   public void setAddOns(final List<SubscriptionAddOnCreate> addOns) {
     this.addOns = addOns;
-  }
-
-  /** Whether the subscription renews at the end of its term. */
-  public Boolean getAutoRenew() {
-    return this.autoRenew;
-  }
-
-  /** @param autoRenew Whether the subscription renews at the end of its term. */
-  public void setAutoRenew(final Boolean autoRenew) {
-    this.autoRenew = autoRenew;
   }
 
   /** Collection method */
@@ -252,15 +224,6 @@ public class SubscriptionCreate extends Request {
     this.currency = currency;
   }
 
-  public List<CustomField> getCustomFields() {
-    return this.customFields;
-  }
-
-  /** @param customFields */
-  public void setCustomFields(final List<CustomField> customFields) {
-    this.customFields = customFields;
-  }
-
   /**
    * This will default to the Customer Notes text specified on the Invoice Settings. Specify custom
    * notes to add or override Customer Notes. Custom notes will stay with a subscription on all
@@ -277,6 +240,26 @@ public class SubscriptionCreate extends Request {
    */
   public void setCustomerNotes(final String customerNotes) {
     this.customerNotes = customerNotes;
+  }
+
+  /**
+   * If set,indicates when the first renewal should occur. Subsequent renewals will be offset from
+   * this date. The first invoice will be prorated appropriately so that the customer only pays for
+   * the portion of the first billing period for which the subscription applies. Useful for forcing
+   * a subscription to renew on the first of the month.
+   */
+  public DateTime getFirstRenewalDate() {
+    return this.firstRenewalDate;
+  }
+
+  /**
+   * @param firstRenewalDate If set,indicates when the first renewal should occur. Subsequent
+   *     renewals will be offset from this date. The first invoice will be prorated appropriately so
+   *     that the customer only pays for the portion of the first billing period for which the
+   *     subscription applies. Useful for forcing a subscription to renew on the first of the month.
+   */
+  public void setFirstRenewalDate(final DateTime firstRenewalDate) {
+    this.firstRenewalDate = firstRenewalDate;
   }
 
   /**
@@ -299,58 +282,22 @@ public class SubscriptionCreate extends Request {
     this.netTerms = netTerms;
   }
 
-  /**
-   * If present, this sets the date the subscription's next billing period will start
-   * (`current_period_ends_at`). This can be used to align the subscription’s billing to a specific
-   * day of the month. The initial invoice will be prorated for the period between the
-   * subscription's activation date and the billing period end date. Subsequent periods will be
-   * based off the plan interval. For a subscription with a trial period, this will change when the
-   * trial expires.
-   */
-  public DateTime getNextBillDate() {
-    return this.nextBillDate;
-  }
-
-  /**
-   * @param nextBillDate If present, this sets the date the subscription's next billing period will
-   *     start (`current_period_ends_at`). This can be used to align the subscription’s billing to a
-   *     specific day of the month. The initial invoice will be prorated for the period between the
-   *     subscription's activation date and the billing period end date. Subsequent periods will be
-   *     based off the plan interval. For a subscription with a trial period, this will change when
-   *     the trial expires.
-   */
-  public void setNextBillDate(final DateTime nextBillDate) {
-    this.nextBillDate = nextBillDate;
-  }
-
-  /**
-   * You must provide either a `plan_code` or `plan_id`. If both are provided the `plan_id` will be
-   * used.
-   */
+  /** Plan code */
   public String getPlanCode() {
     return this.planCode;
   }
 
-  /**
-   * @param planCode You must provide either a `plan_code` or `plan_id`. If both are provided the
-   *     `plan_id` will be used.
-   */
+  /** @param planCode Plan code */
   public void setPlanCode(final String planCode) {
     this.planCode = planCode;
   }
 
-  /**
-   * You must provide either a `plan_code` or `plan_id`. If both are provided the `plan_id` will be
-   * used.
-   */
+  /** Plan ID */
   public String getPlanId() {
     return this.planId;
   }
 
-  /**
-   * @param planId You must provide either a `plan_code` or `plan_id`. If both are provided the
-   *     `plan_id` will be used.
-   */
+  /** @param planId Plan ID */
   public void setPlanId(final String planId) {
     this.planId = planId;
   }
@@ -378,31 +325,34 @@ public class SubscriptionCreate extends Request {
     this.quantity = quantity;
   }
 
-  /**
-   * If `auto_renew=true`, when a term completes, `total_billing_cycles` takes this value as the
-   * length of subsequent terms. Defaults to the plan's `total_billing_cycles`.
-   */
-  public Integer getRenewalBillingCycles() {
-    return this.renewalBillingCycles;
-  }
-
-  /**
-   * @param renewalBillingCycles If `auto_renew=true`, when a term completes, `total_billing_cycles`
-   *     takes this value as the length of subsequent terms. Defaults to the plan's
-   *     `total_billing_cycles`.
-   */
-  public void setRenewalBillingCycles(final Integer renewalBillingCycles) {
-    this.renewalBillingCycles = renewalBillingCycles;
-  }
-
   /** Create a shipping address on the account and assign it to the subscription. */
-  public SubscriptionShippingCreate getShipping() {
-    return this.shipping;
+  public ShippingAddressCreate getShippingAddress() {
+    return this.shippingAddress;
   }
 
-  /** @param shipping Create a shipping address on the account and assign it to the subscription. */
-  public void setShipping(final SubscriptionShippingCreate shipping) {
-    this.shipping = shipping;
+  /**
+   * @param shippingAddress Create a shipping address on the account and assign it to the
+   *     subscription.
+   */
+  public void setShippingAddress(final ShippingAddressCreate shippingAddress) {
+    this.shippingAddress = shippingAddress;
+  }
+
+  /**
+   * Assign a shipping address from the account's existing shipping addresses. If this and
+   * `shipping_address` are both present, `shipping_address` will take precedence.
+   */
+  public String getShippingAddressId() {
+    return this.shippingAddressId;
+  }
+
+  /**
+   * @param shippingAddressId Assign a shipping address from the account's existing shipping
+   *     addresses. If this and `shipping_address` are both present, `shipping_address` will take
+   *     precedence.
+   */
+  public void setShippingAddressId(final String shippingAddressId) {
+    this.shippingAddressId = shippingAddressId;
   }
 
   /**
@@ -440,18 +390,16 @@ public class SubscriptionCreate extends Request {
   }
 
   /**
-   * The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if
-   * `auto_renew=true` the subscription will renew and a new term will begin, otherwise the
-   * subscription will expire.
+   * Renews the subscription for a specified number of total cycles, then automatically cancels.
+   * Defaults to the subscription renewing indefinitely.
    */
   public Integer getTotalBillingCycles() {
     return this.totalBillingCycles;
   }
 
   /**
-   * @param totalBillingCycles The number of cycles/billing periods in a term. When
-   *     `remaining_billing_cycles=0`, if `auto_renew=true` the subscription will renew and a new
-   *     term will begin, otherwise the subscription will expire.
+   * @param totalBillingCycles Renews the subscription for a specified number of total cycles, then
+   *     automatically cancels. Defaults to the subscription renewing indefinitely.
    */
   public void setTotalBillingCycles(final Integer totalBillingCycles) {
     this.totalBillingCycles = totalBillingCycles;
