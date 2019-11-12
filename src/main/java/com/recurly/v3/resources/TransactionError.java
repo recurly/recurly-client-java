@@ -31,6 +31,19 @@ public class TransactionError extends Resource {
   @Expose
   private String message;
 
+  /** Object type */
+  @SerializedName("object")
+  @Expose
+  private String object;
+
+  /**
+   * Returned when 3-D Secure authentication is required for a transaction. Pass this value to
+   * Recurly.js so it can continue the challenge flow.
+   */
+  @SerializedName("three_d_secure_action_token_id")
+  @Expose
+  private String threeDSecureActionTokenId;
+
   /** Transaction ID */
   @SerializedName("transaction_id")
   @Expose
@@ -74,6 +87,32 @@ public class TransactionError extends Resource {
   /** @param message Customer message */
   public void setMessage(final String message) {
     this.message = message;
+  }
+
+  /** Object type */
+  public String getObject() {
+    return this.object;
+  }
+
+  /** @param object Object type */
+  public void setObject(final String object) {
+    this.object = object;
+  }
+
+  /**
+   * Returned when 3-D Secure authentication is required for a transaction. Pass this value to
+   * Recurly.js so it can continue the challenge flow.
+   */
+  public String getThreeDSecureActionTokenId() {
+    return this.threeDSecureActionTokenId;
+  }
+
+  /**
+   * @param threeDSecureActionTokenId Returned when 3-D Secure authentication is required for a
+   *     transaction. Pass this value to Recurly.js so it can continue the challenge flow.
+   */
+  public void setThreeDSecureActionTokenId(final String threeDSecureActionTokenId) {
+    this.threeDSecureActionTokenId = threeDSecureActionTokenId;
   }
 
   /** Transaction ID */
