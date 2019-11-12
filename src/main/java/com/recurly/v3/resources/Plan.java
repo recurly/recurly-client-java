@@ -107,8 +107,8 @@ public class Plan extends Resource {
 
   /**
    * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
-   * each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`,
-   * or `digital`.
+   * each tax system. If you are using Recurly’s EU VAT feature `P0000000` is `physical`, `D0000000`
+   * is `digital`, and an empty string is `unknown`.
    */
   @SerializedName("tax_code")
   @Expose
@@ -329,8 +329,8 @@ public class Plan extends Resource {
 
   /**
    * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
-   * each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`,
-   * or `digital`.
+   * each tax system. If you are using Recurly’s EU VAT feature `P0000000` is `physical`, `D0000000`
+   * is `digital`, and an empty string is `unknown`.
    */
   public String getTaxCode() {
     return this.taxCode;
@@ -338,8 +338,8 @@ public class Plan extends Resource {
 
   /**
    * @param taxCode Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values
-   *     are specific to each tax system. If you are using Recurly’s EU VAT feature you can use
-   *     `unknown`, `physical`, or `digital`.
+   *     are specific to each tax system. If you are using Recurly’s EU VAT feature `P0000000` is
+   *     `physical`, `D0000000` is `digital`, and an empty string is `unknown`.
    */
   public void setTaxCode(final String taxCode) {
     this.taxCode = taxCode;

@@ -74,9 +74,18 @@ public class SubscriptionUpdate extends Request {
   @Expose
   private Integer renewalBillingCycles;
 
-  @SerializedName("shipping")
+  /**
+   * Create a shipping address on the account and assign it to the subscription. If this and
+   * `shipping_address_id` are both present, `shipping_address_id` will take precedence.
+   */
+  @SerializedName("shipping_address")
   @Expose
-  private SubscriptionShippingUpdate shipping;
+  private ShippingAddressCreate shippingAddress;
+
+  /** Assign a shipping address from the account's existing shipping addresses. */
+  @SerializedName("shipping_address_id")
+  @Expose
+  private String shippingAddressId;
 
   /**
    * Specify custom notes to add or override Terms and Conditions. Custom notes will stay with a
@@ -211,13 +220,34 @@ public class SubscriptionUpdate extends Request {
     this.renewalBillingCycles = renewalBillingCycles;
   }
 
-  public SubscriptionShippingUpdate getShipping() {
-    return this.shipping;
+  /**
+   * Create a shipping address on the account and assign it to the subscription. If this and
+   * `shipping_address_id` are both present, `shipping_address_id` will take precedence.
+   */
+  public ShippingAddressCreate getShippingAddress() {
+    return this.shippingAddress;
   }
 
-  /** @param shipping */
-  public void setShipping(final SubscriptionShippingUpdate shipping) {
-    this.shipping = shipping;
+  /**
+   * @param shippingAddress Create a shipping address on the account and assign it to the
+   *     subscription. If this and `shipping_address_id` are both present, `shipping_address_id`
+   *     will take precedence.
+   */
+  public void setShippingAddress(final ShippingAddressCreate shippingAddress) {
+    this.shippingAddress = shippingAddress;
+  }
+
+  /** Assign a shipping address from the account's existing shipping addresses. */
+  public String getShippingAddressId() {
+    return this.shippingAddressId;
+  }
+
+  /**
+   * @param shippingAddressId Assign a shipping address from the account's existing shipping
+   *     addresses.
+   */
+  public void setShippingAddressId(final String shippingAddressId) {
+    this.shippingAddressId = shippingAddressId;
   }
 
   /**

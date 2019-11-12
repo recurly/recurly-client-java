@@ -178,9 +178,9 @@ public class Subscription extends Resource {
   @Expose
   private Integer renewalBillingCycles;
 
-  @SerializedName("shipping")
+  @SerializedName("shipping_address")
   @Expose
-  private SubscriptionShipping shipping;
+  private ShippingAddress shippingAddress;
 
   /** State */
   @SerializedName("state")
@@ -579,13 +579,13 @@ public class Subscription extends Resource {
     this.renewalBillingCycles = renewalBillingCycles;
   }
 
-  public SubscriptionShipping getShipping() {
-    return this.shipping;
+  public ShippingAddress getShippingAddress() {
+    return this.shippingAddress;
   }
 
-  /** @param shipping */
-  public void setShipping(final SubscriptionShipping shipping) {
-    this.shipping = shipping;
+  /** @param shippingAddress */
+  public void setShippingAddress(final ShippingAddress shippingAddress) {
+    this.shippingAddress = shippingAddress;
   }
 
   /** State */

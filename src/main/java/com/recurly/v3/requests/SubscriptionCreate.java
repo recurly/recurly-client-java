@@ -124,9 +124,17 @@ public class SubscriptionCreate extends Request {
   private Integer renewalBillingCycles;
 
   /** Create a shipping address on the account and assign it to the subscription. */
-  @SerializedName("shipping")
+  @SerializedName("shipping_address")
   @Expose
-  private SubscriptionShippingCreate shipping;
+  private ShippingAddressCreate shippingAddress;
+
+  /**
+   * Assign a shipping address from the account's existing shipping addresses. If this and
+   * `shipping_address` are both present, `shipping_address` will take precedence.
+   */
+  @SerializedName("shipping_address_id")
+  @Expose
+  private String shippingAddressId;
 
   /**
    * If set, the subscription will begin in the future on this date. The subscription will apply the
@@ -396,13 +404,33 @@ public class SubscriptionCreate extends Request {
   }
 
   /** Create a shipping address on the account and assign it to the subscription. */
-  public SubscriptionShippingCreate getShipping() {
-    return this.shipping;
+  public ShippingAddressCreate getShippingAddress() {
+    return this.shippingAddress;
   }
 
-  /** @param shipping Create a shipping address on the account and assign it to the subscription. */
-  public void setShipping(final SubscriptionShippingCreate shipping) {
-    this.shipping = shipping;
+  /**
+   * @param shippingAddress Create a shipping address on the account and assign it to the
+   *     subscription.
+   */
+  public void setShippingAddress(final ShippingAddressCreate shippingAddress) {
+    this.shippingAddress = shippingAddress;
+  }
+
+  /**
+   * Assign a shipping address from the account's existing shipping addresses. If this and
+   * `shipping_address` are both present, `shipping_address` will take precedence.
+   */
+  public String getShippingAddressId() {
+    return this.shippingAddressId;
+  }
+
+  /**
+   * @param shippingAddressId Assign a shipping address from the account's existing shipping
+   *     addresses. If this and `shipping_address` are both present, `shipping_address` will take
+   *     precedence.
+   */
+  public void setShippingAddressId(final String shippingAddressId) {
+    this.shippingAddressId = shippingAddressId;
   }
 
   /**
