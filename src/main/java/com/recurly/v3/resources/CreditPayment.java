@@ -50,18 +50,9 @@ public class CreditPayment extends Resource {
   @Expose
   private String object;
 
-  /** For credit payments with action `refund`, this is the credit payment that was refunded. */
-  @SerializedName("original_credit_payment_id")
-  @Expose
-  private String originalCreditPaymentId;
-
   @SerializedName("original_invoice")
   @Expose
   private InvoiceMini originalInvoice;
-
-  @SerializedName("refund_transaction")
-  @Expose
-  private Transaction refundTransaction;
 
   /** Last updated at */
   @SerializedName("updated_at")
@@ -158,19 +149,6 @@ public class CreditPayment extends Resource {
     this.object = object;
   }
 
-  /** For credit payments with action `refund`, this is the credit payment that was refunded. */
-  public String getOriginalCreditPaymentId() {
-    return this.originalCreditPaymentId;
-  }
-
-  /**
-   * @param originalCreditPaymentId For credit payments with action `refund`, this is the credit
-   *     payment that was refunded.
-   */
-  public void setOriginalCreditPaymentId(final String originalCreditPaymentId) {
-    this.originalCreditPaymentId = originalCreditPaymentId;
-  }
-
   public InvoiceMini getOriginalInvoice() {
     return this.originalInvoice;
   }
@@ -178,15 +156,6 @@ public class CreditPayment extends Resource {
   /** @param originalInvoice */
   public void setOriginalInvoice(final InvoiceMini originalInvoice) {
     this.originalInvoice = originalInvoice;
-  }
-
-  public Transaction getRefundTransaction() {
-    return this.refundTransaction;
-  }
-
-  /** @param refundTransaction */
-  public void setRefundTransaction(final Transaction refundTransaction) {
-    this.refundTransaction = refundTransaction;
   }
 
   /** Last updated at */

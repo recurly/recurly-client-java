@@ -114,7 +114,7 @@ public class Transaction extends Resource {
   /**
    * IP address provided when the billing information was collected:
    *
-   * <p>- When the customer enters billing information into the Recurly.JS or Hosted Payment Pages,
+   * <p>- When the customer enters billing information into the Recurly.js or Hosted Payment Pages,
    * Recurly records the IP address. - When the merchant enters billing information using the API,
    * the merchant may provide an IP address. - When the merchant enters billing information using
    * the UI, no IP address is recorded.
@@ -206,10 +206,6 @@ public class Transaction extends Resource {
   @SerializedName("voided_at")
   @Expose
   private DateTime voidedAt;
-
-  @SerializedName("voided_by_invoice")
-  @Expose
-  private InvoiceMini voidedByInvoice;
 
   public AccountMini getAccount() {
     return this.account;
@@ -419,7 +415,7 @@ public class Transaction extends Resource {
   /**
    * IP address provided when the billing information was collected:
    *
-   * <p>- When the customer enters billing information into the Recurly.JS or Hosted Payment Pages,
+   * <p>- When the customer enters billing information into the Recurly.js or Hosted Payment Pages,
    * Recurly records the IP address. - When the merchant enters billing information using the API,
    * the merchant may provide an IP address. - When the merchant enters billing information using
    * the UI, no IP address is recorded.
@@ -430,7 +426,7 @@ public class Transaction extends Resource {
 
   /**
    * @param ipAddressV4 IP address provided when the billing information was collected:
-   *     <p>- When the customer enters billing information into the Recurly.JS or Hosted Payment
+   *     <p>- When the customer enters billing information into the Recurly.js or Hosted Payment
    *     Pages, Recurly records the IP address. - When the merchant enters billing information using
    *     the API, the merchant may provide an IP address. - When the merchant enters billing
    *     information using the UI, no IP address is recorded.
@@ -613,14 +609,5 @@ public class Transaction extends Resource {
   /** @param voidedAt Voided at */
   public void setVoidedAt(final DateTime voidedAt) {
     this.voidedAt = voidedAt;
-  }
-
-  public InvoiceMini getVoidedByInvoice() {
-    return this.voidedByInvoice;
-  }
-
-  /** @param voidedByInvoice */
-  public void setVoidedByInvoice(final InvoiceMini voidedByInvoice) {
-    this.voidedByInvoice = voidedByInvoice;
   }
 }

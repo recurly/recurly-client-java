@@ -35,8 +35,7 @@ public class InvoiceRefund extends Request {
    * created to track it in Recurly.
    *
    * <p>Required when: - refunding a manually collected charge invoice, and `refund_method` is not
-   * `all_credit` - refunding a credit invoice that refunded manually collecting invoices -
-   * refunding a credit invoice for a partial amount
+   * `all_credit` - refunding a credit invoice that refunded manually collecting invoices
    *
    * <p>This field can only be included when the Credit Invoices feature is enabled.
    */
@@ -108,8 +107,7 @@ public class InvoiceRefund extends Request {
    * created to track it in Recurly.
    *
    * <p>Required when: - refunding a manually collected charge invoice, and `refund_method` is not
-   * `all_credit` - refunding a credit invoice that refunded manually collecting invoices -
-   * refunding a credit invoice for a partial amount
+   * `all_credit` - refunding a credit invoice that refunded manually collecting invoices
    *
    * <p>This field can only be included when the Credit Invoices feature is enabled.
    */
@@ -121,8 +119,7 @@ public class InvoiceRefund extends Request {
    * @param externalRefund Indicates that the refund was settled outside of Recurly, and a manual
    *     transaction should be created to track it in Recurly.
    *     <p>Required when: - refunding a manually collected charge invoice, and `refund_method` is
-   *     not `all_credit` - refunding a credit invoice that refunded manually collecting invoices -
-   *     refunding a credit invoice for a partial amount
+   *     not `all_credit` - refunding a credit invoice that refunded manually collecting invoices
    *     <p>This field can only be included when the Credit Invoices feature is enabled.
    */
   public void setExternalRefund(final ExternalRefund externalRefund) {

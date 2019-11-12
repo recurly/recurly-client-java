@@ -19,12 +19,7 @@ public class Invoice extends Resource {
 
   @SerializedName("address")
   @Expose
-  private InvoiceAddress address;
-
-  /** The outstanding balance remaining on this invoice. */
-  @SerializedName("balance")
-  @Expose
-  private Float balance;
+  private Address address;
 
   /** Date invoice was marked paid or failed. */
   @SerializedName("closed_at")
@@ -69,6 +64,11 @@ public class Invoice extends Resource {
   @SerializedName("discount")
   @Expose
   private Float discount;
+
+  /** The outstanding balance remaining on this invoice. */
+  @SerializedName("due")
+  @Expose
+  private Float due;
 
   /** Date invoice is due. This is the date the net terms are reached. */
   @SerializedName("due_at")
@@ -135,10 +135,6 @@ public class Invoice extends Resource {
   @SerializedName("refundable_amount")
   @Expose
   private Float refundableAmount;
-
-  @SerializedName("shipping_address")
-  @Expose
-  private ShippingAddress shippingAddress;
 
   /** Invoice state */
   @SerializedName("state")
@@ -223,23 +219,13 @@ public class Invoice extends Resource {
     this.account = account;
   }
 
-  public InvoiceAddress getAddress() {
+  public Address getAddress() {
     return this.address;
   }
 
   /** @param address */
-  public void setAddress(final InvoiceAddress address) {
+  public void setAddress(final Address address) {
     this.address = address;
-  }
-
-  /** The outstanding balance remaining on this invoice. */
-  public Float getBalance() {
-    return this.balance;
-  }
-
-  /** @param balance The outstanding balance remaining on this invoice. */
-  public void setBalance(final Float balance) {
-    this.balance = balance;
   }
 
   /** Date invoice was marked paid or failed. */
@@ -328,6 +314,16 @@ public class Invoice extends Resource {
   /** @param discount Total discounts applied to this invoice. */
   public void setDiscount(final Float discount) {
     this.discount = discount;
+  }
+
+  /** The outstanding balance remaining on this invoice. */
+  public Float getDue() {
+    return this.due;
+  }
+
+  /** @param due The outstanding balance remaining on this invoice. */
+  public void setDue(final Float due) {
+    this.due = due;
   }
 
   /** Date invoice is due. This is the date the net terms are reached. */
@@ -467,15 +463,6 @@ public class Invoice extends Resource {
    */
   public void setRefundableAmount(final Float refundableAmount) {
     this.refundableAmount = refundableAmount;
-  }
-
-  public ShippingAddress getShippingAddress() {
-    return this.shippingAddress;
-  }
-
-  /** @param shippingAddress */
-  public void setShippingAddress(final ShippingAddress shippingAddress) {
-    this.shippingAddress = shippingAddress;
   }
 
   /** Invoice state */
