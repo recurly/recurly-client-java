@@ -89,6 +89,14 @@ public class PurchaseCreate extends Request {
   @Expose
   private String termsAndConditions;
 
+  /**
+   * An optional type designation for the payment gateway transaction created by this request.
+   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  @SerializedName("transaction_type")
+  @Expose
+  private String transactionType;
+
   /** VAT reverse charge notes for cross border European tax settlement. */
   @SerializedName("vat_reverse_charge_notes")
   @Expose
@@ -259,6 +267,23 @@ public class PurchaseCreate extends Request {
   /** @param termsAndConditions Terms and conditions to be put on the purchase invoice. */
   public void setTermsAndConditions(final String termsAndConditions) {
     this.termsAndConditions = termsAndConditions;
+  }
+
+  /**
+   * An optional type designation for the payment gateway transaction created by this request.
+   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  public String getTransactionType() {
+    return this.transactionType;
+  }
+
+  /**
+   * @param transactionType An optional type designation for the payment gateway transaction created
+   *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
+   *     transactions.
+   */
+  public void setTransactionType(final String transactionType) {
+    this.transactionType = transactionType;
   }
 
   /** VAT reverse charge notes for cross border European tax settlement. */
