@@ -790,6 +790,103 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List a site's items
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_items">list_items api documentation</a>
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the site's items.
+   */
+  public Pager<Item> listItems(QueryParams queryParams) {
+    final String url = "/items";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Item.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * Create a new item
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_item">create_item api documentation</a>
+   * @param body The body of the request.
+     * @return A new item.
+   */
+  public Item createItem(ItemCreate body) {
+    final String url = "/items";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Item.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * Fetch an item
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_item">get_item api documentation</a>
+   * @param itemId Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
+     * @return An item.
+   */
+  public Item getItem(String itemId) {
+    final String url = "/items/{item_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("item_id", itemId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Item.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Update an active item
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/update_item">update_item api documentation</a>
+   * @param itemId Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
+   * @param body The body of the request.
+     * @return The updated item.
+   */
+  public Item updateItem(String itemId, ItemUpdate body) {
+    final String url = "/items/{item_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("item_id", itemId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Item.class;
+    return this.makeRequest("PUT", path, body, returnType);
+  }
+
+  /**
+   * Deactivate an item
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/deactivate_item">deactivate_item api documentation</a>
+   * @param itemId Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
+     * @return An item.
+   */
+  public Item deactivateItem(String itemId) {
+    final String url = "/items/{item_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("item_id", itemId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Item.class;
+    return this.makeRequest("DELETE", path, returnType);
+  }
+
+  /**
+   * Reactivate an inactive item
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/reactivate_item">reactivate_item api documentation</a>
+   * @param itemId Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
+     * @return An item.
+   */
+  public Item reactivateItem(String itemId) {
+    final String url = "/items/{item_id}/reactivate";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("item_id", itemId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Item.class;
+    return this.makeRequest("PUT", path, returnType);
+  }
+
+  /**
    * List a site's invoices
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_invoices">list_invoices api documentation</a>
@@ -837,6 +934,22 @@ public class Client extends BaseClient {
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Invoice.class;
     return this.makeRequest("PUT", path, body, returnType);
+  }
+
+  /**
+   * Fetch an invoice as a PDF
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_invoice_pdf">get_invoice_pdf api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @return An invoice as a PDF.
+   */
+  public BinaryFile getInvoicePdf(String invoiceId) {
+    final String url = "/invoices/{invoice_id}.pdf";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("invoice_id", invoiceId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = BinaryFile.class;
+    return this.makeRequest("GET", path, returnType);
   }
 
   /**
