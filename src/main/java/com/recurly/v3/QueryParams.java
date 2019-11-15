@@ -78,6 +78,10 @@ public class QueryParams {
     this.add("success", success);
   }
 
+  public void setRelatedType(final String relatedType) {
+    this.add("related_type", relatedType);
+  }
+
   public void setRefund(final String refund) {
     this.add("refund", refund);
   }

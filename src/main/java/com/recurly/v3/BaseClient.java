@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import okhttp3.*;
@@ -14,9 +16,11 @@ import org.joda.time.DateTime;
 
 public abstract class BaseClient {
   private static final String API_URL = "https://v3.recurly.com/";
+  private static final List<String> BINARY_TYPES = Arrays.asList("application/pdf");
 
   private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
   private static final JsonSerializer jsonSerializer = new JsonSerializer();
+  private static final FileSerializer fileSerializer = new FileSerializer();
   private final String apiKey;
   private final OkHttpClient client;
   private String apiUrl;
@@ -111,23 +115,21 @@ public abstract class BaseClient {
     try (final Response response = client.newCall(request).execute()) {
 
       final Headers responseHeaders = response.headers();
-      final String responseBody = response.body().string();
+      final ResponseBody responseBody = response.body();
 
       if (!response.isSuccessful()) {
-        throw jsonSerializer.deserializeError(responseBody);
-      }
-
-      if ("true".equals(System.getenv("RECURLY_INSECURE"))
-          && "true".equals(System.getenv("RECURLY_DEBUG"))) {
-        for (int i = 0; i < responseHeaders.size(); i++) {
-          System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
-        }
-        System.out.println(responseBody);
+        throw jsonSerializer.deserializeError(responseBody.string());
       }
 
       this.warnIfDeprecated(responseHeaders);
 
-      return jsonSerializer.deserialize(responseBody, resourceClass);
+      MediaType contentType = responseBody.contentType();
+      if (BINARY_TYPES.contains(contentType.type() + "/" + contentType.subtype())) {
+        return fileSerializer.deserialize(responseBody.bytes(), resourceClass);
+      } else {
+        return jsonSerializer.deserialize(responseBody.string(), resourceClass);
+      }
+
     } catch (IOException e) {
       throw new NetworkException(e);
     }

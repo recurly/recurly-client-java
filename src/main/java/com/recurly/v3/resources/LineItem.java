@@ -99,6 +99,16 @@ public class LineItem extends Resource {
   @Expose
   private String invoiceNumber;
 
+  /** Unique code to identify an item, when the Catalog feature is enabled. */
+  @SerializedName("item_code")
+  @Expose
+  private String itemCode;
+
+  /** Available when the Catalog feature is enabled. */
+  @SerializedName("item_id")
+  @Expose
+  private String itemId;
+
   /**
    * Category to describe the role of a line item on a legacy invoice: - "charges" refers to charges
    * being billed for on this invoice. - "credits" refers to refund or proration credits. This
@@ -148,8 +158,8 @@ public class LineItem extends Resource {
   private String previousLineItemId;
 
   /**
-   * For plan related line items this will be the plan's code, for add-on related line items it will
-   * be the add-on's code.
+   * For plan-related line items this will be the plan's code, for add-on related line items it will
+   * be the add-on's code. For item-related line itmes it will be the item's `external_sku`.
    */
   @SerializedName("product_code")
   @Expose
@@ -184,6 +194,11 @@ public class LineItem extends Resource {
   @SerializedName("refunded_quantity")
   @Expose
   private Integer refundedQuantity;
+
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
 
   @SerializedName("shipping_address")
   @Expose
@@ -449,6 +464,26 @@ public class LineItem extends Resource {
     this.invoiceNumber = invoiceNumber;
   }
 
+  /** Unique code to identify an item, when the Catalog feature is enabled. */
+  public String getItemCode() {
+    return this.itemCode;
+  }
+
+  /** @param itemCode Unique code to identify an item, when the Catalog feature is enabled. */
+  public void setItemCode(final String itemCode) {
+    this.itemCode = itemCode;
+  }
+
+  /** Available when the Catalog feature is enabled. */
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  /** @param itemId Available when the Catalog feature is enabled. */
+  public void setItemId(final String itemId) {
+    this.itemId = itemId;
+  }
+
   /**
    * Category to describe the role of a line item on a legacy invoice: - "charges" refers to charges
    * being billed for on this invoice. - "credits" refers to refund or proration credits. This
@@ -557,16 +592,17 @@ public class LineItem extends Resource {
   }
 
   /**
-   * For plan related line items this will be the plan's code, for add-on related line items it will
-   * be the add-on's code.
+   * For plan-related line items this will be the plan's code, for add-on related line items it will
+   * be the add-on's code. For item-related line itmes it will be the item's `external_sku`.
    */
   public String getProductCode() {
     return this.productCode;
   }
 
   /**
-   * @param productCode For plan related line items this will be the plan's code, for add-on related
-   *     line items it will be the add-on's code.
+   * @param productCode For plan-related line items this will be the plan's code, for add-on related
+   *     line items it will be the add-on's code. For item-related line itmes it will be the item's
+   *     `external_sku`.
    */
   public void setProductCode(final String productCode) {
     this.productCode = productCode;
@@ -631,6 +667,16 @@ public class LineItem extends Resource {
    */
   public void setRefundedQuantity(final Integer refundedQuantity) {
     this.refundedQuantity = refundedQuantity;
+  }
+
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
   }
 
   public ShippingAddress getShippingAddress() {
