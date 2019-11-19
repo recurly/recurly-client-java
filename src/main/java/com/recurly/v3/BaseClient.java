@@ -15,7 +15,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import org.joda.time.DateTime;
 
 public abstract class BaseClient {
-  private static final String API_URL = "https://v3.recurly.com/";
+  private static final String API_URL = "https://v3.recurly.com";
   private static final List<String> BINARY_TYPES = Arrays.asList("application/pdf");
 
   private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
