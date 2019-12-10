@@ -27,7 +27,7 @@ public class QueryParams {
   }
 
   public void setIds(final List<String> ids) {
-    this.add("ids", ids);
+    this.add("ids", String.join(",", ids));
   }
 
   public void setLimit(final Integer limit) {
