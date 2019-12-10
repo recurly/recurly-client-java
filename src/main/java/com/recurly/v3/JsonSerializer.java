@@ -33,6 +33,10 @@ public class JsonSerializer {
   }
 
   public String serialize(Request body) {
-    return gsonSerializer.toJson(body);
+    if (body == null) {
+      return "";
+    } else {
+      return gsonSerializer.toJson(body);
+    }
   }
 }
