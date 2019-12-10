@@ -32,6 +32,12 @@
         <organization>Recurly</organization>
         <organizationUrl>https://recurly.com</organizationUrl>
       </developer>
+      <developer>
+        <name>Douglas Miller</name>
+        <email>dx@recurly.com</email>
+        <organization>Recurly</organization>
+        <organizationUrl>https://recurly.com</organizationUrl>
+      </developer>
     </developers>
 
     <scm>
