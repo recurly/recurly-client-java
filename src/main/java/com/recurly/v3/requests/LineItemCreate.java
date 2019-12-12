@@ -64,6 +64,15 @@ public class LineItemCreate extends Request {
   private String itemId;
 
   /**
+   * Only allowed if the Gift Cards feature is enabled on your site and `type` is `credit`. Can only
+   * have a value of `external_gift_card`. Set this value in order to track gift card credits from
+   * external gift cards (like InComm). It also skips billing information requirements.
+   */
+  @SerializedName("origin")
+  @Expose
+  private String origin;
+
+  /**
    * Optional field to track a product code or SKU for the line item. This can be used to later
    * reporting on product purchases. For Vertex tax calculations, this field will be used as the
    * Vertex `product` field. If `item_code`/`item_id` is part of the request then `product_code`
@@ -230,6 +239,25 @@ public class LineItemCreate extends Request {
   /** @param itemId Available when the Catalog feature is enabled. */
   public void setItemId(final String itemId) {
     this.itemId = itemId;
+  }
+
+  /**
+   * Only allowed if the Gift Cards feature is enabled on your site and `type` is `credit`. Can only
+   * have a value of `external_gift_card`. Set this value in order to track gift card credits from
+   * external gift cards (like InComm). It also skips billing information requirements.
+   */
+  public String getOrigin() {
+    return this.origin;
+  }
+
+  /**
+   * @param origin Only allowed if the Gift Cards feature is enabled on your site and `type` is
+   *     `credit`. Can only have a value of `external_gift_card`. Set this value in order to track
+   *     gift card credits from external gift cards (like InComm). It also skips billing information
+   *     requirements.
+   */
+  public void setOrigin(final String origin) {
+    this.origin = origin;
   }
 
   /**
