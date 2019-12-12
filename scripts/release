@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+
+CURRENT_VERSION=$(<.current-version)
+
+mvn versions:set -DnewVersion=$CURRENT_VERSION
+mvn clean package
+mvn deploy
+mvn versions:revert
