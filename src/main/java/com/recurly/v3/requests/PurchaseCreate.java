@@ -17,7 +17,10 @@ public class PurchaseCreate extends Request {
   @Expose
   private AccountPurchase account;
 
-  /** Collection method */
+  /**
+   * Must be set to manual in order to preview a purchase for an Account that does not have payment
+   * information associated with the Billing Info.
+   */
   @SerializedName("collection_method")
   @Expose
   private String collectionMethod;
@@ -111,12 +114,18 @@ public class PurchaseCreate extends Request {
     this.account = account;
   }
 
-  /** Collection method */
+  /**
+   * Must be set to manual in order to preview a purchase for an Account that does not have payment
+   * information associated with the Billing Info.
+   */
   public String getCollectionMethod() {
     return this.collectionMethod;
   }
 
-  /** @param collectionMethod Collection method */
+  /**
+   * @param collectionMethod Must be set to manual in order to preview a purchase for an Account
+   *     that does not have payment information associated with the Billing Info.
+   */
   public void setCollectionMethod(final String collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
