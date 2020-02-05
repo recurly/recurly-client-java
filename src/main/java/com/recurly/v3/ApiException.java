@@ -1,24 +1,24 @@
 package com.recurly.v3;
 
 import com.google.gson.annotations.Expose;
-import com.recurly.v3.resources.Error;
+import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
 public class ApiException extends RecurlyException {
 
-  @Expose public Error error;
+  @Expose public ErrorMayHaveTransaction error;
   private String message;
 
-  public ApiException(final String message, final Error e) {
+  public ApiException(final String message, final ErrorMayHaveTransaction e) {
     super(message);
     this.message = message;
     this.error = e;
   }
 
-  public Error getError() {
+  public ErrorMayHaveTransaction getError() {
     return this.error;
   }
 
-  public void setError(final Error error) {
+  public void setError(final ErrorMayHaveTransaction error) {
     this.error = error;
   }
 

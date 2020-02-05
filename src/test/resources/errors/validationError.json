@@ -1,0 +1,12 @@
+{
+  "error": {
+    "type": "validation",
+    "message": "Purchase could not be completed.",
+    "params": [
+      {
+        "param": "account.billing_info.amazon_billing_agreement_id",
+        "message": "BillingAgreement C01-0167876-5257595 is currently in Suspended state. ValidateBillingAgreement can only be requested in the OPEN state."
+      }
+    ]
+  }
+}

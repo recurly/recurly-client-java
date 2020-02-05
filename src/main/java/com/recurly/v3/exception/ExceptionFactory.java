@@ -7,13 +7,13 @@ package com.recurly.v3.exception;
 
 import com.recurly.v3.ApiException;
 import com.recurly.v3.RecurlyException;
-import com.recurly.v3.resources.Error;
+import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
 public class ExceptionFactory {
 
   @SuppressWarnings("unchecked")
   public static <T extends RecurlyException> T getExceptionClass(ApiException apiException) {
-    Error e = apiException.getError();
+    ErrorMayHaveTransaction e = apiException.getError();
     switch (e.getType()) {
       case "bad_request":
         return (T) new BadRequestException(e.getMessage(), e);

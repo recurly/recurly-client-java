@@ -6,11 +6,11 @@
 package com.recurly.v3.exception;
 
 import com.recurly.v3.ApiException;
-import com.recurly.v3.resources.Error;
+import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
 public class ValidationException extends ApiException {
 
-  public ValidationException(String message, Error e) {
+  public ValidationException(String message, ErrorMayHaveTransaction e) {
     super(message, e);
   }
 }

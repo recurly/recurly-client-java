@@ -6,11 +6,11 @@
 package com.recurly.v3.exception;
 
 import com.recurly.v3.ApiException;
-import com.recurly.v3.resources.Error;
+import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
 public class BadRequestException extends ApiException {
 
-  public BadRequestException(String message, Error e) {
+  public BadRequestException(String message, ErrorMayHaveTransaction e) {
     super(message, e);
   }
 }
