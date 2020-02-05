@@ -6,11 +6,11 @@
 package com.recurly.v3.exception;
 
 import com.recurly.v3.ApiException;
-import com.recurly.v3.resources.Error;
+import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
 public class UnavailableInApiVersionException extends ApiException {
 
-  public UnavailableInApiVersionException(String message, Error e) {
+  public UnavailableInApiVersionException(String message, ErrorMayHaveTransaction e) {
     super(message, e);
   }
 }

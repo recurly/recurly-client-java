@@ -1,25 +1,36 @@
 package com.recurly.v3;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.*;
-
 import com.recurly.v3.exception.NotFoundException;
+import com.recurly.v3.exception.TransactionException;
 import com.recurly.v3.exception.ValidationException;
 import com.recurly.v3.fixtures.MockClient;
 import com.recurly.v3.fixtures.MockQueryParams;
 import com.recurly.v3.fixtures.MyRequest;
 import com.recurly.v3.fixtures.MyResource;
+import okhttp3.Call;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.apache.commons.io.IOUtils;
+import org.joda.time.DateTime;
+import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import okhttp3.*;
-import okhttp3.Request;
-import org.joda.time.DateTime;
-import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @SuppressWarnings("unchecked")
 public class BaseClientTest {
@@ -99,7 +110,7 @@ public class BaseClientTest {
 
   @Test
   public void testValidationError() {
-    OkHttpClient mockOkHttpClient = getApiErrorMockOkHttpClient(getErrorJson("validation"));
+    OkHttpClient mockOkHttpClient = getApiErrorMockOkHttpClient(getErrorResponse("validation"));
 
     final MockClient client = new MockClient("apiKey", mockOkHttpClient);
 
@@ -108,6 +119,20 @@ public class BaseClientTest {
         () -> {
           client.removeResource("code-aaron");
         });
+  }
+
+  @Test
+  public void testTransactionError() {
+    OkHttpClient mockOkHttpClient = getApiErrorMockOkHttpClient(getErrorResponse("transaction"));
+
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+
+    TransactionException t = assertThrows(
+            TransactionException.class,
+            () -> {
+              client.removeResource("code-aaron");
+            });
+    assertEquals("mbca9aaao6xr", t.getError().getTransactionError().getTransactionId());
   }
 
   @Test
@@ -319,5 +344,25 @@ public class BaseClientTest {
         + "        ]\n"
         + "    }\n"
         + "}";
+  }
+
+  private static String getErrorResponse(String exception) {
+    InputStream resource = null;
+
+    if ("validation".equals(exception)) {
+      resource = BaseClientTest.class.getResourceAsStream("/errors/validationError.json");
+    } else if ("transaction".equals(exception)) {
+      resource = BaseClientTest.class.getResourceAsStream("/errors/transactionError.json");
+    }
+
+    if (resource != null) {
+      try {
+        return IOUtils.toString(resource, StandardCharsets.UTF_8);
+      } catch (IOException e) {
+        throw new IllegalStateException(e.getMessage(), e);
+      }
+    }
+
+    return getErrorJson(exception);
   }
 }
