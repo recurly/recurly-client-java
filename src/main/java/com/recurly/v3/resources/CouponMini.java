@@ -25,6 +25,10 @@ public class CouponMini extends Resource {
   @Expose
   private String couponType;
 
+  /**
+   * Details of the discount a coupon applies. Will contain a `type` property and one of the
+   * following properties: `percent`, `fixed`, `trial`.
+   */
   @SerializedName("discount")
   @Expose
   private CouponDiscount discount;
@@ -80,11 +84,18 @@ public class CouponMini extends Resource {
     this.couponType = couponType;
   }
 
+  /**
+   * Details of the discount a coupon applies. Will contain a `type` property and one of the
+   * following properties: `percent`, `fixed`, `trial`.
+   */
   public CouponDiscount getDiscount() {
     return this.discount;
   }
 
-  /** @param discount */
+  /**
+   * @param discount Details of the discount a coupon applies. Will contain a `type` property and
+   *     one of the following properties: `percent`, `fixed`, `trial`.
+   */
   public void setDiscount(final CouponDiscount discount) {
     this.discount = discount;
   }

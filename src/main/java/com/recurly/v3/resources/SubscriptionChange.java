@@ -48,6 +48,7 @@ public class SubscriptionChange extends Resource {
   @Expose
   private String object;
 
+  /** Just the important parts. */
   @SerializedName("plan")
   @Expose
   private PlanMini plan;
@@ -57,6 +58,7 @@ public class SubscriptionChange extends Resource {
   @Expose
   private Integer quantity;
 
+  /** Subscription shipping details */
   @SerializedName("shipping")
   @Expose
   private SubscriptionShipping shipping;
@@ -146,11 +148,12 @@ public class SubscriptionChange extends Resource {
     this.object = object;
   }
 
+  /** Just the important parts. */
   public PlanMini getPlan() {
     return this.plan;
   }
 
-  /** @param plan */
+  /** @param plan Just the important parts. */
   public void setPlan(final PlanMini plan) {
     this.plan = plan;
   }
@@ -165,11 +168,12 @@ public class SubscriptionChange extends Resource {
     this.quantity = quantity;
   }
 
+  /** Subscription shipping details */
   public SubscriptionShipping getShipping() {
     return this.shipping;
   }
 
-  /** @param shipping */
+  /** @param shipping Subscription shipping details */
   public void setShipping(final SubscriptionShipping shipping) {
     this.shipping = shipping;
   }

@@ -12,6 +12,7 @@ import org.joda.time.DateTime;
 
 public class LineItem extends Resource {
 
+  /** Account mini details */
   @SerializedName("account")
   @Expose
   private AccountMini account;
@@ -78,6 +79,11 @@ public class LineItem extends Resource {
   @SerializedName("end_date")
   @Expose
   private DateTime endDate;
+
+  /** Optional Stock Keeping Unit assigned to an item, when the Catalog feature is enabled. */
+  @SerializedName("external_sku")
+  @Expose
+  private String externalSku;
 
   /** Line item ID */
   @SerializedName("id")
@@ -253,6 +259,7 @@ public class LineItem extends Resource {
   @Expose
   private Boolean taxExempt;
 
+  /** Tax info */
   @SerializedName("tax_info")
   @Expose
   private TaxInfo taxInfo;
@@ -287,11 +294,12 @@ public class LineItem extends Resource {
   @Expose
   private String uuid;
 
+  /** Account mini details */
   public AccountMini getAccount() {
     return this.account;
   }
 
-  /** @param account */
+  /** @param account Account mini details */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -422,6 +430,19 @@ public class LineItem extends Resource {
   /** @param endDate If this date is provided, it indicates the end of a time range. */
   public void setEndDate(final DateTime endDate) {
     this.endDate = endDate;
+  }
+
+  /** Optional Stock Keeping Unit assigned to an item, when the Catalog feature is enabled. */
+  public String getExternalSku() {
+    return this.externalSku;
+  }
+
+  /**
+   * @param externalSku Optional Stock Keeping Unit assigned to an item, when the Catalog feature is
+   *     enabled.
+   */
+  public void setExternalSku(final String externalSku) {
+    this.externalSku = externalSku;
   }
 
   /** Line item ID */
@@ -790,11 +811,12 @@ public class LineItem extends Resource {
     this.taxExempt = taxExempt;
   }
 
+  /** Tax info */
   public TaxInfo getTaxInfo() {
     return this.taxInfo;
   }
 
-  /** @param taxInfo */
+  /** @param taxInfo Tax info */
   public void setTaxInfo(final TaxInfo taxInfo) {
     this.taxInfo = taxInfo;
   }

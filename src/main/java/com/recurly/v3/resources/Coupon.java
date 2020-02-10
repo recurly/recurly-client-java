@@ -44,6 +44,10 @@ public class Coupon extends Resource {
   @Expose
   private DateTime createdAt;
 
+  /**
+   * Details of the discount a coupon applies. Will contain a `type` property and one of the
+   * following properties: `percent`, `fixed`, `trial`.
+   */
   @SerializedName("discount")
   @Expose
   private CouponDiscount discount;
@@ -246,11 +250,18 @@ public class Coupon extends Resource {
     this.createdAt = createdAt;
   }
 
+  /**
+   * Details of the discount a coupon applies. Will contain a `type` property and one of the
+   * following properties: `percent`, `fixed`, `trial`.
+   */
   public CouponDiscount getDiscount() {
     return this.discount;
   }
 
-  /** @param discount */
+  /**
+   * @param discount Details of the discount a coupon applies. Will contain a `type` property and
+   *     one of the following properties: `percent`, `fixed`, `trial`.
+   */
   public void setDiscount(final CouponDiscount discount) {
     this.discount = discount;
   }

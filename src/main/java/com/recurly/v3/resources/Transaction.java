@@ -14,6 +14,7 @@ import org.joda.time.DateTime;
 
 public class Transaction extends Resource {
 
+  /** Account mini details */
   @SerializedName("account")
   @Expose
   private AccountMini account;
@@ -102,6 +103,7 @@ public class Transaction extends Resource {
   @Expose
   private String id;
 
+  /** Invoice mini details */
   @SerializedName("invoice")
   @Expose
   private InvoiceMini invoice;
@@ -207,15 +209,17 @@ public class Transaction extends Resource {
   @Expose
   private DateTime voidedAt;
 
+  /** Invoice mini details */
   @SerializedName("voided_by_invoice")
   @Expose
   private InvoiceMini voidedByInvoice;
 
+  /** Account mini details */
   public AccountMini getAccount() {
     return this.account;
   }
 
-  /** @param account */
+  /** @param account Account mini details */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -397,11 +401,12 @@ public class Transaction extends Resource {
     this.id = id;
   }
 
+  /** Invoice mini details */
   public InvoiceMini getInvoice() {
     return this.invoice;
   }
 
-  /** @param invoice */
+  /** @param invoice Invoice mini details */
   public void setInvoice(final InvoiceMini invoice) {
     this.invoice = invoice;
   }
@@ -615,11 +620,12 @@ public class Transaction extends Resource {
     this.voidedAt = voidedAt;
   }
 
+  /** Invoice mini details */
   public InvoiceMini getVoidedByInvoice() {
     return this.voidedByInvoice;
   }
 
-  /** @param voidedByInvoice */
+  /** @param voidedByInvoice Invoice mini details */
   public void setVoidedByInvoice(final InvoiceMini voidedByInvoice) {
     this.voidedByInvoice = voidedByInvoice;
   }

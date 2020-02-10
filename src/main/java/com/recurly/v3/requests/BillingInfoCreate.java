@@ -41,6 +41,21 @@ public class BillingInfoCreate extends Request {
   @Expose
   private String fraudSessionId;
 
+  /**
+   * An identifier for a specific payment gateway. Must be used in conjunction with `gateway_token`.
+   */
+  @SerializedName("gateway_code")
+  @Expose
+  private String gatewayCode;
+
+  /**
+   * A token used in place of a credit card in order to perform transactions. Must be used in
+   * conjunction with `gateway_code`.
+   */
+  @SerializedName("gateway_token")
+  @Expose
+  private String gatewayToken;
+
   /** *STRONGLY RECOMMENDED* Customer's IP address when updating their billing information. */
   @SerializedName("ip_address")
   @Expose
@@ -154,6 +169,37 @@ public class BillingInfoCreate extends Request {
   /** @param fraudSessionId Fraud Session ID */
   public void setFraudSessionId(final String fraudSessionId) {
     this.fraudSessionId = fraudSessionId;
+  }
+
+  /**
+   * An identifier for a specific payment gateway. Must be used in conjunction with `gateway_token`.
+   */
+  public String getGatewayCode() {
+    return this.gatewayCode;
+  }
+
+  /**
+   * @param gatewayCode An identifier for a specific payment gateway. Must be used in conjunction
+   *     with `gateway_token`.
+   */
+  public void setGatewayCode(final String gatewayCode) {
+    this.gatewayCode = gatewayCode;
+  }
+
+  /**
+   * A token used in place of a credit card in order to perform transactions. Must be used in
+   * conjunction with `gateway_code`.
+   */
+  public String getGatewayToken() {
+    return this.gatewayToken;
+  }
+
+  /**
+   * @param gatewayToken A token used in place of a credit card in order to perform transactions.
+   *     Must be used in conjunction with `gateway_code`.
+   */
+  public void setGatewayToken(final String gatewayToken) {
+    this.gatewayToken = gatewayToken;
   }
 
   /** *STRONGLY RECOMMENDED* Customer's IP address when updating their billing information. */
