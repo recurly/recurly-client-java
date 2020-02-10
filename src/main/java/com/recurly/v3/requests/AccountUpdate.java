@@ -41,6 +41,11 @@ public class AccountUpdate extends Request {
   @Expose
   private String company;
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
   @SerializedName("custom_fields")
   @Expose
   private List<CustomField> customFields;
@@ -190,11 +195,20 @@ public class AccountUpdate extends Request {
     this.company = company;
   }
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
   public List<CustomField> getCustomFields() {
     return this.customFields;
   }
 
-  /** @param customFields */
+  /**
+   * @param customFields The custom fields will only be altered when they are included in a request.
+   *     Sending an empty array will not remove any existing values. To remove a field send the name
+   *     with a null or empty value.
+   */
   public void setCustomFields(final List<CustomField> customFields) {
     this.customFields = customFields;
   }

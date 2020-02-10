@@ -41,6 +41,16 @@ public class PaymentMethod extends Resource {
   @Expose
   private String firstSix;
 
+  /** An identifier for a specific payment gateway. */
+  @SerializedName("gateway_code")
+  @Expose
+  private String gatewayCode;
+
+  /** A token used in place of a credit card in order to perform transactions. */
+  @SerializedName("gateway_token")
+  @Expose
+  private String gatewayToken;
+
   /** Credit card number's last four digits. Will refer to bank account if payment method is ACH. */
   @SerializedName("last_four")
   @Expose
@@ -121,6 +131,28 @@ public class PaymentMethod extends Resource {
   /** @param firstSix Credit card number's first six digits. */
   public void setFirstSix(final String firstSix) {
     this.firstSix = firstSix;
+  }
+
+  /** An identifier for a specific payment gateway. */
+  public String getGatewayCode() {
+    return this.gatewayCode;
+  }
+
+  /** @param gatewayCode An identifier for a specific payment gateway. */
+  public void setGatewayCode(final String gatewayCode) {
+    this.gatewayCode = gatewayCode;
+  }
+
+  /** A token used in place of a credit card in order to perform transactions. */
+  public String getGatewayToken() {
+    return this.gatewayToken;
+  }
+
+  /**
+   * @param gatewayToken A token used in place of a credit card in order to perform transactions.
+   */
+  public void setGatewayToken(final String gatewayToken) {
+    this.gatewayToken = gatewayToken;
   }
 
   /** Credit card number's last four digits. Will refer to bank account if payment method is ACH. */

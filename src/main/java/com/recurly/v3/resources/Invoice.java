@@ -13,6 +13,7 @@ import org.joda.time.DateTime;
 
 public class Invoice extends Resource {
 
+  /** Account mini details */
   @SerializedName("account")
   @Expose
   private AccountMini account;
@@ -160,6 +161,7 @@ public class Invoice extends Resource {
   @Expose
   private Float tax;
 
+  /** Tax info */
   @SerializedName("tax_info")
   @Expose
   private TaxInfo taxInfo;
@@ -214,11 +216,12 @@ public class Invoice extends Resource {
   @Expose
   private String vatReverseChargeNotes;
 
+  /** Account mini details */
   public AccountMini getAccount() {
     return this.account;
   }
 
-  /** @param account */
+  /** @param account Account mini details */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -521,11 +524,12 @@ public class Invoice extends Resource {
     this.tax = tax;
   }
 
+  /** Tax info */
   public TaxInfo getTaxInfo() {
     return this.taxInfo;
   }
 
-  /** @param taxInfo */
+  /** @param taxInfo Tax info */
   public void setTaxInfo(final TaxInfo taxInfo) {
     this.taxInfo = taxInfo;
   }

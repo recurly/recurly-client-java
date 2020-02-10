@@ -62,6 +62,9 @@ public class ExceptionFactory {
 
       case "missing_feature":
         return (T) new MissingFeatureException(e.getMessage(), e);
+
+      case "rate_limited":
+        return (T) new RateLimitedException(e.getMessage(), e);
     }
     return (T) apiException;
   }

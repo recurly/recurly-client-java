@@ -24,6 +24,7 @@ public class AccountAcquisitionUpdatable extends Request {
   @Expose
   private String channel;
 
+  /** Account balance */
   @SerializedName("cost")
   @Expose
   private AccountAcquisitionCost cost;
@@ -60,11 +61,12 @@ public class AccountAcquisitionUpdatable extends Request {
     this.channel = channel;
   }
 
+  /** Account balance */
   public AccountAcquisitionCost getCost() {
     return this.cost;
   }
 
-  /** @param cost */
+  /** @param cost Account balance */
   public void setCost(final AccountAcquisitionCost cost) {
     this.cost = cost;
   }

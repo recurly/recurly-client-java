@@ -12,6 +12,7 @@ import org.joda.time.DateTime;
 
 public class AccountAcquisition extends Resource {
 
+  /** Account mini details */
   @SerializedName("account")
   @Expose
   private AccountMini account;
@@ -28,6 +29,7 @@ public class AccountAcquisition extends Resource {
   @Expose
   private String channel;
 
+  /** Account balance */
   @SerializedName("cost")
   @Expose
   private AccountAcquisitionCost cost;
@@ -58,11 +60,12 @@ public class AccountAcquisition extends Resource {
   @Expose
   private DateTime updatedAt;
 
+  /** Account mini details */
   public AccountMini getAccount() {
     return this.account;
   }
 
-  /** @param account */
+  /** @param account Account mini details */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -92,11 +95,12 @@ public class AccountAcquisition extends Resource {
     this.channel = channel;
   }
 
+  /** Account balance */
   public AccountAcquisitionCost getCost() {
     return this.cost;
   }
 
-  /** @param cost */
+  /** @param cost Account balance */
   public void setCost(final AccountAcquisitionCost cost) {
     this.cost = cost;
   }

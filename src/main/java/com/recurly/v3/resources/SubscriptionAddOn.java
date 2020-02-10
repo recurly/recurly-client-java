@@ -12,6 +12,7 @@ import org.joda.time.DateTime;
 
 public class SubscriptionAddOn extends Resource {
 
+  /** Just the important parts. */
   @SerializedName("add_on")
   @Expose
   private AddOnMini addOn;
@@ -56,11 +57,12 @@ public class SubscriptionAddOn extends Resource {
   @Expose
   private DateTime updatedAt;
 
+  /** Just the important parts. */
   public AddOnMini getAddOn() {
     return this.addOn;
   }
 
-  /** @param addOn */
+  /** @param addOn Just the important parts. */
   public void setAddOn(final AddOnMini addOn) {
     this.addOn = addOn;
   }

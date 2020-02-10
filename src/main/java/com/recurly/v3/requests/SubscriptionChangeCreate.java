@@ -71,6 +71,7 @@ public class SubscriptionChangeCreate extends Request {
   @Expose
   private Integer quantity;
 
+  /** The shipping address can currently only be changed immediately, using SubscriptionUpdate. */
   @SerializedName("shipping")
   @Expose
   private SubscriptionChangeShippingCreate shipping;
@@ -224,11 +225,15 @@ public class SubscriptionChangeCreate extends Request {
     this.quantity = quantity;
   }
 
+  /** The shipping address can currently only be changed immediately, using SubscriptionUpdate. */
   public SubscriptionChangeShippingCreate getShipping() {
     return this.shipping;
   }
 
-  /** @param shipping */
+  /**
+   * @param shipping The shipping address can currently only be changed immediately, using
+   *     SubscriptionUpdate.
+   */
   public void setShipping(final SubscriptionChangeShippingCreate shipping) {
     this.shipping = shipping;
   }
