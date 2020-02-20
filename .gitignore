@@ -18,3 +18,4 @@ target/
 .classpath
 .project
 .settings/
+pom.xml.versionsBackup
