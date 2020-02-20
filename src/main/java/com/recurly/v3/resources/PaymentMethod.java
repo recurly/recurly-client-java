@@ -56,6 +56,11 @@ public class PaymentMethod extends Resource {
   @Expose
   private String lastFour;
 
+  /** The IBAN bank account's last two digits. */
+  @SerializedName("last_two")
+  @Expose
+  private String lastTwo;
+
   @SerializedName("object")
   @Expose
   private String object;
@@ -166,6 +171,16 @@ public class PaymentMethod extends Resource {
    */
   public void setLastFour(final String lastFour) {
     this.lastFour = lastFour;
+  }
+
+  /** The IBAN bank account's last two digits. */
+  public String getLastTwo() {
+    return this.lastTwo;
+  }
+
+  /** @param lastTwo The IBAN bank account's last two digits. */
+  public void setLastTwo(final String lastTwo) {
+    this.lastTwo = lastTwo;
   }
 
   public String getObject() {

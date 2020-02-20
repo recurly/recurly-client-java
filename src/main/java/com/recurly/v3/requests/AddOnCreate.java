@@ -15,18 +15,25 @@ public class AddOnCreate extends Request {
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
-   * add-on's code.
+   * add-on's code. If `item_code`/`item_id` is part of the request then `code` must be absent.
    */
   @SerializedName("accounting_code")
   @Expose
   private String accountingCode;
 
-  /** The unique identifier for the add-on within its plan. */
+  /**
+   * The unique identifier for the add-on within its plan. If `item_code`/`item_id` is part of the
+   * request then `code` must be absent. If `item_code`/`item_id` is not present `code` is required.
+   */
   @SerializedName("code")
   @Expose
   private String code;
 
-  /** Add-on pricing */
+  /**
+   * If `item_code`/`item_id` is part of the request and the item has a default currency then
+   * `currencies` is optional. If the item does not have a default currency, then `currencies` is
+   * required. If `item_code`/`item_id` is not present `currencies` is required.
+   */
   @SerializedName("currencies")
   @Expose
   private List<AddOnPricing> currencies;
@@ -41,7 +48,27 @@ public class AddOnCreate extends Request {
   @Expose
   private Boolean displayQuantity;
 
-  /** Describes your add-on and will appear in subscribers' invoices. */
+  /**
+   * Unique code to identify an item, when the `Catalog: Item Add-Ons` feature is enabled. If
+   * `item_id` and `item_code` are both present, `item_id` will be used.
+   */
+  @SerializedName("item_code")
+  @Expose
+  private String itemCode;
+
+  /**
+   * Available when the `Catalog: Item Add-Ons` feature is enabled. If `item_id` and `item_code` are
+   * both present, `item_id` will be used.
+   */
+  @SerializedName("item_id")
+  @Expose
+  private String itemId;
+
+  /**
+   * Describes your add-on and will appear in subscribers' invoices. If `item_code`/`item_id` is
+   * part of the request then `code` must be absent. If `item_code`/`item_id` is not present `code`
+   * is required.
+   */
   @SerializedName("name")
   @Expose
   private String name;
@@ -55,7 +82,8 @@ public class AddOnCreate extends Request {
    * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
    * rules. If you have your own AvaTax or Vertex account configured, use their tax codes to assign
    * specific tax rules. If you are using Recurly's EU VAT feature, you can use values of `unknown`,
-   * `physical`, or `digital`.
+   * `physical`, or `digital`. If `item_code`/`item_id` is part of the request then `code` must be
+   * absent.
    */
   @SerializedName("tax_code")
   @Expose
@@ -63,7 +91,7 @@ public class AddOnCreate extends Request {
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
-   * add-on's code.
+   * add-on's code. If `item_code`/`item_id` is part of the request then `code` must be absent.
    */
   public String getAccountingCode() {
     return this.accountingCode;
@@ -71,28 +99,44 @@ public class AddOnCreate extends Request {
 
   /**
    * @param accountingCode Accounting code for invoice line items for this add-on. If no value is
-   *     provided, it defaults to add-on's code.
+   *     provided, it defaults to add-on's code. If `item_code`/`item_id` is part of the request
+   *     then `code` must be absent.
    */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
   }
 
-  /** The unique identifier for the add-on within its plan. */
+  /**
+   * The unique identifier for the add-on within its plan. If `item_code`/`item_id` is part of the
+   * request then `code` must be absent. If `item_code`/`item_id` is not present `code` is required.
+   */
   public String getCode() {
     return this.code;
   }
 
-  /** @param code The unique identifier for the add-on within its plan. */
+  /**
+   * @param code The unique identifier for the add-on within its plan. If `item_code`/`item_id` is
+   *     part of the request then `code` must be absent. If `item_code`/`item_id` is not present
+   *     `code` is required.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
 
-  /** Add-on pricing */
+  /**
+   * If `item_code`/`item_id` is part of the request and the item has a default currency then
+   * `currencies` is optional. If the item does not have a default currency, then `currencies` is
+   * required. If `item_code`/`item_id` is not present `currencies` is required.
+   */
   public List<AddOnPricing> getCurrencies() {
     return this.currencies;
   }
 
-  /** @param currencies Add-on pricing */
+  /**
+   * @param currencies If `item_code`/`item_id` is part of the request and the item has a default
+   *     currency then `currencies` is optional. If the item does not have a default currency, then
+   *     `currencies` is required. If `item_code`/`item_id` is not present `currencies` is required.
+   */
   public void setCurrencies(final List<AddOnPricing> currencies) {
     this.currencies = currencies;
   }
@@ -120,12 +164,52 @@ public class AddOnCreate extends Request {
     this.displayQuantity = displayQuantity;
   }
 
-  /** Describes your add-on and will appear in subscribers' invoices. */
+  /**
+   * Unique code to identify an item, when the `Catalog: Item Add-Ons` feature is enabled. If
+   * `item_id` and `item_code` are both present, `item_id` will be used.
+   */
+  public String getItemCode() {
+    return this.itemCode;
+  }
+
+  /**
+   * @param itemCode Unique code to identify an item, when the `Catalog: Item Add-Ons` feature is
+   *     enabled. If `item_id` and `item_code` are both present, `item_id` will be used.
+   */
+  public void setItemCode(final String itemCode) {
+    this.itemCode = itemCode;
+  }
+
+  /**
+   * Available when the `Catalog: Item Add-Ons` feature is enabled. If `item_id` and `item_code` are
+   * both present, `item_id` will be used.
+   */
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  /**
+   * @param itemId Available when the `Catalog: Item Add-Ons` feature is enabled. If `item_id` and
+   *     `item_code` are both present, `item_id` will be used.
+   */
+  public void setItemId(final String itemId) {
+    this.itemId = itemId;
+  }
+
+  /**
+   * Describes your add-on and will appear in subscribers' invoices. If `item_code`/`item_id` is
+   * part of the request then `code` must be absent. If `item_code`/`item_id` is not present `code`
+   * is required.
+   */
   public String getName() {
     return this.name;
   }
 
-  /** @param name Describes your add-on and will appear in subscribers' invoices. */
+  /**
+   * @param name Describes your add-on and will appear in subscribers' invoices. If
+   *     `item_code`/`item_id` is part of the request then `code` must be absent. If
+   *     `item_code`/`item_id` is not present `code` is required.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -144,7 +228,8 @@ public class AddOnCreate extends Request {
    * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
    * rules. If you have your own AvaTax or Vertex account configured, use their tax codes to assign
    * specific tax rules. If you are using Recurly's EU VAT feature, you can use values of `unknown`,
-   * `physical`, or `digital`.
+   * `physical`, or `digital`. If `item_code`/`item_id` is part of the request then `code` must be
+   * absent.
    */
   public String getTaxCode() {
     return this.taxCode;
@@ -154,7 +239,8 @@ public class AddOnCreate extends Request {
    * @param taxCode Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to
    *     determine taxation rules. If you have your own AvaTax or Vertex account configured, use
    *     their tax codes to assign specific tax rules. If you are using Recurly's EU VAT feature,
-   *     you can use values of `unknown`, `physical`, or `digital`.
+   *     you can use values of `unknown`, `physical`, or `digital`. If `item_code`/`item_id` is part
+   *     of the request then `code` must be absent.
    */
   public void setTaxCode(final String taxCode) {
     this.taxCode = taxCode;

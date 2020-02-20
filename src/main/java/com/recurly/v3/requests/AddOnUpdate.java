@@ -15,13 +15,16 @@ public class AddOnUpdate extends Request {
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
-   * add-on's code.
+   * add-on's code. If an `Item` is associated to the `AddOn` then `accounting code` must be absent.
    */
   @SerializedName("accounting_code")
   @Expose
   private String accountingCode;
 
-  /** The unique identifier for the add-on within its plan. */
+  /**
+   * The unique identifier for the add-on within its plan. If an `Item` is associated to the `AddOn`
+   * then `code` must be absent.
+   */
   @SerializedName("code")
   @Expose
   private String code;
@@ -46,7 +49,10 @@ public class AddOnUpdate extends Request {
   @Expose
   private String id;
 
-  /** Describes your add-on and will appear in subscribers' invoices. */
+  /**
+   * Describes your add-on and will appear in subscribers' invoices. If an `Item` is associated to
+   * the `AddOn` then `name` must be absent.
+   */
   @SerializedName("name")
   @Expose
   private String name;
@@ -55,7 +61,8 @@ public class AddOnUpdate extends Request {
    * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
    * rules. If you have your own AvaTax or Vertex account configured, use their tax codes to assign
    * specific tax rules. If you are using Recurly's EU VAT feature, you can use values of `unknown`,
-   * `physical`, or `digital`.
+   * `physical`, or `digital`. If an `Item` is associated to the `AddOn` then `tax code` must be
+   * absent.
    */
   @SerializedName("tax_code")
   @Expose
@@ -63,7 +70,7 @@ public class AddOnUpdate extends Request {
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
-   * add-on's code.
+   * add-on's code. If an `Item` is associated to the `AddOn` then `accounting code` must be absent.
    */
   public String getAccountingCode() {
     return this.accountingCode;
@@ -71,18 +78,25 @@ public class AddOnUpdate extends Request {
 
   /**
    * @param accountingCode Accounting code for invoice line items for this add-on. If no value is
-   *     provided, it defaults to add-on's code.
+   *     provided, it defaults to add-on's code. If an `Item` is associated to the `AddOn` then
+   *     `accounting code` must be absent.
    */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
   }
 
-  /** The unique identifier for the add-on within its plan. */
+  /**
+   * The unique identifier for the add-on within its plan. If an `Item` is associated to the `AddOn`
+   * then `code` must be absent.
+   */
   public String getCode() {
     return this.code;
   }
 
-  /** @param code The unique identifier for the add-on within its plan. */
+  /**
+   * @param code The unique identifier for the add-on within its plan. If an `Item` is associated to
+   *     the `AddOn` then `code` must be absent.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -130,12 +144,18 @@ public class AddOnUpdate extends Request {
     this.id = id;
   }
 
-  /** Describes your add-on and will appear in subscribers' invoices. */
+  /**
+   * Describes your add-on and will appear in subscribers' invoices. If an `Item` is associated to
+   * the `AddOn` then `name` must be absent.
+   */
   public String getName() {
     return this.name;
   }
 
-  /** @param name Describes your add-on and will appear in subscribers' invoices. */
+  /**
+   * @param name Describes your add-on and will appear in subscribers' invoices. If an `Item` is
+   *     associated to the `AddOn` then `name` must be absent.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -144,7 +164,8 @@ public class AddOnUpdate extends Request {
    * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
    * rules. If you have your own AvaTax or Vertex account configured, use their tax codes to assign
    * specific tax rules. If you are using Recurly's EU VAT feature, you can use values of `unknown`,
-   * `physical`, or `digital`.
+   * `physical`, or `digital`. If an `Item` is associated to the `AddOn` then `tax code` must be
+   * absent.
    */
   public String getTaxCode() {
     return this.taxCode;
@@ -154,7 +175,8 @@ public class AddOnUpdate extends Request {
    * @param taxCode Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to
    *     determine taxation rules. If you have your own AvaTax or Vertex account configured, use
    *     their tax codes to assign specific tax rules. If you are using Recurly's EU VAT feature,
-   *     you can use values of `unknown`, `physical`, or `digital`.
+   *     you can use values of `unknown`, `physical`, or `digital`. If an `Item` is associated to
+   *     the `AddOn` then `tax code` must be absent.
    */
   public void setTaxCode(final String taxCode) {
     this.taxCode = taxCode;
