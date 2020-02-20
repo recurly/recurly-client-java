@@ -1572,6 +1572,22 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Convert trial subscription
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/convert_trial">convert_trial api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @return A subscription.
+   */
+  public Subscription convertTrial(String subscriptionId) {
+    final String url = "/subscriptions/{subscription_id}/convert_trial";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("subscription_id", subscriptionId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Subscription.class;
+    return this.makeRequest("PUT", path, returnType);
+  }
+
+  /**
    * Fetch a subscription's pending change
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_subscription_change">get_subscription_change api documentation</a>

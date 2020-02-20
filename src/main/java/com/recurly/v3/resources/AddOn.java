@@ -51,10 +51,20 @@ public class AddOn extends Resource {
   @Expose
   private Boolean displayQuantity;
 
+  /** Optional, stock keeping unit to link the item to other inventory systems. */
+  @SerializedName("external_sku")
+  @Expose
+  private String externalSku;
+
   /** Add-on ID */
   @SerializedName("id")
   @Expose
   private String id;
+
+  /** Just the important parts. */
+  @SerializedName("item")
+  @Expose
+  private ItemMini item;
 
   /** Describes your add-on and will appear in subscribers' invoices. */
   @SerializedName("name")
@@ -65,6 +75,16 @@ public class AddOn extends Resource {
   @SerializedName("object")
   @Expose
   private String object;
+
+  /**
+   * Whether the add-on is optional for the customer to include in their purchase on the hosted
+   * payment page. If false, the add-on will be included when a subscription is created through the
+   * Recurly UI. However, the add-on will not be included when a subscription is created through the
+   * API.
+   */
+  @SerializedName("optional")
+  @Expose
+  private Boolean optional;
 
   /** Plan ID */
   @SerializedName("plan_id")
@@ -169,6 +189,18 @@ public class AddOn extends Resource {
     this.displayQuantity = displayQuantity;
   }
 
+  /** Optional, stock keeping unit to link the item to other inventory systems. */
+  public String getExternalSku() {
+    return this.externalSku;
+  }
+
+  /**
+   * @param externalSku Optional, stock keeping unit to link the item to other inventory systems.
+   */
+  public void setExternalSku(final String externalSku) {
+    this.externalSku = externalSku;
+  }
+
   /** Add-on ID */
   public String getId() {
     return this.id;
@@ -177,6 +209,16 @@ public class AddOn extends Resource {
   /** @param id Add-on ID */
   public void setId(final String id) {
     this.id = id;
+  }
+
+  /** Just the important parts. */
+  public ItemMini getItem() {
+    return this.item;
+  }
+
+  /** @param item Just the important parts. */
+  public void setItem(final ItemMini item) {
+    this.item = item;
   }
 
   /** Describes your add-on and will appear in subscribers' invoices. */
@@ -197,6 +239,26 @@ public class AddOn extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  /**
+   * Whether the add-on is optional for the customer to include in their purchase on the hosted
+   * payment page. If false, the add-on will be included when a subscription is created through the
+   * Recurly UI. However, the add-on will not be included when a subscription is created through the
+   * API.
+   */
+  public Boolean getOptional() {
+    return this.optional;
+  }
+
+  /**
+   * @param optional Whether the add-on is optional for the customer to include in their purchase on
+   *     the hosted payment page. If false, the add-on will be included when a subscription is
+   *     created through the Recurly UI. However, the add-on will not be included when a
+   *     subscription is created through the API.
+   */
+  public void setOptional(final Boolean optional) {
+    this.optional = optional;
   }
 
   /** Plan ID */

@@ -24,10 +24,20 @@ public class AddOnMini extends Resource {
   @Expose
   private String code;
 
+  /** Optional, stock keeping unit to link the item to other inventory systems. */
+  @SerializedName("external_sku")
+  @Expose
+  private String externalSku;
+
   /** Add-on ID */
   @SerializedName("id")
   @Expose
   private String id;
+
+  /** Item ID */
+  @SerializedName("item_id")
+  @Expose
+  private String itemId;
 
   /** Describes your add-on and will appear in subscribers' invoices. */
   @SerializedName("name")
@@ -65,6 +75,18 @@ public class AddOnMini extends Resource {
     this.code = code;
   }
 
+  /** Optional, stock keeping unit to link the item to other inventory systems. */
+  public String getExternalSku() {
+    return this.externalSku;
+  }
+
+  /**
+   * @param externalSku Optional, stock keeping unit to link the item to other inventory systems.
+   */
+  public void setExternalSku(final String externalSku) {
+    this.externalSku = externalSku;
+  }
+
   /** Add-on ID */
   public String getId() {
     return this.id;
@@ -73,6 +95,16 @@ public class AddOnMini extends Resource {
   /** @param id Add-on ID */
   public void setId(final String id) {
     this.id = id;
+  }
+
+  /** Item ID */
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  /** @param itemId Item ID */
+  public void setItemId(final String itemId) {
+    this.itemId = itemId;
   }
 
   /** Describes your add-on and will appear in subscribers' invoices. */
