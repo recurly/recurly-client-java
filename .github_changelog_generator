@@ -1,0 +1,4 @@
+unreleased=false
+exclude-labels=question,bug?,duplicate
+issues-wo-labels=false
+verbose=false
