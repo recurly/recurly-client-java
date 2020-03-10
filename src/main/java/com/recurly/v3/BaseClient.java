@@ -135,6 +135,28 @@ public abstract class BaseClient {
     }
   }
 
+  public int getRecordCount(final String url, final HashMap<String, Object> queryParams) {
+    final okhttp3.Request request = buildRequest("HEAD", url, null, queryParams);
+
+    try (final Response response = client.newCall(request).execute()) {
+
+      final Headers responseHeaders = response.headers();
+      final ResponseBody responseBody = response.body();
+
+      if (!response.isSuccessful()) {
+        throw jsonSerializer.deserializeError(responseBody.string());
+      }
+
+      this.warnIfDeprecated(responseHeaders);
+
+      String count = responseHeaders.get("Recurly-Total-Records");
+      return Integer.parseInt(count);
+
+    } catch (IOException e) {
+      throw new NetworkException(e);
+    }
+  }
+
   private okhttp3.Request buildRequest(
       final String method,
       final String url,
@@ -184,6 +206,9 @@ public abstract class BaseClient {
     final Builder requestBuilder = new okhttp3.Request.Builder().url(requestUrl);
 
     switch (method) {
+      case "HEAD":
+        return requestBuilder.head().build();
+
       case "GET":
         return requestBuilder.build();
 
