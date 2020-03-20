@@ -12,10 +12,10 @@ git commit -m "Update Changelog for Release $THIS_VERSION"
 git push origin master
 
 # publish
-echo "mvn versions:set -DnewVersion=$THIS_VERSION"
-echo "mvn clean package"
-echo "mvn deploy"
-echo "mvn versions:revert"
+mvn versions:set -DnewVersion="$THIS_VERSION"
+mvn clean package
+mvn deploy
+mvn versions:revert
 
 # create release
 hub release create -c -F "$RELEASED_LOG" "$THIS_VERSION"
