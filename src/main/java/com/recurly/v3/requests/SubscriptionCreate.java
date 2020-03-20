@@ -128,6 +128,11 @@ public class SubscriptionCreate extends Request {
   @Expose
   private Integer renewalBillingCycles;
 
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
   /** Create a shipping address on the account and assign it to the subscription. */
   @SerializedName("shipping")
   @Expose
@@ -415,6 +420,16 @@ public class SubscriptionCreate extends Request {
    */
   public void setRenewalBillingCycles(final Integer renewalBillingCycles) {
     this.renewalBillingCycles = renewalBillingCycles;
+  }
+
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
   }
 
   /** Create a shipping address on the account and assign it to the subscription. */

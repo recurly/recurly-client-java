@@ -71,6 +71,11 @@ public class SubscriptionChangeCreate extends Request {
   @Expose
   private Integer quantity;
 
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
   /** The shipping address can currently only be changed immediately, using SubscriptionUpdate. */
   @SerializedName("shipping")
   @Expose
@@ -223,6 +228,16 @@ public class SubscriptionChangeCreate extends Request {
   /** @param quantity Optionally override the default quantity of 1. */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
+  }
+
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
   }
 
   /** The shipping address can currently only be changed immediately, using SubscriptionUpdate. */

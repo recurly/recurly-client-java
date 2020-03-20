@@ -27,6 +27,11 @@ public class SubscriptionAddOnUpdate extends Request {
   @Expose
   private Integer quantity;
 
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
   /** Optionally, override the add-on's default unit amount. */
   @SerializedName("unit_amount")
   @Expose
@@ -60,6 +65,16 @@ public class SubscriptionAddOnUpdate extends Request {
   /** @param quantity Quantity */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
+  }
+
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
   }
 
   /** Optionally, override the add-on's default unit amount. */

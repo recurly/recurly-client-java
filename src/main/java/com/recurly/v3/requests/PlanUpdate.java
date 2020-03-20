@@ -72,6 +72,11 @@ public class PlanUpdate extends Request {
   @Expose
   private String name;
 
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
   /**
    * Accounting code for invoice line items for the plan's setup fee. If no value is provided, it
    * defaults to plan's accounting code.
@@ -79,6 +84,11 @@ public class PlanUpdate extends Request {
   @SerializedName("setup_fee_accounting_code")
   @Expose
   private String setupFeeAccountingCode;
+
+  /** Setup fee revenue schedule type */
+  @SerializedName("setup_fee_revenue_schedule_type")
+  @Expose
+  private String setupFeeRevenueScheduleType;
 
   /**
    * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
@@ -228,6 +238,16 @@ public class PlanUpdate extends Request {
     this.name = name;
   }
 
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
+  }
+
   /**
    * Accounting code for invoice line items for the plan's setup fee. If no value is provided, it
    * defaults to plan's accounting code.
@@ -242,6 +262,16 @@ public class PlanUpdate extends Request {
    */
   public void setSetupFeeAccountingCode(final String setupFeeAccountingCode) {
     this.setupFeeAccountingCode = setupFeeAccountingCode;
+  }
+
+  /** Setup fee revenue schedule type */
+  public String getSetupFeeRevenueScheduleType() {
+    return this.setupFeeRevenueScheduleType;
+  }
+
+  /** @param setupFeeRevenueScheduleType Setup fee revenue schedule type */
+  public void setSetupFeeRevenueScheduleType(final String setupFeeRevenueScheduleType) {
+    this.setupFeeRevenueScheduleType = setupFeeRevenueScheduleType;
   }
 
   /**

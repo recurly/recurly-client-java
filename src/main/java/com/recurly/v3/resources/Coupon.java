@@ -145,6 +145,13 @@ public class Coupon extends Resource {
   private DateTime redeemBy;
 
   /**
+   * The date and time the unique coupon code was redeemed. This is only present for bulk coupons.
+   */
+  @SerializedName("redeemed_at")
+  @Expose
+  private DateTime redeemedAt;
+
+  /**
    * Whether the discount is for all eligible charges on the account, or only a specific
    * subscription.
    */
@@ -454,6 +461,21 @@ public class Coupon extends Resource {
    */
   public void setRedeemBy(final DateTime redeemBy) {
     this.redeemBy = redeemBy;
+  }
+
+  /**
+   * The date and time the unique coupon code was redeemed. This is only present for bulk coupons.
+   */
+  public DateTime getRedeemedAt() {
+    return this.redeemedAt;
+  }
+
+  /**
+   * @param redeemedAt The date and time the unique coupon code was redeemed. This is only present
+   *     for bulk coupons.
+   */
+  public void setRedeemedAt(final DateTime redeemedAt) {
+    this.redeemedAt = redeemedAt;
   }
 
   /**

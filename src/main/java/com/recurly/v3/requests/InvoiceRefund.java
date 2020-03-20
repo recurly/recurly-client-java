@@ -19,7 +19,7 @@ public class InvoiceRefund extends Request {
    */
   @SerializedName("amount")
   @Expose
-  private Integer amount;
+  private Float amount;
 
   /**
    * Used as the Customer Notes on the credit invoice.
@@ -73,7 +73,7 @@ public class InvoiceRefund extends Request {
    * The amount to be refunded. The amount will be split between the line items. If no amount is
    * specified, it will default to refunding the total refundable amount on the invoice.
    */
-  public Integer getAmount() {
+  public Float getAmount() {
     return this.amount;
   }
 
@@ -82,7 +82,7 @@ public class InvoiceRefund extends Request {
    *     amount is specified, it will default to refunding the total refundable amount on the
    *     invoice.
    */
-  public void setAmount(final Integer amount) {
+  public void setAmount(final Float amount) {
     this.amount = amount;
   }
 

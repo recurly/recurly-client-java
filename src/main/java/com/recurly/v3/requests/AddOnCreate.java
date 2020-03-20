@@ -15,7 +15,8 @@ public class AddOnCreate extends Request {
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
-   * add-on's code. If `item_code`/`item_id` is part of the request then `code` must be absent.
+   * add-on's code. If `item_code`/`item_id` is part of the request then `accounting_code` must be
+   * absent.
    */
   @SerializedName("accounting_code")
   @Expose
@@ -49,16 +50,16 @@ public class AddOnCreate extends Request {
   private Boolean displayQuantity;
 
   /**
-   * Unique code to identify an item, when the `Catalog: Item Add-Ons` feature is enabled. If
-   * `item_id` and `item_code` are both present, `item_id` will be used.
+   * Unique code to identify an item. Avaliable when the `Catalog: Item Add-Ons` feature is enabled.
+   * If `item_id` and `item_code` are both present, `item_id` will be used.
    */
   @SerializedName("item_code")
   @Expose
   private String itemCode;
 
   /**
-   * Available when the `Catalog: Item Add-Ons` feature is enabled. If `item_id` and `item_code` are
-   * both present, `item_id` will be used.
+   * System-generated unique identifier for an item. Available when the `Catalog: Item Add-Ons`
+   * feature is enabled. If `item_id` and `item_code` are both present, `item_id` will be used.
    */
   @SerializedName("item_id")
   @Expose
@@ -66,7 +67,7 @@ public class AddOnCreate extends Request {
 
   /**
    * Describes your add-on and will appear in subscribers' invoices. If `item_code`/`item_id` is
-   * part of the request then `code` must be absent. If `item_code`/`item_id` is not present `code`
+   * part of the request then `name` must be absent. If `item_code`/`item_id` is not present `name`
    * is required.
    */
   @SerializedName("name")
@@ -79,11 +80,20 @@ public class AddOnCreate extends Request {
   private String planId;
 
   /**
+   * When this add-on is invoiced, the line item will use this revenue schedule. If
+   * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
+   * request as the value will be set from the item.
+   */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
+  /**
    * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
    * rules. If you have your own AvaTax or Vertex account configured, use their tax codes to assign
    * specific tax rules. If you are using Recurly's EU VAT feature, you can use values of `unknown`,
-   * `physical`, or `digital`. If `item_code`/`item_id` is part of the request then `code` must be
-   * absent.
+   * `physical`, or `digital`. If `item_code`/`item_id` is part of the request then `tax_code` must
+   * be absent.
    */
   @SerializedName("tax_code")
   @Expose
@@ -91,7 +101,8 @@ public class AddOnCreate extends Request {
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
-   * add-on's code. If `item_code`/`item_id` is part of the request then `code` must be absent.
+   * add-on's code. If `item_code`/`item_id` is part of the request then `accounting_code` must be
+   * absent.
    */
   public String getAccountingCode() {
     return this.accountingCode;
@@ -100,7 +111,7 @@ public class AddOnCreate extends Request {
   /**
    * @param accountingCode Accounting code for invoice line items for this add-on. If no value is
    *     provided, it defaults to add-on's code. If `item_code`/`item_id` is part of the request
-   *     then `code` must be absent.
+   *     then `accounting_code` must be absent.
    */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
@@ -165,32 +176,33 @@ public class AddOnCreate extends Request {
   }
 
   /**
-   * Unique code to identify an item, when the `Catalog: Item Add-Ons` feature is enabled. If
-   * `item_id` and `item_code` are both present, `item_id` will be used.
+   * Unique code to identify an item. Avaliable when the `Catalog: Item Add-Ons` feature is enabled.
+   * If `item_id` and `item_code` are both present, `item_id` will be used.
    */
   public String getItemCode() {
     return this.itemCode;
   }
 
   /**
-   * @param itemCode Unique code to identify an item, when the `Catalog: Item Add-Ons` feature is
-   *     enabled. If `item_id` and `item_code` are both present, `item_id` will be used.
+   * @param itemCode Unique code to identify an item. Avaliable when the `Catalog: Item Add-Ons`
+   *     feature is enabled. If `item_id` and `item_code` are both present, `item_id` will be used.
    */
   public void setItemCode(final String itemCode) {
     this.itemCode = itemCode;
   }
 
   /**
-   * Available when the `Catalog: Item Add-Ons` feature is enabled. If `item_id` and `item_code` are
-   * both present, `item_id` will be used.
+   * System-generated unique identifier for an item. Available when the `Catalog: Item Add-Ons`
+   * feature is enabled. If `item_id` and `item_code` are both present, `item_id` will be used.
    */
   public String getItemId() {
     return this.itemId;
   }
 
   /**
-   * @param itemId Available when the `Catalog: Item Add-Ons` feature is enabled. If `item_id` and
-   *     `item_code` are both present, `item_id` will be used.
+   * @param itemId System-generated unique identifier for an item. Available when the `Catalog: Item
+   *     Add-Ons` feature is enabled. If `item_id` and `item_code` are both present, `item_id` will
+   *     be used.
    */
   public void setItemId(final String itemId) {
     this.itemId = itemId;
@@ -198,7 +210,7 @@ public class AddOnCreate extends Request {
 
   /**
    * Describes your add-on and will appear in subscribers' invoices. If `item_code`/`item_id` is
-   * part of the request then `code` must be absent. If `item_code`/`item_id` is not present `code`
+   * part of the request then `name` must be absent. If `item_code`/`item_id` is not present `name`
    * is required.
    */
   public String getName() {
@@ -207,8 +219,8 @@ public class AddOnCreate extends Request {
 
   /**
    * @param name Describes your add-on and will appear in subscribers' invoices. If
-   *     `item_code`/`item_id` is part of the request then `code` must be absent. If
-   *     `item_code`/`item_id` is not present `code` is required.
+   *     `item_code`/`item_id` is part of the request then `name` must be absent. If
+   *     `item_code`/`item_id` is not present `name` is required.
    */
   public void setName(final String name) {
     this.name = name;
@@ -225,11 +237,29 @@ public class AddOnCreate extends Request {
   }
 
   /**
+   * When this add-on is invoiced, the line item will use this revenue schedule. If
+   * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
+   * request as the value will be set from the item.
+   */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /**
+   * @param revenueScheduleType When this add-on is invoiced, the line item will use this revenue
+   *     schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must
+   *     be absent in the request as the value will be set from the item.
+   */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
+  }
+
+  /**
    * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
    * rules. If you have your own AvaTax or Vertex account configured, use their tax codes to assign
    * specific tax rules. If you are using Recurly's EU VAT feature, you can use values of `unknown`,
-   * `physical`, or `digital`. If `item_code`/`item_id` is part of the request then `code` must be
-   * absent.
+   * `physical`, or `digital`. If `item_code`/`item_id` is part of the request then `tax_code` must
+   * be absent.
    */
   public String getTaxCode() {
     return this.taxCode;
@@ -240,7 +270,7 @@ public class AddOnCreate extends Request {
    *     determine taxation rules. If you have your own AvaTax or Vertex account configured, use
    *     their tax codes to assign specific tax rules. If you are using Recurly's EU VAT feature,
    *     you can use values of `unknown`, `physical`, or `digital`. If `item_code`/`item_id` is part
-   *     of the request then `code` must be absent.
+   *     of the request then `tax_code` must be absent.
    */
   public void setTaxCode(final String taxCode) {
     this.taxCode = taxCode;

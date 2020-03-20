@@ -80,6 +80,11 @@ public class SubscriptionUpdate extends Request {
   @Expose
   private Integer renewalBillingCycles;
 
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
   /** Subscription shipping details */
   @SerializedName("shipping")
   @Expose
@@ -227,6 +232,16 @@ public class SubscriptionUpdate extends Request {
    */
   public void setRenewalBillingCycles(final Integer renewalBillingCycles) {
     this.renewalBillingCycles = renewalBillingCycles;
+  }
+
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
   }
 
   /** Subscription shipping details */
