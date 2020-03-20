@@ -56,6 +56,15 @@ public class BillingInfoCreate extends Request {
   @Expose
   private String gatewayToken;
 
+  /**
+   * The International Bank Account Number, up to 34 alphanumeric characters comprising a country
+   * code; two check digits; and a number that includes the domestic bank account number, branch
+   * identifier, and potential routing information
+   */
+  @SerializedName("iban")
+  @Expose
+  private String iban;
+
   /** *STRONGLY RECOMMENDED* Customer's IP address when updating their billing information. */
   @SerializedName("ip_address")
   @Expose
@@ -200,6 +209,24 @@ public class BillingInfoCreate extends Request {
    */
   public void setGatewayToken(final String gatewayToken) {
     this.gatewayToken = gatewayToken;
+  }
+
+  /**
+   * The International Bank Account Number, up to 34 alphanumeric characters comprising a country
+   * code; two check digits; and a number that includes the domestic bank account number, branch
+   * identifier, and potential routing information
+   */
+  public String getIban() {
+    return this.iban;
+  }
+
+  /**
+   * @param iban The International Bank Account Number, up to 34 alphanumeric characters comprising
+   *     a country code; two check digits; and a number that includes the domestic bank account
+   *     number, branch identifier, and potential routing information
+   */
+  public void setIban(final String iban) {
+    this.iban = iban;
   }
 
   /** *STRONGLY RECOMMENDED* Customer's IP address when updating their billing information. */

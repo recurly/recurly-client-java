@@ -53,12 +53,18 @@ public class LineItemCreate extends Request {
   @Expose
   private DateTime endDate;
 
-  /** Unique code to identify an item, when the Catalog feature is enabled. */
+  /**
+   * Unique code to identify an item. Avaliable when the Credit Invoices and Subscription Billing
+   * Terms features are enabled.
+   */
   @SerializedName("item_code")
   @Expose
   private String itemCode;
 
-  /** Available when the Catalog feature is enabled. */
+  /**
+   * System-generated unique identifier for an item. Available when the Credit Invoices and
+   * Subscription Billing Terms features are enabled.
+   */
   @SerializedName("item_id")
   @Expose
   private String itemId;
@@ -221,22 +227,34 @@ public class LineItemCreate extends Request {
     this.endDate = endDate;
   }
 
-  /** Unique code to identify an item, when the Catalog feature is enabled. */
+  /**
+   * Unique code to identify an item. Avaliable when the Credit Invoices and Subscription Billing
+   * Terms features are enabled.
+   */
   public String getItemCode() {
     return this.itemCode;
   }
 
-  /** @param itemCode Unique code to identify an item, when the Catalog feature is enabled. */
+  /**
+   * @param itemCode Unique code to identify an item. Avaliable when the Credit Invoices and
+   *     Subscription Billing Terms features are enabled.
+   */
   public void setItemCode(final String itemCode) {
     this.itemCode = itemCode;
   }
 
-  /** Available when the Catalog feature is enabled. */
+  /**
+   * System-generated unique identifier for an item. Available when the Credit Invoices and
+   * Subscription Billing Terms features are enabled.
+   */
   public String getItemId() {
     return this.itemId;
   }
 
-  /** @param itemId Available when the Catalog feature is enabled. */
+  /**
+   * @param itemId System-generated unique identifier for an item. Available when the Credit
+   *     Invoices and Subscription Billing Terms features are enabled.
+   */
   public void setItemId(final String itemId) {
     this.itemId = itemId;
   }

@@ -91,6 +91,15 @@ public class AddOn extends Resource {
   @Expose
   private String planId;
 
+  /**
+   * When this add-on is invoiced, the line item will use this revenue schedule. If
+   * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
+   * request as the value will be set from the item.
+   */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
   /** Add-ons can be either active or inactive. */
   @SerializedName("state")
   @Expose
@@ -269,6 +278,24 @@ public class AddOn extends Resource {
   /** @param planId Plan ID */
   public void setPlanId(final String planId) {
     this.planId = planId;
+  }
+
+  /**
+   * When this add-on is invoiced, the line item will use this revenue schedule. If
+   * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
+   * request as the value will be set from the item.
+   */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /**
+   * @param revenueScheduleType When this add-on is invoiced, the line item will use this revenue
+   *     schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must
+   *     be absent in the request as the value will be set from the item.
+   */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
   }
 
   /** Add-ons can be either active or inactive. */

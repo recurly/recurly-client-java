@@ -58,6 +58,15 @@ public class AddOnUpdate extends Request {
   private String name;
 
   /**
+   * When this add-on is invoiced, the line item will use this revenue schedule. If an `Item` is
+   * associated to the `AddOn` then `revenue_schedule_type` must be absent in the request as the
+   * value will be set from the item.
+   */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
+  /**
    * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
    * rules. If you have your own AvaTax or Vertex account configured, use their tax codes to assign
    * specific tax rules. If you are using Recurly's EU VAT feature, you can use values of `unknown`,
@@ -158,6 +167,24 @@ public class AddOnUpdate extends Request {
    */
   public void setName(final String name) {
     this.name = name;
+  }
+
+  /**
+   * When this add-on is invoiced, the line item will use this revenue schedule. If an `Item` is
+   * associated to the `AddOn` then `revenue_schedule_type` must be absent in the request as the
+   * value will be set from the item.
+   */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /**
+   * @param revenueScheduleType When this add-on is invoiced, the line item will use this revenue
+   *     schedule. If an `Item` is associated to the `AddOn` then `revenue_schedule_type` must be
+   *     absent in the request as the value will be set from the item.
+   */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
   }
 
   /**
