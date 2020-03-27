@@ -705,6 +705,22 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Expire a coupon
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/deactivate_coupon">deactivate_coupon api documentation</a>
+   * @param couponId Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
+     * @return The expired Coupon
+   */
+  public Coupon deactivateCoupon(String couponId) {
+    final String url = "/coupons/{coupon_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("coupon_id", couponId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Coupon.class;
+    return this.makeRequest("DELETE", path, returnType);
+  }
+
+  /**
    * List unique coupon codes associated with a bulk coupon
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_unique_coupon_codes">list_unique_coupon_codes api documentation</a>
