@@ -21,7 +21,10 @@ mvn versions:revert
 hub release create -c -F "$RELEASED_LOG" "$THIS_VERSION"
 
 # Copy-pasteable messages for announcments
-echo "Maven (Takes time to show up): https://search.maven.org/artifact/com.recurly.v3/api-client/$THIS_VERSION/jar"
+echo ":java: Java $THIS_VERSION Released :java:"
+echo ":maven: Maven (Takes time to show up): https://search.maven.org/artifact/com.recurly.v3/api-client/$THIS_VERSION/jar"
 echo "Release: https://github.com/recurly/recurly-client-java/releases/tag/$THIS_VERSION"
 echo "Changelog:"
+echo "\`\`\`"
 cat "$RELEASED_LOG"
+echo "\`\`\`"
