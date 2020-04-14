@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.util.List;
 
 public class SubscriptionAddOnUpdate extends Request {
 
@@ -31,6 +32,11 @@ public class SubscriptionAddOnUpdate extends Request {
   @SerializedName("revenue_schedule_type")
   @Expose
   private String revenueScheduleType;
+
+  /** If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. */
+  @SerializedName("tiers")
+  @Expose
+  private List<SubscriptionAddOnTier> tiers;
 
   /** Optionally, override the add-on's default unit amount. */
   @SerializedName("unit_amount")
@@ -75,6 +81,16 @@ public class SubscriptionAddOnUpdate extends Request {
   /** @param revenueScheduleType Revenue schedule type */
   public void setRevenueScheduleType(final String revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
+  }
+
+  /** If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. */
+  public List<SubscriptionAddOnTier> getTiers() {
+    return this.tiers;
+  }
+
+  /** @param tiers If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. */
+  public void setTiers(final List<SubscriptionAddOnTier> tiers) {
+    this.tiers = tiers;
   }
 
   /** Optionally, override the add-on's default unit amount. */

@@ -114,6 +114,16 @@ public class AddOn extends Resource {
   @Expose
   private String taxCode;
 
+  /** The type of tiering used by the Add-on. */
+  @SerializedName("tier_type")
+  @Expose
+  private String tierType;
+
+  /** Tiers */
+  @SerializedName("tiers")
+  @Expose
+  private List<Tier> tiers;
+
   /** Last updated at */
   @SerializedName("updated_at")
   @Expose
@@ -324,6 +334,26 @@ public class AddOn extends Resource {
    */
   public void setTaxCode(final String taxCode) {
     this.taxCode = taxCode;
+  }
+
+  /** The type of tiering used by the Add-on. */
+  public String getTierType() {
+    return this.tierType;
+  }
+
+  /** @param tierType The type of tiering used by the Add-on. */
+  public void setTierType(final String tierType) {
+    this.tierType = tierType;
+  }
+
+  /** Tiers */
+  public List<Tier> getTiers() {
+    return this.tiers;
+  }
+
+  /** @param tiers Tiers */
+  public void setTiers(final List<Tier> tiers) {
+    this.tiers = tiers;
   }
 
   /** Last updated at */
