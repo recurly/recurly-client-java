@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.util.List;
 
 public class SubscriptionAddOnCreate extends Request {
 
@@ -27,7 +28,15 @@ public class SubscriptionAddOnCreate extends Request {
   @Expose
   private String revenueScheduleType;
 
-  /** Optionally, override the add-on's default unit amount. */
+  /** If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. */
+  @SerializedName("tiers")
+  @Expose
+  private List<SubscriptionAddOnTier> tiers;
+
+  /**
+   * * Optionally, override the add-on's default unit amount. If the plan add-on's `tier_type` is
+   * `tiered`, `volume`, or `stairstep`, then `unit_amount` must be absent.
+   */
   @SerializedName("unit_amount")
   @Expose
   private Float unitAmount;
@@ -62,12 +71,28 @@ public class SubscriptionAddOnCreate extends Request {
     this.revenueScheduleType = revenueScheduleType;
   }
 
-  /** Optionally, override the add-on's default unit amount. */
+  /** If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. */
+  public List<SubscriptionAddOnTier> getTiers() {
+    return this.tiers;
+  }
+
+  /** @param tiers If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. */
+  public void setTiers(final List<SubscriptionAddOnTier> tiers) {
+    this.tiers = tiers;
+  }
+
+  /**
+   * * Optionally, override the add-on's default unit amount. If the plan add-on's `tier_type` is
+   * `tiered`, `volume`, or `stairstep`, then `unit_amount` must be absent.
+   */
   public Float getUnitAmount() {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Optionally, override the add-on's default unit amount. */
+  /**
+   * @param unitAmount * Optionally, override the add-on's default unit amount. If the plan add-on's
+   *     `tier_type` is `tiered`, `volume`, or `stairstep`, then `unit_amount` must be absent.
+   */
   public void setUnitAmount(final Float unitAmount) {
     this.unitAmount = unitAmount;
   }

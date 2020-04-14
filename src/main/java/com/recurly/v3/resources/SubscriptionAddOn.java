@@ -8,6 +8,7 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import java.util.List;
 import org.joda.time.DateTime;
 
 public class SubscriptionAddOn extends Resource {
@@ -46,6 +47,16 @@ public class SubscriptionAddOn extends Resource {
   @SerializedName("subscription_id")
   @Expose
   private String subscriptionId;
+
+  /** The type of tiering used by the Add-on. */
+  @SerializedName("tier_type")
+  @Expose
+  private String tierType;
+
+  /** Empty unless `tier_type` is `tiered`, `volume`, or `stairstep`. */
+  @SerializedName("tiers")
+  @Expose
+  private List<SubscriptionAddOnTier> tiers;
 
   /** This is priced in the subscription's currency. */
   @SerializedName("unit_amount")
@@ -125,6 +136,26 @@ public class SubscriptionAddOn extends Resource {
   /** @param subscriptionId Subscription ID */
   public void setSubscriptionId(final String subscriptionId) {
     this.subscriptionId = subscriptionId;
+  }
+
+  /** The type of tiering used by the Add-on. */
+  public String getTierType() {
+    return this.tierType;
+  }
+
+  /** @param tierType The type of tiering used by the Add-on. */
+  public void setTierType(final String tierType) {
+    this.tierType = tierType;
+  }
+
+  /** Empty unless `tier_type` is `tiered`, `volume`, or `stairstep`. */
+  public List<SubscriptionAddOnTier> getTiers() {
+    return this.tiers;
+  }
+
+  /** @param tiers Empty unless `tier_type` is `tiered`, `volume`, or `stairstep`. */
+  public void setTiers(final List<SubscriptionAddOnTier> tiers) {
+    this.tiers = tiers;
   }
 
   /** This is priced in the subscription's currency. */

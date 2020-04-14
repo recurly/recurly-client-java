@@ -29,7 +29,10 @@ public class AddOnUpdate extends Request {
   @Expose
   private String code;
 
-  /** Add-on pricing */
+  /**
+   * If the add-on's `tier_type` is `tiered`, `volume` or `stairstep`, then `currencies` must be
+   * absent.
+   */
   @SerializedName("currencies")
   @Expose
   private List<AddOnPricing> currencies;
@@ -58,6 +61,16 @@ public class AddOnUpdate extends Request {
   private String name;
 
   /**
+   * Whether the add-on is optional for the customer to include in their purchase on the hosted
+   * payment page. If false, the add-on will be included when a subscription is created through the
+   * Recurly UI. However, the add-on will not be included when a subscription is created through the
+   * API.
+   */
+  @SerializedName("optional")
+  @Expose
+  private Boolean optional;
+
+  /**
    * When this add-on is invoiced, the line item will use this revenue schedule. If an `Item` is
    * associated to the `AddOn` then `revenue_schedule_type` must be absent in the request as the
    * value will be set from the item.
@@ -76,6 +89,14 @@ public class AddOnUpdate extends Request {
   @SerializedName("tax_code")
   @Expose
   private String taxCode;
+
+  /**
+   * If tiers are provided in the request, all existing tiers on the Add-on will be removed and
+   * replaced by the tiers in the request.
+   */
+  @SerializedName("tiers")
+  @Expose
+  private List<Tier> tiers;
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
@@ -110,12 +131,18 @@ public class AddOnUpdate extends Request {
     this.code = code;
   }
 
-  /** Add-on pricing */
+  /**
+   * If the add-on's `tier_type` is `tiered`, `volume` or `stairstep`, then `currencies` must be
+   * absent.
+   */
   public List<AddOnPricing> getCurrencies() {
     return this.currencies;
   }
 
-  /** @param currencies Add-on pricing */
+  /**
+   * @param currencies If the add-on's `tier_type` is `tiered`, `volume` or `stairstep`, then
+   *     `currencies` must be absent.
+   */
   public void setCurrencies(final List<AddOnPricing> currencies) {
     this.currencies = currencies;
   }
@@ -170,6 +197,26 @@ public class AddOnUpdate extends Request {
   }
 
   /**
+   * Whether the add-on is optional for the customer to include in their purchase on the hosted
+   * payment page. If false, the add-on will be included when a subscription is created through the
+   * Recurly UI. However, the add-on will not be included when a subscription is created through the
+   * API.
+   */
+  public Boolean getOptional() {
+    return this.optional;
+  }
+
+  /**
+   * @param optional Whether the add-on is optional for the customer to include in their purchase on
+   *     the hosted payment page. If false, the add-on will be included when a subscription is
+   *     created through the Recurly UI. However, the add-on will not be included when a
+   *     subscription is created through the API.
+   */
+  public void setOptional(final Boolean optional) {
+    this.optional = optional;
+  }
+
+  /**
    * When this add-on is invoiced, the line item will use this revenue schedule. If an `Item` is
    * associated to the `AddOn` then `revenue_schedule_type` must be absent in the request as the
    * value will be set from the item.
@@ -207,5 +254,21 @@ public class AddOnUpdate extends Request {
    */
   public void setTaxCode(final String taxCode) {
     this.taxCode = taxCode;
+  }
+
+  /**
+   * If tiers are provided in the request, all existing tiers on the Add-on will be removed and
+   * replaced by the tiers in the request.
+   */
+  public List<Tier> getTiers() {
+    return this.tiers;
+  }
+
+  /**
+   * @param tiers If tiers are provided in the request, all existing tiers on the Add-on will be
+   *     removed and replaced by the tiers in the request.
+   */
+  public void setTiers(final List<Tier> tiers) {
+    this.tiers = tiers;
   }
 }

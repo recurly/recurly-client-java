@@ -31,9 +31,10 @@ public class AddOnCreate extends Request {
   private String code;
 
   /**
-   * If `item_code`/`item_id` is part of the request and the item has a default currency then
+   * * If `item_code`/`item_id` is part of the request and the item has a default currency then
    * `currencies` is optional. If the item does not have a default currency, then `currencies` is
-   * required. If `item_code`/`item_id` is not present `currencies` is required.
+   * required. If `item_code`/`item_id` is not present `currencies` is required. If the add-on's
+   * `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must be absent.
    */
   @SerializedName("currencies")
   @Expose
@@ -74,6 +75,16 @@ public class AddOnCreate extends Request {
   @Expose
   private String name;
 
+  /**
+   * Whether the add-on is optional for the customer to include in their purchase on the hosted
+   * payment page. If false, the add-on will be included when a subscription is created through the
+   * Recurly UI. However, the add-on will not be included when a subscription is created through the
+   * API.
+   */
+  @SerializedName("optional")
+  @Expose
+  private Boolean optional;
+
   /** Plan ID */
   @SerializedName("plan_id")
   @Expose
@@ -98,6 +109,16 @@ public class AddOnCreate extends Request {
   @SerializedName("tax_code")
   @Expose
   private String taxCode;
+
+  /** The type of tiering used by the Add-on. */
+  @SerializedName("tier_type")
+  @Expose
+  private String tierType;
+
+  /** At least one tier is required if `tier_type` is not 'flat'. */
+  @SerializedName("tiers")
+  @Expose
+  private List<Tier> tiers;
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
@@ -135,18 +156,21 @@ public class AddOnCreate extends Request {
   }
 
   /**
-   * If `item_code`/`item_id` is part of the request and the item has a default currency then
+   * * If `item_code`/`item_id` is part of the request and the item has a default currency then
    * `currencies` is optional. If the item does not have a default currency, then `currencies` is
-   * required. If `item_code`/`item_id` is not present `currencies` is required.
+   * required. If `item_code`/`item_id` is not present `currencies` is required. If the add-on's
+   * `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must be absent.
    */
   public List<AddOnPricing> getCurrencies() {
     return this.currencies;
   }
 
   /**
-   * @param currencies If `item_code`/`item_id` is part of the request and the item has a default
+   * @param currencies * If `item_code`/`item_id` is part of the request and the item has a default
    *     currency then `currencies` is optional. If the item does not have a default currency, then
    *     `currencies` is required. If `item_code`/`item_id` is not present `currencies` is required.
+   *     If the add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must
+   *     be absent.
    */
   public void setCurrencies(final List<AddOnPricing> currencies) {
     this.currencies = currencies;
@@ -226,6 +250,26 @@ public class AddOnCreate extends Request {
     this.name = name;
   }
 
+  /**
+   * Whether the add-on is optional for the customer to include in their purchase on the hosted
+   * payment page. If false, the add-on will be included when a subscription is created through the
+   * Recurly UI. However, the add-on will not be included when a subscription is created through the
+   * API.
+   */
+  public Boolean getOptional() {
+    return this.optional;
+  }
+
+  /**
+   * @param optional Whether the add-on is optional for the customer to include in their purchase on
+   *     the hosted payment page. If false, the add-on will be included when a subscription is
+   *     created through the Recurly UI. However, the add-on will not be included when a
+   *     subscription is created through the API.
+   */
+  public void setOptional(final Boolean optional) {
+    this.optional = optional;
+  }
+
   /** Plan ID */
   public String getPlanId() {
     return this.planId;
@@ -274,5 +318,25 @@ public class AddOnCreate extends Request {
    */
   public void setTaxCode(final String taxCode) {
     this.taxCode = taxCode;
+  }
+
+  /** The type of tiering used by the Add-on. */
+  public String getTierType() {
+    return this.tierType;
+  }
+
+  /** @param tierType The type of tiering used by the Add-on. */
+  public void setTierType(final String tierType) {
+    this.tierType = tierType;
+  }
+
+  /** At least one tier is required if `tier_type` is not 'flat'. */
+  public List<Tier> getTiers() {
+    return this.tiers;
+  }
+
+  /** @param tiers At least one tier is required if `tier_type` is not 'flat'. */
+  public void setTiers(final List<Tier> tiers) {
+    this.tiers = tiers;
   }
 }
