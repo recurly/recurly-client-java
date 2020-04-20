@@ -63,6 +63,23 @@ public class Pager<T extends Resource> implements Iterable<T> {
     return data;
   }
 
+  public T getFirst() {
+    HashMap<String, Object> firstParams = (HashMap<String, Object>)this.queryParams.clone();
+    firstParams.put("limit", 1);
+    Pager<T> pager =
+        this.client.makeRequest("GET", this.next, firstParams, this.parameterizedType);
+    PagerIterator iterator = pager.iterator();
+    if (iterator.hasNext()) {
+      return (T)iterator.next();
+    } else {
+      return null;
+    }
+  }
+
+  public int getCount() {
+    return this.client.getRecordCount(this.next, this.queryParams);
+  }
+
   public void getNextPage() {
     if (this.next == null) {
       throw new NoSuchElementException();

@@ -88,6 +88,39 @@ while (accounts.hasMore()) {
 }
 ```
 
+#### Additional Pager Methods
+
+In addition to the methods to facilitate pagination, the Pager class provides 2 helper methods:
+
+1. getFirst
+2. getCount
+
+##### First
+
+The Pager's `getFirst` method can be used to fetch only the first resource from the endpoint for the given QueryParams.
+
+```java
+DateTime beginTime = new DateTime(2020, 1, 1, 0, 0);
+QueryParams params = new QueryParams();
+params.setBeginTime(beginTime);
+Pager<Account> accounts = client.listAccounts(params);
+Account account = accounts.getFirst();
+System.out.println(account.getCode());
+```
+
+##### Count
+
+The Pager's `getCount` method will return the total number of resources that are available at the requested endpoint for the given QueryParams.
+
+```java
+DateTime beginTime = new DateTime(2020, 1, 1, 0, 0);
+QueryParams params = new QueryParams();
+params.setBeginTime(beginTime);
+Pager<Account> accounts = client.listAccounts(params);
+int total = accounts.getCount();
+System.out.println("There are " + total + " accounts since " + beginTime);
+```
+
 ### Creating Resources
 
 Every `create*` and `update*` method on the client takes a `Request` object that forms the request. This allows you
