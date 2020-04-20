@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.5.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.4.1...HEAD)
+
+**Implemented enhancements:**
+
+- Tue Apr 14 20:23:36 UTC 2020 Upgrade API version v2019-10-10 [\#84](https://github.com/recurly/recurly-client-java/pull/84) ([bhelx](https://github.com/bhelx))
+- Adding \#getFirst and \#getCount methods to Pager [\#82](https://github.com/recurly/recurly-client-java/pull/82) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.5.0 [\#85](https://github.com/recurly/recurly-client-java/pull/85) ([douglasmiller](https://github.com/douglasmiller))
+- Included the to-be released changes in the changelog [\#83](https://github.com/recurly/recurly-client-java/pull/83) ([douglasmiller](https://github.com/douglasmiller))
+- Updating release script to be uniform across all clients [\#81](https://github.com/recurly/recurly-client-java/pull/81) ([douglasmiller](https://github.com/douglasmiller))
+- Thu Mar 26 20:43:33 UTC 2020 Upgrade API version v2019-10-10 [\#80](https://github.com/recurly/recurly-client-java/pull/80) ([bhelx](https://github.com/bhelx))
+
 ## [3.4.1](https://github.com/recurly/recurly-client-java/tree/3.4.1) (2020-03-20)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.4.0...3.4.1)
