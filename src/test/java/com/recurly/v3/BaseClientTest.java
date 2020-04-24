@@ -219,6 +219,21 @@ public class BaseClientTest {
     assertEquals("/accounts/accountId/notes/noteId", interpolatedPath);
   }
 
+  @Test
+  public void testInterpolatePathValidations() {
+    final MockClient client = new MockClient("apiKey");
+    final String path = "/accounts/{account_id}/notes/{account_note_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", "");
+    urlParams.put("account_note_id", "");
+
+    assertThrows(
+        RecurlyException.class,
+        () -> {
+          client.interpolatePath(path, urlParams);
+        });
+  }
+
   protected static void setEnv(Map<String, String> newenv) throws Exception {
     try {
       Class<?> processEnvironmentClass = Class.forName("java.lang.ProcessEnvironment");

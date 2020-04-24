@@ -5,10 +5,13 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.List;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
 import okhttp3.*;
 import okhttp3.Request.Builder;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -227,11 +230,22 @@ public abstract class BaseClient {
     }
   }
 
+  private void validatePathParameters(final HashMap<String, String> urlParams) {
+    Map<String, String> invalidParams = urlParams.entrySet().stream()
+        .filter(p -> p.getValue() == null || p.getValue().trim().isEmpty())
+        .collect(Collectors.toMap(e->e.getKey(),e->e.getValue()));
+    if (!invalidParams.isEmpty()) {
+      String invalidKeys = String.join(",", invalidParams.keySet());
+      throw new RecurlyException(invalidKeys + " cannot be an empty value");
+    }
+  }
+
   protected String interpolatePath(final String path) {
     return interpolatePath(path, new HashMap<String, String>());
   }
 
   protected String interpolatePath(String path, final HashMap<String, String> urlParams) {
+    validatePathParameters(urlParams);
     final Pattern p = Pattern.compile("\\{([A-Za-z|_]*)\\}");
     final Matcher m = p.matcher(path);
 
