@@ -2,7 +2,10 @@ package com.recurly.v3;
 
 import com.recurly.v3.http.HeaderInterceptor;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
@@ -237,8 +240,12 @@ public abstract class BaseClient {
 
     while (m.find()) {
       final String key = m.group(1).replace("{", "").replace("}", "");
-      final String value = urlParams.get(key);
-      path = path.replace(m.group(1), value);
+      try {
+        final String value = URLEncoder.encode(urlParams.get(key), StandardCharsets.UTF_8.toString());
+        path = path.replace(m.group(1), value);
+      } catch (UnsupportedEncodingException ex) {
+          throw new RecurlyException(ex.getCause());
+      }
     }
 
     return path.replaceAll("\\{", "").replaceAll("\\}", "");
