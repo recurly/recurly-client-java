@@ -212,11 +212,11 @@ public class BaseClientTest {
     final MockClient client = new MockClient("apiKey");
     final String path = "/accounts/{account_id}/notes/{account_note_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    urlParams.put("account_id", "accountId");
-    urlParams.put("account_note_id", "noteId");
+    urlParams.put("account_id", "accountId/");
+    urlParams.put("account_note_id", "noteId,");
     final String interpolatedPath = client.interpolatePath(path, urlParams);
 
-    assertEquals("/accounts/accountId/notes/noteId", interpolatedPath);
+    assertEquals("/accounts/accountId%2F/notes/noteId%2C", interpolatedPath);
   }
 
   @Test
