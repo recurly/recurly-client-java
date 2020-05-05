@@ -23,7 +23,6 @@ public abstract class BaseClient {
   private static final String API_URL = "https://v3.recurly.com";
   private static final List<String> BINARY_TYPES = Arrays.asList("application/pdf");
 
-  private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
   private static final JsonSerializer jsonSerializer = new JsonSerializer();
   private static final FileSerializer fileSerializer = new FileSerializer();
   private final String apiKey;
@@ -45,13 +44,12 @@ public abstract class BaseClient {
   }
 
   private static OkHttpClient newHttpClient(final String apiKey) {
+    final OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
+    
     final String authToken = Credentials.basic(apiKey, "");
     final HeaderInterceptor headerInterceptor =
         new HeaderInterceptor(authToken, Client.API_VERSION);
-
-    if (!httpClientBuilder.interceptors().contains(headerInterceptor)) {
-      httpClientBuilder.addInterceptor(headerInterceptor);
-    }
+    httpClientBuilder.addInterceptor(headerInterceptor);
 
     if ("true".equals(System.getenv("RECURLY_INSECURE"))
         && "true".equals(System.getenv("RECURLY_DEBUG"))) {
