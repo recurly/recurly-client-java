@@ -1,13 +1,13 @@
 package com.recurly.v3;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 import com.recurly.v3.fixtures.MockClient;
 import com.recurly.v3.fixtures.MyResource;
 import java.io.IOException;
 import java.util.NoSuchElementException;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import okhttp3.*;
 import okhttp3.Request;
@@ -16,9 +16,23 @@ import org.mockito.stubbing.Answer;
 
 public class PagerTest {
   @Test
-  public void testForEach() {
-    OkHttpClient mockOkHttpClient =
-        getMockOkHttpClient(getResourceFirstPageJson(), getResourceSecondPageJson());
+  public void testForEach() throws IOException {
+    final Call mCall = mock(Call.class);
+    AtomicBoolean firstCalled = new AtomicBoolean(false);
+    Answer answer = (i) -> {
+      Request request = i.getArgument(0);
+      HttpUrl url = request.url();
+      if (firstCalled.get()) {
+        assertEquals("/next", url.url().getPath());
+      }
+      firstCalled.set(true);
+      return mCall;
+    };
+    when(mCall.execute())
+      .thenReturn(MockClient.buildResponse(200, "OK", getResourceFirstPageJson("/next")))
+      .thenReturn(MockClient.buildResponse(200, "OK", getResourceSecondPageJson()));
+
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
 
     final MockClient client = new MockClient("apiKey", mockOkHttpClient);
     Pager<MyResource> pager = client.listResources(null);
@@ -35,8 +49,12 @@ public class PagerTest {
   }
 
   @Test
-  public void testEachItem() {
-    OkHttpClient mockOkHttpClient = getMockOkHttpClientSingleRequest(getResourceSecondPageJson());
+  public void testEachItem() throws IOException {
+    final Call mCall = mock(Call.class);
+    Answer answer = (i) -> { return mCall; };
+    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getResourceSecondPageJson()));
+
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
 
     final MockClient client = new MockClient("apiKey", mockOkHttpClient);
     Pager<MyResource> pager = client.listResources(null);
@@ -44,8 +62,12 @@ public class PagerTest {
   }
 
   @Test
-  public void testEmptyList() {
-    OkHttpClient mockOkHttpClient = getMockOkHttpClientSingleRequest(getEmptyListJson());
+  public void testEmptyList() throws IOException {
+    final Call mCall = mock(Call.class);
+    Answer answer = (i) -> { return mCall; };
+    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getEmptyListJson()));
+
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
 
     final MockClient client = new MockClient("apiKey", mockOkHttpClient);
     Pager<MyResource> pager = client.listResources(null);
@@ -60,9 +82,23 @@ public class PagerTest {
   }
 
   @Test
-  public void testForLoop() {
-    OkHttpClient mockOkHttpClient =
-        getMockOkHttpClient(getResourceFirstPageJson(), getResourceSecondPageJson());
+  public void testForLoop() throws IOException {
+    final Call mCall = mock(Call.class);
+    AtomicBoolean firstCalled = new AtomicBoolean(false);
+    Answer answer = (i) -> {
+      Request request = i.getArgument(0);
+      HttpUrl url = request.url();
+      if (firstCalled.get()) {
+        assertEquals("/next", url.url().getPath());
+      }
+      firstCalled.set(true);
+      return mCall;
+    };
+    when(mCall.execute())
+      .thenReturn(MockClient.buildResponse(200, "OK", getResourceFirstPageJson("/next")))
+      .thenReturn(MockClient.buildResponse(200, "OK", getResourceSecondPageJson()));
+
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
 
     final MockClient client = new MockClient("apiKey", mockOkHttpClient);
     Pager<MyResource> pager = client.listResources(null);
@@ -85,53 +121,50 @@ public class PagerTest {
     assertThrows(NoSuchElementException.class, () -> pager.getNextPage());
   }
 
-  private OkHttpClient getMockOkHttpClientSingleRequest(String responseJson) {
-    final OkHttpClient mockOkHttpClient = mock(OkHttpClient.class);
+  @Test
+  public void testCount() throws IOException {
     final Call mCall = mock(Call.class);
-    final Request mRequest = new Request.Builder().url("https://api.recurly.com").build();
-    final Response mResponse = getResponse(mRequest, responseJson);
+    Headers headers = new Headers.Builder().set("Recurly-Total-Records", "1337").build();
+    Answer answer = (i) -> {
+      Request request = i.getArgument(0);
+      assertEquals("HEAD", request.method());
+      return mCall;
+    };
+    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getResourceFirstItemJson(), headers));
 
-    when(mockOkHttpClient.newCall(any())).thenReturn(mCall);
-    try {
-      when(mCall.execute()).thenReturn(mResponse);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    return mockOkHttpClient;
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
+
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    Pager<MyResource> pager = client.listResources(null);
+    int count = pager.getCount();
+    assertEquals(1337, count);
   }
 
-  private OkHttpClient getMockOkHttpClient(String responseJson1, String responseJson2) {
-    final OkHttpClient mockOkHttpClient = mock(OkHttpClient.class);
+  @Test
+  public void testFirst() throws IOException {
     final Call mCall = mock(Call.class);
-    final Request mRequest = new Request.Builder().url("https://api.recurly.com").build();
-    final Response mResponse1 = getResponse(mRequest, responseJson1);
-    final Response mResponse2 = getResponse(mRequest, responseJson2);
+    Answer answer = (i) -> {
+      Request request = i.getArgument(0);
+      HttpUrl url = request.url();
+      assertEquals("1", url.queryParameter("limit"));
+      return mCall;
+    };
+    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getResourceFirstItemJson()));
 
-    when(mockOkHttpClient.newCall(any())).thenReturn(mCall);
-    try {
-      when(mCall.execute()).thenReturn(mResponse1).thenReturn(mResponse2);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    return mockOkHttpClient;
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
+
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    Pager<MyResource> pager = client.listResources(null);
+    MyResource resource = pager.getFirst();
+    assertEquals("Resource First Item", resource.getMyString());
   }
 
-  private Response getResponse(Request mRequest, String json) {
-    return new Response.Builder()
-        .request(mRequest)
-        .protocol(okhttp3.Protocol.HTTP_1_1)
-        .code(200) // status code
-        .message("Ok")
-        .body(ResponseBody.create(MediaType.get("application/json; charset=utf-8"), json))
-        .build();
-  }
-
-  private String getResourceFirstPageJson() {
+  private String getResourceFirstPageJson(String next) {
     return ""
         + "{"
         + "\"object\":\"list\","
         + "\"has_more\":true,"
-        + "\"next\":\"/next\","
+        + "\"next\":\"" + next + "\","
         + "\"data\": ["
         + "{"
         + "\"my_string\":\"Resource Page 1\""
@@ -177,69 +210,5 @@ public class PagerTest {
       "    \"my_string\":\"Resource First Item\"" +
       "  }" +
       "]}";
-  }
-
-  private final Response buildResponse(Integer code, String message, String response) {
-    Headers headers = new Headers.Builder().build();
-    return buildResponse(code, message, response, headers);
-  }
-
-  private final Response buildResponse(Integer code, String message, String response, Headers headers) {
-    final Request mRequest = new Request.Builder().url("https://v3.recurly.com").build();
-
-    final Response mResponse =
-        new Response.Builder()
-            .request(mRequest)
-            .protocol(okhttp3.Protocol.HTTP_1_1)
-            .code(code) // status code
-            .message(message)
-            .body(ResponseBody.create(MediaType.get("application/json; charset=utf-8"), response))
-            .headers(headers)
-            .build();
-    return mResponse;
-  }
-
-  private static OkHttpClient getMockOkHttpClient(Answer answer) {
-    final OkHttpClient mockOkHttpClient = mock(OkHttpClient.class);
-    doAnswer(answer).when(mockOkHttpClient).newCall(any());
-    return mockOkHttpClient;
-  }
-
-  @Test
-  public void testCount() throws IOException{
-    final Call mCall = mock(Call.class);
-    Headers headers = new Headers.Builder().set("Recurly-Total-Records", "1337").build();
-    Answer answer = (i) -> {
-      Request request = i.getArgument(0);
-      assertEquals("HEAD", request.method());
-      return mCall;
-    };
-    when(mCall.execute()).thenReturn(buildResponse(200, "OK", getResourceFirstItemJson(), headers));
-
-    OkHttpClient mockOkHttpClient = getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
-    Pager<MyResource> pager = client.listResources(null);
-    int count = pager.getCount();
-    assertEquals(1337, count);
-  }
-
-  @Test
-  public void testFirst() throws IOException{
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> {
-      Request request = i.getArgument(0);
-      HttpUrl url = request.url();
-      assertEquals("1", url.queryParameter("limit"));
-      return mCall;
-    };
-    when(mCall.execute()).thenReturn(buildResponse(200, "OK", getResourceFirstItemJson()));
-
-    OkHttpClient mockOkHttpClient = getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
-    Pager<MyResource> pager = client.listResources(null);
-    MyResource resource = pager.getFirst();
-    assertEquals("Resource First Item", resource.getMyString());
   }
 }
