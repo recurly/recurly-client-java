@@ -7,9 +7,9 @@ package com.recurly.v3.exception;
 
 import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
-public class RateLimitedException extends TooManyRequestsException {
+public class PreconditionFailedException extends ClientException {
 
-  public RateLimitedException(String message, ErrorMayHaveTransaction e) {
+  public PreconditionFailedException(String message, ErrorMayHaveTransaction e) {
     super(message, e);
   }
 }

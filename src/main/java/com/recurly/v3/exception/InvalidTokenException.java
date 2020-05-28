@@ -5,10 +5,9 @@
  */
 package com.recurly.v3.exception;
 
-import com.recurly.v3.ApiException;
 import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
-public class InvalidTokenException extends ApiException {
+public class InvalidTokenException extends UnprocessableEntityException {
 
   public InvalidTokenException(String message, ErrorMayHaveTransaction e) {
     super(message, e);

@@ -1,5 +1,7 @@
 package com.recurly.v3;
 
+import com.recurly.v3.exception.InternalServerException;
+import com.recurly.v3.exception.InvalidApiKeyException;
 import com.recurly.v3.exception.NotFoundException;
 import com.recurly.v3.exception.TransactionException;
 import com.recurly.v3.exception.ValidationException;
@@ -8,7 +10,9 @@ import com.recurly.v3.fixtures.MockQueryParams;
 import com.recurly.v3.fixtures.MyRequest;
 import com.recurly.v3.fixtures.MyResource;
 import okhttp3.Call;
+import okhttp3.Headers;
 import okhttp3.HttpUrl;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
@@ -153,6 +157,44 @@ public class BaseClientTest {
     qp.setUnsupported(new ArrayList<>());
     final Pager<MyResource> pager = client.listResources(qp);
     pager.getNextPage();
+  }
+
+  @Test
+  public void testNonJsonError500() throws IOException {
+    final Call mCall = mock(Call.class);
+    Answer answer = (i) -> { return mCall; };
+    Headers headers = new Headers.Builder().build();
+    MediaType contentType = MediaType.get("text/html; charset=UTF-8");
+    when(mCall.execute()).thenReturn(MockClient.buildResponse(500, "Internal Server Error", "<html>badness</html>", headers, contentType));
+
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
+
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+
+    assertThrows(
+        InternalServerException.class,
+        () -> {
+          client.getResource("code-aaron");
+        });
+  }
+
+  @Test
+  public void testInvalidApiKey() throws IOException {
+    final Call mCall = mock(Call.class);
+    Answer answer = (i) -> { return mCall; };
+    when(mCall.execute()).thenReturn(MockClient.buildResponse(404, "Not Found", getErrorJson("invalid_api_key")));
+
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
+
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+
+    // This test is important because it ensures that application/json response errors are based on the json 
+    // body's error type and not the status code based error
+    assertThrows(
+        InvalidApiKeyException.class,
+        () -> {
+          client.getResource("code-aaron");
+        });
   }
 
   @Test

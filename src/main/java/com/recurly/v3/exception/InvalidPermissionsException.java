@@ -5,10 +5,9 @@
  */
 package com.recurly.v3.exception;
 
-import com.recurly.v3.ApiException;
 import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
-public class InvalidPermissionsException extends ApiException {
+public class InvalidPermissionsException extends ForbiddenException {
 
   public InvalidPermissionsException(String message, ErrorMayHaveTransaction e) {
     super(message, e);
