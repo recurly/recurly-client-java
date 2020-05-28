@@ -160,6 +160,25 @@ public class BaseClientTest {
   }
 
   @Test
+  public void testNonJsonError0() throws IOException {
+    final Call mCall = mock(Call.class);
+    Answer answer = (i) -> { return mCall; };
+    Headers headers = new Headers.Builder().build();
+    MediaType contentType = MediaType.get("text/html; charset=UTF-8");
+    when(mCall.execute()).thenReturn(MockClient.buildResponse(0, "Not A Real Status", "<html>badness</html>", headers, contentType));
+
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
+
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+
+    assertThrows(
+        ApiException.class,
+        () -> {
+          client.getResource("code-aaron");
+        });
+  }
+
+  @Test
   public void testNonJsonError500() throws IOException {
     final Call mCall = mock(Call.class);
     Answer answer = (i) -> { return mCall; };
