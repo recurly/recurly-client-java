@@ -174,7 +174,7 @@ public class LineItem extends Resource {
 
   /**
    * For plan-related line items this will be the plan's code, for add-on related line items it will
-   * be the add-on's code. For item-related line itmes it will be the item's `external_sku`.
+   * be the add-on's code. For item-related line items it will be the item's `external_sku`.
    */
   @SerializedName("product_code")
   @Expose
@@ -638,7 +638,7 @@ public class LineItem extends Resource {
 
   /**
    * For plan-related line items this will be the plan's code, for add-on related line items it will
-   * be the add-on's code. For item-related line itmes it will be the item's `external_sku`.
+   * be the add-on's code. For item-related line items it will be the item's `external_sku`.
    */
   public String getProductCode() {
     return this.productCode;
@@ -646,7 +646,7 @@ public class LineItem extends Resource {
 
   /**
    * @param productCode For plan-related line items this will be the plan's code, for add-on related
-   *     line items it will be the add-on's code. For item-related line itmes it will be the item's
+   *     line items it will be the add-on's code. For item-related line items it will be the item's
    *     `external_sku`.
    */
   public void setProductCode(final String productCode) {

@@ -51,16 +51,18 @@ public class AddOnCreate extends Request {
   private Boolean displayQuantity;
 
   /**
-   * Unique code to identify an item. Avaliable when the `Catalog: Item Add-Ons` feature is enabled.
-   * If `item_id` and `item_code` are both present, `item_id` will be used.
+   * Unique code to identify an item. Avaliable when the `Credit Invoices` and `Subscription Billing
+   * Terms` features are enabled. If `item_id` and `item_code` are both present, `item_id` will be
+   * used.
    */
   @SerializedName("item_code")
   @Expose
   private String itemCode;
 
   /**
-   * System-generated unique identifier for an item. Available when the `Catalog: Item Add-Ons`
-   * feature is enabled. If `item_id` and `item_code` are both present, `item_id` will be used.
+   * System-generated unique identifier for an item. Available when the `Credit Invoices` and
+   * `Subscription Billing Terms` features are enabled. If `item_id` and `item_code` are both
+   * present, `item_id` will be used.
    */
   @SerializedName("item_id")
   @Expose
@@ -200,33 +202,36 @@ public class AddOnCreate extends Request {
   }
 
   /**
-   * Unique code to identify an item. Avaliable when the `Catalog: Item Add-Ons` feature is enabled.
-   * If `item_id` and `item_code` are both present, `item_id` will be used.
+   * Unique code to identify an item. Avaliable when the `Credit Invoices` and `Subscription Billing
+   * Terms` features are enabled. If `item_id` and `item_code` are both present, `item_id` will be
+   * used.
    */
   public String getItemCode() {
     return this.itemCode;
   }
 
   /**
-   * @param itemCode Unique code to identify an item. Avaliable when the `Catalog: Item Add-Ons`
-   *     feature is enabled. If `item_id` and `item_code` are both present, `item_id` will be used.
+   * @param itemCode Unique code to identify an item. Avaliable when the `Credit Invoices` and
+   *     `Subscription Billing Terms` features are enabled. If `item_id` and `item_code` are both
+   *     present, `item_id` will be used.
    */
   public void setItemCode(final String itemCode) {
     this.itemCode = itemCode;
   }
 
   /**
-   * System-generated unique identifier for an item. Available when the `Catalog: Item Add-Ons`
-   * feature is enabled. If `item_id` and `item_code` are both present, `item_id` will be used.
+   * System-generated unique identifier for an item. Available when the `Credit Invoices` and
+   * `Subscription Billing Terms` features are enabled. If `item_id` and `item_code` are both
+   * present, `item_id` will be used.
    */
   public String getItemId() {
     return this.itemId;
   }
 
   /**
-   * @param itemId System-generated unique identifier for an item. Available when the `Catalog: Item
-   *     Add-Ons` feature is enabled. If `item_id` and `item_code` are both present, `item_id` will
-   *     be used.
+   * @param itemId System-generated unique identifier for an item. Available when the `Credit
+   *     Invoices` and `Subscription Billing Terms` features are enabled. If `item_id` and
+   *     `item_code` are both present, `item_id` will be used.
    */
   public void setItemId(final String itemId) {
     this.itemId = itemId;

@@ -1066,6 +1066,23 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Record an external payment for a manual invoices.
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/record_external_transaction">record_external_transaction api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param body The body of the request.
+     * @return The recorded transaction.
+   */
+  public Transaction recordExternalTransaction(String invoiceId, ExternalTransaction body) {
+    final String url = "/invoices/{invoice_id}/transactions";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("invoice_id", invoiceId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Transaction.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
    * List an invoice's line items
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_invoice_line_items">list_invoice_line_items api documentation</a>
