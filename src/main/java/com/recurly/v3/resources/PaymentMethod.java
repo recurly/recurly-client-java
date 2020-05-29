@@ -61,6 +61,11 @@ public class PaymentMethod extends Resource {
   @Expose
   private String lastTwo;
 
+  /** The name associated with the bank account. */
+  @SerializedName("name_on_account")
+  @Expose
+  private String nameOnAccount;
+
   @SerializedName("object")
   @Expose
   private String object;
@@ -181,6 +186,16 @@ public class PaymentMethod extends Resource {
   /** @param lastTwo The IBAN bank account's last two digits. */
   public void setLastTwo(final String lastTwo) {
     this.lastTwo = lastTwo;
+  }
+
+  /** The name associated with the bank account. */
+  public String getNameOnAccount() {
+    return this.nameOnAccount;
+  }
+
+  /** @param nameOnAccount The name associated with the bank account. */
+  public void setNameOnAccount(final String nameOnAccount) {
+    this.nameOnAccount = nameOnAccount;
   }
 
   public String getObject() {

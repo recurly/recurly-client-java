@@ -43,6 +43,11 @@ public class SubscriptionAddOn extends Resource {
   @Expose
   private Integer quantity;
 
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
   /** Subscription ID */
   @SerializedName("subscription_id")
   @Expose
@@ -126,6 +131,16 @@ public class SubscriptionAddOn extends Resource {
   /** @param quantity Add-on quantity */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
+  }
+
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
   }
 
   /** Subscription ID */

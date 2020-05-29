@@ -17,6 +17,15 @@ public class SubscriptionChangeCreate extends Request {
    * If you provide a value for this field it will replace any existing add-ons. So, when adding or
    * modifying an add-on, you need to include the existing subscription add-ons. Unchanged add-ons
    * can be included just using the subscription add-on's ID: `{"id": "abc123"}`.
+   *
+   * <p>If a subscription add-on's `code` is supplied without the `id`, `{"code": "def456"}`, the
+   * subscription add-on attributes will be set to the current values of the plan add-on unless
+   * provided in the request.
+   *
+   * <p>- If an `id` is passed, any attributes not passed in will pull from the existing
+   * subscription add-on - If a `code` is passed, any attributes not passed in will pull from the
+   * current values of the plan add-on - Attributes passed in as part of the request will override
+   * either of the above scenarios
    */
   @SerializedName("add_ons")
   @Expose
@@ -113,6 +122,15 @@ public class SubscriptionChangeCreate extends Request {
    * If you provide a value for this field it will replace any existing add-ons. So, when adding or
    * modifying an add-on, you need to include the existing subscription add-ons. Unchanged add-ons
    * can be included just using the subscription add-on's ID: `{"id": "abc123"}`.
+   *
+   * <p>If a subscription add-on's `code` is supplied without the `id`, `{"code": "def456"}`, the
+   * subscription add-on attributes will be set to the current values of the plan add-on unless
+   * provided in the request.
+   *
+   * <p>- If an `id` is passed, any attributes not passed in will pull from the existing
+   * subscription add-on - If a `code` is passed, any attributes not passed in will pull from the
+   * current values of the plan add-on - Attributes passed in as part of the request will override
+   * either of the above scenarios
    */
   public List<SubscriptionAddOnUpdate> getAddOns() {
     return this.addOns;
@@ -123,6 +141,13 @@ public class SubscriptionChangeCreate extends Request {
    *     when adding or modifying an add-on, you need to include the existing subscription add-ons.
    *     Unchanged add-ons can be included just using the subscription add-on's ID: `{"id":
    *     "abc123"}`.
+   *     <p>If a subscription add-on's `code` is supplied without the `id`, `{"code": "def456"}`,
+   *     the subscription add-on attributes will be set to the current values of the plan add-on
+   *     unless provided in the request.
+   *     <p>- If an `id` is passed, any attributes not passed in will pull from the existing
+   *     subscription add-on - If a `code` is passed, any attributes not passed in will pull from
+   *     the current values of the plan add-on - Attributes passed in as part of the request will
+   *     override either of the above scenarios
    */
   public void setAddOns(final List<SubscriptionAddOnUpdate> addOns) {
     this.addOns = addOns;

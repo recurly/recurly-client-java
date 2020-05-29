@@ -42,6 +42,10 @@ public class QueryParams {
     this.add("sort", sort);
   }
 
+  public void setState(final String state) {
+    this.add("state", state);
+  }
+
   public void setBeginTime(final DateTime beginTime) {
     this.add("begin_time", beginTime);
   }
@@ -68,10 +72,6 @@ public class QueryParams {
 
   public void setOriginal(final String original) {
     this.add("original", original);
-  }
-
-  public void setState(final String state) {
-    this.add("state", state);
   }
 
   public void setSuccess(final String success) {

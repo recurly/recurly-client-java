@@ -13,12 +13,18 @@ import java.util.List;
 
 public class SubscriptionAddOnUpdate extends Request {
 
-  /** Add-on code */
+  /**
+   * If a code is provided without an id, the subscription add-on attributes will be set to the
+   * current value for those attributes on the plan add-on unless provided in the request.
+   */
   @SerializedName("code")
   @Expose
   private String code;
 
-  /** Set this to include or modify an existing subscription add-on. */
+  /**
+   * When an id is provided, the existing subscription add-on attributes will persist unless
+   * overridden in the request.
+   */
   @SerializedName("id")
   @Expose
   private String id;
@@ -43,22 +49,35 @@ public class SubscriptionAddOnUpdate extends Request {
   @Expose
   private Float unitAmount;
 
-  /** Add-on code */
+  /**
+   * If a code is provided without an id, the subscription add-on attributes will be set to the
+   * current value for those attributes on the plan add-on unless provided in the request.
+   */
   public String getCode() {
     return this.code;
   }
 
-  /** @param code Add-on code */
+  /**
+   * @param code If a code is provided without an id, the subscription add-on attributes will be set
+   *     to the current value for those attributes on the plan add-on unless provided in the
+   *     request.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
 
-  /** Set this to include or modify an existing subscription add-on. */
+  /**
+   * When an id is provided, the existing subscription add-on attributes will persist unless
+   * overridden in the request.
+   */
   public String getId() {
     return this.id;
   }
 
-  /** @param id Set this to include or modify an existing subscription add-on. */
+  /**
+   * @param id When an id is provided, the existing subscription add-on attributes will persist
+   *     unless overridden in the request.
+   */
   public void setId(final String id) {
     this.id = id;
   }
