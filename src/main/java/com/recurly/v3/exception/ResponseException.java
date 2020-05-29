@@ -5,11 +5,12 @@
  */
 package com.recurly.v3.exception;
 
+import com.recurly.v3.ApiException;
 import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
-public class RateLimitedException extends TooManyRequestsException {
+public class ResponseException extends ApiException {
 
-  public RateLimitedException(String message, ErrorMayHaveTransaction e) {
+  public ResponseException(String message, ErrorMayHaveTransaction e) {
     super(message, e);
   }
 }

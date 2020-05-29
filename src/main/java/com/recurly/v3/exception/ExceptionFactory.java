@@ -8,6 +8,7 @@ package com.recurly.v3.exception;
 import com.recurly.v3.ApiException;
 import com.recurly.v3.RecurlyException;
 import com.recurly.v3.resources.ErrorMayHaveTransaction;
+import okhttp3.Response;
 
 public class ExceptionFactory {
 
@@ -67,5 +68,41 @@ public class ExceptionFactory {
         return (T) new RateLimitedException(e.getMessage(), e);
     }
     return (T) apiException;
+  }
+
+  @SuppressWarnings("unchecked")
+  public static <T extends RecurlyException> T getExceptionClass(Response response) {
+    String requestId = response.header("X-Request-Id", "none");
+    int code = response.code();
+    String message = "Unexpected " + code + " Error. Recurly Request Id: " + requestId;
+    switch (code) {
+      case 500:
+        return (T) new InternalServerException(message, null);
+      case 502:
+        return (T) new BadGatewayException(message, null);
+      case 503:
+        return (T) new ServiceUnavailableException(message, null);
+      case 304:
+        return (T) new NotModifiedException(message, null);
+      case 400:
+        return (T) new BadRequestException(message, null);
+      case 401:
+        return (T) new UnauthorizedException(message, null);
+      case 402:
+        return (T) new PaymentRequiredException(message, null);
+      case 403:
+        return (T) new ForbiddenException(message, null);
+      case 404:
+        return (T) new NotFoundException(message, null);
+      case 406:
+        return (T) new NotAcceptableException(message, null);
+      case 412:
+        return (T) new PreconditionFailedException(message, null);
+      case 422:
+        return (T) new UnprocessableEntityException(message, null);
+      case 429:
+        return (T) new TooManyRequestsException(message, null);
+    }
+    return (T) new ApiException(message, null);
   }
 }

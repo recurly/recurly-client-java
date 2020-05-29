@@ -89,6 +89,11 @@ public class MockClient extends BaseClient {
   }
 
   public static final Response buildResponse(Integer code, String message, String response, Headers headers) {
+    MediaType contentType = MediaType.get("application/json; charset=utf-8");
+    return buildResponse(code, message, response, headers, contentType);
+  }
+
+  public static final Response buildResponse(Integer code, String message, String response, Headers headers, MediaType contentType) {
     final Request mRequest = new Request.Builder().url("https://v3.recurly.com").build();
 
     final Response mResponse =
@@ -97,7 +102,7 @@ public class MockClient extends BaseClient {
             .protocol(okhttp3.Protocol.HTTP_1_1)
             .code(code) // status code
             .message(message)
-            .body(ResponseBody.create(MediaType.get("application/json; charset=utf-8"), response))
+            .body(ResponseBody.create(contentType, response))
             .headers(headers)
             .build();
     return mResponse;

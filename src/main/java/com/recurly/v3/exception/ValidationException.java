@@ -5,10 +5,9 @@
  */
 package com.recurly.v3.exception;
 
-import com.recurly.v3.ApiException;
 import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
-public class ValidationException extends ApiException {
+public class ValidationException extends UnprocessableEntityException {
 
   public ValidationException(String message, ErrorMayHaveTransaction e) {
     super(message, e);

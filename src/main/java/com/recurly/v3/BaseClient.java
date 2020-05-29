@@ -1,5 +1,6 @@
 package com.recurly.v3;
 
+import com.recurly.v3.exception.ExceptionFactory;
 import com.recurly.v3.http.HeaderInterceptor;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -119,14 +120,18 @@ public abstract class BaseClient {
 
       final Headers responseHeaders = response.headers();
       final ResponseBody responseBody = response.body();
+      MediaType contentType = responseBody.contentType();
 
       if (!response.isSuccessful()) {
-        throw jsonSerializer.deserializeError(responseBody.string());
+        if (contentType.type().equals("application") && contentType.subtype().equals("json")) {
+          throw jsonSerializer.deserializeError(responseBody.string());
+        } else {
+          throw ExceptionFactory.getExceptionClass(response);
+        }
       }
 
       this.warnIfDeprecated(responseHeaders);
 
-      MediaType contentType = responseBody.contentType();
       if (BINARY_TYPES.contains(contentType.type() + "/" + contentType.subtype())) {
         return fileSerializer.deserialize(responseBody.bytes(), resourceClass);
       } else {

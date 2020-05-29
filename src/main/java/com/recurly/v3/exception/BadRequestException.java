@@ -5,10 +5,9 @@
  */
 package com.recurly.v3.exception;
 
-import com.recurly.v3.ApiException;
 import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
-public class BadRequestException extends ApiException {
+public class BadRequestException extends ClientException {
 
   public BadRequestException(String message, ErrorMayHaveTransaction e) {
     super(message, e);
