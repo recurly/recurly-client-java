@@ -72,7 +72,7 @@ public class ExceptionFactory {
 
   @SuppressWarnings("unchecked")
   public static <T extends RecurlyException> T getExceptionClass(Response response) {
-    String requestId = response.header("X-Request-Id", "");
+    String requestId = response.header("X-Request-Id", "none");
     int code = response.code();
     String message = "Unexpected " + code + " Error. Recurly Request Id: " + requestId;
     switch (code) {
