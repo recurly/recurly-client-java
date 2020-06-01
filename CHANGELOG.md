@@ -1,8 +1,29 @@
 # Changelog
 
-## [3.5.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
+## [3.6.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.4.1...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.5.0...HEAD)
+
+**Implemented enhancements:**
+
+- Latest Features [\#93](https://github.com/recurly/recurly-client-java/pull/93) ([bhelx](https://github.com/bhelx))
+- Updating error hierarchy and providing error handling for non-json error responses [\#92](https://github.com/recurly/recurly-client-java/pull/92) ([douglasmiller](https://github.com/douglasmiller))
+
+**Fixed bugs:**
+
+- Fix interceptor stack overflow error [\#89](https://github.com/recurly/recurly-client-java/pull/89) ([NoahGreer](https://github.com/NoahGreer))
+
+**Merged pull requests:**
+
+- Release 3.6.0 [\#94](https://github.com/recurly/recurly-client-java/pull/94) ([bhelx](https://github.com/bhelx))
+- Upgrade dependencies [\#91](https://github.com/recurly/recurly-client-java/pull/91) ([bhelx](https://github.com/bhelx))
+- Refactoring tests to make use of shared code [\#90](https://github.com/recurly/recurly-client-java/pull/90) ([douglasmiller](https://github.com/douglasmiller))
+- Encoding path parameters [\#88](https://github.com/recurly/recurly-client-java/pull/88) ([douglasmiller](https://github.com/douglasmiller))
+- Ensure that path parameters are not empty strings [\#87](https://github.com/recurly/recurly-client-java/pull/87) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.5.0](https://github.com/recurly/recurly-client-java/tree/3.5.0) (2020-04-20)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.4.1...3.5.0)
 
 **Implemented enhancements:**
 
@@ -11,6 +32,7 @@
 
 **Merged pull requests:**
 
+- Loosening the restrictions on generated user agent string [\#86](https://github.com/recurly/recurly-client-java/pull/86) ([douglasmiller](https://github.com/douglasmiller))
 - Release 3.5.0 [\#85](https://github.com/recurly/recurly-client-java/pull/85) ([douglasmiller](https://github.com/douglasmiller))
 - Included the to-be released changes in the changelog [\#83](https://github.com/recurly/recurly-client-java/pull/83) ([douglasmiller](https://github.com/douglasmiller))
 - Updating release script to be uniform across all clients [\#81](https://github.com/recurly/recurly-client-java/pull/81) ([douglasmiller](https://github.com/douglasmiller))
