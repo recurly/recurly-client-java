@@ -123,7 +123,7 @@ The Pager's `getFirst` method can be used to fetch only the first resource from 
 QueryParams params = new QueryParams();
 params.setBeginTime(new DateTime(2020, 1, 1, 0, 0));
 Pager<Account> accounts = client.listAccounts(params);
-// Get the first Account created in 2020
+// Get the first Account created in 2020 UTC
 Account account = accounts.getFirst();
 System.out.println(account.getCode());
 ```
