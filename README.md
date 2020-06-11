@@ -88,6 +88,26 @@ while (accounts.hasMore()) {
 }
 ```
 
+#### Query Parameters
+
+Every `List*` endpoint accepts a number of query parameters that allow you to sort or filter the results.
+These can be set using the `QueryParams` object. This object contains the union of all parameters across every endpoint, and thus it's up to the programmer to determine which parameters are supported by the endpoint. You can find this list by looking at the `QUERY PARAMETERS` section of the endpoint's docs. For an example, see [list_account](https://developers.recurly.com/api/latest#operation/list_accounts).
+
+```java
+QueryParams params = new QueryParams();
+params.setBeginTime(new DateTime(2020, 1, 1, 0, 0)); // midnight, Jan 1, 2020 UTC
+params.setEndTime(new DateTime(2020, 6, 1, 0, 0)); // midnight, June 1, 2020 UTC
+params.setSort("created_at"); // sort by `created_at` property
+params.setOrder("asc"); // "ascending" order
+params.setSubscriber(new Boolean(true)); // must be a subscriber
+params.setLimit(200); // Fetch 200 records per page
+Pager<Account> accounts = client.listAccounts(params);
+
+for (Account acct : accounts) {
+    System.out.println(acct.getCode());
+}
+```
+
 #### Additional Pager Methods
 
 In addition to the methods to facilitate pagination, the Pager class provides 2 helper methods:
@@ -100,10 +120,10 @@ In addition to the methods to facilitate pagination, the Pager class provides 2 
 The Pager's `getFirst` method can be used to fetch only the first resource from the endpoint for the given QueryParams.
 
 ```java
-DateTime beginTime = new DateTime(2020, 1, 1, 0, 0);
 QueryParams params = new QueryParams();
-params.setBeginTime(beginTime);
+params.setBeginTime(new DateTime(2020, 1, 1, 0, 0));
 Pager<Account> accounts = client.listAccounts(params);
+// Get the first Account created in 2020 UTC
 Account account = accounts.getFirst();
 System.out.println(account.getCode());
 ```
