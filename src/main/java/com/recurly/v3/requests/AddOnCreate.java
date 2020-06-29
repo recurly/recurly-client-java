@@ -112,12 +112,19 @@ public class AddOnCreate extends Request {
   @Expose
   private String taxCode;
 
-  /** The type of tiering used by the Add-on. */
+  /**
+   * The pricing model for the add-on. For more information, [click
+   * here](https://docs.recurly.com/docs/billing-models#section-quantity-based).
+   */
   @SerializedName("tier_type")
   @Expose
   private String tierType;
 
-  /** At least one tier is required if `tier_type` is not 'flat'. */
+  /**
+   * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
+   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`. There must be
+   * one tier with an `ending_quantity` of 999999999 which is the default if not provided.
+   */
   @SerializedName("tiers")
   @Expose
   private List<Tier> tiers;
@@ -325,22 +332,37 @@ public class AddOnCreate extends Request {
     this.taxCode = taxCode;
   }
 
-  /** The type of tiering used by the Add-on. */
+  /**
+   * The pricing model for the add-on. For more information, [click
+   * here](https://docs.recurly.com/docs/billing-models#section-quantity-based).
+   */
   public String getTierType() {
     return this.tierType;
   }
 
-  /** @param tierType The type of tiering used by the Add-on. */
+  /**
+   * @param tierType The pricing model for the add-on. For more information, [click
+   *     here](https://docs.recurly.com/docs/billing-models#section-quantity-based).
+   */
   public void setTierType(final String tierType) {
     this.tierType = tierType;
   }
 
-  /** At least one tier is required if `tier_type` is not 'flat'. */
+  /**
+   * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
+   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`. There must be
+   * one tier with an `ending_quantity` of 999999999 which is the default if not provided.
+   */
   public List<Tier> getTiers() {
     return this.tiers;
   }
 
-  /** @param tiers At least one tier is required if `tier_type` is not 'flat'. */
+  /**
+   * @param tiers If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must
+   *     include one to many tiers with `ending_quantity` and `unit_amount` for the desired
+   *     `currencies`. There must be one tier with an `ending_quantity` of 999999999 which is the
+   *     default if not provided.
+   */
   public void setTiers(final List<Tier> tiers) {
     this.tiers = tiers;
   }
