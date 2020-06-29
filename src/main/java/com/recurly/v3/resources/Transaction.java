@@ -197,6 +197,11 @@ public class Transaction extends Resource {
   @Expose
   private String type;
 
+  /** Updated at */
+  @SerializedName("updated_at")
+  @Expose
+  private DateTime updatedAt;
+
   /**
    * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
    */
@@ -593,6 +598,16 @@ public class Transaction extends Resource {
    */
   public void setType(final String type) {
     this.type = type;
+  }
+
+  /** Updated at */
+  public DateTime getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  /** @param updatedAt Updated at */
+  public void setUpdatedAt(final DateTime updatedAt) {
+    this.updatedAt = updatedAt;
   }
 
   /**

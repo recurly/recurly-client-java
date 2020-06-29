@@ -28,7 +28,11 @@ public class SubscriptionAddOnCreate extends Request {
   @Expose
   private String revenueScheduleType;
 
-  /** If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. */
+  /**
+   * If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. The `tiers` object
+   * must include one to many tiers with `ending_quantity` and `unit_amount`. There must be one tier
+   * with an `ending_quantity` of 999999999 which is the default if not provided.
+   */
   @SerializedName("tiers")
   @Expose
   private List<SubscriptionAddOnTier> tiers;
@@ -71,12 +75,21 @@ public class SubscriptionAddOnCreate extends Request {
     this.revenueScheduleType = revenueScheduleType;
   }
 
-  /** If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. */
+  /**
+   * If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. The `tiers` object
+   * must include one to many tiers with `ending_quantity` and `unit_amount`. There must be one tier
+   * with an `ending_quantity` of 999999999 which is the default if not provided.
+   */
   public List<SubscriptionAddOnTier> getTiers() {
     return this.tiers;
   }
 
-  /** @param tiers If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. */
+  /**
+   * @param tiers If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. The
+   *     `tiers` object must include one to many tiers with `ending_quantity` and `unit_amount`.
+   *     There must be one tier with an `ending_quantity` of 999999999 which is the default if not
+   *     provided.
+   */
   public void setTiers(final List<SubscriptionAddOnTier> tiers) {
     this.tiers = tiers;
   }

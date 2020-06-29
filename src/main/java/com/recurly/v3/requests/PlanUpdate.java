@@ -27,6 +27,15 @@ public class PlanUpdate extends Request {
   private List<AddOnCreate> addOns;
 
   /**
+   * Used to determine whether items can be assigned as add-ons to individual subscriptions. If
+   * `true`, items can be assigned as add-ons to individual subscription add-ons. If `false`, only
+   * plan add-ons can be used.
+   */
+  @SerializedName("allow_any_item_on_subscriptions")
+  @Expose
+  private Boolean allowAnyItemOnSubscriptions;
+
+  /**
    * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is
    * `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is
    * `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden
@@ -115,6 +124,14 @@ public class PlanUpdate extends Request {
   @Expose
   private Integer trialLength;
 
+  /**
+   * Allow free trial subscriptions to be created without billing info. Should not be used if
+   * billing info is needed for initial invoice due to existing uninvoiced charges or setup fee.
+   */
+  @SerializedName("trial_requires_billing_info")
+  @Expose
+  private Boolean trialRequiresBillingInfo;
+
   /** Units for the plan's trial period. */
   @SerializedName("trial_unit")
   @Expose
@@ -144,6 +161,24 @@ public class PlanUpdate extends Request {
   /** @param addOns Add Ons */
   public void setAddOns(final List<AddOnCreate> addOns) {
     this.addOns = addOns;
+  }
+
+  /**
+   * Used to determine whether items can be assigned as add-ons to individual subscriptions. If
+   * `true`, items can be assigned as add-ons to individual subscription add-ons. If `false`, only
+   * plan add-ons can be used.
+   */
+  public Boolean getAllowAnyItemOnSubscriptions() {
+    return this.allowAnyItemOnSubscriptions;
+  }
+
+  /**
+   * @param allowAnyItemOnSubscriptions Used to determine whether items can be assigned as add-ons
+   *     to individual subscriptions. If `true`, items can be assigned as add-ons to individual
+   *     subscription add-ons. If `false`, only plan add-ons can be used.
+   */
+  public void setAllowAnyItemOnSubscriptions(final Boolean allowAnyItemOnSubscriptions) {
+    this.allowAnyItemOnSubscriptions = allowAnyItemOnSubscriptions;
   }
 
   /**
@@ -325,6 +360,23 @@ public class PlanUpdate extends Request {
   /** @param trialLength Length of plan's trial period in `trial_units`. `0` means `no trial`. */
   public void setTrialLength(final Integer trialLength) {
     this.trialLength = trialLength;
+  }
+
+  /**
+   * Allow free trial subscriptions to be created without billing info. Should not be used if
+   * billing info is needed for initial invoice due to existing uninvoiced charges or setup fee.
+   */
+  public Boolean getTrialRequiresBillingInfo() {
+    return this.trialRequiresBillingInfo;
+  }
+
+  /**
+   * @param trialRequiresBillingInfo Allow free trial subscriptions to be created without billing
+   *     info. Should not be used if billing info is needed for initial invoice due to existing
+   *     uninvoiced charges or setup fee.
+   */
+  public void setTrialRequiresBillingInfo(final Boolean trialRequiresBillingInfo) {
+    this.trialRequiresBillingInfo = trialRequiresBillingInfo;
   }
 
   /** Units for the plan's trial period. */

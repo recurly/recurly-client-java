@@ -1423,11 +1423,26 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Create a new shipping method
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_shipping_method">create_shipping_method api documentation</a>
+   * @param body The body of the request.
+     * @return A new shipping method.
+   */
+  public ShippingMethod createShippingMethod(ShippingMethodCreate body) {
+    final String url = "/shipping_methods";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ShippingMethod.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
    * Fetch a shipping method
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_shipping_method">get_shipping_method api documentation</a>
    * @param id Shipping Method ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-usps_2-day`.
-     * @return A shipping_method.
+     * @return A shipping method.
    */
   public ShippingMethod getShippingMethod(String id) {
     final String url = "/shipping_methods/{id}";
@@ -1436,6 +1451,39 @@ public class Client extends BaseClient {
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = ShippingMethod.class;
     return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Update an active Shipping Method
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/update_shipping_method">update_shipping_method api documentation</a>
+   * @param shippingMethodId Shipping Method ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-usps_2-day`.
+   * @param body The body of the request.
+     * @return The updated shipping method.
+   */
+  public ShippingMethod updateShippingMethod(String shippingMethodId, ShippingMethodUpdate body) {
+    final String url = "/shipping_methods/{shipping_method_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("shipping_method_id", shippingMethodId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ShippingMethod.class;
+    return this.makeRequest("PUT", path, body, returnType);
+  }
+
+  /**
+   * Deactivate a shipping method
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/deactivate_shipping_method">deactivate_shipping_method api documentation</a>
+   * @param shippingMethodId Shipping Method ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-usps_2-day`.
+     * @return A shipping method.
+   */
+  public ShippingMethod deactivateShippingMethod(String shippingMethodId) {
+    final String url = "/shipping_methods/{shipping_method_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("shipping_method_id", shippingMethodId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ShippingMethod.class;
+    return this.makeRequest("DELETE", path, returnType);
   }
 
   /**
