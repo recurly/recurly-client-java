@@ -1,8 +1,26 @@
 # Changelog
 
-## [3.6.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
+## [3.7.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.5.0...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.6.0...HEAD)
+
+**Implemented enhancements:**
+
+- Mon Jun 29 17:11:45 UTC 2020 Upgrade API version v2019-10-10 [\#98](https://github.com/recurly/recurly-client-java/pull/98) ([douglasmiller](https://github.com/douglasmiller))
+- Bump Dependencies [\#97](https://github.com/recurly/recurly-client-java/pull/97) ([bhelx](https://github.com/bhelx))
+
+**Fixed bugs:**
+
+- This library does not work with Play Framework [\#96](https://github.com/recurly/recurly-client-java/issues/96)
+
+**Merged pull requests:**
+
+- Release 3.7.0 [\#99](https://github.com/recurly/recurly-client-java/pull/99) ([douglasmiller](https://github.com/douglasmiller))
+- Document QueryParams [\#95](https://github.com/recurly/recurly-client-java/pull/95) ([bhelx](https://github.com/bhelx))
+
+## [3.6.0](https://github.com/recurly/recurly-client-java/tree/3.6.0) (2020-06-01)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.5.0...3.6.0)
 
 **Implemented enhancements:**
 
