@@ -1716,6 +1716,23 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Preview a new subscription change
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/preview_subscription_change">preview_subscription_change api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+   * @param body The body of the request.
+     * @return A subscription change.
+   */
+  public SubscriptionChangePreview previewSubscriptionChange(String subscriptionId, SubscriptionChangeCreate body) {
+    final String url = "/subscriptions/{subscription_id}/change/preview";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("subscription_id", subscriptionId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = SubscriptionChangePreview.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
    * List a subscription's invoices
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_subscription_invoices">list_subscription_invoices api documentation</a>
