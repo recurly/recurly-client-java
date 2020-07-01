@@ -18,6 +18,16 @@ public class SubscriptionAddOn extends Resource {
   @Expose
   private AddOnMini addOn;
 
+  /**
+   * Used to determine where the associated add-on data is pulled from. If this value is set to
+   * `plan_add_on` or left blank, then add-on data will be pulled from the plan's add-ons. If the
+   * associated `plan` has `allow_any_item_on_subscriptions` set to `true` and this field is set to
+   * `item`, then the associated add-on data will be pulled from the site's item catalog.
+   */
+  @SerializedName("add_on_source")
+  @Expose
+  private String addOnSource;
+
   /** Created at */
   @SerializedName("created_at")
   @Expose
@@ -81,6 +91,27 @@ public class SubscriptionAddOn extends Resource {
   /** @param addOn Just the important parts. */
   public void setAddOn(final AddOnMini addOn) {
     this.addOn = addOn;
+  }
+
+  /**
+   * Used to determine where the associated add-on data is pulled from. If this value is set to
+   * `plan_add_on` or left blank, then add-on data will be pulled from the plan's add-ons. If the
+   * associated `plan` has `allow_any_item_on_subscriptions` set to `true` and this field is set to
+   * `item`, then the associated add-on data will be pulled from the site's item catalog.
+   */
+  public String getAddOnSource() {
+    return this.addOnSource;
+  }
+
+  /**
+   * @param addOnSource Used to determine where the associated add-on data is pulled from. If this
+   *     value is set to `plan_add_on` or left blank, then add-on data will be pulled from the
+   *     plan's add-ons. If the associated `plan` has `allow_any_item_on_subscriptions` set to
+   *     `true` and this field is set to `item`, then the associated add-on data will be pulled from
+   *     the site's item catalog.
+   */
+  public void setAddOnSource(final String addOnSource) {
+    this.addOnSource = addOnSource;
   }
 
   /** Created at */
