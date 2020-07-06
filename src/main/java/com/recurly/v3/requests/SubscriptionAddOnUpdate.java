@@ -14,8 +14,21 @@ import java.util.List;
 public class SubscriptionAddOnUpdate extends Request {
 
   /**
+   * Used to determine where the associated add-on data is pulled from. If this value is set to
+   * `plan_add_on` or left blank, then add_on data will be pulled from the plan's add-ons. If the
+   * associated `plan` has `allow_any_item_on_subscriptions` set to `true` and this field is set to
+   * `item`, then the associated add-on data will be pulled from the site's item catalog.
+   */
+  @SerializedName("add_on_source")
+  @Expose
+  private String addOnSource;
+
+  /**
    * If a code is provided without an id, the subscription add-on attributes will be set to the
-   * current value for those attributes on the plan add-on unless provided in the request.
+   * current value for those attributes on the plan add-on unless provided in the request. If
+   * `add_on_source` is set to `plan_add_on` or left blank, then plan's add-on `code` should be
+   * used. If `add_on_source` is set to `item`, then the `code` from the associated item should be
+   * used.
    */
   @SerializedName("code")
   @Expose
@@ -54,8 +67,32 @@ public class SubscriptionAddOnUpdate extends Request {
   private Float unitAmount;
 
   /**
+   * Used to determine where the associated add-on data is pulled from. If this value is set to
+   * `plan_add_on` or left blank, then add_on data will be pulled from the plan's add-ons. If the
+   * associated `plan` has `allow_any_item_on_subscriptions` set to `true` and this field is set to
+   * `item`, then the associated add-on data will be pulled from the site's item catalog.
+   */
+  public String getAddOnSource() {
+    return this.addOnSource;
+  }
+
+  /**
+   * @param addOnSource Used to determine where the associated add-on data is pulled from. If this
+   *     value is set to `plan_add_on` or left blank, then add_on data will be pulled from the
+   *     plan's add-ons. If the associated `plan` has `allow_any_item_on_subscriptions` set to
+   *     `true` and this field is set to `item`, then the associated add-on data will be pulled from
+   *     the site's item catalog.
+   */
+  public void setAddOnSource(final String addOnSource) {
+    this.addOnSource = addOnSource;
+  }
+
+  /**
    * If a code is provided without an id, the subscription add-on attributes will be set to the
-   * current value for those attributes on the plan add-on unless provided in the request.
+   * current value for those attributes on the plan add-on unless provided in the request. If
+   * `add_on_source` is set to `plan_add_on` or left blank, then plan's add-on `code` should be
+   * used. If `add_on_source` is set to `item`, then the `code` from the associated item should be
+   * used.
    */
   public String getCode() {
     return this.code;
@@ -64,7 +101,9 @@ public class SubscriptionAddOnUpdate extends Request {
   /**
    * @param code If a code is provided without an id, the subscription add-on attributes will be set
    *     to the current value for those attributes on the plan add-on unless provided in the
-   *     request.
+   *     request. If `add_on_source` is set to `plan_add_on` or left blank, then plan's add-on
+   *     `code` should be used. If `add_on_source` is set to `item`, then the `code` from the
+   *     associated item should be used.
    */
   public void setCode(final String code) {
     this.code = code;
