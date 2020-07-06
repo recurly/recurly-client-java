@@ -23,7 +23,11 @@ public class SubscriptionAddOnCreate extends Request {
   @Expose
   private String addOnSource;
 
-  /** Add-on code */
+  /**
+   * If `add_on_source` is set to `plan_add_on` or left blank, then plan's add-on `code` should be
+   * used. If `add_on_source` is set to `item`, then the `code` from the associated item should be
+   * used.
+   */
   @SerializedName("code")
   @Expose
   private String code;
@@ -76,12 +80,20 @@ public class SubscriptionAddOnCreate extends Request {
     this.addOnSource = addOnSource;
   }
 
-  /** Add-on code */
+  /**
+   * If `add_on_source` is set to `plan_add_on` or left blank, then plan's add-on `code` should be
+   * used. If `add_on_source` is set to `item`, then the `code` from the associated item should be
+   * used.
+   */
   public String getCode() {
     return this.code;
   }
 
-  /** @param code Add-on code */
+  /**
+   * @param code If `add_on_source` is set to `plan_add_on` or left blank, then plan's add-on `code`
+   *     should be used. If `add_on_source` is set to `item`, then the `code` from the associated
+   *     item should be used.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
