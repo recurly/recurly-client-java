@@ -43,6 +43,11 @@ public class SubscriptionChange extends Resource {
   @Expose
   private String id;
 
+  /** Invoice Collection */
+  @SerializedName("invoice_collection")
+  @Expose
+  private InvoiceCollection invoiceCollection;
+
   /** Object type */
   @SerializedName("object")
   @Expose
@@ -146,6 +151,16 @@ public class SubscriptionChange extends Resource {
   /** @param id The ID of the Subscription Change. */
   public void setId(final String id) {
     this.id = id;
+  }
+
+  /** Invoice Collection */
+  public InvoiceCollection getInvoiceCollection() {
+    return this.invoiceCollection;
+  }
+
+  /** @param invoiceCollection Invoice Collection */
+  public void setInvoiceCollection(final InvoiceCollection invoiceCollection) {
+    this.invoiceCollection = invoiceCollection;
   }
 
   /** Object type */

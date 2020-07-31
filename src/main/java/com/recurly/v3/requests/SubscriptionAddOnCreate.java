@@ -60,6 +60,15 @@ public class SubscriptionAddOnCreate extends Request {
   private Float unitAmount;
 
   /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage and `usage_type` is
+   * percentage. Must be omitted otherwise. `usage_percentage` does not support tiers.
+   */
+  @SerializedName("usage_percentage")
+  @Expose
+  private Float usagePercentage;
+
+  /**
    * Used to determine where the associated add-on data is pulled from. If this value is set to
    * `plan_add_on` or left blank, then add_on data will be pulled from the plan's add-ons. If the
    * associated `plan` has `allow_any_item_on_subscriptions` set to `true` and this field is set to
@@ -151,5 +160,24 @@ public class SubscriptionAddOnCreate extends Request {
    */
   public void setUnitAmount(final Float unitAmount) {
     this.unitAmount = unitAmount;
+  }
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage and `usage_type` is
+   * percentage. Must be omitted otherwise. `usage_percentage` does not support tiers.
+   */
+  public Float getUsagePercentage() {
+    return this.usagePercentage;
+  }
+
+  /**
+   * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
+   *     be up to 4 decimal places. A value between 0.0 and 100.0. Required if `add_on_type` is
+   *     usage and `usage_type` is percentage. Must be omitted otherwise. `usage_percentage` does
+   *     not support tiers.
+   */
+  public void setUsagePercentage(final Float usagePercentage) {
+    this.usagePercentage = usagePercentage;
   }
 }

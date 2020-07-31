@@ -21,6 +21,11 @@ public class AddOn extends Resource {
   @Expose
   private String accountingCode;
 
+  /** Whether the add-on type is fixed, or usage-based. */
+  @SerializedName("add_on_type")
+  @Expose
+  private String addOnType;
+
   /** The unique identifier for the add-on within its plan. */
   @SerializedName("code")
   @Expose
@@ -65,6 +70,11 @@ public class AddOn extends Resource {
   @SerializedName("item")
   @Expose
   private ItemMini item;
+
+  /** System-generated unique identifier for an measured unit associated with the add-on. */
+  @SerializedName("measured_unit_id")
+  @Expose
+  private String measuredUnitId;
 
   /** Describes your add-on and will appear in subscribers' invoices. */
   @SerializedName("name")
@@ -130,6 +140,19 @@ public class AddOn extends Resource {
   private DateTime updatedAt;
 
   /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0.
+   */
+  @SerializedName("usage_percentage")
+  @Expose
+  private Float usagePercentage;
+
+  /** Type of usage, returns usage type if `add_on_type` is `usage`. */
+  @SerializedName("usage_type")
+  @Expose
+  private String usageType;
+
+  /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
    * add-on's code.
    */
@@ -143,6 +166,16 @@ public class AddOn extends Resource {
    */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
+  }
+
+  /** Whether the add-on type is fixed, or usage-based. */
+  public String getAddOnType() {
+    return this.addOnType;
+  }
+
+  /** @param addOnType Whether the add-on type is fixed, or usage-based. */
+  public void setAddOnType(final String addOnType) {
+    this.addOnType = addOnType;
   }
 
   /** The unique identifier for the add-on within its plan. */
@@ -238,6 +271,19 @@ public class AddOn extends Resource {
   /** @param item Just the important parts. */
   public void setItem(final ItemMini item) {
     this.item = item;
+  }
+
+  /** System-generated unique identifier for an measured unit associated with the add-on. */
+  public String getMeasuredUnitId() {
+    return this.measuredUnitId;
+  }
+
+  /**
+   * @param measuredUnitId System-generated unique identifier for an measured unit associated with
+   *     the add-on.
+   */
+  public void setMeasuredUnitId(final String measuredUnitId) {
+    this.measuredUnitId = measuredUnitId;
   }
 
   /** Describes your add-on and will appear in subscribers' invoices. */
@@ -364,5 +410,31 @@ public class AddOn extends Resource {
   /** @param updatedAt Last updated at */
   public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0.
+   */
+  public Float getUsagePercentage() {
+    return this.usagePercentage;
+  }
+
+  /**
+   * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
+   *     be up to 4 decimal places. A value between 0.0 and 100.0.
+   */
+  public void setUsagePercentage(final Float usagePercentage) {
+    this.usagePercentage = usagePercentage;
+  }
+
+  /** Type of usage, returns usage type if `add_on_type` is `usage`. */
+  public String getUsageType() {
+    return this.usageType;
+  }
+
+  /** @param usageType Type of usage, returns usage type if `add_on_type` is `usage`. */
+  public void setUsageType(final String usageType) {
+    this.usageType = usageType;
   }
 }

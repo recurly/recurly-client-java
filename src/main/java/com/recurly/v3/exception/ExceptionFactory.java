@@ -82,6 +82,8 @@ public class ExceptionFactory {
         return (T) new BadGatewayException(message, null);
       case 503:
         return (T) new ServiceUnavailableException(message, null);
+      case 504:
+        return (T) new TimeoutException(message, null);
       case 304:
         return (T) new NotModifiedException(message, null);
       case 400:
