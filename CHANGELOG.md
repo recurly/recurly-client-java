@@ -1,8 +1,20 @@
 # Changelog
 
-## [3.9.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
+## [3.10.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.8.0...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.9.0...HEAD)
+
+**Implemented enhancements:**
+
+- Latest Changes for 2019-10-10 \(usage, measured units, etc\) [\#104](https://github.com/recurly/recurly-client-java/pull/104) ([bhelx](https://github.com/bhelx))
+
+**Merged pull requests:**
+
+- Release 3.10.0 [\#105](https://github.com/recurly/recurly-client-java/pull/105) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.9.0](https://github.com/recurly/recurly-client-java/tree/3.9.0) (2020-07-06)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.8.0...3.9.0)
 
 **Implemented enhancements:**
 
