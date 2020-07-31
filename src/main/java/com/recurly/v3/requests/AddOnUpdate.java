@@ -53,6 +53,24 @@ public class AddOnUpdate extends Request {
   private String id;
 
   /**
+   * System-generated unique identifier for a measured unit to be associated with the add-on. Either
+   * `measured_unit_id` or `measured_unit_name` are required when `add_on_type` is `usage`. If
+   * `measured_unit_id` and `measured_unit_name` are both present, `measured_unit_id` will be used.
+   */
+  @SerializedName("measured_unit_id")
+  @Expose
+  private String measuredUnitId;
+
+  /**
+   * Name of a measured unit to be associated with the add-on. Either `measured_unit_id` or
+   * `measured_unit_name` are required when `add_on_type` is `usage`. If `measured_unit_id` and
+   * `measured_unit_name` are both present, `measured_unit_id` will be used.
+   */
+  @SerializedName("measured_unit_name")
+  @Expose
+  private String measuredUnitName;
+
+  /**
    * Describes your add-on and will appear in subscribers' invoices. If an `Item` is associated to
    * the `AddOn` then `name` must be absent.
    */
@@ -98,6 +116,15 @@ public class AddOnUpdate extends Request {
   @SerializedName("tiers")
   @Expose
   private List<Tier> tiers;
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage and `usage_type` is
+   * percentage. Must be omitted otherwise. `usage_percentage` does not support tiers.
+   */
+  @SerializedName("usage_percentage")
+  @Expose
+  private Float usagePercentage;
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
@@ -179,6 +206,44 @@ public class AddOnUpdate extends Request {
   /** @param id Add-on ID */
   public void setId(final String id) {
     this.id = id;
+  }
+
+  /**
+   * System-generated unique identifier for a measured unit to be associated with the add-on. Either
+   * `measured_unit_id` or `measured_unit_name` are required when `add_on_type` is `usage`. If
+   * `measured_unit_id` and `measured_unit_name` are both present, `measured_unit_id` will be used.
+   */
+  public String getMeasuredUnitId() {
+    return this.measuredUnitId;
+  }
+
+  /**
+   * @param measuredUnitId System-generated unique identifier for a measured unit to be associated
+   *     with the add-on. Either `measured_unit_id` or `measured_unit_name` are required when
+   *     `add_on_type` is `usage`. If `measured_unit_id` and `measured_unit_name` are both present,
+   *     `measured_unit_id` will be used.
+   */
+  public void setMeasuredUnitId(final String measuredUnitId) {
+    this.measuredUnitId = measuredUnitId;
+  }
+
+  /**
+   * Name of a measured unit to be associated with the add-on. Either `measured_unit_id` or
+   * `measured_unit_name` are required when `add_on_type` is `usage`. If `measured_unit_id` and
+   * `measured_unit_name` are both present, `measured_unit_id` will be used.
+   */
+  public String getMeasuredUnitName() {
+    return this.measuredUnitName;
+  }
+
+  /**
+   * @param measuredUnitName Name of a measured unit to be associated with the add-on. Either
+   *     `measured_unit_id` or `measured_unit_name` are required when `add_on_type` is `usage`. If
+   *     `measured_unit_id` and `measured_unit_name` are both present, `measured_unit_id` will be
+   *     used.
+   */
+  public void setMeasuredUnitName(final String measuredUnitName) {
+    this.measuredUnitName = measuredUnitName;
   }
 
   /**
@@ -274,5 +339,24 @@ public class AddOnUpdate extends Request {
    */
   public void setTiers(final List<Tier> tiers) {
     this.tiers = tiers;
+  }
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage and `usage_type` is
+   * percentage. Must be omitted otherwise. `usage_percentage` does not support tiers.
+   */
+  public Float getUsagePercentage() {
+    return this.usagePercentage;
+  }
+
+  /**
+   * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
+   *     be up to 4 decimal places. A value between 0.0 and 100.0. Required if `add_on_type` is
+   *     usage and `usage_type` is percentage. Must be omitted otherwise. `usage_percentage` does
+   *     not support tiers.
+   */
+  public void setUsagePercentage(final Float usagePercentage) {
+    this.usagePercentage = usagePercentage;
   }
 }

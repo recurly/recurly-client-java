@@ -22,6 +22,11 @@ public class AddOnCreate extends Request {
   @Expose
   private String accountingCode;
 
+  /** Whether the add-on type is fixed, or usage-based. */
+  @SerializedName("add_on_type")
+  @Expose
+  private String addOnType;
+
   /**
    * The unique identifier for the add-on within its plan. If `item_code`/`item_id` is part of the
    * request then `code` must be absent. If `item_code`/`item_id` is not present `code` is required.
@@ -67,6 +72,24 @@ public class AddOnCreate extends Request {
   @SerializedName("item_id")
   @Expose
   private String itemId;
+
+  /**
+   * System-generated unique identifier for a measured unit to be associated with the add-on. Either
+   * `measured_unit_id` or `measured_unit_name` are required when `add_on_type` is `usage`. If
+   * `measured_unit_id` and `measured_unit_name` are both present, `measured_unit_id` will be used.
+   */
+  @SerializedName("measured_unit_id")
+  @Expose
+  private String measuredUnitId;
+
+  /**
+   * Name of a measured unit to be associated with the add-on. Either `measured_unit_id` or
+   * `measured_unit_name` are required when `add_on_type` is `usage`. If `measured_unit_id` and
+   * `measured_unit_name` are both present, `measured_unit_id` will be used.
+   */
+  @SerializedName("measured_unit_name")
+  @Expose
+  private String measuredUnitName;
 
   /**
    * Describes your add-on and will appear in subscribers' invoices. If `item_code`/`item_id` is
@@ -130,6 +153,20 @@ public class AddOnCreate extends Request {
   private List<Tier> tiers;
 
   /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage and `usage_type` is
+   * percentage. Must be omitted otherwise. `usage_percentage` does not support tiers.
+   */
+  @SerializedName("usage_percentage")
+  @Expose
+  private Float usagePercentage;
+
+  /** Type of usage, required if `add_on_type` is `usage`. */
+  @SerializedName("usage_type")
+  @Expose
+  private String usageType;
+
+  /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
    * add-on's code. If `item_code`/`item_id` is part of the request then `accounting_code` must be
    * absent.
@@ -145,6 +182,16 @@ public class AddOnCreate extends Request {
    */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
+  }
+
+  /** Whether the add-on type is fixed, or usage-based. */
+  public String getAddOnType() {
+    return this.addOnType;
+  }
+
+  /** @param addOnType Whether the add-on type is fixed, or usage-based. */
+  public void setAddOnType(final String addOnType) {
+    this.addOnType = addOnType;
   }
 
   /**
@@ -242,6 +289,44 @@ public class AddOnCreate extends Request {
    */
   public void setItemId(final String itemId) {
     this.itemId = itemId;
+  }
+
+  /**
+   * System-generated unique identifier for a measured unit to be associated with the add-on. Either
+   * `measured_unit_id` or `measured_unit_name` are required when `add_on_type` is `usage`. If
+   * `measured_unit_id` and `measured_unit_name` are both present, `measured_unit_id` will be used.
+   */
+  public String getMeasuredUnitId() {
+    return this.measuredUnitId;
+  }
+
+  /**
+   * @param measuredUnitId System-generated unique identifier for a measured unit to be associated
+   *     with the add-on. Either `measured_unit_id` or `measured_unit_name` are required when
+   *     `add_on_type` is `usage`. If `measured_unit_id` and `measured_unit_name` are both present,
+   *     `measured_unit_id` will be used.
+   */
+  public void setMeasuredUnitId(final String measuredUnitId) {
+    this.measuredUnitId = measuredUnitId;
+  }
+
+  /**
+   * Name of a measured unit to be associated with the add-on. Either `measured_unit_id` or
+   * `measured_unit_name` are required when `add_on_type` is `usage`. If `measured_unit_id` and
+   * `measured_unit_name` are both present, `measured_unit_id` will be used.
+   */
+  public String getMeasuredUnitName() {
+    return this.measuredUnitName;
+  }
+
+  /**
+   * @param measuredUnitName Name of a measured unit to be associated with the add-on. Either
+   *     `measured_unit_id` or `measured_unit_name` are required when `add_on_type` is `usage`. If
+   *     `measured_unit_id` and `measured_unit_name` are both present, `measured_unit_id` will be
+   *     used.
+   */
+  public void setMeasuredUnitName(final String measuredUnitName) {
+    this.measuredUnitName = measuredUnitName;
   }
 
   /**
@@ -365,5 +450,34 @@ public class AddOnCreate extends Request {
    */
   public void setTiers(final List<Tier> tiers) {
     this.tiers = tiers;
+  }
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage and `usage_type` is
+   * percentage. Must be omitted otherwise. `usage_percentage` does not support tiers.
+   */
+  public Float getUsagePercentage() {
+    return this.usagePercentage;
+  }
+
+  /**
+   * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
+   *     be up to 4 decimal places. A value between 0.0 and 100.0. Required if `add_on_type` is
+   *     usage and `usage_type` is percentage. Must be omitted otherwise. `usage_percentage` does
+   *     not support tiers.
+   */
+  public void setUsagePercentage(final Float usagePercentage) {
+    this.usagePercentage = usagePercentage;
+  }
+
+  /** Type of usage, required if `add_on_type` is `usage`. */
+  public String getUsageType() {
+    return this.usageType;
+  }
+
+  /** @param usageType Type of usage, required if `add_on_type` is `usage`. */
+  public void setUsageType(final String usageType) {
+    this.usageType = usageType;
   }
 }

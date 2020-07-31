@@ -43,7 +43,7 @@ public class SubscriptionChangePreview extends Resource {
   @Expose
   private String id;
 
-  /** Invoice collection */
+  /** Invoice Collection */
   @SerializedName("invoice_collection")
   @Expose
   private InvoiceCollection invoiceCollection;
@@ -153,12 +153,12 @@ public class SubscriptionChangePreview extends Resource {
     this.id = id;
   }
 
-  /** Invoice collection */
+  /** Invoice Collection */
   public InvoiceCollection getInvoiceCollection() {
     return this.invoiceCollection;
   }
 
-  /** @param invoiceCollection Invoice collection */
+  /** @param invoiceCollection Invoice Collection */
   public void setInvoiceCollection(final InvoiceCollection invoiceCollection) {
     this.invoiceCollection = invoiceCollection;
   }

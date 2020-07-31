@@ -68,7 +68,10 @@ public class SubscriptionAddOn extends Resource {
   @Expose
   private String tierType;
 
-  /** Empty unless `tier_type` is `tiered`, `volume`, or `stairstep`. */
+  /**
+   * If tiers are provided in the request, all existing tiers on the Subscription Add-on will be
+   * removed and replaced by the tiers in the request.
+   */
   @SerializedName("tiers")
   @Expose
   private List<SubscriptionAddOnTier> tiers;
@@ -82,6 +85,15 @@ public class SubscriptionAddOn extends Resource {
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0. Required if add_on_type is usage and usage_type is
+   * percentage.
+   */
+  @SerializedName("usage_percentage")
+  @Expose
+  private Float usagePercentage;
 
   /** Just the important parts. */
   public AddOnMini getAddOn() {
@@ -194,12 +206,18 @@ public class SubscriptionAddOn extends Resource {
     this.tierType = tierType;
   }
 
-  /** Empty unless `tier_type` is `tiered`, `volume`, or `stairstep`. */
+  /**
+   * If tiers are provided in the request, all existing tiers on the Subscription Add-on will be
+   * removed and replaced by the tiers in the request.
+   */
   public List<SubscriptionAddOnTier> getTiers() {
     return this.tiers;
   }
 
-  /** @param tiers Empty unless `tier_type` is `tiered`, `volume`, or `stairstep`. */
+  /**
+   * @param tiers If tiers are provided in the request, all existing tiers on the Subscription
+   *     Add-on will be removed and replaced by the tiers in the request.
+   */
   public void setTiers(final List<SubscriptionAddOnTier> tiers) {
     this.tiers = tiers;
   }
@@ -222,5 +240,23 @@ public class SubscriptionAddOn extends Resource {
   /** @param updatedAt Updated at */
   public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0. Required if add_on_type is usage and usage_type is
+   * percentage.
+   */
+  public Float getUsagePercentage() {
+    return this.usagePercentage;
+  }
+
+  /**
+   * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
+   *     be up to 4 decimal places. A value between 0.0 and 100.0. Required if add_on_type is usage
+   *     and usage_type is percentage.
+   */
+  public void setUsagePercentage(final Float usagePercentage) {
+    this.usagePercentage = usagePercentage;
   }
 }
