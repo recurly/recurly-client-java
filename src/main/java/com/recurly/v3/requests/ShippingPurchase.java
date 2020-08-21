@@ -18,8 +18,8 @@ public class ShippingPurchase extends Request {
   private ShippingAddressCreate address;
 
   /**
-   * Assign a shipping address from the account's existing shipping addresses. If this and
-   * `shipping_address` are both present, `shipping_address` will take precedence.
+   * Assign a shipping address from the account's existing shipping addresses. If this and `address`
+   * are both present, `address` will take precedence.
    */
   @SerializedName("address_id")
   @Expose
@@ -40,8 +40,8 @@ public class ShippingPurchase extends Request {
   }
 
   /**
-   * Assign a shipping address from the account's existing shipping addresses. If this and
-   * `shipping_address` are both present, `shipping_address` will take precedence.
+   * Assign a shipping address from the account's existing shipping addresses. If this and `address`
+   * are both present, `address` will take precedence.
    */
   public String getAddressId() {
     return this.addressId;
@@ -49,7 +49,7 @@ public class ShippingPurchase extends Request {
 
   /**
    * @param addressId Assign a shipping address from the account's existing shipping addresses. If
-   *     this and `shipping_address` are both present, `shipping_address` will take precedence.
+   *     this and `address` are both present, `address` will take precedence.
    */
   public void setAddressId(final String addressId) {
     this.addressId = addressId;

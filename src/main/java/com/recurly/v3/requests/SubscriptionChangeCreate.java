@@ -14,9 +14,10 @@ import java.util.List;
 public class SubscriptionChangeCreate extends Request {
 
   /**
-   * If you provide a value for this field it will replace any existing add-ons. So, when adding or
-   * modifying an add-on, you need to include the existing subscription add-ons. Unchanged add-ons
-   * can be included just using the subscription add-on's ID: `{"id": "abc123"}`.
+   * If this value is omitted your existing add-ons will be removed. If you provide a value for this
+   * field it will replace any existing add-ons. So, when adding or modifying an add-on, you need to
+   * include the existing subscription add-ons. Unchanged add-ons can be included just using the
+   * subscription add-on's ID: `{"id": "abc123"}`.
    *
    * <p>If a subscription add-on's `code` is supplied without the `id`, `{"code": "def456"}`, the
    * subscription add-on attributes will be set to the current values of the plan add-on unless
@@ -119,9 +120,10 @@ public class SubscriptionChangeCreate extends Request {
   private Float unitAmount;
 
   /**
-   * If you provide a value for this field it will replace any existing add-ons. So, when adding or
-   * modifying an add-on, you need to include the existing subscription add-ons. Unchanged add-ons
-   * can be included just using the subscription add-on's ID: `{"id": "abc123"}`.
+   * If this value is omitted your existing add-ons will be removed. If you provide a value for this
+   * field it will replace any existing add-ons. So, when adding or modifying an add-on, you need to
+   * include the existing subscription add-ons. Unchanged add-ons can be included just using the
+   * subscription add-on's ID: `{"id": "abc123"}`.
    *
    * <p>If a subscription add-on's `code` is supplied without the `id`, `{"code": "def456"}`, the
    * subscription add-on attributes will be set to the current values of the plan add-on unless
@@ -137,10 +139,10 @@ public class SubscriptionChangeCreate extends Request {
   }
 
   /**
-   * @param addOns If you provide a value for this field it will replace any existing add-ons. So,
-   *     when adding or modifying an add-on, you need to include the existing subscription add-ons.
-   *     Unchanged add-ons can be included just using the subscription add-on's ID: `{"id":
-   *     "abc123"}`.
+   * @param addOns If this value is omitted your existing add-ons will be removed. If you provide a
+   *     value for this field it will replace any existing add-ons. So, when adding or modifying an
+   *     add-on, you need to include the existing subscription add-ons. Unchanged add-ons can be
+   *     included just using the subscription add-on's ID: `{"id": "abc123"}`.
    *     <p>If a subscription add-on's `code` is supplied without the `id`, `{"code": "def456"}`,
    *     the subscription add-on attributes will be set to the current values of the plan add-on
    *     unless provided in the request.

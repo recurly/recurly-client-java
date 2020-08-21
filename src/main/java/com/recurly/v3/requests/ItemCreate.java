@@ -18,6 +18,26 @@ public class ItemCreate extends Request {
   @Expose
   private String accountingCode;
 
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  @SerializedName("avalara_service_type")
+  @Expose
+  private Integer avalaraServiceType;
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  @SerializedName("avalara_transaction_type")
+  @Expose
+  private Integer avalaraTransactionType;
+
   /** Unique code to identify the item. */
   @SerializedName("code")
   @Expose
@@ -82,6 +102,46 @@ public class ItemCreate extends Request {
   /** @param accountingCode Accounting code for invoice line items. */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  public Integer getAvalaraServiceType() {
+    return this.avalaraServiceType;
+  }
+
+  /**
+   * @param avalaraServiceType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the item is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types.
+   */
+  public void setAvalaraServiceType(final Integer avalaraServiceType) {
+    this.avalaraServiceType = avalaraServiceType;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  public Integer getAvalaraTransactionType() {
+    return this.avalaraTransactionType;
+  }
+
+  /**
+   * @param avalaraTransactionType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the item is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types.
+   */
+  public void setAvalaraTransactionType(final Integer avalaraTransactionType) {
+    this.avalaraTransactionType = avalaraTransactionType;
   }
 
   /** Unique code to identify the item. */

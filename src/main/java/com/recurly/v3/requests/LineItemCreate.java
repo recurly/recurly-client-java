@@ -22,6 +22,28 @@ public class LineItemCreate extends Request {
   private String accountingCode;
 
   /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the line item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types. If an `Item` is associated to the `LineItem`, then the
+   * `avalara_service_type` must be absent.
+   */
+  @SerializedName("avalara_service_type")
+  @Expose
+  private Integer avalaraServiceType;
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the line item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types. If an `Item` is associated to the `LineItem`, then the
+   * `avalara_transaction_type` must be absent.
+   */
+  @SerializedName("avalara_transaction_type")
+  @Expose
+  private Integer avalaraTransactionType;
+
+  /**
    * The reason the credit was given when line item is `type=credit`. When the Credit Invoices
    * feature is enabled, the value can be set and will default to `general`. When the Credit
    * Invoices feature is not enabled, the value will always be `null`.
@@ -161,6 +183,50 @@ public class LineItemCreate extends Request {
    */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the line item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types. If an `Item` is associated to the `LineItem`, then the
+   * `avalara_service_type` must be absent.
+   */
+  public Integer getAvalaraServiceType() {
+    return this.avalaraServiceType;
+  }
+
+  /**
+   * @param avalaraServiceType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the line item is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types. If an `Item` is associated to the `LineItem`, then the
+   *     `avalara_service_type` must be absent.
+   */
+  public void setAvalaraServiceType(final Integer avalaraServiceType) {
+    this.avalaraServiceType = avalaraServiceType;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the line item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types. If an `Item` is associated to the `LineItem`, then the
+   * `avalara_transaction_type` must be absent.
+   */
+  public Integer getAvalaraTransactionType() {
+    return this.avalaraTransactionType;
+  }
+
+  /**
+   * @param avalaraTransactionType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the line item is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types. If an `Item` is associated to the `LineItem`, then the
+   *     `avalara_transaction_type` must be absent.
+   */
+  public void setAvalaraTransactionType(final Integer avalaraTransactionType) {
+    this.avalaraTransactionType = avalaraTransactionType;
   }
 
   /**

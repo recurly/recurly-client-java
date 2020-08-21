@@ -26,6 +26,26 @@ public class AddOn extends Resource {
   @Expose
   private String addOnType;
 
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the add-on is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  @SerializedName("avalara_service_type")
+  @Expose
+  private Integer avalaraServiceType;
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the add-on is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  @SerializedName("avalara_transaction_type")
+  @Expose
+  private Integer avalaraTransactionType;
+
   /** The unique identifier for the add-on within its plan. */
   @SerializedName("code")
   @Expose
@@ -176,6 +196,46 @@ public class AddOn extends Resource {
   /** @param addOnType Whether the add-on type is fixed, or usage-based. */
   public void setAddOnType(final String addOnType) {
     this.addOnType = addOnType;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the add-on is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  public Integer getAvalaraServiceType() {
+    return this.avalaraServiceType;
+  }
+
+  /**
+   * @param avalaraServiceType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the add-on is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types.
+   */
+  public void setAvalaraServiceType(final Integer avalaraServiceType) {
+    this.avalaraServiceType = avalaraServiceType;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the add-on is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  public Integer getAvalaraTransactionType() {
+    return this.avalaraTransactionType;
+  }
+
+  /**
+   * @param avalaraTransactionType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the add-on is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types.
+   */
+  public void setAvalaraTransactionType(final Integer avalaraTransactionType) {
+    this.avalaraTransactionType = avalaraTransactionType;
   }
 
   /** The unique identifier for the add-on within its plan. */

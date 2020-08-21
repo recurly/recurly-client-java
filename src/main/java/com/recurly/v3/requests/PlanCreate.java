@@ -46,6 +46,26 @@ public class PlanCreate extends Request {
   private Boolean autoRenew;
 
   /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the plan is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  @SerializedName("avalara_service_type")
+  @Expose
+  private Integer avalaraServiceType;
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the plan is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  @SerializedName("avalara_transaction_type")
+  @Expose
+  private Integer avalaraTransactionType;
+
+  /**
    * Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice
    * exports.
    */
@@ -204,6 +224,46 @@ public class PlanCreate extends Request {
    */
   public void setAutoRenew(final Boolean autoRenew) {
     this.autoRenew = autoRenew;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the plan is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  public Integer getAvalaraServiceType() {
+    return this.avalaraServiceType;
+  }
+
+  /**
+   * @param avalaraServiceType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the plan is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types.
+   */
+  public void setAvalaraServiceType(final Integer avalaraServiceType) {
+    this.avalaraServiceType = avalaraServiceType;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the plan is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  public Integer getAvalaraTransactionType() {
+    return this.avalaraTransactionType;
+  }
+
+  /**
+   * @param avalaraTransactionType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the plan is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types.
+   */
+  public void setAvalaraTransactionType(final Integer avalaraTransactionType) {
+    this.avalaraTransactionType = avalaraTransactionType;
   }
 
   /**
