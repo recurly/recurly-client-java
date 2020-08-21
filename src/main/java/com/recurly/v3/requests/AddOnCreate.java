@@ -28,6 +28,28 @@ public class AddOnCreate extends Request {
   private String addOnType;
 
   /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the add-on is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types. If an `Item` is associated to the `AddOn`, then the
+   * `avalara_service_type` must be absent.
+   */
+  @SerializedName("avalara_service_type")
+  @Expose
+  private Integer avalaraServiceType;
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the add-on is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types. If an `Item` is associated to the `AddOn`, then the
+   * `avalara_transaction_type` must be absent.
+   */
+  @SerializedName("avalara_transaction_type")
+  @Expose
+  private Integer avalaraTransactionType;
+
+  /**
    * The unique identifier for the add-on within its plan. If `item_code`/`item_id` is part of the
    * request then `code` must be absent. If `item_code`/`item_id` is not present `code` is required.
    */
@@ -192,6 +214,50 @@ public class AddOnCreate extends Request {
   /** @param addOnType Whether the add-on type is fixed, or usage-based. */
   public void setAddOnType(final String addOnType) {
     this.addOnType = addOnType;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the add-on is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types. If an `Item` is associated to the `AddOn`, then the
+   * `avalara_service_type` must be absent.
+   */
+  public Integer getAvalaraServiceType() {
+    return this.avalaraServiceType;
+  }
+
+  /**
+   * @param avalaraServiceType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the add-on is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types. If an `Item` is associated to the `AddOn`, then the
+   *     `avalara_service_type` must be absent.
+   */
+  public void setAvalaraServiceType(final Integer avalaraServiceType) {
+    this.avalaraServiceType = avalaraServiceType;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the add-on is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types. If an `Item` is associated to the `AddOn`, then the
+   * `avalara_transaction_type` must be absent.
+   */
+  public Integer getAvalaraTransactionType() {
+    return this.avalaraTransactionType;
+  }
+
+  /**
+   * @param avalaraTransactionType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the add-on is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types. If an `Item` is associated to the `AddOn`, then the
+   *     `avalara_transaction_type` must be absent.
+   */
+  public void setAvalaraTransactionType(final Integer avalaraTransactionType) {
+    this.avalaraTransactionType = avalaraTransactionType;
   }
 
   /**
