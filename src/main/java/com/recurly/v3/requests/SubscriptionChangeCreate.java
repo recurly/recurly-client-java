@@ -46,6 +46,15 @@ public class SubscriptionChangeCreate extends Request {
   private List<String> couponCodes;
 
   /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
+  @SerializedName("custom_fields")
+  @Expose
+  private List<CustomField> customFields;
+
+  /**
    * Integer representing the number of days after an invoice's creation that the invoice will
    * become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will
    * become past due 24 hours after it’s created. If an invoice is due net 30, it will become past
@@ -180,6 +189,24 @@ public class SubscriptionChangeCreate extends Request {
    */
   public void setCouponCodes(final List<String> couponCodes) {
     this.couponCodes = couponCodes;
+  }
+
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
+  public List<CustomField> getCustomFields() {
+    return this.customFields;
+  }
+
+  /**
+   * @param customFields The custom fields will only be altered when they are included in a request.
+   *     Sending an empty array will not remove any existing values. To remove a field send the name
+   *     with a null or empty value.
+   */
+  public void setCustomFields(final List<CustomField> customFields) {
+    this.customFields = customFields;
   }
 
   /**

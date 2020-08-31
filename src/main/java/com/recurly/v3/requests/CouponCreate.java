@@ -120,7 +120,10 @@ public class CouponCreate extends Request {
   @Expose
   private String name;
 
-  /** List of plan codes to which this coupon applies. See `applies_to_all_plans` */
+  /**
+   * List of plan codes to which this coupon applies. Required if `applies_to_all_plans` is false.
+   * Overrides `applies_to_all_plans` when `applies_to_all_plans` is true.
+   */
   @SerializedName("plan_codes")
   @Expose
   private List<String> planCodes;
@@ -390,13 +393,18 @@ public class CouponCreate extends Request {
     this.name = name;
   }
 
-  /** List of plan codes to which this coupon applies. See `applies_to_all_plans` */
+  /**
+   * List of plan codes to which this coupon applies. Required if `applies_to_all_plans` is false.
+   * Overrides `applies_to_all_plans` when `applies_to_all_plans` is true.
+   */
   public List<String> getPlanCodes() {
     return this.planCodes;
   }
 
   /**
-   * @param planCodes List of plan codes to which this coupon applies. See `applies_to_all_plans`
+   * @param planCodes List of plan codes to which this coupon applies. Required if
+   *     `applies_to_all_plans` is false. Overrides `applies_to_all_plans` when
+   *     `applies_to_all_plans` is true.
    */
   public void setPlanCodes(final List<String> planCodes) {
     this.planCodes = planCodes;
