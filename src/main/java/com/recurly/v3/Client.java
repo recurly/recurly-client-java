@@ -2067,4 +2067,35 @@ public class Client extends BaseClient {
     Type returnType = InvoiceCollection.class;
     return this.makeRequest("POST", path, body, returnType);
   }
+
+  /**
+   * List the dates that have an available export to download.
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_export_dates">get_export_dates api documentation</a>
+     * @return Returns a list of dates.
+   */
+  public ExportDates getExportDates() {
+    final String url = "/export_dates";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExportDates.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * List of the export files that are available to download.
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_export_files">get_export_files api documentation</a>
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return Returns a list of export files to download.
+   */
+  public ExportFiles getExportFiles(QueryParams queryParams) {
+    final String url = "/export_dates/{export_date}/export_files";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExportFiles.class;
+    return this.makeRequest("GET", path, paramsMap, returnType);
+  }
 }
