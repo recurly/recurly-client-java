@@ -89,8 +89,4 @@ public class QueryParams {
   public void setBillingStatus(final String billingStatus) {
     this.add("billing_status", billingStatus);
   }
-
-  public void setDate(final String date) {
-    this.add("date", date);
-  }
 }

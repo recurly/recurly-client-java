@@ -2086,16 +2086,15 @@ public class Client extends BaseClient {
    * List of the export files that are available to download.
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_export_files">get_export_files api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param exportDate Date for which to get a list of available automated export files. Date must be in YYYY-MM-DD format.
      * @return Returns a list of export files to download.
    */
-  public ExportFiles getExportFiles(QueryParams queryParams) {
+  public ExportFiles getExportFiles(String exportDate) {
     final String url = "/export_dates/{export_date}/export_files";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
-    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    urlParams.put("export_date", exportDate);
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = ExportFiles.class;
-    return this.makeRequest("GET", path, paramsMap, returnType);
+    return this.makeRequest("GET", path, returnType);
   }
 }
