@@ -45,7 +45,9 @@ public class SubscriptionAddOnCreate extends Request {
   /**
    * If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. The `tiers` object
    * must include one to many tiers with `ending_quantity` and `unit_amount`. There must be one tier
-   * with an `ending_quantity` of 999999999 which is the default if not provided.
+   * with an `ending_quantity` of 999999999 which is the default if not provided. See our
+   * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
+   * configure quantity-based pricing models.
    */
   @SerializedName("tiers")
   @Expose
@@ -62,7 +64,9 @@ public class SubscriptionAddOnCreate extends Request {
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
    * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage and `usage_type` is
-   * percentage. Must be omitted otherwise. `usage_percentage` does not support tiers.
+   * percentage. Must be omitted otherwise. `usage_percentage` does not support tiers. See our
+   * [Guide](https://developers.recurly.com/guides/usage-based-billing-guide.html) for an overview
+   * of how to configure usage add-ons.
    */
   @SerializedName("usage_percentage")
   @Expose
@@ -130,7 +134,9 @@ public class SubscriptionAddOnCreate extends Request {
   /**
    * If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. The `tiers` object
    * must include one to many tiers with `ending_quantity` and `unit_amount`. There must be one tier
-   * with an `ending_quantity` of 999999999 which is the default if not provided.
+   * with an `ending_quantity` of 999999999 which is the default if not provided. See our
+   * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
+   * configure quantity-based pricing models.
    */
   public List<SubscriptionAddOnTier> getTiers() {
     return this.tiers;
@@ -140,7 +146,8 @@ public class SubscriptionAddOnCreate extends Request {
    * @param tiers If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. The
    *     `tiers` object must include one to many tiers with `ending_quantity` and `unit_amount`.
    *     There must be one tier with an `ending_quantity` of 999999999 which is the default if not
-   *     provided.
+   *     provided. See our [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for
+   *     an overview of how to configure quantity-based pricing models.
    */
   public void setTiers(final List<SubscriptionAddOnTier> tiers) {
     this.tiers = tiers;
@@ -165,7 +172,9 @@ public class SubscriptionAddOnCreate extends Request {
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
    * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage and `usage_type` is
-   * percentage. Must be omitted otherwise. `usage_percentage` does not support tiers.
+   * percentage. Must be omitted otherwise. `usage_percentage` does not support tiers. See our
+   * [Guide](https://developers.recurly.com/guides/usage-based-billing-guide.html) for an overview
+   * of how to configure usage add-ons.
    */
   public Float getUsagePercentage() {
     return this.usagePercentage;
@@ -175,7 +184,9 @@ public class SubscriptionAddOnCreate extends Request {
    * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
    *     be up to 4 decimal places. A value between 0.0 and 100.0. Required if `add_on_type` is
    *     usage and `usage_type` is percentage. Must be omitted otherwise. `usage_percentage` does
-   *     not support tiers.
+   *     not support tiers. See our
+   *     [Guide](https://developers.recurly.com/guides/usage-based-billing-guide.html) for an
+   *     overview of how to configure usage add-ons.
    */
   public void setUsagePercentage(final Float usagePercentage) {
     this.usagePercentage = usagePercentage;

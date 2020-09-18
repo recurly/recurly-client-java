@@ -16,6 +16,11 @@ public class ExportFiles extends Resource {
   @Expose
   private List<ExportFile> files;
 
+  /** Object type */
+  @SerializedName("object")
+  @Expose
+  private String object;
+
   public List<ExportFile> getFiles() {
     return this.files;
   }
@@ -23,5 +28,15 @@ public class ExportFiles extends Resource {
   /** @param files */
   public void setFiles(final List<ExportFile> files) {
     this.files = files;
+  }
+
+  /** Object type */
+  public String getObject() {
+    return this.object;
+  }
+
+  /** @param object Object type */
+  public void setObject(final String object) {
+    this.object = object;
   }
 }

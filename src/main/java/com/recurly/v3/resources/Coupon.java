@@ -141,7 +141,7 @@ public class Coupon extends Resource {
   @Expose
   private List<PlanMini> plans;
 
-  /** TODO */
+  /** A list of plan names for which this coupon applies. */
   @SerializedName("plans_names")
   @Expose
   private List<String> plansNames;
@@ -467,12 +467,12 @@ public class Coupon extends Resource {
     this.plans = plans;
   }
 
-  /** TODO */
+  /** A list of plan names for which this coupon applies. */
   public List<String> getPlansNames() {
     return this.plansNames;
   }
 
-  /** @param plansNames TODO */
+  /** @param plansNames A list of plan names for which this coupon applies. */
   public void setPlansNames(final List<String> plansNames) {
     this.plansNames = plansNames;
   }

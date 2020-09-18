@@ -17,6 +17,11 @@ public class ExportDates extends Resource {
   @Expose
   private List<String> dates;
 
+  /** Object type */
+  @SerializedName("object")
+  @Expose
+  private String object;
+
   /** An array of dates that have available exports. */
   public List<String> getDates() {
     return this.dates;
@@ -25,5 +30,15 @@ public class ExportDates extends Resource {
   /** @param dates An array of dates that have available exports. */
   public void setDates(final List<String> dates) {
     this.dates = dates;
+  }
+
+  /** Object type */
+  public String getObject() {
+    return this.object;
+  }
+
+  /** @param object Object type */
+  public void setObject(final String object) {
+    this.object = object;
   }
 }
