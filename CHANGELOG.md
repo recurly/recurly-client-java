@@ -1,8 +1,33 @@
 # Changelog
 
-## [3.10.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
+## [3.12.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.9.0...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.11.0...HEAD)
+
+**Implemented enhancements:**
+
+- Mon Aug 31 19:46:57 UTC 2020 Upgrade API version v2019-10-10 [\#109](https://github.com/recurly/recurly-client-java/pull/109) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.12.0 [\#110](https://github.com/recurly/recurly-client-java/pull/110) ([douglasmiller](https://github.com/douglasmiller))
+- Code of Conduct [\#108](https://github.com/recurly/recurly-client-java/pull/108) ([bhelx](https://github.com/bhelx))
+
+## [3.11.0](https://github.com/recurly/recurly-client-java/tree/3.11.0) (2020-08-21)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.10.0...3.11.0)
+
+**Implemented enhancements:**
+
+- Fri Aug 21 16:23:02 UTC 2020 Upgrade API version v2019-10-10 [\#106](https://github.com/recurly/recurly-client-java/pull/106) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.11.0 [\#107](https://github.com/recurly/recurly-client-java/pull/107) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.10.0](https://github.com/recurly/recurly-client-java/tree/3.10.0) (2020-07-31)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.9.0...3.10.0)
 
 **Implemented enhancements:**
 
