@@ -75,10 +75,23 @@ public class Usage extends Resource {
   @Expose
   private List<SubscriptionAddOnTier> tiers;
 
+  /** Unit price */
+  @SerializedName("unit_amount")
+  @Expose
+  private Float unitAmount;
+
   /** When the usage record was billed on an invoice. */
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0.
+   */
+  @SerializedName("usage_percentage")
+  @Expose
+  private Float usagePercentage;
 
   /**
    * When the usage actually happened. This will define the line item dates this usage is billed
@@ -222,6 +235,16 @@ public class Usage extends Resource {
     this.tiers = tiers;
   }
 
+  /** Unit price */
+  public Float getUnitAmount() {
+    return this.unitAmount;
+  }
+
+  /** @param unitAmount Unit price */
+  public void setUnitAmount(final Float unitAmount) {
+    this.unitAmount = unitAmount;
+  }
+
   /** When the usage record was billed on an invoice. */
   public DateTime getUpdatedAt() {
     return this.updatedAt;
@@ -230,6 +253,22 @@ public class Usage extends Resource {
   /** @param updatedAt When the usage record was billed on an invoice. */
   public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0.
+   */
+  public Float getUsagePercentage() {
+    return this.usagePercentage;
+  }
+
+  /**
+   * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
+   *     be up to 4 decimal places. A value between 0.0 and 100.0.
+   */
+  public void setUsagePercentage(final Float usagePercentage) {
+    this.usagePercentage = usagePercentage;
   }
 
   /**

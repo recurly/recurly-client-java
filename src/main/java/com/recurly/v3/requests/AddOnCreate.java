@@ -159,7 +159,9 @@ public class AddOnCreate extends Request {
 
   /**
    * The pricing model for the add-on. For more information, [click
-   * here](https://docs.recurly.com/docs/billing-models#section-quantity-based).
+   * here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
+   * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
+   * configure quantity-based pricing models.
    */
   @SerializedName("tier_type")
   @Expose
@@ -183,7 +185,11 @@ public class AddOnCreate extends Request {
   @Expose
   private Float usagePercentage;
 
-  /** Type of usage, required if `add_on_type` is `usage`. */
+  /**
+   * Type of usage, required if `add_on_type` is `usage`. See our
+   * [Guide](https://developers.recurly.com/guides/usage-based-billing-guide.html) for an overview
+   * of how to configure usage add-ons.
+   */
   @SerializedName("usage_type")
   @Expose
   private String usageType;
@@ -485,7 +491,9 @@ public class AddOnCreate extends Request {
 
   /**
    * The pricing model for the add-on. For more information, [click
-   * here](https://docs.recurly.com/docs/billing-models#section-quantity-based).
+   * here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
+   * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
+   * configure quantity-based pricing models.
    */
   public String getTierType() {
     return this.tierType;
@@ -493,7 +501,9 @@ public class AddOnCreate extends Request {
 
   /**
    * @param tierType The pricing model for the add-on. For more information, [click
-   *     here](https://docs.recurly.com/docs/billing-models#section-quantity-based).
+   *     here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
+   *     [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
+   *     to configure quantity-based pricing models.
    */
   public void setTierType(final String tierType) {
     this.tierType = tierType;
@@ -537,12 +547,20 @@ public class AddOnCreate extends Request {
     this.usagePercentage = usagePercentage;
   }
 
-  /** Type of usage, required if `add_on_type` is `usage`. */
+  /**
+   * Type of usage, required if `add_on_type` is `usage`. See our
+   * [Guide](https://developers.recurly.com/guides/usage-based-billing-guide.html) for an overview
+   * of how to configure usage add-ons.
+   */
   public String getUsageType() {
     return this.usageType;
   }
 
-  /** @param usageType Type of usage, required if `add_on_type` is `usage`. */
+  /**
+   * @param usageType Type of usage, required if `add_on_type` is `usage`. See our
+   *     [Guide](https://developers.recurly.com/guides/usage-based-billing-guide.html) for an
+   *     overview of how to configure usage add-ons.
+   */
   public void setUsageType(final String usageType) {
     this.usageType = usageType;
   }

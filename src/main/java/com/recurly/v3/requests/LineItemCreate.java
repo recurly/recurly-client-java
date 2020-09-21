@@ -92,9 +92,11 @@ public class LineItemCreate extends Request {
   private String itemId;
 
   /**
-   * Only allowed if the Gift Cards feature is enabled on your site and `type` is `credit`. Can only
-   * have a value of `external_gift_card`. Set this value in order to track gift card credits from
-   * external gift cards (like InComm). It also skips billing information requirements.
+   * Origin `external_gift_card` is allowed if the Gift Cards feature is enabled on your site and
+   * `type` is `credit`. Set this value in order to track gift card credits from external gift cards
+   * (like InComm). It also skips billing information requirements. Origin `prepayment` is only
+   * allowed if `type` is `charge` and `tax_exempt` is left blank or set to true. This origin
+   * creates a charge and opposite credit on the account to be used for future invoices.
    */
   @SerializedName("origin")
   @Expose
@@ -326,19 +328,23 @@ public class LineItemCreate extends Request {
   }
 
   /**
-   * Only allowed if the Gift Cards feature is enabled on your site and `type` is `credit`. Can only
-   * have a value of `external_gift_card`. Set this value in order to track gift card credits from
-   * external gift cards (like InComm). It also skips billing information requirements.
+   * Origin `external_gift_card` is allowed if the Gift Cards feature is enabled on your site and
+   * `type` is `credit`. Set this value in order to track gift card credits from external gift cards
+   * (like InComm). It also skips billing information requirements. Origin `prepayment` is only
+   * allowed if `type` is `charge` and `tax_exempt` is left blank or set to true. This origin
+   * creates a charge and opposite credit on the account to be used for future invoices.
    */
   public String getOrigin() {
     return this.origin;
   }
 
   /**
-   * @param origin Only allowed if the Gift Cards feature is enabled on your site and `type` is
-   *     `credit`. Can only have a value of `external_gift_card`. Set this value in order to track
-   *     gift card credits from external gift cards (like InComm). It also skips billing information
-   *     requirements.
+   * @param origin Origin `external_gift_card` is allowed if the Gift Cards feature is enabled on
+   *     your site and `type` is `credit`. Set this value in order to track gift card credits from
+   *     external gift cards (like InComm). It also skips billing information requirements. Origin
+   *     `prepayment` is only allowed if `type` is `charge` and `tax_exempt` is left blank or set to
+   *     true. This origin creates a charge and opposite credit on the account to be used for future
+   *     invoices.
    */
   public void setOrigin(final String origin) {
     this.origin = origin;
