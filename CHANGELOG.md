@@ -1,8 +1,20 @@
 # Changelog
 
-## [3.12.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
+## [3.13.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.11.0...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.12.0...HEAD)
+
+**Implemented enhancements:**
+
+- Latest Changes for 2019-10-10 \(Automated Exports, additional resource data attributes\) [\#112](https://github.com/recurly/recurly-client-java/pull/112) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.13.0 [\#113](https://github.com/recurly/recurly-client-java/pull/113) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.12.0](https://github.com/recurly/recurly-client-java/tree/3.12.0) (2020-08-31)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.11.0...3.12.0)
 
 **Implemented enhancements:**
 
