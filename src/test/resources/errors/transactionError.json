@@ -1,0 +1,15 @@
+{
+  "error": {
+    "type": "transaction",
+    "message": "Your transaction was declined. Please contact your bank for further details or try another card.",
+    "transaction_error": {
+      "object": "transaction_error",
+      "transaction_id": "mbca9aaao6xr",
+      "category": "hard",
+      "code": "invalid_payment_method_hard",
+      "message": "Your transaction was declined. Please contact your bank for further details or try another card.",
+      "merchant_advice": "The transaction was declined by the payment gateway. Contact the payment gateway for more details.",
+      "three_d_secure_action_token_id": null
+    }
+  }
+}

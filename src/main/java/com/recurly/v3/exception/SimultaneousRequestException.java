@@ -5,12 +5,11 @@
  */
 package com.recurly.v3.exception;
 
-import com.recurly.v3.ApiException;
-import com.recurly.v3.resources.Error;
+import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
-public class SimultaneousRequestException extends ApiException {
+public class SimultaneousRequestException extends UnprocessableEntityException {
 
-  public SimultaneousRequestException(String message, Error e) {
+  public SimultaneousRequestException(String message, ErrorMayHaveTransaction e) {
     super(message, e);
   }
 }

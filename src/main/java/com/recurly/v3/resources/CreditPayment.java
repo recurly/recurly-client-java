@@ -12,6 +12,7 @@ import org.joda.time.DateTime;
 
 public class CreditPayment extends Resource {
 
+  /** Account mini details */
   @SerializedName("account")
   @Expose
   private AccountMini account;
@@ -26,6 +27,7 @@ public class CreditPayment extends Resource {
   @Expose
   private Float amount;
 
+  /** Invoice mini details */
   @SerializedName("applied_to_invoice")
   @Expose
   private InvoiceMini appliedToInvoice;
@@ -55,6 +57,7 @@ public class CreditPayment extends Resource {
   @Expose
   private String originalCreditPaymentId;
 
+  /** Invoice mini details */
   @SerializedName("original_invoice")
   @Expose
   private InvoiceMini originalInvoice;
@@ -80,11 +83,12 @@ public class CreditPayment extends Resource {
   @Expose
   private DateTime voidedAt;
 
+  /** Account mini details */
   public AccountMini getAccount() {
     return this.account;
   }
 
-  /** @param account */
+  /** @param account Account mini details */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -109,11 +113,12 @@ public class CreditPayment extends Resource {
     this.amount = amount;
   }
 
+  /** Invoice mini details */
   public InvoiceMini getAppliedToInvoice() {
     return this.appliedToInvoice;
   }
 
-  /** @param appliedToInvoice */
+  /** @param appliedToInvoice Invoice mini details */
   public void setAppliedToInvoice(final InvoiceMini appliedToInvoice) {
     this.appliedToInvoice = appliedToInvoice;
   }
@@ -171,11 +176,12 @@ public class CreditPayment extends Resource {
     this.originalCreditPaymentId = originalCreditPaymentId;
   }
 
+  /** Invoice mini details */
   public InvoiceMini getOriginalInvoice() {
     return this.originalInvoice;
   }
 
-  /** @param originalInvoice */
+  /** @param originalInvoice Invoice mini details */
   public void setOriginalInvoice(final InvoiceMini originalInvoice) {
     this.originalInvoice = originalInvoice;
   }

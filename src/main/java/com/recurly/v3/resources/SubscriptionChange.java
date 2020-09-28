@@ -33,6 +33,15 @@ public class SubscriptionChange extends Resource {
   @Expose
   private DateTime createdAt;
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
+  @SerializedName("custom_fields")
+  @Expose
+  private List<CustomField> customFields;
+
   /** Deleted at */
   @SerializedName("deleted_at")
   @Expose
@@ -43,11 +52,17 @@ public class SubscriptionChange extends Resource {
   @Expose
   private String id;
 
+  /** Invoice Collection */
+  @SerializedName("invoice_collection")
+  @Expose
+  private InvoiceCollection invoiceCollection;
+
   /** Object type */
   @SerializedName("object")
   @Expose
   private String object;
 
+  /** Just the important parts. */
   @SerializedName("plan")
   @Expose
   private PlanMini plan;
@@ -57,6 +72,17 @@ public class SubscriptionChange extends Resource {
   @Expose
   private Integer quantity;
 
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
+  /** Setup fee revenue schedule type */
+  @SerializedName("setup_fee_revenue_schedule_type")
+  @Expose
+  private String setupFeeRevenueScheduleType;
+
+  /** Subscription shipping details */
   @SerializedName("shipping")
   @Expose
   private SubscriptionShipping shipping;
@@ -116,6 +142,24 @@ public class SubscriptionChange extends Resource {
     this.createdAt = createdAt;
   }
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
+  public List<CustomField> getCustomFields() {
+    return this.customFields;
+  }
+
+  /**
+   * @param customFields The custom fields will only be altered when they are included in a request.
+   *     Sending an empty array will not remove any existing values. To remove a field send the name
+   *     with a null or empty value.
+   */
+  public void setCustomFields(final List<CustomField> customFields) {
+    this.customFields = customFields;
+  }
+
   /** Deleted at */
   public DateTime getDeletedAt() {
     return this.deletedAt;
@@ -136,6 +180,16 @@ public class SubscriptionChange extends Resource {
     this.id = id;
   }
 
+  /** Invoice Collection */
+  public InvoiceCollection getInvoiceCollection() {
+    return this.invoiceCollection;
+  }
+
+  /** @param invoiceCollection Invoice Collection */
+  public void setInvoiceCollection(final InvoiceCollection invoiceCollection) {
+    this.invoiceCollection = invoiceCollection;
+  }
+
   /** Object type */
   public String getObject() {
     return this.object;
@@ -146,11 +200,12 @@ public class SubscriptionChange extends Resource {
     this.object = object;
   }
 
+  /** Just the important parts. */
   public PlanMini getPlan() {
     return this.plan;
   }
 
-  /** @param plan */
+  /** @param plan Just the important parts. */
   public void setPlan(final PlanMini plan) {
     this.plan = plan;
   }
@@ -165,11 +220,32 @@ public class SubscriptionChange extends Resource {
     this.quantity = quantity;
   }
 
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
+  }
+
+  /** Setup fee revenue schedule type */
+  public String getSetupFeeRevenueScheduleType() {
+    return this.setupFeeRevenueScheduleType;
+  }
+
+  /** @param setupFeeRevenueScheduleType Setup fee revenue schedule type */
+  public void setSetupFeeRevenueScheduleType(final String setupFeeRevenueScheduleType) {
+    this.setupFeeRevenueScheduleType = setupFeeRevenueScheduleType;
+  }
+
+  /** Subscription shipping details */
   public SubscriptionShipping getShipping() {
     return this.shipping;
   }
 
-  /** @param shipping */
+  /** @param shipping Subscription shipping details */
   public void setShipping(final SubscriptionShipping shipping) {
     this.shipping = shipping;
   }

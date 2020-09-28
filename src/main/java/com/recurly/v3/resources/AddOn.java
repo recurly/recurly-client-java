@@ -21,6 +21,31 @@ public class AddOn extends Resource {
   @Expose
   private String accountingCode;
 
+  /** Whether the add-on type is fixed, or usage-based. */
+  @SerializedName("add_on_type")
+  @Expose
+  private String addOnType;
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the add-on is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  @SerializedName("avalara_service_type")
+  @Expose
+  private Integer avalaraServiceType;
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the add-on is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  @SerializedName("avalara_transaction_type")
+  @Expose
+  private Integer avalaraTransactionType;
+
   /** The unique identifier for the add-on within its plan. */
   @SerializedName("code")
   @Expose
@@ -51,10 +76,25 @@ public class AddOn extends Resource {
   @Expose
   private Boolean displayQuantity;
 
+  /** Optional, stock keeping unit to link the item to other inventory systems. */
+  @SerializedName("external_sku")
+  @Expose
+  private String externalSku;
+
   /** Add-on ID */
   @SerializedName("id")
   @Expose
   private String id;
+
+  /** Just the important parts. */
+  @SerializedName("item")
+  @Expose
+  private ItemMini item;
+
+  /** System-generated unique identifier for an measured unit associated with the add-on. */
+  @SerializedName("measured_unit_id")
+  @Expose
+  private String measuredUnitId;
 
   /** Describes your add-on and will appear in subscribers' invoices. */
   @SerializedName("name")
@@ -66,10 +106,29 @@ public class AddOn extends Resource {
   @Expose
   private String object;
 
+  /**
+   * Whether the add-on is optional for the customer to include in their purchase on the hosted
+   * payment page. If false, the add-on will be included when a subscription is created through the
+   * Recurly UI. However, the add-on will not be included when a subscription is created through the
+   * API.
+   */
+  @SerializedName("optional")
+  @Expose
+  private Boolean optional;
+
   /** Plan ID */
   @SerializedName("plan_id")
   @Expose
   private String planId;
+
+  /**
+   * When this add-on is invoiced, the line item will use this revenue schedule. If
+   * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
+   * request as the value will be set from the item.
+   */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
 
   /** Add-ons can be either active or inactive. */
   @SerializedName("state")
@@ -85,10 +144,33 @@ public class AddOn extends Resource {
   @Expose
   private String taxCode;
 
+  /** The type of tiering used by the Add-on. */
+  @SerializedName("tier_type")
+  @Expose
+  private String tierType;
+
+  /** Tiers */
+  @SerializedName("tiers")
+  @Expose
+  private List<Tier> tiers;
+
   /** Last updated at */
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0.
+   */
+  @SerializedName("usage_percentage")
+  @Expose
+  private Float usagePercentage;
+
+  /** Type of usage, returns usage type if `add_on_type` is `usage`. */
+  @SerializedName("usage_type")
+  @Expose
+  private String usageType;
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
@@ -104,6 +186,56 @@ public class AddOn extends Resource {
    */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
+  }
+
+  /** Whether the add-on type is fixed, or usage-based. */
+  public String getAddOnType() {
+    return this.addOnType;
+  }
+
+  /** @param addOnType Whether the add-on type is fixed, or usage-based. */
+  public void setAddOnType(final String addOnType) {
+    this.addOnType = addOnType;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the add-on is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  public Integer getAvalaraServiceType() {
+    return this.avalaraServiceType;
+  }
+
+  /**
+   * @param avalaraServiceType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the add-on is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types.
+   */
+  public void setAvalaraServiceType(final Integer avalaraServiceType) {
+    this.avalaraServiceType = avalaraServiceType;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the add-on is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  public Integer getAvalaraTransactionType() {
+    return this.avalaraTransactionType;
+  }
+
+  /**
+   * @param avalaraTransactionType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the add-on is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types.
+   */
+  public void setAvalaraTransactionType(final Integer avalaraTransactionType) {
+    this.avalaraTransactionType = avalaraTransactionType;
   }
 
   /** The unique identifier for the add-on within its plan. */
@@ -169,6 +301,18 @@ public class AddOn extends Resource {
     this.displayQuantity = displayQuantity;
   }
 
+  /** Optional, stock keeping unit to link the item to other inventory systems. */
+  public String getExternalSku() {
+    return this.externalSku;
+  }
+
+  /**
+   * @param externalSku Optional, stock keeping unit to link the item to other inventory systems.
+   */
+  public void setExternalSku(final String externalSku) {
+    this.externalSku = externalSku;
+  }
+
   /** Add-on ID */
   public String getId() {
     return this.id;
@@ -177,6 +321,29 @@ public class AddOn extends Resource {
   /** @param id Add-on ID */
   public void setId(final String id) {
     this.id = id;
+  }
+
+  /** Just the important parts. */
+  public ItemMini getItem() {
+    return this.item;
+  }
+
+  /** @param item Just the important parts. */
+  public void setItem(final ItemMini item) {
+    this.item = item;
+  }
+
+  /** System-generated unique identifier for an measured unit associated with the add-on. */
+  public String getMeasuredUnitId() {
+    return this.measuredUnitId;
+  }
+
+  /**
+   * @param measuredUnitId System-generated unique identifier for an measured unit associated with
+   *     the add-on.
+   */
+  public void setMeasuredUnitId(final String measuredUnitId) {
+    this.measuredUnitId = measuredUnitId;
   }
 
   /** Describes your add-on and will appear in subscribers' invoices. */
@@ -199,6 +366,26 @@ public class AddOn extends Resource {
     this.object = object;
   }
 
+  /**
+   * Whether the add-on is optional for the customer to include in their purchase on the hosted
+   * payment page. If false, the add-on will be included when a subscription is created through the
+   * Recurly UI. However, the add-on will not be included when a subscription is created through the
+   * API.
+   */
+  public Boolean getOptional() {
+    return this.optional;
+  }
+
+  /**
+   * @param optional Whether the add-on is optional for the customer to include in their purchase on
+   *     the hosted payment page. If false, the add-on will be included when a subscription is
+   *     created through the Recurly UI. However, the add-on will not be included when a
+   *     subscription is created through the API.
+   */
+  public void setOptional(final Boolean optional) {
+    this.optional = optional;
+  }
+
   /** Plan ID */
   public String getPlanId() {
     return this.planId;
@@ -207,6 +394,24 @@ public class AddOn extends Resource {
   /** @param planId Plan ID */
   public void setPlanId(final String planId) {
     this.planId = planId;
+  }
+
+  /**
+   * When this add-on is invoiced, the line item will use this revenue schedule. If
+   * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
+   * request as the value will be set from the item.
+   */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /**
+   * @param revenueScheduleType When this add-on is invoiced, the line item will use this revenue
+   *     schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must
+   *     be absent in the request as the value will be set from the item.
+   */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
   }
 
   /** Add-ons can be either active or inactive. */
@@ -237,6 +442,26 @@ public class AddOn extends Resource {
     this.taxCode = taxCode;
   }
 
+  /** The type of tiering used by the Add-on. */
+  public String getTierType() {
+    return this.tierType;
+  }
+
+  /** @param tierType The type of tiering used by the Add-on. */
+  public void setTierType(final String tierType) {
+    this.tierType = tierType;
+  }
+
+  /** Tiers */
+  public List<Tier> getTiers() {
+    return this.tiers;
+  }
+
+  /** @param tiers Tiers */
+  public void setTiers(final List<Tier> tiers) {
+    this.tiers = tiers;
+  }
+
   /** Last updated at */
   public DateTime getUpdatedAt() {
     return this.updatedAt;
@@ -245,5 +470,31 @@ public class AddOn extends Resource {
   /** @param updatedAt Last updated at */
   public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0.
+   */
+  public Float getUsagePercentage() {
+    return this.usagePercentage;
+  }
+
+  /**
+   * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
+   *     be up to 4 decimal places. A value between 0.0 and 100.0.
+   */
+  public void setUsagePercentage(final Float usagePercentage) {
+    this.usagePercentage = usagePercentage;
+  }
+
+  /** Type of usage, returns usage type if `add_on_type` is `usage`. */
+  public String getUsageType() {
+    return this.usageType;
+  }
+
+  /** @param usageType Type of usage, returns usage type if `add_on_type` is `usage`. */
+  public void setUsageType(final String usageType) {
+    this.usageType = usageType;
   }
 }

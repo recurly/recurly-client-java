@@ -27,7 +27,7 @@ public class QueryParams {
   }
 
   public void setIds(final List<String> ids) {
-    this.add("ids", ids);
+    this.add("ids", String.join(",", ids));
   }
 
   public void setLimit(final Integer limit) {
@@ -40,6 +40,10 @@ public class QueryParams {
 
   public void setSort(final String sort) {
     this.add("sort", sort);
+  }
+
+  public void setState(final String state) {
+    this.add("state", state);
   }
 
   public void setBeginTime(final DateTime beginTime) {
@@ -70,15 +74,19 @@ public class QueryParams {
     this.add("original", original);
   }
 
-  public void setState(final String state) {
-    this.add("state", state);
-  }
-
   public void setSuccess(final String success) {
     this.add("success", success);
   }
 
+  public void setRelatedType(final String relatedType) {
+    this.add("related_type", relatedType);
+  }
+
   public void setRefund(final String refund) {
     this.add("refund", refund);
+  }
+
+  public void setBillingStatus(final String billingStatus) {
+    this.add("billing_status", billingStatus);
   }
 }

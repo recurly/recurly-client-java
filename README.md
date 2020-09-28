@@ -1,5 +1,8 @@
 # Recurly
 
+[![Maven Central](https://img.shields.io/static/v1?label=Maven%20Central&message=recurly&color=purple)](https://search.maven.org/artifact/com.recurly.v3/api-client)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+
 This repository houses the official java client for Recurly's V3 API.
 
 > *Note*:
@@ -18,14 +21,14 @@ As a Maven dependency:
 <dependency>
   <groupId>com.recurly.v3</groupId>
   <artifactId>api-client</artifactId>
-  <version>3.0.0</version>
+  <version>3.13.0</version>
 </dependency>
 ```
 
 Gradle:
 
 ```groovy
-implementation 'com.recurly.v3:api-client:3.0.0'
+implementation 'com.recurly.v3:api-client:3.13.0'
 ```
 
 You can find further release and distribution details on
@@ -86,6 +89,59 @@ while (accounts.hasMore()) {
         System.out.println(acct.getCode());
     }
 }
+```
+
+#### Query Parameters
+
+Every `List*` endpoint accepts a number of query parameters that allow you to sort or filter the results.
+These can be set using the `QueryParams` object. This object contains the union of all parameters across every endpoint, and thus it's up to the programmer to determine which parameters are supported by the endpoint. You can find this list by looking at the `QUERY PARAMETERS` section of the endpoint's docs. For an example, see [list_account](https://developers.recurly.com/api/latest#operation/list_accounts).
+
+```java
+QueryParams params = new QueryParams();
+params.setBeginTime(new DateTime(2020, 1, 1, 0, 0)); // midnight, Jan 1, 2020 UTC
+params.setEndTime(new DateTime(2020, 6, 1, 0, 0)); // midnight, June 1, 2020 UTC
+params.setSort("created_at"); // sort by `created_at` property
+params.setOrder("asc"); // "ascending" order
+params.setSubscriber(new Boolean(true)); // must be a subscriber
+params.setLimit(200); // Fetch 200 records per page
+Pager<Account> accounts = client.listAccounts(params);
+
+for (Account acct : accounts) {
+    System.out.println(acct.getCode());
+}
+```
+
+#### Additional Pager Methods
+
+In addition to the methods to facilitate pagination, the Pager class provides 2 helper methods:
+
+1. getFirst
+2. getCount
+
+##### First
+
+The Pager's `getFirst` method can be used to fetch only the first resource from the endpoint for the given QueryParams.
+
+```java
+QueryParams params = new QueryParams();
+params.setBeginTime(new DateTime(2020, 1, 1, 0, 0));
+Pager<Account> accounts = client.listAccounts(params);
+// Get the first Account created in 2020 UTC
+Account account = accounts.getFirst();
+System.out.println(account.getCode());
+```
+
+##### Count
+
+The Pager's `getCount` method will return the total number of resources that are available at the requested endpoint for the given QueryParams.
+
+```java
+DateTime beginTime = new DateTime(2020, 1, 1, 0, 0);
+QueryParams params = new QueryParams();
+params.setBeginTime(beginTime);
+Pager<Account> accounts = client.listAccounts(params);
+int total = accounts.getCount();
+System.out.println("There are " + total + " accounts since " + beginTime);
 ```
 
 ### Creating Resources

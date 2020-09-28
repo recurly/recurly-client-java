@@ -24,6 +24,11 @@ public class SubscriptionUpdate extends Request {
   @Expose
   private String collectionMethod;
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
   @SerializedName("custom_fields")
   @Expose
   private List<CustomField> customFields;
@@ -75,6 +80,12 @@ public class SubscriptionUpdate extends Request {
   @Expose
   private Integer renewalBillingCycles;
 
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
+  /** Subscription shipping details */
   @SerializedName("shipping")
   @Expose
   private SubscriptionShippingUpdate shipping;
@@ -107,11 +118,20 @@ public class SubscriptionUpdate extends Request {
     this.collectionMethod = collectionMethod;
   }
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
   public List<CustomField> getCustomFields() {
     return this.customFields;
   }
 
-  /** @param customFields */
+  /**
+   * @param customFields The custom fields will only be altered when they are included in a request.
+   *     Sending an empty array will not remove any existing values. To remove a field send the name
+   *     with a null or empty value.
+   */
   public void setCustomFields(final List<CustomField> customFields) {
     this.customFields = customFields;
   }
@@ -214,11 +234,22 @@ public class SubscriptionUpdate extends Request {
     this.renewalBillingCycles = renewalBillingCycles;
   }
 
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
+  }
+
+  /** Subscription shipping details */
   public SubscriptionShippingUpdate getShipping() {
     return this.shipping;
   }
 
-  /** @param shipping */
+  /** @param shipping Subscription shipping details */
   public void setShipping(final SubscriptionShippingUpdate shipping) {
     this.shipping = shipping;
   }

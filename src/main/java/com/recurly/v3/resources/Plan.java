@@ -22,6 +22,15 @@ public class Plan extends Resource {
   private String accountingCode;
 
   /**
+   * Used to determine whether items can be assigned as add-ons to individual subscriptions. If
+   * `true`, items can be assigned as add-ons to individual subscription add-ons. If `false`, only
+   * plan add-ons can be used.
+   */
+  @SerializedName("allow_any_item_on_subscriptions")
+  @Expose
+  private Boolean allowAnyItemOnSubscriptions;
+
+  /**
    * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is
    * `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is
    * `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden
@@ -30,6 +39,26 @@ public class Plan extends Resource {
   @SerializedName("auto_renew")
   @Expose
   private Boolean autoRenew;
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the plan is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  @SerializedName("avalara_service_type")
+  @Expose
+  private Integer avalaraServiceType;
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the plan is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  @SerializedName("avalara_transaction_type")
+  @Expose
+  private Integer avalaraTransactionType;
 
   /**
    * Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice
@@ -92,6 +121,11 @@ public class Plan extends Resource {
   @Expose
   private String object;
 
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
   /**
    * Accounting code for invoice line items for the plan's setup fee. If no value is provided, it
    * defaults to plan's accounting code.
@@ -99,6 +133,11 @@ public class Plan extends Resource {
   @SerializedName("setup_fee_accounting_code")
   @Expose
   private String setupFeeAccountingCode;
+
+  /** Setup fee revenue schedule type */
+  @SerializedName("setup_fee_revenue_schedule_type")
+  @Expose
+  private String setupFeeRevenueScheduleType;
 
   /** The current state of the plan. */
   @SerializedName("state")
@@ -133,6 +172,11 @@ public class Plan extends Resource {
   @Expose
   private Integer trialLength;
 
+  /** Allow free trial subscriptions to be created without billing info. */
+  @SerializedName("trial_requires_billing_info")
+  @Expose
+  private Boolean trialRequiresBillingInfo;
+
   /** Units for the plan's trial period. */
   @SerializedName("trial_unit")
   @Expose
@@ -160,6 +204,24 @@ public class Plan extends Resource {
   }
 
   /**
+   * Used to determine whether items can be assigned as add-ons to individual subscriptions. If
+   * `true`, items can be assigned as add-ons to individual subscription add-ons. If `false`, only
+   * plan add-ons can be used.
+   */
+  public Boolean getAllowAnyItemOnSubscriptions() {
+    return this.allowAnyItemOnSubscriptions;
+  }
+
+  /**
+   * @param allowAnyItemOnSubscriptions Used to determine whether items can be assigned as add-ons
+   *     to individual subscriptions. If `true`, items can be assigned as add-ons to individual
+   *     subscription add-ons. If `false`, only plan add-ons can be used.
+   */
+  public void setAllowAnyItemOnSubscriptions(final Boolean allowAnyItemOnSubscriptions) {
+    this.allowAnyItemOnSubscriptions = allowAnyItemOnSubscriptions;
+  }
+
+  /**
    * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is
    * `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is
    * `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden
@@ -177,6 +239,46 @@ public class Plan extends Resource {
    */
   public void setAutoRenew(final Boolean autoRenew) {
     this.autoRenew = autoRenew;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the plan is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  public Integer getAvalaraServiceType() {
+    return this.avalaraServiceType;
+  }
+
+  /**
+   * @param avalaraServiceType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the plan is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types.
+   */
+  public void setAvalaraServiceType(final Integer avalaraServiceType) {
+    this.avalaraServiceType = avalaraServiceType;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the plan is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  public Integer getAvalaraTransactionType() {
+    return this.avalaraTransactionType;
+  }
+
+  /**
+   * @param avalaraTransactionType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the plan is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types.
+   */
+  public void setAvalaraTransactionType(final Integer avalaraTransactionType) {
+    this.avalaraTransactionType = avalaraTransactionType;
   }
 
   /**
@@ -301,6 +403,16 @@ public class Plan extends Resource {
     this.object = object;
   }
 
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
+  }
+
   /**
    * Accounting code for invoice line items for the plan's setup fee. If no value is provided, it
    * defaults to plan's accounting code.
@@ -315,6 +427,16 @@ public class Plan extends Resource {
    */
   public void setSetupFeeAccountingCode(final String setupFeeAccountingCode) {
     this.setupFeeAccountingCode = setupFeeAccountingCode;
+  }
+
+  /** Setup fee revenue schedule type */
+  public String getSetupFeeRevenueScheduleType() {
+    return this.setupFeeRevenueScheduleType;
+  }
+
+  /** @param setupFeeRevenueScheduleType Setup fee revenue schedule type */
+  public void setSetupFeeRevenueScheduleType(final String setupFeeRevenueScheduleType) {
+    this.setupFeeRevenueScheduleType = setupFeeRevenueScheduleType;
   }
 
   /** The current state of the plan. */
@@ -381,6 +503,19 @@ public class Plan extends Resource {
   /** @param trialLength Length of plan's trial period in `trial_units`. `0` means `no trial`. */
   public void setTrialLength(final Integer trialLength) {
     this.trialLength = trialLength;
+  }
+
+  /** Allow free trial subscriptions to be created without billing info. */
+  public Boolean getTrialRequiresBillingInfo() {
+    return this.trialRequiresBillingInfo;
+  }
+
+  /**
+   * @param trialRequiresBillingInfo Allow free trial subscriptions to be created without billing
+   *     info.
+   */
+  public void setTrialRequiresBillingInfo(final Boolean trialRequiresBillingInfo) {
+    this.trialRequiresBillingInfo = trialRequiresBillingInfo;
   }
 
   /** Units for the plan's trial period. */

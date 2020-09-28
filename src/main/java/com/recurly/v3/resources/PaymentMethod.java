@@ -41,10 +41,30 @@ public class PaymentMethod extends Resource {
   @Expose
   private String firstSix;
 
+  /** An identifier for a specific payment gateway. */
+  @SerializedName("gateway_code")
+  @Expose
+  private String gatewayCode;
+
+  /** A token used in place of a credit card in order to perform transactions. */
+  @SerializedName("gateway_token")
+  @Expose
+  private String gatewayToken;
+
   /** Credit card number's last four digits. Will refer to bank account if payment method is ACH. */
   @SerializedName("last_four")
   @Expose
   private String lastFour;
+
+  /** The IBAN bank account's last two digits. */
+  @SerializedName("last_two")
+  @Expose
+  private String lastTwo;
+
+  /** The name associated with the bank account. */
+  @SerializedName("name_on_account")
+  @Expose
+  private String nameOnAccount;
 
   @SerializedName("object")
   @Expose
@@ -123,6 +143,28 @@ public class PaymentMethod extends Resource {
     this.firstSix = firstSix;
   }
 
+  /** An identifier for a specific payment gateway. */
+  public String getGatewayCode() {
+    return this.gatewayCode;
+  }
+
+  /** @param gatewayCode An identifier for a specific payment gateway. */
+  public void setGatewayCode(final String gatewayCode) {
+    this.gatewayCode = gatewayCode;
+  }
+
+  /** A token used in place of a credit card in order to perform transactions. */
+  public String getGatewayToken() {
+    return this.gatewayToken;
+  }
+
+  /**
+   * @param gatewayToken A token used in place of a credit card in order to perform transactions.
+   */
+  public void setGatewayToken(final String gatewayToken) {
+    this.gatewayToken = gatewayToken;
+  }
+
   /** Credit card number's last four digits. Will refer to bank account if payment method is ACH. */
   public String getLastFour() {
     return this.lastFour;
@@ -134,6 +176,26 @@ public class PaymentMethod extends Resource {
    */
   public void setLastFour(final String lastFour) {
     this.lastFour = lastFour;
+  }
+
+  /** The IBAN bank account's last two digits. */
+  public String getLastTwo() {
+    return this.lastTwo;
+  }
+
+  /** @param lastTwo The IBAN bank account's last two digits. */
+  public void setLastTwo(final String lastTwo) {
+    this.lastTwo = lastTwo;
+  }
+
+  /** The name associated with the bank account. */
+  public String getNameOnAccount() {
+    return this.nameOnAccount;
+  }
+
+  /** @param nameOnAccount The name associated with the bank account. */
+  public void setNameOnAccount(final String nameOnAccount) {
+    this.nameOnAccount = nameOnAccount;
   }
 
   public String getObject() {

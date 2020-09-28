@@ -12,6 +12,7 @@ import org.joda.time.DateTime;
 
 public class LineItem extends Resource {
 
+  /** Account mini details */
   @SerializedName("account")
   @Expose
   private AccountMini account;
@@ -40,6 +41,26 @@ public class LineItem extends Resource {
   @SerializedName("amount")
   @Expose
   private Float amount;
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the line item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  @SerializedName("avalara_service_type")
+  @Expose
+  private Integer avalaraServiceType;
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the line item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  @SerializedName("avalara_transaction_type")
+  @Expose
+  private Integer avalaraTransactionType;
 
   /** When the line item was created. */
   @SerializedName("created_at")
@@ -79,6 +100,14 @@ public class LineItem extends Resource {
   @Expose
   private DateTime endDate;
 
+  /**
+   * Optional Stock Keeping Unit assigned to an item. Available when the Credit Invoices and
+   * Subscription Billing Terms features are enabled.
+   */
+  @SerializedName("external_sku")
+  @Expose
+  private String externalSku;
+
   /** Line item ID */
   @SerializedName("id")
   @Expose
@@ -98,6 +127,22 @@ public class LineItem extends Resource {
   @SerializedName("invoice_number")
   @Expose
   private String invoiceNumber;
+
+  /**
+   * Unique code to identify an item. Available when the Credit Invoices and Subscription Billing
+   * Terms features are enabled.
+   */
+  @SerializedName("item_code")
+  @Expose
+  private String itemCode;
+
+  /**
+   * System-generated unique identifier for an item. Available when the Credit Invoices and
+   * Subscription Billing Terms features are enabled.
+   */
+  @SerializedName("item_id")
+  @Expose
+  private String itemId;
 
   /**
    * Category to describe the role of a line item on a legacy invoice: - "charges" refers to charges
@@ -148,8 +193,8 @@ public class LineItem extends Resource {
   private String previousLineItemId;
 
   /**
-   * For plan related line items this will be the plan's code, for add-on related line items it will
-   * be the add-on's code.
+   * For plan-related line items this will be the plan's code, for add-on related line items it will
+   * be the add-on's code. For item-related line items it will be the item's `external_sku`.
    */
   @SerializedName("product_code")
   @Expose
@@ -184,6 +229,11 @@ public class LineItem extends Resource {
   @SerializedName("refunded_quantity")
   @Expose
   private Integer refundedQuantity;
+
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
 
   @SerializedName("shipping_address")
   @Expose
@@ -238,6 +288,7 @@ public class LineItem extends Resource {
   @Expose
   private Boolean taxExempt;
 
+  /** Tax info */
   @SerializedName("tax_info")
   @Expose
   private TaxInfo taxInfo;
@@ -272,11 +323,12 @@ public class LineItem extends Resource {
   @Expose
   private String uuid;
 
+  /** Account mini details */
   public AccountMini getAccount() {
     return this.account;
   }
 
-  /** @param account */
+  /** @param account Account mini details */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -329,6 +381,46 @@ public class LineItem extends Resource {
   /** @param amount `(quantity * unit_amount) - (discount + tax)` */
   public void setAmount(final Float amount) {
     this.amount = amount;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the line item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  public Integer getAvalaraServiceType() {
+    return this.avalaraServiceType;
+  }
+
+  /**
+   * @param avalaraServiceType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the line item is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types.
+   */
+  public void setAvalaraServiceType(final Integer avalaraServiceType) {
+    this.avalaraServiceType = avalaraServiceType;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the line item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types.
+   */
+  public Integer getAvalaraTransactionType() {
+    return this.avalaraTransactionType;
+  }
+
+  /**
+   * @param avalaraTransactionType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the line item is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types.
+   */
+  public void setAvalaraTransactionType(final Integer avalaraTransactionType) {
+    this.avalaraTransactionType = avalaraTransactionType;
   }
 
   /** When the line item was created. */
@@ -409,6 +501,22 @@ public class LineItem extends Resource {
     this.endDate = endDate;
   }
 
+  /**
+   * Optional Stock Keeping Unit assigned to an item. Available when the Credit Invoices and
+   * Subscription Billing Terms features are enabled.
+   */
+  public String getExternalSku() {
+    return this.externalSku;
+  }
+
+  /**
+   * @param externalSku Optional Stock Keeping Unit assigned to an item. Available when the Credit
+   *     Invoices and Subscription Billing Terms features are enabled.
+   */
+  public void setExternalSku(final String externalSku) {
+    this.externalSku = externalSku;
+  }
+
   /** Line item ID */
   public String getId() {
     return this.id;
@@ -447,6 +555,38 @@ public class LineItem extends Resource {
    */
   public void setInvoiceNumber(final String invoiceNumber) {
     this.invoiceNumber = invoiceNumber;
+  }
+
+  /**
+   * Unique code to identify an item. Available when the Credit Invoices and Subscription Billing
+   * Terms features are enabled.
+   */
+  public String getItemCode() {
+    return this.itemCode;
+  }
+
+  /**
+   * @param itemCode Unique code to identify an item. Available when the Credit Invoices and
+   *     Subscription Billing Terms features are enabled.
+   */
+  public void setItemCode(final String itemCode) {
+    this.itemCode = itemCode;
+  }
+
+  /**
+   * System-generated unique identifier for an item. Available when the Credit Invoices and
+   * Subscription Billing Terms features are enabled.
+   */
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  /**
+   * @param itemId System-generated unique identifier for an item. Available when the Credit
+   *     Invoices and Subscription Billing Terms features are enabled.
+   */
+  public void setItemId(final String itemId) {
+    this.itemId = itemId;
   }
 
   /**
@@ -557,16 +697,17 @@ public class LineItem extends Resource {
   }
 
   /**
-   * For plan related line items this will be the plan's code, for add-on related line items it will
-   * be the add-on's code.
+   * For plan-related line items this will be the plan's code, for add-on related line items it will
+   * be the add-on's code. For item-related line items it will be the item's `external_sku`.
    */
   public String getProductCode() {
     return this.productCode;
   }
 
   /**
-   * @param productCode For plan related line items this will be the plan's code, for add-on related
-   *     line items it will be the add-on's code.
+   * @param productCode For plan-related line items this will be the plan's code, for add-on related
+   *     line items it will be the add-on's code. For item-related line items it will be the item's
+   *     `external_sku`.
    */
   public void setProductCode(final String productCode) {
     this.productCode = productCode;
@@ -631,6 +772,16 @@ public class LineItem extends Resource {
    */
   public void setRefundedQuantity(final Integer refundedQuantity) {
     this.refundedQuantity = refundedQuantity;
+  }
+
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
   }
 
   public ShippingAddress getShippingAddress() {
@@ -744,11 +895,12 @@ public class LineItem extends Resource {
     this.taxExempt = taxExempt;
   }
 
+  /** Tax info */
   public TaxInfo getTaxInfo() {
     return this.taxInfo;
   }
 
-  /** @param taxInfo */
+  /** @param taxInfo Tax info */
   public void setTaxInfo(final TaxInfo taxInfo) {
     this.taxInfo = taxInfo;
   }

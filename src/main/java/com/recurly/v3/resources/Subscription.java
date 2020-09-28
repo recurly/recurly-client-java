@@ -13,6 +13,7 @@ import org.joda.time.DateTime;
 
 public class Subscription extends Resource {
 
+  /** Account mini details */
   @SerializedName("account")
   @Expose
   private AccountMini account;
@@ -98,6 +99,11 @@ public class Subscription extends Resource {
   @Expose
   private DateTime currentTermStartedAt;
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
   @SerializedName("custom_fields")
   @Expose
   private List<CustomField> customFields;
@@ -142,10 +148,12 @@ public class Subscription extends Resource {
   @Expose
   private DateTime pausedAt;
 
+  /** Subscription Change */
   @SerializedName("pending_change")
   @Expose
   private SubscriptionChange pendingChange;
 
+  /** Just the important parts. */
   @SerializedName("plan")
   @Expose
   private PlanMini plan;
@@ -178,6 +186,12 @@ public class Subscription extends Resource {
   @Expose
   private Integer renewalBillingCycles;
 
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
+  /** Subscription shipping details */
   @SerializedName("shipping")
   @Expose
   private SubscriptionShipping shipping;
@@ -233,11 +247,12 @@ public class Subscription extends Resource {
   @Expose
   private String uuid;
 
+  /** Account mini details */
   public AccountMini getAccount() {
     return this.account;
   }
 
-  /** @param account */
+  /** @param account Account mini details */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -406,11 +421,20 @@ public class Subscription extends Resource {
     this.currentTermStartedAt = currentTermStartedAt;
   }
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
   public List<CustomField> getCustomFields() {
     return this.customFields;
   }
 
-  /** @param customFields */
+  /**
+   * @param customFields The custom fields will only be altered when they are included in a request.
+   *     Sending an empty array will not remove any existing values. To remove a field send the name
+   *     with a null or empty value.
+   */
   public void setCustomFields(final List<CustomField> customFields) {
     this.customFields = customFields;
   }
@@ -498,20 +522,22 @@ public class Subscription extends Resource {
     this.pausedAt = pausedAt;
   }
 
+  /** Subscription Change */
   public SubscriptionChange getPendingChange() {
     return this.pendingChange;
   }
 
-  /** @param pendingChange */
+  /** @param pendingChange Subscription Change */
   public void setPendingChange(final SubscriptionChange pendingChange) {
     this.pendingChange = pendingChange;
   }
 
+  /** Just the important parts. */
   public PlanMini getPlan() {
     return this.plan;
   }
 
-  /** @param plan */
+  /** @param plan Just the important parts. */
   public void setPlan(final PlanMini plan) {
     this.plan = plan;
   }
@@ -579,11 +605,22 @@ public class Subscription extends Resource {
     this.renewalBillingCycles = renewalBillingCycles;
   }
 
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
+  }
+
+  /** Subscription shipping details */
   public SubscriptionShipping getShipping() {
     return this.shipping;
   }
 
-  /** @param shipping */
+  /** @param shipping Subscription shipping details */
   public void setShipping(final SubscriptionShipping shipping) {
     this.shipping = shipping;
   }

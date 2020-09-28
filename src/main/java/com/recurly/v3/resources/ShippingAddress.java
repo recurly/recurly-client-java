@@ -56,6 +56,11 @@ public class ShippingAddress extends Resource {
   @Expose
   private String nickname;
 
+  /** Object type */
+  @SerializedName("object")
+  @Expose
+  private String object;
+
   @SerializedName("phone")
   @Expose
   private String phone;
@@ -179,6 +184,16 @@ public class ShippingAddress extends Resource {
   /** @param nickname */
   public void setNickname(final String nickname) {
     this.nickname = nickname;
+  }
+
+  /** Object type */
+  public String getObject() {
+    return this.object;
+  }
+
+  /** @param object Object type */
+  public void setObject(final String object) {
+    this.object = object;
   }
 
   public String getPhone() {

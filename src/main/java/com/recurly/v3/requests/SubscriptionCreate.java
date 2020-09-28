@@ -54,6 +54,11 @@ public class SubscriptionCreate extends Request {
   @Expose
   private String currency;
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
   @SerializedName("custom_fields")
   @Expose
   private List<CustomField> customFields;
@@ -122,6 +127,11 @@ public class SubscriptionCreate extends Request {
   @SerializedName("renewal_billing_cycles")
   @Expose
   private Integer renewalBillingCycles;
+
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
 
   /** Create a shipping address on the account and assign it to the subscription. */
   @SerializedName("shipping")
@@ -260,11 +270,20 @@ public class SubscriptionCreate extends Request {
     this.currency = currency;
   }
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
   public List<CustomField> getCustomFields() {
     return this.customFields;
   }
 
-  /** @param customFields */
+  /**
+   * @param customFields The custom fields will only be altered when they are included in a request.
+   *     Sending an empty array will not remove any existing values. To remove a field send the name
+   *     with a null or empty value.
+   */
   public void setCustomFields(final List<CustomField> customFields) {
     this.customFields = customFields;
   }
@@ -401,6 +420,16 @@ public class SubscriptionCreate extends Request {
    */
   public void setRenewalBillingCycles(final Integer renewalBillingCycles) {
     this.renewalBillingCycles = renewalBillingCycles;
+  }
+
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
   }
 
   /** Create a shipping address on the account and assign it to the subscription. */

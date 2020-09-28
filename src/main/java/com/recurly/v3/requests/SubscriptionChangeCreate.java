@@ -14,9 +14,19 @@ import java.util.List;
 public class SubscriptionChangeCreate extends Request {
 
   /**
-   * If you provide a value for this field it will replace any existing add-ons. So, when adding or
-   * modifying an add-on, you need to include the existing subscription add-ons. Unchanged add-ons
-   * can be included just using the subscription add-on's ID: `{"id": "abc123"}`.
+   * If this value is omitted your existing add-ons will be removed. If you provide a value for this
+   * field it will replace any existing add-ons. So, when adding or modifying an add-on, you need to
+   * include the existing subscription add-ons. Unchanged add-ons can be included just using the
+   * subscription add-on's ID: `{"id": "abc123"}`.
+   *
+   * <p>If a subscription add-on's `code` is supplied without the `id`, `{"code": "def456"}`, the
+   * subscription add-on attributes will be set to the current values of the plan add-on unless
+   * provided in the request.
+   *
+   * <p>- If an `id` is passed, any attributes not passed in will pull from the existing
+   * subscription add-on - If a `code` is passed, any attributes not passed in will pull from the
+   * current values of the plan add-on - Attributes passed in as part of the request will override
+   * either of the above scenarios
    */
   @SerializedName("add_ons")
   @Expose
@@ -34,6 +44,15 @@ public class SubscriptionChangeCreate extends Request {
   @SerializedName("coupon_codes")
   @Expose
   private List<String> couponCodes;
+
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
+  @SerializedName("custom_fields")
+  @Expose
+  private List<CustomField> customFields;
 
   /**
    * Integer representing the number of days after an invoice's creation that the invoice will
@@ -71,6 +90,12 @@ public class SubscriptionChangeCreate extends Request {
   @Expose
   private Integer quantity;
 
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
+  /** The shipping address can currently only be changed immediately, using SubscriptionUpdate. */
   @SerializedName("shipping")
   @Expose
   private SubscriptionChangeShippingCreate shipping;
@@ -104,19 +129,36 @@ public class SubscriptionChangeCreate extends Request {
   private Float unitAmount;
 
   /**
-   * If you provide a value for this field it will replace any existing add-ons. So, when adding or
-   * modifying an add-on, you need to include the existing subscription add-ons. Unchanged add-ons
-   * can be included just using the subscription add-on's ID: `{"id": "abc123"}`.
+   * If this value is omitted your existing add-ons will be removed. If you provide a value for this
+   * field it will replace any existing add-ons. So, when adding or modifying an add-on, you need to
+   * include the existing subscription add-ons. Unchanged add-ons can be included just using the
+   * subscription add-on's ID: `{"id": "abc123"}`.
+   *
+   * <p>If a subscription add-on's `code` is supplied without the `id`, `{"code": "def456"}`, the
+   * subscription add-on attributes will be set to the current values of the plan add-on unless
+   * provided in the request.
+   *
+   * <p>- If an `id` is passed, any attributes not passed in will pull from the existing
+   * subscription add-on - If a `code` is passed, any attributes not passed in will pull from the
+   * current values of the plan add-on - Attributes passed in as part of the request will override
+   * either of the above scenarios
    */
   public List<SubscriptionAddOnUpdate> getAddOns() {
     return this.addOns;
   }
 
   /**
-   * @param addOns If you provide a value for this field it will replace any existing add-ons. So,
-   *     when adding or modifying an add-on, you need to include the existing subscription add-ons.
-   *     Unchanged add-ons can be included just using the subscription add-on's ID: `{"id":
-   *     "abc123"}`.
+   * @param addOns If this value is omitted your existing add-ons will be removed. If you provide a
+   *     value for this field it will replace any existing add-ons. So, when adding or modifying an
+   *     add-on, you need to include the existing subscription add-ons. Unchanged add-ons can be
+   *     included just using the subscription add-on's ID: `{"id": "abc123"}`.
+   *     <p>If a subscription add-on's `code` is supplied without the `id`, `{"code": "def456"}`,
+   *     the subscription add-on attributes will be set to the current values of the plan add-on
+   *     unless provided in the request.
+   *     <p>- If an `id` is passed, any attributes not passed in will pull from the existing
+   *     subscription add-on - If a `code` is passed, any attributes not passed in will pull from
+   *     the current values of the plan add-on - Attributes passed in as part of the request will
+   *     override either of the above scenarios
    */
   public void setAddOns(final List<SubscriptionAddOnUpdate> addOns) {
     this.addOns = addOns;
@@ -147,6 +189,24 @@ public class SubscriptionChangeCreate extends Request {
    */
   public void setCouponCodes(final List<String> couponCodes) {
     this.couponCodes = couponCodes;
+  }
+
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
+  public List<CustomField> getCustomFields() {
+    return this.customFields;
+  }
+
+  /**
+   * @param customFields The custom fields will only be altered when they are included in a request.
+   *     Sending an empty array will not remove any existing values. To remove a field send the name
+   *     with a null or empty value.
+   */
+  public void setCustomFields(final List<CustomField> customFields) {
+    this.customFields = customFields;
   }
 
   /**
@@ -224,11 +284,25 @@ public class SubscriptionChangeCreate extends Request {
     this.quantity = quantity;
   }
 
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
+  }
+
+  /** The shipping address can currently only be changed immediately, using SubscriptionUpdate. */
   public SubscriptionChangeShippingCreate getShipping() {
     return this.shipping;
   }
 
-  /** @param shipping */
+  /**
+   * @param shipping The shipping address can currently only be changed immediately, using
+   *     SubscriptionUpdate.
+   */
   public void setShipping(final SubscriptionChangeShippingCreate shipping) {
     this.shipping = shipping;
   }

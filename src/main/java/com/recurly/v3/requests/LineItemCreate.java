@@ -14,6 +14,36 @@ import org.joda.time.DateTime;
 public class LineItemCreate extends Request {
 
   /**
+   * Accounting Code for the `LineItem`. If `item_code`/`item_id` is part of the request then
+   * `accounting_code` must be absent.
+   */
+  @SerializedName("accounting_code")
+  @Expose
+  private String accountingCode;
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the line item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types. If an `Item` is associated to the `LineItem`, then the
+   * `avalara_service_type` must be absent.
+   */
+  @SerializedName("avalara_service_type")
+  @Expose
+  private Integer avalaraServiceType;
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the line item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types. If an `Item` is associated to the `LineItem`, then the
+   * `avalara_transaction_type` must be absent.
+   */
+  @SerializedName("avalara_transaction_type")
+  @Expose
+  private Integer avalaraTransactionType;
+
+  /**
    * The reason the credit was given when line item is `type=credit`. When the Credit Invoices
    * feature is enabled, the value can be set and will default to `general`. When the Credit
    * Invoices feature is not enabled, the value will always be `null`.
@@ -22,12 +52,20 @@ public class LineItemCreate extends Request {
   @Expose
   private String creditReasonCode;
 
-  /** 3-letter ISO 4217 currency code. */
+  /**
+   * 3-letter ISO 4217 currency code. If `item_code`/`item_id` is part of the request then
+   * `currency` is optional, if the site has a single default currency. `currency` is required if
+   * `item_code`/`item_id` is present, and there are multiple currencies defined on the site. If
+   * `item_code`/`item_id` is not present `currency` is required.
+   */
   @SerializedName("currency")
   @Expose
   private String currency;
 
-  /** Description that appears on the invoice. */
+  /**
+   * Description that appears on the invoice. If `item_code`/`item_id` is part of the request then
+   * `description` must be absent.
+   */
   @SerializedName("description")
   @Expose
   private String description;
@@ -38,9 +76,37 @@ public class LineItemCreate extends Request {
   private DateTime endDate;
 
   /**
+   * Unique code to identify an item. Avaliable when the Credit Invoices and Subscription Billing
+   * Terms features are enabled.
+   */
+  @SerializedName("item_code")
+  @Expose
+  private String itemCode;
+
+  /**
+   * System-generated unique identifier for an item. Available when the Credit Invoices and
+   * Subscription Billing Terms features are enabled.
+   */
+  @SerializedName("item_id")
+  @Expose
+  private String itemId;
+
+  /**
+   * Origin `external_gift_card` is allowed if the Gift Cards feature is enabled on your site and
+   * `type` is `credit`. Set this value in order to track gift card credits from external gift cards
+   * (like InComm). It also skips billing information requirements. Origin `prepayment` is only
+   * allowed if `type` is `charge` and `tax_exempt` is left blank or set to true. This origin
+   * creates a charge and opposite credit on the account to be used for future invoices.
+   */
+  @SerializedName("origin")
+  @Expose
+  private String origin;
+
+  /**
    * Optional field to track a product code or SKU for the line item. This can be used to later
    * reporting on product purchases. For Vertex tax calculations, this field will be used as the
-   * Vertex `product` field.
+   * Vertex `product` field. If `item_code`/`item_id` is part of the request then `product_code`
+   * must be absent.
    */
   @SerializedName("product_code")
   @Expose
@@ -53,6 +119,11 @@ public class LineItemCreate extends Request {
   @SerializedName("quantity")
   @Expose
   private Integer quantity;
+
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
 
   /**
    * If an end date is present, this is value indicates the beginning of a billing time range. If no
@@ -82,18 +153,83 @@ public class LineItemCreate extends Request {
   @Expose
   private Boolean taxExempt;
 
-  /** Line item type. */
+  /**
+   * Line item type. If `item_code`/`item_id` is present then `type` should not be present. If
+   * `item_code`/`item_id` is not present then `type` is required.
+   */
   @SerializedName("type")
   @Expose
   private String type;
 
   /**
    * A positive or negative amount with `type=charge` will result in a positive `unit_amount`. A
-   * positive or negative amount with `type=credit` will result in a negative `unit_amount`.
+   * positive or negative amount with `type=credit` will result in a negative `unit_amount`. If
+   * `item_code`/`item_id` is present, `unit_amount` can be passed in, to override the `Item`'s
+   * `unit_amount`. If `item_code`/`item_id` is not present then `unit_amount` is required.
    */
   @SerializedName("unit_amount")
   @Expose
   private Float unitAmount;
+
+  /**
+   * Accounting Code for the `LineItem`. If `item_code`/`item_id` is part of the request then
+   * `accounting_code` must be absent.
+   */
+  public String getAccountingCode() {
+    return this.accountingCode;
+  }
+
+  /**
+   * @param accountingCode Accounting Code for the `LineItem`. If `item_code`/`item_id` is part of
+   *     the request then `accounting_code` must be absent.
+   */
+  public void setAccountingCode(final String accountingCode) {
+    this.accountingCode = accountingCode;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the line item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types. If an `Item` is associated to the `LineItem`, then the
+   * `avalara_service_type` must be absent.
+   */
+  public Integer getAvalaraServiceType() {
+    return this.avalaraServiceType;
+  }
+
+  /**
+   * @param avalaraServiceType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the line item is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types. If an `Item` is associated to the `LineItem`, then the
+   *     `avalara_service_type` must be absent.
+   */
+  public void setAvalaraServiceType(final Integer avalaraServiceType) {
+    this.avalaraServiceType = avalaraServiceType;
+  }
+
+  /**
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service
+   * type describe how the line item is taxed. Refer to [the
+   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   * for more available t/s types. If an `Item` is associated to the `LineItem`, then the
+   * `avalara_transaction_type` must be absent.
+   */
+  public Integer getAvalaraTransactionType() {
+    return this.avalaraTransactionType;
+  }
+
+  /**
+   * @param avalaraTransactionType Used by Avalara for Communications taxes. The transaction type in
+   *     combination with the service type describe how the line item is taxed. Refer to [the
+   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
+   *     for more available t/s types. If an `Item` is associated to the `LineItem`, then the
+   *     `avalara_transaction_type` must be absent.
+   */
+  public void setAvalaraTransactionType(final Integer avalaraTransactionType) {
+    this.avalaraTransactionType = avalaraTransactionType;
+  }
 
   /**
    * The reason the credit was given when line item is `type=credit`. When the Credit Invoices
@@ -113,22 +249,38 @@ public class LineItemCreate extends Request {
     this.creditReasonCode = creditReasonCode;
   }
 
-  /** 3-letter ISO 4217 currency code. */
+  /**
+   * 3-letter ISO 4217 currency code. If `item_code`/`item_id` is part of the request then
+   * `currency` is optional, if the site has a single default currency. `currency` is required if
+   * `item_code`/`item_id` is present, and there are multiple currencies defined on the site. If
+   * `item_code`/`item_id` is not present `currency` is required.
+   */
   public String getCurrency() {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code. If `item_code`/`item_id` is part of the
+   *     request then `currency` is optional, if the site has a single default currency. `currency`
+   *     is required if `item_code`/`item_id` is present, and there are multiple currencies defined
+   *     on the site. If `item_code`/`item_id` is not present `currency` is required.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
 
-  /** Description that appears on the invoice. */
+  /**
+   * Description that appears on the invoice. If `item_code`/`item_id` is part of the request then
+   * `description` must be absent.
+   */
   public String getDescription() {
     return this.description;
   }
 
-  /** @param description Description that appears on the invoice. */
+  /**
+   * @param description Description that appears on the invoice. If `item_code`/`item_id` is part of
+   *     the request then `description` must be absent.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -144,9 +296,65 @@ public class LineItemCreate extends Request {
   }
 
   /**
+   * Unique code to identify an item. Avaliable when the Credit Invoices and Subscription Billing
+   * Terms features are enabled.
+   */
+  public String getItemCode() {
+    return this.itemCode;
+  }
+
+  /**
+   * @param itemCode Unique code to identify an item. Avaliable when the Credit Invoices and
+   *     Subscription Billing Terms features are enabled.
+   */
+  public void setItemCode(final String itemCode) {
+    this.itemCode = itemCode;
+  }
+
+  /**
+   * System-generated unique identifier for an item. Available when the Credit Invoices and
+   * Subscription Billing Terms features are enabled.
+   */
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  /**
+   * @param itemId System-generated unique identifier for an item. Available when the Credit
+   *     Invoices and Subscription Billing Terms features are enabled.
+   */
+  public void setItemId(final String itemId) {
+    this.itemId = itemId;
+  }
+
+  /**
+   * Origin `external_gift_card` is allowed if the Gift Cards feature is enabled on your site and
+   * `type` is `credit`. Set this value in order to track gift card credits from external gift cards
+   * (like InComm). It also skips billing information requirements. Origin `prepayment` is only
+   * allowed if `type` is `charge` and `tax_exempt` is left blank or set to true. This origin
+   * creates a charge and opposite credit on the account to be used for future invoices.
+   */
+  public String getOrigin() {
+    return this.origin;
+  }
+
+  /**
+   * @param origin Origin `external_gift_card` is allowed if the Gift Cards feature is enabled on
+   *     your site and `type` is `credit`. Set this value in order to track gift card credits from
+   *     external gift cards (like InComm). It also skips billing information requirements. Origin
+   *     `prepayment` is only allowed if `type` is `charge` and `tax_exempt` is left blank or set to
+   *     true. This origin creates a charge and opposite credit on the account to be used for future
+   *     invoices.
+   */
+  public void setOrigin(final String origin) {
+    this.origin = origin;
+  }
+
+  /**
    * Optional field to track a product code or SKU for the line item. This can be used to later
    * reporting on product purchases. For Vertex tax calculations, this field will be used as the
-   * Vertex `product` field.
+   * Vertex `product` field. If `item_code`/`item_id` is part of the request then `product_code`
+   * must be absent.
    */
   public String getProductCode() {
     return this.productCode;
@@ -155,7 +363,8 @@ public class LineItemCreate extends Request {
   /**
    * @param productCode Optional field to track a product code or SKU for the line item. This can be
    *     used to later reporting on product purchases. For Vertex tax calculations, this field will
-   *     be used as the Vertex `product` field.
+   *     be used as the Vertex `product` field. If `item_code`/`item_id` is part of the request then
+   *     `product_code` must be absent.
    */
   public void setProductCode(final String productCode) {
     this.productCode = productCode;
@@ -175,6 +384,16 @@ public class LineItemCreate extends Request {
    */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
+  }
+
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
   }
 
   /**
@@ -234,19 +453,27 @@ public class LineItemCreate extends Request {
     this.taxExempt = taxExempt;
   }
 
-  /** Line item type. */
+  /**
+   * Line item type. If `item_code`/`item_id` is present then `type` should not be present. If
+   * `item_code`/`item_id` is not present then `type` is required.
+   */
   public String getType() {
     return this.type;
   }
 
-  /** @param type Line item type. */
+  /**
+   * @param type Line item type. If `item_code`/`item_id` is present then `type` should not be
+   *     present. If `item_code`/`item_id` is not present then `type` is required.
+   */
   public void setType(final String type) {
     this.type = type;
   }
 
   /**
    * A positive or negative amount with `type=charge` will result in a positive `unit_amount`. A
-   * positive or negative amount with `type=credit` will result in a negative `unit_amount`.
+   * positive or negative amount with `type=credit` will result in a negative `unit_amount`. If
+   * `item_code`/`item_id` is present, `unit_amount` can be passed in, to override the `Item`'s
+   * `unit_amount`. If `item_code`/`item_id` is not present then `unit_amount` is required.
    */
   public Float getUnitAmount() {
     return this.unitAmount;
@@ -255,7 +482,9 @@ public class LineItemCreate extends Request {
   /**
    * @param unitAmount A positive or negative amount with `type=charge` will result in a positive
    *     `unit_amount`. A positive or negative amount with `type=credit` will result in a negative
-   *     `unit_amount`.
+   *     `unit_amount`. If `item_code`/`item_id` is present, `unit_amount` can be passed in, to
+   *     override the `Item`'s `unit_amount`. If `item_code`/`item_id` is not present then
+   *     `unit_amount` is required.
    */
   public void setUnitAmount(final Float unitAmount) {
     this.unitAmount = unitAmount;

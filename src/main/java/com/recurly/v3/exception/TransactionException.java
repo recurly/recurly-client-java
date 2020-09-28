@@ -5,12 +5,11 @@
  */
 package com.recurly.v3.exception;
 
-import com.recurly.v3.ApiException;
-import com.recurly.v3.resources.Error;
+import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
-public class TransactionException extends ApiException {
+public class TransactionException extends UnprocessableEntityException {
 
-  public TransactionException(String message, Error e) {
+  public TransactionException(String message, ErrorMayHaveTransaction e) {
     super(message, e);
   }
 }

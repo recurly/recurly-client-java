@@ -8,13 +8,25 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import java.util.List;
 import org.joda.time.DateTime;
 
 public class SubscriptionAddOn extends Resource {
 
+  /** Just the important parts. */
   @SerializedName("add_on")
   @Expose
   private AddOnMini addOn;
+
+  /**
+   * Used to determine where the associated add-on data is pulled from. If this value is set to
+   * `plan_add_on` or left blank, then add-on data will be pulled from the plan's add-ons. If the
+   * associated `plan` has `allow_any_item_on_subscriptions` set to `true` and this field is set to
+   * `item`, then the associated add-on data will be pulled from the site's item catalog.
+   */
+  @SerializedName("add_on_source")
+  @Expose
+  private String addOnSource;
 
   /** Created at */
   @SerializedName("created_at")
@@ -41,10 +53,28 @@ public class SubscriptionAddOn extends Resource {
   @Expose
   private Integer quantity;
 
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
   /** Subscription ID */
   @SerializedName("subscription_id")
   @Expose
   private String subscriptionId;
+
+  /** The type of tiering used by the Add-on. */
+  @SerializedName("tier_type")
+  @Expose
+  private String tierType;
+
+  /**
+   * If tiers are provided in the request, all existing tiers on the Subscription Add-on will be
+   * removed and replaced by the tiers in the request.
+   */
+  @SerializedName("tiers")
+  @Expose
+  private List<SubscriptionAddOnTier> tiers;
 
   /** This is priced in the subscription's currency. */
   @SerializedName("unit_amount")
@@ -56,13 +86,44 @@ public class SubscriptionAddOn extends Resource {
   @Expose
   private DateTime updatedAt;
 
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0. Required if add_on_type is usage and usage_type is
+   * percentage.
+   */
+  @SerializedName("usage_percentage")
+  @Expose
+  private Float usagePercentage;
+
+  /** Just the important parts. */
   public AddOnMini getAddOn() {
     return this.addOn;
   }
 
-  /** @param addOn */
+  /** @param addOn Just the important parts. */
   public void setAddOn(final AddOnMini addOn) {
     this.addOn = addOn;
+  }
+
+  /**
+   * Used to determine where the associated add-on data is pulled from. If this value is set to
+   * `plan_add_on` or left blank, then add-on data will be pulled from the plan's add-ons. If the
+   * associated `plan` has `allow_any_item_on_subscriptions` set to `true` and this field is set to
+   * `item`, then the associated add-on data will be pulled from the site's item catalog.
+   */
+  public String getAddOnSource() {
+    return this.addOnSource;
+  }
+
+  /**
+   * @param addOnSource Used to determine where the associated add-on data is pulled from. If this
+   *     value is set to `plan_add_on` or left blank, then add-on data will be pulled from the
+   *     plan's add-ons. If the associated `plan` has `allow_any_item_on_subscriptions` set to
+   *     `true` and this field is set to `item`, then the associated add-on data will be pulled from
+   *     the site's item catalog.
+   */
+  public void setAddOnSource(final String addOnSource) {
+    this.addOnSource = addOnSource;
   }
 
   /** Created at */
@@ -115,6 +176,16 @@ public class SubscriptionAddOn extends Resource {
     this.quantity = quantity;
   }
 
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
+  }
+
   /** Subscription ID */
   public String getSubscriptionId() {
     return this.subscriptionId;
@@ -123,6 +194,32 @@ public class SubscriptionAddOn extends Resource {
   /** @param subscriptionId Subscription ID */
   public void setSubscriptionId(final String subscriptionId) {
     this.subscriptionId = subscriptionId;
+  }
+
+  /** The type of tiering used by the Add-on. */
+  public String getTierType() {
+    return this.tierType;
+  }
+
+  /** @param tierType The type of tiering used by the Add-on. */
+  public void setTierType(final String tierType) {
+    this.tierType = tierType;
+  }
+
+  /**
+   * If tiers are provided in the request, all existing tiers on the Subscription Add-on will be
+   * removed and replaced by the tiers in the request.
+   */
+  public List<SubscriptionAddOnTier> getTiers() {
+    return this.tiers;
+  }
+
+  /**
+   * @param tiers If tiers are provided in the request, all existing tiers on the Subscription
+   *     Add-on will be removed and replaced by the tiers in the request.
+   */
+  public void setTiers(final List<SubscriptionAddOnTier> tiers) {
+    this.tiers = tiers;
   }
 
   /** This is priced in the subscription's currency. */
@@ -143,5 +240,23 @@ public class SubscriptionAddOn extends Resource {
   /** @param updatedAt Updated at */
   public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0. Required if add_on_type is usage and usage_type is
+   * percentage.
+   */
+  public Float getUsagePercentage() {
+    return this.usagePercentage;
+  }
+
+  /**
+   * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
+   *     be up to 4 decimal places. A value between 0.0 and 100.0. Required if add_on_type is usage
+   *     and usage_type is percentage.
+   */
+  public void setUsagePercentage(final Float usagePercentage) {
+    this.usagePercentage = usagePercentage;
   }
 }

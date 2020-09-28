@@ -5,12 +5,11 @@
  */
 package com.recurly.v3.exception;
 
-import com.recurly.v3.ApiException;
-import com.recurly.v3.resources.Error;
+import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
-public class InternalServerException extends ApiException {
+public class InternalServerException extends ServerException {
 
-  public InternalServerException(String message, Error e) {
+  public InternalServerException(String message, ErrorMayHaveTransaction e) {
     super(message, e);
   }
 }

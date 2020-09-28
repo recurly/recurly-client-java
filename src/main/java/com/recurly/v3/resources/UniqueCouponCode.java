@@ -12,6 +12,16 @@ import org.joda.time.DateTime;
 
 public class UniqueCouponCode extends Resource {
 
+  /** The Coupon code of the parent Bulk Coupon */
+  @SerializedName("bulk_coupon_code")
+  @Expose
+  private String bulkCouponCode;
+
+  /** The Coupon ID of the parent Bulk Coupon */
+  @SerializedName("bulk_coupon_id")
+  @Expose
+  private String bulkCouponId;
+
   /** The code the customer enters to redeem the coupon. */
   @SerializedName("code")
   @Expose
@@ -51,6 +61,26 @@ public class UniqueCouponCode extends Resource {
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
+
+  /** The Coupon code of the parent Bulk Coupon */
+  public String getBulkCouponCode() {
+    return this.bulkCouponCode;
+  }
+
+  /** @param bulkCouponCode The Coupon code of the parent Bulk Coupon */
+  public void setBulkCouponCode(final String bulkCouponCode) {
+    this.bulkCouponCode = bulkCouponCode;
+  }
+
+  /** The Coupon ID of the parent Bulk Coupon */
+  public String getBulkCouponId() {
+    return this.bulkCouponId;
+  }
+
+  /** @param bulkCouponId The Coupon ID of the parent Bulk Coupon */
+  public void setBulkCouponId(final String bulkCouponId) {
+    this.bulkCouponId = bulkCouponId;
+  }
 
   /** The code the customer enters to redeem the coupon. */
   public String getCode() {

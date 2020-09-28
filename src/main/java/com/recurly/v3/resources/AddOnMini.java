@@ -19,15 +19,35 @@ public class AddOnMini extends Resource {
   @Expose
   private String accountingCode;
 
+  /** Whether the add-on type is fixed, or usage-based. */
+  @SerializedName("add_on_type")
+  @Expose
+  private String addOnType;
+
   /** The unique identifier for the add-on within its plan. */
   @SerializedName("code")
   @Expose
   private String code;
 
+  /** Optional, stock keeping unit to link the item to other inventory systems. */
+  @SerializedName("external_sku")
+  @Expose
+  private String externalSku;
+
   /** Add-on ID */
   @SerializedName("id")
   @Expose
   private String id;
+
+  /** Item ID */
+  @SerializedName("item_id")
+  @Expose
+  private String itemId;
+
+  /** System-generated unique identifier for an measured unit associated with the add-on. */
+  @SerializedName("measured_unit_id")
+  @Expose
+  private String measuredUnitId;
 
   /** Describes your add-on and will appear in subscribers' invoices. */
   @SerializedName("name")
@@ -38,6 +58,19 @@ public class AddOnMini extends Resource {
   @SerializedName("object")
   @Expose
   private String object;
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0.
+   */
+  @SerializedName("usage_percentage")
+  @Expose
+  private Float usagePercentage;
+
+  /** Type of usage, returns usage type if `add_on_type` is `usage`. */
+  @SerializedName("usage_type")
+  @Expose
+  private String usageType;
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
@@ -55,6 +88,16 @@ public class AddOnMini extends Resource {
     this.accountingCode = accountingCode;
   }
 
+  /** Whether the add-on type is fixed, or usage-based. */
+  public String getAddOnType() {
+    return this.addOnType;
+  }
+
+  /** @param addOnType Whether the add-on type is fixed, or usage-based. */
+  public void setAddOnType(final String addOnType) {
+    this.addOnType = addOnType;
+  }
+
   /** The unique identifier for the add-on within its plan. */
   public String getCode() {
     return this.code;
@@ -65,6 +108,18 @@ public class AddOnMini extends Resource {
     this.code = code;
   }
 
+  /** Optional, stock keeping unit to link the item to other inventory systems. */
+  public String getExternalSku() {
+    return this.externalSku;
+  }
+
+  /**
+   * @param externalSku Optional, stock keeping unit to link the item to other inventory systems.
+   */
+  public void setExternalSku(final String externalSku) {
+    this.externalSku = externalSku;
+  }
+
   /** Add-on ID */
   public String getId() {
     return this.id;
@@ -73,6 +128,29 @@ public class AddOnMini extends Resource {
   /** @param id Add-on ID */
   public void setId(final String id) {
     this.id = id;
+  }
+
+  /** Item ID */
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  /** @param itemId Item ID */
+  public void setItemId(final String itemId) {
+    this.itemId = itemId;
+  }
+
+  /** System-generated unique identifier for an measured unit associated with the add-on. */
+  public String getMeasuredUnitId() {
+    return this.measuredUnitId;
+  }
+
+  /**
+   * @param measuredUnitId System-generated unique identifier for an measured unit associated with
+   *     the add-on.
+   */
+  public void setMeasuredUnitId(final String measuredUnitId) {
+    this.measuredUnitId = measuredUnitId;
   }
 
   /** Describes your add-on and will appear in subscribers' invoices. */
@@ -93,5 +171,31 @@ public class AddOnMini extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places. A value between 0.0 and 100.0.
+   */
+  public Float getUsagePercentage() {
+    return this.usagePercentage;
+  }
+
+  /**
+   * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
+   *     be up to 4 decimal places. A value between 0.0 and 100.0.
+   */
+  public void setUsagePercentage(final Float usagePercentage) {
+    this.usagePercentage = usagePercentage;
+  }
+
+  /** Type of usage, returns usage type if `add_on_type` is `usage`. */
+  public String getUsageType() {
+    return this.usageType;
+  }
+
+  /** @param usageType Type of usage, returns usage type if `add_on_type` is `usage`. */
+  public void setUsageType(final String usageType) {
+    this.usageType = usageType;
   }
 }

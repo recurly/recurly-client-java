@@ -12,6 +12,7 @@ import java.util.List;
 
 public class AccountBalance extends Resource {
 
+  /** Account mini details */
   @SerializedName("account")
   @Expose
   private AccountMini account;
@@ -29,11 +30,12 @@ public class AccountBalance extends Resource {
   @Expose
   private Boolean pastDue;
 
+  /** Account mini details */
   public AccountMini getAccount() {
     return this.account;
   }
 
-  /** @param account */
+  /** @param account Account mini details */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }

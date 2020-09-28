@@ -24,6 +24,11 @@ public class SubscriptionPurchase extends Request {
   @Expose
   private Boolean autoRenew;
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
   @SerializedName("custom_fields")
   @Expose
   private List<CustomField> customFields;
@@ -63,10 +68,23 @@ public class SubscriptionPurchase extends Request {
   @Expose
   private Integer renewalBillingCycles;
 
+  /** Revenue schedule type */
+  @SerializedName("revenue_schedule_type")
+  @Expose
+  private String revenueScheduleType;
+
   /** Create a shipping address on the account and assign it to the subscription. */
   @SerializedName("shipping")
   @Expose
   private SubscriptionShippingPurchase shipping;
+
+  /**
+   * If set, the subscription will begin in the future on this date. The subscription will apply the
+   * setup fee and trial period, unless the plan has no trial.
+   */
+  @SerializedName("starts_at")
+  @Expose
+  private DateTime startsAt;
 
   /**
    * The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if
@@ -114,11 +132,20 @@ public class SubscriptionPurchase extends Request {
     this.autoRenew = autoRenew;
   }
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
   public List<CustomField> getCustomFields() {
     return this.customFields;
   }
 
-  /** @param customFields */
+  /**
+   * @param customFields The custom fields will only be altered when they are included in a request.
+   *     Sending an empty array will not remove any existing values. To remove a field send the name
+   *     with a null or empty value.
+   */
   public void setCustomFields(final List<CustomField> customFields) {
     this.customFields = customFields;
   }
@@ -194,6 +221,16 @@ public class SubscriptionPurchase extends Request {
     this.renewalBillingCycles = renewalBillingCycles;
   }
 
+  /** Revenue schedule type */
+  public String getRevenueScheduleType() {
+    return this.revenueScheduleType;
+  }
+
+  /** @param revenueScheduleType Revenue schedule type */
+  public void setRevenueScheduleType(final String revenueScheduleType) {
+    this.revenueScheduleType = revenueScheduleType;
+  }
+
   /** Create a shipping address on the account and assign it to the subscription. */
   public SubscriptionShippingPurchase getShipping() {
     return this.shipping;
@@ -202,6 +239,22 @@ public class SubscriptionPurchase extends Request {
   /** @param shipping Create a shipping address on the account and assign it to the subscription. */
   public void setShipping(final SubscriptionShippingPurchase shipping) {
     this.shipping = shipping;
+  }
+
+  /**
+   * If set, the subscription will begin in the future on this date. The subscription will apply the
+   * setup fee and trial period, unless the plan has no trial.
+   */
+  public DateTime getStartsAt() {
+    return this.startsAt;
+  }
+
+  /**
+   * @param startsAt If set, the subscription will begin in the future on this date. The
+   *     subscription will apply the setup fee and trial period, unless the plan has no trial.
+   */
+  public void setStartsAt(final DateTime startsAt) {
+    this.startsAt = startsAt;
   }
 
   /**

@@ -51,6 +51,11 @@ public class Account extends Resource {
   @Expose
   private DateTime createdAt;
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
   @SerializedName("custom_fields")
   @Expose
   private List<CustomField> customFields;
@@ -81,6 +86,38 @@ public class Account extends Resource {
   @SerializedName("first_name")
   @Expose
   private String firstName;
+
+  /** Indicates if the account has an active subscription. */
+  @SerializedName("has_active_subscription")
+  @Expose
+  private Boolean hasActiveSubscription;
+
+  /** Indicates if the account has a canceled subscription. */
+  @SerializedName("has_canceled_subscription")
+  @Expose
+  private Boolean hasCanceledSubscription;
+
+  /** Indicates if the account has a future subscription. */
+  @SerializedName("has_future_subscription")
+  @Expose
+  private Boolean hasFutureSubscription;
+
+  /**
+   * Indicates if the account has a subscription that is either active, canceled, future, or paused.
+   */
+  @SerializedName("has_live_subscription")
+  @Expose
+  private Boolean hasLiveSubscription;
+
+  /** Indicates if the account has a past due invoice. */
+  @SerializedName("has_past_due_invoice")
+  @Expose
+  private Boolean hasPastDueInvoice;
+
+  /** Indicates if the account has a paused subscription. */
+  @SerializedName("has_paused_subscription")
+  @Expose
+  private Boolean hasPausedSubscription;
 
   /**
    * The unique token for automatically logging the account in to the hosted management pages. You
@@ -236,11 +273,20 @@ public class Account extends Resource {
     this.createdAt = createdAt;
   }
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
   public List<CustomField> getCustomFields() {
     return this.customFields;
   }
 
-  /** @param customFields */
+  /**
+   * @param customFields The custom fields will only be altered when they are included in a request.
+   *     Sending an empty array will not remove any existing values. To remove a field send the name
+   *     with a null or empty value.
+   */
   public void setCustomFields(final List<CustomField> customFields) {
     this.customFields = customFields;
   }
@@ -298,6 +344,71 @@ public class Account extends Resource {
   /** @param firstName */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
+  }
+
+  /** Indicates if the account has an active subscription. */
+  public Boolean getHasActiveSubscription() {
+    return this.hasActiveSubscription;
+  }
+
+  /** @param hasActiveSubscription Indicates if the account has an active subscription. */
+  public void setHasActiveSubscription(final Boolean hasActiveSubscription) {
+    this.hasActiveSubscription = hasActiveSubscription;
+  }
+
+  /** Indicates if the account has a canceled subscription. */
+  public Boolean getHasCanceledSubscription() {
+    return this.hasCanceledSubscription;
+  }
+
+  /** @param hasCanceledSubscription Indicates if the account has a canceled subscription. */
+  public void setHasCanceledSubscription(final Boolean hasCanceledSubscription) {
+    this.hasCanceledSubscription = hasCanceledSubscription;
+  }
+
+  /** Indicates if the account has a future subscription. */
+  public Boolean getHasFutureSubscription() {
+    return this.hasFutureSubscription;
+  }
+
+  /** @param hasFutureSubscription Indicates if the account has a future subscription. */
+  public void setHasFutureSubscription(final Boolean hasFutureSubscription) {
+    this.hasFutureSubscription = hasFutureSubscription;
+  }
+
+  /**
+   * Indicates if the account has a subscription that is either active, canceled, future, or paused.
+   */
+  public Boolean getHasLiveSubscription() {
+    return this.hasLiveSubscription;
+  }
+
+  /**
+   * @param hasLiveSubscription Indicates if the account has a subscription that is either active,
+   *     canceled, future, or paused.
+   */
+  public void setHasLiveSubscription(final Boolean hasLiveSubscription) {
+    this.hasLiveSubscription = hasLiveSubscription;
+  }
+
+  /** Indicates if the account has a past due invoice. */
+  public Boolean getHasPastDueInvoice() {
+    return this.hasPastDueInvoice;
+  }
+
+  /** @param hasPastDueInvoice Indicates if the account has a past due invoice. */
+  public void setHasPastDueInvoice(final Boolean hasPastDueInvoice) {
+    this.hasPastDueInvoice = hasPastDueInvoice;
+  }
+
+  /** Indicates if the account has a paused subscription. */
+  public Boolean getHasPausedSubscription() {
+    return this.hasPausedSubscription;
+  }
+
+  /** @param hasPausedSubscription Indicates if the account has a paused subscription. */
+  public void setHasPausedSubscription(final Boolean hasPausedSubscription) {
+    this.hasPausedSubscription = hasPausedSubscription;
   }
 
   /**

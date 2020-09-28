@@ -5,12 +5,11 @@
  */
 package com.recurly.v3.exception;
 
-import com.recurly.v3.ApiException;
-import com.recurly.v3.resources.Error;
+import com.recurly.v3.resources.ErrorMayHaveTransaction;
 
-public class UnauthorizedException extends ApiException {
+public class UnauthorizedException extends ClientException {
 
-  public UnauthorizedException(String message, Error e) {
+  public UnauthorizedException(String message, ErrorMayHaveTransaction e) {
     super(message, e);
   }
 }

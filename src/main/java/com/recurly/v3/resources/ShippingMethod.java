@@ -12,6 +12,11 @@ import org.joda.time.DateTime;
 
 public class ShippingMethod extends Resource {
 
+  /** Accounting code for shipping method. */
+  @SerializedName("accounting_code")
+  @Expose
+  private String accountingCode;
+
   /** The internal name used identify the shipping method. */
   @SerializedName("code")
   @Expose
@@ -59,6 +64,16 @@ public class ShippingMethod extends Resource {
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
+
+  /** Accounting code for shipping method. */
+  public String getAccountingCode() {
+    return this.accountingCode;
+  }
+
+  /** @param accountingCode Accounting code for shipping method. */
+  public void setAccountingCode(final String accountingCode) {
+    this.accountingCode = accountingCode;
+  }
 
   /** The internal name used identify the shipping method. */
   public String getCode() {

@@ -1,22 +1,31 @@
 package com.recurly.v3;
 
+import com.recurly.v3.exception.ExceptionFactory;
 import com.recurly.v3.http.HeaderInterceptor;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
 import okhttp3.*;
 import okhttp3.Request.Builder;
 import okhttp3.logging.HttpLoggingInterceptor;
 import org.joda.time.DateTime;
 
 public abstract class BaseClient {
-  private static final String API_URL = "https://v3.recurly.com/";
+  private static final String API_URL = "https://v3.recurly.com";
+  private static final List<String> BINARY_TYPES = Arrays.asList("application/pdf");
 
-  private static OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
   private static final JsonSerializer jsonSerializer = new JsonSerializer();
+  private static final FileSerializer fileSerializer = new FileSerializer();
   private final String apiKey;
   private final OkHttpClient client;
   private String apiUrl;
@@ -36,13 +45,12 @@ public abstract class BaseClient {
   }
 
   private static OkHttpClient newHttpClient(final String apiKey) {
+    final OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
+    
     final String authToken = Credentials.basic(apiKey, "");
     final HeaderInterceptor headerInterceptor =
         new HeaderInterceptor(authToken, Client.API_VERSION);
-
-    if (!httpClientBuilder.interceptors().contains(headerInterceptor)) {
-      httpClientBuilder.addInterceptor(headerInterceptor);
-    }
+    httpClientBuilder.addInterceptor(headerInterceptor);
 
     if ("true".equals(System.getenv("RECURLY_INSECURE"))
         && "true".equals(System.getenv("RECURLY_DEBUG"))) {
@@ -111,23 +119,47 @@ public abstract class BaseClient {
     try (final Response response = client.newCall(request).execute()) {
 
       final Headers responseHeaders = response.headers();
-      final String responseBody = response.body().string();
+      final ResponseBody responseBody = response.body();
+      MediaType contentType = responseBody.contentType();
 
       if (!response.isSuccessful()) {
-        throw jsonSerializer.deserializeError(responseBody);
-      }
-
-      if ("true".equals(System.getenv("RECURLY_INSECURE"))
-          && "true".equals(System.getenv("RECURLY_DEBUG"))) {
-        for (int i = 0; i < responseHeaders.size(); i++) {
-          System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
+        if (contentType.type().equals("application") && contentType.subtype().equals("json")) {
+          throw jsonSerializer.deserializeError(responseBody.string());
+        } else {
+          throw ExceptionFactory.getExceptionClass(response);
         }
-        System.out.println(responseBody);
       }
 
       this.warnIfDeprecated(responseHeaders);
 
-      return jsonSerializer.deserialize(responseBody, resourceClass);
+      if (BINARY_TYPES.contains(contentType.type() + "/" + contentType.subtype())) {
+        return fileSerializer.deserialize(responseBody.bytes(), resourceClass);
+      } else {
+        return jsonSerializer.deserialize(responseBody.string(), resourceClass);
+      }
+
+    } catch (IOException e) {
+      throw new NetworkException(e);
+    }
+  }
+
+  public int getRecordCount(final String url, final HashMap<String, Object> queryParams) {
+    final okhttp3.Request request = buildRequest("HEAD", url, null, queryParams);
+
+    try (final Response response = client.newCall(request).execute()) {
+
+      final Headers responseHeaders = response.headers();
+      final ResponseBody responseBody = response.body();
+
+      if (!response.isSuccessful()) {
+        throw jsonSerializer.deserializeError(responseBody.string());
+      }
+
+      this.warnIfDeprecated(responseHeaders);
+
+      String count = responseHeaders.get("Recurly-Total-Records");
+      return Integer.parseInt(count);
+
     } catch (IOException e) {
       throw new NetworkException(e);
     }
@@ -182,6 +214,9 @@ public abstract class BaseClient {
     final Builder requestBuilder = new okhttp3.Request.Builder().url(requestUrl);
 
     switch (method) {
+      case "HEAD":
+        return requestBuilder.head().build();
+
       case "GET":
         return requestBuilder.build();
 
@@ -200,18 +235,33 @@ public abstract class BaseClient {
     }
   }
 
+  private void validatePathParameters(final HashMap<String, String> urlParams) {
+    Map<String, String> invalidParams = urlParams.entrySet().stream()
+        .filter(p -> p.getValue() == null || p.getValue().trim().isEmpty())
+        .collect(Collectors.toMap(e->e.getKey(),e->e.getValue()));
+    if (!invalidParams.isEmpty()) {
+      String invalidKeys = String.join(",", invalidParams.keySet());
+      throw new RecurlyException(invalidKeys + " cannot be an empty value");
+    }
+  }
+
   protected String interpolatePath(final String path) {
     return interpolatePath(path, new HashMap<String, String>());
   }
 
   protected String interpolatePath(String path, final HashMap<String, String> urlParams) {
+    validatePathParameters(urlParams);
     final Pattern p = Pattern.compile("\\{([A-Za-z|_]*)\\}");
     final Matcher m = p.matcher(path);
 
     while (m.find()) {
       final String key = m.group(1).replace("{", "").replace("}", "");
-      final String value = urlParams.get(key);
-      path = path.replace(m.group(1), value);
+      try {
+        final String value = URLEncoder.encode(urlParams.get(key), StandardCharsets.UTF_8.toString());
+        path = path.replace(m.group(1), value);
+      } catch (UnsupportedEncodingException ex) {
+          throw new RecurlyException(ex.getCause());
+      }
     }
 
     return path.replaceAll("\\{", "").replaceAll("\\}", "");

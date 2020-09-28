@@ -26,6 +26,16 @@ public class Coupon extends Resource {
   @Expose
   private Boolean appliesToNonPlanCharges;
 
+  /** The Coupon code of the parent Bulk Coupon */
+  @SerializedName("bulk_coupon_code")
+  @Expose
+  private String bulkCouponCode;
+
+  /** The Coupon ID of the parent Bulk Coupon */
+  @SerializedName("bulk_coupon_id")
+  @Expose
+  private String bulkCouponId;
+
   /** The code the customer enters to redeem the coupon. */
   @SerializedName("code")
   @Expose
@@ -44,6 +54,10 @@ public class Coupon extends Resource {
   @Expose
   private DateTime createdAt;
 
+  /**
+   * Details of the discount a coupon applies. Will contain a `type` property and one of the
+   * following properties: `percent`, `fixed`, `trial`.
+   */
   @SerializedName("discount")
   @Expose
   private CouponDiscount discount;
@@ -127,7 +141,7 @@ public class Coupon extends Resource {
   @Expose
   private List<PlanMini> plans;
 
-  /** TODO */
+  /** A list of plan names for which this coupon applies. */
   @SerializedName("plans_names")
   @Expose
   private List<String> plansNames;
@@ -139,6 +153,13 @@ public class Coupon extends Resource {
   @SerializedName("redeem_by")
   @Expose
   private DateTime redeemBy;
+
+  /**
+   * The date and time the unique coupon code was redeemed. This is only present for bulk coupons.
+   */
+  @SerializedName("redeemed_at")
+  @Expose
+  private DateTime redeemedAt;
 
   /**
    * Whether the discount is for all eligible charges on the account, or only a specific
@@ -210,6 +231,26 @@ public class Coupon extends Resource {
     this.appliesToNonPlanCharges = appliesToNonPlanCharges;
   }
 
+  /** The Coupon code of the parent Bulk Coupon */
+  public String getBulkCouponCode() {
+    return this.bulkCouponCode;
+  }
+
+  /** @param bulkCouponCode The Coupon code of the parent Bulk Coupon */
+  public void setBulkCouponCode(final String bulkCouponCode) {
+    this.bulkCouponCode = bulkCouponCode;
+  }
+
+  /** The Coupon ID of the parent Bulk Coupon */
+  public String getBulkCouponId() {
+    return this.bulkCouponId;
+  }
+
+  /** @param bulkCouponId The Coupon ID of the parent Bulk Coupon */
+  public void setBulkCouponId(final String bulkCouponId) {
+    this.bulkCouponId = bulkCouponId;
+  }
+
   /** The code the customer enters to redeem the coupon. */
   public String getCode() {
     return this.code;
@@ -246,11 +287,18 @@ public class Coupon extends Resource {
     this.createdAt = createdAt;
   }
 
+  /**
+   * Details of the discount a coupon applies. Will contain a `type` property and one of the
+   * following properties: `percent`, `fixed`, `trial`.
+   */
   public CouponDiscount getDiscount() {
     return this.discount;
   }
 
-  /** @param discount */
+  /**
+   * @param discount Details of the discount a coupon applies. Will contain a `type` property and
+   *     one of the following properties: `percent`, `fixed`, `trial`.
+   */
   public void setDiscount(final CouponDiscount discount) {
     this.discount = discount;
   }
@@ -419,12 +467,12 @@ public class Coupon extends Resource {
     this.plans = plans;
   }
 
-  /** TODO */
+  /** A list of plan names for which this coupon applies. */
   public List<String> getPlansNames() {
     return this.plansNames;
   }
 
-  /** @param plansNames TODO */
+  /** @param plansNames A list of plan names for which this coupon applies. */
   public void setPlansNames(final List<String> plansNames) {
     this.plansNames = plansNames;
   }
@@ -443,6 +491,21 @@ public class Coupon extends Resource {
    */
   public void setRedeemBy(final DateTime redeemBy) {
     this.redeemBy = redeemBy;
+  }
+
+  /**
+   * The date and time the unique coupon code was redeemed. This is only present for bulk coupons.
+   */
+  public DateTime getRedeemedAt() {
+    return this.redeemedAt;
+  }
+
+  /**
+   * @param redeemedAt The date and time the unique coupon code was redeemed. This is only present
+   *     for bulk coupons.
+   */
+  public void setRedeemedAt(final DateTime redeemedAt) {
+    this.redeemedAt = redeemedAt;
   }
 
   /**
