@@ -33,13 +33,10 @@ public class SubscriptionCreate extends Request {
   @Expose
   private String collectionMethod;
 
-  /**
-   * Optional coupon code to redeem on the account and discount the subscription. Please note, the
-   * subscription request will fail if the coupon is invalid.
-   */
-  @SerializedName("coupon_code")
+  /** A list of coupon_codes to be redeemed on the subscription or account during the purchase. */
+  @SerializedName("coupon_codes")
   @Expose
-  private String couponCode;
+  private List<String> couponCodes;
 
   /**
    * If there are pending credits on the account that will be invoiced during the subscription
@@ -227,20 +224,17 @@ public class SubscriptionCreate extends Request {
     this.collectionMethod = collectionMethod;
   }
 
-  /**
-   * Optional coupon code to redeem on the account and discount the subscription. Please note, the
-   * subscription request will fail if the coupon is invalid.
-   */
-  public String getCouponCode() {
-    return this.couponCode;
+  /** A list of coupon_codes to be redeemed on the subscription or account during the purchase. */
+  public List<String> getCouponCodes() {
+    return this.couponCodes;
   }
 
   /**
-   * @param couponCode Optional coupon code to redeem on the account and discount the subscription.
-   *     Please note, the subscription request will fail if the coupon is invalid.
+   * @param couponCodes A list of coupon_codes to be redeemed on the subscription or account during
+   *     the purchase.
    */
-  public void setCouponCode(final String couponCode) {
-    this.couponCode = couponCode;
+  public void setCouponCodes(final List<String> couponCodes) {
+    this.couponCodes = couponCodes;
   }
 
   /**

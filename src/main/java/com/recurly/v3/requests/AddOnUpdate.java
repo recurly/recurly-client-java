@@ -52,12 +52,12 @@ public class AddOnUpdate extends Request {
   private String code;
 
   /**
-   * If the add-on's `tier_type` is `tiered`, `volume` or `stairstep`, then `currencies` must be
-   * absent.
+   * If the add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then currencies must be
+   * absent
    */
   @SerializedName("currencies")
   @Expose
-  private List<AddOnPricing> currencies;
+  private List<Pricing> currencies;
 
   /** Default quantity for the hosted pages. */
   @SerializedName("default_quantity")
@@ -111,9 +111,9 @@ public class AddOnUpdate extends Request {
   private Boolean optional;
 
   /**
-   * When this add-on is invoiced, the line item will use this revenue schedule. If an `Item` is
-   * associated to the `AddOn` then `revenue_schedule_type` must be absent in the request as the
-   * value will be set from the item.
+   * When this add-on is invoiced, the line item will use this revenue schedule. If
+   * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
+   * request as the value will be set from the item.
    */
   @SerializedName("revenue_schedule_type")
   @Expose
@@ -226,18 +226,18 @@ public class AddOnUpdate extends Request {
   }
 
   /**
-   * If the add-on's `tier_type` is `tiered`, `volume` or `stairstep`, then `currencies` must be
-   * absent.
+   * If the add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then currencies must be
+   * absent
    */
-  public List<AddOnPricing> getCurrencies() {
+  public List<Pricing> getCurrencies() {
     return this.currencies;
   }
 
   /**
-   * @param currencies If the add-on's `tier_type` is `tiered`, `volume` or `stairstep`, then
-   *     `currencies` must be absent.
+   * @param currencies If the add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then
+   *     currencies must be absent
    */
-  public void setCurrencies(final List<AddOnPricing> currencies) {
+  public void setCurrencies(final List<Pricing> currencies) {
     this.currencies = currencies;
   }
 
@@ -349,9 +349,9 @@ public class AddOnUpdate extends Request {
   }
 
   /**
-   * When this add-on is invoiced, the line item will use this revenue schedule. If an `Item` is
-   * associated to the `AddOn` then `revenue_schedule_type` must be absent in the request as the
-   * value will be set from the item.
+   * When this add-on is invoiced, the line item will use this revenue schedule. If
+   * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
+   * request as the value will be set from the item.
    */
   public String getRevenueScheduleType() {
     return this.revenueScheduleType;
@@ -359,8 +359,8 @@ public class AddOnUpdate extends Request {
 
   /**
    * @param revenueScheduleType When this add-on is invoiced, the line item will use this revenue
-   *     schedule. If an `Item` is associated to the `AddOn` then `revenue_schedule_type` must be
-   *     absent in the request as the value will be set from the item.
+   *     schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must
+   *     be absent in the request as the value will be set from the item.
    */
   public void setRevenueScheduleType(final String revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;

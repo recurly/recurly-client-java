@@ -59,7 +59,7 @@ public class AddOn extends Resource {
   /** Add-on pricing */
   @SerializedName("currencies")
   @Expose
-  private List<AddOnPricing> currencies;
+  private List<Pricing> currencies;
 
   /** Default quantity for the hosted pages. */
   @SerializedName("default_quantity")
@@ -144,7 +144,12 @@ public class AddOn extends Resource {
   @Expose
   private String taxCode;
 
-  /** The type of tiering used by the Add-on. */
+  /**
+   * The pricing model for the add-on. For more information, [click
+   * here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
+   * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
+   * configure quantity-based pricing models.
+   */
   @SerializedName("tier_type")
   @Expose
   private String tierType;
@@ -259,12 +264,12 @@ public class AddOn extends Resource {
   }
 
   /** Add-on pricing */
-  public List<AddOnPricing> getCurrencies() {
+  public List<Pricing> getCurrencies() {
     return this.currencies;
   }
 
   /** @param currencies Add-on pricing */
-  public void setCurrencies(final List<AddOnPricing> currencies) {
+  public void setCurrencies(final List<Pricing> currencies) {
     this.currencies = currencies;
   }
 
@@ -442,12 +447,22 @@ public class AddOn extends Resource {
     this.taxCode = taxCode;
   }
 
-  /** The type of tiering used by the Add-on. */
+  /**
+   * The pricing model for the add-on. For more information, [click
+   * here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
+   * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
+   * configure quantity-based pricing models.
+   */
   public String getTierType() {
     return this.tierType;
   }
 
-  /** @param tierType The type of tiering used by the Add-on. */
+  /**
+   * @param tierType The pricing model for the add-on. For more information, [click
+   *     here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
+   *     [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
+   *     to configure quantity-based pricing models.
+   */
   public void setTierType(final String tierType) {
     this.tierType = tierType;
   }

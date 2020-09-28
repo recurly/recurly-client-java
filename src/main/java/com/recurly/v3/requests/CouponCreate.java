@@ -14,8 +14,8 @@ import java.util.List;
 public class CouponCreate extends Request {
 
   /**
-   * The coupon is valid for all plans if true. If false then `plans` and `plans_names` will list
-   * the applicable plans.
+   * The coupon is valid for all plans if true. If false then `plans` will list the applicable
+   * plans.
    */
   @SerializedName("applies_to_all_plans")
   @Expose
@@ -174,16 +174,16 @@ public class CouponCreate extends Request {
   private String uniqueCodeTemplate;
 
   /**
-   * The coupon is valid for all plans if true. If false then `plans` and `plans_names` will list
-   * the applicable plans.
+   * The coupon is valid for all plans if true. If false then `plans` will list the applicable
+   * plans.
    */
   public Boolean getAppliesToAllPlans() {
     return this.appliesToAllPlans;
   }
 
   /**
-   * @param appliesToAllPlans The coupon is valid for all plans if true. If false then `plans` and
-   *     `plans_names` will list the applicable plans.
+   * @param appliesToAllPlans The coupon is valid for all plans if true. If false then `plans` will
+   *     list the applicable plans.
    */
   public void setAppliesToAllPlans(final Boolean appliesToAllPlans) {
     this.appliesToAllPlans = appliesToAllPlans;

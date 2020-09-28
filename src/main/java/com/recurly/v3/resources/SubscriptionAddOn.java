@@ -63,7 +63,12 @@ public class SubscriptionAddOn extends Resource {
   @Expose
   private String subscriptionId;
 
-  /** The type of tiering used by the Add-on. */
+  /**
+   * The pricing model for the add-on. For more information, [click
+   * here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
+   * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
+   * configure quantity-based pricing models.
+   */
   @SerializedName("tier_type")
   @Expose
   private String tierType;
@@ -196,12 +201,22 @@ public class SubscriptionAddOn extends Resource {
     this.subscriptionId = subscriptionId;
   }
 
-  /** The type of tiering used by the Add-on. */
+  /**
+   * The pricing model for the add-on. For more information, [click
+   * here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
+   * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
+   * configure quantity-based pricing models.
+   */
   public String getTierType() {
     return this.tierType;
   }
 
-  /** @param tierType The type of tiering used by the Add-on. */
+  /**
+   * @param tierType The pricing model for the add-on. For more information, [click
+   *     here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
+   *     [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
+   *     to configure quantity-based pricing models.
+   */
   public void setTierType(final String tierType) {
     this.tierType = tierType;
   }

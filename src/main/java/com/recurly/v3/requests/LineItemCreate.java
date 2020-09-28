@@ -76,7 +76,7 @@ public class LineItemCreate extends Request {
   private DateTime endDate;
 
   /**
-   * Unique code to identify an item. Avaliable when the Credit Invoices and Subscription Billing
+   * Unique code to identify an item. Available when the Credit Invoices and Subscription Billing
    * Terms features are enabled.
    */
   @SerializedName("item_code")
@@ -296,7 +296,7 @@ public class LineItemCreate extends Request {
   }
 
   /**
-   * Unique code to identify an item. Avaliable when the Credit Invoices and Subscription Billing
+   * Unique code to identify an item. Available when the Credit Invoices and Subscription Billing
    * Terms features are enabled.
    */
   public String getItemCode() {
@@ -304,7 +304,7 @@ public class LineItemCreate extends Request {
   }
 
   /**
-   * @param itemCode Unique code to identify an item. Avaliable when the Credit Invoices and
+   * @param itemCode Unique code to identify an item. Available when the Credit Invoices and
    *     Subscription Billing Terms features are enabled.
    */
   public void setItemCode(final String itemCode) {

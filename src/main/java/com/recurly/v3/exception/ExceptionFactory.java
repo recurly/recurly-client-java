@@ -19,11 +19,11 @@ public class ExceptionFactory {
       case "bad_request":
         return (T) new BadRequestException(e.getMessage(), e);
 
-      case "internal_server_error":
-        return (T) new InternalServerException(e.getMessage(), e);
-
       case "immutable_subscription":
         return (T) new ImmutableSubscriptionException(e.getMessage(), e);
+
+      case "internal_server_error":
+        return (T) new InternalServerException(e.getMessage(), e);
 
       case "invalid_api_key":
         return (T) new InvalidApiKeyException(e.getMessage(), e);
@@ -40,8 +40,14 @@ public class ExceptionFactory {
       case "invalid_token":
         return (T) new InvalidTokenException(e.getMessage(), e);
 
+      case "missing_feature":
+        return (T) new MissingFeatureException(e.getMessage(), e);
+
       case "not_found":
         return (T) new NotFoundException(e.getMessage(), e);
+
+      case "rate_limited":
+        return (T) new RateLimitedException(e.getMessage(), e);
 
       case "simultaneous_request":
         return (T) new SimultaneousRequestException(e.getMessage(), e);
@@ -60,12 +66,6 @@ public class ExceptionFactory {
 
       case "validation":
         return (T) new ValidationException(e.getMessage(), e);
-
-      case "missing_feature":
-        return (T) new MissingFeatureException(e.getMessage(), e);
-
-      case "rate_limited":
-        return (T) new RateLimitedException(e.getMessage(), e);
     }
     return (T) apiException;
   }

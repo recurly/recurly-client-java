@@ -172,7 +172,10 @@ public class Plan extends Resource {
   @Expose
   private Integer trialLength;
 
-  /** Allow free trial subscriptions to be created without billing info. */
+  /**
+   * Allow free trial subscriptions to be created without billing info. Should not be used if
+   * billing info is needed for initial invoice due to existing uninvoiced charges or setup fee.
+   */
   @SerializedName("trial_requires_billing_info")
   @Expose
   private Boolean trialRequiresBillingInfo;
@@ -505,14 +508,18 @@ public class Plan extends Resource {
     this.trialLength = trialLength;
   }
 
-  /** Allow free trial subscriptions to be created without billing info. */
+  /**
+   * Allow free trial subscriptions to be created without billing info. Should not be used if
+   * billing info is needed for initial invoice due to existing uninvoiced charges or setup fee.
+   */
   public Boolean getTrialRequiresBillingInfo() {
     return this.trialRequiresBillingInfo;
   }
 
   /**
    * @param trialRequiresBillingInfo Allow free trial subscriptions to be created without billing
-   *     info.
+   *     info. Should not be used if billing info is needed for initial invoice due to existing
+   *     uninvoiced charges or setup fee.
    */
   public void setTrialRequiresBillingInfo(final Boolean trialRequiresBillingInfo) {
     this.trialRequiresBillingInfo = trialRequiresBillingInfo;

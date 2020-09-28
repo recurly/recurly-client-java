@@ -77,11 +77,6 @@ public class SubscriptionChange extends Resource {
   @Expose
   private String revenueScheduleType;
 
-  /** Setup fee revenue schedule type */
-  @SerializedName("setup_fee_revenue_schedule_type")
-  @Expose
-  private String setupFeeRevenueScheduleType;
-
   /** Subscription shipping details */
   @SerializedName("shipping")
   @Expose
@@ -228,16 +223,6 @@ public class SubscriptionChange extends Resource {
   /** @param revenueScheduleType Revenue schedule type */
   public void setRevenueScheduleType(final String revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
-  }
-
-  /** Setup fee revenue schedule type */
-  public String getSetupFeeRevenueScheduleType() {
-    return this.setupFeeRevenueScheduleType;
-  }
-
-  /** @param setupFeeRevenueScheduleType Setup fee revenue schedule type */
-  public void setSetupFeeRevenueScheduleType(final String setupFeeRevenueScheduleType) {
-    this.setupFeeRevenueScheduleType = setupFeeRevenueScheduleType;
   }
 
   /** Subscription shipping details */

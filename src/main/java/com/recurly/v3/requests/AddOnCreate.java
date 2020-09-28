@@ -65,7 +65,7 @@ public class AddOnCreate extends Request {
    */
   @SerializedName("currencies")
   @Expose
-  private List<AddOnPricing> currencies;
+  private List<Pricing> currencies;
 
   /** Default quantity for the hosted pages. */
   @SerializedName("default_quantity")
@@ -78,7 +78,7 @@ public class AddOnCreate extends Request {
   private Boolean displayQuantity;
 
   /**
-   * Unique code to identify an item. Avaliable when the `Credit Invoices` and `Subscription Billing
+   * Unique code to identify an item. Available when the `Credit Invoices` and `Subscription Billing
    * Terms` features are enabled. If `item_id` and `item_code` are both present, `item_id` will be
    * used.
    */
@@ -289,7 +289,7 @@ public class AddOnCreate extends Request {
    * required. If `item_code`/`item_id` is not present `currencies` is required. If the add-on's
    * `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must be absent.
    */
-  public List<AddOnPricing> getCurrencies() {
+  public List<Pricing> getCurrencies() {
     return this.currencies;
   }
 
@@ -300,7 +300,7 @@ public class AddOnCreate extends Request {
    *     If the add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must
    *     be absent.
    */
-  public void setCurrencies(final List<AddOnPricing> currencies) {
+  public void setCurrencies(final List<Pricing> currencies) {
     this.currencies = currencies;
   }
 
@@ -328,7 +328,7 @@ public class AddOnCreate extends Request {
   }
 
   /**
-   * Unique code to identify an item. Avaliable when the `Credit Invoices` and `Subscription Billing
+   * Unique code to identify an item. Available when the `Credit Invoices` and `Subscription Billing
    * Terms` features are enabled. If `item_id` and `item_code` are both present, `item_id` will be
    * used.
    */
@@ -337,7 +337,7 @@ public class AddOnCreate extends Request {
   }
 
   /**
-   * @param itemCode Unique code to identify an item. Avaliable when the `Credit Invoices` and
+   * @param itemCode Unique code to identify an item. Available when the `Credit Invoices` and
    *     `Subscription Billing Terms` features are enabled. If `item_id` and `item_code` are both
    *     present, `item_id` will be used.
    */

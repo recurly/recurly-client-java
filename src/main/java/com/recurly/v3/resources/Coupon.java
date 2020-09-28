@@ -9,13 +9,14 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import java.util.List;
+import java.util.Map;
 import org.joda.time.DateTime;
 
 public class Coupon extends Resource {
 
   /**
-   * The coupon is valid for all plans if true. If false then `plans` and `plans_names` will list
-   * the applicable plans.
+   * The coupon is valid for all plans if true. If false then `plans` will list the applicable
+   * plans.
    */
   @SerializedName("applies_to_all_plans")
   @Expose
@@ -25,16 +26,6 @@ public class Coupon extends Resource {
   @SerializedName("applies_to_non_plan_charges")
   @Expose
   private Boolean appliesToNonPlanCharges;
-
-  /** The Coupon code of the parent Bulk Coupon */
-  @SerializedName("bulk_coupon_code")
-  @Expose
-  private String bulkCouponCode;
-
-  /** The Coupon ID of the parent Bulk Coupon */
-  @SerializedName("bulk_coupon_id")
-  @Expose
-  private String bulkCouponId;
 
   /** The code the customer enters to redeem the coupon. */
   @SerializedName("code")
@@ -141,11 +132,6 @@ public class Coupon extends Resource {
   @Expose
   private List<PlanMini> plans;
 
-  /** A list of plan names for which this coupon applies. */
-  @SerializedName("plans_names")
-  @Expose
-  private List<String> plansNames;
-
   /**
    * The date and time the coupon will expire and can no longer be redeemed. Time is always
    * 11:59:59, the end-of-day Pacific time.
@@ -153,13 +139,6 @@ public class Coupon extends Resource {
   @SerializedName("redeem_by")
   @Expose
   private DateTime redeemBy;
-
-  /**
-   * The date and time the unique coupon code was redeemed. This is only present for bulk coupons.
-   */
-  @SerializedName("redeemed_at")
-  @Expose
-  private DateTime redeemedAt;
 
   /**
    * Whether the discount is for all eligible charges on the account, or only a specific
@@ -195,6 +174,11 @@ public class Coupon extends Resource {
   @Expose
   private String uniqueCodeTemplate;
 
+  /** Will be populated when the Coupon being returned is a `UniqueCouponCode`. */
+  @SerializedName("unique_coupon_code")
+  @Expose
+  private Map uniqueCouponCode;
+
   /** When this number reaches `max_redemptions` the coupon will no longer be redeemable. */
   @SerializedName("unique_coupon_codes_count")
   @Expose
@@ -206,16 +190,16 @@ public class Coupon extends Resource {
   private DateTime updatedAt;
 
   /**
-   * The coupon is valid for all plans if true. If false then `plans` and `plans_names` will list
-   * the applicable plans.
+   * The coupon is valid for all plans if true. If false then `plans` will list the applicable
+   * plans.
    */
   public Boolean getAppliesToAllPlans() {
     return this.appliesToAllPlans;
   }
 
   /**
-   * @param appliesToAllPlans The coupon is valid for all plans if true. If false then `plans` and
-   *     `plans_names` will list the applicable plans.
+   * @param appliesToAllPlans The coupon is valid for all plans if true. If false then `plans` will
+   *     list the applicable plans.
    */
   public void setAppliesToAllPlans(final Boolean appliesToAllPlans) {
     this.appliesToAllPlans = appliesToAllPlans;
@@ -229,26 +213,6 @@ public class Coupon extends Resource {
   /** @param appliesToNonPlanCharges The coupon is valid for one-time, non-plan charges if true. */
   public void setAppliesToNonPlanCharges(final Boolean appliesToNonPlanCharges) {
     this.appliesToNonPlanCharges = appliesToNonPlanCharges;
-  }
-
-  /** The Coupon code of the parent Bulk Coupon */
-  public String getBulkCouponCode() {
-    return this.bulkCouponCode;
-  }
-
-  /** @param bulkCouponCode The Coupon code of the parent Bulk Coupon */
-  public void setBulkCouponCode(final String bulkCouponCode) {
-    this.bulkCouponCode = bulkCouponCode;
-  }
-
-  /** The Coupon ID of the parent Bulk Coupon */
-  public String getBulkCouponId() {
-    return this.bulkCouponId;
-  }
-
-  /** @param bulkCouponId The Coupon ID of the parent Bulk Coupon */
-  public void setBulkCouponId(final String bulkCouponId) {
-    this.bulkCouponId = bulkCouponId;
   }
 
   /** The code the customer enters to redeem the coupon. */
@@ -467,16 +431,6 @@ public class Coupon extends Resource {
     this.plans = plans;
   }
 
-  /** A list of plan names for which this coupon applies. */
-  public List<String> getPlansNames() {
-    return this.plansNames;
-  }
-
-  /** @param plansNames A list of plan names for which this coupon applies. */
-  public void setPlansNames(final List<String> plansNames) {
-    this.plansNames = plansNames;
-  }
-
   /**
    * The date and time the coupon will expire and can no longer be redeemed. Time is always
    * 11:59:59, the end-of-day Pacific time.
@@ -491,21 +445,6 @@ public class Coupon extends Resource {
    */
   public void setRedeemBy(final DateTime redeemBy) {
     this.redeemBy = redeemBy;
-  }
-
-  /**
-   * The date and time the unique coupon code was redeemed. This is only present for bulk coupons.
-   */
-  public DateTime getRedeemedAt() {
-    return this.redeemedAt;
-  }
-
-  /**
-   * @param redeemedAt The date and time the unique coupon code was redeemed. This is only present
-   *     for bulk coupons.
-   */
-  public void setRedeemedAt(final DateTime redeemedAt) {
-    this.redeemedAt = redeemedAt;
   }
 
   /**
@@ -578,6 +517,19 @@ public class Coupon extends Resource {
    */
   public void setUniqueCodeTemplate(final String uniqueCodeTemplate) {
     this.uniqueCodeTemplate = uniqueCodeTemplate;
+  }
+
+  /** Will be populated when the Coupon being returned is a `UniqueCouponCode`. */
+  public Map getUniqueCouponCode() {
+    return this.uniqueCouponCode;
+  }
+
+  /**
+   * @param uniqueCouponCode Will be populated when the Coupon being returned is a
+   *     `UniqueCouponCode`.
+   */
+  public void setUniqueCouponCode(final Map uniqueCouponCode) {
+    this.uniqueCouponCode = uniqueCouponCode;
   }
 
   /** When this number reaches `max_redemptions` the coupon will no longer be redeemable. */

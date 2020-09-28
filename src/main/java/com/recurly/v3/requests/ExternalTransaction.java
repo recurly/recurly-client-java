@@ -28,7 +28,7 @@ public class ExternalTransaction extends Request {
   @Expose
   private String description;
 
-  /** Payment method used for the external transaction. */
+  /** Payment method used for external transaction. */
   @SerializedName("payment_method")
   @Expose
   private String paymentMethod;
@@ -66,12 +66,12 @@ public class ExternalTransaction extends Request {
     this.description = description;
   }
 
-  /** Payment method used for the external transaction. */
+  /** Payment method used for external transaction. */
   public String getPaymentMethod() {
     return this.paymentMethod;
   }
 
-  /** @param paymentMethod Payment method used for the external transaction. */
+  /** @param paymentMethod Payment method used for external transaction. */
   public void setPaymentMethod(final String paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
