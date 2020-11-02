@@ -266,12 +266,12 @@ public class Client extends BaseClient {
   /**
    * Get the list of billing information associated with an account
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_billing_infos">get_billing_infos api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_billing_infos">list_billing_infos api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the the billing information for an account's
    */
-  public Pager<BillingInfo> getBillingInfos(String accountId, QueryParams queryParams) {
+  public Pager<BillingInfo> listBillingInfos(String accountId, QueryParams queryParams) {
     final String url = "/accounts/{account_id}/billing_infos";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
@@ -339,11 +339,11 @@ public class Client extends BaseClient {
   /**
    * Remove an account's billing information
    *
-   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/remove_one_billing_info">remove_one_billing_info api documentation</a>
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/remove_a_billing_info">remove_a_billing_info api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param billingInfoId Billing Info ID.
    */
-  public void removeOneBillingInfo(String accountId, String billingInfoId) {
+  public void removeABillingInfo(String accountId, String billingInfoId) {
     final String url = "/accounts/{account_id}/billing_infos/{billing_info_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
