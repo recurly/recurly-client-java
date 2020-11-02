@@ -14,6 +14,14 @@ import org.joda.time.DateTime;
 public class Coupon extends Resource {
 
   /**
+   * The coupon is valid for all items if true. If false then `items` will list the applicable
+   * items.
+   */
+  @SerializedName("applies_to_all_items")
+  @Expose
+  private Boolean appliesToAllItems;
+
+  /**
    * The coupon is valid for all plans if true. If false then `plans` and `plans_names` will list
    * the applicable plans.
    */
@@ -105,6 +113,14 @@ public class Coupon extends Resource {
   @SerializedName("invoice_description")
   @Expose
   private String invoiceDescription;
+
+  /**
+   * A list of items for which this coupon applies. This will be `null` if
+   * `applies_to_all_items=true`.
+   */
+  @SerializedName("items")
+  @Expose
+  private List<ItemMini> items;
 
   /**
    * A maximum number of redemptions for the coupon. The coupon will expire when it hits its maximum
@@ -204,6 +220,22 @@ public class Coupon extends Resource {
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
+
+  /**
+   * The coupon is valid for all items if true. If false then `items` will list the applicable
+   * items.
+   */
+  public Boolean getAppliesToAllItems() {
+    return this.appliesToAllItems;
+  }
+
+  /**
+   * @param appliesToAllItems The coupon is valid for all items if true. If false then `items` will
+   *     list the applicable items.
+   */
+  public void setAppliesToAllItems(final Boolean appliesToAllItems) {
+    this.appliesToAllItems = appliesToAllItems;
+  }
 
   /**
    * The coupon is valid for all plans if true. If false then `plans` and `plans_names` will list
@@ -394,6 +426,22 @@ public class Coupon extends Resource {
   /** @param invoiceDescription Description of the coupon on the invoice. */
   public void setInvoiceDescription(final String invoiceDescription) {
     this.invoiceDescription = invoiceDescription;
+  }
+
+  /**
+   * A list of items for which this coupon applies. This will be `null` if
+   * `applies_to_all_items=true`.
+   */
+  public List<ItemMini> getItems() {
+    return this.items;
+  }
+
+  /**
+   * @param items A list of items for which this coupon applies. This will be `null` if
+   *     `applies_to_all_items=true`.
+   */
+  public void setItems(final List<ItemMini> items) {
+    this.items = items;
   }
 
   /**

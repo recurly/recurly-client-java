@@ -47,6 +47,11 @@ public class Subscription extends Resource {
   @Expose
   private DateTime bankAccountAuthorizedAt;
 
+  /** Billing Info ID. */
+  @SerializedName("billing_info_id")
+  @Expose
+  private String billingInfoId;
+
   /** Canceled at */
   @SerializedName("canceled_at")
   @Expose
@@ -314,6 +319,16 @@ public class Subscription extends Resource {
    */
   public void setBankAccountAuthorizedAt(final DateTime bankAccountAuthorizedAt) {
     this.bankAccountAuthorizedAt = bankAccountAuthorizedAt;
+  }
+
+  /** Billing Info ID. */
+  public String getBillingInfoId() {
+    return this.billingInfoId;
+  }
+
+  /** @param billingInfoId Billing Info ID. */
+  public void setBillingInfoId(final String billingInfoId) {
+    this.billingInfoId = billingInfoId;
   }
 
   /** Canceled at */

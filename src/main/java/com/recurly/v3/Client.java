@@ -264,6 +264,95 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Get the list of billing information associated with an account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_billing_infos">get_billing_infos api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the the billing information for an account's
+   */
+  public Pager<BillingInfo> getBillingInfos(String accountId, QueryParams queryParams) {
+    final String url = "/accounts/{account_id}/billing_infos";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, BillingInfo.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * Set an account's billing information when the wallet feature is enabled
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_billing_info">create_billing_info api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param body The body of the request.
+     * @return Updated billing information.
+   */
+  public BillingInfo createBillingInfo(String accountId, BillingInfoCreate body) {
+    final String url = "/accounts/{account_id}/billing_infos";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = BillingInfo.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * Fetch a billing info
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_a_billing_info">get_a_billing_info api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param billingInfoId Billing Info ID.
+     * @return A billing info.
+   */
+  public BillingInfo getABillingInfo(String accountId, String billingInfoId) {
+    final String url = "/accounts/{account_id}/billing_infos/{billing_info_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("billing_info_id", billingInfoId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = BillingInfo.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Update an account's billing information
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/update_a_billing_info">update_a_billing_info api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param billingInfoId Billing Info ID.
+   * @param body The body of the request.
+     * @return Updated billing information.
+   */
+  public BillingInfo updateABillingInfo(String accountId, String billingInfoId, BillingInfoCreate body) {
+    final String url = "/accounts/{account_id}/billing_infos/{billing_info_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("billing_info_id", billingInfoId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = BillingInfo.class;
+    return this.makeRequest("PUT", path, body, returnType);
+  }
+
+  /**
+   * Remove an account's billing information
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/remove_one_billing_info">remove_one_billing_info api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param billingInfoId Billing Info ID.
+   */
+  public void removeOneBillingInfo(String accountId, String billingInfoId) {
+    final String url = "/accounts/{account_id}/billing_infos/{billing_info_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("billing_info_id", billingInfoId);
+    final String path = this.interpolatePath(url, urlParams);
+    this.makeRequest("DELETE", path);
+  }
+
+  /**
    * Show the coupon redemptions for an account
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_account_coupon_redemptions">list_account_coupon_redemptions api documentation</a>
