@@ -43,6 +43,9 @@ public class ExceptionFactory {
       case "not_found":
         return (T) new NotFoundException(e.getMessage(), e);
 
+      case "service_not_available":
+        return (T) new ServiceNotAvailableException(e.getMessage(), e);
+
       case "simultaneous_request":
         return (T) new SimultaneousRequestException(e.getMessage(), e);
 

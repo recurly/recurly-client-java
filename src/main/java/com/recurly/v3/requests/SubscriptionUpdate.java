@@ -19,6 +19,15 @@ public class SubscriptionUpdate extends Request {
   @Expose
   private Boolean autoRenew;
 
+  /**
+   * The `billing_info_id` is the value that represents a specific billing info for an end customer.
+   * When `billing_info_id` is used to assign billing info to the subscription, all future billing
+   * events for the subscription will bill to the specified billing info.
+   */
+  @SerializedName("billing_info_id")
+  @Expose
+  private String billingInfoId;
+
   /** Change collection method */
   @SerializedName("collection_method")
   @Expose
@@ -106,6 +115,25 @@ public class SubscriptionUpdate extends Request {
   /** @param autoRenew Whether the subscription renews at the end of its term. */
   public void setAutoRenew(final Boolean autoRenew) {
     this.autoRenew = autoRenew;
+  }
+
+  /**
+   * The `billing_info_id` is the value that represents a specific billing info for an end customer.
+   * When `billing_info_id` is used to assign billing info to the subscription, all future billing
+   * events for the subscription will bill to the specified billing info.
+   */
+  public String getBillingInfoId() {
+    return this.billingInfoId;
+  }
+
+  /**
+   * @param billingInfoId The `billing_info_id` is the value that represents a specific billing info
+   *     for an end customer. When `billing_info_id` is used to assign billing info to the
+   *     subscription, all future billing events for the subscription will bill to the specified
+   *     billing info.
+   */
+  public void setBillingInfoId(final String billingInfoId) {
+    this.billingInfoId = billingInfoId;
   }
 
   /** Change collection method */
