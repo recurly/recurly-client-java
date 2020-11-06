@@ -1,8 +1,20 @@
 # Changelog
 
-## [3.14.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
+## [3.15.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.13.0...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.14.0...HEAD)
+
+**Implemented enhancements:**
+
+- Latest Changes for 2019-10-10 \(Wallet, Item Coupons\) [\#117](https://github.com/recurly/recurly-client-java/pull/117) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.15.0 [\#118](https://github.com/recurly/recurly-client-java/pull/118) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.14.0](https://github.com/recurly/recurly-client-java/tree/3.14.0) (2020-10-20)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.13.0...3.14.0)
 
 **Implemented enhancements:**
 
