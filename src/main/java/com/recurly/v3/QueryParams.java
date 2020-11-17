@@ -86,6 +86,10 @@ public class QueryParams {
     this.add("refund", refund);
   }
 
+  public void setCharge(final Boolean charge) {
+    this.add("charge", charge);
+  }
+
   public void setBillingStatus(final String billingStatus) {
     this.add("billing_status", billingStatus);
   }
