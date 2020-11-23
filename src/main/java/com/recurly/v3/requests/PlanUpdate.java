@@ -21,11 +21,6 @@ public class PlanUpdate extends Request {
   @Expose
   private String accountingCode;
 
-  /** Add Ons */
-  @SerializedName("add_ons")
-  @Expose
-  private List<AddOnCreate> addOns;
-
   /**
    * Used to determine whether items can be assigned as add-ons to individual subscriptions. If
    * `true`, items can be assigned as add-ons to individual subscription add-ons. If `false`, only
@@ -171,16 +166,6 @@ public class PlanUpdate extends Request {
    */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
-  }
-
-  /** Add Ons */
-  public List<AddOnCreate> getAddOns() {
-    return this.addOns;
-  }
-
-  /** @param addOns Add Ons */
-  public void setAddOns(final List<AddOnCreate> addOns) {
-    this.addOns = addOns;
   }
 
   /**
