@@ -10,14 +10,13 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.util.List;
-import java.util.Map;
 import org.joda.time.DateTime;
 
 public class SubscriptionCreate extends Request {
 
   @SerializedName("account")
   @Expose
-  private Map account;
+  private AccountCreate account;
 
   /** Add-ons */
   @SerializedName("add_ons")
@@ -189,12 +188,12 @@ public class SubscriptionCreate extends Request {
   @Expose
   private Float unitAmount;
 
-  public Map getAccount() {
+  public AccountCreate getAccount() {
     return this.account;
   }
 
   /** @param account */
-  public void setAccount(final Map account) {
+  public void setAccount(final AccountCreate account) {
     this.account = account;
   }
 
