@@ -18,6 +18,15 @@ public class PurchaseCreate extends Request {
   private AccountPurchase account;
 
   /**
+   * The `billing_info_id` is the value that represents a specific billing info for an end customer.
+   * When `billing_info_id` is used to assign billing info to the subscription, all future billing
+   * events for the subscription will bill to the specified billing info.
+   */
+  @SerializedName("billing_info_id")
+  @Expose
+  private String billingInfoId;
+
+  /**
    * Must be set to manual in order to preview a purchase for an Account that does not have payment
    * information associated with the Billing Info.
    */
@@ -112,6 +121,25 @@ public class PurchaseCreate extends Request {
   /** @param account */
   public void setAccount(final AccountPurchase account) {
     this.account = account;
+  }
+
+  /**
+   * The `billing_info_id` is the value that represents a specific billing info for an end customer.
+   * When `billing_info_id` is used to assign billing info to the subscription, all future billing
+   * events for the subscription will bill to the specified billing info.
+   */
+  public String getBillingInfoId() {
+    return this.billingInfoId;
+  }
+
+  /**
+   * @param billingInfoId The `billing_info_id` is the value that represents a specific billing info
+   *     for an end customer. When `billing_info_id` is used to assign billing info to the
+   *     subscription, all future billing events for the subscription will bill to the specified
+   *     billing info.
+   */
+  public void setBillingInfoId(final String billingInfoId) {
+    this.billingInfoId = billingInfoId;
   }
 
   /**
