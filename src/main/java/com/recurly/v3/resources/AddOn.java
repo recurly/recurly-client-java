@@ -59,7 +59,7 @@ public class AddOn extends Resource {
   /** Add-on pricing */
   @SerializedName("currencies")
   @Expose
-  private List<Pricing> currencies;
+  private List<AddOnPricing> currencies;
 
   /** Default quantity for the hosted pages. */
   @SerializedName("default_quantity")
@@ -264,12 +264,12 @@ public class AddOn extends Resource {
   }
 
   /** Add-on pricing */
-  public List<Pricing> getCurrencies() {
+  public List<AddOnPricing> getCurrencies() {
     return this.currencies;
   }
 
   /** @param currencies Add-on pricing */
-  public void setCurrencies(final List<Pricing> currencies) {
+  public void setCurrencies(final List<AddOnPricing> currencies) {
     this.currencies = currencies;
   }
 

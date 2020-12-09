@@ -65,7 +65,7 @@ public class AddOnCreate extends Request {
    */
   @SerializedName("currencies")
   @Expose
-  private List<Pricing> currencies;
+  private List<AddOnPricing> currencies;
 
   /** Default quantity for the hosted pages. */
   @SerializedName("default_quantity")
@@ -289,7 +289,7 @@ public class AddOnCreate extends Request {
    * required. If `item_code`/`item_id` is not present `currencies` is required. If the add-on's
    * `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must be absent.
    */
-  public List<Pricing> getCurrencies() {
+  public List<AddOnPricing> getCurrencies() {
     return this.currencies;
   }
 
@@ -300,7 +300,7 @@ public class AddOnCreate extends Request {
    *     If the add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must
    *     be absent.
    */
-  public void setCurrencies(final List<Pricing> currencies) {
+  public void setCurrencies(final List<AddOnPricing> currencies) {
     this.currencies = currencies;
   }
 

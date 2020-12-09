@@ -47,6 +47,11 @@ public class Subscription extends Resource {
   @Expose
   private DateTime bankAccountAuthorizedAt;
 
+  /** Billing Info ID. */
+  @SerializedName("billing_info_id")
+  @Expose
+  private String billingInfoId;
+
   /** Canceled at */
   @SerializedName("canceled_at")
   @Expose
@@ -57,7 +62,7 @@ public class Subscription extends Resource {
   @Expose
   private String collectionMethod;
 
-  /** Coupon redemptions */
+  /** Returns subscription level coupon redemptions that are tied to this subscription. */
   @SerializedName("coupon_redemptions")
   @Expose
   private List<CouponRedemptionMini> couponRedemptions;
@@ -316,6 +321,16 @@ public class Subscription extends Resource {
     this.bankAccountAuthorizedAt = bankAccountAuthorizedAt;
   }
 
+  /** Billing Info ID. */
+  public String getBillingInfoId() {
+    return this.billingInfoId;
+  }
+
+  /** @param billingInfoId Billing Info ID. */
+  public void setBillingInfoId(final String billingInfoId) {
+    this.billingInfoId = billingInfoId;
+  }
+
   /** Canceled at */
   public DateTime getCanceledAt() {
     return this.canceledAt;
@@ -336,12 +351,15 @@ public class Subscription extends Resource {
     this.collectionMethod = collectionMethod;
   }
 
-  /** Coupon redemptions */
+  /** Returns subscription level coupon redemptions that are tied to this subscription. */
   public List<CouponRedemptionMini> getCouponRedemptions() {
     return this.couponRedemptions;
   }
 
-  /** @param couponRedemptions Coupon redemptions */
+  /**
+   * @param couponRedemptions Returns subscription level coupon redemptions that are tied to this
+   *     subscription.
+   */
   public void setCouponRedemptions(final List<CouponRedemptionMini> couponRedemptions) {
     this.couponRedemptions = couponRedemptions;
   }

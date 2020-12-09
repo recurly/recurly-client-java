@@ -14,6 +14,16 @@ import java.util.List;
 public class CouponCreate extends Request {
 
   /**
+   * To apply coupon to Items in your Catalog, include a list of `item_codes` in the request that
+   * the coupon will apply to. Or set value to true to apply to all Items in your Catalog. The
+   * following values are not permitted when `applies_to_all_items` is included: `free_trial_amount`
+   * and `free_trial_unit`.
+   */
+  @SerializedName("applies_to_all_items")
+  @Expose
+  private Boolean appliesToAllItems;
+
+  /**
    * The coupon is valid for all plans if true. If false then `plans` will list the applicable
    * plans.
    */
@@ -99,6 +109,15 @@ public class CouponCreate extends Request {
   private String invoiceDescription;
 
   /**
+   * List of item codes to which this coupon applies. Sending `item_codes` is only permitted when
+   * `applies_to_all_items` is set to false. The following values are not permitted when
+   * `item_codes` is included: `free_trial_amount` and `free_trial_unit`.
+   */
+  @SerializedName("item_codes")
+  @Expose
+  private List<String> itemCodes;
+
+  /**
    * A maximum number of redemptions for the coupon. The coupon will expire when it hits its maximum
    * redemptions.
    */
@@ -172,6 +191,26 @@ public class CouponCreate extends Request {
   @SerializedName("unique_code_template")
   @Expose
   private String uniqueCodeTemplate;
+
+  /**
+   * To apply coupon to Items in your Catalog, include a list of `item_codes` in the request that
+   * the coupon will apply to. Or set value to true to apply to all Items in your Catalog. The
+   * following values are not permitted when `applies_to_all_items` is included: `free_trial_amount`
+   * and `free_trial_unit`.
+   */
+  public Boolean getAppliesToAllItems() {
+    return this.appliesToAllItems;
+  }
+
+  /**
+   * @param appliesToAllItems To apply coupon to Items in your Catalog, include a list of
+   *     `item_codes` in the request that the coupon will apply to. Or set value to true to apply to
+   *     all Items in your Catalog. The following values are not permitted when
+   *     `applies_to_all_items` is included: `free_trial_amount` and `free_trial_unit`.
+   */
+  public void setAppliesToAllItems(final Boolean appliesToAllItems) {
+    this.appliesToAllItems = appliesToAllItems;
+  }
 
   /**
    * The coupon is valid for all plans if true. If false then `plans` will list the applicable
@@ -346,6 +385,24 @@ public class CouponCreate extends Request {
   /** @param invoiceDescription Description of the coupon on the invoice. */
   public void setInvoiceDescription(final String invoiceDescription) {
     this.invoiceDescription = invoiceDescription;
+  }
+
+  /**
+   * List of item codes to which this coupon applies. Sending `item_codes` is only permitted when
+   * `applies_to_all_items` is set to false. The following values are not permitted when
+   * `item_codes` is included: `free_trial_amount` and `free_trial_unit`.
+   */
+  public List<String> getItemCodes() {
+    return this.itemCodes;
+  }
+
+  /**
+   * @param itemCodes List of item codes to which this coupon applies. Sending `item_codes` is only
+   *     permitted when `applies_to_all_items` is set to false. The following values are not
+   *     permitted when `item_codes` is included: `free_trial_amount` and `free_trial_unit`.
+   */
+  public void setItemCodes(final List<String> itemCodes) {
+    this.itemCodes = itemCodes;
   }
 
   /**

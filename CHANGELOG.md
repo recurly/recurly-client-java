@@ -1,8 +1,57 @@
 # Changelog
 
-## [3.13.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
+## [3.17.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.12.0...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.16.0...HEAD)
+
+**Implemented enhancements:**
+
+- Latest Changes for 2019-10-10 [\#123](https://github.com/recurly/recurly-client-java/pull/123) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.17.0 [\#124](https://github.com/recurly/recurly-client-java/pull/124) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.16.0](https://github.com/recurly/recurly-client-java/tree/3.16.0) (2020-11-24)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.15.0...3.16.0)
+
+**Implemented enhancements:**
+
+- Latest Changes for 2019-10-10 \(tax\_identifier / tax\_identifier\_type\) [\#121](https://github.com/recurly/recurly-client-java/pull/121) ([douglasmiller](https://github.com/douglasmiller))
+- Latest Changes for 2019-10-10 [\#119](https://github.com/recurly/recurly-client-java/pull/119) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.16.0 [\#122](https://github.com/recurly/recurly-client-java/pull/122) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.15.0](https://github.com/recurly/recurly-client-java/tree/3.15.0) (2020-11-06)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.14.0...3.15.0)
+
+**Implemented enhancements:**
+
+- Latest Changes for 2019-10-10 \(Wallet, Item Coupons\) [\#117](https://github.com/recurly/recurly-client-java/pull/117) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.15.0 [\#118](https://github.com/recurly/recurly-client-java/pull/118) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.14.0](https://github.com/recurly/recurly-client-java/tree/3.14.0) (2020-10-20)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.13.0...3.14.0)
+
+**Implemented enhancements:**
+
+- Mon Oct 19 20:39:41 UTC 2020 Upgrade API version v2019-10-10 [\#114](https://github.com/recurly/recurly-client-java/pull/114) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.14.0 [\#115](https://github.com/recurly/recurly-client-java/pull/115) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.13.0](https://github.com/recurly/recurly-client-java/tree/3.13.0) (2020-09-22)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.12.0...3.13.0)
 
 **Implemented enhancements:**
 

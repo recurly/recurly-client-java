@@ -27,6 +27,15 @@ public class Invoice extends Resource {
   @Expose
   private Float balance;
 
+  /**
+   * The `billing_info_id` is the value that represents a specific billing info for an end customer.
+   * When `billing_info_id` is used to assign billing info to the subscription, all future billing
+   * events for the subscription will bill to the specified billing info.
+   */
+  @SerializedName("billing_info_id")
+  @Expose
+  private String billingInfoId;
+
   /** Date invoice was marked paid or failed. */
   @SerializedName("closed_at")
   @Expose
@@ -243,6 +252,25 @@ public class Invoice extends Resource {
   /** @param balance The outstanding balance remaining on this invoice. */
   public void setBalance(final Float balance) {
     this.balance = balance;
+  }
+
+  /**
+   * The `billing_info_id` is the value that represents a specific billing info for an end customer.
+   * When `billing_info_id` is used to assign billing info to the subscription, all future billing
+   * events for the subscription will bill to the specified billing info.
+   */
+  public String getBillingInfoId() {
+    return this.billingInfoId;
+  }
+
+  /**
+   * @param billingInfoId The `billing_info_id` is the value that represents a specific billing info
+   *     for an end customer. When `billing_info_id` is used to assign billing info to the
+   *     subscription, all future billing events for the subscription will bill to the specified
+   *     billing info.
+   */
+  public void setBillingInfoId(final String billingInfoId) {
+    this.billingInfoId = billingInfoId;
   }
 
   /** Date invoice was marked paid or failed. */
