@@ -379,6 +379,17 @@ public class BaseClientTest {
         });
   }
 
+  @Test
+  public void testInterpolatePathMatching() {
+    final MockClient client = new MockClient("apiKey");
+    final String path = "/url_path/{url_path}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("url_path", "replacement");
+
+    final String interpolatedPath = client.interpolatePath(path, urlParams);
+    assertEquals("/url_path/replacement", interpolatedPath);
+  }
+
   protected static void setEnv(Map<String, String> newenv) throws Exception {
     try {
       Class<?> processEnvironmentClass = Class.forName("java.lang.ProcessEnvironment");
