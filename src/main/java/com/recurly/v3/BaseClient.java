@@ -251,7 +251,7 @@ public abstract class BaseClient {
 
   protected String interpolatePath(String path, final HashMap<String, String> urlParams) {
     validatePathParameters(urlParams);
-    final Pattern p = Pattern.compile("\\{([A-Za-z|_]*)\\}");
+    final Pattern p = Pattern.compile("(\\{[A-Za-z|_]*\\})");
     final Matcher m = p.matcher(path);
 
     while (m.find()) {
