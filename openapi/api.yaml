@@ -14667,7 +14667,7 @@ components:
       in: query
       description: Filter by type field.
       schema:
-        "$ref": "#/components/schemas/LineItemTypeEnum"
+        "$ref": "#/components/schemas/LintItemTypeEnum"
     filter_transaction_type:
       name: type
       in: query
@@ -17602,7 +17602,7 @@ components:
           title: Line item type
           description: Charges are positive line items that debit the account. Credits
             are negative line items that credit the account.
-          "$ref": "#/components/schemas/LineItemTypeEnum"
+          "$ref": "#/components/schemas/LintItemTypeEnum"
         item_code:
           type: string
           title: Item Code
@@ -17923,7 +17923,7 @@ components:
           description: Line item type. If `item_code`/`item_id` is present then `type`
             should not be present. If `item_code`/`item_id` is not present then `type`
             is required.
-          "$ref": "#/components/schemas/LineItemTypeEnum"
+          "$ref": "#/components/schemas/LintItemTypeEnum"
         credit_reason_code:
           title: Credit reason code
           description: The reason the credit was given when line item is `type=credit`.
@@ -20718,7 +20718,7 @@ components:
       enum:
       - invoiced
       - pending
-    LineItemTypeEnum:
+    LintItemTypeEnum:
       type: string
       enum:
       - charge

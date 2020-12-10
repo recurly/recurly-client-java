@@ -109,7 +109,8 @@ public class ExceptionFactory {
         return (T) new UnprocessableEntityException(message, null);
       case 429:
         return (T) new TooManyRequestsException(message, null);
+      default:
+        return (T) new ApiException(message, null);
     }
-    return (T) new ApiException(message, null);
   }
 }

@@ -305,7 +305,7 @@ public class LineItem extends Resource {
    */
   @SerializedName("type")
   @Expose
-  private Constants.LineItemType type;
+  private Constants.LintItemType type;
 
   /** Positive amount for a charge, negative amount for a credit. */
   @SerializedName("unit_amount")
@@ -921,7 +921,7 @@ public class LineItem extends Resource {
    * Charges are positive line items that debit the account. Credits are negative line items that
    * credit the account.
    */
-  public Constants.LineItemType getType() {
+  public Constants.LintItemType getType() {
     return this.type;
   }
 
@@ -929,7 +929,7 @@ public class LineItem extends Resource {
    * @param type Charges are positive line items that debit the account. Credits are negative line
    *     items that credit the account.
    */
-  public void setType(final Constants.LineItemType type) {
+  public void setType(final Constants.LintItemType type) {
     this.type = type;
   }
 
