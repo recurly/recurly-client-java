@@ -7,6 +7,7 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 
@@ -22,7 +23,7 @@ public class AccountAcquisitionUpdatable extends Request {
   /** The channel through which the account was acquired. */
   @SerializedName("channel")
   @Expose
-  private String channel;
+  private Constants.Channel channel;
 
   /** Account balance */
   @SerializedName("cost")
@@ -52,12 +53,12 @@ public class AccountAcquisitionUpdatable extends Request {
   }
 
   /** The channel through which the account was acquired. */
-  public String getChannel() {
+  public Constants.Channel getChannel() {
     return this.channel;
   }
 
   /** @param channel The channel through which the account was acquired. */
-  public void setChannel(final String channel) {
+  public void setChannel(final Constants.Channel channel) {
     this.channel = channel;
   }
 

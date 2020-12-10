@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -106,7 +107,7 @@ public class Plan extends Resource {
   /** Unit for the plan's billing interval. */
   @SerializedName("interval_unit")
   @Expose
-  private String intervalUnit;
+  private Constants.IntervalUnit intervalUnit;
 
   /**
    * This name describes your plan and will appear on the Hosted Payment Page and the subscriber's
@@ -124,7 +125,7 @@ public class Plan extends Resource {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private String revenueScheduleType;
+  private Constants.RevenueScheduleType revenueScheduleType;
 
   /**
    * Accounting code for invoice line items for the plan's setup fee. If no value is provided, it
@@ -137,12 +138,12 @@ public class Plan extends Resource {
   /** Setup fee revenue schedule type */
   @SerializedName("setup_fee_revenue_schedule_type")
   @Expose
-  private String setupFeeRevenueScheduleType;
+  private Constants.RevenueScheduleType setupFeeRevenueScheduleType;
 
   /** The current state of the plan. */
   @SerializedName("state")
   @Expose
-  private String state;
+  private Constants.ActiveState state;
 
   /**
    * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
@@ -183,7 +184,7 @@ public class Plan extends Resource {
   /** Units for the plan's trial period. */
   @SerializedName("trial_unit")
   @Expose
-  private String trialUnit;
+  private Constants.IntervalUnit trialUnit;
 
   /** Last updated at */
   @SerializedName("updated_at")
@@ -371,12 +372,12 @@ public class Plan extends Resource {
   }
 
   /** Unit for the plan's billing interval. */
-  public String getIntervalUnit() {
+  public Constants.IntervalUnit getIntervalUnit() {
     return this.intervalUnit;
   }
 
   /** @param intervalUnit Unit for the plan's billing interval. */
-  public void setIntervalUnit(final String intervalUnit) {
+  public void setIntervalUnit(final Constants.IntervalUnit intervalUnit) {
     this.intervalUnit = intervalUnit;
   }
 
@@ -407,12 +408,12 @@ public class Plan extends Resource {
   }
 
   /** Revenue schedule type */
-  public String getRevenueScheduleType() {
+  public Constants.RevenueScheduleType getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final String revenueScheduleType) {
+  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -433,22 +434,23 @@ public class Plan extends Resource {
   }
 
   /** Setup fee revenue schedule type */
-  public String getSetupFeeRevenueScheduleType() {
+  public Constants.RevenueScheduleType getSetupFeeRevenueScheduleType() {
     return this.setupFeeRevenueScheduleType;
   }
 
   /** @param setupFeeRevenueScheduleType Setup fee revenue schedule type */
-  public void setSetupFeeRevenueScheduleType(final String setupFeeRevenueScheduleType) {
+  public void setSetupFeeRevenueScheduleType(
+      final Constants.RevenueScheduleType setupFeeRevenueScheduleType) {
     this.setupFeeRevenueScheduleType = setupFeeRevenueScheduleType;
   }
 
   /** The current state of the plan. */
-  public String getState() {
+  public Constants.ActiveState getState() {
     return this.state;
   }
 
   /** @param state The current state of the plan. */
-  public void setState(final String state) {
+  public void setState(final Constants.ActiveState state) {
     this.state = state;
   }
 
@@ -526,12 +528,12 @@ public class Plan extends Resource {
   }
 
   /** Units for the plan's trial period. */
-  public String getTrialUnit() {
+  public Constants.IntervalUnit getTrialUnit() {
     return this.trialUnit;
   }
 
   /** @param trialUnit Units for the plan's trial period. */
-  public void setTrialUnit(final String trialUnit) {
+  public void setTrialUnit(final Constants.IntervalUnit trialUnit) {
     this.trialUnit = trialUnit;
   }
 

@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 
 public class CouponDiscountTrial extends Resource {
@@ -19,7 +20,7 @@ public class CouponDiscountTrial extends Resource {
   /** Temporal unit of the free trial */
   @SerializedName("unit")
   @Expose
-  private String unit;
+  private Constants.FreeTrialUnit unit;
 
   /** Trial length measured in the units specified by the sibling `unit` property */
   public Integer getLength() {
@@ -32,12 +33,12 @@ public class CouponDiscountTrial extends Resource {
   }
 
   /** Temporal unit of the free trial */
-  public String getUnit() {
+  public Constants.FreeTrialUnit getUnit() {
     return this.unit;
   }
 
   /** @param unit Temporal unit of the free trial */
-  public void setUnit(final String unit) {
+  public void setUnit(final Constants.FreeTrialUnit unit) {
     this.unit = unit;
   }
 }

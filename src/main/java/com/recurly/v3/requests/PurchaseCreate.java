@@ -7,6 +7,7 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.util.List;
@@ -32,7 +33,7 @@ public class PurchaseCreate extends Request {
    */
   @SerializedName("collection_method")
   @Expose
-  private String collectionMethod;
+  private Constants.CollectionMethod collectionMethod;
 
   /** A list of coupon_codes to be redeemed on the subscription or account during the purchase. */
   @SerializedName("coupon_codes")
@@ -107,7 +108,7 @@ public class PurchaseCreate extends Request {
    */
   @SerializedName("transaction_type")
   @Expose
-  private String transactionType;
+  private Constants.GatewayTransactionType transactionType;
 
   /** VAT reverse charge notes for cross border European tax settlement. */
   @SerializedName("vat_reverse_charge_notes")
@@ -146,7 +147,7 @@ public class PurchaseCreate extends Request {
    * Must be set to manual in order to preview a purchase for an Account that does not have payment
    * information associated with the Billing Info.
    */
-  public String getCollectionMethod() {
+  public Constants.CollectionMethod getCollectionMethod() {
     return this.collectionMethod;
   }
 
@@ -154,7 +155,7 @@ public class PurchaseCreate extends Request {
    * @param collectionMethod Must be set to manual in order to preview a purchase for an Account
    *     that does not have payment information associated with the Billing Info.
    */
-  public void setCollectionMethod(final String collectionMethod) {
+  public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
 
@@ -310,7 +311,7 @@ public class PurchaseCreate extends Request {
    * An optional type designation for the payment gateway transaction created by this request.
    * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
    */
-  public String getTransactionType() {
+  public Constants.GatewayTransactionType getTransactionType() {
     return this.transactionType;
   }
 
@@ -319,7 +320,7 @@ public class PurchaseCreate extends Request {
    *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
    *     transactions.
    */
-  public void setTransactionType(final String transactionType) {
+  public void setTransactionType(final Constants.GatewayTransactionType transactionType) {
     this.transactionType = transactionType;
   }
 

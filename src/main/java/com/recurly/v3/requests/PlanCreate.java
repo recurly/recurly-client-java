@@ -7,6 +7,7 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.util.List;
@@ -96,7 +97,7 @@ public class PlanCreate extends Request {
   /** Unit for the plan's billing interval. */
   @SerializedName("interval_unit")
   @Expose
-  private String intervalUnit;
+  private Constants.IntervalUnit intervalUnit;
 
   /**
    * This name describes your plan and will appear on the Hosted Payment Page and the subscriber's
@@ -109,7 +110,7 @@ public class PlanCreate extends Request {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private String revenueScheduleType;
+  private Constants.RevenueScheduleType revenueScheduleType;
 
   /**
    * Accounting code for invoice line items for the plan's setup fee. If no value is provided, it
@@ -122,7 +123,7 @@ public class PlanCreate extends Request {
   /** Setup fee revenue schedule type */
   @SerializedName("setup_fee_revenue_schedule_type")
   @Expose
-  private String setupFeeRevenueScheduleType;
+  private Constants.RevenueScheduleType setupFeeRevenueScheduleType;
 
   /**
    * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
@@ -160,7 +161,7 @@ public class PlanCreate extends Request {
   /** Units for the plan's trial period. */
   @SerializedName("trial_unit")
   @Expose
-  private String trialUnit;
+  private Constants.IntervalUnit trialUnit;
 
   /**
    * Accounting code for invoice line items for the plan. If no value is provided, it defaults to
@@ -323,12 +324,12 @@ public class PlanCreate extends Request {
   }
 
   /** Unit for the plan's billing interval. */
-  public String getIntervalUnit() {
+  public Constants.IntervalUnit getIntervalUnit() {
     return this.intervalUnit;
   }
 
   /** @param intervalUnit Unit for the plan's billing interval. */
-  public void setIntervalUnit(final String intervalUnit) {
+  public void setIntervalUnit(final Constants.IntervalUnit intervalUnit) {
     this.intervalUnit = intervalUnit;
   }
 
@@ -349,12 +350,12 @@ public class PlanCreate extends Request {
   }
 
   /** Revenue schedule type */
-  public String getRevenueScheduleType() {
+  public Constants.RevenueScheduleType getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final String revenueScheduleType) {
+  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -375,12 +376,13 @@ public class PlanCreate extends Request {
   }
 
   /** Setup fee revenue schedule type */
-  public String getSetupFeeRevenueScheduleType() {
+  public Constants.RevenueScheduleType getSetupFeeRevenueScheduleType() {
     return this.setupFeeRevenueScheduleType;
   }
 
   /** @param setupFeeRevenueScheduleType Setup fee revenue schedule type */
-  public void setSetupFeeRevenueScheduleType(final String setupFeeRevenueScheduleType) {
+  public void setSetupFeeRevenueScheduleType(
+      final Constants.RevenueScheduleType setupFeeRevenueScheduleType) {
     this.setupFeeRevenueScheduleType = setupFeeRevenueScheduleType;
   }
 
@@ -455,12 +457,12 @@ public class PlanCreate extends Request {
   }
 
   /** Units for the plan's trial period. */
-  public String getTrialUnit() {
+  public Constants.IntervalUnit getTrialUnit() {
     return this.trialUnit;
   }
 
   /** @param trialUnit Units for the plan's trial period. */
-  public void setTrialUnit(final String trialUnit) {
+  public void setTrialUnit(final Constants.IntervalUnit trialUnit) {
     this.trialUnit = trialUnit;
   }
 }

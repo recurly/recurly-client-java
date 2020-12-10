@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -26,7 +27,7 @@ public class SubscriptionAddOn extends Resource {
    */
   @SerializedName("add_on_source")
   @Expose
-  private String addOnSource;
+  private Constants.AddOnSource addOnSource;
 
   /** Created at */
   @SerializedName("created_at")
@@ -56,7 +57,7 @@ public class SubscriptionAddOn extends Resource {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private String revenueScheduleType;
+  private Constants.RevenueScheduleType revenueScheduleType;
 
   /** Subscription ID */
   @SerializedName("subscription_id")
@@ -71,7 +72,7 @@ public class SubscriptionAddOn extends Resource {
    */
   @SerializedName("tier_type")
   @Expose
-  private String tierType;
+  private Constants.TierType tierType;
 
   /**
    * If tiers are provided in the request, all existing tiers on the Subscription Add-on will be
@@ -116,7 +117,7 @@ public class SubscriptionAddOn extends Resource {
    * associated `plan` has `allow_any_item_on_subscriptions` set to `true` and this field is set to
    * `item`, then the associated add-on data will be pulled from the site's item catalog.
    */
-  public String getAddOnSource() {
+  public Constants.AddOnSource getAddOnSource() {
     return this.addOnSource;
   }
 
@@ -127,7 +128,7 @@ public class SubscriptionAddOn extends Resource {
    *     `true` and this field is set to `item`, then the associated add-on data will be pulled from
    *     the site's item catalog.
    */
-  public void setAddOnSource(final String addOnSource) {
+  public void setAddOnSource(final Constants.AddOnSource addOnSource) {
     this.addOnSource = addOnSource;
   }
 
@@ -182,12 +183,12 @@ public class SubscriptionAddOn extends Resource {
   }
 
   /** Revenue schedule type */
-  public String getRevenueScheduleType() {
+  public Constants.RevenueScheduleType getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final String revenueScheduleType) {
+  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -207,7 +208,7 @@ public class SubscriptionAddOn extends Resource {
    * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
    * configure quantity-based pricing models.
    */
-  public String getTierType() {
+  public Constants.TierType getTierType() {
     return this.tierType;
   }
 
@@ -217,7 +218,7 @@ public class SubscriptionAddOn extends Resource {
    *     [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
    *     to configure quantity-based pricing models.
    */
-  public void setTierType(final String tierType) {
+  public void setTierType(final Constants.TierType tierType) {
     this.tierType = tierType;
   }
 

@@ -7,6 +7,7 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.util.List;
@@ -62,12 +63,12 @@ public class InvoiceRefund extends Request {
    */
   @SerializedName("refund_method")
   @Expose
-  private String refundMethod;
+  private Constants.RefuneMethod refundMethod;
 
   /** The type of refund. Amount and line items cannot both be specified in the request. */
   @SerializedName("type")
   @Expose
-  private String type;
+  private Constants.InvoiceRefundType type;
 
   /**
    * The amount to be refunded. The amount will be split between the line items. If no amount is
@@ -150,7 +151,7 @@ public class InvoiceRefund extends Request {
    * back to transactions, using transactions from previous invoices if necessary. Only available
    * when the Credit Invoices feature is enabled.
    */
-  public String getRefundMethod() {
+  public Constants.RefuneMethod getRefundMethod() {
     return this.refundMethod;
   }
 
@@ -165,19 +166,19 @@ public class InvoiceRefund extends Request {
    *     `all_transaction` – Refunds the entire amount back to transactions, using transactions from
    *     previous invoices if necessary. Only available when the Credit Invoices feature is enabled.
    */
-  public void setRefundMethod(final String refundMethod) {
+  public void setRefundMethod(final Constants.RefuneMethod refundMethod) {
     this.refundMethod = refundMethod;
   }
 
   /** The type of refund. Amount and line items cannot both be specified in the request. */
-  public String getType() {
+  public Constants.InvoiceRefundType getType() {
     return this.type;
   }
 
   /**
    * @param type The type of refund. Amount and line items cannot both be specified in the request.
    */
-  public void setType(final String type) {
+  public void setType(final Constants.InvoiceRefundType type) {
     this.type = type;
   }
 }

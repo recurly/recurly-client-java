@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 
 public class AddOnMini extends Resource {
@@ -22,7 +23,7 @@ public class AddOnMini extends Resource {
   /** Whether the add-on type is fixed, or usage-based. */
   @SerializedName("add_on_type")
   @Expose
-  private String addOnType;
+  private Constants.AddOnType addOnType;
 
   /** The unique identifier for the add-on within its plan. */
   @SerializedName("code")
@@ -70,7 +71,7 @@ public class AddOnMini extends Resource {
   /** Type of usage, returns usage type if `add_on_type` is `usage`. */
   @SerializedName("usage_type")
   @Expose
-  private String usageType;
+  private Constants.UsageType usageType;
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
@@ -89,12 +90,12 @@ public class AddOnMini extends Resource {
   }
 
   /** Whether the add-on type is fixed, or usage-based. */
-  public String getAddOnType() {
+  public Constants.AddOnType getAddOnType() {
     return this.addOnType;
   }
 
   /** @param addOnType Whether the add-on type is fixed, or usage-based. */
-  public void setAddOnType(final String addOnType) {
+  public void setAddOnType(final Constants.AddOnType addOnType) {
     this.addOnType = addOnType;
   }
 
@@ -190,12 +191,12 @@ public class AddOnMini extends Resource {
   }
 
   /** Type of usage, returns usage type if `add_on_type` is `usage`. */
-  public String getUsageType() {
+  public Constants.UsageType getUsageType() {
     return this.usageType;
   }
 
   /** @param usageType Type of usage, returns usage type if `add_on_type` is `usage`. */
-  public void setUsageType(final String usageType) {
+  public void setUsageType(final Constants.UsageType usageType) {
     this.usageType = usageType;
   }
 }

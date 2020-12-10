@@ -16,7 +16,7 @@ public class Tier extends Request {
   /** Tier pricing */
   @SerializedName("currencies")
   @Expose
-  private List<Pricing> currencies;
+  private List<TierPricing> currencies;
 
   /** Ending quantity */
   @SerializedName("ending_quantity")
@@ -24,12 +24,12 @@ public class Tier extends Request {
   private Integer endingQuantity;
 
   /** Tier pricing */
-  public List<Pricing> getCurrencies() {
+  public List<TierPricing> getCurrencies() {
     return this.currencies;
   }
 
   /** @param currencies Tier pricing */
-  public void setCurrencies(final List<Pricing> currencies) {
+  public void setCurrencies(final List<TierPricing> currencies) {
     this.currencies = currencies;
   }
 

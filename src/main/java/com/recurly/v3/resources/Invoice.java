@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -50,7 +51,7 @@ public class Invoice extends Resource {
    */
   @SerializedName("collection_method")
   @Expose
-  private String collectionMethod;
+  private Constants.CollectionMethod collectionMethod;
 
   /** Created at */
   @SerializedName("created_at")
@@ -121,7 +122,7 @@ public class Invoice extends Resource {
   /** The event that created the invoice. */
   @SerializedName("origin")
   @Expose
-  private String origin;
+  private Constants.Origin origin;
 
   /** The total amount of successful payments transaction on this invoice. */
   @SerializedName("paid")
@@ -153,7 +154,7 @@ public class Invoice extends Resource {
   /** Invoice state */
   @SerializedName("state")
   @Expose
-  private String state;
+  private Constants.InvoiceState state;
 
   /** If the invoice is charging or refunding for one or more subscriptions, these are their IDs. */
   @SerializedName("subscription_ids")
@@ -198,7 +199,7 @@ public class Invoice extends Resource {
   /** Invoices are either charge, credit, or legacy invoices. */
   @SerializedName("type")
   @Expose
-  private String type;
+  private Constants.InvoiceType type;
 
   /** Last updated at */
   @SerializedName("updated_at")
@@ -290,7 +291,7 @@ public class Invoice extends Resource {
    * customer pay the invoice with an automatic method, like credit card, PayPal, Amazon, or ACH
    * bank payment.
    */
-  public String getCollectionMethod() {
+  public Constants.CollectionMethod getCollectionMethod() {
     return this.collectionMethod;
   }
 
@@ -301,7 +302,7 @@ public class Invoice extends Resource {
    *     transaction or have the customer pay the invoice with an automatic method, like credit
    *     card, PayPal, Amazon, or ACH bank payment.
    */
-  public void setCollectionMethod(final String collectionMethod) {
+  public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
 
@@ -439,12 +440,12 @@ public class Invoice extends Resource {
   }
 
   /** The event that created the invoice. */
-  public String getOrigin() {
+  public Constants.Origin getOrigin() {
     return this.origin;
   }
 
   /** @param origin The event that created the invoice. */
-  public void setOrigin(final String origin) {
+  public void setOrigin(final Constants.Origin origin) {
     this.origin = origin;
   }
 
@@ -510,12 +511,12 @@ public class Invoice extends Resource {
   }
 
   /** Invoice state */
-  public String getState() {
+  public Constants.InvoiceState getState() {
     return this.state;
   }
 
   /** @param state Invoice state */
-  public void setState(final String state) {
+  public void setState(final Constants.InvoiceState state) {
     this.state = state;
   }
 
@@ -605,12 +606,12 @@ public class Invoice extends Resource {
   }
 
   /** Invoices are either charge, credit, or legacy invoices. */
-  public String getType() {
+  public Constants.InvoiceType getType() {
     return this.type;
   }
 
   /** @param type Invoices are either charge, credit, or legacy invoices. */
-  public void setType(final String type) {
+  public void setType(final Constants.InvoiceType type) {
     this.type = type;
   }
 

@@ -3,8 +3,10 @@ package com.recurly.v3;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.recurly.v3.fixtures.DateTimeTestClass;
+import com.recurly.v3.fixtures.FixtureConstants;
 import com.recurly.v3.fixtures.MyRequest;
 import com.recurly.v3.fixtures.MyResource;
+import com.recurly.v3.Constants;
 import org.joda.time.DateTime;
 import org.junit.jupiter.api.Test;
 
@@ -16,13 +18,14 @@ public class JsonSerializerTest {
     final MyResource mockResource =
         jsonSerializer.deserialize(getMockResourceJson(), MyResource.class);
     assertEquals("My String", mockResource.getMyString());
+    assertEquals(FixtureConstants.ConstantType.TWENTY_THREE, mockResource.getMyConstant());
   }
 
   @Test
   public void testDeserializeError() {
     final JsonSerializer jsonSerializer = new JsonSerializer();
     final ApiException error = jsonSerializer.deserialize(getMockErrorJson(), ApiException.class);
-    assertEquals("not_found", error.getError().getType());
+    assertEquals(Constants.ErrorType.NOT_FOUND, error.getError().getType());
     assertEquals("Couldn't find resource", error.getError().getMessage());
     assertEquals("some_param", error.getError().getParams().get(0).get("param"));
   }
@@ -32,8 +35,9 @@ public class JsonSerializerTest {
     final JsonSerializer jsonSerializer = new JsonSerializer();
     final MyRequest mockRequest = new MyRequest();
     mockRequest.setMyString("aaron");
+    mockRequest.setMyConstant(FixtureConstants.ConstantType.TWENTY_THREE);
     final String serialized = jsonSerializer.serialize(mockRequest);
-    assertEquals("{\"my_string\":\"aaron\"}", serialized);
+    assertEquals("{\"my_string\":\"aaron\",\"my_constant\":\"twenty-three\"}", serialized);
   }
 
   @Test
@@ -75,7 +79,8 @@ public class JsonSerializerTest {
         + "          \"object\": \"nested_resource\",\n"
         + "          \"my_string\": \"Nested String\"\n"
         + "       }\n"
-        + "    ]\n"
+        + "    ],\n"
+        + "    \"my_constant\": \"twenty-three\"\n"
         + "}";
   }
 

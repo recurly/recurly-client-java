@@ -34,15 +34,15 @@ public class QueryParams {
     this.add("limit", limit);
   }
 
-  public void setOrder(final String order) {
+  public void setOrder(final Constants.AlphanumericSort order) {
     this.add("order", order);
   }
 
-  public void setSort(final String sort) {
+  public void setSort(final Constants.TimestampSort sort) {
     this.add("sort", sort);
   }
 
-  public void setState(final String state) {
+  public void setState(final Constants.ActiveState state) {
     this.add("state", state);
   }
 
@@ -62,27 +62,27 @@ public class QueryParams {
     this.add("subscriber", subscriber);
   }
 
-  public void setPastDue(final String pastDue) {
+  public void setPastDue(final Constants.True pastDue) {
     this.add("past_due", pastDue);
   }
 
-  public void setType(final String type) {
+  public void setType(final Constants.FilterInvoiceType type) {
     this.add("type", type);
   }
 
-  public void setOriginal(final String original) {
+  public void setOriginal(final Constants.True original) {
     this.add("original", original);
   }
 
-  public void setSuccess(final String success) {
+  public void setSuccess(final Constants.True success) {
     this.add("success", success);
   }
 
-  public void setRelatedType(final String relatedType) {
+  public void setRelatedType(final Constants.RelatedType relatedType) {
     this.add("related_type", relatedType);
   }
 
-  public void setRefund(final String refund) {
+  public void setRefund(final Constants.RefundType refund) {
     this.add("refund", refund);
   }
 
@@ -90,7 +90,7 @@ public class QueryParams {
     this.add("charge", charge);
   }
 
-  public void setBillingStatus(final String billingStatus) {
+  public void setBillingStatus(final Constants.BillingStatus billingStatus) {
     this.add("billing_status", billingStatus);
   }
 }

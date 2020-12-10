@@ -39,6 +39,10 @@ public class MyRequest extends Request {
   @Expose
   private List<NestedRequest> myNestedRequestList;
 
+  @SerializedName("my_constant")
+  @Expose
+  private FixtureConstants.ConstantType myConstant;
+
   public String getMyString() {
     return this.myString;
   }
@@ -101,5 +105,13 @@ public class MyRequest extends Request {
 
   public void setMyNestedRequestList(final List<NestedRequest> myNestedRequestList) {
     this.myNestedRequestList = myNestedRequestList;
+  }
+
+  public FixtureConstants.ConstantType getMyConstant() {
+    return this.myConstant;
+  }
+
+  public void setMyConstant(FixtureConstants.ConstantType myConstant) {
+    this.myConstant = myConstant;
   }
 }

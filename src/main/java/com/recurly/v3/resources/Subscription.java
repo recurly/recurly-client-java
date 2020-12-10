@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -60,7 +61,7 @@ public class Subscription extends Resource {
   /** Collection method */
   @SerializedName("collection_method")
   @Expose
-  private String collectionMethod;
+  private Constants.CollectionMethod collectionMethod;
 
   /** Returns subscription level coupon redemptions that are tied to this subscription. */
   @SerializedName("coupon_redemptions")
@@ -194,7 +195,7 @@ public class Subscription extends Resource {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private String revenueScheduleType;
+  private Constants.RevenueScheduleType revenueScheduleType;
 
   /** Subscription shipping details */
   @SerializedName("shipping")
@@ -204,7 +205,7 @@ public class Subscription extends Resource {
   /** State */
   @SerializedName("state")
   @Expose
-  private String state;
+  private Constants.SubscriptionState state;
 
   /** Estimated total, before tax. */
   @SerializedName("subtotal")
@@ -342,12 +343,12 @@ public class Subscription extends Resource {
   }
 
   /** Collection method */
-  public String getCollectionMethod() {
+  public Constants.CollectionMethod getCollectionMethod() {
     return this.collectionMethod;
   }
 
   /** @param collectionMethod Collection method */
-  public void setCollectionMethod(final String collectionMethod) {
+  public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
 
@@ -624,12 +625,12 @@ public class Subscription extends Resource {
   }
 
   /** Revenue schedule type */
-  public String getRevenueScheduleType() {
+  public Constants.RevenueScheduleType getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final String revenueScheduleType) {
+  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -644,12 +645,12 @@ public class Subscription extends Resource {
   }
 
   /** State */
-  public String getState() {
+  public Constants.SubscriptionState getState() {
     return this.state;
   }
 
   /** @param state State */
-  public void setState(final String state) {
+  public void setState(final Constants.SubscriptionState state) {
     this.state = state;
   }
 

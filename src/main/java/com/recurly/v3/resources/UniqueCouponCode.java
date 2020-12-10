@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
 
@@ -55,7 +56,7 @@ public class UniqueCouponCode extends Resource {
   /** Indicates if the unique coupon code is redeemable or why not. */
   @SerializedName("state")
   @Expose
-  private String state;
+  private Constants.CouponCodeState state;
 
   /** Updated at */
   @SerializedName("updated_at")
@@ -146,12 +147,12 @@ public class UniqueCouponCode extends Resource {
   }
 
   /** Indicates if the unique coupon code is redeemable or why not. */
-  public String getState() {
+  public Constants.CouponCodeState getState() {
     return this.state;
   }
 
   /** @param state Indicates if the unique coupon code is redeemable or why not. */
-  public void setState(final String state) {
+  public void setState(final Constants.CouponCodeState state) {
     this.state = state;
   }
 

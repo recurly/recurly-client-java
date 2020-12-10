@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 
 public class TransactionError extends Resource {
@@ -14,12 +15,12 @@ public class TransactionError extends Resource {
   /** Category */
   @SerializedName("category")
   @Expose
-  private String category;
+  private Constants.ErrorCategory category;
 
   /** Code */
   @SerializedName("code")
   @Expose
-  private String code;
+  private Constants.ErrorCode code;
 
   /** Merchant message */
   @SerializedName("merchant_advice")
@@ -50,22 +51,22 @@ public class TransactionError extends Resource {
   private String transactionId;
 
   /** Category */
-  public String getCategory() {
+  public Constants.ErrorCategory getCategory() {
     return this.category;
   }
 
   /** @param category Category */
-  public void setCategory(final String category) {
+  public void setCategory(final Constants.ErrorCategory category) {
     this.category = category;
   }
 
   /** Code */
-  public String getCode() {
+  public Constants.ErrorCode getCode() {
     return this.code;
   }
 
   /** @param code Code */
-  public void setCode(final String code) {
+  public void setCode(final Constants.ErrorCode code) {
     this.code = code;
   }
 

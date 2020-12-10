@@ -7,6 +7,7 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.util.List;
@@ -25,7 +26,7 @@ public class AddOnCreate extends Request {
   /** Whether the add-on type is fixed, or usage-based. */
   @SerializedName("add_on_type")
   @Expose
-  private String addOnType;
+  private Constants.AddOnTypeCreate addOnType;
 
   /**
    * Used by Avalara for Communications taxes. The transaction type in combination with the service
@@ -144,7 +145,7 @@ public class AddOnCreate extends Request {
    */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private String revenueScheduleType;
+  private Constants.RevenueScheduleType revenueScheduleType;
 
   /**
    * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
@@ -165,7 +166,7 @@ public class AddOnCreate extends Request {
    */
   @SerializedName("tier_type")
   @Expose
-  private String tierType;
+  private Constants.TierType tierType;
 
   /**
    * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
@@ -192,7 +193,7 @@ public class AddOnCreate extends Request {
    */
   @SerializedName("usage_type")
   @Expose
-  private String usageType;
+  private Constants.UsageTypeCreate usageType;
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
@@ -213,12 +214,12 @@ public class AddOnCreate extends Request {
   }
 
   /** Whether the add-on type is fixed, or usage-based. */
-  public String getAddOnType() {
+  public Constants.AddOnTypeCreate getAddOnType() {
     return this.addOnType;
   }
 
   /** @param addOnType Whether the add-on type is fixed, or usage-based. */
-  public void setAddOnType(final String addOnType) {
+  public void setAddOnType(final Constants.AddOnTypeCreate addOnType) {
     this.addOnType = addOnType;
   }
 
@@ -454,7 +455,7 @@ public class AddOnCreate extends Request {
    * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
    * request as the value will be set from the item.
    */
-  public String getRevenueScheduleType() {
+  public Constants.RevenueScheduleType getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
@@ -463,7 +464,7 @@ public class AddOnCreate extends Request {
    *     schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must
    *     be absent in the request as the value will be set from the item.
    */
-  public void setRevenueScheduleType(final String revenueScheduleType) {
+  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -495,7 +496,7 @@ public class AddOnCreate extends Request {
    * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
    * configure quantity-based pricing models.
    */
-  public String getTierType() {
+  public Constants.TierType getTierType() {
     return this.tierType;
   }
 
@@ -505,7 +506,7 @@ public class AddOnCreate extends Request {
    *     [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
    *     to configure quantity-based pricing models.
    */
-  public void setTierType(final String tierType) {
+  public void setTierType(final Constants.TierType tierType) {
     this.tierType = tierType;
   }
 
@@ -552,7 +553,7 @@ public class AddOnCreate extends Request {
    * [Guide](https://developers.recurly.com/guides/usage-based-billing-guide.html) for an overview
    * of how to configure usage add-ons.
    */
-  public String getUsageType() {
+  public Constants.UsageTypeCreate getUsageType() {
     return this.usageType;
   }
 
@@ -561,7 +562,7 @@ public class AddOnCreate extends Request {
    *     [Guide](https://developers.recurly.com/guides/usage-based-billing-guide.html) for an
    *     overview of how to configure usage add-ons.
    */
-  public void setUsageType(final String usageType) {
+  public void setUsageType(final Constants.UsageTypeCreate usageType) {
     this.usageType = usageType;
   }
 }

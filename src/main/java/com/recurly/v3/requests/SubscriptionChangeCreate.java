@@ -7,6 +7,7 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.util.List;
@@ -36,7 +37,7 @@ public class SubscriptionChangeCreate extends Request {
   /** Collection method */
   @SerializedName("collection_method")
   @Expose
-  private String collectionMethod;
+  private Constants.CollectionMethod collectionMethod;
 
   /**
    * A list of coupon_codes to be redeemed on the subscription during the change. Only allowed if
@@ -94,7 +95,7 @@ public class SubscriptionChangeCreate extends Request {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private String revenueScheduleType;
+  private Constants.RevenueScheduleType revenueScheduleType;
 
   /** The shipping address can currently only be changed immediately, using SubscriptionUpdate. */
   @SerializedName("shipping")
@@ -111,7 +112,7 @@ public class SubscriptionChangeCreate extends Request {
    */
   @SerializedName("timeframe")
   @Expose
-  private String timeframe;
+  private Constants.ChangeTimeframe timeframe;
 
   /**
    * An optional type designation for the payment gateway transaction created by this request.
@@ -119,7 +120,7 @@ public class SubscriptionChangeCreate extends Request {
    */
   @SerializedName("transaction_type")
   @Expose
-  private String transactionType;
+  private Constants.GatewayTransactionType transactionType;
 
   /**
    * Optionally, sets custom pricing for the subscription, overriding the plan's default unit
@@ -168,12 +169,12 @@ public class SubscriptionChangeCreate extends Request {
   }
 
   /** Collection method */
-  public String getCollectionMethod() {
+  public Constants.CollectionMethod getCollectionMethod() {
     return this.collectionMethod;
   }
 
   /** @param collectionMethod Collection method */
-  public void setCollectionMethod(final String collectionMethod) {
+  public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
 
@@ -288,12 +289,12 @@ public class SubscriptionChangeCreate extends Request {
   }
 
   /** Revenue schedule type */
-  public String getRevenueScheduleType() {
+  public Constants.RevenueScheduleType getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final String revenueScheduleType) {
+  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -318,7 +319,7 @@ public class SubscriptionChangeCreate extends Request {
    * `bill_date` so the change takes effect at a scheduled billing date. The `renewal` timeframe
    * option is accepted as an alias for `term_end`.
    */
-  public String getTimeframe() {
+  public Constants.ChangeTimeframe getTimeframe() {
     return this.timeframe;
   }
 
@@ -330,7 +331,7 @@ public class SubscriptionChangeCreate extends Request {
    *     timeframe to `term_end` or `bill_date` so the change takes effect at a scheduled billing
    *     date. The `renewal` timeframe option is accepted as an alias for `term_end`.
    */
-  public void setTimeframe(final String timeframe) {
+  public void setTimeframe(final Constants.ChangeTimeframe timeframe) {
     this.timeframe = timeframe;
   }
 
@@ -338,7 +339,7 @@ public class SubscriptionChangeCreate extends Request {
    * An optional type designation for the payment gateway transaction created by this request.
    * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
    */
-  public String getTransactionType() {
+  public Constants.GatewayTransactionType getTransactionType() {
     return this.transactionType;
   }
 
@@ -347,7 +348,7 @@ public class SubscriptionChangeCreate extends Request {
    *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
    *     transactions.
    */
-  public void setTransactionType(final String transactionType) {
+  public void setTransactionType(final Constants.GatewayTransactionType transactionType) {
     this.transactionType = transactionType;
   }
 

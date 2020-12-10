@@ -7,6 +7,7 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.util.List;
@@ -21,7 +22,7 @@ public class SubscriptionAddOnCreate extends Request {
    */
   @SerializedName("add_on_source")
   @Expose
-  private String addOnSource;
+  private Constants.AddOnSource addOnSource;
 
   /**
    * If `add_on_source` is set to `plan_add_on` or left blank, then plan's add-on `code` should be
@@ -40,7 +41,7 @@ public class SubscriptionAddOnCreate extends Request {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private String revenueScheduleType;
+  private Constants.RevenueScheduleType revenueScheduleType;
 
   /**
    * If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. The `tiers` object
@@ -78,7 +79,7 @@ public class SubscriptionAddOnCreate extends Request {
    * associated `plan` has `allow_any_item_on_subscriptions` set to `true` and this field is set to
    * `item`, then the associated add-on data will be pulled from the site's item catalog.
    */
-  public String getAddOnSource() {
+  public Constants.AddOnSource getAddOnSource() {
     return this.addOnSource;
   }
 
@@ -89,7 +90,7 @@ public class SubscriptionAddOnCreate extends Request {
    *     `true` and this field is set to `item`, then the associated add-on data will be pulled from
    *     the site's item catalog.
    */
-  public void setAddOnSource(final String addOnSource) {
+  public void setAddOnSource(final Constants.AddOnSource addOnSource) {
     this.addOnSource = addOnSource;
   }
 
@@ -122,12 +123,12 @@ public class SubscriptionAddOnCreate extends Request {
   }
 
   /** Revenue schedule type */
-  public String getRevenueScheduleType() {
+  public Constants.RevenueScheduleType getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final String revenueScheduleType) {
+  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 

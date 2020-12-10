@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
 
@@ -41,7 +42,7 @@ public class CouponRedemptionMini extends Resource {
   /** Invoice state */
   @SerializedName("state")
   @Expose
-  private String state;
+  private Constants.ActiveState state;
 
   public CouponMini getCoupon() {
     return this.coupon;
@@ -98,12 +99,12 @@ public class CouponRedemptionMini extends Resource {
   }
 
   /** Invoice state */
-  public String getState() {
+  public Constants.ActiveState getState() {
     return this.state;
   }
 
   /** @param state Invoice state */
-  public void setState(final String state) {
+  public void setState(final Constants.ActiveState state) {
     this.state = state;
   }
 }

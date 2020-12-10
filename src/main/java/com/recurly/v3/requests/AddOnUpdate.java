@@ -7,6 +7,7 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.util.List;
@@ -117,7 +118,7 @@ public class AddOnUpdate extends Request {
    */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private String revenueScheduleType;
+  private Constants.RevenueScheduleType revenueScheduleType;
 
   /**
    * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
@@ -353,7 +354,7 @@ public class AddOnUpdate extends Request {
    * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
    * request as the value will be set from the item.
    */
-  public String getRevenueScheduleType() {
+  public Constants.RevenueScheduleType getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
@@ -362,7 +363,7 @@ public class AddOnUpdate extends Request {
    *     schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must
    *     be absent in the request as the value will be set from the item.
    */
-  public void setRevenueScheduleType(final String revenueScheduleType) {
+  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 

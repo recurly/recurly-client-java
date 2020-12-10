@@ -7,6 +7,7 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 
@@ -20,7 +21,7 @@ public class SubscriptionCancel extends Request {
    */
   @SerializedName("timeframe")
   @Expose
-  private String timeframe;
+  private Constants.Timeframe timeframe;
 
   /**
    * The timeframe parameter controls when the expiration takes place. The `bill_date` timeframe
@@ -28,7 +29,7 @@ public class SubscriptionCancel extends Request {
    * `term_end` timeframe causes the subscription to continue to bill until the end of the
    * subscription term, then expire.
    */
-  public String getTimeframe() {
+  public Constants.Timeframe getTimeframe() {
     return this.timeframe;
   }
 
@@ -38,7 +39,7 @@ public class SubscriptionCancel extends Request {
    *     to bill next. The `term_end` timeframe causes the subscription to continue to bill until
    *     the end of the subscription term, then expire.
    */
-  public void setTimeframe(final String timeframe) {
+  public void setTimeframe(final Constants.Timeframe timeframe) {
     this.timeframe = timeframe;
   }
 }

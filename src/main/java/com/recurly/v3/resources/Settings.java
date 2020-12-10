@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class Settings extends Resource {
    */
   @SerializedName("billing_address_requirement")
   @Expose
-  private String billingAddressRequirement;
+  private Constants.AddressRequirement billingAddressRequirement;
 
   /** The default 3-letter ISO 4217 currency code. */
   @SerializedName("default_currency")
@@ -42,7 +43,7 @@ public class Settings extends Resource {
    * - full: Full Address (Street, City, State, Postal Code and Country) - streetzip: Street and
    * Postal Code only - zip: Postal Code only - none: No Address
    */
-  public String getBillingAddressRequirement() {
+  public Constants.AddressRequirement getBillingAddressRequirement() {
     return this.billingAddressRequirement;
   }
 
@@ -51,7 +52,8 @@ public class Settings extends Resource {
    *     Country) - streetzip: Street and Postal Code only - zip: Postal Code only - none: No
    *     Address
    */
-  public void setBillingAddressRequirement(final String billingAddressRequirement) {
+  public void setBillingAddressRequirement(
+      final Constants.AddressRequirement billingAddressRequirement) {
     this.billingAddressRequirement = billingAddressRequirement;
   }
 

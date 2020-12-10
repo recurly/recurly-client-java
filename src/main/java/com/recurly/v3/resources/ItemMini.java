@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 
 public class ItemMini extends Resource {
@@ -42,7 +43,7 @@ public class ItemMini extends Resource {
   /** The current state of the item. */
   @SerializedName("state")
   @Expose
-  private String state;
+  private Constants.ActiveState state;
 
   /** Unique code to identify the item. */
   public String getCode() {
@@ -101,12 +102,12 @@ public class ItemMini extends Resource {
   }
 
   /** The current state of the item. */
-  public String getState() {
+  public Constants.ActiveState getState() {
     return this.state;
   }
 
   /** @param state The current state of the item. */
-  public void setState(final String state) {
+  public void setState(final Constants.ActiveState state) {
     this.state = state;
   }
 }

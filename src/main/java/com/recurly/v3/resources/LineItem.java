@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
 
@@ -75,7 +76,7 @@ public class LineItem extends Resource {
   /** The reason the credit was given when line item is `type=credit`. */
   @SerializedName("credit_reason_code")
   @Expose
-  private String creditReasonCode;
+  private Constants.FullCreditReasonCode creditReasonCode;
 
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
@@ -154,7 +155,7 @@ public class LineItem extends Resource {
    */
   @SerializedName("legacy_category")
   @Expose
-  private String legacyCategory;
+  private Constants.LegacyCategory legacyCategory;
 
   /** Object type */
   @SerializedName("object")
@@ -164,7 +165,7 @@ public class LineItem extends Resource {
   /** A credit created from an original charge will have the value of the charge's origin. */
   @SerializedName("origin")
   @Expose
-  private String origin;
+  private Constants.LineItemOrigin origin;
 
   /**
    * The invoice where the credit originated. Will only have a value if the line item is a credit
@@ -233,7 +234,7 @@ public class LineItem extends Resource {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private String revenueScheduleType;
+  private Constants.LineItemRevenueScheduleType revenueScheduleType;
 
   @SerializedName("shipping_address")
   @Expose
@@ -253,7 +254,7 @@ public class LineItem extends Resource {
    */
   @SerializedName("state")
   @Expose
-  private String state;
+  private Constants.LineItemState state;
 
   /** If the line item is a charge or credit for a subscription, this is its ID. */
   @SerializedName("subscription_id")
@@ -304,7 +305,7 @@ public class LineItem extends Resource {
    */
   @SerializedName("type")
   @Expose
-  private String type;
+  private Constants.LineItemType type;
 
   /** Positive amount for a charge, negative amount for a credit. */
   @SerializedName("unit_amount")
@@ -446,12 +447,12 @@ public class LineItem extends Resource {
   }
 
   /** The reason the credit was given when line item is `type=credit`. */
-  public String getCreditReasonCode() {
+  public Constants.FullCreditReasonCode getCreditReasonCode() {
     return this.creditReasonCode;
   }
 
   /** @param creditReasonCode The reason the credit was given when line item is `type=credit`. */
-  public void setCreditReasonCode(final String creditReasonCode) {
+  public void setCreditReasonCode(final Constants.FullCreditReasonCode creditReasonCode) {
     this.creditReasonCode = creditReasonCode;
   }
 
@@ -597,7 +598,7 @@ public class LineItem extends Resource {
    * first originated. - "carryforwards" can be ignored. They exist to consume any remaining credit
    * balance. A new credit with the same amount will be created and placed back on the account.
    */
-  public String getLegacyCategory() {
+  public Constants.LegacyCategory getLegacyCategory() {
     return this.legacyCategory;
   }
 
@@ -610,7 +611,7 @@ public class LineItem extends Resource {
    *     be ignored. They exist to consume any remaining credit balance. A new credit with the same
    *     amount will be created and placed back on the account.
    */
-  public void setLegacyCategory(final String legacyCategory) {
+  public void setLegacyCategory(final Constants.LegacyCategory legacyCategory) {
     this.legacyCategory = legacyCategory;
   }
 
@@ -625,7 +626,7 @@ public class LineItem extends Resource {
   }
 
   /** A credit created from an original charge will have the value of the charge's origin. */
-  public String getOrigin() {
+  public Constants.LineItemOrigin getOrigin() {
     return this.origin;
   }
 
@@ -633,7 +634,7 @@ public class LineItem extends Resource {
    * @param origin A credit created from an original charge will have the value of the charge's
    *     origin.
    */
-  public void setOrigin(final String origin) {
+  public void setOrigin(final Constants.LineItemOrigin origin) {
     this.origin = origin;
   }
 
@@ -775,12 +776,13 @@ public class LineItem extends Resource {
   }
 
   /** Revenue schedule type */
-  public String getRevenueScheduleType() {
+  public Constants.LineItemRevenueScheduleType getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final String revenueScheduleType) {
+  public void setRevenueScheduleType(
+      final Constants.LineItemRevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -813,7 +815,7 @@ public class LineItem extends Resource {
    * Pending line items are charges or credits on an account that have not been applied to an
    * invoice yet. Invoiced line items will always have an `invoice_id` value.
    */
-  public String getState() {
+  public Constants.LineItemState getState() {
     return this.state;
   }
 
@@ -821,7 +823,7 @@ public class LineItem extends Resource {
    * @param state Pending line items are charges or credits on an account that have not been applied
    *     to an invoice yet. Invoiced line items will always have an `invoice_id` value.
    */
-  public void setState(final String state) {
+  public void setState(final Constants.LineItemState state) {
     this.state = state;
   }
 
@@ -919,7 +921,7 @@ public class LineItem extends Resource {
    * Charges are positive line items that debit the account. Credits are negative line items that
    * credit the account.
    */
-  public String getType() {
+  public Constants.LineItemType getType() {
     return this.type;
   }
 
@@ -927,7 +929,7 @@ public class LineItem extends Resource {
    * @param type Charges are positive line items that debit the account. Credits are negative line
    *     items that credit the account.
    */
-  public void setType(final String type) {
+  public void setType(final Constants.LineItemType type) {
     this.type = type;
   }
 
