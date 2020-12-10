@@ -22,6 +22,14 @@ public class JsonSerializerTest {
   }
 
   @Test
+  public void testDeserializeUnknownEnum() {
+    final JsonSerializer jsonSerializer = new JsonSerializer();
+    final MyResource mockResource =
+        jsonSerializer.deserialize("{\"my_constant\":\"not-defined\"}", MyResource.class);
+    assertEquals(FixtureConstants.ConstantType.UNDEFINED, mockResource.getMyConstant());
+  }
+
+  @Test
   public void testDeserializeError() {
     final JsonSerializer jsonSerializer = new JsonSerializer();
     final ApiException error = jsonSerializer.deserialize(getMockErrorJson(), ApiException.class);
