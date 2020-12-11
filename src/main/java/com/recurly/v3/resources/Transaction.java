@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +28,7 @@ public class Transaction extends Resource {
   /** When processed, result from checking the overall AVS on the transaction. */
   @SerializedName("avs_check")
   @Expose
-  private String avsCheck;
+  private Constants.AvsCheck avsCheck;
 
   @SerializedName("billing_address")
   @Expose
@@ -41,7 +42,7 @@ public class Transaction extends Resource {
   /** The method by which the payment was collected. */
   @SerializedName("collection_method")
   @Expose
-  private String collectionMethod;
+  private Constants.CollectionMethod collectionMethod;
 
   /** Created at */
   @SerializedName("created_at")
@@ -66,7 +67,7 @@ public class Transaction extends Resource {
   /** When processed, result from checking the CVV/CVC value on the transaction. */
   @SerializedName("cvv_check")
   @Expose
-  private String cvvCheck;
+  private Constants.CvvCheck cvvCheck;
 
   /** Transaction approval code from the payment gateway. */
   @SerializedName("gateway_approval_code")
@@ -133,7 +134,7 @@ public class Transaction extends Resource {
   /** Describes how the transaction was triggered. */
   @SerializedName("origin")
   @Expose
-  private String origin;
+  private Constants.TransactionOrigin origin;
 
   /**
    * If this transaction is a refund (`type=refund`), this will be the ID of the original
@@ -162,7 +163,7 @@ public class Transaction extends Resource {
    */
   @SerializedName("status")
   @Expose
-  private String status;
+  private Constants.TransactionStatus status;
 
   /** Status code */
   @SerializedName("status_code")
@@ -195,7 +196,7 @@ public class Transaction extends Resource {
    */
   @SerializedName("type")
   @Expose
-  private String type;
+  private Constants.TransactionType type;
 
   /** Updated at */
   @SerializedName("updated_at")
@@ -240,12 +241,12 @@ public class Transaction extends Resource {
   }
 
   /** When processed, result from checking the overall AVS on the transaction. */
-  public String getAvsCheck() {
+  public Constants.AvsCheck getAvsCheck() {
     return this.avsCheck;
   }
 
   /** @param avsCheck When processed, result from checking the overall AVS on the transaction. */
-  public void setAvsCheck(final String avsCheck) {
+  public void setAvsCheck(final Constants.AvsCheck avsCheck) {
     this.avsCheck = avsCheck;
   }
 
@@ -271,12 +272,12 @@ public class Transaction extends Resource {
   }
 
   /** The method by which the payment was collected. */
-  public String getCollectionMethod() {
+  public Constants.CollectionMethod getCollectionMethod() {
     return this.collectionMethod;
   }
 
   /** @param collectionMethod The method by which the payment was collected. */
-  public void setCollectionMethod(final String collectionMethod) {
+  public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
 
@@ -324,12 +325,12 @@ public class Transaction extends Resource {
   }
 
   /** When processed, result from checking the CVV/CVC value on the transaction. */
-  public String getCvvCheck() {
+  public Constants.CvvCheck getCvvCheck() {
     return this.cvvCheck;
   }
 
   /** @param cvvCheck When processed, result from checking the CVV/CVC value on the transaction. */
-  public void setCvvCheck(final String cvvCheck) {
+  public void setCvvCheck(final Constants.CvvCheck cvvCheck) {
     this.cvvCheck = cvvCheck;
   }
 
@@ -460,12 +461,12 @@ public class Transaction extends Resource {
   }
 
   /** Describes how the transaction was triggered. */
-  public String getOrigin() {
+  public Constants.TransactionOrigin getOrigin() {
     return this.origin;
   }
 
   /** @param origin Describes how the transaction was triggered. */
-  public void setOrigin(final String origin) {
+  public void setOrigin(final Constants.TransactionOrigin origin) {
     this.origin = origin;
   }
 
@@ -517,7 +518,7 @@ public class Transaction extends Resource {
    * The current transaction status. Note that the status may change, e.g. a `pending` transaction
    * may become `declined` or `success` may later become `void`.
    */
-  public String getStatus() {
+  public Constants.TransactionStatus getStatus() {
     return this.status;
   }
 
@@ -525,7 +526,7 @@ public class Transaction extends Resource {
    * @param status The current transaction status. Note that the status may change, e.g. a `pending`
    *     transaction may become `declined` or `success` may later become `void`.
    */
-  public void setStatus(final String status) {
+  public void setStatus(final Constants.TransactionStatus status) {
     this.status = status;
   }
 
@@ -584,7 +585,7 @@ public class Transaction extends Resource {
    * all or a portion of the money collected in a previous transaction to the customer. - `verify` –
    * a $0 or $1 transaction used to verify billing information which is immediately voided.
    */
-  public String getType() {
+  public Constants.TransactionType getType() {
     return this.type;
   }
 
@@ -596,7 +597,7 @@ public class Transaction extends Resource {
    *     customer. - `verify` – a $0 or $1 transaction used to verify billing information which is
    *     immediately voided.
    */
-  public void setType(final String type) {
+  public void setType(final Constants.TransactionType type) {
     this.type = type;
   }
 

@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
 
@@ -56,7 +57,7 @@ public class CouponRedemption extends Resource {
   /** Coupon Redemption state */
   @SerializedName("state")
   @Expose
-  private String state;
+  private Constants.ActiveState state;
 
   /** Last updated at */
   @SerializedName("updated_at")
@@ -150,12 +151,12 @@ public class CouponRedemption extends Resource {
   }
 
   /** Coupon Redemption state */
-  public String getState() {
+  public Constants.ActiveState getState() {
     return this.state;
   }
 
   /** @param state Coupon Redemption state */
-  public void setState(final String state) {
+  public void setState(final Constants.ActiveState state) {
     this.state = state;
   }
 

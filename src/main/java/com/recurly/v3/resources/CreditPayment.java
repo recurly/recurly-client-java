@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
 
@@ -20,7 +21,7 @@ public class CreditPayment extends Resource {
   /** The action for which the credit was created. */
   @SerializedName("action")
   @Expose
-  private String action;
+  private Constants.CreditPaymentAction action;
 
   /** Total credit payment amount applied to the charge invoice. */
   @SerializedName("amount")
@@ -94,12 +95,12 @@ public class CreditPayment extends Resource {
   }
 
   /** The action for which the credit was created. */
-  public String getAction() {
+  public Constants.CreditPaymentAction getAction() {
     return this.action;
   }
 
   /** @param action The action for which the credit was created. */
-  public void setAction(final String action) {
+  public void setAction(final Constants.CreditPaymentAction action) {
     this.action = action;
   }
 

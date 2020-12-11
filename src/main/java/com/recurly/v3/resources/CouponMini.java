@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
 
@@ -23,7 +24,7 @@ public class CouponMini extends Resource {
    */
   @SerializedName("coupon_type")
   @Expose
-  private String couponType;
+  private Constants.CouponType couponType;
 
   /**
    * Details of the discount a coupon applies. Will contain a `type` property and one of the
@@ -56,7 +57,7 @@ public class CouponMini extends Resource {
   /** Indicates if the coupon is redeemable, and if it is not, why. */
   @SerializedName("state")
   @Expose
-  private String state;
+  private Constants.CouponState state;
 
   /** The code the customer enters to redeem the coupon. */
   public String getCode() {
@@ -72,7 +73,7 @@ public class CouponMini extends Resource {
    * Whether the coupon is "single_code" or "bulk". Bulk coupons will require a
    * `unique_code_template` and will generate unique codes through the `/generate` endpoint.
    */
-  public String getCouponType() {
+  public Constants.CouponType getCouponType() {
     return this.couponType;
   }
 
@@ -80,7 +81,7 @@ public class CouponMini extends Resource {
    * @param couponType Whether the coupon is "single_code" or "bulk". Bulk coupons will require a
    *     `unique_code_template` and will generate unique codes through the `/generate` endpoint.
    */
-  public void setCouponType(final String couponType) {
+  public void setCouponType(final Constants.CouponType couponType) {
     this.couponType = couponType;
   }
 
@@ -144,12 +145,12 @@ public class CouponMini extends Resource {
   }
 
   /** Indicates if the coupon is redeemable, and if it is not, why. */
-  public String getState() {
+  public Constants.CouponState getState() {
     return this.state;
   }
 
   /** @param state Indicates if the coupon is redeemable, and if it is not, why. */
-  public void setState(final String state) {
+  public void setState(final Constants.CouponState state) {
     this.state = state;
   }
 }

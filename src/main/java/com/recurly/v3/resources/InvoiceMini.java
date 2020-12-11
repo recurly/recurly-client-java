@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 
 public class InvoiceMini extends Resource {
@@ -29,12 +30,12 @@ public class InvoiceMini extends Resource {
   /** Invoice state */
   @SerializedName("state")
   @Expose
-  private String state;
+  private Constants.InvoiceState state;
 
   /** Invoice type */
   @SerializedName("type")
   @Expose
-  private String type;
+  private Constants.InvoiceType type;
 
   /** Invoice ID */
   public String getId() {
@@ -67,22 +68,22 @@ public class InvoiceMini extends Resource {
   }
 
   /** Invoice state */
-  public String getState() {
+  public Constants.InvoiceState getState() {
     return this.state;
   }
 
   /** @param state Invoice state */
-  public void setState(final String state) {
+  public void setState(final Constants.InvoiceState state) {
     this.state = state;
   }
 
   /** Invoice type */
-  public String getType() {
+  public Constants.InvoiceType getType() {
     return this.type;
   }
 
   /** @param type Invoice type */
-  public void setType(final String type) {
+  public void setType(final Constants.InvoiceType type) {
     this.type = type;
   }
 }

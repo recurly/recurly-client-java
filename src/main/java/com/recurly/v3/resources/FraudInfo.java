@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.util.Map;
 
@@ -15,7 +16,7 @@ public class FraudInfo extends Resource {
   /** Kount decision */
   @SerializedName("decision")
   @Expose
-  private String decision;
+  private Constants.KountDecision decision;
 
   /** Kount rules */
   @SerializedName("risk_rules_triggered")
@@ -28,12 +29,12 @@ public class FraudInfo extends Resource {
   private Integer score;
 
   /** Kount decision */
-  public String getDecision() {
+  public Constants.KountDecision getDecision() {
     return this.decision;
   }
 
   /** @param decision Kount decision */
-  public void setDecision(final String decision) {
+  public void setDecision(final Constants.KountDecision decision) {
     this.decision = decision;
   }
 

@@ -7,6 +7,7 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 
@@ -29,7 +30,7 @@ public class InvoiceCreate extends Request {
    */
   @SerializedName("collection_method")
   @Expose
-  private String collectionMethod;
+  private Constants.CollectionMethod collectionMethod;
 
   /**
    * This will default to the Customer Notes text specified on the Invoice Settings for credit
@@ -102,7 +103,7 @@ public class InvoiceCreate extends Request {
    * customer pay the invoice with an automatic method, like credit card, PayPal, Amazon, or ACH
    * bank payment.
    */
-  public String getCollectionMethod() {
+  public Constants.CollectionMethod getCollectionMethod() {
     return this.collectionMethod;
   }
 
@@ -113,7 +114,7 @@ public class InvoiceCreate extends Request {
    *     transaction or have the customer pay the invoice with an automatic method, like credit
    *     card, PayPal, Amazon, or ACH bank payment.
    */
-  public void setCollectionMethod(final String collectionMethod) {
+  public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
 

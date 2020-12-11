@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 
 public class PaymentMethod extends Resource {
@@ -14,7 +15,7 @@ public class PaymentMethod extends Resource {
   /** The bank account type. Only present for ACH payment methods. */
   @SerializedName("account_type")
   @Expose
-  private String accountType;
+  private Constants.AccountType accountType;
 
   /** Billing Agreement identifier. Only present for Amazon or Paypal payment methods. */
   @SerializedName("billing_agreement_id")
@@ -24,7 +25,7 @@ public class PaymentMethod extends Resource {
   /** Visa, MasterCard, American Express, Discover, JCB, etc. */
   @SerializedName("card_type")
   @Expose
-  private String cardType;
+  private Constants.CardType cardType;
 
   /** Expiration month. */
   @SerializedName("exp_month")
@@ -68,7 +69,7 @@ public class PaymentMethod extends Resource {
 
   @SerializedName("object")
   @Expose
-  private String object;
+  private Constants.PaymentMethod object;
 
   /** The bank account's routing number. Only present for ACH payment methods. */
   @SerializedName("routing_number")
@@ -81,12 +82,12 @@ public class PaymentMethod extends Resource {
   private String routingNumberBank;
 
   /** The bank account type. Only present for ACH payment methods. */
-  public String getAccountType() {
+  public Constants.AccountType getAccountType() {
     return this.accountType;
   }
 
   /** @param accountType The bank account type. Only present for ACH payment methods. */
-  public void setAccountType(final String accountType) {
+  public void setAccountType(final Constants.AccountType accountType) {
     this.accountType = accountType;
   }
 
@@ -104,12 +105,12 @@ public class PaymentMethod extends Resource {
   }
 
   /** Visa, MasterCard, American Express, Discover, JCB, etc. */
-  public String getCardType() {
+  public Constants.CardType getCardType() {
     return this.cardType;
   }
 
   /** @param cardType Visa, MasterCard, American Express, Discover, JCB, etc. */
-  public void setCardType(final String cardType) {
+  public void setCardType(final Constants.CardType cardType) {
     this.cardType = cardType;
   }
 
@@ -198,12 +199,12 @@ public class PaymentMethod extends Resource {
     this.nameOnAccount = nameOnAccount;
   }
 
-  public String getObject() {
+  public Constants.PaymentMethod getObject() {
     return this.object;
   }
 
   /** @param object */
-  public void setObject(final String object) {
+  public void setObject(final Constants.PaymentMethod object) {
     this.object = object;
   }
 

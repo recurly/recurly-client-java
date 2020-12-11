@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import org.joda.time.DateTime;
 
@@ -51,7 +52,7 @@ public class CustomFieldDefinition extends Resource {
   /** Related Recurly object type */
   @SerializedName("related_type")
   @Expose
-  private String relatedType;
+  private Constants.RelatedType relatedType;
 
   /** Displayed as a tooltip when editing the field in the Recurly admin UI. */
   @SerializedName("tooltip")
@@ -72,7 +73,7 @@ public class CustomFieldDefinition extends Resource {
    */
   @SerializedName("user_access")
   @Expose
-  private String userAccess;
+  private Constants.UserAccess userAccess;
 
   /** Created at */
   public DateTime getCreatedAt() {
@@ -150,12 +151,12 @@ public class CustomFieldDefinition extends Resource {
   }
 
   /** Related Recurly object type */
-  public String getRelatedType() {
+  public Constants.RelatedType getRelatedType() {
     return this.relatedType;
   }
 
   /** @param relatedType Related Recurly object type */
-  public void setRelatedType(final String relatedType) {
+  public void setRelatedType(final Constants.RelatedType relatedType) {
     this.relatedType = relatedType;
   }
 
@@ -186,7 +187,7 @@ public class CustomFieldDefinition extends Resource {
    * the API. - `write` - Users with the Customers role will be able to view and edit this field's
    * data via the admin UI.
    */
-  public String getUserAccess() {
+  public Constants.UserAccess getUserAccess() {
     return this.userAccess;
   }
 
@@ -197,7 +198,7 @@ public class CustomFieldDefinition extends Resource {
    *     will only be available via the API. - `write` - Users with the Customers role will be able
    *     to view and edit this field's data via the admin UI.
    */
-  public void setUserAccess(final String userAccess) {
+  public void setUserAccess(final Constants.UserAccess userAccess) {
     this.userAccess = userAccess;
   }
 }

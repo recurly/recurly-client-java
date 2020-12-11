@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -24,7 +25,7 @@ public class AddOn extends Resource {
   /** Whether the add-on type is fixed, or usage-based. */
   @SerializedName("add_on_type")
   @Expose
-  private String addOnType;
+  private Constants.AddOnType addOnType;
 
   /**
    * Used by Avalara for Communications taxes. The transaction type in combination with the service
@@ -128,12 +129,12 @@ public class AddOn extends Resource {
    */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private String revenueScheduleType;
+  private Constants.RevenueScheduleType revenueScheduleType;
 
   /** Add-ons can be either active or inactive. */
   @SerializedName("state")
   @Expose
-  private String state;
+  private Constants.ActiveState state;
 
   /**
    * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
@@ -152,7 +153,7 @@ public class AddOn extends Resource {
    */
   @SerializedName("tier_type")
   @Expose
-  private String tierType;
+  private Constants.TierType tierType;
 
   /** Tiers */
   @SerializedName("tiers")
@@ -175,7 +176,7 @@ public class AddOn extends Resource {
   /** Type of usage, returns usage type if `add_on_type` is `usage`. */
   @SerializedName("usage_type")
   @Expose
-  private String usageType;
+  private Constants.UsageType usageType;
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
@@ -194,12 +195,12 @@ public class AddOn extends Resource {
   }
 
   /** Whether the add-on type is fixed, or usage-based. */
-  public String getAddOnType() {
+  public Constants.AddOnType getAddOnType() {
     return this.addOnType;
   }
 
   /** @param addOnType Whether the add-on type is fixed, or usage-based. */
-  public void setAddOnType(final String addOnType) {
+  public void setAddOnType(final Constants.AddOnType addOnType) {
     this.addOnType = addOnType;
   }
 
@@ -406,7 +407,7 @@ public class AddOn extends Resource {
    * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
    * request as the value will be set from the item.
    */
-  public String getRevenueScheduleType() {
+  public Constants.RevenueScheduleType getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
@@ -415,17 +416,17 @@ public class AddOn extends Resource {
    *     schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must
    *     be absent in the request as the value will be set from the item.
    */
-  public void setRevenueScheduleType(final String revenueScheduleType) {
+  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
   /** Add-ons can be either active or inactive. */
-  public String getState() {
+  public Constants.ActiveState getState() {
     return this.state;
   }
 
   /** @param state Add-ons can be either active or inactive. */
-  public void setState(final String state) {
+  public void setState(final Constants.ActiveState state) {
     this.state = state;
   }
 
@@ -453,7 +454,7 @@ public class AddOn extends Resource {
    * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
    * configure quantity-based pricing models.
    */
-  public String getTierType() {
+  public Constants.TierType getTierType() {
     return this.tierType;
   }
 
@@ -463,7 +464,7 @@ public class AddOn extends Resource {
    *     [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
    *     to configure quantity-based pricing models.
    */
-  public void setTierType(final String tierType) {
+  public void setTierType(final Constants.TierType tierType) {
     this.tierType = tierType;
   }
 
@@ -504,12 +505,12 @@ public class AddOn extends Resource {
   }
 
   /** Type of usage, returns usage type if `add_on_type` is `usage`. */
-  public String getUsageType() {
+  public Constants.UsageType getUsageType() {
     return this.usageType;
   }
 
   /** @param usageType Type of usage, returns usage type if `add_on_type` is `usage`. */
-  public void setUsageType(final String usageType) {
+  public void setUsageType(final Constants.UsageType usageType) {
     this.usageType = usageType;
   }
 }

@@ -7,6 +7,7 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import org.joda.time.DateTime;
@@ -31,7 +32,7 @@ public class ExternalTransaction extends Request {
   /** Payment method used for external transaction. */
   @SerializedName("payment_method")
   @Expose
-  private String paymentMethod;
+  private Constants.ExternalPaymentMethod paymentMethod;
 
   /** The total amount of the transcaction. Cannot excceed the invoice total. */
   public Float getAmount() {
@@ -67,12 +68,12 @@ public class ExternalTransaction extends Request {
   }
 
   /** Payment method used for external transaction. */
-  public String getPaymentMethod() {
+  public Constants.ExternalPaymentMethod getPaymentMethod() {
     return this.paymentMethod;
   }
 
   /** @param paymentMethod Payment method used for external transaction. */
-  public void setPaymentMethod(final String paymentMethod) {
+  public void setPaymentMethod(final Constants.ExternalPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 }

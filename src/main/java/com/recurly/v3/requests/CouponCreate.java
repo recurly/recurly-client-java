@@ -7,6 +7,7 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.util.List;
@@ -47,7 +48,7 @@ public class CouponCreate extends Request {
    */
   @SerializedName("coupon_type")
   @Expose
-  private String couponType;
+  private Constants.CouponType couponType;
 
   /**
    * Fixed discount currencies by currency. Required if the coupon type is `fixed`. This parameter
@@ -67,7 +68,7 @@ public class CouponCreate extends Request {
   /** The type of discount provided by the coupon (how the amount discounted is calculated) */
   @SerializedName("discount_type")
   @Expose
-  private String discountType;
+  private Constants.DiscountType discountType;
 
   /**
    * This field does not apply when the discount_type is `free_trial`. - "single_use" coupons
@@ -77,7 +78,7 @@ public class CouponCreate extends Request {
    */
   @SerializedName("duration")
   @Expose
-  private String duration;
+  private Constants.CouponDuration duration;
 
   /**
    * Sets the duration of time the `free_trial_unit` is for. Required if `discount_type` is
@@ -93,7 +94,7 @@ public class CouponCreate extends Request {
    */
   @SerializedName("free_trial_unit")
   @Expose
-  private String freeTrialUnit;
+  private Constants.FreeTrialUnit freeTrialUnit;
 
   /**
    * This description will show up when a customer redeems a coupon on your Hosted Payment Pages, or
@@ -161,7 +162,7 @@ public class CouponCreate extends Request {
    */
   @SerializedName("redemption_resource")
   @Expose
-  private String redemptionResource;
+  private Constants.RedemptionResource redemptionResource;
 
   /**
    * If `duration` is "temporal" than `temporal_amount` is an integer which is multiplied by
@@ -177,7 +178,7 @@ public class CouponCreate extends Request {
    */
   @SerializedName("temporal_unit")
   @Expose
-  private String temporalUnit;
+  private Constants.TemporalUnit temporalUnit;
 
   /**
    * On a bulk coupon, the template from which unique coupon codes are generated. - You must start
@@ -252,7 +253,7 @@ public class CouponCreate extends Request {
    * Whether the coupon is "single_code" or "bulk". Bulk coupons will require a
    * `unique_code_template` and will generate unique codes through the `/generate` endpoint.
    */
-  public String getCouponType() {
+  public Constants.CouponType getCouponType() {
     return this.couponType;
   }
 
@@ -260,7 +261,7 @@ public class CouponCreate extends Request {
    * @param couponType Whether the coupon is "single_code" or "bulk". Bulk coupons will require a
    *     `unique_code_template` and will generate unique codes through the `/generate` endpoint.
    */
-  public void setCouponType(final String couponType) {
+  public void setCouponType(final Constants.CouponType couponType) {
     this.couponType = couponType;
   }
 
@@ -296,7 +297,7 @@ public class CouponCreate extends Request {
   }
 
   /** The type of discount provided by the coupon (how the amount discounted is calculated) */
-  public String getDiscountType() {
+  public Constants.DiscountType getDiscountType() {
     return this.discountType;
   }
 
@@ -304,7 +305,7 @@ public class CouponCreate extends Request {
    * @param discountType The type of discount provided by the coupon (how the amount discounted is
    *     calculated)
    */
-  public void setDiscountType(final String discountType) {
+  public void setDiscountType(final Constants.DiscountType discountType) {
     this.discountType = discountType;
   }
 
@@ -314,7 +315,7 @@ public class CouponCreate extends Request {
    * determined by the `temporal_unit` and `temporal_amount` attributes. - "forever" coupons will
    * apply to invoices forever.
    */
-  public String getDuration() {
+  public Constants.CouponDuration getDuration() {
     return this.duration;
   }
 
@@ -324,7 +325,7 @@ public class CouponCreate extends Request {
    *     invoices for the duration determined by the `temporal_unit` and `temporal_amount`
    *     attributes. - "forever" coupons will apply to invoices forever.
    */
-  public void setDuration(final String duration) {
+  public void setDuration(final Constants.CouponDuration duration) {
     this.duration = duration;
   }
 
@@ -348,7 +349,7 @@ public class CouponCreate extends Request {
    * Description of the unit of time the coupon is for. Used with `free_trial_amount` to determine
    * the duration of time the coupon is for. Required if `discount_type` is `free_trial`.
    */
-  public String getFreeTrialUnit() {
+  public Constants.FreeTrialUnit getFreeTrialUnit() {
     return this.freeTrialUnit;
   }
 
@@ -357,7 +358,7 @@ public class CouponCreate extends Request {
    *     `free_trial_amount` to determine the duration of time the coupon is for. Required if
    *     `discount_type` is `free_trial`.
    */
-  public void setFreeTrialUnit(final String freeTrialUnit) {
+  public void setFreeTrialUnit(final Constants.FreeTrialUnit freeTrialUnit) {
     this.freeTrialUnit = freeTrialUnit;
   }
 
@@ -487,7 +488,7 @@ public class CouponCreate extends Request {
    * Whether the discount is for all eligible charges on the account, or only a specific
    * subscription.
    */
-  public String getRedemptionResource() {
+  public Constants.RedemptionResource getRedemptionResource() {
     return this.redemptionResource;
   }
 
@@ -495,7 +496,7 @@ public class CouponCreate extends Request {
    * @param redemptionResource Whether the discount is for all eligible charges on the account, or
    *     only a specific subscription.
    */
-  public void setRedemptionResource(final String redemptionResource) {
+  public void setRedemptionResource(final Constants.RedemptionResource redemptionResource) {
     this.redemptionResource = redemptionResource;
   }
 
@@ -520,7 +521,7 @@ public class CouponCreate extends Request {
    * If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define
    * the duration that the coupon will be applied to invoices for.
    */
-  public String getTemporalUnit() {
+  public Constants.TemporalUnit getTemporalUnit() {
     return this.temporalUnit;
   }
 
@@ -528,7 +529,7 @@ public class CouponCreate extends Request {
    * @param temporalUnit If `duration` is "temporal" than `temporal_unit` is multiplied by
    *     `temporal_amount` to define the duration that the coupon will be applied to invoices for.
    */
-  public void setTemporalUnit(final String temporalUnit) {
+  public void setTemporalUnit(final Constants.TemporalUnit temporalUnit) {
     this.temporalUnit = temporalUnit;
   }
 

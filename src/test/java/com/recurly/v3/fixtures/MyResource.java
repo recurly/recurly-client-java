@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import java.util.List;
 import org.joda.time.DateTime;
+import com.recurly.v3.fixtures.FixtureConstants;
 
 public class MyResource extends Resource {
   @SerializedName("my_string")
@@ -38,6 +39,10 @@ public class MyResource extends Resource {
   @SerializedName("my_nested_resource_list")
   @Expose
   private List<NestedResource> myNestedResourceList;
+
+  @SerializedName("my_constant")
+  @Expose
+  private FixtureConstants.ConstantType myConstant;
 
   public String getMyString() {
     return this.myString;
@@ -101,5 +106,13 @@ public class MyResource extends Resource {
 
   public void setMyNestedResourceList(final List<NestedResource> myNestedResourceList) {
     this.myNestedResourceList = myNestedResourceList;
+  }
+
+  public FixtureConstants.ConstantType getMyConstant() {
+    return this.myConstant;
+  }
+
+  public void setMyConstant(FixtureConstants.ConstantType myConstant) {
+    this.myConstant = myConstant;
   }
 }

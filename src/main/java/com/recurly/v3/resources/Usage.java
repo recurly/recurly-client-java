@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -67,7 +68,7 @@ public class Usage extends Resource {
    */
   @SerializedName("tier_type")
   @Expose
-  private String tierType;
+  private Constants.TierType tierType;
 
   /**
    * The tiers and prices of the subscription based on the usage_timestamp. If tier_type = flat,
@@ -106,7 +107,7 @@ public class Usage extends Resource {
   /** Type of usage, returns usage type if `add_on_type` is `usage`. */
   @SerializedName("usage_type")
   @Expose
-  private String usageType;
+  private Constants.UsageType usageType;
 
   /**
    * The amount of usage. Can be positive, negative, or 0. No decimals allowed, we will strip them.
@@ -211,7 +212,7 @@ public class Usage extends Resource {
    * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
    * configure quantity-based pricing models.
    */
-  public String getTierType() {
+  public Constants.TierType getTierType() {
     return this.tierType;
   }
 
@@ -221,7 +222,7 @@ public class Usage extends Resource {
    *     [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
    *     to configure quantity-based pricing models.
    */
-  public void setTierType(final String tierType) {
+  public void setTierType(final Constants.TierType tierType) {
     this.tierType = tierType;
   }
 
@@ -294,12 +295,12 @@ public class Usage extends Resource {
   }
 
   /** Type of usage, returns usage type if `add_on_type` is `usage`. */
-  public String getUsageType() {
+  public Constants.UsageType getUsageType() {
     return this.usageType;
   }
 
   /** @param usageType Type of usage, returns usage type if `add_on_type` is `usage`. */
-  public void setUsageType(final String usageType) {
+  public void setUsageType(final Constants.UsageType usageType) {
     this.usageType = usageType;
   }
 }

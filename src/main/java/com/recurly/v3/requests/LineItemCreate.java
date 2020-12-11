@@ -7,6 +7,7 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import org.joda.time.DateTime;
@@ -50,7 +51,7 @@ public class LineItemCreate extends Request {
    */
   @SerializedName("credit_reason_code")
   @Expose
-  private String creditReasonCode;
+  private Constants.PartialCreditReasonCode creditReasonCode;
 
   /**
    * 3-letter ISO 4217 currency code. If `item_code`/`item_id` is part of the request then
@@ -100,7 +101,7 @@ public class LineItemCreate extends Request {
    */
   @SerializedName("origin")
   @Expose
-  private String origin;
+  private Constants.LineItemCreateOrigin origin;
 
   /**
    * Optional field to track a product code or SKU for the line item. This can be used to later
@@ -123,7 +124,7 @@ public class LineItemCreate extends Request {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private String revenueScheduleType;
+  private Constants.LineItemRevenueScheduleType revenueScheduleType;
 
   /**
    * If an end date is present, this is value indicates the beginning of a billing time range. If no
@@ -159,7 +160,7 @@ public class LineItemCreate extends Request {
    */
   @SerializedName("type")
   @Expose
-  private String type;
+  private Constants.LintItemType type;
 
   /**
    * A positive or negative amount with `type=charge` will result in a positive `unit_amount`. A
@@ -236,7 +237,7 @@ public class LineItemCreate extends Request {
    * feature is enabled, the value can be set and will default to `general`. When the Credit
    * Invoices feature is not enabled, the value will always be `null`.
    */
-  public String getCreditReasonCode() {
+  public Constants.PartialCreditReasonCode getCreditReasonCode() {
     return this.creditReasonCode;
   }
 
@@ -245,7 +246,7 @@ public class LineItemCreate extends Request {
    *     the Credit Invoices feature is enabled, the value can be set and will default to `general`.
    *     When the Credit Invoices feature is not enabled, the value will always be `null`.
    */
-  public void setCreditReasonCode(final String creditReasonCode) {
+  public void setCreditReasonCode(final Constants.PartialCreditReasonCode creditReasonCode) {
     this.creditReasonCode = creditReasonCode;
   }
 
@@ -334,7 +335,7 @@ public class LineItemCreate extends Request {
    * allowed if `type` is `charge` and `tax_exempt` is left blank or set to true. This origin
    * creates a charge and opposite credit on the account to be used for future invoices.
    */
-  public String getOrigin() {
+  public Constants.LineItemCreateOrigin getOrigin() {
     return this.origin;
   }
 
@@ -346,7 +347,7 @@ public class LineItemCreate extends Request {
    *     true. This origin creates a charge and opposite credit on the account to be used for future
    *     invoices.
    */
-  public void setOrigin(final String origin) {
+  public void setOrigin(final Constants.LineItemCreateOrigin origin) {
     this.origin = origin;
   }
 
@@ -387,12 +388,13 @@ public class LineItemCreate extends Request {
   }
 
   /** Revenue schedule type */
-  public String getRevenueScheduleType() {
+  public Constants.LineItemRevenueScheduleType getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final String revenueScheduleType) {
+  public void setRevenueScheduleType(
+      final Constants.LineItemRevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -457,7 +459,7 @@ public class LineItemCreate extends Request {
    * Line item type. If `item_code`/`item_id` is present then `type` should not be present. If
    * `item_code`/`item_id` is not present then `type` is required.
    */
-  public String getType() {
+  public Constants.LintItemType getType() {
     return this.type;
   }
 
@@ -465,7 +467,7 @@ public class LineItemCreate extends Request {
    * @param type Line item type. If `item_code`/`item_id` is present then `type` should not be
    *     present. If `item_code`/`item_id` is not present then `type` is required.
    */
-  public void setType(final String type) {
+  public void setType(final Constants.LintItemType type) {
     this.type = type;
   }
 

@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +47,7 @@ public class Coupon extends Resource {
    */
   @SerializedName("coupon_type")
   @Expose
-  private String couponType;
+  private Constants.CouponType couponType;
 
   /** Created at */
   @SerializedName("created_at")
@@ -67,7 +68,7 @@ public class Coupon extends Resource {
    */
   @SerializedName("duration")
   @Expose
-  private String duration;
+  private Constants.CouponDuration duration;
 
   /** The date and time the coupon was expired early or reached its `max_redemptions`. */
   @SerializedName("expired_at")
@@ -85,7 +86,7 @@ public class Coupon extends Resource {
    */
   @SerializedName("free_trial_unit")
   @Expose
-  private String freeTrialUnit;
+  private Constants.FreeTrialUnit freeTrialUnit;
 
   /**
    * This description will show up when a customer redeems a coupon on your Hosted Payment Pages, or
@@ -162,12 +163,12 @@ public class Coupon extends Resource {
    */
   @SerializedName("redemption_resource")
   @Expose
-  private String redemptionResource;
+  private Constants.RedemptionResource redemptionResource;
 
   /** Indicates if the coupon is redeemable, and if it is not, why. */
   @SerializedName("state")
   @Expose
-  private String state;
+  private Constants.CouponState state;
 
   /**
    * If `duration` is "temporal" than `temporal_amount` is an integer which is multiplied by
@@ -183,7 +184,7 @@ public class Coupon extends Resource {
    */
   @SerializedName("temporal_unit")
   @Expose
-  private String temporalUnit;
+  private Constants.TemporalUnit temporalUnit;
 
   /** On a bulk coupon, the template from which unique coupon codes are generated. */
   @SerializedName("unique_code_template")
@@ -261,7 +262,7 @@ public class Coupon extends Resource {
    * Whether the coupon is "single_code" or "bulk". Bulk coupons will require a
    * `unique_code_template` and will generate unique codes through the `/generate` endpoint.
    */
-  public String getCouponType() {
+  public Constants.CouponType getCouponType() {
     return this.couponType;
   }
 
@@ -269,7 +270,7 @@ public class Coupon extends Resource {
    * @param couponType Whether the coupon is "single_code" or "bulk". Bulk coupons will require a
    *     `unique_code_template` and will generate unique codes through the `/generate` endpoint.
    */
-  public void setCouponType(final String couponType) {
+  public void setCouponType(final Constants.CouponType couponType) {
     this.couponType = couponType;
   }
 
@@ -303,7 +304,7 @@ public class Coupon extends Resource {
    * - "single_use" coupons applies to the first invoice only. - "temporal" coupons will apply to
    * invoices for the duration determined by the `temporal_unit` and `temporal_amount` attributes.
    */
-  public String getDuration() {
+  public Constants.CouponDuration getDuration() {
     return this.duration;
   }
 
@@ -312,7 +313,7 @@ public class Coupon extends Resource {
    *     will apply to invoices for the duration determined by the `temporal_unit` and
    *     `temporal_amount` attributes.
    */
-  public void setDuration(final String duration) {
+  public void setDuration(final Constants.CouponDuration duration) {
     this.duration = duration;
   }
 
@@ -343,7 +344,7 @@ public class Coupon extends Resource {
    * Description of the unit of time the coupon is for. Used with `free_trial_amount` to determine
    * the duration of time the coupon is for.
    */
-  public String getFreeTrialUnit() {
+  public Constants.FreeTrialUnit getFreeTrialUnit() {
     return this.freeTrialUnit;
   }
 
@@ -351,7 +352,7 @@ public class Coupon extends Resource {
    * @param freeTrialUnit Description of the unit of time the coupon is for. Used with
    *     `free_trial_amount` to determine the duration of time the coupon is for.
    */
-  public void setFreeTrialUnit(final String freeTrialUnit) {
+  public void setFreeTrialUnit(final Constants.FreeTrialUnit freeTrialUnit) {
     this.freeTrialUnit = freeTrialUnit;
   }
 
@@ -499,7 +500,7 @@ public class Coupon extends Resource {
    * Whether the discount is for all eligible charges on the account, or only a specific
    * subscription.
    */
-  public String getRedemptionResource() {
+  public Constants.RedemptionResource getRedemptionResource() {
     return this.redemptionResource;
   }
 
@@ -507,17 +508,17 @@ public class Coupon extends Resource {
    * @param redemptionResource Whether the discount is for all eligible charges on the account, or
    *     only a specific subscription.
    */
-  public void setRedemptionResource(final String redemptionResource) {
+  public void setRedemptionResource(final Constants.RedemptionResource redemptionResource) {
     this.redemptionResource = redemptionResource;
   }
 
   /** Indicates if the coupon is redeemable, and if it is not, why. */
-  public String getState() {
+  public Constants.CouponState getState() {
     return this.state;
   }
 
   /** @param state Indicates if the coupon is redeemable, and if it is not, why. */
-  public void setState(final String state) {
+  public void setState(final Constants.CouponState state) {
     this.state = state;
   }
 
@@ -542,7 +543,7 @@ public class Coupon extends Resource {
    * If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define
    * the duration that the coupon will be applied to invoices for.
    */
-  public String getTemporalUnit() {
+  public Constants.TemporalUnit getTemporalUnit() {
     return this.temporalUnit;
   }
 
@@ -550,7 +551,7 @@ public class Coupon extends Resource {
    * @param temporalUnit If `duration` is "temporal" than `temporal_unit` is multiplied by
    *     `temporal_amount` to define the duration that the coupon will be applied to invoices for.
    */
-  public void setTemporalUnit(final String temporalUnit) {
+  public void setTemporalUnit(final Constants.TemporalUnit temporalUnit) {
     this.temporalUnit = temporalUnit;
   }
 

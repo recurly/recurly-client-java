@@ -16,61 +16,63 @@ public class ExceptionFactory {
   public static <T extends RecurlyException> T getExceptionClass(ApiException apiException) {
     ErrorMayHaveTransaction e = apiException.getError();
     switch (e.getType()) {
-      case "bad_request":
+      case BAD_REQUEST:
         return (T) new BadRequestException(e.getMessage(), e);
 
-      case "immutable_subscription":
+      case IMMUTABLE_SUBSCRIPTION:
         return (T) new ImmutableSubscriptionException(e.getMessage(), e);
 
-      case "internal_server_error":
+      case INTERNAL_SERVER_ERROR:
         return (T) new InternalServerException(e.getMessage(), e);
 
-      case "invalid_api_key":
+      case INVALID_API_KEY:
         return (T) new InvalidApiKeyException(e.getMessage(), e);
 
-      case "invalid_api_version":
+      case INVALID_API_VERSION:
         return (T) new InvalidApiVersionException(e.getMessage(), e);
 
-      case "invalid_content_type":
+      case INVALID_CONTENT_TYPE:
         return (T) new InvalidContentTypeException(e.getMessage(), e);
 
-      case "invalid_permissions":
+      case INVALID_PERMISSIONS:
         return (T) new InvalidPermissionsException(e.getMessage(), e);
 
-      case "invalid_token":
+      case INVALID_TOKEN:
         return (T) new InvalidTokenException(e.getMessage(), e);
 
-      case "missing_feature":
+      case MISSING_FEATURE:
         return (T) new MissingFeatureException(e.getMessage(), e);
 
-      case "not_found":
+      case NOT_FOUND:
         return (T) new NotFoundException(e.getMessage(), e);
 
-      case "rate_limited":
+      case RATE_LIMITED:
         return (T) new RateLimitedException(e.getMessage(), e);
 
-      case "service_not_available":
+      case SERVICE_NOT_AVAILABLE:
         return (T) new ServiceNotAvailableException(e.getMessage(), e);
 
-      case "simultaneous_request":
+      case SIMULTANEOUS_REQUEST:
         return (T) new SimultaneousRequestException(e.getMessage(), e);
 
-      case "transaction":
+      case TRANSACTION:
         return (T) new TransactionException(e.getMessage(), e);
 
-      case "unauthorized":
+      case UNAUTHORIZED:
         return (T) new UnauthorizedException(e.getMessage(), e);
 
-      case "unavailable_in_api_version":
+      case UNAVAILABLE_IN_API_VERSION:
         return (T) new UnavailableInApiVersionException(e.getMessage(), e);
 
-      case "unknown_api_version":
+      case UNKNOWN_API_VERSION:
         return (T) new UnknownApiVersionException(e.getMessage(), e);
 
-      case "validation":
+      case VALIDATION:
         return (T) new ValidationException(e.getMessage(), e);
+
+      default:
+        return (T) apiException;
     }
-    return (T) apiException;
   }
 
   @SuppressWarnings("unchecked")
@@ -107,7 +109,8 @@ public class ExceptionFactory {
         return (T) new UnprocessableEntityException(message, null);
       case 429:
         return (T) new TooManyRequestsException(message, null);
+      default:
+        return (T) new ApiException(message, null);
     }
-    return (T) new ApiException(message, null);
   }
 }

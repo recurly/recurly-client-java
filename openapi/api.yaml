@@ -1489,7 +1489,7 @@ paths:
           try {
               final AccountAcquisitionUpdatable acqUpdate = new AccountAcquisitionUpdatable();
               acqUpdate.setCampaign("big-event-campaign");
-              acqUpdate.setChannel("social_media");
+              acqUpdate.setChannel(Constants.Channel.SOCIAL_MEDIA);
               acqUpdate.setSubchannel("twitter");
 
               final AccountAcquisition accountAcquisition = client.updateAccountAcquisition(accountId, acqUpdate);
@@ -3241,7 +3241,7 @@ paths:
           try {
               InvoiceCreate invoiceCreate = new InvoiceCreate();
               invoiceCreate.setCurrency("USD");
-              invoiceCreate.setCollectionMethod("automatic");
+              invoiceCreate.setCollectionMethod(Constants.CollectionMethod.AUTOMATIC);
 
               InvoiceCollection collection = client.createInvoice(accountId, invoiceCreate);
               System.out.println("Created Invoice");
@@ -3412,7 +3412,7 @@ paths:
           try {
               InvoiceCreate invoiceCreate = new InvoiceCreate();
               invoiceCreate.setCurrency("USD");
-              invoiceCreate.setCollectionMethod("automatic");
+              invoiceCreate.setCollectionMethod(Constants.CollectionMethod.AUTOMATIC);
 
               InvoiceCollection collection = client.previewInvoice(accountId, invoiceCreate);
               System.out.println("Previewed Invoice due at " + collection.getChargeInvoice().getDueAt());
@@ -3690,7 +3690,7 @@ paths:
               LineItemCreate lineItemCreate = new LineItemCreate();
               lineItemCreate.setCurrency("USD");
               lineItemCreate.setUnitAmount(1000.0f);
-              lineItemCreate.setType("charge"); // choose "credit" for a credit
+              lineItemCreate.setType(Constants.LineItemType.CHARGE); // choose "credit" for a credit
 
               LineItem lineItem = client.createLineItem(accountId, lineItemCreate);
               System.out.println("Created line item " + lineItem.getUuid());
@@ -5296,7 +5296,7 @@ paths:
               currencies.add(couponPrice);
 
               couponCreate.setCurrencies(currencies);
-              couponCreate.setDiscountType("fixed");
+              couponCreate.setDiscountType(Constants.DiscountType.FIXED);
 
               Coupon coupon = client.createCoupon(couponCreate);
               System.out.println("Created coupon " + coupon.getCode());
@@ -6475,7 +6475,7 @@ paths:
               itemReq.setDescription("Item Description");
               itemReq.setExternalSku("a35JE-44");
               itemReq.setAccountingCode("item-code-127");
-              itemReq.setRevenueScheduleType("at_range_end");
+              itemReq.setRevenueScheduleType(Constants.RevenueScheduleType.AT_RANGE_END);
 
               List<CustomField> customFields = new ArrayList<>();
               CustomField customField = new CustomField();
@@ -8862,7 +8862,7 @@ paths:
           try {
               final InvoiceRefund invoiceRefund = new InvoiceRefund();
               invoiceRefund.setCreditCustomerNotes("Notes on credits");
-              invoiceRefund.setType("amount"); // could also be "line_items"
+              invoiceRefund.setType(Constants.InvoiceRefundType.AMOUNT); // could also be "line_items"
               invoiceRefund.setAmount(100f);
 
               final Invoice invoice = client.refundInvoice(invoiceId, invoiceRefund);
@@ -11744,7 +11744,7 @@ paths:
         source: |
           try {
               QueryParams queryParams = new QueryParams();
-              queryParams.setRefund("none"); // "full" for a full refund, "partial" for prorated refund
+              queryParams.setRefund(Constants.RefundType.NONE); // "full" for a full refund, "partial" for prorated refund
               client.terminateSubscription(subscriptionId, queryParams);
               System.out.println("Terminated Subscription: " + subscriptionId);
           } catch (ValidationException e) {
@@ -12629,7 +12629,7 @@ paths:
               SubscriptionChangeCreate changeCreate = new SubscriptionChangeCreate();
 
               changeCreate.setPlanCode(newPlanCode);
-              changeCreate.setTimeframe("now"); // choose "now" or "renewal"
+              changeCreate.setTimeframe(Constants.ChangeTimeframe.NOW); // choose "now" or "renewal"
 
               SubscriptionChange change = client.createSubscriptionChange(subscriptionId, changeCreate);
               System.out.println("Created subscription " + change.getId());
@@ -16134,8 +16134,8 @@ components:
             Brazilian tax identifier for all tax paying residents.
         tax_identifier_type:
           type: string
-          enum: 
-          "$ref": "#/components/schemas/TaxIdentifierTypeEnum"
+          enum:
+            "$ref": "#/components/schemas/TaxIdentifierTypeEnum"
           description: this field and a value of 'cpf' are required if adding a billing
             info that is an elo or hipercard type in Brazil.
         primary_payment_method:
@@ -18534,6 +18534,22 @@ components:
             cannot be provided.
       required:
       - currency
+    TierPricing:
+      type: object
+      properties:
+        currency:
+          type: string
+          title: Currency
+          description: 3-letter ISO 4217 currency code.
+          maxLength: 3
+        unit_amount:
+          type: number
+          format: float
+          title: Unit price
+          minimum: 0
+          maximum: 1000000
+      required:
+      - currency
     Pricing:
       type: object
       properties:
@@ -18564,7 +18580,7 @@ components:
           type: array
           title: Tier pricing
           items:
-            "$ref": "#/components/schemas/Pricing"
+            "$ref": "#/components/schemas/TierPricing"
           minItems: 1
       required:
       - currencies
