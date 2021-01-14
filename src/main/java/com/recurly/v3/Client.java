@@ -388,7 +388,7 @@ public class Client extends BaseClient {
   }
 
   /**
-   * Generate an active coupon redemption on an account
+   * Generate an active coupon redemption on an account or subscription
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/create_coupon_redemption">create_coupon_redemption api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.

@@ -69,8 +69,10 @@ public class ExceptionFactory {
 
       case "rate_limited":
         return (T) new RateLimitedException(e.getMessage(), e);
+
+      default:
+        return (T) apiException;
     }
-    return (T) apiException;
   }
 
   @SuppressWarnings("unchecked")
@@ -107,7 +109,8 @@ public class ExceptionFactory {
         return (T) new UnprocessableEntityException(message, null);
       case 429:
         return (T) new TooManyRequestsException(message, null);
+      default:
+        return (T) new ApiException(message, null);
     }
-    return (T) new ApiException(message, null);
   }
 }
