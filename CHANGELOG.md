@@ -1,8 +1,26 @@
 # Changelog
 
-## [3.17.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
+## [3.18.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.16.0...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.17.0...HEAD)
+
+**Implemented enhancements:**
+
+- Latest Changes for 2019-10-10 [\#128](https://github.com/recurly/recurly-client-java/pull/128) ([douglasmiller](https://github.com/douglasmiller))
+
+**Fixed bugs:**
+
+- Interpolate path pattern has capture parens in wrong place [\#125](https://github.com/recurly/recurly-client-java/pull/125) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.18.0 [\#129](https://github.com/recurly/recurly-client-java/pull/129) ([douglasmiller](https://github.com/douglasmiller))
+- Small tweaks in the ExceptionFactory and preparation for next major version [\#126](https://github.com/recurly/recurly-client-java/pull/126) ([douglasmiller](https://github.com/douglasmiller))
+- Test for fallback to generic api error [\#120](https://github.com/recurly/recurly-client-java/pull/120) ([joannasese](https://github.com/joannasese))
+
+## [3.17.0](https://github.com/recurly/recurly-client-java/tree/3.17.0) (2020-12-08)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.16.0...3.17.0)
 
 **Implemented enhancements:**
 
