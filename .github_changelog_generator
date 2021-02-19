@@ -2,5 +2,6 @@ user=recurly
 project=recurly-client-java
 unreleased=false
 exclude-labels=question,bug?,duplicate
+exclude-tags-regex=^[^34]+\..*
 issues-wo-labels=false
 verbose=false
