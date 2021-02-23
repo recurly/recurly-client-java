@@ -1,9 +1,11 @@
 package com.recurly.v3;
 
+import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.exception.ExceptionFactory;
 import com.recurly.v3.http.HeaderInterceptor;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -165,6 +167,16 @@ public abstract class BaseClient {
     }
   }
 
+  private String getSerializedEnumName(Enum<?> e) {
+    try {
+      Field f = e.getClass().getField(e.name());
+      SerializedName a = f.getAnnotation(SerializedName.class);
+      return a == null ? null : a.value();
+    } catch (NoSuchFieldException ignored) {
+      return null;
+    }
+  }
+
   private okhttp3.Request buildRequest(
       final String method,
       final String url,
@@ -173,8 +185,8 @@ public abstract class BaseClient {
     final HttpUrl.Builder httpBuilder = HttpUrl.parse(this.apiUrl + url).newBuilder();
 
     final RequestBody requestBody =
-        RequestBody.create(
-            MediaType.parse("application/json; charset=utf-8"), jsonSerializer.serialize(body));
+      RequestBody.create(
+        jsonSerializer.serialize(body), MediaType.parse("application/json; charset=utf-8"));
 
     if (queryParams != null) {
       for (Map.Entry<String, Object> param : queryParams.entrySet()) {
@@ -186,7 +198,6 @@ public abstract class BaseClient {
         } else if (value instanceof String) {
           stringValue = value.toString();
         } else if (value instanceof DateTime) {
-          final DateTime dt = (DateTime) value;
           stringValue = value.toString();
         } else if (value instanceof Integer) {
           stringValue = Integer.toString((Integer) value);
@@ -196,6 +207,8 @@ public abstract class BaseClient {
           stringValue = Double.toString((Double) value);
         } else if (value instanceof Long) {
           stringValue = Long.toString((Long) value);
+        } else if (value instanceof Enum) {
+          stringValue = getSerializedEnumName((Enum<?>)value);
         } else {
           stringValue = value.toString();
         }

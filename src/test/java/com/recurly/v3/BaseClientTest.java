@@ -5,6 +5,7 @@ import com.recurly.v3.exception.InvalidApiKeyException;
 import com.recurly.v3.exception.NotFoundException;
 import com.recurly.v3.exception.TransactionException;
 import com.recurly.v3.exception.ValidationException;
+import com.recurly.v3.fixtures.FixtureConstants;
 import com.recurly.v3.fixtures.MockClient;
 import com.recurly.v3.fixtures.MockQueryParams;
 import com.recurly.v3.fixtures.MyRequest;
@@ -137,6 +138,7 @@ public class BaseClientTest {
       assertEquals("2.3", url.queryParameter("my_float"));
       assertEquals("4.5", url.queryParameter("my_double"));
       assertEquals("6", url.queryParameter("my_long"));
+      assertEquals("twenty-three", url.queryParameter("my_enum"));
       assertEquals(null, url.queryParameter("my_random"));
       assertEquals("[]", url.queryParameter("unsupported"));
       return mCall;
@@ -153,6 +155,7 @@ public class BaseClientTest {
     qp.setMyFloat(2.3f);
     qp.setMyDouble(4.5);
     qp.setMyLong(6L);
+    qp.setMyEnum(FixtureConstants.ConstantType.TWENTY_THREE);
     qp.setMyRandom(null);
     qp.setUnsupported(new ArrayList<>());
     final Pager<MyResource> pager = client.listResources(qp);
