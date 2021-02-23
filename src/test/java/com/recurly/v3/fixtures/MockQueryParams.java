@@ -29,6 +29,10 @@ public class MockQueryParams extends QueryParams {
     this.add("my_long", myLong);
   }
 
+  public void setMyEnum(FixtureConstants.ConstantType myEnum) {
+    this.add("my_enum", myEnum);
+  }
+
   public void setMyRandom(String myString) {
     this.add("my_random", myString);
   }
