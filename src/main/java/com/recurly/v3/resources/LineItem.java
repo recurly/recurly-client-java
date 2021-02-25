@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 import org.joda.time.DateTime;
 
 public class LineItem extends Resource {
@@ -41,7 +42,7 @@ public class LineItem extends Resource {
   /** `(quantity * unit_amount) - (discount + tax)` */
   @SerializedName("amount")
   @Expose
-  private Float amount;
+  private BigDecimal amount;
 
   /**
    * Used by Avalara for Communications taxes. The transaction type in combination with the service
@@ -71,7 +72,7 @@ public class LineItem extends Resource {
   /** The amount of credit from this line item that was applied to the invoice. */
   @SerializedName("credit_applied")
   @Expose
-  private Float creditApplied;
+  private BigDecimal creditApplied;
 
   /** The reason the credit was given when line item is `type=credit`. */
   @SerializedName("credit_reason_code")
@@ -94,7 +95,7 @@ public class LineItem extends Resource {
   /** The discount applied to the line item. */
   @SerializedName("discount")
   @Expose
-  private Float discount;
+  private BigDecimal discount;
 
   /** If this date is provided, it indicates the end of a time range. */
   @SerializedName("end_date")
@@ -208,7 +209,7 @@ public class LineItem extends Resource {
    */
   @SerializedName("proration_rate")
   @Expose
-  private Float prorationRate;
+  private BigDecimal prorationRate;
 
   /**
    * This number will be multiplied by the unit amount to compute the subtotal before any discounts
@@ -264,12 +265,12 @@ public class LineItem extends Resource {
   /** `quantity * unit_amount` */
   @SerializedName("subtotal")
   @Expose
-  private Float subtotal;
+  private BigDecimal subtotal;
 
   /** The tax amount for the line item. */
   @SerializedName("tax")
   @Expose
-  private Float tax;
+  private BigDecimal tax;
 
   /**
    * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
@@ -310,7 +311,7 @@ public class LineItem extends Resource {
   /** Positive amount for a charge, negative amount for a credit. */
   @SerializedName("unit_amount")
   @Expose
-  private Float unitAmount;
+  private BigDecimal unitAmount;
 
   /** Positive amount for a charge, negative amount for a credit. */
   @SerializedName("unit_amount_decimal")
@@ -380,12 +381,12 @@ public class LineItem extends Resource {
   }
 
   /** `(quantity * unit_amount) - (discount + tax)` */
-  public Float getAmount() {
+  public BigDecimal getAmount() {
     return this.amount;
   }
 
   /** @param amount `(quantity * unit_amount) - (discount + tax)` */
-  public void setAmount(final Float amount) {
+  public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
 
@@ -440,14 +441,14 @@ public class LineItem extends Resource {
   }
 
   /** The amount of credit from this line item that was applied to the invoice. */
-  public Float getCreditApplied() {
+  public BigDecimal getCreditApplied() {
     return this.creditApplied;
   }
 
   /**
    * @param creditApplied The amount of credit from this line item that was applied to the invoice.
    */
-  public void setCreditApplied(final Float creditApplied) {
+  public void setCreditApplied(final BigDecimal creditApplied) {
     this.creditApplied = creditApplied;
   }
 
@@ -488,12 +489,12 @@ public class LineItem extends Resource {
   }
 
   /** The discount applied to the line item. */
-  public Float getDiscount() {
+  public BigDecimal getDiscount() {
     return this.discount;
   }
 
   /** @param discount The discount applied to the line item. */
-  public void setDiscount(final Float discount) {
+  public void setDiscount(final BigDecimal discount) {
     this.discount = discount;
   }
 
@@ -724,7 +725,7 @@ public class LineItem extends Resource {
    * made available for line items created after March 30, 2017. For line items created prior to
    * that date, the proration rate will be `null`, even if the line item was prorated.
    */
-  public Float getProrationRate() {
+  public BigDecimal getProrationRate() {
     return this.prorationRate;
   }
 
@@ -734,7 +735,7 @@ public class LineItem extends Resource {
    *     items created prior to that date, the proration rate will be `null`, even if the line item
    *     was prorated.
    */
-  public void setProrationRate(final Float prorationRate) {
+  public void setProrationRate(final BigDecimal prorationRate) {
     this.prorationRate = prorationRate;
   }
 
@@ -846,22 +847,22 @@ public class LineItem extends Resource {
   }
 
   /** `quantity * unit_amount` */
-  public Float getSubtotal() {
+  public BigDecimal getSubtotal() {
     return this.subtotal;
   }
 
   /** @param subtotal `quantity * unit_amount` */
-  public void setSubtotal(final Float subtotal) {
+  public void setSubtotal(final BigDecimal subtotal) {
     this.subtotal = subtotal;
   }
 
   /** The tax amount for the line item. */
-  public Float getTax() {
+  public BigDecimal getTax() {
     return this.tax;
   }
 
   /** @param tax The tax amount for the line item. */
-  public void setTax(final Float tax) {
+  public void setTax(final BigDecimal tax) {
     this.tax = tax;
   }
 
@@ -939,12 +940,12 @@ public class LineItem extends Resource {
   }
 
   /** Positive amount for a charge, negative amount for a credit. */
-  public Float getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
   /** @param unitAmount Positive amount for a charge, negative amount for a credit. */
-  public void setUnitAmount(final Float unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 

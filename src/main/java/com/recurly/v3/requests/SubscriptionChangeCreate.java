@@ -10,6 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class SubscriptionChangeCreate extends Request {
@@ -128,7 +129,7 @@ public class SubscriptionChangeCreate extends Request {
    */
   @SerializedName("unit_amount")
   @Expose
-  private Float unitAmount;
+  private BigDecimal unitAmount;
 
   /**
    * If you provide a value for this field it will replace any existing add-ons. So, when adding or
@@ -356,7 +357,7 @@ public class SubscriptionChangeCreate extends Request {
    * Optionally, sets custom pricing for the subscription, overriding the plan's default unit
    * amount. The subscription's current currency will be used.
    */
-  public Float getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
@@ -364,7 +365,7 @@ public class SubscriptionChangeCreate extends Request {
    * @param unitAmount Optionally, sets custom pricing for the subscription, overriding the plan's
    *     default unit amount. The subscription's current currency will be used.
    */
-  public void setUnitAmount(final Float unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 }

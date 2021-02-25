@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 
 public class AddOnMini extends Resource {
 
@@ -66,7 +67,7 @@ public class AddOnMini extends Resource {
    */
   @SerializedName("usage_percentage")
   @Expose
-  private Float usagePercentage;
+  private BigDecimal usagePercentage;
 
   /** Type of usage, returns usage type if `add_on_type` is `usage`. */
   @SerializedName("usage_type")
@@ -178,7 +179,7 @@ public class AddOnMini extends Resource {
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
    * places. A value between 0.0 and 100.0.
    */
-  public Float getUsagePercentage() {
+  public BigDecimal getUsagePercentage() {
     return this.usagePercentage;
   }
 
@@ -186,7 +187,7 @@ public class AddOnMini extends Resource {
    * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
    *     be up to 4 decimal places. A value between 0.0 and 100.0.
    */
-  public void setUsagePercentage(final Float usagePercentage) {
+  public void setUsagePercentage(final BigDecimal usagePercentage) {
     this.usagePercentage = usagePercentage;
   }
 

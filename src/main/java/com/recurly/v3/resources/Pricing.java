@@ -8,6 +8,7 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 
 public class Pricing extends Resource {
 
@@ -19,7 +20,7 @@ public class Pricing extends Resource {
   /** Unit price */
   @SerializedName("unit_amount")
   @Expose
-  private Float unitAmount;
+  private BigDecimal unitAmount;
 
   /** 3-letter ISO 4217 currency code. */
   public String getCurrency() {
@@ -32,12 +33,12 @@ public class Pricing extends Resource {
   }
 
   /** Unit price */
-  public Float getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
   /** @param unitAmount Unit price */
-  public void setUnitAmount(final Float unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 }

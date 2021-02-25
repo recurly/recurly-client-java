@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.math.BigDecimal;
 import org.joda.time.DateTime;
 
 public class UsageCreate extends Request {
@@ -20,7 +21,7 @@ public class UsageCreate extends Request {
    */
   @SerializedName("amount")
   @Expose
-  private Float amount;
+  private BigDecimal amount;
 
   /**
    * Custom field for recording the id in your own system associated with the usage, so you can
@@ -48,7 +49,7 @@ public class UsageCreate extends Request {
    * If the usage-based add-on is billed with a percentage, your usage will be a monetary amount you
    * will want to format in cents. (e.g., $5.00 is "500").
    */
-  public Float getAmount() {
+  public BigDecimal getAmount() {
     return this.amount;
   }
 
@@ -57,7 +58,7 @@ public class UsageCreate extends Request {
    *     will strip them. If the usage-based add-on is billed with a percentage, your usage will be
    *     a monetary amount you will want to format in cents. (e.g., $5.00 is "500").
    */
-  public void setAmount(final Float amount) {
+  public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
 

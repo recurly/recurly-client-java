@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 import java.util.List;
 import org.joda.time.DateTime;
 
@@ -85,7 +86,7 @@ public class SubscriptionAddOn extends Resource {
   /** Supports up to 2 decimal places. */
   @SerializedName("unit_amount")
   @Expose
-  private Float unitAmount;
+  private BigDecimal unitAmount;
 
   /** Supports up to 9 decimal places. */
   @SerializedName("unit_amount_decimal")
@@ -104,7 +105,7 @@ public class SubscriptionAddOn extends Resource {
    */
   @SerializedName("usage_percentage")
   @Expose
-  private Float usagePercentage;
+  private BigDecimal usagePercentage;
 
   /** Just the important parts. */
   public AddOnMini getAddOn() {
@@ -244,12 +245,12 @@ public class SubscriptionAddOn extends Resource {
   }
 
   /** Supports up to 2 decimal places. */
-  public Float getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
   /** @param unitAmount Supports up to 2 decimal places. */
-  public void setUnitAmount(final Float unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 
@@ -278,7 +279,7 @@ public class SubscriptionAddOn extends Resource {
    * places. A value between 0.0 and 100.0. Required if add_on_type is usage and usage_type is
    * percentage.
    */
-  public Float getUsagePercentage() {
+  public BigDecimal getUsagePercentage() {
     return this.usagePercentage;
   }
 
@@ -287,7 +288,7 @@ public class SubscriptionAddOn extends Resource {
    *     be up to 4 decimal places. A value between 0.0 and 100.0. Required if add_on_type is usage
    *     and usage_type is percentage.
    */
-  public void setUsagePercentage(final Float usagePercentage) {
+  public void setUsagePercentage(final BigDecimal usagePercentage) {
     this.usagePercentage = usagePercentage;
   }
 }

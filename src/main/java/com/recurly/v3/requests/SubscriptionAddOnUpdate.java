@@ -10,6 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class SubscriptionAddOnUpdate extends Request {
@@ -69,7 +70,7 @@ public class SubscriptionAddOnUpdate extends Request {
    */
   @SerializedName("unit_amount")
   @Expose
-  private Float unitAmount;
+  private BigDecimal unitAmount;
 
   /**
    * Allows up to 9 decimal places. Optionally, override the add-on's default unit amount. If the
@@ -88,7 +89,7 @@ public class SubscriptionAddOnUpdate extends Request {
    */
   @SerializedName("usage_percentage")
   @Expose
-  private Float usagePercentage;
+  private BigDecimal usagePercentage;
 
   /**
    * Used to determine where the associated add-on data is pulled from. If this value is set to
@@ -193,7 +194,7 @@ public class SubscriptionAddOnUpdate extends Request {
    * plan add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then `unit_amount` cannot be
    * provided.
    */
-  public Float getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
@@ -202,7 +203,7 @@ public class SubscriptionAddOnUpdate extends Request {
    *     amount. If the plan add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then
    *     `unit_amount` cannot be provided.
    */
-  public void setUnitAmount(final Float unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 
@@ -232,7 +233,7 @@ public class SubscriptionAddOnUpdate extends Request {
    * places. A value between 0.0 and 100.0. Required if add_on_type is usage and usage_type is
    * percentage.
    */
-  public Float getUsagePercentage() {
+  public BigDecimal getUsagePercentage() {
     return this.usagePercentage;
   }
 
@@ -241,7 +242,7 @@ public class SubscriptionAddOnUpdate extends Request {
    *     be up to 4 decimal places. A value between 0.0 and 100.0. Required if add_on_type is usage
    *     and usage_type is percentage.
    */
-  public void setUsagePercentage(final Float usagePercentage) {
+  public void setUsagePercentage(final BigDecimal usagePercentage) {
     this.usagePercentage = usagePercentage;
   }
 }

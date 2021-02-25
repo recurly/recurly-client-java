@@ -8,13 +8,14 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 
 public class TaxInfo extends Resource {
 
   /** Rate */
   @SerializedName("rate")
   @Expose
-  private Float rate;
+  private BigDecimal rate;
 
   /**
    * Provides the tax region applied on an invoice. For U.S. Sales Tax, this will be the 2 letter
@@ -35,12 +36,12 @@ public class TaxInfo extends Resource {
   private String type;
 
   /** Rate */
-  public Float getRate() {
+  public BigDecimal getRate() {
     return this.rate;
   }
 
   /** @param rate Rate */
-  public void setRate(final Float rate) {
+  public void setRate(final BigDecimal rate) {
     this.rate = rate;
   }
 

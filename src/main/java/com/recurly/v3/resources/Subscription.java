@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 import java.util.List;
 import org.joda.time.DateTime;
 
@@ -32,7 +33,7 @@ public class Subscription extends Resource {
   /** Total price of add-ons */
   @SerializedName("add_ons_total")
   @Expose
-  private Float addOnsTotal;
+  private BigDecimal addOnsTotal;
 
   /** Whether the subscription renews at the end of its term. */
   @SerializedName("auto_renew")
@@ -210,7 +211,7 @@ public class Subscription extends Resource {
   /** Estimated total, before tax. */
   @SerializedName("subtotal")
   @Expose
-  private Float subtotal;
+  private BigDecimal subtotal;
 
   /** Terms and conditions */
   @SerializedName("terms_and_conditions")
@@ -239,7 +240,7 @@ public class Subscription extends Resource {
   /** Subscription unit price */
   @SerializedName("unit_amount")
   @Expose
-  private Float unitAmount;
+  private BigDecimal unitAmount;
 
   /** Last updated at */
   @SerializedName("updated_at")
@@ -284,12 +285,12 @@ public class Subscription extends Resource {
   }
 
   /** Total price of add-ons */
-  public Float getAddOnsTotal() {
+  public BigDecimal getAddOnsTotal() {
     return this.addOnsTotal;
   }
 
   /** @param addOnsTotal Total price of add-ons */
-  public void setAddOnsTotal(final Float addOnsTotal) {
+  public void setAddOnsTotal(final BigDecimal addOnsTotal) {
     this.addOnsTotal = addOnsTotal;
   }
 
@@ -655,12 +656,12 @@ public class Subscription extends Resource {
   }
 
   /** Estimated total, before tax. */
-  public Float getSubtotal() {
+  public BigDecimal getSubtotal() {
     return this.subtotal;
   }
 
   /** @param subtotal Estimated total, before tax. */
-  public void setSubtotal(final Float subtotal) {
+  public void setSubtotal(final BigDecimal subtotal) {
     this.subtotal = subtotal;
   }
 
@@ -713,12 +714,12 @@ public class Subscription extends Resource {
   }
 
   /** Subscription unit price */
-  public Float getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
   /** @param unitAmount Subscription unit price */
-  public void setUnitAmount(final Float unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 

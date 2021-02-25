@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.math.BigDecimal;
 
 public class TierPricing extends Request {
 
@@ -20,7 +21,7 @@ public class TierPricing extends Request {
   /** Allows up to 2 decimal places. Required unless `unit_amount_decimal` is provided. */
   @SerializedName("unit_amount")
   @Expose
-  private Float unitAmount;
+  private BigDecimal unitAmount;
 
   /**
    * Allows up to 9 decimal places. Only supported when `add_on_type` = `usage`. If
@@ -41,7 +42,7 @@ public class TierPricing extends Request {
   }
 
   /** Allows up to 2 decimal places. Required unless `unit_amount_decimal` is provided. */
-  public Float getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
@@ -49,7 +50,7 @@ public class TierPricing extends Request {
    * @param unitAmount Allows up to 2 decimal places. Required unless `unit_amount_decimal` is
    *     provided.
    */
-  public void setUnitAmount(final Float unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 

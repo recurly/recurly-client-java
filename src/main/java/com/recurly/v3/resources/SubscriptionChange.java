@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 import java.util.List;
 import org.joda.time.DateTime;
 
@@ -91,7 +92,7 @@ public class SubscriptionChange extends Resource {
   /** Unit amount */
   @SerializedName("unit_amount")
   @Expose
-  private Float unitAmount;
+  private BigDecimal unitAmount;
 
   /** Updated at */
   @SerializedName("updated_at")
@@ -247,12 +248,12 @@ public class SubscriptionChange extends Resource {
   }
 
   /** Unit amount */
-  public Float getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
   /** @param unitAmount Unit amount */
-  public void setUnitAmount(final Float unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 

@@ -10,6 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class SubscriptionAddOnCreate extends Request {
@@ -61,7 +62,7 @@ public class SubscriptionAddOnCreate extends Request {
    */
   @SerializedName("unit_amount")
   @Expose
-  private Float unitAmount;
+  private BigDecimal unitAmount;
 
   /**
    * Allows up to 9 decimal places. Optionally, override the add-on's default unit amount. If the
@@ -82,7 +83,7 @@ public class SubscriptionAddOnCreate extends Request {
    */
   @SerializedName("usage_percentage")
   @Expose
-  private Float usagePercentage;
+  private BigDecimal usagePercentage;
 
   /**
    * Used to determine where the associated add-on data is pulled from. If this value is set to
@@ -170,7 +171,7 @@ public class SubscriptionAddOnCreate extends Request {
    * plan add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then `unit_amount` cannot be
    * provided.
    */
-  public Float getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
@@ -179,7 +180,7 @@ public class SubscriptionAddOnCreate extends Request {
    *     amount. If the plan add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then
    *     `unit_amount` cannot be provided.
    */
-  public void setUnitAmount(final Float unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 
@@ -211,7 +212,7 @@ public class SubscriptionAddOnCreate extends Request {
    * [Guide](https://developers.recurly.com/guides/usage-based-billing-guide.html) for an overview
    * of how to configure usage add-ons.
    */
-  public Float getUsagePercentage() {
+  public BigDecimal getUsagePercentage() {
     return this.usagePercentage;
   }
 
@@ -223,7 +224,7 @@ public class SubscriptionAddOnCreate extends Request {
    *     [Guide](https://developers.recurly.com/guides/usage-based-billing-guide.html) for an
    *     overview of how to configure usage add-ons.
    */
-  public void setUsagePercentage(final Float usagePercentage) {
+  public void setUsagePercentage(final BigDecimal usagePercentage) {
     this.usagePercentage = usagePercentage;
   }
 }

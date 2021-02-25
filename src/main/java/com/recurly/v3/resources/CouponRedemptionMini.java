@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 import org.joda.time.DateTime;
 
 public class CouponRedemptionMini extends Resource {
@@ -27,7 +28,7 @@ public class CouponRedemptionMini extends Resource {
    */
   @SerializedName("discounted")
   @Expose
-  private Float discounted;
+  private BigDecimal discounted;
 
   /** Coupon Redemption ID */
   @SerializedName("id")
@@ -66,7 +67,7 @@ public class CouponRedemptionMini extends Resource {
   /**
    * The amount that was discounted upon the application of the coupon, formatted with the currency.
    */
-  public Float getDiscounted() {
+  public BigDecimal getDiscounted() {
     return this.discounted;
   }
 
@@ -74,7 +75,7 @@ public class CouponRedemptionMini extends Resource {
    * @param discounted The amount that was discounted upon the application of the coupon, formatted
    *     with the currency.
    */
-  public void setDiscounted(final Float discounted) {
+  public void setDiscounted(final BigDecimal discounted) {
     this.discounted = discounted;
   }
 

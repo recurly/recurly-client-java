@@ -10,6 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class InvoiceRefund extends Request {
@@ -20,7 +21,7 @@ public class InvoiceRefund extends Request {
    */
   @SerializedName("amount")
   @Expose
-  private Float amount;
+  private BigDecimal amount;
 
   /**
    * Used as the Customer Notes on the credit invoice.
@@ -74,7 +75,7 @@ public class InvoiceRefund extends Request {
    * The amount to be refunded. The amount will be split between the line items. If no amount is
    * specified, it will default to refunding the total refundable amount on the invoice.
    */
-  public Float getAmount() {
+  public BigDecimal getAmount() {
     return this.amount;
   }
 
@@ -83,7 +84,7 @@ public class InvoiceRefund extends Request {
    *     amount is specified, it will default to refunding the total refundable amount on the
    *     invoice.
    */
-  public void setAmount(final Float amount) {
+  public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
 

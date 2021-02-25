@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import org.joda.time.DateTime;
@@ -23,7 +24,7 @@ public class Transaction extends Resource {
   /** Total transaction amount sent to the payment gateway. */
   @SerializedName("amount")
   @Expose
-  private Float amount;
+  private BigDecimal amount;
 
   /** When processed, result from checking the overall AVS on the transaction. */
   @SerializedName("avs_check")
@@ -92,7 +93,7 @@ public class Transaction extends Resource {
   /** Time, in seconds, for gateway to process the transaction. */
   @SerializedName("gateway_response_time")
   @Expose
-  private Float gatewayResponseTime;
+  private BigDecimal gatewayResponseTime;
 
   /** The values in this field will vary from gateway to gateway. */
   @SerializedName("gateway_response_values")
@@ -231,12 +232,12 @@ public class Transaction extends Resource {
   }
 
   /** Total transaction amount sent to the payment gateway. */
-  public Float getAmount() {
+  public BigDecimal getAmount() {
     return this.amount;
   }
 
   /** @param amount Total transaction amount sent to the payment gateway. */
-  public void setAmount(final Float amount) {
+  public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
 
@@ -378,12 +379,12 @@ public class Transaction extends Resource {
   }
 
   /** Time, in seconds, for gateway to process the transaction. */
-  public Float getGatewayResponseTime() {
+  public BigDecimal getGatewayResponseTime() {
     return this.gatewayResponseTime;
   }
 
   /** @param gatewayResponseTime Time, in seconds, for gateway to process the transaction. */
-  public void setGatewayResponseTime(final Float gatewayResponseTime) {
+  public void setGatewayResponseTime(final BigDecimal gatewayResponseTime) {
     this.gatewayResponseTime = gatewayResponseTime;
   }
 

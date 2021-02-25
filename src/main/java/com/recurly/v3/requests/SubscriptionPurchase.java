@@ -10,6 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.math.BigDecimal;
 import java.util.List;
 import org.joda.time.DateTime;
 
@@ -111,7 +112,7 @@ public class SubscriptionPurchase extends Request {
    */
   @SerializedName("unit_amount")
   @Expose
-  private Float unitAmount;
+  private BigDecimal unitAmount;
 
   /** Add-ons */
   public List<SubscriptionAddOnCreate> getAddOns() {
@@ -297,7 +298,7 @@ public class SubscriptionPurchase extends Request {
    * provided, the subscription will inherit the price from the subscription plan for the provided
    * currency.
    */
-  public Float getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
@@ -306,7 +307,7 @@ public class SubscriptionPurchase extends Request {
    *     cents. If not provided, the subscription will inherit the price from the subscription plan
    *     for the provided currency.
    */
-  public void setUnitAmount(final Float unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 }

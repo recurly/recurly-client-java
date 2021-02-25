@@ -8,13 +8,14 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 
 public class CouponDiscountPricing extends Resource {
 
   /** Value of the fixed discount that this coupon applies. */
   @SerializedName("amount")
   @Expose
-  private Float amount;
+  private BigDecimal amount;
 
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
@@ -22,12 +23,12 @@ public class CouponDiscountPricing extends Resource {
   private String currency;
 
   /** Value of the fixed discount that this coupon applies. */
-  public Float getAmount() {
+  public BigDecimal getAmount() {
     return this.amount;
   }
 
   /** @param amount Value of the fixed discount that this coupon applies. */
-  public void setAmount(final Float amount) {
+  public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
 
