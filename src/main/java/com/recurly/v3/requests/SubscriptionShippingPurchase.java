@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.math.BigDecimal;
 
 public class SubscriptionShippingPurchase extends Request {
 
@@ -18,7 +19,7 @@ public class SubscriptionShippingPurchase extends Request {
    */
   @SerializedName("amount")
   @Expose
-  private Float amount;
+  private BigDecimal amount;
 
   /**
    * The code of the shipping method used to deliver the subscription. If `method_id` and
@@ -40,7 +41,7 @@ public class SubscriptionShippingPurchase extends Request {
    * Assigns the subscription's shipping cost. If this is greater than zero then a `method_id` or
    * `method_code` is required.
    */
-  public Float getAmount() {
+  public BigDecimal getAmount() {
     return this.amount;
   }
 
@@ -48,7 +49,7 @@ public class SubscriptionShippingPurchase extends Request {
    * @param amount Assigns the subscription's shipping cost. If this is greater than zero then a
    *     `method_id` or `method_code` is required.
    */
-  public void setAmount(final Float amount) {
+  public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
 

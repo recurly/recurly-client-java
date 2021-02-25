@@ -9,13 +9,14 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.math.BigDecimal;
 
 public class ShippingFeeCreate extends Request {
 
   /** This is priced in the purchase's currency. */
   @SerializedName("amount")
   @Expose
-  private Float amount;
+  private BigDecimal amount;
 
   /**
    * The code of the shipping method used to deliver the purchase. If `method_id` and `method_code`
@@ -34,12 +35,12 @@ public class ShippingFeeCreate extends Request {
   private String methodId;
 
   /** This is priced in the purchase's currency. */
-  public Float getAmount() {
+  public BigDecimal getAmount() {
     return this.amount;
   }
 
   /** @param amount This is priced in the purchase's currency. */
-  public void setAmount(final Float amount) {
+  public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
 

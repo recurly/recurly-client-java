@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.math.BigDecimal;
 
 public class PlanPricing extends Request {
 
@@ -24,12 +25,12 @@ public class PlanPricing extends Request {
    */
   @SerializedName("setup_fee")
   @Expose
-  private Float setupFee;
+  private BigDecimal setupFee;
 
   /** Unit price */
   @SerializedName("unit_amount")
   @Expose
-  private Float unitAmount;
+  private BigDecimal unitAmount;
 
   /** 3-letter ISO 4217 currency code. */
   public String getCurrency() {
@@ -46,7 +47,7 @@ public class PlanPricing extends Request {
    * cycle. For subscription plans with a trial, the setup fee will be charged at the time of
    * signup. Setup fees do not increase with the quantity of a subscription plan.
    */
-  public Float getSetupFee() {
+  public BigDecimal getSetupFee() {
     return this.setupFee;
   }
 
@@ -56,17 +57,17 @@ public class PlanPricing extends Request {
    *     charged at the time of signup. Setup fees do not increase with the quantity of a
    *     subscription plan.
    */
-  public void setSetupFee(final Float setupFee) {
+  public void setSetupFee(final BigDecimal setupFee) {
     this.setupFee = setupFee;
   }
 
   /** Unit price */
-  public Float getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
   /** @param unitAmount Unit price */
-  public void setUnitAmount(final Float unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 }

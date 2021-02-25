@@ -10,6 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class AddOnCreate extends Request {
@@ -185,7 +186,7 @@ public class AddOnCreate extends Request {
    */
   @SerializedName("usage_percentage")
   @Expose
-  private Float usagePercentage;
+  private BigDecimal usagePercentage;
 
   /**
    * Type of usage, required if `add_on_type` is `usage`. See our
@@ -536,7 +537,7 @@ public class AddOnCreate extends Request {
    * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage and `usage_type` is
    * percentage. Must be omitted otherwise. `usage_percentage` does not support tiers.
    */
-  public Float getUsagePercentage() {
+  public BigDecimal getUsagePercentage() {
     return this.usagePercentage;
   }
 
@@ -546,7 +547,7 @@ public class AddOnCreate extends Request {
    *     usage and `usage_type` is percentage. Must be omitted otherwise. `usage_percentage` does
    *     not support tiers.
    */
-  public void setUsagePercentage(final Float usagePercentage) {
+  public void setUsagePercentage(final BigDecimal usagePercentage) {
     this.usagePercentage = usagePercentage;
   }
 

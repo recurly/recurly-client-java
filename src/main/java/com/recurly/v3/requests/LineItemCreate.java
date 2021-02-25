@@ -10,6 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.math.BigDecimal;
 import org.joda.time.DateTime;
 
 public class LineItemCreate extends Request {
@@ -170,7 +171,7 @@ public class LineItemCreate extends Request {
    */
   @SerializedName("unit_amount")
   @Expose
-  private Float unitAmount;
+  private BigDecimal unitAmount;
 
   /**
    * Accounting Code for the `LineItem`. If `item_code`/`item_id` is part of the request then
@@ -477,7 +478,7 @@ public class LineItemCreate extends Request {
    * `item_code`/`item_id` is present, `unit_amount` can be passed in, to override the `Item`'s
    * `unit_amount`. If `item_code`/`item_id` is not present then `unit_amount` is required.
    */
-  public Float getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
@@ -488,7 +489,7 @@ public class LineItemCreate extends Request {
    *     override the `Item`'s `unit_amount`. If `item_code`/`item_id` is not present then
    *     `unit_amount` is required.
    */
-  public void setUnitAmount(final Float unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 }

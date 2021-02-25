@@ -8,6 +8,7 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 
 public class SubscriptionAddOnTier extends Resource {
 
@@ -19,7 +20,7 @@ public class SubscriptionAddOnTier extends Resource {
   /** Allows up to 2 decimal places. Optionally, override the tiers' default unit amount. */
   @SerializedName("unit_amount")
   @Expose
-  private Float unitAmount;
+  private BigDecimal unitAmount;
 
   /**
    * Allows up to 9 decimal places. Optionally, override tiers' default unit amount. If
@@ -40,7 +41,7 @@ public class SubscriptionAddOnTier extends Resource {
   }
 
   /** Allows up to 2 decimal places. Optionally, override the tiers' default unit amount. */
-  public Float getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
@@ -48,7 +49,7 @@ public class SubscriptionAddOnTier extends Resource {
    * @param unitAmount Allows up to 2 decimal places. Optionally, override the tiers' default unit
    *     amount.
    */
-  public void setUnitAmount(final Float unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 

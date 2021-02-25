@@ -8,6 +8,7 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 
 public class SubscriptionShipping extends Resource {
 
@@ -18,7 +19,7 @@ public class SubscriptionShipping extends Resource {
   /** Subscription's shipping cost */
   @SerializedName("amount")
   @Expose
-  private Float amount;
+  private BigDecimal amount;
 
   @SerializedName("method")
   @Expose
@@ -39,12 +40,12 @@ public class SubscriptionShipping extends Resource {
   }
 
   /** Subscription's shipping cost */
-  public Float getAmount() {
+  public BigDecimal getAmount() {
     return this.amount;
   }
 
   /** @param amount Subscription's shipping cost */
-  public void setAmount(final Float amount) {
+  public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
 

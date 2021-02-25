@@ -10,6 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.math.BigDecimal;
 import org.joda.time.DateTime;
 
 public class ExternalTransaction extends Request {
@@ -17,7 +18,7 @@ public class ExternalTransaction extends Request {
   /** The total amount of the transcaction. Cannot excceed the invoice total. */
   @SerializedName("amount")
   @Expose
-  private Float amount;
+  private BigDecimal amount;
 
   /** Datetime that the external payment was collected. Defaults to current datetime. */
   @SerializedName("collected_at")
@@ -35,12 +36,12 @@ public class ExternalTransaction extends Request {
   private Constants.ExternalPaymentMethod paymentMethod;
 
   /** The total amount of the transcaction. Cannot excceed the invoice total. */
-  public Float getAmount() {
+  public BigDecimal getAmount() {
     return this.amount;
   }
 
   /** @param amount The total amount of the transcaction. Cannot excceed the invoice total. */
-  public void setAmount(final Float amount) {
+  public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
 

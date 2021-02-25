@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 import org.joda.time.DateTime;
 
 public class CreditPayment extends Resource {
@@ -26,7 +27,7 @@ public class CreditPayment extends Resource {
   /** Total credit payment amount applied to the charge invoice. */
   @SerializedName("amount")
   @Expose
-  private Float amount;
+  private BigDecimal amount;
 
   /** Invoice mini details */
   @SerializedName("applied_to_invoice")
@@ -105,12 +106,12 @@ public class CreditPayment extends Resource {
   }
 
   /** Total credit payment amount applied to the charge invoice. */
-  public Float getAmount() {
+  public BigDecimal getAmount() {
     return this.amount;
   }
 
   /** @param amount Total credit payment amount applied to the charge invoice. */
-  public void setAmount(final Float amount) {
+  public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
 

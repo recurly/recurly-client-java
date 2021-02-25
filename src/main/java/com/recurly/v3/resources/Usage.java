@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 import java.util.List;
 import org.joda.time.DateTime;
 
@@ -21,7 +22,7 @@ public class Usage extends Resource {
    */
   @SerializedName("amount")
   @Expose
-  private Float amount;
+  private BigDecimal amount;
 
   /** When the usage record was billed on an invoice. */
   @SerializedName("billed_at")
@@ -81,7 +82,7 @@ public class Usage extends Resource {
   /** Unit price */
   @SerializedName("unit_amount")
   @Expose
-  private Float unitAmount;
+  private BigDecimal unitAmount;
 
   /** Unit price that can optionally support a sub-cent value. */
   @SerializedName("unit_amount_decimal")
@@ -99,7 +100,7 @@ public class Usage extends Resource {
    */
   @SerializedName("usage_percentage")
   @Expose
-  private Float usagePercentage;
+  private BigDecimal usagePercentage;
 
   /**
    * When the usage actually happened. This will define the line item dates this usage is billed
@@ -119,7 +120,7 @@ public class Usage extends Resource {
    * If the usage-based add-on is billed with a percentage, your usage will be a monetary amount you
    * will want to format in cents. (e.g., $5.00 is "500").
    */
-  public Float getAmount() {
+  public BigDecimal getAmount() {
     return this.amount;
   }
 
@@ -128,7 +129,7 @@ public class Usage extends Resource {
    *     will strip them. If the usage-based add-on is billed with a percentage, your usage will be
    *     a monetary amount you will want to format in cents. (e.g., $5.00 is "500").
    */
-  public void setAmount(final Float amount) {
+  public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
 
@@ -248,12 +249,12 @@ public class Usage extends Resource {
   }
 
   /** Unit price */
-  public Float getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
   /** @param unitAmount Unit price */
-  public void setUnitAmount(final Float unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 
@@ -281,7 +282,7 @@ public class Usage extends Resource {
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
    * places. A value between 0.0 and 100.0.
    */
-  public Float getUsagePercentage() {
+  public BigDecimal getUsagePercentage() {
     return this.usagePercentage;
   }
 
@@ -289,7 +290,7 @@ public class Usage extends Resource {
    * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
    *     be up to 4 decimal places. A value between 0.0 and 100.0.
    */
-  public void setUsagePercentage(final Float usagePercentage) {
+  public void setUsagePercentage(final BigDecimal usagePercentage) {
     this.usagePercentage = usagePercentage;
   }
 

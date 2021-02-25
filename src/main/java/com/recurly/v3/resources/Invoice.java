@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 import java.util.List;
 import org.joda.time.DateTime;
 
@@ -26,7 +27,7 @@ public class Invoice extends Resource {
   /** The outstanding balance remaining on this invoice. */
   @SerializedName("balance")
   @Expose
-  private Float balance;
+  private BigDecimal balance;
 
   /**
    * The `billing_info_id` is the value that represents a specific billing info for an end customer.
@@ -79,7 +80,7 @@ public class Invoice extends Resource {
   /** Total discounts applied to this invoice. */
   @SerializedName("discount")
   @Expose
-  private Float discount;
+  private BigDecimal discount;
 
   /** Date invoice is due. This is the date the net terms are reached. */
   @SerializedName("due_at")
@@ -137,7 +138,7 @@ public class Invoice extends Resource {
   /** The total amount of successful payments transaction on this invoice. */
   @SerializedName("paid")
   @Expose
-  private Float paid;
+  private BigDecimal paid;
 
   /** For manual invoicing, this identifies the PO number associated with the subscription. */
   @SerializedName("po_number")
@@ -155,7 +156,7 @@ public class Invoice extends Resource {
   /** The refundable amount on a charge invoice. It will be null for all other invoices. */
   @SerializedName("refundable_amount")
   @Expose
-  private Float refundableAmount;
+  private BigDecimal refundableAmount;
 
   @SerializedName("shipping_address")
   @Expose
@@ -174,12 +175,12 @@ public class Invoice extends Resource {
   /** The summation of charges, discounts, and credits, before tax. */
   @SerializedName("subtotal")
   @Expose
-  private Float subtotal;
+  private BigDecimal subtotal;
 
   /** The total tax on this invoice. */
   @SerializedName("tax")
   @Expose
-  private Float tax;
+  private BigDecimal tax;
 
   /** Tax info */
   @SerializedName("tax_info")
@@ -199,7 +200,7 @@ public class Invoice extends Resource {
    */
   @SerializedName("total")
   @Expose
-  private Float total;
+  private BigDecimal total;
 
   /** Transactions */
   @SerializedName("transactions")
@@ -256,12 +257,12 @@ public class Invoice extends Resource {
   }
 
   /** The outstanding balance remaining on this invoice. */
-  public Float getBalance() {
+  public BigDecimal getBalance() {
     return this.balance;
   }
 
   /** @param balance The outstanding balance remaining on this invoice. */
-  public void setBalance(final Float balance) {
+  public void setBalance(final BigDecimal balance) {
     this.balance = balance;
   }
 
@@ -363,12 +364,12 @@ public class Invoice extends Resource {
   }
 
   /** Total discounts applied to this invoice. */
-  public Float getDiscount() {
+  public BigDecimal getDiscount() {
     return this.discount;
   }
 
   /** @param discount Total discounts applied to this invoice. */
-  public void setDiscount(final Float discount) {
+  public void setDiscount(final BigDecimal discount) {
     this.discount = discount;
   }
 
@@ -479,12 +480,12 @@ public class Invoice extends Resource {
   }
 
   /** The total amount of successful payments transaction on this invoice. */
-  public Float getPaid() {
+  public BigDecimal getPaid() {
     return this.paid;
   }
 
   /** @param paid The total amount of successful payments transaction on this invoice. */
-  public void setPaid(final Float paid) {
+  public void setPaid(final BigDecimal paid) {
     this.paid = paid;
   }
 
@@ -518,7 +519,7 @@ public class Invoice extends Resource {
   }
 
   /** The refundable amount on a charge invoice. It will be null for all other invoices. */
-  public Float getRefundableAmount() {
+  public BigDecimal getRefundableAmount() {
     return this.refundableAmount;
   }
 
@@ -526,7 +527,7 @@ public class Invoice extends Resource {
    * @param refundableAmount The refundable amount on a charge invoice. It will be null for all
    *     other invoices.
    */
-  public void setRefundableAmount(final Float refundableAmount) {
+  public void setRefundableAmount(final BigDecimal refundableAmount) {
     this.refundableAmount = refundableAmount;
   }
 
@@ -563,22 +564,22 @@ public class Invoice extends Resource {
   }
 
   /** The summation of charges, discounts, and credits, before tax. */
-  public Float getSubtotal() {
+  public BigDecimal getSubtotal() {
     return this.subtotal;
   }
 
   /** @param subtotal The summation of charges, discounts, and credits, before tax. */
-  public void setSubtotal(final Float subtotal) {
+  public void setSubtotal(final BigDecimal subtotal) {
     this.subtotal = subtotal;
   }
 
   /** The total tax on this invoice. */
-  public Float getTax() {
+  public BigDecimal getTax() {
     return this.tax;
   }
 
   /** @param tax The total tax on this invoice. */
-  public void setTax(final Float tax) {
+  public void setTax(final BigDecimal tax) {
     this.tax = tax;
   }
 
@@ -612,7 +613,7 @@ public class Invoice extends Resource {
   /**
    * The final total on this invoice. The summation of invoice charges, discounts, credits, and tax.
    */
-  public Float getTotal() {
+  public BigDecimal getTotal() {
     return this.total;
   }
 
@@ -620,7 +621,7 @@ public class Invoice extends Resource {
    * @param total The final total on this invoice. The summation of invoice charges, discounts,
    *     credits, and tax.
    */
-  public void setTotal(final Float total) {
+  public void setTotal(final BigDecimal total) {
     this.total = total;
   }
 
