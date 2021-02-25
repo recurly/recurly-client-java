@@ -16,7 +16,7 @@ public class AccountCreate extends Request {
 
   @SerializedName("acquisition")
   @Expose
-  private AccountAcquisitionUpdatable acquisition;
+  private AccountAcquisitionUpdate acquisition;
 
   @SerializedName("address")
   @Expose
@@ -149,12 +149,12 @@ public class AccountCreate extends Request {
   @Expose
   private String vatNumber;
 
-  public AccountAcquisitionUpdatable getAcquisition() {
+  public AccountAcquisitionUpdate getAcquisition() {
     return this.acquisition;
   }
 
   /** @param acquisition */
-  public void setAcquisition(final AccountAcquisitionUpdatable acquisition) {
+  public void setAcquisition(final AccountAcquisitionUpdate acquisition) {
     this.acquisition = acquisition;
   }
 

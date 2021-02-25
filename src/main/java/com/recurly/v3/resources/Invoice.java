@@ -86,14 +86,24 @@ public class Invoice extends Resource {
   @Expose
   private DateTime dueAt;
 
+  /**
+   * Identifies if the invoice has more line items than are returned in `line_items`. If
+   * `has_more_line_items` is `true`, then a request needs to be made to the
+   * `list_invoice_line_items` endpoint.
+   */
+  @SerializedName("has_more_line_items")
+  @Expose
+  private Boolean hasMoreLineItems;
+
   /** Invoice ID */
   @SerializedName("id")
   @Expose
   private String id;
 
+  /** Line Items */
   @SerializedName("line_items")
   @Expose
-  private LineItemList lineItems;
+  private List<LineItem> lineItems;
 
   /**
    * Integer representing the number of days after an invoice's creation that the invoice will
@@ -372,6 +382,24 @@ public class Invoice extends Resource {
     this.dueAt = dueAt;
   }
 
+  /**
+   * Identifies if the invoice has more line items than are returned in `line_items`. If
+   * `has_more_line_items` is `true`, then a request needs to be made to the
+   * `list_invoice_line_items` endpoint.
+   */
+  public Boolean getHasMoreLineItems() {
+    return this.hasMoreLineItems;
+  }
+
+  /**
+   * @param hasMoreLineItems Identifies if the invoice has more line items than are returned in
+   *     `line_items`. If `has_more_line_items` is `true`, then a request needs to be made to the
+   *     `list_invoice_line_items` endpoint.
+   */
+  public void setHasMoreLineItems(final Boolean hasMoreLineItems) {
+    this.hasMoreLineItems = hasMoreLineItems;
+  }
+
   /** Invoice ID */
   public String getId() {
     return this.id;
@@ -382,12 +410,13 @@ public class Invoice extends Resource {
     this.id = id;
   }
 
-  public LineItemList getLineItems() {
+  /** Line Items */
+  public List<LineItem> getLineItems() {
     return this.lineItems;
   }
 
-  /** @param lineItems */
-  public void setLineItems(final LineItemList lineItems) {
+  /** @param lineItems Line Items */
+  public void setLineItems(final List<LineItem> lineItems) {
     this.lineItems = lineItems;
   }
 

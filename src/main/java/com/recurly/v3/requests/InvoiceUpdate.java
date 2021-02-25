@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 
-public class InvoiceUpdatable extends Request {
+public class InvoiceUpdate extends Request {
 
   @SerializedName("address")
   @Expose

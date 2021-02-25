@@ -22,16 +22,6 @@ public class Address extends Request {
   @Expose
   private String country;
 
-  /** First name */
-  @SerializedName("first_name")
-  @Expose
-  private String firstName;
-
-  /** Last name */
-  @SerializedName("last_name")
-  @Expose
-  private String lastName;
-
   /** Phone number */
   @SerializedName("phone")
   @Expose
@@ -75,26 +65,6 @@ public class Address extends Request {
   /** @param country Country, 2-letter ISO code. */
   public void setCountry(final String country) {
     this.country = country;
-  }
-
-  /** First name */
-  public String getFirstName() {
-    return this.firstName;
-  }
-
-  /** @param firstName First name */
-  public void setFirstName(final String firstName) {
-    this.firstName = firstName;
-  }
-
-  /** Last name */
-  public String getLastName() {
-    return this.lastName;
-  }
-
-  /** @param lastName Last name */
-  public void setLastName(final String lastName) {
-    this.lastName = lastName;
   }
 
   /** Phone number */

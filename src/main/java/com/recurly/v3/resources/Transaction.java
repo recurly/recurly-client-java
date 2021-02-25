@@ -32,7 +32,7 @@ public class Transaction extends Resource {
 
   @SerializedName("billing_address")
   @Expose
-  private Address billingAddress;
+  private AddressWithName billingAddress;
 
   /** Collected at, or if not collected yet, the time the transaction was created. */
   @SerializedName("collected_at")
@@ -250,12 +250,12 @@ public class Transaction extends Resource {
     this.avsCheck = avsCheck;
   }
 
-  public Address getBillingAddress() {
+  public AddressWithName getBillingAddress() {
     return this.billingAddress;
   }
 
   /** @param billingAddress */
-  public void setBillingAddress(final Address billingAddress) {
+  public void setBillingAddress(final AddressWithName billingAddress) {
     this.billingAddress = billingAddress;
   }
 

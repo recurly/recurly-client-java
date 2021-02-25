@@ -16,10 +16,18 @@ public class SubscriptionAddOnTier extends Resource {
   @Expose
   private Integer endingQuantity;
 
-  /** Unit amount */
+  /** Allows up to 2 decimal places. Optionally, override the tiers' default unit amount. */
   @SerializedName("unit_amount")
   @Expose
   private Float unitAmount;
+
+  /**
+   * Allows up to 9 decimal places. Optionally, override tiers' default unit amount. If
+   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+   */
+  @SerializedName("unit_amount_decimal")
+  @Expose
+  private String unitAmountDecimal;
 
   /** Ending quantity */
   public Integer getEndingQuantity() {
@@ -31,13 +39,32 @@ public class SubscriptionAddOnTier extends Resource {
     this.endingQuantity = endingQuantity;
   }
 
-  /** Unit amount */
+  /** Allows up to 2 decimal places. Optionally, override the tiers' default unit amount. */
   public Float getUnitAmount() {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Unit amount */
+  /**
+   * @param unitAmount Allows up to 2 decimal places. Optionally, override the tiers' default unit
+   *     amount.
+   */
   public void setUnitAmount(final Float unitAmount) {
     this.unitAmount = unitAmount;
+  }
+
+  /**
+   * Allows up to 9 decimal places. Optionally, override tiers' default unit amount. If
+   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+   */
+  public String getUnitAmountDecimal() {
+    return this.unitAmountDecimal;
+  }
+
+  /**
+   * @param unitAmountDecimal Allows up to 9 decimal places. Optionally, override tiers' default
+   *     unit amount. If `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+   */
+  public void setUnitAmountDecimal(final String unitAmountDecimal) {
+    this.unitAmountDecimal = unitAmountDecimal;
   }
 }

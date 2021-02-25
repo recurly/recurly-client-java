@@ -11,7 +11,7 @@ import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 
-public class AccountAcquisitionUpdatable extends Request {
+public class AccountAcquisitionUpdate extends Request {
 
   /**
    * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.

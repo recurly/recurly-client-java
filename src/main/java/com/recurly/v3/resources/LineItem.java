@@ -305,12 +305,17 @@ public class LineItem extends Resource {
    */
   @SerializedName("type")
   @Expose
-  private Constants.LintItemType type;
+  private Constants.LineItemType type;
 
   /** Positive amount for a charge, negative amount for a credit. */
   @SerializedName("unit_amount")
   @Expose
   private Float unitAmount;
+
+  /** Positive amount for a charge, negative amount for a credit. */
+  @SerializedName("unit_amount_decimal")
+  @Expose
+  private String unitAmountDecimal;
 
   /** When the line item was last changed. */
   @SerializedName("updated_at")
@@ -921,7 +926,7 @@ public class LineItem extends Resource {
    * Charges are positive line items that debit the account. Credits are negative line items that
    * credit the account.
    */
-  public Constants.LintItemType getType() {
+  public Constants.LineItemType getType() {
     return this.type;
   }
 
@@ -929,7 +934,7 @@ public class LineItem extends Resource {
    * @param type Charges are positive line items that debit the account. Credits are negative line
    *     items that credit the account.
    */
-  public void setType(final Constants.LintItemType type) {
+  public void setType(final Constants.LineItemType type) {
     this.type = type;
   }
 
@@ -941,6 +946,16 @@ public class LineItem extends Resource {
   /** @param unitAmount Positive amount for a charge, negative amount for a credit. */
   public void setUnitAmount(final Float unitAmount) {
     this.unitAmount = unitAmount;
+  }
+
+  /** Positive amount for a charge, negative amount for a credit. */
+  public String getUnitAmountDecimal() {
+    return this.unitAmountDecimal;
+  }
+
+  /** @param unitAmountDecimal Positive amount for a charge, negative amount for a credit. */
+  public void setUnitAmountDecimal(final String unitAmountDecimal) {
+    this.unitAmountDecimal = unitAmountDecimal;
   }
 
   /** When the line item was last changed. */

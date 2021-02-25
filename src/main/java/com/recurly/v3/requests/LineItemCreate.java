@@ -160,7 +160,7 @@ public class LineItemCreate extends Request {
    */
   @SerializedName("type")
   @Expose
-  private Constants.LintItemType type;
+  private Constants.LineItemType type;
 
   /**
    * A positive or negative amount with `type=charge` will result in a positive `unit_amount`. A
@@ -459,7 +459,7 @@ public class LineItemCreate extends Request {
    * Line item type. If `item_code`/`item_id` is present then `type` should not be present. If
    * `item_code`/`item_id` is not present then `type` is required.
    */
-  public Constants.LintItemType getType() {
+  public Constants.LineItemType getType() {
     return this.type;
   }
 
@@ -467,7 +467,7 @@ public class LineItemCreate extends Request {
    * @param type Line item type. If `item_code`/`item_id` is present then `type` should not be
    *     present. If `item_code`/`item_id` is not present then `type` is required.
    */
-  public void setType(final Constants.LintItemType type) {
+  public void setType(final Constants.LineItemType type) {
     this.type = type;
   }
 

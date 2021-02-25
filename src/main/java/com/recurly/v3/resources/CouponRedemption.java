@@ -59,6 +59,11 @@ public class CouponRedemption extends Resource {
   @Expose
   private Constants.ActiveState state;
 
+  /** Subscription ID */
+  @SerializedName("subscription_id")
+  @Expose
+  private String subscriptionId;
+
   /** Last updated at */
   @SerializedName("updated_at")
   @Expose
@@ -158,6 +163,16 @@ public class CouponRedemption extends Resource {
   /** @param state Coupon Redemption state */
   public void setState(final Constants.ActiveState state) {
     this.state = state;
+  }
+
+  /** Subscription ID */
+  public String getSubscriptionId() {
+    return this.subscriptionId;
+  }
+
+  /** @param subscriptionId Subscription ID */
+  public void setSubscriptionId(final String subscriptionId) {
+    this.subscriptionId = subscriptionId;
   }
 
   /** Last updated at */

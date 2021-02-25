@@ -22,6 +22,11 @@ public class CouponRedemptionCreate extends Request {
   @Expose
   private String currency;
 
+  /** Subscription ID */
+  @SerializedName("subscription_id")
+  @Expose
+  private String subscriptionId;
+
   /** Coupon ID */
   public String getCouponId() {
     return this.couponId;
@@ -40,5 +45,15 @@ public class CouponRedemptionCreate extends Request {
   /** @param currency 3-letter ISO 4217 currency code. */
   public void setCurrency(final String currency) {
     this.currency = currency;
+  }
+
+  /** Subscription ID */
+  public String getSubscriptionId() {
+    return this.subscriptionId;
+  }
+
+  /** @param subscriptionId Subscription ID */
+  public void setSubscriptionId(final String subscriptionId) {
+    this.subscriptionId = subscriptionId;
   }
 }

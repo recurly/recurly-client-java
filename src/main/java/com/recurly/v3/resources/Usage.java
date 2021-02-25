@@ -83,6 +83,11 @@ public class Usage extends Resource {
   @Expose
   private Float unitAmount;
 
+  /** Unit price that can optionally support a sub-cent value. */
+  @SerializedName("unit_amount_decimal")
+  @Expose
+  private String unitAmountDecimal;
+
   /** When the usage record was billed on an invoice. */
   @SerializedName("updated_at")
   @Expose
@@ -250,6 +255,16 @@ public class Usage extends Resource {
   /** @param unitAmount Unit price */
   public void setUnitAmount(final Float unitAmount) {
     this.unitAmount = unitAmount;
+  }
+
+  /** Unit price that can optionally support a sub-cent value. */
+  public String getUnitAmountDecimal() {
+    return this.unitAmountDecimal;
+  }
+
+  /** @param unitAmountDecimal Unit price that can optionally support a sub-cent value. */
+  public void setUnitAmountDecimal(final String unitAmountDecimal) {
+    this.unitAmountDecimal = unitAmountDecimal;
   }
 
   /** When the usage record was billed on an invoice. */

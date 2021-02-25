@@ -149,7 +149,7 @@ public class Constants {
     
     };
   
-    public enum LintItemType {
+    public enum LineItemType {
       UNDEFINED,
     
       @SerializedName("charge")

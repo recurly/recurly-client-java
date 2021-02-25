@@ -62,10 +62,24 @@ public class SubscriptionAddOnUpdate extends Request {
   @Expose
   private List<SubscriptionAddOnTier> tiers;
 
-  /** Optionally, override the add-on's default unit amount. */
+  /**
+   * Allows up to 2 decimal places. Optionally, override the add-on's default unit amount. If the
+   * plan add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then `unit_amount` cannot be
+   * provided.
+   */
   @SerializedName("unit_amount")
   @Expose
   private Float unitAmount;
+
+  /**
+   * Allows up to 9 decimal places. Optionally, override the add-on's default unit amount. If the
+   * plan add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then `unit_amount_decimal`
+   * cannot be provided. Only supported when the plan add-on's `add_on_type` = `usage`. If
+   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+   */
+  @SerializedName("unit_amount_decimal")
+  @Expose
+  private String unitAmountDecimal;
 
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
@@ -174,14 +188,43 @@ public class SubscriptionAddOnUpdate extends Request {
     this.tiers = tiers;
   }
 
-  /** Optionally, override the add-on's default unit amount. */
+  /**
+   * Allows up to 2 decimal places. Optionally, override the add-on's default unit amount. If the
+   * plan add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then `unit_amount` cannot be
+   * provided.
+   */
   public Float getUnitAmount() {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Optionally, override the add-on's default unit amount. */
+  /**
+   * @param unitAmount Allows up to 2 decimal places. Optionally, override the add-on's default unit
+   *     amount. If the plan add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then
+   *     `unit_amount` cannot be provided.
+   */
   public void setUnitAmount(final Float unitAmount) {
     this.unitAmount = unitAmount;
+  }
+
+  /**
+   * Allows up to 9 decimal places. Optionally, override the add-on's default unit amount. If the
+   * plan add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then `unit_amount_decimal`
+   * cannot be provided. Only supported when the plan add-on's `add_on_type` = `usage`. If
+   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+   */
+  public String getUnitAmountDecimal() {
+    return this.unitAmountDecimal;
+  }
+
+  /**
+   * @param unitAmountDecimal Allows up to 9 decimal places. Optionally, override the add-on's
+   *     default unit amount. If the plan add-on's `tier_type` is `tiered`, `volume`, or
+   *     `stairstep`, then `unit_amount_decimal` cannot be provided. Only supported when the plan
+   *     add-on's `add_on_type` = `usage`. If `unit_amount_decimal` is provided, `unit_amount`
+   *     cannot be provided.
+   */
+  public void setUnitAmountDecimal(final String unitAmountDecimal) {
+    this.unitAmountDecimal = unitAmountDecimal;
   }
 
   /**

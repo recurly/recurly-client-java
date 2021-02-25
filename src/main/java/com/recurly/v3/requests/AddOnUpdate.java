@@ -54,7 +54,7 @@ public class AddOnUpdate extends Request {
 
   /**
    * If the add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then currencies must be
-   * absent
+   * absent. Must also be absent if `add_on_type` is `usage` and `usage_type` is `percentage`.
    */
   @SerializedName("currencies")
   @Expose
@@ -228,7 +228,7 @@ public class AddOnUpdate extends Request {
 
   /**
    * If the add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then currencies must be
-   * absent
+   * absent. Must also be absent if `add_on_type` is `usage` and `usage_type` is `percentage`.
    */
   public List<AddOnPricing> getCurrencies() {
     return this.currencies;
@@ -236,7 +236,8 @@ public class AddOnUpdate extends Request {
 
   /**
    * @param currencies If the add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then
-   *     currencies must be absent
+   *     currencies must be absent. Must also be absent if `add_on_type` is `usage` and `usage_type`
+   *     is `percentage`.
    */
   public void setCurrencies(final List<AddOnPricing> currencies) {
     this.currencies = currencies;

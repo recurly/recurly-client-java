@@ -62,7 +62,8 @@ public class AddOnCreate extends Request {
    * * If `item_code`/`item_id` is part of the request and the item has a default currency then
    * `currencies` is optional. If the item does not have a default currency, then `currencies` is
    * required. If `item_code`/`item_id` is not present `currencies` is required. If the add-on's
-   * `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must be absent.
+   * `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must be absent. Must be
+   * absent if `add_on_type` is `usage` and `usage_type` is `percentage`.
    */
   @SerializedName("currencies")
   @Expose
@@ -288,7 +289,8 @@ public class AddOnCreate extends Request {
    * * If `item_code`/`item_id` is part of the request and the item has a default currency then
    * `currencies` is optional. If the item does not have a default currency, then `currencies` is
    * required. If `item_code`/`item_id` is not present `currencies` is required. If the add-on's
-   * `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must be absent.
+   * `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must be absent. Must be
+   * absent if `add_on_type` is `usage` and `usage_type` is `percentage`.
    */
   public List<AddOnPricing> getCurrencies() {
     return this.currencies;
@@ -299,7 +301,7 @@ public class AddOnCreate extends Request {
    *     currency then `currencies` is optional. If the item does not have a default currency, then
    *     `currencies` is required. If `item_code`/`item_id` is not present `currencies` is required.
    *     If the add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must
-   *     be absent.
+   *     be absent. Must be absent if `add_on_type` is `usage` and `usage_type` is `percentage`.
    */
   public void setCurrencies(final List<AddOnPricing> currencies) {
     this.currencies = currencies;

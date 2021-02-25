@@ -82,10 +82,15 @@ public class SubscriptionAddOn extends Resource {
   @Expose
   private List<SubscriptionAddOnTier> tiers;
 
-  /** This is priced in the subscription's currency. */
+  /** Supports up to 2 decimal places. */
   @SerializedName("unit_amount")
   @Expose
   private Float unitAmount;
+
+  /** Supports up to 9 decimal places. */
+  @SerializedName("unit_amount_decimal")
+  @Expose
+  private String unitAmountDecimal;
 
   /** Updated at */
   @SerializedName("updated_at")
@@ -238,14 +243,24 @@ public class SubscriptionAddOn extends Resource {
     this.tiers = tiers;
   }
 
-  /** This is priced in the subscription's currency. */
+  /** Supports up to 2 decimal places. */
   public Float getUnitAmount() {
     return this.unitAmount;
   }
 
-  /** @param unitAmount This is priced in the subscription's currency. */
+  /** @param unitAmount Supports up to 2 decimal places. */
   public void setUnitAmount(final Float unitAmount) {
     this.unitAmount = unitAmount;
+  }
+
+  /** Supports up to 9 decimal places. */
+  public String getUnitAmountDecimal() {
+    return this.unitAmountDecimal;
+  }
+
+  /** @param unitAmountDecimal Supports up to 9 decimal places. */
+  public void setUnitAmountDecimal(final String unitAmountDecimal) {
+    this.unitAmountDecimal = unitAmountDecimal;
   }
 
   /** Updated at */
