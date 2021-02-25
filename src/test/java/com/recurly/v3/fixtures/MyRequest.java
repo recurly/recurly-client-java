@@ -3,6 +3,7 @@ package com.recurly.v3.fixtures;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
+import java.math.BigDecimal;
 import java.util.List;
 import org.joda.time.DateTime;
 
@@ -11,9 +12,9 @@ public class MyRequest extends Request {
   @Expose
   private String myString;
 
-  @SerializedName("my_float")
+  @SerializedName("my_big_decimal")
   @Expose
-  private Float myFloat;
+  private BigDecimal myBigDecimal;
 
   @SerializedName("my_int")
   @Expose
@@ -51,12 +52,12 @@ public class MyRequest extends Request {
     this.myString = myString;
   }
 
-  public Float getMyFloat() {
-    return this.myFloat;
+  public BigDecimal getMyBigDecimal() {
+    return this.myBigDecimal;
   }
 
-  public void setMyFloat(final Float myFloat) {
-    this.myFloat = myFloat;
+  public void setMyBigDecimal(final BigDecimal myBigDecimal) {
+    this.myBigDecimal = myBigDecimal;
   }
 
   public Integer getMyInt() {
