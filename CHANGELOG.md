@@ -1,8 +1,40 @@
 # Changelog
 
-## [3.17.0](https://github.com/recurly/recurly-client-java/tree/HEAD)
+## [4.0.0](https://github.com/recurly/recurly-client-java/tree/4.0.0) (2021-03-01)
 
-[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.16.0...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.18.0...4.0.0)
+
+# Major Version Release
+
+The 4.x major version of the client pairs with the `v2021-02-25` API version. This version of the client and the API contain breaking changes that should be considered before upgrading your integration.
+
+## Breaking Changes in the API
+All changes to the core API are documented in the [Developer Portal changelog](https://developers.recurly.com/api/changelog.html#v2021-02-25---current-ga-version)
+
+## Breaking Changes in Client
+
+- Add enum support where they are defined in the OpenApi specification. [[#127](https://github.com/recurly/recurly-client-java/pull/127)]
+- Convert `Float` to `BigDecimal`. [#133]
+
+**Fixed bugs:**
+
+- Interpolate path pattern has capture parens in wrong place [\#125](https://github.com/recurly/recurly-client-java/pull/125) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 4.0.0 [\#135](https://github.com/recurly/recurly-client-java/pull/135) ([douglasmiller](https://github.com/douglasmiller))
+- Convert Float To BigDecimal [\#133](https://github.com/recurly/recurly-client-java/pull/133) ([jguidry-recurly](https://github.com/jguidry-recurly))
+- Convert query string enums to their SerializedName [\#132](https://github.com/recurly/recurly-client-java/pull/132) ([douglasmiller](https://github.com/douglasmiller))
+- Updating changelog script and changelog generator config for 4.x release [\#131](https://github.com/recurly/recurly-client-java/pull/131) ([douglasmiller](https://github.com/douglasmiller))
+- Adds support for Enums where applicable [\#127](https://github.com/recurly/recurly-client-java/pull/127) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.18.0](https://github.com/recurly/recurly-client-java/tree/3.18.0) (2021-01-22)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.17.0...3.18.0)
+
+## [3.17.0](https://github.com/recurly/recurly-client-java/tree/3.17.0) (2020-12-08)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.16.0...3.17.0)
 
 **Implemented enhancements:**
 
