@@ -1,11 +1,13 @@
 package com.recurly.v3;
 
+import com.recurly.v3.exception.ExceptionFactory;
 import com.recurly.v3.exception.InternalServerException;
 import com.recurly.v3.exception.InvalidApiKeyException;
 import com.recurly.v3.exception.NotFoundException;
 import com.recurly.v3.exception.TransactionException;
 import com.recurly.v3.exception.ValidationException;
 import com.recurly.v3.fixtures.FixtureConstants;
+import com.recurly.v3.ApiException;
 import com.recurly.v3.fixtures.MockClient;
 import com.recurly.v3.fixtures.MockQueryParams;
 import com.recurly.v3.fixtures.MyRequest;
@@ -16,6 +18,7 @@ import okhttp3.HttpUrl;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.Response;
 
 import org.apache.commons.io.IOUtils;
 import org.joda.time.DateTime;
@@ -234,6 +237,26 @@ public class BaseClientTest {
         () -> {
           client.getResource("code-aaron");
         });
+  }
+
+  @Test
+  public void testUnknownError() throws IOException {
+    final Call mCall = mock(Call.class);
+    Answer answer = (i) -> { return mCall; };
+    final Response response = MockClient.buildResponse(999, "Unknown", getErrorJson("unknown"));
+    when(mCall.execute()).thenReturn(response);
+
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
+
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    // asserts that generic api exception is thrown for unknown error
+    assertThrows(
+        ApiException.class,
+        () -> {
+          client.getResource("code-aaron");
+        }); 
+    final RecurlyException exception = ExceptionFactory.getExceptionClass(response);
+    assertTrue(exception.toString().contains("ApiException"));
   }
 
   @Test
