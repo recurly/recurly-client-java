@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.0.1](https://github.com/recurly/recurly-client-java/tree/4.0.1) (2021-03-23)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.0.0...4.0.1)
+
+**Merged pull requests:**
+
+- Release 4.0.1 [\#140](https://github.com/recurly/recurly-client-java/pull/140) ([douglasmiller](https://github.com/douglasmiller))
+- Generated Latest Changes for v2021-02-25 [\#139](https://github.com/recurly/recurly-client-java/pull/139) ([recurly-integrations](https://github.com/recurly-integrations))
+- Sync updates not ported from 3.x client [\#136](https://github.com/recurly/recurly-client-java/pull/136) ([douglasmiller](https://github.com/douglasmiller))
+
 ## [4.0.0](https://github.com/recurly/recurly-client-java/tree/4.0.0) (2021-03-01)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.18.0...4.0.0)
@@ -16,10 +26,6 @@ All changes to the core API are documented in the [Developer Portal changelog](h
 - Add enum support where they are defined in the OpenApi specification. [[#127](https://github.com/recurly/recurly-client-java/pull/127)]
 - Convert `Float` to `BigDecimal`. [#133]
 
-**Fixed bugs:**
-
-- Interpolate path pattern has capture parens in wrong place [\#125](https://github.com/recurly/recurly-client-java/pull/125) ([douglasmiller](https://github.com/douglasmiller))
-
 **Merged pull requests:**
 
 - Release 4.0.0 [\#135](https://github.com/recurly/recurly-client-java/pull/135) ([douglasmiller](https://github.com/douglasmiller))
@@ -31,6 +37,20 @@ All changes to the core API are documented in the [Developer Portal changelog](h
 ## [3.18.0](https://github.com/recurly/recurly-client-java/tree/3.18.0) (2021-01-22)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.17.0...3.18.0)
+
+**Implemented enhancements:**
+
+- Latest Changes for 2019-10-10 [\#128](https://github.com/recurly/recurly-client-java/pull/128) ([douglasmiller](https://github.com/douglasmiller))
+
+**Fixed bugs:**
+
+- Interpolate path pattern has capture parens in wrong place [\#125](https://github.com/recurly/recurly-client-java/pull/125) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.18.0 [\#129](https://github.com/recurly/recurly-client-java/pull/129) ([douglasmiller](https://github.com/douglasmiller))
+- Small tweaks in the ExceptionFactory and preparation for next major version [\#126](https://github.com/recurly/recurly-client-java/pull/126) ([douglasmiller](https://github.com/douglasmiller))
+- Test for fallback to generic api error [\#120](https://github.com/recurly/recurly-client-java/pull/120) ([joannasese](https://github.com/joannasese))
 
 ## [3.17.0](https://github.com/recurly/recurly-client-java/tree/3.17.0) (2020-12-08)
 
