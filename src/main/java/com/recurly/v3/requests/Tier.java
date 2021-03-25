@@ -18,10 +18,19 @@ public class Tier extends Request {
   @Expose
   private List<TierPricing> currencies;
 
-  /** Ending quantity */
+  /**
+   * Ending quantity for the tier. This represents a unit amount for unit-priced add ons, but for
+   * percentage type usage add ons, represents the site default currency in its minimum divisible
+   * unit.
+   */
   @SerializedName("ending_quantity")
   @Expose
   private Integer endingQuantity;
+
+  /** Decimal usage percentage. */
+  @SerializedName("usage_percentage")
+  @Expose
+  private String usagePercentage;
 
   /** Tier pricing */
   public List<TierPricing> getCurrencies() {
@@ -33,13 +42,31 @@ public class Tier extends Request {
     this.currencies = currencies;
   }
 
-  /** Ending quantity */
+  /**
+   * Ending quantity for the tier. This represents a unit amount for unit-priced add ons, but for
+   * percentage type usage add ons, represents the site default currency in its minimum divisible
+   * unit.
+   */
   public Integer getEndingQuantity() {
     return this.endingQuantity;
   }
 
-  /** @param endingQuantity Ending quantity */
+  /**
+   * @param endingQuantity Ending quantity for the tier. This represents a unit amount for
+   *     unit-priced add ons, but for percentage type usage add ons, represents the site default
+   *     currency in its minimum divisible unit.
+   */
   public void setEndingQuantity(final Integer endingQuantity) {
     this.endingQuantity = endingQuantity;
+  }
+
+  /** Decimal usage percentage. */
+  public String getUsagePercentage() {
+    return this.usagePercentage;
+  }
+
+  /** @param usagePercentage Decimal usage percentage. */
+  public void setUsagePercentage(final String usagePercentage) {
+    this.usagePercentage = usagePercentage;
   }
 }

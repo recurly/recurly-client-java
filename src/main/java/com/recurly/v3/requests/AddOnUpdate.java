@@ -134,8 +134,9 @@ public class AddOnUpdate extends Request {
 
   /**
    * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
-   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`. There must be
-   * one tier with an `ending_quantity` of 999999999 which is the default if not provided.
+   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`, or
+   * alternatively, `usage_percentage` for usage percentage type usage add ons. There must be one
+   * tier with an `ending_quantity` of 999999999 which is the default if not provided.
    */
   @SerializedName("tiers")
   @Expose
@@ -143,8 +144,8 @@ public class AddOnUpdate extends Request {
 
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
-   * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage and `usage_type` is
-   * percentage. Must be omitted otherwise. `usage_percentage` does not support tiers.
+   * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage, `tier_type` is
+   * `flat` and `usage_type` is percentage. Must be omitted otherwise.
    */
   @SerializedName("usage_percentage")
   @Expose
@@ -393,8 +394,9 @@ public class AddOnUpdate extends Request {
 
   /**
    * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
-   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`. There must be
-   * one tier with an `ending_quantity` of 999999999 which is the default if not provided.
+   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`, or
+   * alternatively, `usage_percentage` for usage percentage type usage add ons. There must be one
+   * tier with an `ending_quantity` of 999999999 which is the default if not provided.
    */
   public List<Tier> getTiers() {
     return this.tiers;
@@ -403,8 +405,9 @@ public class AddOnUpdate extends Request {
   /**
    * @param tiers If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must
    *     include one to many tiers with `ending_quantity` and `unit_amount` for the desired
-   *     `currencies`. There must be one tier with an `ending_quantity` of 999999999 which is the
-   *     default if not provided.
+   *     `currencies`, or alternatively, `usage_percentage` for usage percentage type usage add ons.
+   *     There must be one tier with an `ending_quantity` of 999999999 which is the default if not
+   *     provided.
    */
   public void setTiers(final List<Tier> tiers) {
     this.tiers = tiers;
@@ -412,8 +415,8 @@ public class AddOnUpdate extends Request {
 
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
-   * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage and `usage_type` is
-   * percentage. Must be omitted otherwise. `usage_percentage` does not support tiers.
+   * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage, `tier_type` is
+   * `flat` and `usage_type` is percentage. Must be omitted otherwise.
    */
   public BigDecimal getUsagePercentage() {
     return this.usagePercentage;
@@ -422,8 +425,7 @@ public class AddOnUpdate extends Request {
   /**
    * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
    *     be up to 4 decimal places. A value between 0.0 and 100.0. Required if `add_on_type` is
-   *     usage and `usage_type` is percentage. Must be omitted otherwise. `usage_percentage` does
-   *     not support tiers.
+   *     usage, `tier_type` is `flat` and `usage_type` is percentage. Must be omitted otherwise.
    */
   public void setUsagePercentage(final BigDecimal usagePercentage) {
     this.usagePercentage = usagePercentage;
