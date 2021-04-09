@@ -8,7 +8,7 @@ set -e
 #
 
 # publish
-mvn versions:set -DnewVersion="$THIS_VERSION"
+mvn versions:set -DnewVersion="$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout | sed 's/-SNAPSHOT//')"
 mvn clean package
 mvn deploy
 mvn versions:revert
