@@ -31,6 +31,11 @@ public class Transaction extends Resource {
   @Expose
   private Constants.AvsCheck avsCheck;
 
+  /** Indicates if the transaction was completed using a backup payment */
+  @SerializedName("backup_payment_method_used")
+  @Expose
+  private Boolean backupPaymentMethodUsed;
+
   @SerializedName("billing_address")
   @Expose
   private AddressWithName billingAddress;
@@ -249,6 +254,19 @@ public class Transaction extends Resource {
   /** @param avsCheck When processed, result from checking the overall AVS on the transaction. */
   public void setAvsCheck(final Constants.AvsCheck avsCheck) {
     this.avsCheck = avsCheck;
+  }
+
+  /** Indicates if the transaction was completed using a backup payment */
+  public Boolean getBackupPaymentMethodUsed() {
+    return this.backupPaymentMethodUsed;
+  }
+
+  /**
+   * @param backupPaymentMethodUsed Indicates if the transaction was completed using a backup
+   *     payment
+   */
+  public void setBackupPaymentMethodUsed(final Boolean backupPaymentMethodUsed) {
+    this.backupPaymentMethodUsed = backupPaymentMethodUsed;
   }
 
   public AddressWithName getBillingAddress() {
