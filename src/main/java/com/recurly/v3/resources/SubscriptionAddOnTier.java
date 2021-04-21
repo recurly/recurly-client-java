@@ -17,18 +17,32 @@ public class SubscriptionAddOnTier extends Resource {
   @Expose
   private Integer endingQuantity;
 
-  /** Allows up to 2 decimal places. Optionally, override the tiers' default unit amount. */
+  /**
+   * Allows up to 2 decimal places. Optionally, override the tiers' default unit amount. If add-on's
+   * `add_on_type` is `usage` and `usage_type` is `percentage`, cannot be provided.
+   */
   @SerializedName("unit_amount")
   @Expose
   private BigDecimal unitAmount;
 
   /**
    * Allows up to 9 decimal places. Optionally, override tiers' default unit amount. If
-   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided. If add-on's `add_on_type`
+   * is `usage` and `usage_type` is `percentage`, cannot be provided.
    */
   @SerializedName("unit_amount_decimal")
   @Expose
   private String unitAmountDecimal;
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places represented as a string. A value between 0.0 and 100.0. Optionally, override tiers'
+   * default usage percentage. Required if add-on's `add_on_type` is `usage` and `usage_type` is
+   * `percentage`. Must be omitted otherwise.
+   */
+  @SerializedName("usage_percentage")
+  @Expose
+  private String usagePercentage;
 
   /** Ending quantity */
   public Integer getEndingQuantity() {
@@ -40,14 +54,18 @@ public class SubscriptionAddOnTier extends Resource {
     this.endingQuantity = endingQuantity;
   }
 
-  /** Allows up to 2 decimal places. Optionally, override the tiers' default unit amount. */
+  /**
+   * Allows up to 2 decimal places. Optionally, override the tiers' default unit amount. If add-on's
+   * `add_on_type` is `usage` and `usage_type` is `percentage`, cannot be provided.
+   */
   public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
   /**
    * @param unitAmount Allows up to 2 decimal places. Optionally, override the tiers' default unit
-   *     amount.
+   *     amount. If add-on's `add_on_type` is `usage` and `usage_type` is `percentage`, cannot be
+   *     provided.
    */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
@@ -55,7 +73,8 @@ public class SubscriptionAddOnTier extends Resource {
 
   /**
    * Allows up to 9 decimal places. Optionally, override tiers' default unit amount. If
-   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided. If add-on's `add_on_type`
+   * is `usage` and `usage_type` is `percentage`, cannot be provided.
    */
   public String getUnitAmountDecimal() {
     return this.unitAmountDecimal;
@@ -63,9 +82,30 @@ public class SubscriptionAddOnTier extends Resource {
 
   /**
    * @param unitAmountDecimal Allows up to 9 decimal places. Optionally, override tiers' default
-   *     unit amount. If `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+   *     unit amount. If `unit_amount_decimal` is provided, `unit_amount` cannot be provided. If
+   *     add-on's `add_on_type` is `usage` and `usage_type` is `percentage`, cannot be provided.
    */
   public void setUnitAmountDecimal(final String unitAmountDecimal) {
     this.unitAmountDecimal = unitAmountDecimal;
+  }
+
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
+   * places represented as a string. A value between 0.0 and 100.0. Optionally, override tiers'
+   * default usage percentage. Required if add-on's `add_on_type` is `usage` and `usage_type` is
+   * `percentage`. Must be omitted otherwise.
+   */
+  public String getUsagePercentage() {
+    return this.usagePercentage;
+  }
+
+  /**
+   * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
+   *     be up to 4 decimal places represented as a string. A value between 0.0 and 100.0.
+   *     Optionally, override tiers' default usage percentage. Required if add-on's `add_on_type` is
+   *     `usage` and `usage_type` is `percentage`. Must be omitted otherwise.
+   */
+  public void setUsagePercentage(final String usagePercentage) {
+    this.usagePercentage = usagePercentage;
   }
 }
