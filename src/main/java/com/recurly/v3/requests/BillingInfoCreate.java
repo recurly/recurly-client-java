@@ -31,6 +31,17 @@ public class BillingInfoCreate extends Request {
   @Expose
   private String amazonBillingAgreementId;
 
+  /**
+   * The `backup_payment_method` indicator is used to designate a billing info as a backup on the
+   * account that will be tried if the billing info marked `primary_payment_method` fails. All
+   * payment methods, including the billing info marked `primary_payment_method` can be set as a
+   * backup. An account can have a maximum of 1 backup, if a user sets a different payment method as
+   * a backup, the existing backup will no longer be marked as such.
+   */
+  @SerializedName("backup_payment_method")
+  @Expose
+  private Boolean backupPaymentMethod;
+
   /** Company name */
   @SerializedName("company")
   @Expose
@@ -222,6 +233,29 @@ public class BillingInfoCreate extends Request {
   /** @param amazonBillingAgreementId Amazon billing agreement ID */
   public void setAmazonBillingAgreementId(final String amazonBillingAgreementId) {
     this.amazonBillingAgreementId = amazonBillingAgreementId;
+  }
+
+  /**
+   * The `backup_payment_method` indicator is used to designate a billing info as a backup on the
+   * account that will be tried if the billing info marked `primary_payment_method` fails. All
+   * payment methods, including the billing info marked `primary_payment_method` can be set as a
+   * backup. An account can have a maximum of 1 backup, if a user sets a different payment method as
+   * a backup, the existing backup will no longer be marked as such.
+   */
+  public Boolean getBackupPaymentMethod() {
+    return this.backupPaymentMethod;
+  }
+
+  /**
+   * @param backupPaymentMethod The `backup_payment_method` indicator is used to designate a billing
+   *     info as a backup on the account that will be tried if the billing info marked
+   *     `primary_payment_method` fails. All payment methods, including the billing info marked
+   *     `primary_payment_method` can be set as a backup. An account can have a maximum of 1 backup,
+   *     if a user sets a different payment method as a backup, the existing backup will no longer
+   *     be marked as such.
+   */
+  public void setBackupPaymentMethod(final Boolean backupPaymentMethod) {
+    this.backupPaymentMethod = backupPaymentMethod;
   }
 
   /** Company name */

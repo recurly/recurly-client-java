@@ -20,6 +20,14 @@ public class BillingInfo extends Resource {
   @Expose
   private Address address;
 
+  /**
+   * The `backup_payment_method` indicator is used to designate a billing info as a backup on the
+   * account that will be tried if the billing info marked `primary_payment_method` fails.
+   */
+  @SerializedName("backup_payment_method")
+  @Expose
+  private Boolean backupPaymentMethod;
+
   @SerializedName("company")
   @Expose
   private String company;
@@ -104,6 +112,23 @@ public class BillingInfo extends Resource {
   /** @param address */
   public void setAddress(final Address address) {
     this.address = address;
+  }
+
+  /**
+   * The `backup_payment_method` indicator is used to designate a billing info as a backup on the
+   * account that will be tried if the billing info marked `primary_payment_method` fails.
+   */
+  public Boolean getBackupPaymentMethod() {
+    return this.backupPaymentMethod;
+  }
+
+  /**
+   * @param backupPaymentMethod The `backup_payment_method` indicator is used to designate a billing
+   *     info as a backup on the account that will be tried if the billing info marked
+   *     `primary_payment_method` fails.
+   */
+  public void setBackupPaymentMethod(final Boolean backupPaymentMethod) {
+    this.backupPaymentMethod = backupPaymentMethod;
   }
 
   public String getCompany() {
