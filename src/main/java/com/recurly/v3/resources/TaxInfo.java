@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
+import java.util.List;
 
 public class TaxInfo extends Resource {
 
@@ -25,6 +26,10 @@ public class TaxInfo extends Resource {
   @SerializedName("region")
   @Expose
   private String region;
+
+  @SerializedName("tax_details")
+  @Expose
+  private List<TaxDetail> taxDetails;
 
   /**
    * Provides the tax type as "vat" for EU VAT, "usst" for U.S. Sales Tax, or the 2 letter country
@@ -61,6 +66,15 @@ public class TaxInfo extends Resource {
    */
   public void setRegion(final String region) {
     this.region = region;
+  }
+
+  public List<TaxDetail> getTaxDetails() {
+    return this.taxDetails;
+  }
+
+  /** @param taxDetails */
+  public void setTaxDetails(final List<TaxDetail> taxDetails) {
+    this.taxDetails = taxDetails;
   }
 
   /**
