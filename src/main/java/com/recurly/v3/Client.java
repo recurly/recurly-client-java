@@ -264,6 +264,39 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Verify an account's credit card billing information
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/verify_billing_info">verify_billing_info api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return Transaction information from verify.
+   */
+  public Transaction verifyBillingInfo(String accountId) {
+    final String url = "/accounts/{account_id}/billing_info/verify";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Transaction.class;
+    return this.makeRequest("POST", path, returnType);
+  }
+
+  /**
+   * Verify an account's credit card billing information
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/verify_billing_info">verify_billing_info api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param body The body of the request.
+     * @return Transaction information from verify.
+   */
+  public Transaction verifyBillingInfo(String accountId, BillingInfoVerify body) {
+    final String url = "/accounts/{account_id}/billing_info/verify";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Transaction.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
    * Get the list of billing information associated with an account
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_billing_infos">list_billing_infos api documentation</a>
@@ -283,7 +316,7 @@ public class Client extends BaseClient {
   }
 
   /**
-   * Set an account's billing information when the wallet feature is enabled
+   * Add new billing information on an account
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_billing_info">create_billing_info api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
