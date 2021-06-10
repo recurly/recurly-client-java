@@ -172,7 +172,7 @@ public class Invoice extends Resource {
   @Expose
   private List<String> subscriptionIds;
 
-  /** The summation of charges, discounts, and credits, before tax. */
+  /** The summation of charges and credits, before discounts and taxes. */
   @SerializedName("subtotal")
   @Expose
   private BigDecimal subtotal;
@@ -563,12 +563,12 @@ public class Invoice extends Resource {
     this.subscriptionIds = subscriptionIds;
   }
 
-  /** The summation of charges, discounts, and credits, before tax. */
+  /** The summation of charges and credits, before discounts and taxes. */
   public BigDecimal getSubtotal() {
     return this.subtotal;
   }
 
-  /** @param subtotal The summation of charges, discounts, and credits, before tax. */
+  /** @param subtotal The summation of charges and credits, before discounts and taxes. */
   public void setSubtotal(final BigDecimal subtotal) {
     this.subtotal = subtotal;
   }
