@@ -8,6 +8,7 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import java.util.List;
 
 public class TaxInfo extends Resource {
 
@@ -24,6 +25,15 @@ public class TaxInfo extends Resource {
   @SerializedName("region")
   @Expose
   private String region;
+
+  /**
+   * Provides additional tax details for Canadian Sales Tax when there is tax applied at both the
+   * country and province levels. This will only be populated for the Invoice response when fetching
+   * a single invoice and not for the InvoiceList or LineItem.
+   */
+  @SerializedName("tax_details")
+  @Expose
+  private List<TaxDetail> taxDetails;
 
   /**
    * Provides the tax type as "vat" for EU VAT, "usst" for U.S. Sales Tax, or the 2 letter country
@@ -60,6 +70,24 @@ public class TaxInfo extends Resource {
    */
   public void setRegion(final String region) {
     this.region = region;
+  }
+
+  /**
+   * Provides additional tax details for Canadian Sales Tax when there is tax applied at both the
+   * country and province levels. This will only be populated for the Invoice response when fetching
+   * a single invoice and not for the InvoiceList or LineItem.
+   */
+  public List<TaxDetail> getTaxDetails() {
+    return this.taxDetails;
+  }
+
+  /**
+   * @param taxDetails Provides additional tax details for Canadian Sales Tax when there is tax
+   *     applied at both the country and province levels. This will only be populated for the
+   *     Invoice response when fetching a single invoice and not for the InvoiceList or LineItem.
+   */
+  public void setTaxDetails(final List<TaxDetail> taxDetails) {
+    this.taxDetails = taxDetails;
   }
 
   /**

@@ -28,6 +28,11 @@ public class SubscriptionChangePreview extends Resource {
   @Expose
   private List<SubscriptionAddOn> addOns;
 
+  /** Accept nested attributes for three_d_secure_action_result_token_id */
+  @SerializedName("billing_info")
+  @Expose
+  private SubscriptionChangeBillingInfo billingInfo;
+
   /** Created at */
   @SerializedName("created_at")
   @Expose
@@ -130,6 +135,16 @@ public class SubscriptionChangePreview extends Resource {
   /** @param addOns These add-ons will be used when the subscription renews. */
   public void setAddOns(final List<SubscriptionAddOn> addOns) {
     this.addOns = addOns;
+  }
+
+  /** Accept nested attributes for three_d_secure_action_result_token_id */
+  public SubscriptionChangeBillingInfo getBillingInfo() {
+    return this.billingInfo;
+  }
+
+  /** @param billingInfo Accept nested attributes for three_d_secure_action_result_token_id */
+  public void setBillingInfo(final SubscriptionChangeBillingInfo billingInfo) {
+    this.billingInfo = billingInfo;
   }
 
   /** Created at */

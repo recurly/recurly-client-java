@@ -20,7 +20,7 @@ public class ShippingAddressCreate extends Request {
   @Expose
   private String company;
 
-  /** Country, 2-letter ISO code. */
+  /** Country, 2-letter ISO 3166-1 alpha-2 code. */
   @SerializedName("country")
   @Expose
   private String country;
@@ -85,12 +85,12 @@ public class ShippingAddressCreate extends Request {
     this.company = company;
   }
 
-  /** Country, 2-letter ISO code. */
+  /** Country, 2-letter ISO 3166-1 alpha-2 code. */
   public String getCountry() {
     return this.country;
   }
 
-  /** @param country Country, 2-letter ISO code. */
+  /** @param country Country, 2-letter ISO 3166-1 alpha-2 code. */
   public void setCountry(final String country) {
     this.country = country;
   }
