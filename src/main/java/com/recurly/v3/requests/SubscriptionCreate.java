@@ -182,8 +182,10 @@ public class SubscriptionCreate extends Request {
   private String transactionType;
 
   /**
-   * If set, overrides the default trial behavior for the subscription. The date must be in the
-   * future.
+   * IIf set, overrides the default trial behavior for the subscription. When the current date time
+   * or a past date time is provided the subscription will begin with no trial phase (overriding any
+   * plan default trial). When a future date time is provided the subscription will begin with a
+   * trial phase ending at the specified date time.
    */
   @SerializedName("trial_ends_at")
   @Expose
@@ -540,16 +542,20 @@ public class SubscriptionCreate extends Request {
   }
 
   /**
-   * If set, overrides the default trial behavior for the subscription. The date must be in the
-   * future.
+   * IIf set, overrides the default trial behavior for the subscription. When the current date time
+   * or a past date time is provided the subscription will begin with no trial phase (overriding any
+   * plan default trial). When a future date time is provided the subscription will begin with a
+   * trial phase ending at the specified date time.
    */
   public DateTime getTrialEndsAt() {
     return this.trialEndsAt;
   }
 
   /**
-   * @param trialEndsAt If set, overrides the default trial behavior for the subscription. The date
-   *     must be in the future.
+   * @param trialEndsAt IIf set, overrides the default trial behavior for the subscription. When the
+   *     current date time or a past date time is provided the subscription will begin with no trial
+   *     phase (overriding any plan default trial). When a future date time is provided the
+   *     subscription will begin with a trial phase ending at the specified date time.
    */
   public void setTrialEndsAt(final DateTime trialEndsAt) {
     this.trialEndsAt = trialEndsAt;

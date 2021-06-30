@@ -11,7 +11,9 @@ import com.recurly.v3.Resource;
 
 public class BillingInfoUpdatedBy extends Resource {
 
-  /** Country of IP address, if known by Recurly. */
+  /**
+   * Country, 2-letter ISO 3166-1 alpha-2 code matching the origin IP address, if known by Recurly.
+   */
   @SerializedName("country")
   @Expose
   private String country;
@@ -21,12 +23,17 @@ public class BillingInfoUpdatedBy extends Resource {
   @Expose
   private String ip;
 
-  /** Country of IP address, if known by Recurly. */
+  /**
+   * Country, 2-letter ISO 3166-1 alpha-2 code matching the origin IP address, if known by Recurly.
+   */
   public String getCountry() {
     return this.country;
   }
 
-  /** @param country Country of IP address, if known by Recurly. */
+  /**
+   * @param country Country, 2-letter ISO 3166-1 alpha-2 code matching the origin IP address, if
+   *     known by Recurly.
+   */
   public void setCountry(final String country) {
     this.country = country;
   }

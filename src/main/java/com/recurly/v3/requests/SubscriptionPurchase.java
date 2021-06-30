@@ -96,8 +96,10 @@ public class SubscriptionPurchase extends Request {
   private Integer totalBillingCycles;
 
   /**
-   * If set, overrides the default trial behavior for the subscription. The date must be in the
-   * future.
+   * If set, overrides the default trial behavior for the subscription. When the current date time
+   * or a past date time is provided the subscription will begin with no trial phase (overriding any
+   * plan default trial). When a future date time is provided the subscription will begin with a
+   * trial phase ending at the specified date time.
    */
   @SerializedName("trial_ends_at")
   @Expose
@@ -275,16 +277,20 @@ public class SubscriptionPurchase extends Request {
   }
 
   /**
-   * If set, overrides the default trial behavior for the subscription. The date must be in the
-   * future.
+   * If set, overrides the default trial behavior for the subscription. When the current date time
+   * or a past date time is provided the subscription will begin with no trial phase (overriding any
+   * plan default trial). When a future date time is provided the subscription will begin with a
+   * trial phase ending at the specified date time.
    */
   public DateTime getTrialEndsAt() {
     return this.trialEndsAt;
   }
 
   /**
-   * @param trialEndsAt If set, overrides the default trial behavior for the subscription. The date
-   *     must be in the future.
+   * @param trialEndsAt If set, overrides the default trial behavior for the subscription. When the
+   *     current date time or a past date time is provided the subscription will begin with no trial
+   *     phase (overriding any plan default trial). When a future date time is provided the
+   *     subscription will begin with a trial phase ending at the specified date time.
    */
   public void setTrialEndsAt(final DateTime trialEndsAt) {
     this.trialEndsAt = trialEndsAt;

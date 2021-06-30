@@ -26,6 +26,15 @@ public class PaymentMethod extends Resource {
   @Expose
   private String cardType;
 
+  /**
+   * The 2-letter ISO 3166-1 alpha-2 country code associated with the credit card BIN, if known by
+   * Recurly. Available on the BillingInfo object only. Available when the BIN country lookup
+   * feature is enabled.
+   */
+  @SerializedName("cc_bin_country")
+  @Expose
+  private String ccBinCountry;
+
   /** Expiration month. */
   @SerializedName("exp_month")
   @Expose
@@ -111,6 +120,24 @@ public class PaymentMethod extends Resource {
   /** @param cardType Visa, MasterCard, American Express, Discover, JCB, etc. */
   public void setCardType(final String cardType) {
     this.cardType = cardType;
+  }
+
+  /**
+   * The 2-letter ISO 3166-1 alpha-2 country code associated with the credit card BIN, if known by
+   * Recurly. Available on the BillingInfo object only. Available when the BIN country lookup
+   * feature is enabled.
+   */
+  public String getCcBinCountry() {
+    return this.ccBinCountry;
+  }
+
+  /**
+   * @param ccBinCountry The 2-letter ISO 3166-1 alpha-2 country code associated with the credit
+   *     card BIN, if known by Recurly. Available on the BillingInfo object only. Available when the
+   *     BIN country lookup feature is enabled.
+   */
+  public void setCcBinCountry(final String ccBinCountry) {
+    this.ccBinCountry = ccBinCountry;
   }
 
   /** Expiration month. */
