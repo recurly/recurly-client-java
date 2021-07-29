@@ -1595,6 +1595,9 @@ public class Constants {
       @SerializedName("invalid_gateway_configuration")
       INVALID_GATEWAY_CONFIGURATION,
     
+      @SerializedName("invalid_gateway_access_token")
+      INVALID_GATEWAY_ACCESS_TOKEN,
+    
       @SerializedName("invalid_issuer")
       INVALID_ISSUER,
     
@@ -1752,6 +1755,9 @@ public class Constants {
     
       @SerializedName("cpf")
       CPF,
+    
+      @SerializedName("cuit")
+      CUIT,
     
     };
   

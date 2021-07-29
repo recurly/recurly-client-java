@@ -115,7 +115,7 @@ public class Transaction extends Resource {
   @Expose
   private InvoiceMini invoice;
 
-  /** IP address's country */
+  /** Origin IP address country, 2-letter ISO 3166-1 alpha-2 code, if known by Recurly. */
   @SerializedName("ip_address_country")
   @Expose
   private String ipAddressCountry;
@@ -436,12 +436,15 @@ public class Transaction extends Resource {
     this.invoice = invoice;
   }
 
-  /** IP address's country */
+  /** Origin IP address country, 2-letter ISO 3166-1 alpha-2 code, if known by Recurly. */
   public String getIpAddressCountry() {
     return this.ipAddressCountry;
   }
 
-  /** @param ipAddressCountry IP address's country */
+  /**
+   * @param ipAddressCountry Origin IP address country, 2-letter ISO 3166-1 alpha-2 code, if known
+   *     by Recurly.
+   */
   public void setIpAddressCountry(final String ipAddressCountry) {
     this.ipAddressCountry = ipAddressCountry;
   }
