@@ -27,6 +27,11 @@ public class TaxInfo extends Resource {
   @Expose
   private String region;
 
+  /**
+   * Provides additional tax details for Canadian Sales Tax when there is tax applied at both the
+   * country and province levels. This will only be populated for the Invoice response when fetching
+   * a single invoice and not for the InvoiceList or LineItem.
+   */
   @SerializedName("tax_details")
   @Expose
   private List<TaxDetail> taxDetails;
@@ -68,11 +73,20 @@ public class TaxInfo extends Resource {
     this.region = region;
   }
 
+  /**
+   * Provides additional tax details for Canadian Sales Tax when there is tax applied at both the
+   * country and province levels. This will only be populated for the Invoice response when fetching
+   * a single invoice and not for the InvoiceList or LineItem.
+   */
   public List<TaxDetail> getTaxDetails() {
     return this.taxDetails;
   }
 
-  /** @param taxDetails */
+  /**
+   * @param taxDetails Provides additional tax details for Canadian Sales Tax when there is tax
+   *     applied at both the country and province levels. This will only be populated for the
+   *     Invoice response when fetching a single invoice and not for the InvoiceList or LineItem.
+   */
   public void setTaxDetails(final List<TaxDetail> taxDetails) {
     this.taxDetails = taxDetails;
   }
