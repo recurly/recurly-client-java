@@ -35,6 +35,10 @@ public class SubscriptionChangeCreate extends Request {
   @Expose
   private List<SubscriptionAddOnUpdate> addOns;
 
+  @SerializedName("billing_info")
+  @Expose
+  private SubscriptionChangeBillingInfoCreate billingInfo;
+
   /** Collection method */
   @SerializedName("collection_method")
   @Expose
@@ -167,6 +171,15 @@ public class SubscriptionChangeCreate extends Request {
    */
   public void setAddOns(final List<SubscriptionAddOnUpdate> addOns) {
     this.addOns = addOns;
+  }
+
+  public SubscriptionChangeBillingInfoCreate getBillingInfo() {
+    return this.billingInfo;
+  }
+
+  /** @param billingInfo */
+  public void setBillingInfo(final SubscriptionChangeBillingInfoCreate billingInfo) {
+    this.billingInfo = billingInfo;
   }
 
   /** Collection method */
