@@ -12,17 +12,26 @@ import com.recurly.v3.resources.*;
 
 public class SubscriptionPause extends Request {
 
-  /** Number of billing cycles to pause the subscriptions. */
+  /**
+   * Number of billing cycles to pause the subscriptions. A value of 0 will cancel any pending
+   * pauses on the subscription.
+   */
   @SerializedName("remaining_pause_cycles")
   @Expose
   private Integer remainingPauseCycles;
 
-  /** Number of billing cycles to pause the subscriptions. */
+  /**
+   * Number of billing cycles to pause the subscriptions. A value of 0 will cancel any pending
+   * pauses on the subscription.
+   */
   public Integer getRemainingPauseCycles() {
     return this.remainingPauseCycles;
   }
 
-  /** @param remainingPauseCycles Number of billing cycles to pause the subscriptions. */
+  /**
+   * @param remainingPauseCycles Number of billing cycles to pause the subscriptions. A value of 0
+   *     will cancel any pending pauses on the subscription.
+   */
   public void setRemainingPauseCycles(final Integer remainingPauseCycles) {
     this.remainingPauseCycles = remainingPauseCycles;
   }
