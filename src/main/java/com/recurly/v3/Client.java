@@ -2252,4 +2252,52 @@ public class Client extends BaseClient {
     Type returnType = ExportFiles.class;
     return this.makeRequest("GET", path, returnType);
   }
+
+  /**
+   * Show the dunning campaigns for a site
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_dunning_campaigns">list_dunning_campaigns api documentation</a>
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the the dunning_campaigns on an account.
+   */
+  public Pager<DunningCampaign> listDunningCampaigns(QueryParams queryParams) {
+    final String url = "/dunning_campaigns";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, DunningCampaign.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * Show the settings for a dunning campaign
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_dunning_campaign">get_dunning_campaign api documentation</a>
+   * @param dunningCampaignId Dunning Campaign ID, e.g. `e28zov4fw0v2`.
+     * @return Settings for a dunning campaign.
+   */
+  public DunningCampaign getDunningCampaign(String dunningCampaignId) {
+    final String url = "/dunning_campaigns/{dunning_campaign_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("dunning_campaign_id", dunningCampaignId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = DunningCampaign.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Assign a dunning campaign to multiple plans
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/put_dunning_campaign_bulk_update">put_dunning_campaign_bulk_update api documentation</a>
+   * @param body The body of the request.
+     * @return A list of updated plans.
+   */
+  public DunningCampaignsBulkUpdateResponse putDunningCampaignBulkUpdate(DunningCampaignsBulkUpdate body) {
+    final String url = "/dunning_campaigns/{dunning_campaign_id}/bulk_update";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = DunningCampaignsBulkUpdateResponse.class;
+    return this.makeRequest("PUT", path, body, returnType);
+  }
 }
