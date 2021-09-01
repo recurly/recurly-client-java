@@ -88,6 +88,15 @@ public class Invoice extends Resource {
   private DateTime dueAt;
 
   /**
+   * Unique ID to identify the dunning campaign used when dunning the invoice. Available when the
+   * Dunning Campaigns feature is enabled. For sites without multiple dunning campaigns enabled,
+   * this will always be the default dunning campaign.
+   */
+  @SerializedName("dunning_campaign_id")
+  @Expose
+  private String dunningCampaignId;
+
+  /**
    * Identifies if the invoice has more line items than are returned in `line_items`. If
    * `has_more_line_items` is `true`, then a request needs to be made to the
    * `list_invoice_line_items` endpoint.
@@ -381,6 +390,24 @@ public class Invoice extends Resource {
   /** @param dueAt Date invoice is due. This is the date the net terms are reached. */
   public void setDueAt(final DateTime dueAt) {
     this.dueAt = dueAt;
+  }
+
+  /**
+   * Unique ID to identify the dunning campaign used when dunning the invoice. Available when the
+   * Dunning Campaigns feature is enabled. For sites without multiple dunning campaigns enabled,
+   * this will always be the default dunning campaign.
+   */
+  public String getDunningCampaignId() {
+    return this.dunningCampaignId;
+  }
+
+  /**
+   * @param dunningCampaignId Unique ID to identify the dunning campaign used when dunning the
+   *     invoice. Available when the Dunning Campaigns feature is enabled. For sites without
+   *     multiple dunning campaigns enabled, this will always be the default dunning campaign.
+   */
+  public void setDunningCampaignId(final String dunningCampaignId) {
+    this.dunningCampaignId = dunningCampaignId;
   }
 
   /**

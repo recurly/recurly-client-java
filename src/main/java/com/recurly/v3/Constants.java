@@ -1254,6 +1254,9 @@ public class Constants {
       @SerializedName("Visa")
       VISA,
     
+      @SerializedName("Tarjeta Naranja")
+      TARJETA_NARANJA,
+    
     };
   
     public enum AccountType {
@@ -1758,6 +1761,20 @@ public class Constants {
     
       @SerializedName("cuit")
       CUIT,
+    
+    };
+  
+    public enum DunningCycleType {
+      UNDEFINED,
+    
+      @SerializedName("automatic")
+      AUTOMATIC,
+    
+      @SerializedName("manual")
+      MANUAL,
+    
+      @SerializedName("trial")
+      TRIAL,
     
     };
   
