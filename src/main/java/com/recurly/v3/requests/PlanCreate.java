@@ -83,6 +83,16 @@ public class PlanCreate extends Request {
   @Expose
   private String description;
 
+  /**
+   * Unique ID to identify a dunning campaign. Available when the Dunning Campaigns feature is
+   * enabled. Used to specify if a non-default dunning campaign should be assigned to this plan. For
+   * sites without multiple dunning campaigns enabled, the default dunning campaign will always be
+   * used.
+   */
+  @SerializedName("dunning_campaign_id")
+  @Expose
+  private String dunningCampaignId;
+
   /** Hosted pages settings */
   @SerializedName("hosted_pages")
   @Expose
@@ -300,6 +310,26 @@ public class PlanCreate extends Request {
   /** @param description Optional description, not displayed. */
   public void setDescription(final String description) {
     this.description = description;
+  }
+
+  /**
+   * Unique ID to identify a dunning campaign. Available when the Dunning Campaigns feature is
+   * enabled. Used to specify if a non-default dunning campaign should be assigned to this plan. For
+   * sites without multiple dunning campaigns enabled, the default dunning campaign will always be
+   * used.
+   */
+  public String getDunningCampaignId() {
+    return this.dunningCampaignId;
+  }
+
+  /**
+   * @param dunningCampaignId Unique ID to identify a dunning campaign. Available when the Dunning
+   *     Campaigns feature is enabled. Used to specify if a non-default dunning campaign should be
+   *     assigned to this plan. For sites without multiple dunning campaigns enabled, the default
+   *     dunning campaign will always be used.
+   */
+  public void setDunningCampaignId(final String dunningCampaignId) {
+    this.dunningCampaignId = dunningCampaignId;
   }
 
   /** Hosted pages settings */

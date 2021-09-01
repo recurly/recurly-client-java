@@ -66,6 +66,16 @@ public class Account extends Resource {
   private DateTime deletedAt;
 
   /**
+   * Unique ID to identify a dunning campaign. Available when the Dunning Campaigns feature is
+   * enabled. Used to specify if a non-default dunning campaign should be assigned to this account.
+   * For sites without multiple dunning campaigns enabled, the default dunning campaign will always
+   * be used.
+   */
+  @SerializedName("dunning_campaign_id")
+  @Expose
+  private String dunningCampaignId;
+
+  /**
    * The email address used for communicating with this customer. The customer will also use this
    * email address to log into your hosted account management pages. This value does not need to be
    * unique.
@@ -299,6 +309,26 @@ public class Account extends Resource {
   /** @param deletedAt If present, when the account was last marked inactive. */
   public void setDeletedAt(final DateTime deletedAt) {
     this.deletedAt = deletedAt;
+  }
+
+  /**
+   * Unique ID to identify a dunning campaign. Available when the Dunning Campaigns feature is
+   * enabled. Used to specify if a non-default dunning campaign should be assigned to this account.
+   * For sites without multiple dunning campaigns enabled, the default dunning campaign will always
+   * be used.
+   */
+  public String getDunningCampaignId() {
+    return this.dunningCampaignId;
+  }
+
+  /**
+   * @param dunningCampaignId Unique ID to identify a dunning campaign. Available when the Dunning
+   *     Campaigns feature is enabled. Used to specify if a non-default dunning campaign should be
+   *     assigned to this account. For sites without multiple dunning campaigns enabled, the default
+   *     dunning campaign will always be used.
+   */
+  public void setDunningCampaignId(final String dunningCampaignId) {
+    this.dunningCampaignId = dunningCampaignId;
   }
 
   /**

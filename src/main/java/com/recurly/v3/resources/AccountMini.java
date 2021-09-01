@@ -24,6 +24,16 @@ public class AccountMini extends Resource {
   @Expose
   private String company;
 
+  /**
+   * Unique ID to identify a dunning campaign. Available when the Dunning Campaigns feature is
+   * enabled. Used to specify if a non-default dunning campaign should be assigned to this account.
+   * For sites without multiple dunning campaigns enabled, the default dunning campaign will always
+   * be used.
+   */
+  @SerializedName("dunning_campaign_id")
+  @Expose
+  private String dunningCampaignId;
+
   /** The email address used for communicating with this customer. */
   @SerializedName("email")
   @Expose
@@ -76,6 +86,26 @@ public class AccountMini extends Resource {
   /** @param company */
   public void setCompany(final String company) {
     this.company = company;
+  }
+
+  /**
+   * Unique ID to identify a dunning campaign. Available when the Dunning Campaigns feature is
+   * enabled. Used to specify if a non-default dunning campaign should be assigned to this account.
+   * For sites without multiple dunning campaigns enabled, the default dunning campaign will always
+   * be used.
+   */
+  public String getDunningCampaignId() {
+    return this.dunningCampaignId;
+  }
+
+  /**
+   * @param dunningCampaignId Unique ID to identify a dunning campaign. Available when the Dunning
+   *     Campaigns feature is enabled. Used to specify if a non-default dunning campaign should be
+   *     assigned to this account. For sites without multiple dunning campaigns enabled, the default
+   *     dunning campaign will always be used.
+   */
+  public void setDunningCampaignId(final String dunningCampaignId) {
+    this.dunningCampaignId = dunningCampaignId;
   }
 
   /** The email address used for communicating with this customer. */
