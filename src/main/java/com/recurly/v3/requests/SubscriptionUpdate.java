@@ -51,6 +51,11 @@ public class SubscriptionUpdate extends Request {
   @Expose
   private String customerNotes;
 
+  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  @SerializedName("gateway_code")
+  @Expose
+  private String gatewayCode;
+
   /**
    * Integer representing the number of days after an invoice's creation that the invoice will
    * become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will
@@ -179,6 +184,19 @@ public class SubscriptionUpdate extends Request {
    */
   public void setCustomerNotes(final String customerNotes) {
     this.customerNotes = customerNotes;
+  }
+
+  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  public String getGatewayCode() {
+    return this.gatewayCode;
+  }
+
+  /**
+   * @param gatewayCode If present, this subscription's transactions will use the payment gateway
+   *     with this code.
+   */
+  public void setGatewayCode(final String gatewayCode) {
+    this.gatewayCode = gatewayCode;
   }
 
   /**

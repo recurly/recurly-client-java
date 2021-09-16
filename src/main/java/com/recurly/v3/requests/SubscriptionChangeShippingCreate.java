@@ -13,6 +13,18 @@ import java.math.BigDecimal;
 
 public class SubscriptionChangeShippingCreate extends Request {
 
+  @SerializedName("address")
+  @Expose
+  private ShippingAddressCreate address;
+
+  /**
+   * Assign a shipping address from the account's existing shipping addresses. If this and address
+   * are both present, address will take precedence.
+   */
+  @SerializedName("address_id")
+  @Expose
+  private String addressId;
+
   /**
    * Assigns the subscription's shipping cost. If this is greater than zero then a `method_id` or
    * `method_code` is required.
@@ -38,6 +50,31 @@ public class SubscriptionChangeShippingCreate extends Request {
   @SerializedName("method_id")
   @Expose
   private String methodId;
+
+  public ShippingAddressCreate getAddress() {
+    return this.address;
+  }
+
+  /** @param address */
+  public void setAddress(final ShippingAddressCreate address) {
+    this.address = address;
+  }
+
+  /**
+   * Assign a shipping address from the account's existing shipping addresses. If this and address
+   * are both present, address will take precedence.
+   */
+  public String getAddressId() {
+    return this.addressId;
+  }
+
+  /**
+   * @param addressId Assign a shipping address from the account's existing shipping addresses. If
+   *     this and address are both present, address will take precedence.
+   */
+  public void setAddressId(final String addressId) {
+    this.addressId = addressId;
+  }
 
   /**
    * Assigns the subscription's shipping cost. If this is greater than zero then a `method_id` or
