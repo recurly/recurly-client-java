@@ -130,6 +130,11 @@ public class Subscription extends Resource {
   @Expose
   private DateTime expiresAt;
 
+  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  @SerializedName("gateway_code")
+  @Expose
+  private String gatewayCode;
+
   /** Subscription ID */
   @SerializedName("id")
   @Expose
@@ -213,10 +218,25 @@ public class Subscription extends Resource {
   @Expose
   private BigDecimal subtotal;
 
+  /** Estimated tax */
+  @SerializedName("tax")
+  @Expose
+  private BigDecimal tax;
+
+  /** Tax info */
+  @SerializedName("tax_info")
+  @Expose
+  private TaxInfo taxInfo;
+
   /** Terms and conditions */
   @SerializedName("terms_and_conditions")
   @Expose
   private String termsAndConditions;
+
+  /** Estimated total */
+  @SerializedName("total")
+  @Expose
+  private BigDecimal total;
 
   /**
    * The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if
@@ -489,6 +509,19 @@ public class Subscription extends Resource {
     this.expiresAt = expiresAt;
   }
 
+  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  public String getGatewayCode() {
+    return this.gatewayCode;
+  }
+
+  /**
+   * @param gatewayCode If present, this subscription's transactions will use the payment gateway
+   *     with this code.
+   */
+  public void setGatewayCode(final String gatewayCode) {
+    this.gatewayCode = gatewayCode;
+  }
+
   /** Subscription ID */
   public String getId() {
     return this.id;
@@ -665,6 +698,26 @@ public class Subscription extends Resource {
     this.subtotal = subtotal;
   }
 
+  /** Estimated tax */
+  public BigDecimal getTax() {
+    return this.tax;
+  }
+
+  /** @param tax Estimated tax */
+  public void setTax(final BigDecimal tax) {
+    this.tax = tax;
+  }
+
+  /** Tax info */
+  public TaxInfo getTaxInfo() {
+    return this.taxInfo;
+  }
+
+  /** @param taxInfo Tax info */
+  public void setTaxInfo(final TaxInfo taxInfo) {
+    this.taxInfo = taxInfo;
+  }
+
   /** Terms and conditions */
   public String getTermsAndConditions() {
     return this.termsAndConditions;
@@ -673,6 +726,16 @@ public class Subscription extends Resource {
   /** @param termsAndConditions Terms and conditions */
   public void setTermsAndConditions(final String termsAndConditions) {
     this.termsAndConditions = termsAndConditions;
+  }
+
+  /** Estimated total */
+  public BigDecimal getTotal() {
+    return this.total;
+  }
+
+  /** @param total Estimated total */
+  public void setTotal(final BigDecimal total) {
+    this.total = total;
   }
 
   /**
