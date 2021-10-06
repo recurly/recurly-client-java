@@ -102,7 +102,11 @@ public class SubscriptionChangeCreate extends Request {
   @Expose
   private Constants.RevenueScheduleType revenueScheduleType;
 
-  /** The shipping address can currently only be changed immediately, using SubscriptionUpdate. */
+  /**
+   * Shipping addresses are tied to a customer's account. Each account can have up to 20 different
+   * shipping addresses, and if you have enabled multiple subscriptions per account, you can
+   * associate different shipping addresses to each subscription.
+   */
   @SerializedName("shipping")
   @Expose
   private SubscriptionChangeShippingCreate shipping;
@@ -312,14 +316,19 @@ public class SubscriptionChangeCreate extends Request {
     this.revenueScheduleType = revenueScheduleType;
   }
 
-  /** The shipping address can currently only be changed immediately, using SubscriptionUpdate. */
+  /**
+   * Shipping addresses are tied to a customer's account. Each account can have up to 20 different
+   * shipping addresses, and if you have enabled multiple subscriptions per account, you can
+   * associate different shipping addresses to each subscription.
+   */
   public SubscriptionChangeShippingCreate getShipping() {
     return this.shipping;
   }
 
   /**
-   * @param shipping The shipping address can currently only be changed immediately, using
-   *     SubscriptionUpdate.
+   * @param shipping Shipping addresses are tied to a customer's account. Each account can have up
+   *     to 20 different shipping addresses, and if you have enabled multiple subscriptions per
+   *     account, you can associate different shipping addresses to each subscription.
    */
   public void setShipping(final SubscriptionChangeShippingCreate shipping) {
     this.shipping = shipping;

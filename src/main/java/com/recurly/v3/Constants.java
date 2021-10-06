@@ -1210,6 +1210,9 @@ public class Constants {
       @SerializedName("wire_transfer")
       WIRE_TRANSFER,
     
+      @SerializedName("braintree_v_zero")
+      BRAINTREE_V_ZERO,
+    
     };
   
     public enum CardType {
