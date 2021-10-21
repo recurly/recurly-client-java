@@ -265,6 +265,9 @@ public class Constants {
       @SerializedName("en-GB")
       EN_GB,
     
+      @SerializedName("en-IE")
+      EN_IE,
+    
       @SerializedName("en-NZ")
       EN_NZ,
     
@@ -280,6 +283,9 @@ public class Constants {
       @SerializedName("es-US")
       ES_US,
     
+      @SerializedName("fi-FI")
+      FI_FI,
+    
       @SerializedName("fr-CA")
       FR_CA,
     
@@ -289,8 +295,14 @@ public class Constants {
       @SerializedName("hi-IN")
       HI_IN,
     
+      @SerializedName("it-IT")
+      IT_IT,
+    
       @SerializedName("ja-JP")
       JA_JP,
+    
+      @SerializedName("ko-KR")
+      KO_KR,
     
       @SerializedName("nl-BE")
       NL_BE,
@@ -304,8 +316,14 @@ public class Constants {
       @SerializedName("pt-PT")
       PT_PT,
     
+      @SerializedName("ro-RO")
+      RO_RO,
+    
       @SerializedName("ru-RU")
       RU_RU,
+    
+      @SerializedName("sk-SK")
+      SK_SK,
     
       @SerializedName("tr-TR")
       TR_TR,
@@ -572,8 +590,17 @@ public class Constants {
     public enum Origin {
       UNDEFINED,
     
+      @SerializedName("carryforward_credit")
+      CARRYFORWARD_CREDIT,
+    
+      @SerializedName("carryforward_gift_credit")
+      CARRYFORWARD_GIFT_CREDIT,
+    
       @SerializedName("credit")
       CREDIT,
+    
+      @SerializedName("external_refund")
+      EXTERNAL_REFUND,
     
       @SerializedName("gift_card")
       GIFT_CARD,
@@ -581,14 +608,23 @@ public class Constants {
       @SerializedName("immediate_change")
       IMMEDIATE_CHANGE,
     
+      @SerializedName("import")
+      IMPORT,
+    
       @SerializedName("line_item_refund")
       LINE_ITEM_REFUND,
     
       @SerializedName("open_amount_refund")
       OPEN_AMOUNT_REFUND,
     
+      @SerializedName("prepayment")
+      PREPAYMENT,
+    
       @SerializedName("purchase")
       PURCHASE,
+    
+      @SerializedName("refund")
+      REFUND,
     
       @SerializedName("renewal")
       RENEWAL,
@@ -596,11 +632,11 @@ public class Constants {
       @SerializedName("termination")
       TERMINATION,
     
+      @SerializedName("usage_correction")
+      USAGE_CORRECTION,
+    
       @SerializedName("write_off")
       WRITE_OFF,
-    
-      @SerializedName("prepayment")
-      PREPAYMENT,
     
     };
   
