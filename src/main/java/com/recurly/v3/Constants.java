@@ -1454,6 +1454,9 @@ public class Constants {
       @SerializedName("amazon_amount_exceeded")
       AMAZON_AMOUNT_EXCEEDED,
     
+      @SerializedName("amazon_declined_review")
+      AMAZON_DECLINED_REVIEW,
+    
       @SerializedName("amazon_invalid_authorization_status")
       AMAZON_INVALID_AUTHORIZATION_STATUS,
     
@@ -1502,11 +1505,17 @@ public class Constants {
       @SerializedName("billing_agreement_not_accepted")
       BILLING_AGREEMENT_NOT_ACCEPTED,
     
+      @SerializedName("billing_agreement_not_found")
+      BILLING_AGREEMENT_NOT_FOUND,
+    
       @SerializedName("call_issuer")
       CALL_ISSUER,
     
       @SerializedName("call_issuer_update_cardholder_data")
       CALL_ISSUER_UPDATE_CARDHOLDER_DATA,
+    
+      @SerializedName("cancelled")
+      CANCELLED,
     
       @SerializedName("cannot_refund_unsettled_transactions")
       CANNOT_REFUND_UNSETTLED_TRANSACTIONS,
@@ -1522,6 +1531,9 @@ public class Constants {
     
       @SerializedName("contact_gateway")
       CONTACT_GATEWAY,
+    
+      @SerializedName("contract_not_found")
+      CONTRACT_NOT_FOUND,
     
       @SerializedName("currency_not_supported")
       CURRENCY_NOT_SUPPORTED,
@@ -1556,14 +1568,23 @@ public class Constants {
       @SerializedName("deposit_referenced_chargeback")
       DEPOSIT_REFERENCED_CHARGEBACK,
     
+      @SerializedName("direct_debit_type_not_accepted")
+      DIRECT_DEBIT_TYPE_NOT_ACCEPTED,
+    
       @SerializedName("duplicate_transaction")
       DUPLICATE_TRANSACTION,
     
       @SerializedName("exceeds_daily_limit")
       EXCEEDS_DAILY_LIMIT,
     
+      @SerializedName("exceeds_max_amount")
+      EXCEEDS_MAX_AMOUNT,
+    
       @SerializedName("expired_card")
       EXPIRED_CARD,
+    
+      @SerializedName("finbot_disconnect")
+      FINBOT_DISCONNECT,
     
       @SerializedName("finbot_unavailable")
       FINBOT_UNAVAILABLE,
@@ -1586,6 +1607,9 @@ public class Constants {
       @SerializedName("fraud_ip_address")
       FRAUD_IP_ADDRESS,
     
+      @SerializedName("fraud_manual_decision")
+      FRAUD_MANUAL_DECISION,
+    
       @SerializedName("fraud_risk_check")
       FRAUD_RISK_CHECK,
     
@@ -1600,6 +1624,9 @@ public class Constants {
     
       @SerializedName("fraud_velocity")
       FRAUD_VELOCITY,
+    
+      @SerializedName("gateway_account_setup_incomplete")
+      GATEWAY_ACCOUNT_SETUP_INCOMPLETE,
     
       @SerializedName("gateway_error")
       GATEWAY_ERROR,
@@ -1616,6 +1643,9 @@ public class Constants {
       @SerializedName("gateway_unavailable")
       GATEWAY_UNAVAILABLE,
     
+      @SerializedName("gateway_validation_exception")
+      GATEWAY_VALIDATION_EXCEPTION,
+    
       @SerializedName("insufficient_funds")
       INSUFFICIENT_FUNDS,
     
@@ -1624,6 +1654,9 @@ public class Constants {
     
       @SerializedName("invalid_amount")
       INVALID_AMOUNT,
+    
+      @SerializedName("invalid_billing_agreement_status")
+      INVALID_BILLING_AGREEMENT_STATUS,
     
       @SerializedName("invalid_card_number")
       INVALID_CARD_NUMBER,
@@ -1634,11 +1667,11 @@ public class Constants {
       @SerializedName("invalid_email")
       INVALID_EMAIL,
     
-      @SerializedName("invalid_gateway_configuration")
-      INVALID_GATEWAY_CONFIGURATION,
-    
       @SerializedName("invalid_gateway_access_token")
       INVALID_GATEWAY_ACCESS_TOKEN,
+    
+      @SerializedName("invalid_gateway_configuration")
+      INVALID_GATEWAY_CONFIGURATION,
     
       @SerializedName("invalid_issuer")
       INVALID_ISSUER,
@@ -1649,6 +1682,15 @@ public class Constants {
       @SerializedName("invalid_merchant_type")
       INVALID_MERCHANT_TYPE,
     
+      @SerializedName("invalid_name")
+      INVALID_NAME,
+    
+      @SerializedName("invalid_payment_method")
+      INVALID_PAYMENT_METHOD,
+    
+      @SerializedName("invalid_payment_method_hard")
+      INVALID_PAYMENT_METHOD_HARD,
+    
       @SerializedName("invalid_transaction")
       INVALID_TRANSACTION,
     
@@ -1657,6 +1699,9 @@ public class Constants {
     
       @SerializedName("merch_max_transaction_limit_exceeded")
       MERCH_MAX_TRANSACTION_LIMIT_EXCEEDED,
+    
+      @SerializedName("moneybot_disconnect")
+      MONEYBOT_DISCONNECT,
     
       @SerializedName("moneybot_unavailable")
       MONEYBOT_UNAVAILABLE,
@@ -1675,6 +1720,9 @@ public class Constants {
     
       @SerializedName("partial_credits_not_supported")
       PARTIAL_CREDITS_NOT_SUPPORTED,
+    
+      @SerializedName("payer_authentication_rejected")
+      PAYER_AUTHENTICATION_REJECTED,
     
       @SerializedName("payment_cannot_void_authorization")
       PAYMENT_CANNOT_VOID_AUTHORIZATION,
@@ -1703,8 +1751,14 @@ public class Constants {
       @SerializedName("paypal_primary_declined")
       PAYPAL_PRIMARY_DECLINED,
     
+      @SerializedName("processor_not_available")
+      PROCESSOR_NOT_AVAILABLE,
+    
       @SerializedName("processor_unavailable")
       PROCESSOR_UNAVAILABLE,
+    
+      @SerializedName("recurly_credentials_not_found")
+      RECURLY_CREDENTIALS_NOT_FOUND,
     
       @SerializedName("recurly_error")
       RECURLY_ERROR,
@@ -1727,6 +1781,21 @@ public class Constants {
       @SerializedName("restricted_card_chargeback")
       RESTRICTED_CARD_CHARGEBACK,
     
+      @SerializedName("rjs_token_expired")
+      RJS_TOKEN_EXPIRED,
+    
+      @SerializedName("roku_invalid_card_number")
+      ROKU_INVALID_CARD_NUMBER,
+    
+      @SerializedName("roku_invalid_cib")
+      ROKU_INVALID_CIB,
+    
+      @SerializedName("roku_invalid_payment_method")
+      ROKU_INVALID_PAYMENT_METHOD,
+    
+      @SerializedName("roku_zip_code_mismatch")
+      ROKU_ZIP_CODE_MISMATCH,
+    
       @SerializedName("simultaneous")
       SIMULTANEOUS,
     
@@ -1736,8 +1805,17 @@ public class Constants {
       @SerializedName("temporary_hold")
       TEMPORARY_HOLD,
     
+      @SerializedName("three_d_secure_action_required")
+      THREE_D_SECURE_ACTION_REQUIRED,
+    
+      @SerializedName("three_d_secure_action_result_token_mismatch")
+      THREE_D_SECURE_ACTION_RESULT_TOKEN_MISMATCH,
+    
       @SerializedName("three_d_secure_authentication")
       THREE_D_SECURE_AUTHENTICATION,
+    
+      @SerializedName("three_d_secure_connection_error")
+      THREE_D_SECURE_CONNECTION_ERROR,
     
       @SerializedName("three_d_secure_not_supported")
       THREE_D_SECURE_NOT_SUPPORTED,
@@ -1772,6 +1850,12 @@ public class Constants {
       @SerializedName("transaction_not_found")
       TRANSACTION_NOT_FOUND,
     
+      @SerializedName("transaction_service_v2_disconnect")
+      TRANSACTION_SERVICE_V2_DISCONNECT,
+    
+      @SerializedName("transaction_service_v2_unavailable")
+      TRANSACTION_SERVICE_V2_UNAVAILABLE,
+    
       @SerializedName("transaction_settled")
       TRANSACTION_SETTLED,
     
@@ -1783,6 +1867,9 @@ public class Constants {
     
       @SerializedName("unknown")
       UNKNOWN,
+    
+      @SerializedName("unmapped_partner_error")
+      UNMAPPED_PARTNER_ERROR,
     
       @SerializedName("vaultly_service_unavailable")
       VAULTLY_SERVICE_UNAVAILABLE,
