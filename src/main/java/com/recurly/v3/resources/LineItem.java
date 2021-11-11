@@ -62,6 +62,11 @@ public class LineItem extends Resource {
   @Expose
   private Integer avalaraTransactionType;
 
+  /** The UUID of the account responsible for originating the line item. */
+  @SerializedName("bill_for_account_id")
+  @Expose
+  private String billForAccountId;
+
   /** When the line item was created. */
   @SerializedName("created_at")
   @Expose
@@ -421,6 +426,16 @@ public class LineItem extends Resource {
    */
   public void setAvalaraTransactionType(final Integer avalaraTransactionType) {
     this.avalaraTransactionType = avalaraTransactionType;
+  }
+
+  /** The UUID of the account responsible for originating the line item. */
+  public String getBillForAccountId() {
+    return this.billForAccountId;
+  }
+
+  /** @param billForAccountId The UUID of the account responsible for originating the line item. */
+  public void setBillForAccountId(final String billForAccountId) {
+    this.billForAccountId = billForAccountId;
   }
 
   /** When the line item was created. */
