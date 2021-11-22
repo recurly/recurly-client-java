@@ -13,6 +13,16 @@ import com.recurly.v3.resources.*;
 
 public class BillingInfoCreate extends Request {
 
+  /** The bank account number. (ACH, Bacs only) */
+  @SerializedName("account_number")
+  @Expose
+  private String accountNumber;
+
+  /** The bank account type. (ACH only) */
+  @SerializedName("account_type")
+  @Expose
+  private Constants.AchAccountType accountType;
+
   @SerializedName("address")
   @Expose
   private Address address;
@@ -92,6 +102,11 @@ public class BillingInfoCreate extends Request {
   @Expose
   private String month;
 
+  /** The name associated with the bank account (ACH, SEPA, Bacs only) */
+  @SerializedName("name_on_account")
+  @Expose
+  private String nameOnAccount;
+
   /** Credit card number, spaces and dashes are accepted. */
   @SerializedName("number")
   @Expose
@@ -113,6 +128,16 @@ public class BillingInfoCreate extends Request {
   @SerializedName("primary_payment_method")
   @Expose
   private Boolean primaryPaymentMethod;
+
+  /** The bank's rounting number. (ACH only) */
+  @SerializedName("routing_number")
+  @Expose
+  private String routingNumber;
+
+  /** Bank identifier code for UK based banks. Required for Bacs based billing infos. (Bacs only) */
+  @SerializedName("sort_code")
+  @Expose
+  private String sortCode;
 
   /**
    * Tax identifier is required if adding a billing info that is a consumer card in Brazil or in
@@ -155,6 +180,14 @@ public class BillingInfoCreate extends Request {
   @Expose
   private Constants.GatewayTransactionType transactionType;
 
+  /**
+   * The payment method type for a non-credit card based billing info. The value of `bacs` is the
+   * only accepted value (Bacs only)
+   */
+  @SerializedName("type")
+  @Expose
+  private Constants.AchType type;
+
   /** VAT number */
   @SerializedName("vat_number")
   @Expose
@@ -164,6 +197,26 @@ public class BillingInfoCreate extends Request {
   @SerializedName("year")
   @Expose
   private String year;
+
+  /** The bank account number. (ACH, Bacs only) */
+  public String getAccountNumber() {
+    return this.accountNumber;
+  }
+
+  /** @param accountNumber The bank account number. (ACH, Bacs only) */
+  public void setAccountNumber(final String accountNumber) {
+    this.accountNumber = accountNumber;
+  }
+
+  /** The bank account type. (ACH only) */
+  public Constants.AchAccountType getAccountType() {
+    return this.accountType;
+  }
+
+  /** @param accountType The bank account type. (ACH only) */
+  public void setAccountType(final Constants.AchAccountType accountType) {
+    this.accountType = accountType;
+  }
 
   public Address getAddress() {
     return this.address;
@@ -329,6 +382,16 @@ public class BillingInfoCreate extends Request {
     this.month = month;
   }
 
+  /** The name associated with the bank account (ACH, SEPA, Bacs only) */
+  public String getNameOnAccount() {
+    return this.nameOnAccount;
+  }
+
+  /** @param nameOnAccount The name associated with the bank account (ACH, SEPA, Bacs only) */
+  public void setNameOnAccount(final String nameOnAccount) {
+    this.nameOnAccount = nameOnAccount;
+  }
+
   /** Credit card number, spaces and dashes are accepted. */
   public String getNumber() {
     return this.number;
@@ -372,6 +435,29 @@ public class BillingInfoCreate extends Request {
    */
   public void setPrimaryPaymentMethod(final Boolean primaryPaymentMethod) {
     this.primaryPaymentMethod = primaryPaymentMethod;
+  }
+
+  /** The bank's rounting number. (ACH only) */
+  public String getRoutingNumber() {
+    return this.routingNumber;
+  }
+
+  /** @param routingNumber The bank's rounting number. (ACH only) */
+  public void setRoutingNumber(final String routingNumber) {
+    this.routingNumber = routingNumber;
+  }
+
+  /** Bank identifier code for UK based banks. Required for Bacs based billing infos. (Bacs only) */
+  public String getSortCode() {
+    return this.sortCode;
+  }
+
+  /**
+   * @param sortCode Bank identifier code for UK based banks. Required for Bacs based billing infos.
+   *     (Bacs only)
+   */
+  public void setSortCode(final String sortCode) {
+    this.sortCode = sortCode;
   }
 
   /**
@@ -456,6 +542,22 @@ public class BillingInfoCreate extends Request {
    */
   public void setTransactionType(final Constants.GatewayTransactionType transactionType) {
     this.transactionType = transactionType;
+  }
+
+  /**
+   * The payment method type for a non-credit card based billing info. The value of `bacs` is the
+   * only accepted value (Bacs only)
+   */
+  public Constants.AchType getType() {
+    return this.type;
+  }
+
+  /**
+   * @param type The payment method type for a non-credit card based billing info. The value of
+   *     `bacs` is the only accepted value (Bacs only)
+   */
+  public void setType(final Constants.AchType type) {
+    this.type = type;
   }
 
   /** VAT number */

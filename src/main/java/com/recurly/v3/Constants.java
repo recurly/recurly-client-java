@@ -1508,6 +1508,9 @@ public class Constants {
       @SerializedName("billing_agreement_not_found")
       BILLING_AGREEMENT_NOT_FOUND,
     
+      @SerializedName("billing_agreement_replaced")
+      BILLING_AGREEMENT_REPLACED,
+    
       @SerializedName("call_issuer")
       CALL_ISSUER,
     
@@ -1901,6 +1904,25 @@ public class Constants {
     
       @SerializedName("trial")
       TRIAL,
+    
+    };
+  
+    public enum AchType {
+      UNDEFINED,
+    
+      @SerializedName("bacs")
+      BACS,
+    
+    };
+  
+    public enum AchAccountType {
+      UNDEFINED,
+    
+      @SerializedName("checking")
+      CHECKING,
+    
+      @SerializedName("savings")
+      SAVINGS,
     
     };
   
