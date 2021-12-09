@@ -112,6 +112,14 @@ public class SubscriptionChangeCreate extends Request {
   private SubscriptionChangeShippingCreate shipping;
 
   /**
+   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
+   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
+   */
+  @SerializedName("tax_inclusive")
+  @Expose
+  private Boolean taxInclusive;
+
+  /**
    * The timeframe parameter controls when the upgrade or downgrade takes place. The subscription
    * change can occur now, when the subscription is next billed, or when the subscription term ends.
    * Generally, if you're performing an upgrade, you will want the change to occur immediately
@@ -332,6 +340,23 @@ public class SubscriptionChangeCreate extends Request {
    */
   public void setShipping(final SubscriptionChangeShippingCreate shipping) {
     this.shipping = shipping;
+  }
+
+  /**
+   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
+   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
+   */
+  public Boolean getTaxInclusive() {
+    return this.taxInclusive;
+  }
+
+  /**
+   * @param taxInclusive Determines whether or not tax is included in the unit amount. The Tax
+   *     Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to
+   *     use this flag.
+   */
+  public void setTaxInclusive(final Boolean taxInclusive) {
+    this.taxInclusive = taxInclusive;
   }
 
   /**
