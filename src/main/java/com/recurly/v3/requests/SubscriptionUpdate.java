@@ -22,7 +22,8 @@ public class SubscriptionUpdate extends Request {
   /**
    * The `billing_info_id` is the value that represents a specific billing info for an end customer.
    * When `billing_info_id` is used to assign billing info to the subscription, all future billing
-   * events for the subscription will bill to the specified billing info.
+   * events for the subscription will bill to the specified billing info. `billing_info_id` can ONLY
+   * be used for sites utilizing the Wallet feature.
    */
   @SerializedName("billing_info_id")
   @Expose
@@ -100,6 +101,14 @@ public class SubscriptionUpdate extends Request {
   private SubscriptionShippingUpdate shipping;
 
   /**
+   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
+   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
+   */
+  @SerializedName("tax_inclusive")
+  @Expose
+  private Boolean taxInclusive;
+
+  /**
    * Specify custom notes to add or override Terms and Conditions. Custom notes will stay with a
    * subscription on all renewals.
    */
@@ -120,7 +129,8 @@ public class SubscriptionUpdate extends Request {
   /**
    * The `billing_info_id` is the value that represents a specific billing info for an end customer.
    * When `billing_info_id` is used to assign billing info to the subscription, all future billing
-   * events for the subscription will bill to the specified billing info.
+   * events for the subscription will bill to the specified billing info. `billing_info_id` can ONLY
+   * be used for sites utilizing the Wallet feature.
    */
   public String getBillingInfoId() {
     return this.billingInfoId;
@@ -130,7 +140,7 @@ public class SubscriptionUpdate extends Request {
    * @param billingInfoId The `billing_info_id` is the value that represents a specific billing info
    *     for an end customer. When `billing_info_id` is used to assign billing info to the
    *     subscription, all future billing events for the subscription will bill to the specified
-   *     billing info.
+   *     billing info. `billing_info_id` can ONLY be used for sites utilizing the Wallet feature.
    */
   public void setBillingInfoId(final String billingInfoId) {
     this.billingInfoId = billingInfoId;
@@ -280,6 +290,23 @@ public class SubscriptionUpdate extends Request {
   /** @param shipping Subscription shipping details */
   public void setShipping(final SubscriptionShippingUpdate shipping) {
     this.shipping = shipping;
+  }
+
+  /**
+   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
+   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
+   */
+  public Boolean getTaxInclusive() {
+    return this.taxInclusive;
+  }
+
+  /**
+   * @param taxInclusive Determines whether or not tax is included in the unit amount. The Tax
+   *     Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to
+   *     use this flag.
+   */
+  public void setTaxInclusive(final Boolean taxInclusive) {
+    this.taxInclusive = taxInclusive;
   }
 
   /**

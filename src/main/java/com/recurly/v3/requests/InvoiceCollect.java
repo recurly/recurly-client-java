@@ -15,7 +15,8 @@ public class InvoiceCollect extends Request {
   /**
    * The `billing_info_id` is the value that represents a specific billing info for an end customer.
    * When `billing_info_id` is used to assign billing info to the subscription, all future billing
-   * events for the subscription will bill to the specified billing info.
+   * events for the subscription will bill to the specified billing info. `billing_info_id` can ONLY
+   * be used for sites utilizing the Wallet feature.
    */
   @SerializedName("billing_info_id")
   @Expose
@@ -40,7 +41,8 @@ public class InvoiceCollect extends Request {
   /**
    * The `billing_info_id` is the value that represents a specific billing info for an end customer.
    * When `billing_info_id` is used to assign billing info to the subscription, all future billing
-   * events for the subscription will bill to the specified billing info.
+   * events for the subscription will bill to the specified billing info. `billing_info_id` can ONLY
+   * be used for sites utilizing the Wallet feature.
    */
   public String getBillingInfoId() {
     return this.billingInfoId;
@@ -50,7 +52,7 @@ public class InvoiceCollect extends Request {
    * @param billingInfoId The `billing_info_id` is the value that represents a specific billing info
    *     for an end customer. When `billing_info_id` is used to assign billing info to the
    *     subscription, all future billing events for the subscription will bill to the specified
-   *     billing info.
+   *     billing info. `billing_info_id` can ONLY be used for sites utilizing the Wallet feature.
    */
   public void setBillingInfoId(final String billingInfoId) {
     this.billingInfoId = billingInfoId;

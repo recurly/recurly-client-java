@@ -87,6 +87,14 @@ public class SubscriptionPurchase extends Request {
   private DateTime startsAt;
 
   /**
+   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
+   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
+   */
+  @SerializedName("tax_inclusive")
+  @Expose
+  private Boolean taxInclusive;
+
+  /**
    * The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if
    * `auto_renew=true` the subscription will renew and a new term will begin, otherwise the
    * subscription will expire.
@@ -256,6 +264,23 @@ public class SubscriptionPurchase extends Request {
    */
   public void setStartsAt(final DateTime startsAt) {
     this.startsAt = startsAt;
+  }
+
+  /**
+   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
+   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
+   */
+  public Boolean getTaxInclusive() {
+    return this.taxInclusive;
+  }
+
+  /**
+   * @param taxInclusive Determines whether or not tax is included in the unit amount. The Tax
+   *     Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to
+   *     use this flag.
+   */
+  public void setTaxInclusive(final Boolean taxInclusive) {
+    this.taxInclusive = taxInclusive;
   }
 
   /**
