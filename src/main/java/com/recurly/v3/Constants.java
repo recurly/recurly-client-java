@@ -1820,6 +1820,9 @@ public class Constants {
       @SerializedName("three_d_secure_connection_error")
       THREE_D_SECURE_CONNECTION_ERROR,
     
+      @SerializedName("three_d_secure_credential_error")
+      THREE_D_SECURE_CREDENTIAL_ERROR,
+    
       @SerializedName("three_d_secure_not_supported")
       THREE_D_SECURE_NOT_SUPPORTED,
     

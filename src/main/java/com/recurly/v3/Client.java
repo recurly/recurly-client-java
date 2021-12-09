@@ -337,7 +337,7 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_a_billing_info">get_a_billing_info api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param billingInfoId Billing Info ID.
+   * @param billingInfoId Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
      * @return A billing info.
    */
   public BillingInfo getABillingInfo(String accountId, String billingInfoId) {
@@ -355,7 +355,7 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/update_a_billing_info">update_a_billing_info api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param billingInfoId Billing Info ID.
+   * @param billingInfoId Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
    * @param body The body of the request.
      * @return Updated billing information.
    */
@@ -374,7 +374,7 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/remove_a_billing_info">remove_a_billing_info api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param billingInfoId Billing Info ID.
+   * @param billingInfoId Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
    */
   public void removeABillingInfo(String accountId, String billingInfoId) {
     final String url = "/accounts/{account_id}/billing_infos/{billing_info_id}";
