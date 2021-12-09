@@ -97,6 +97,14 @@ public class SubscriptionChange extends Resource {
   @Expose
   private String subscriptionId;
 
+  /**
+   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
+   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
+   */
+  @SerializedName("tax_inclusive")
+  @Expose
+  private Boolean taxInclusive;
+
   /** Unit amount */
   @SerializedName("unit_amount")
   @Expose
@@ -273,6 +281,23 @@ public class SubscriptionChange extends Resource {
   /** @param subscriptionId The ID of the subscription that is going to be changed. */
   public void setSubscriptionId(final String subscriptionId) {
     this.subscriptionId = subscriptionId;
+  }
+
+  /**
+   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
+   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
+   */
+  public Boolean getTaxInclusive() {
+    return this.taxInclusive;
+  }
+
+  /**
+   * @param taxInclusive Determines whether or not tax is included in the unit amount. The Tax
+   *     Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to
+   *     use this flag.
+   */
+  public void setTaxInclusive(final Boolean taxInclusive) {
+    this.taxInclusive = taxInclusive;
   }
 
   /** Unit amount */

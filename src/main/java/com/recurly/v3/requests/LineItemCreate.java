@@ -154,6 +154,14 @@ public class LineItemCreate extends Request {
   private Boolean taxExempt;
 
   /**
+   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
+   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
+   */
+  @SerializedName("tax_inclusive")
+  @Expose
+  private Boolean taxInclusive;
+
+  /**
    * Line item type. If `item_code`/`item_id` is present then `type` should not be present. If
    * `item_code`/`item_id` is not present then `type` is required.
    */
@@ -451,6 +459,23 @@ public class LineItemCreate extends Request {
    */
   public void setTaxExempt(final Boolean taxExempt) {
     this.taxExempt = taxExempt;
+  }
+
+  /**
+   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
+   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
+   */
+  public Boolean getTaxInclusive() {
+    return this.taxInclusive;
+  }
+
+  /**
+   * @param taxInclusive Determines whether or not tax is included in the unit amount. The Tax
+   *     Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to
+   *     use this flag.
+   */
+  public void setTaxInclusive(final Boolean taxInclusive) {
+    this.taxInclusive = taxInclusive;
   }
 
   /**
