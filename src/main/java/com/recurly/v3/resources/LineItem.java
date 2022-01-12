@@ -108,8 +108,8 @@ public class LineItem extends Resource {
   private DateTime endDate;
 
   /**
-   * Optional Stock Keeping Unit assigned to an item. Available when the Credit Invoices and
-   * Subscription Billing Terms features are enabled.
+   * Optional Stock Keeping Unit assigned to an item. Available when the Credit Invoices feature is
+   * enabled.
    */
   @SerializedName("external_sku")
   @Expose
@@ -135,17 +135,14 @@ public class LineItem extends Resource {
   @Expose
   private String invoiceNumber;
 
-  /**
-   * Unique code to identify an item. Available when the Credit Invoices and Subscription Billing
-   * Terms features are enabled.
-   */
+  /** Unique code to identify an item. Available when the Credit Invoices feature is enabled. */
   @SerializedName("item_code")
   @Expose
   private String itemCode;
 
   /**
-   * System-generated unique identifier for an item. Available when the Credit Invoices and
-   * Subscription Billing Terms features are enabled.
+   * System-generated unique identifier for an item. Available when the Credit Invoices feature is
+   * enabled.
    */
   @SerializedName("item_id")
   @Expose
@@ -524,8 +521,8 @@ public class LineItem extends Resource {
   }
 
   /**
-   * Optional Stock Keeping Unit assigned to an item. Available when the Credit Invoices and
-   * Subscription Billing Terms features are enabled.
+   * Optional Stock Keeping Unit assigned to an item. Available when the Credit Invoices feature is
+   * enabled.
    */
   public String getExternalSku() {
     return this.externalSku;
@@ -533,7 +530,7 @@ public class LineItem extends Resource {
 
   /**
    * @param externalSku Optional Stock Keeping Unit assigned to an item. Available when the Credit
-   *     Invoices and Subscription Billing Terms features are enabled.
+   *     Invoices feature is enabled.
    */
   public void setExternalSku(final String externalSku) {
     this.externalSku = externalSku;
@@ -579,25 +576,22 @@ public class LineItem extends Resource {
     this.invoiceNumber = invoiceNumber;
   }
 
-  /**
-   * Unique code to identify an item. Available when the Credit Invoices and Subscription Billing
-   * Terms features are enabled.
-   */
+  /** Unique code to identify an item. Available when the Credit Invoices feature is enabled. */
   public String getItemCode() {
     return this.itemCode;
   }
 
   /**
-   * @param itemCode Unique code to identify an item. Available when the Credit Invoices and
-   *     Subscription Billing Terms features are enabled.
+   * @param itemCode Unique code to identify an item. Available when the Credit Invoices feature is
+   *     enabled.
    */
   public void setItemCode(final String itemCode) {
     this.itemCode = itemCode;
   }
 
   /**
-   * System-generated unique identifier for an item. Available when the Credit Invoices and
-   * Subscription Billing Terms features are enabled.
+   * System-generated unique identifier for an item. Available when the Credit Invoices feature is
+   * enabled.
    */
   public String getItemId() {
     return this.itemId;
@@ -605,7 +599,7 @@ public class LineItem extends Resource {
 
   /**
    * @param itemId System-generated unique identifier for an item. Available when the Credit
-   *     Invoices and Subscription Billing Terms features are enabled.
+   *     Invoices feature is enabled.
    */
   public void setItemId(final String itemId) {
     this.itemId = itemId;

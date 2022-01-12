@@ -1916,6 +1916,9 @@ public class Constants {
       @SerializedName("bacs")
       BACS,
     
+      @SerializedName("becs")
+      BECS,
+    
     };
   
     public enum AchAccountType {

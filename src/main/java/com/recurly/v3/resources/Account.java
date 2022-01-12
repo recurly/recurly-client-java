@@ -143,6 +143,14 @@ public class Account extends Resource {
   @Expose
   private String id;
 
+  /**
+   * Invoice template associated to the account. Available when invoice customization flag is
+   * enabled.
+   */
+  @SerializedName("invoice_template")
+  @Expose
+  private AccountInvoiceTemplate invoiceTemplate;
+
   @SerializedName("last_name")
   @Expose
   private String lastName;
@@ -467,6 +475,22 @@ public class Account extends Resource {
   /** @param id */
   public void setId(final String id) {
     this.id = id;
+  }
+
+  /**
+   * Invoice template associated to the account. Available when invoice customization flag is
+   * enabled.
+   */
+  public AccountInvoiceTemplate getInvoiceTemplate() {
+    return this.invoiceTemplate;
+  }
+
+  /**
+   * @param invoiceTemplate Invoice template associated to the account. Available when invoice
+   *     customization flag is enabled.
+   */
+  public void setInvoiceTemplate(final AccountInvoiceTemplate invoiceTemplate) {
+    this.invoiceTemplate = invoiceTemplate;
   }
 
   public String getLastName() {
