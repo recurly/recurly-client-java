@@ -4,6 +4,7 @@ import com.google.gson.reflect.TypeToken;
 import com.recurly.v3.BaseClient;
 import com.recurly.v3.Pager;
 import com.recurly.v3.QueryParams;
+import com.recurly.v3.ClientOptions;
 
 import org.mockito.stubbing.Answer;
 
@@ -28,6 +29,10 @@ public class MockClient extends BaseClient {
 
   public MockClient(final String apiKey, final OkHttpClient client) {
     super(apiKey, client);
+  }
+
+  public MockClient(final String apiKey, final ClientOptions clientOptions) {
+    super(apiKey, clientOptions);
   }
 
   public String apiUrl;

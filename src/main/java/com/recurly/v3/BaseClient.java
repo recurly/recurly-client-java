@@ -3,6 +3,7 @@ package com.recurly.v3;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.exception.ExceptionFactory;
 import com.recurly.v3.http.HeaderInterceptor;
+import com.recurly.v3.ClientOptions;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
@@ -24,7 +25,12 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import org.joda.time.DateTime;
 
 public abstract class BaseClient {
-  private static final String API_URL = "https://v3.recurly.com";
+  private static Map<String, String> apiHosts = new HashMap<>();
+  static {
+      apiHosts.put("us", "https://v3.recurly.com");
+      apiHosts.put("eu", "https://v3.eu.recurly.com");
+  }
+
   private static final List<String> BINARY_TYPES = Arrays.asList("application/pdf");
 
   private static final JsonSerializer jsonSerializer = new JsonSerializer();
@@ -34,17 +40,36 @@ public abstract class BaseClient {
   private String apiUrl;
 
   protected BaseClient(final String apiKey) {
-    this(apiKey, newHttpClient(apiKey));
+    this(apiKey, newHttpClient(apiKey), null);
+  }
+
+  protected BaseClient(final String apiKey, final ClientOptions clientOptions) {
+    this(apiKey, newHttpClient(apiKey), clientOptions);
   }
 
   protected BaseClient(final String apiKey, final OkHttpClient client) {
+    this(apiKey, client, null);
+  }
+
+  protected BaseClient(final String apiKey, final OkHttpClient client, final ClientOptions clientOptions) {
     if (apiKey == null || apiKey.isEmpty()) {
       throw new IllegalArgumentException("apiKey cannot be null or empty");
     }
 
+    ClientOptions options = clientOptions;
+
+    if (options == null) {
+        options = new ClientOptions();
+        options.setRegion("us");
+    }
+
+    if (apiHosts.get(options.getRegion()) == null) {
+      throw new IllegalArgumentException("Invalid region type. Expected one of: " + apiHosts.keySet());
+    }
+
     this.apiKey = apiKey;
     this.client = client;
-    this.apiUrl = API_URL;
+    this.apiUrl = apiHosts.get(options.getRegion());
   }
 
   private static OkHttpClient newHttpClient(final String apiKey) {
