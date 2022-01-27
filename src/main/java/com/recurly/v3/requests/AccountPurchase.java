@@ -100,6 +100,15 @@ public class AccountPurchase extends Request {
   @Expose
   private String id;
 
+  /**
+   * Unique ID to identify an invoice template. Available when the Invoice Customization feature is
+   * enabled. Used to specify which invoice template, if any, should be used to generate invoices
+   * for the account.
+   */
+  @SerializedName("invoice_template_id")
+  @Expose
+  private String invoiceTemplateId;
+
   @SerializedName("last_name")
   @Expose
   private String lastName;
@@ -342,6 +351,24 @@ public class AccountPurchase extends Request {
    */
   public void setId(final String id) {
     this.id = id;
+  }
+
+  /**
+   * Unique ID to identify an invoice template. Available when the Invoice Customization feature is
+   * enabled. Used to specify which invoice template, if any, should be used to generate invoices
+   * for the account.
+   */
+  public String getInvoiceTemplateId() {
+    return this.invoiceTemplateId;
+  }
+
+  /**
+   * @param invoiceTemplateId Unique ID to identify an invoice template. Available when the Invoice
+   *     Customization feature is enabled. Used to specify which invoice template, if any, should be
+   *     used to generate invoices for the account.
+   */
+  public void setInvoiceTemplateId(final String invoiceTemplateId) {
+    this.invoiceTemplateId = invoiceTemplateId;
   }
 
   public String getLastName() {

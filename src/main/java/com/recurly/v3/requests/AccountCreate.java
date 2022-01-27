@@ -92,6 +92,15 @@ public class AccountCreate extends Request {
   @Expose
   private String firstName;
 
+  /**
+   * Unique ID to identify an invoice template. Available when the Invoice Customization feature is
+   * enabled. Used to specify which invoice template, if any, should be used to generate invoices
+   * for the account.
+   */
+  @SerializedName("invoice_template_id")
+  @Expose
+  private String invoiceTemplateId;
+
   @SerializedName("last_name")
   @Expose
   private String lastName;
@@ -322,6 +331,24 @@ public class AccountCreate extends Request {
   /** @param firstName */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
+  }
+
+  /**
+   * Unique ID to identify an invoice template. Available when the Invoice Customization feature is
+   * enabled. Used to specify which invoice template, if any, should be used to generate invoices
+   * for the account.
+   */
+  public String getInvoiceTemplateId() {
+    return this.invoiceTemplateId;
+  }
+
+  /**
+   * @param invoiceTemplateId Unique ID to identify an invoice template. Available when the Invoice
+   *     Customization feature is enabled. Used to specify which invoice template, if any, should be
+   *     used to generate invoices for the account.
+   */
+  public void setInvoiceTemplateId(final String invoiceTemplateId) {
+    this.invoiceTemplateId = invoiceTemplateId;
   }
 
   public String getLastName() {
