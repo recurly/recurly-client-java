@@ -964,6 +964,25 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
+   * List an invoice template's associated accounts
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_template_accounts">list_invoice_template_accounts api documentation</a>
+   * @param invoiceTemplateId Invoice template ID.
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of an invoice template's associated accounts.
+   */
+  public Pager<Account> listInvoiceTemplateAccounts(String invoiceTemplateId, QueryParams queryParams) {
+    final String url = "/invoice_templates/{invoice_template_id}/accounts";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("invoice_template_id", invoiceTemplateId);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Account.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
    * List a site's items
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_items">list_items api documentation</a>
