@@ -370,30 +370,26 @@ public class BaseClientTest {
   }
 
   @Test
-  public void testUsingRegionUS() {
-      final MockClient client = new MockClient("apiKey");
-      assertEquals("https://v3.recurly.com", client.getApiUrl());
+  public void testWithoutClientOptions() {
+    // The default region should be ClientOptions.Regions.US
+    final MockClient client = new MockClient("apiKey");
+    assertEquals("https://v3.recurly.com", client.getApiUrl());
   }
 
   @Test
-  public void testUsingRegionEU() {
-      final ClientOptions options = new ClientOptions();
-      options.setRegion("eu");
-      final MockClient client = new MockClient("apiKey", options);
-      assertEquals("https://v3.eu.recurly.com", client.getApiUrl());
+  public void testUsingRegionUSClientOptions() {
+    final ClientOptions options = new ClientOptions();
+    options.setRegion(ClientOptions.Regions.US);
+    final MockClient client = new MockClient("apiKey", options);
+    assertEquals("https://v3.recurly.com", client.getApiUrl());
   }
 
   @Test
-  public void testUsingInvalidRegion() throws Exception {
-      final ClientOptions options = new ClientOptions();
-      options.setRegion("none");
-
-      IllegalArgumentException exception = assertThrows(
-          IllegalArgumentException.class,
-          () -> {
-                final MockClient client = new MockClient("apiKey", options);
-          });
-      assertEquals("Invalid region type. Expected one of: [eu, us]", exception.getMessage());
+  public void testUsingRegionEUClientOptions() {
+    final ClientOptions options = new ClientOptions();
+    options.setRegion(ClientOptions.Regions.EU);
+    final MockClient client = new MockClient("apiKey", options);
+    assertEquals("https://v3.eu.recurly.com", client.getApiUrl());
   }
 
   @Test

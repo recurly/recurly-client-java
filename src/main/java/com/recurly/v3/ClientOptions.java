@@ -1,19 +1,31 @@
 package com.recurly.v3;
+import java.util.HashMap;
 
 public class ClientOptions {
 
-  private String region;
+  public enum Regions {
+    US,
+    EU
+  };
+
+  private static final HashMap<Regions, String> regionsMap = new HashMap<>();
+  static {
+      regionsMap.put(Regions.US, "https://v3.recurly.com");
+      regionsMap.put(Regions.EU, "https://v3.eu.recurly.com");
+  }
+
+  private Regions region;
 
   public ClientOptions() {
+    this.region = Regions.US;
   }
 
-  /** Region */
-  public String getRegion() {
-    return this.region;
+  public void setRegion(Regions r) {
+    this.region = r;
   }
 
-  /** @param region Region */
-  public void setRegion(final String region) {
-    this.region = region;
+  /** BaseUrl is determined by the region */
+  public String getBaseUrl() {
+    return regionsMap.get(this.region);
   }
 }

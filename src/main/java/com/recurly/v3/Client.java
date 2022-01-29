@@ -22,6 +22,10 @@ public class Client extends BaseClient {
     super(apiKey);
   }
 
+  public Client(final String apiKey, final ClientOptions clientOptions) {
+    super(apiKey, clientOptions);
+  }
+
 
   /**
    * List sites

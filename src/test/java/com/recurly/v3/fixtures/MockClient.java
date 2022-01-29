@@ -28,11 +28,15 @@ public class MockClient extends BaseClient {
   }
 
   public MockClient(final String apiKey, final OkHttpClient client) {
-    super(apiKey, client);
+    super(apiKey, client, new ClientOptions());
   }
 
   public MockClient(final String apiKey, final ClientOptions clientOptions) {
     super(apiKey, clientOptions);
+  }
+
+  public MockClient(final String apiKey, final OkHttpClient client, final ClientOptions clientOptions) {
+    super(apiKey, client, clientOptions);
   }
 
   public String apiUrl;

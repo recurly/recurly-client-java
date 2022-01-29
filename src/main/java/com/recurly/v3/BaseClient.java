@@ -25,12 +25,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import org.joda.time.DateTime;
 
 public abstract class BaseClient {
-  private static Map<String, String> apiHosts = new HashMap<>();
-  static {
-      apiHosts.put("us", "https://v3.recurly.com");
-      apiHosts.put("eu", "https://v3.eu.recurly.com");
-  }
-
   private static final List<String> BINARY_TYPES = Arrays.asList("application/pdf");
 
   private static final JsonSerializer jsonSerializer = new JsonSerializer();
@@ -40,7 +34,7 @@ public abstract class BaseClient {
   private String apiUrl;
 
   protected BaseClient(final String apiKey) {
-    this(apiKey, newHttpClient(apiKey), null);
+    this(apiKey, newHttpClient(apiKey), new ClientOptions());
   }
 
   protected BaseClient(final String apiKey, final ClientOptions clientOptions) {
@@ -48,7 +42,7 @@ public abstract class BaseClient {
   }
 
   protected BaseClient(final String apiKey, final OkHttpClient client) {
-    this(apiKey, client, null);
+    this(apiKey, client, new ClientOptions());
   }
 
   protected BaseClient(final String apiKey, final OkHttpClient client, final ClientOptions clientOptions) {
@@ -56,20 +50,9 @@ public abstract class BaseClient {
       throw new IllegalArgumentException("apiKey cannot be null or empty");
     }
 
-    ClientOptions options = clientOptions;
-
-    if (options == null) {
-        options = new ClientOptions();
-        options.setRegion("us");
-    }
-
-    if (apiHosts.get(options.getRegion()) == null) {
-      throw new IllegalArgumentException("Invalid region type. Expected one of: " + apiHosts.keySet());
-    }
-
     this.apiKey = apiKey;
     this.client = client;
-    this.apiUrl = apiHosts.get(options.getRegion());
+    this.apiUrl = clientOptions.getBaseUrl();
   }
 
   private static OkHttpClient newHttpClient(final String apiKey) {

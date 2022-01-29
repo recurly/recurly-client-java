@@ -51,14 +51,14 @@ final Client client = new Client(apiKey);
 final Subscription sub = client.getSubscription("uuid-abcd123456");
 ```
 
-To access Recurly servers in Europe you have to initialize the client with the argument clientOptions with region with the value "eu".
+To access Recurly API in Europe, you will need to specify the EU Region in the `ClientOptions`:
 ```java
 import com.recurly.v3.Client;
 import com.recurly.v3.resources.Subscription;
 
 String apiKey = "83749879bbde395b5fe0cc1a5abf8e5";
 final ClientOptions options = new ClientOptions();
-options.setRegion("eu");
+options.setRegion(ClientOptions.Regions.EU);
 final Client client = new Client(apiKey, options);
 final Subscription sub = client.getSubscription("uuid-abcd123456");
 ```
