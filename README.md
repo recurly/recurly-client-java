@@ -51,6 +51,18 @@ final Client client = new Client(apiKey);
 final Subscription sub = client.getSubscription("uuid-abcd123456");
 ```
 
+To access Recurly API in Europe, you will need to specify the EU Region in the `ClientOptions`:
+```java
+import com.recurly.v3.Client;
+import com.recurly.v3.resources.Subscription;
+
+String apiKey = "83749879bbde395b5fe0cc1a5abf8e5";
+final ClientOptions options = new ClientOptions();
+options.setRegion(ClientOptions.Regions.EU);
+final Client client = new Client(apiKey, options);
+final Subscription sub = client.getSubscription("uuid-abcd123456");
+```
+
 ### Operations
 
 Every operation that can be performed against the API has a corresponding method in the `Client` class.

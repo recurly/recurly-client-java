@@ -370,6 +370,29 @@ public class BaseClientTest {
   }
 
   @Test
+  public void testWithoutClientOptions() {
+    // The default region should be ClientOptions.Regions.US
+    final MockClient client = new MockClient("apiKey");
+    assertEquals("https://v3.recurly.com", client.getApiUrl());
+  }
+
+  @Test
+  public void testUsingRegionUSClientOptions() {
+    final ClientOptions options = new ClientOptions();
+    options.setRegion(ClientOptions.Regions.US);
+    final MockClient client = new MockClient("apiKey", options);
+    assertEquals("https://v3.recurly.com", client.getApiUrl());
+  }
+
+  @Test
+  public void testUsingRegionEUClientOptions() {
+    final ClientOptions options = new ClientOptions();
+    options.setRegion(ClientOptions.Regions.EU);
+    final MockClient client = new MockClient("apiKey", options);
+    assertEquals("https://v3.eu.recurly.com", client.getApiUrl());
+  }
+
+  @Test
   public void testInterpolatePathWithoutParams() {
     final MockClient client = new MockClient("apiKey");
     final String path = "/accounts";

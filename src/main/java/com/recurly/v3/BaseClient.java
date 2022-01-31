@@ -3,6 +3,7 @@ package com.recurly.v3;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.exception.ExceptionFactory;
 import com.recurly.v3.http.HeaderInterceptor;
+import com.recurly.v3.ClientOptions;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
@@ -24,7 +25,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import org.joda.time.DateTime;
 
 public abstract class BaseClient {
-  private static final String API_URL = "https://v3.recurly.com";
   private static final List<String> BINARY_TYPES = Arrays.asList("application/pdf");
 
   private static final JsonSerializer jsonSerializer = new JsonSerializer();
@@ -34,17 +34,25 @@ public abstract class BaseClient {
   private String apiUrl;
 
   protected BaseClient(final String apiKey) {
-    this(apiKey, newHttpClient(apiKey));
+    this(apiKey, newHttpClient(apiKey), new ClientOptions());
+  }
+
+  protected BaseClient(final String apiKey, final ClientOptions clientOptions) {
+    this(apiKey, newHttpClient(apiKey), clientOptions);
   }
 
   protected BaseClient(final String apiKey, final OkHttpClient client) {
+    this(apiKey, client, new ClientOptions());
+  }
+
+  protected BaseClient(final String apiKey, final OkHttpClient client, final ClientOptions clientOptions) {
     if (apiKey == null || apiKey.isEmpty()) {
       throw new IllegalArgumentException("apiKey cannot be null or empty");
     }
 
     this.apiKey = apiKey;
     this.client = client;
-    this.apiUrl = API_URL;
+    this.apiUrl = clientOptions.getBaseUrl();
   }
 
   private static OkHttpClient newHttpClient(final String apiKey) {
