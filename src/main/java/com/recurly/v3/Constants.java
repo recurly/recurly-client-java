@@ -1351,6 +1351,9 @@ public class Constants {
       @SerializedName("simultaneous_request")
       SIMULTANEOUS_REQUEST,
     
+      @SerializedName("tax_service_error")
+      TAX_SERVICE_ERROR,
+    
       @SerializedName("transaction")
       TRANSACTION,
     

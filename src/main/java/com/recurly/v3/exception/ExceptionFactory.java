@@ -55,6 +55,9 @@ public class ExceptionFactory {
       case SIMULTANEOUS_REQUEST:
         return (T) new SimultaneousRequestException(e.getMessage(), e);
 
+      case TAX_SERVICE_ERROR:
+        return (T) new TaxServiceException(e.getMessage(), e);
+
       case TRANSACTION:
         return (T) new TransactionException(e.getMessage(), e);
 
