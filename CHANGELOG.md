@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.16.0](https://github.com/recurly/recurly-client-java/tree/4.16.0) (2022-01-31)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.15.0...4.16.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 [#184](https://github.com/recurly/recurly-client-java/pull/184) ([recurly-integrations](https://github.com/recurly-integrations))
+- Add region argument to client to connect in EU data center  [#181](https://github.com/recurly/recurly-client-java/pull/181) ([FabricioCoutinho](https://github.com/FabricioCoutinho))
+
+
+
 ## [4.15.0](https://github.com/recurly/recurly-client-java/tree/4.15.0) (2022-01-28)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.14.0...4.15.0)
