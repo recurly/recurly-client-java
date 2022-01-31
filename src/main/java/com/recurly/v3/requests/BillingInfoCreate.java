@@ -179,8 +179,8 @@ public class BillingInfoCreate extends Request {
   private String transactionType;
 
   /**
-   * The payment method type for a non-credit card based billing info. The value of `bacs` is the
-   * only accepted value (Bacs only)
+   * The payment method type for a non-credit card based billing info. `bacs` and `becs` are the
+   * only accepted values.
    */
   @SerializedName("type")
   @Expose
@@ -541,16 +541,16 @@ public class BillingInfoCreate extends Request {
   }
 
   /**
-   * The payment method type for a non-credit card based billing info. The value of `bacs` is the
-   * only accepted value (Bacs only)
+   * The payment method type for a non-credit card based billing info. `bacs` and `becs` are the
+   * only accepted values.
    */
   public String getType() {
     return this.type;
   }
 
   /**
-   * @param type The payment method type for a non-credit card based billing info. The value of
-   *     `bacs` is the only accepted value (Bacs only)
+   * @param type The payment method type for a non-credit card based billing info. `bacs` and `becs`
+   *     are the only accepted values.
    */
   public void setType(final String type) {
     this.type = type;

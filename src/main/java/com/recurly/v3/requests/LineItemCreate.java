@@ -75,17 +75,14 @@ public class LineItemCreate extends Request {
   @Expose
   private DateTime endDate;
 
-  /**
-   * Unique code to identify an item. Avaliable when the Credit Invoices and Subscription Billing
-   * Terms features are enabled.
-   */
+  /** Unique code to identify an item. Avaliable when the Credit Invoices feature is enabled. */
   @SerializedName("item_code")
   @Expose
   private String itemCode;
 
   /**
-   * System-generated unique identifier for an item. Available when the Credit Invoices and
-   * Subscription Billing Terms features are enabled.
+   * System-generated unique identifier for an item. Available when the Credit Invoices feature is
+   * enabled.
    */
   @SerializedName("item_id")
   @Expose
@@ -303,25 +300,22 @@ public class LineItemCreate extends Request {
     this.endDate = endDate;
   }
 
-  /**
-   * Unique code to identify an item. Avaliable when the Credit Invoices and Subscription Billing
-   * Terms features are enabled.
-   */
+  /** Unique code to identify an item. Avaliable when the Credit Invoices feature is enabled. */
   public String getItemCode() {
     return this.itemCode;
   }
 
   /**
-   * @param itemCode Unique code to identify an item. Avaliable when the Credit Invoices and
-   *     Subscription Billing Terms features are enabled.
+   * @param itemCode Unique code to identify an item. Avaliable when the Credit Invoices feature is
+   *     enabled.
    */
   public void setItemCode(final String itemCode) {
     this.itemCode = itemCode;
   }
 
   /**
-   * System-generated unique identifier for an item. Available when the Credit Invoices and
-   * Subscription Billing Terms features are enabled.
+   * System-generated unique identifier for an item. Available when the Credit Invoices feature is
+   * enabled.
    */
   public String getItemId() {
     return this.itemId;
@@ -329,7 +323,7 @@ public class LineItemCreate extends Request {
 
   /**
    * @param itemId System-generated unique identifier for an item. Available when the Credit
-   *     Invoices and Subscription Billing Terms features are enabled.
+   *     Invoices feature is enabled.
    */
   public void setItemId(final String itemId) {
     this.itemId = itemId;
