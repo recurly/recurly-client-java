@@ -70,6 +70,9 @@ public class ExceptionFactory {
       case "rate_limited":
         return (T) new RateLimitedException(e.getMessage(), e);
 
+      case "tax_service_error":
+        return (T) new TaxServiceException(e.getMessage(), e);
+
       default:
         return (T) apiException;
     }
