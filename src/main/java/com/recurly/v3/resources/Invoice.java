@@ -87,9 +87,8 @@ public class Invoice extends Resource {
   private DateTime dueAt;
 
   /**
-   * Unique ID to identify the dunning campaign used when dunning the invoice. Available when the
-   * Dunning Campaigns feature is enabled. For sites without multiple dunning campaigns enabled,
-   * this will always be the default dunning campaign.
+   * Unique ID to identify the dunning campaign used when dunning the invoice. For sites without
+   * multiple dunning campaigns enabled, this will always be the default dunning campaign.
    */
   @SerializedName("dunning_campaign_id")
   @Expose
@@ -383,9 +382,8 @@ public class Invoice extends Resource {
   }
 
   /**
-   * Unique ID to identify the dunning campaign used when dunning the invoice. Available when the
-   * Dunning Campaigns feature is enabled. For sites without multiple dunning campaigns enabled,
-   * this will always be the default dunning campaign.
+   * Unique ID to identify the dunning campaign used when dunning the invoice. For sites without
+   * multiple dunning campaigns enabled, this will always be the default dunning campaign.
    */
   public String getDunningCampaignId() {
     return this.dunningCampaignId;
@@ -393,8 +391,8 @@ public class Invoice extends Resource {
 
   /**
    * @param dunningCampaignId Unique ID to identify the dunning campaign used when dunning the
-   *     invoice. Available when the Dunning Campaigns feature is enabled. For sites without
-   *     multiple dunning campaigns enabled, this will always be the default dunning campaign.
+   *     invoice. For sites without multiple dunning campaigns enabled, this will always be the
+   *     default dunning campaign.
    */
   public void setDunningCampaignId(final String dunningCampaignId) {
     this.dunningCampaignId = dunningCampaignId;
