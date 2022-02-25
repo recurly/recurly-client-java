@@ -60,10 +60,9 @@ public class AccountCreate extends Request {
   private List<CustomField> customFields;
 
   /**
-   * Unique ID to identify a dunning campaign. Available when the Dunning Campaigns feature is
-   * enabled. Used to specify if a non-default dunning campaign should be assigned to this account.
-   * For sites without multiple dunning campaigns enabled, the default dunning campaign will always
-   * be used.
+   * Unique ID to identify a dunning campaign. Used to specify if a non-default dunning campaign
+   * should be assigned to this account. For sites without multiple dunning campaigns enabled, the
+   * default dunning campaign will always be used.
    */
   @SerializedName("dunning_campaign_id")
   @Expose
@@ -259,20 +258,18 @@ public class AccountCreate extends Request {
   }
 
   /**
-   * Unique ID to identify a dunning campaign. Available when the Dunning Campaigns feature is
-   * enabled. Used to specify if a non-default dunning campaign should be assigned to this account.
-   * For sites without multiple dunning campaigns enabled, the default dunning campaign will always
-   * be used.
+   * Unique ID to identify a dunning campaign. Used to specify if a non-default dunning campaign
+   * should be assigned to this account. For sites without multiple dunning campaigns enabled, the
+   * default dunning campaign will always be used.
    */
   public String getDunningCampaignId() {
     return this.dunningCampaignId;
   }
 
   /**
-   * @param dunningCampaignId Unique ID to identify a dunning campaign. Available when the Dunning
-   *     Campaigns feature is enabled. Used to specify if a non-default dunning campaign should be
-   *     assigned to this account. For sites without multiple dunning campaigns enabled, the default
-   *     dunning campaign will always be used.
+   * @param dunningCampaignId Unique ID to identify a dunning campaign. Used to specify if a
+   *     non-default dunning campaign should be assigned to this account. For sites without multiple
+   *     dunning campaigns enabled, the default dunning campaign will always be used.
    */
   public void setDunningCampaignId(final String dunningCampaignId) {
     this.dunningCampaignId = dunningCampaignId;
