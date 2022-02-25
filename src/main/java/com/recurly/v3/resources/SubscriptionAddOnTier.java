@@ -35,10 +35,8 @@ public class SubscriptionAddOnTier extends Resource {
   private String unitAmountDecimal;
 
   /**
-   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
-   * places represented as a string. A value between 0.0 and 100.0. Optionally, override tiers'
-   * default usage percentage. Required if add-on's `add_on_type` is `usage` and `usage_type` is
-   * `percentage`. Must be omitted otherwise.
+   * This field is deprecated. Do not used it anymore for percentage tiers subscription add ons. Use
+   * the percentage_tiers object instead.
    */
   @SerializedName("usage_percentage")
   @Expose
@@ -90,20 +88,16 @@ public class SubscriptionAddOnTier extends Resource {
   }
 
   /**
-   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
-   * places represented as a string. A value between 0.0 and 100.0. Optionally, override tiers'
-   * default usage percentage. Required if add-on's `add_on_type` is `usage` and `usage_type` is
-   * `percentage`. Must be omitted otherwise.
+   * This field is deprecated. Do not used it anymore for percentage tiers subscription add ons. Use
+   * the percentage_tiers object instead.
    */
   public String getUsagePercentage() {
     return this.usagePercentage;
   }
 
   /**
-   * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
-   *     be up to 4 decimal places represented as a string. A value between 0.0 and 100.0.
-   *     Optionally, override tiers' default usage percentage. Required if add-on's `add_on_type` is
-   *     `usage` and `usage_type` is `percentage`. Must be omitted otherwise.
+   * @param usagePercentage This field is deprecated. Do not used it anymore for percentage tiers
+   *     subscription add ons. Use the percentage_tiers object instead.
    */
   public void setUsagePercentage(final String usagePercentage) {
     this.usagePercentage = usagePercentage;

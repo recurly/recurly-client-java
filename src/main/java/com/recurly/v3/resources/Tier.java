@@ -26,7 +26,10 @@ public class Tier extends Resource {
   @Expose
   private Integer endingQuantity;
 
-  /** Decimal usage percentage. */
+  /**
+   * This field is deprecated. Do not used it anymore for percentage tiers add ons. Use the
+   * percentage_tiers object instead.
+   */
   @SerializedName("usage_percentage")
   @Expose
   private String usagePercentage;
@@ -59,12 +62,18 @@ public class Tier extends Resource {
     this.endingQuantity = endingQuantity;
   }
 
-  /** Decimal usage percentage. */
+  /**
+   * This field is deprecated. Do not used it anymore for percentage tiers add ons. Use the
+   * percentage_tiers object instead.
+   */
   public String getUsagePercentage() {
     return this.usagePercentage;
   }
 
-  /** @param usagePercentage Decimal usage percentage. */
+  /**
+   * @param usagePercentage This field is deprecated. Do not used it anymore for percentage tiers
+   *     add ons. Use the percentage_tiers object instead.
+   */
   public void setUsagePercentage(final String usagePercentage) {
     this.usagePercentage = usagePercentage;
   }

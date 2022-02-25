@@ -118,6 +118,11 @@ public class AddOn extends Resource {
   @Expose
   private Boolean optional;
 
+  /** Percentage Tiers */
+  @SerializedName("percentage_tiers")
+  @Expose
+  private List<PercentageTiersByCurrency> percentageTiers;
+
   /** Plan ID */
   @SerializedName("plan_id")
   @Expose
@@ -391,6 +396,16 @@ public class AddOn extends Resource {
    */
   public void setOptional(final Boolean optional) {
     this.optional = optional;
+  }
+
+  /** Percentage Tiers */
+  public List<PercentageTiersByCurrency> getPercentageTiers() {
+    return this.percentageTiers;
+  }
+
+  /** @param percentageTiers Percentage Tiers */
+  public void setPercentageTiers(final List<PercentageTiersByCurrency> percentageTiers) {
+    this.percentageTiers = percentageTiers;
   }
 
   /** Plan ID */

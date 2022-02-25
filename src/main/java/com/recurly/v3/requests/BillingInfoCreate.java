@@ -53,6 +53,11 @@ public class BillingInfoCreate extends Request {
   @Expose
   private String cvv;
 
+  /** Use for Adyen HPP billing info. */
+  @SerializedName("external_hpp_type")
+  @Expose
+  private Constants.ExternalHppType externalHppType;
+
   /** First name */
   @SerializedName("first_name")
   @Expose
@@ -111,6 +116,11 @@ public class BillingInfoCreate extends Request {
   @SerializedName("number")
   @Expose
   private String number;
+
+  /** Use for Online Banking billing info. */
+  @SerializedName("online_banking_payment_type")
+  @Expose
+  private Constants.OnlineBankingPaymentType onlineBankingPaymentType;
 
   /** PayPal billing agreement ID */
   @SerializedName("paypal_billing_agreement_id")
@@ -280,6 +290,16 @@ public class BillingInfoCreate extends Request {
     this.cvv = cvv;
   }
 
+  /** Use for Adyen HPP billing info. */
+  public Constants.ExternalHppType getExternalHppType() {
+    return this.externalHppType;
+  }
+
+  /** @param externalHppType Use for Adyen HPP billing info. */
+  public void setExternalHppType(final Constants.ExternalHppType externalHppType) {
+    this.externalHppType = externalHppType;
+  }
+
   /** First name */
   public String getFirstName() {
     return this.firstName;
@@ -400,6 +420,17 @@ public class BillingInfoCreate extends Request {
   /** @param number Credit card number, spaces and dashes are accepted. */
   public void setNumber(final String number) {
     this.number = number;
+  }
+
+  /** Use for Online Banking billing info. */
+  public Constants.OnlineBankingPaymentType getOnlineBankingPaymentType() {
+    return this.onlineBankingPaymentType;
+  }
+
+  /** @param onlineBankingPaymentType Use for Online Banking billing info. */
+  public void setOnlineBankingPaymentType(
+      final Constants.OnlineBankingPaymentType onlineBankingPaymentType) {
+    this.onlineBankingPaymentType = onlineBankingPaymentType;
   }
 
   /** PayPal billing agreement ID */

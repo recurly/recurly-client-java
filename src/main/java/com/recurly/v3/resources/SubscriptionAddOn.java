@@ -50,6 +50,14 @@ public class SubscriptionAddOn extends Resource {
   @Expose
   private String object;
 
+  /**
+   * If percentage tiers are provided in the request, all existing percentage tiers on the
+   * Subscription Add-on will be removed and replaced by the percentage tiers in the request.
+   */
+  @SerializedName("percentage_tiers")
+  @Expose
+  private List<SubscriptionAddOnPercentageTier> percentageTiers;
+
   /** Add-on quantity */
   @SerializedName("quantity")
   @Expose
@@ -176,6 +184,23 @@ public class SubscriptionAddOn extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  /**
+   * If percentage tiers are provided in the request, all existing percentage tiers on the
+   * Subscription Add-on will be removed and replaced by the percentage tiers in the request.
+   */
+  public List<SubscriptionAddOnPercentageTier> getPercentageTiers() {
+    return this.percentageTiers;
+  }
+
+  /**
+   * @param percentageTiers If percentage tiers are provided in the request, all existing percentage
+   *     tiers on the Subscription Add-on will be removed and replaced by the percentage tiers in
+   *     the request.
+   */
+  public void setPercentageTiers(final List<SubscriptionAddOnPercentageTier> percentageTiers) {
+    this.percentageTiers = percentageTiers;
   }
 
   /** Add-on quantity */
