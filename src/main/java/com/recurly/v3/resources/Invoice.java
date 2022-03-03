@@ -89,9 +89,8 @@ public class Invoice extends Resource {
   private DateTime dueAt;
 
   /**
-   * Unique ID to identify the dunning campaign used when dunning the invoice. Available when the
-   * Dunning Campaigns feature is enabled. For sites without multiple dunning campaigns enabled,
-   * this will always be the default dunning campaign.
+   * Unique ID to identify the dunning campaign used when dunning the invoice. For sites without
+   * multiple dunning campaigns enabled, this will always be the default dunning campaign.
    */
   @SerializedName("dunning_campaign_id")
   @Expose
@@ -226,6 +225,11 @@ public class Invoice extends Resource {
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
+
+  /** Invoice UUID */
+  @SerializedName("uuid")
+  @Expose
+  private String uuid;
 
   /**
    * VAT registration number for the customer on this invoice. This will come from the VAT Number
@@ -395,9 +399,8 @@ public class Invoice extends Resource {
   }
 
   /**
-   * Unique ID to identify the dunning campaign used when dunning the invoice. Available when the
-   * Dunning Campaigns feature is enabled. For sites without multiple dunning campaigns enabled,
-   * this will always be the default dunning campaign.
+   * Unique ID to identify the dunning campaign used when dunning the invoice. For sites without
+   * multiple dunning campaigns enabled, this will always be the default dunning campaign.
    */
   public String getDunningCampaignId() {
     return this.dunningCampaignId;
@@ -405,8 +408,8 @@ public class Invoice extends Resource {
 
   /**
    * @param dunningCampaignId Unique ID to identify the dunning campaign used when dunning the
-   *     invoice. Available when the Dunning Campaigns feature is enabled. For sites without
-   *     multiple dunning campaigns enabled, this will always be the default dunning campaign.
+   *     invoice. For sites without multiple dunning campaigns enabled, this will always be the
+   *     default dunning campaign.
    */
   public void setDunningCampaignId(final String dunningCampaignId) {
     this.dunningCampaignId = dunningCampaignId;
@@ -682,6 +685,16 @@ public class Invoice extends Resource {
   /** @param updatedAt Last updated at */
   public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  /** Invoice UUID */
+  public String getUuid() {
+    return this.uuid;
+  }
+
+  /** @param uuid Invoice UUID */
+  public void setUuid(final String uuid) {
+    this.uuid = uuid;
   }
 
   /**

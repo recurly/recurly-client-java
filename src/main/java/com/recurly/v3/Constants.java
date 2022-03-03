@@ -1935,4 +1935,23 @@ public class Constants {
     
     };
   
+    public enum ExternalHppType {
+      UNDEFINED,
+    
+      @SerializedName("adyen")
+      ADYEN,
+    
+    };
+  
+    public enum OnlineBankingPaymentType {
+      UNDEFINED,
+    
+      @SerializedName("ideal")
+      IDEAL,
+    
+      @SerializedName("sofort")
+      SOFORT,
+    
+    };
+  
 }

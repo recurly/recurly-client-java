@@ -971,7 +971,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List an invoice template's associated accounts
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_template_accounts">list_invoice_template_accounts api documentation</a>
-   * @param invoiceTemplateId Invoice template ID.
+   * @param invoiceTemplateId Invoice template ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of an invoice template's associated accounts.
    */
@@ -2266,6 +2266,21 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
+   * Create a pending purchase
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_pending_purchase">create_pending_purchase api documentation</a>
+   * @param body The body of the request.
+     * @return Returns the pending invoice
+   */
+  public InvoiceCollection createPendingPurchase(PurchaseCreate body) {
+    final String url = "/purchases/pending";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = InvoiceCollection.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
    * List the dates that have an available export to download.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_export_dates">get_export_dates api documentation</a>
@@ -2341,5 +2356,38 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = DunningCampaignsBulkUpdateResponse.class;
     return this.makeRequest("PUT", path, body, returnType);
+  }
+
+  /**
+   * Show the invoice templates for a site
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_templates">list_invoice_templates api documentation</a>
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the the invoice templates on a site.
+   */
+  public Pager<InvoiceTemplate> listInvoiceTemplates(QueryParams queryParams) {
+    final String url = "/invoice_templates";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, InvoiceTemplate.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * Show the settings for an invoice template
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_invoice_template">get_invoice_template api documentation</a>
+   * @param invoiceTemplateId Invoice template ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return Settings for an invoice template.
+   */
+  public InvoiceTemplate getInvoiceTemplate(String invoiceTemplateId) {
+    final String url = "/invoice_templates/{invoice_template_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("invoice_template_id", invoiceTemplateId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = InvoiceTemplate.class;
+    return this.makeRequest("GET", path, returnType);
   }
 }

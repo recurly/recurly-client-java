@@ -67,10 +67,9 @@ public class Account extends Resource {
   private DateTime deletedAt;
 
   /**
-   * Unique ID to identify a dunning campaign. Available when the Dunning Campaigns feature is
-   * enabled. Used to specify if a non-default dunning campaign should be assigned to this account.
-   * For sites without multiple dunning campaigns enabled, the default dunning campaign will always
-   * be used.
+   * Unique ID to identify a dunning campaign. Used to specify if a non-default dunning campaign
+   * should be assigned to this account. For sites without multiple dunning campaigns enabled, the
+   * default dunning campaign will always be used.
    */
   @SerializedName("dunning_campaign_id")
   @Expose
@@ -144,12 +143,14 @@ public class Account extends Resource {
   private String id;
 
   /**
-   * Invoice template associated to the account. Available when invoice customization flag is
-   * enabled.
+   * Unique ID to identify an invoice template. Available when the Invoice Customization feature is
+   * enabled. Used to specify if a non-default invoice template will be used to generate invoices
+   * for the account. For sites without multiple invoice templates enabled, the default template
+   * will always be used.
    */
-  @SerializedName("invoice_template")
+  @SerializedName("invoice_template_id")
   @Expose
-  private AccountInvoiceTemplate invoiceTemplate;
+  private String invoiceTemplateId;
 
   @SerializedName("last_name")
   @Expose
@@ -321,20 +322,18 @@ public class Account extends Resource {
   }
 
   /**
-   * Unique ID to identify a dunning campaign. Available when the Dunning Campaigns feature is
-   * enabled. Used to specify if a non-default dunning campaign should be assigned to this account.
-   * For sites without multiple dunning campaigns enabled, the default dunning campaign will always
-   * be used.
+   * Unique ID to identify a dunning campaign. Used to specify if a non-default dunning campaign
+   * should be assigned to this account. For sites without multiple dunning campaigns enabled, the
+   * default dunning campaign will always be used.
    */
   public String getDunningCampaignId() {
     return this.dunningCampaignId;
   }
 
   /**
-   * @param dunningCampaignId Unique ID to identify a dunning campaign. Available when the Dunning
-   *     Campaigns feature is enabled. Used to specify if a non-default dunning campaign should be
-   *     assigned to this account. For sites without multiple dunning campaigns enabled, the default
-   *     dunning campaign will always be used.
+   * @param dunningCampaignId Unique ID to identify a dunning campaign. Used to specify if a
+   *     non-default dunning campaign should be assigned to this account. For sites without multiple
+   *     dunning campaigns enabled, the default dunning campaign will always be used.
    */
   public void setDunningCampaignId(final String dunningCampaignId) {
     this.dunningCampaignId = dunningCampaignId;
@@ -478,19 +477,23 @@ public class Account extends Resource {
   }
 
   /**
-   * Invoice template associated to the account. Available when invoice customization flag is
-   * enabled.
+   * Unique ID to identify an invoice template. Available when the Invoice Customization feature is
+   * enabled. Used to specify if a non-default invoice template will be used to generate invoices
+   * for the account. For sites without multiple invoice templates enabled, the default template
+   * will always be used.
    */
-  public AccountInvoiceTemplate getInvoiceTemplate() {
-    return this.invoiceTemplate;
+  public String getInvoiceTemplateId() {
+    return this.invoiceTemplateId;
   }
 
   /**
-   * @param invoiceTemplate Invoice template associated to the account. Available when invoice
-   *     customization flag is enabled.
+   * @param invoiceTemplateId Unique ID to identify an invoice template. Available when the Invoice
+   *     Customization feature is enabled. Used to specify if a non-default invoice template will be
+   *     used to generate invoices for the account. For sites without multiple invoice templates
+   *     enabled, the default template will always be used.
    */
-  public void setInvoiceTemplate(final AccountInvoiceTemplate invoiceTemplate) {
-    this.invoiceTemplate = invoiceTemplate;
+  public void setInvoiceTemplateId(final String invoiceTemplateId) {
+    this.invoiceTemplateId = invoiceTemplateId;
   }
 
   public String getLastName() {
