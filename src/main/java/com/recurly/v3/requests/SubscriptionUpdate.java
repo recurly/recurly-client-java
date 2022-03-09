@@ -107,8 +107,8 @@ public class SubscriptionUpdate extends Request {
   private SubscriptionShippingUpdate shipping;
 
   /**
-   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
-   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
+   * This field is deprecated. Do not use it anymore to update a subscription's tax inclusivity. Use
+   * the POST subscription change route instead.
    */
   @SerializedName("tax_inclusive")
   @Expose
@@ -312,17 +312,16 @@ public class SubscriptionUpdate extends Request {
   }
 
   /**
-   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
-   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
+   * This field is deprecated. Do not use it anymore to update a subscription's tax inclusivity. Use
+   * the POST subscription change route instead.
    */
   public Boolean getTaxInclusive() {
     return this.taxInclusive;
   }
 
   /**
-   * @param taxInclusive Determines whether or not tax is included in the unit amount. The Tax
-   *     Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to
-   *     use this flag.
+   * @param taxInclusive This field is deprecated. Do not use it anymore to update a subscription's
+   *     tax inclusivity. Use the POST subscription change route instead.
    */
   public void setTaxInclusive(final Boolean taxInclusive) {
     this.taxInclusive = taxInclusive;

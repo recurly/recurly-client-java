@@ -113,6 +113,14 @@ public class AddOnUpdate extends Request {
   private Boolean optional;
 
   /**
+   * `percentage_tiers` is an array of objects, which must have the set of tiers per currency and
+   * the currency code. The tier_type must be `volume` or `tiered`, if not, it must be absent.
+   */
+  @SerializedName("percentage_tiers")
+  @Expose
+  private List<PercentageTiersByCurrency> percentageTiers;
+
+  /**
    * When this add-on is invoiced, the line item will use this revenue schedule. If
    * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
    * request as the value will be set from the item.
@@ -134,9 +142,8 @@ public class AddOnUpdate extends Request {
 
   /**
    * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
-   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`, or
-   * alternatively, `usage_percentage` for usage percentage type usage add ons. There must be one
-   * tier with an `ending_quantity` of 999999999 which is the default if not provided.
+   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`. There must be
+   * one tier without an `ending_quantity` value that represents the final tier.
    */
   @SerializedName("tiers")
   @Expose
@@ -353,6 +360,23 @@ public class AddOnUpdate extends Request {
   }
 
   /**
+   * `percentage_tiers` is an array of objects, which must have the set of tiers per currency and
+   * the currency code. The tier_type must be `volume` or `tiered`, if not, it must be absent.
+   */
+  public List<PercentageTiersByCurrency> getPercentageTiers() {
+    return this.percentageTiers;
+  }
+
+  /**
+   * @param percentageTiers `percentage_tiers` is an array of objects, which must have the set of
+   *     tiers per currency and the currency code. The tier_type must be `volume` or `tiered`, if
+   *     not, it must be absent.
+   */
+  public void setPercentageTiers(final List<PercentageTiersByCurrency> percentageTiers) {
+    this.percentageTiers = percentageTiers;
+  }
+
+  /**
    * When this add-on is invoiced, the line item will use this revenue schedule. If
    * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
    * request as the value will be set from the item.
@@ -394,9 +418,8 @@ public class AddOnUpdate extends Request {
 
   /**
    * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
-   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`, or
-   * alternatively, `usage_percentage` for usage percentage type usage add ons. There must be one
-   * tier with an `ending_quantity` of 999999999 which is the default if not provided.
+   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`. There must be
+   * one tier without an `ending_quantity` value that represents the final tier.
    */
   public List<Tier> getTiers() {
     return this.tiers;
@@ -405,9 +428,8 @@ public class AddOnUpdate extends Request {
   /**
    * @param tiers If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must
    *     include one to many tiers with `ending_quantity` and `unit_amount` for the desired
-   *     `currencies`, or alternatively, `usage_percentage` for usage percentage type usage add ons.
-   *     There must be one tier with an `ending_quantity` of 999999999 which is the default if not
-   *     provided.
+   *     `currencies`. There must be one tier without an `ending_quantity` value that represents the
+   *     final tier.
    */
   public void setTiers(final List<Tier> tiers) {
     this.tiers = tiers;

@@ -35,10 +35,7 @@ public class SubscriptionAddOnTier extends Request {
   @Expose
   private String unitAmountDecimal;
 
-  /**
-   * This field is deprecated. Do not used it anymore for percentage tiers subscription add ons. Use
-   * the percentage_tiers object instead.
-   */
+  /** (deprecated) -- Use the percentage_tiers object instead. */
   @SerializedName("usage_percentage")
   @Expose
   private String usagePercentage;
@@ -88,18 +85,12 @@ public class SubscriptionAddOnTier extends Request {
     this.unitAmountDecimal = unitAmountDecimal;
   }
 
-  /**
-   * This field is deprecated. Do not used it anymore for percentage tiers subscription add ons. Use
-   * the percentage_tiers object instead.
-   */
+  /** (deprecated) -- Use the percentage_tiers object instead. */
   public String getUsagePercentage() {
     return this.usagePercentage;
   }
 
-  /**
-   * @param usagePercentage This field is deprecated. Do not used it anymore for percentage tiers
-   *     subscription add ons. Use the percentage_tiers object instead.
-   */
+  /** @param usagePercentage (deprecated) -- Use the percentage_tiers object instead. */
   public void setUsagePercentage(final String usagePercentage) {
     this.usagePercentage = usagePercentage;
   }

@@ -34,6 +34,16 @@ public class SubscriptionAddOnCreate extends Request {
   @Expose
   private String code;
 
+  /**
+   * If percentage tiers are provided in the request, all existing percentage tiers on the
+   * Subscription Add-on will be removed and replaced by the percentage tiers in the request. There
+   * must be one tier without ending_amount value. Use only if add_on.tier_type is tiered or volume
+   * and add_on.usage_type is percentage.
+   */
+  @SerializedName("percentage_tiers")
+  @Expose
+  private List<SubscriptionAddOnPercentageTier> percentageTiers;
+
   /** Quantity */
   @SerializedName("quantity")
   @Expose
@@ -47,7 +57,7 @@ public class SubscriptionAddOnCreate extends Request {
   /**
    * If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. The `tiers` object
    * must include one to many tiers with `ending_quantity` and `unit_amount`. There must be one tier
-   * with an `ending_quantity` of 999999999 which is the default if not provided. See our
+   * without ending_quantity value. See our
    * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
    * configure quantity-based pricing models.
    */
@@ -124,6 +134,26 @@ public class SubscriptionAddOnCreate extends Request {
     this.code = code;
   }
 
+  /**
+   * If percentage tiers are provided in the request, all existing percentage tiers on the
+   * Subscription Add-on will be removed and replaced by the percentage tiers in the request. There
+   * must be one tier without ending_amount value. Use only if add_on.tier_type is tiered or volume
+   * and add_on.usage_type is percentage.
+   */
+  public List<SubscriptionAddOnPercentageTier> getPercentageTiers() {
+    return this.percentageTiers;
+  }
+
+  /**
+   * @param percentageTiers If percentage tiers are provided in the request, all existing percentage
+   *     tiers on the Subscription Add-on will be removed and replaced by the percentage tiers in
+   *     the request. There must be one tier without ending_amount value. Use only if
+   *     add_on.tier_type is tiered or volume and add_on.usage_type is percentage.
+   */
+  public void setPercentageTiers(final List<SubscriptionAddOnPercentageTier> percentageTiers) {
+    this.percentageTiers = percentageTiers;
+  }
+
   /** Quantity */
   public Integer getQuantity() {
     return this.quantity;
@@ -147,7 +177,7 @@ public class SubscriptionAddOnCreate extends Request {
   /**
    * If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. The `tiers` object
    * must include one to many tiers with `ending_quantity` and `unit_amount`. There must be one tier
-   * with an `ending_quantity` of 999999999 which is the default if not provided. See our
+   * without ending_quantity value. See our
    * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
    * configure quantity-based pricing models.
    */
@@ -158,9 +188,9 @@ public class SubscriptionAddOnCreate extends Request {
   /**
    * @param tiers If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. The
    *     `tiers` object must include one to many tiers with `ending_quantity` and `unit_amount`.
-   *     There must be one tier with an `ending_quantity` of 999999999 which is the default if not
-   *     provided. See our [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for
-   *     an overview of how to configure quantity-based pricing models.
+   *     There must be one tier without ending_quantity value. See our
+   *     [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
+   *     to configure quantity-based pricing models.
    */
   public void setTiers(final List<SubscriptionAddOnTier> tiers) {
     this.tiers = tiers;
