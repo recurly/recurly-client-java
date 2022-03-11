@@ -107,14 +107,6 @@ public class SubscriptionUpdate extends Request {
   private SubscriptionShippingUpdate shipping;
 
   /**
-   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
-   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
-   */
-  @SerializedName("tax_inclusive")
-  @Expose
-  private Boolean taxInclusive;
-
-  /**
    * Specify custom notes to add or override Terms and Conditions. Custom notes will stay with a
    * subscription on all renewals.
    */
@@ -309,23 +301,6 @@ public class SubscriptionUpdate extends Request {
   /** @param shipping Subscription shipping details */
   public void setShipping(final SubscriptionShippingUpdate shipping) {
     this.shipping = shipping;
-  }
-
-  /**
-   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
-   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
-   */
-  public Boolean getTaxInclusive() {
-    return this.taxInclusive;
-  }
-
-  /**
-   * @param taxInclusive Determines whether or not tax is included in the unit amount. The Tax
-   *     Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to
-   *     use this flag.
-   */
-  public void setTaxInclusive(final Boolean taxInclusive) {
-    this.taxInclusive = taxInclusive;
   }
 
   /**

@@ -97,6 +97,11 @@ public class SubscriptionChangeCreate extends Request {
   @Expose
   private Integer quantity;
 
+  /** Ramp Intervals */
+  @SerializedName("ramp_intervals")
+  @Expose
+  private List<SubscriptionRampInterval> rampIntervals;
+
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
@@ -312,6 +317,16 @@ public class SubscriptionChangeCreate extends Request {
   /** @param quantity Optionally override the default quantity of 1. */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
+  }
+
+  /** Ramp Intervals */
+  public List<SubscriptionRampInterval> getRampIntervals() {
+    return this.rampIntervals;
+  }
+
+  /** @param rampIntervals Ramp Intervals */
+  public void setRampIntervals(final List<SubscriptionRampInterval> rampIntervals) {
+    this.rampIntervals = rampIntervals;
   }
 
   /** Revenue schedule type */

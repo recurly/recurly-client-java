@@ -926,9 +926,6 @@ public class Constants {
       @SerializedName("only_bill_what_changed")
       ONLY_BILL_WHAT_CHANGED,
     
-      @SerializedName("subscription_terms")
-      SUBSCRIPTION_TERMS,
-    
     };
   
     public enum SubscriptionState {
