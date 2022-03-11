@@ -10,7 +10,6 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
-import java.math.BigDecimal;
 import java.util.List;
 
 public class AddOnUpdate extends Request {
@@ -113,6 +112,14 @@ public class AddOnUpdate extends Request {
   private Boolean optional;
 
   /**
+   * `percentage_tiers` is an array of objects, which must have the set of tiers per currency and
+   * the currency code. The tier_type must be `volume` or `tiered`, if not, it must be absent.
+   */
+  @SerializedName("percentage_tiers")
+  @Expose
+  private List<PercentageTiersByCurrency> percentageTiers;
+
+  /**
    * When this add-on is invoiced, the line item will use this revenue schedule. If
    * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
    * request as the value will be set from the item.
@@ -134,9 +141,8 @@ public class AddOnUpdate extends Request {
 
   /**
    * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
-   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`, or
-   * alternatively, `usage_percentage` for usage percentage type usage add ons. There must be one
-   * tier with an `ending_quantity` of 999999999 which is the default if not provided.
+   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`. There must be
+   * one tier without an `ending_quantity` value that represents the final tier.
    */
   @SerializedName("tiers")
   @Expose
@@ -144,12 +150,12 @@ public class AddOnUpdate extends Request {
 
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
-   * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage, `tier_type` is
-   * `flat` and `usage_type` is percentage. Must be omitted otherwise.
+   * places represented as a string. A value between 0.0 and 100.0. Required if `add_on_type` is
+   * usage, `tier_type` is `flat` and `usage_type` is percentage. Must be omitted otherwise.
    */
   @SerializedName("usage_percentage")
   @Expose
-  private BigDecimal usagePercentage;
+  private String usagePercentage;
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
@@ -353,6 +359,23 @@ public class AddOnUpdate extends Request {
   }
 
   /**
+   * `percentage_tiers` is an array of objects, which must have the set of tiers per currency and
+   * the currency code. The tier_type must be `volume` or `tiered`, if not, it must be absent.
+   */
+  public List<PercentageTiersByCurrency> getPercentageTiers() {
+    return this.percentageTiers;
+  }
+
+  /**
+   * @param percentageTiers `percentage_tiers` is an array of objects, which must have the set of
+   *     tiers per currency and the currency code. The tier_type must be `volume` or `tiered`, if
+   *     not, it must be absent.
+   */
+  public void setPercentageTiers(final List<PercentageTiersByCurrency> percentageTiers) {
+    this.percentageTiers = percentageTiers;
+  }
+
+  /**
    * When this add-on is invoiced, the line item will use this revenue schedule. If
    * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
    * request as the value will be set from the item.
@@ -394,9 +417,8 @@ public class AddOnUpdate extends Request {
 
   /**
    * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
-   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`, or
-   * alternatively, `usage_percentage` for usage percentage type usage add ons. There must be one
-   * tier with an `ending_quantity` of 999999999 which is the default if not provided.
+   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`. There must be
+   * one tier without an `ending_quantity` value that represents the final tier.
    */
   public List<Tier> getTiers() {
     return this.tiers;
@@ -405,9 +427,8 @@ public class AddOnUpdate extends Request {
   /**
    * @param tiers If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must
    *     include one to many tiers with `ending_quantity` and `unit_amount` for the desired
-   *     `currencies`, or alternatively, `usage_percentage` for usage percentage type usage add ons.
-   *     There must be one tier with an `ending_quantity` of 999999999 which is the default if not
-   *     provided.
+   *     `currencies`. There must be one tier without an `ending_quantity` value that represents the
+   *     final tier.
    */
   public void setTiers(final List<Tier> tiers) {
     this.tiers = tiers;
@@ -415,19 +436,20 @@ public class AddOnUpdate extends Request {
 
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
-   * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage, `tier_type` is
-   * `flat` and `usage_type` is percentage. Must be omitted otherwise.
+   * places represented as a string. A value between 0.0 and 100.0. Required if `add_on_type` is
+   * usage, `tier_type` is `flat` and `usage_type` is percentage. Must be omitted otherwise.
    */
-  public BigDecimal getUsagePercentage() {
+  public String getUsagePercentage() {
     return this.usagePercentage;
   }
 
   /**
    * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
-   *     be up to 4 decimal places. A value between 0.0 and 100.0. Required if `add_on_type` is
-   *     usage, `tier_type` is `flat` and `usage_type` is percentage. Must be omitted otherwise.
+   *     be up to 4 decimal places represented as a string. A value between 0.0 and 100.0. Required
+   *     if `add_on_type` is usage, `tier_type` is `flat` and `usage_type` is percentage. Must be
+   *     omitted otherwise.
    */
-  public void setUsagePercentage(final BigDecimal usagePercentage) {
+  public void setUsagePercentage(final String usagePercentage) {
     this.usagePercentage = usagePercentage;
   }
 }
