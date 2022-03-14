@@ -133,6 +133,15 @@ public class AddOnCreate extends Request {
   @Expose
   private Boolean optional;
 
+  /**
+   * Array of objects which must have at least one set of tiers per currency and the currency code.
+   * The tier_type must be `volume` or `tiered`, if not, it must be absent. There must be one tier
+   * without ending_amount value.
+   */
+  @SerializedName("percentage_tiers")
+  @Expose
+  private List<PercentageTiersByCurrency> percentageTiers;
+
   /** Plan ID */
   @SerializedName("plan_id")
   @Expose
@@ -170,9 +179,8 @@ public class AddOnCreate extends Request {
 
   /**
    * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
-   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`, or
-   * alternatively, `usage_percentage` for usage percentage type usage add ons. There must be one
-   * tier with an `ending_quantity` of 999999999 which is the default if not provided.
+   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`. There must be
+   * one tier with an `ending_quantity` of 999999999 which is the default if not provided.
    */
   @SerializedName("tiers")
   @Expose
@@ -439,6 +447,24 @@ public class AddOnCreate extends Request {
     this.optional = optional;
   }
 
+  /**
+   * Array of objects which must have at least one set of tiers per currency and the currency code.
+   * The tier_type must be `volume` or `tiered`, if not, it must be absent. There must be one tier
+   * without ending_amount value.
+   */
+  public List<PercentageTiersByCurrency> getPercentageTiers() {
+    return this.percentageTiers;
+  }
+
+  /**
+   * @param percentageTiers Array of objects which must have at least one set of tiers per currency
+   *     and the currency code. The tier_type must be `volume` or `tiered`, if not, it must be
+   *     absent. There must be one tier without ending_amount value.
+   */
+  public void setPercentageTiers(final List<PercentageTiersByCurrency> percentageTiers) {
+    this.percentageTiers = percentageTiers;
+  }
+
   /** Plan ID */
   public String getPlanId() {
     return this.planId;
@@ -511,9 +537,8 @@ public class AddOnCreate extends Request {
 
   /**
    * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
-   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`, or
-   * alternatively, `usage_percentage` for usage percentage type usage add ons. There must be one
-   * tier with an `ending_quantity` of 999999999 which is the default if not provided.
+   * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`. There must be
+   * one tier with an `ending_quantity` of 999999999 which is the default if not provided.
    */
   public List<Tier> getTiers() {
     return this.tiers;
@@ -522,9 +547,8 @@ public class AddOnCreate extends Request {
   /**
    * @param tiers If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must
    *     include one to many tiers with `ending_quantity` and `unit_amount` for the desired
-   *     `currencies`, or alternatively, `usage_percentage` for usage percentage type usage add ons.
-   *     There must be one tier with an `ending_quantity` of 999999999 which is the default if not
-   *     provided.
+   *     `currencies`. There must be one tier with an `ending_quantity` of 999999999 which is the
+   *     default if not provided.
    */
   public void setTiers(final List<Tier> tiers) {
     this.tiers = tiers;

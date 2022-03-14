@@ -56,6 +56,14 @@ public class Usage extends Resource {
   @Expose
   private String object;
 
+  /**
+   * The percentage tiers of the subscription based on the usage_timestamp. If tier_type = flat,
+   * percentage_tiers = []
+   */
+  @SerializedName("percentage_tiers")
+  @Expose
+  private List<SubscriptionAddOnPercentageTier> percentageTiers;
+
   /** When the usage was recorded in your system. */
   @SerializedName("recording_timestamp")
   @Expose
@@ -73,7 +81,7 @@ public class Usage extends Resource {
 
   /**
    * The tiers and prices of the subscription based on the usage_timestamp. If tier_type = flat,
-   * tiers = null
+   * tiers = []
    */
   @SerializedName("tiers")
   @Expose
@@ -202,6 +210,22 @@ public class Usage extends Resource {
     this.object = object;
   }
 
+  /**
+   * The percentage tiers of the subscription based on the usage_timestamp. If tier_type = flat,
+   * percentage_tiers = []
+   */
+  public List<SubscriptionAddOnPercentageTier> getPercentageTiers() {
+    return this.percentageTiers;
+  }
+
+  /**
+   * @param percentageTiers The percentage tiers of the subscription based on the usage_timestamp.
+   *     If tier_type = flat, percentage_tiers = []
+   */
+  public void setPercentageTiers(final List<SubscriptionAddOnPercentageTier> percentageTiers) {
+    this.percentageTiers = percentageTiers;
+  }
+
   /** When the usage was recorded in your system. */
   public DateTime getRecordingTimestamp() {
     return this.recordingTimestamp;
@@ -234,7 +258,7 @@ public class Usage extends Resource {
 
   /**
    * The tiers and prices of the subscription based on the usage_timestamp. If tier_type = flat,
-   * tiers = null
+   * tiers = []
    */
   public List<SubscriptionAddOnTier> getTiers() {
     return this.tiers;
@@ -242,7 +266,7 @@ public class Usage extends Resource {
 
   /**
    * @param tiers The tiers and prices of the subscription based on the usage_timestamp. If
-   *     tier_type = flat, tiers = null
+   *     tier_type = flat, tiers = []
    */
   public void setTiers(final List<SubscriptionAddOnTier> tiers) {
     this.tiers = tiers;

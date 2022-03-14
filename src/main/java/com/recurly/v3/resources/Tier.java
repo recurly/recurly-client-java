@@ -17,19 +17,12 @@ public class Tier extends Resource {
   @Expose
   private List<TierPricing> currencies;
 
-  /**
-   * Ending quantity for the tier. This represents a unit amount for unit-priced add ons, but for
-   * percentage type usage add ons, represents the site default currency in its minimum divisible
-   * unit.
-   */
+  /** Ending quantity for the tier. This represents a unit amount for unit-priced add ons. */
   @SerializedName("ending_quantity")
   @Expose
   private Integer endingQuantity;
 
-  /**
-   * This field is deprecated. Do not used it anymore for percentage tiers add ons. Use the
-   * percentage_tiers object instead.
-   */
+  /** (deprecated) -- Use the percentage_tiers object instead. */
   @SerializedName("usage_percentage")
   @Expose
   private String usagePercentage;
@@ -44,36 +37,25 @@ public class Tier extends Resource {
     this.currencies = currencies;
   }
 
-  /**
-   * Ending quantity for the tier. This represents a unit amount for unit-priced add ons, but for
-   * percentage type usage add ons, represents the site default currency in its minimum divisible
-   * unit.
-   */
+  /** Ending quantity for the tier. This represents a unit amount for unit-priced add ons. */
   public Integer getEndingQuantity() {
     return this.endingQuantity;
   }
 
   /**
    * @param endingQuantity Ending quantity for the tier. This represents a unit amount for
-   *     unit-priced add ons, but for percentage type usage add ons, represents the site default
-   *     currency in its minimum divisible unit.
+   *     unit-priced add ons.
    */
   public void setEndingQuantity(final Integer endingQuantity) {
     this.endingQuantity = endingQuantity;
   }
 
-  /**
-   * This field is deprecated. Do not used it anymore for percentage tiers add ons. Use the
-   * percentage_tiers object instead.
-   */
+  /** (deprecated) -- Use the percentage_tiers object instead. */
   public String getUsagePercentage() {
     return this.usagePercentage;
   }
 
-  /**
-   * @param usagePercentage This field is deprecated. Do not used it anymore for percentage tiers
-   *     add ons. Use the percentage_tiers object instead.
-   */
+  /** @param usagePercentage (deprecated) -- Use the percentage_tiers object instead. */
   public void setUsagePercentage(final String usagePercentage) {
     this.usagePercentage = usagePercentage;
   }
