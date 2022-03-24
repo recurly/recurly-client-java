@@ -53,7 +53,8 @@ public class SubscriptionAddOn extends Resource {
   /**
    * If percentage tiers are provided in the request, all existing percentage tiers on the
    * Subscription Add-on will be removed and replaced by the percentage tiers in the request. Use
-   * only if add_on.tier_type is tiered or volume and add_on.usage_type is percentage
+   * only if add_on.tier_type is tiered or volume and add_on.usage_type is percentage. There must be
+   * one tier without an `ending_amount` value which represents the final tier.
    */
   @SerializedName("percentage_tiers")
   @Expose
@@ -87,7 +88,8 @@ public class SubscriptionAddOn extends Resource {
   /**
    * If tiers are provided in the request, all existing tiers on the Subscription Add-on will be
    * removed and replaced by the tiers in the request. If add_on.tier_type is tiered or volume and
-   * add_on.usage_type is percentage use percentage_tiers instead.
+   * add_on.usage_type is percentage use percentage_tiers instead. There must be one tier without an
+   * `ending_quantity` value which represents the final tier.
    */
   @SerializedName("tiers")
   @Expose
@@ -191,7 +193,8 @@ public class SubscriptionAddOn extends Resource {
   /**
    * If percentage tiers are provided in the request, all existing percentage tiers on the
    * Subscription Add-on will be removed and replaced by the percentage tiers in the request. Use
-   * only if add_on.tier_type is tiered or volume and add_on.usage_type is percentage
+   * only if add_on.tier_type is tiered or volume and add_on.usage_type is percentage. There must be
+   * one tier without an `ending_amount` value which represents the final tier.
    */
   public List<SubscriptionAddOnPercentageTier> getPercentageTiers() {
     return this.percentageTiers;
@@ -201,7 +204,8 @@ public class SubscriptionAddOn extends Resource {
    * @param percentageTiers If percentage tiers are provided in the request, all existing percentage
    *     tiers on the Subscription Add-on will be removed and replaced by the percentage tiers in
    *     the request. Use only if add_on.tier_type is tiered or volume and add_on.usage_type is
-   *     percentage
+   *     percentage. There must be one tier without an `ending_amount` value which represents the
+   *     final tier.
    */
   public void setPercentageTiers(final List<SubscriptionAddOnPercentageTier> percentageTiers) {
     this.percentageTiers = percentageTiers;
@@ -260,7 +264,8 @@ public class SubscriptionAddOn extends Resource {
   /**
    * If tiers are provided in the request, all existing tiers on the Subscription Add-on will be
    * removed and replaced by the tiers in the request. If add_on.tier_type is tiered or volume and
-   * add_on.usage_type is percentage use percentage_tiers instead.
+   * add_on.usage_type is percentage use percentage_tiers instead. There must be one tier without an
+   * `ending_quantity` value which represents the final tier.
    */
   public List<SubscriptionAddOnTier> getTiers() {
     return this.tiers;
@@ -269,7 +274,8 @@ public class SubscriptionAddOn extends Resource {
   /**
    * @param tiers If tiers are provided in the request, all existing tiers on the Subscription
    *     Add-on will be removed and replaced by the tiers in the request. If add_on.tier_type is
-   *     tiered or volume and add_on.usage_type is percentage use percentage_tiers instead.
+   *     tiered or volume and add_on.usage_type is percentage use percentage_tiers instead. There
+   *     must be one tier without an `ending_quantity` value which represents the final tier.
    */
   public void setTiers(final List<SubscriptionAddOnTier> tiers) {
     this.tiers = tiers;

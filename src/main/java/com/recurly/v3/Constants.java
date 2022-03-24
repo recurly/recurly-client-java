@@ -1829,6 +1829,9 @@ public class Constants {
       @SerializedName("three_d_secure_not_supported")
       THREE_D_SECURE_NOT_SUPPORTED,
     
+      @SerializedName("too_busy")
+      TOO_BUSY,
+    
       @SerializedName("too_many_attempts")
       TOO_MANY_ATTEMPTS,
     
