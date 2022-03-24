@@ -44,6 +44,16 @@ public class SubscriptionAddOnUpdate extends Request {
   @Expose
   private String id;
 
+  /**
+   * If percentage tiers are provided in the request, all existing percentage tiers on the
+   * Subscription Add-on will be removed and replaced by the percentage tiers in the request. Use
+   * only if add_on.tier_type is tiered or volume and add_on.usage_type is percentage. There must be
+   * one tier without an `ending_amount` value which represents the final tier.
+   */
+  @SerializedName("percentage_tiers")
+  @Expose
+  private List<SubscriptionAddOnPercentageTier> percentageTiers;
+
   /** Quantity */
   @SerializedName("quantity")
   @Expose
@@ -57,7 +67,7 @@ public class SubscriptionAddOnUpdate extends Request {
   /**
    * If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. The `tiers` object
    * must include one to many tiers with `ending_quantity` and `unit_amount`. There must be one tier
-   * with an `ending_quantity` of 999999999 which is the default if not provided.
+   * without an `ending_quantity` value which represents the final tier.
    */
   @SerializedName("tiers")
   @Expose
@@ -150,6 +160,27 @@ public class SubscriptionAddOnUpdate extends Request {
     this.id = id;
   }
 
+  /**
+   * If percentage tiers are provided in the request, all existing percentage tiers on the
+   * Subscription Add-on will be removed and replaced by the percentage tiers in the request. Use
+   * only if add_on.tier_type is tiered or volume and add_on.usage_type is percentage. There must be
+   * one tier without an `ending_amount` value which represents the final tier.
+   */
+  public List<SubscriptionAddOnPercentageTier> getPercentageTiers() {
+    return this.percentageTiers;
+  }
+
+  /**
+   * @param percentageTiers If percentage tiers are provided in the request, all existing percentage
+   *     tiers on the Subscription Add-on will be removed and replaced by the percentage tiers in
+   *     the request. Use only if add_on.tier_type is tiered or volume and add_on.usage_type is
+   *     percentage. There must be one tier without an `ending_amount` value which represents the
+   *     final tier.
+   */
+  public void setPercentageTiers(final List<SubscriptionAddOnPercentageTier> percentageTiers) {
+    this.percentageTiers = percentageTiers;
+  }
+
   /** Quantity */
   public Integer getQuantity() {
     return this.quantity;
@@ -173,7 +204,7 @@ public class SubscriptionAddOnUpdate extends Request {
   /**
    * If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. The `tiers` object
    * must include one to many tiers with `ending_quantity` and `unit_amount`. There must be one tier
-   * with an `ending_quantity` of 999999999 which is the default if not provided.
+   * without an `ending_quantity` value which represents the final tier.
    */
   public List<SubscriptionAddOnTier> getTiers() {
     return this.tiers;
@@ -182,8 +213,7 @@ public class SubscriptionAddOnUpdate extends Request {
   /**
    * @param tiers If the plan add-on's `tier_type` is `flat`, then `tiers` must be absent. The
    *     `tiers` object must include one to many tiers with `ending_quantity` and `unit_amount`.
-   *     There must be one tier with an `ending_quantity` of 999999999 which is the default if not
-   *     provided.
+   *     There must be one tier without an `ending_quantity` value which represents the final tier.
    */
   public void setTiers(final List<SubscriptionAddOnTier> tiers) {
     this.tiers = tiers;
