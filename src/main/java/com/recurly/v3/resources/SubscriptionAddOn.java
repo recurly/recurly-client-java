@@ -119,6 +119,11 @@ public class SubscriptionAddOn extends Resource {
   @Expose
   private BigDecimal usagePercentage;
 
+  /** The time at which usage totals are reset for billing purposes. */
+  @SerializedName("usage_timeframe")
+  @Expose
+  private Constants.UsageTimeframe usageTimeframe;
+
   /** Just the important parts. */
   public AddOnMini getAddOn() {
     return this.addOn;
@@ -327,5 +332,15 @@ public class SubscriptionAddOn extends Resource {
    */
   public void setUsagePercentage(final BigDecimal usagePercentage) {
     this.usagePercentage = usagePercentage;
+  }
+
+  /** The time at which usage totals are reset for billing purposes. */
+  public Constants.UsageTimeframe getUsageTimeframe() {
+    return this.usageTimeframe;
+  }
+
+  /** @param usageTimeframe The time at which usage totals are reset for billing purposes. */
+  public void setUsageTimeframe(final Constants.UsageTimeframe usageTimeframe) {
+    this.usageTimeframe = usageTimeframe;
   }
 }

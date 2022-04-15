@@ -525,6 +525,28 @@ public class Constants {
     
     };
   
+    public enum UsageTimeframe {
+      UNDEFINED,
+    
+      @SerializedName("billing_period")
+      BILLING_PERIOD,
+    
+      @SerializedName("subscription_term")
+      SUBSCRIPTION_TERM,
+    
+    };
+  
+    public enum UsageTimeframeCreate {
+      UNDEFINED,
+    
+      @SerializedName("billing_period")
+      BILLING_PERIOD,
+    
+      @SerializedName("subscription_term")
+      SUBSCRIPTION_TERM,
+    
+    };
+  
     public enum CreditPaymentAction {
       UNDEFINED,
     
