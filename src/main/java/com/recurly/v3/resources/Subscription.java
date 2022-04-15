@@ -23,6 +23,11 @@ public class Subscription extends Resource {
   @Expose
   private DateTime activatedAt;
 
+  /** The invoice ID of the latest invoice created for an active subscription. */
+  @SerializedName("active_invoice_id")
+  @Expose
+  private String activeInvoiceId;
+
   /** Add-ons */
   @SerializedName("add_ons")
   @Expose
@@ -270,6 +275,18 @@ public class Subscription extends Resource {
   /** @param activatedAt Activated at */
   public void setActivatedAt(final DateTime activatedAt) {
     this.activatedAt = activatedAt;
+  }
+
+  /** The invoice ID of the latest invoice created for an active subscription. */
+  public String getActiveInvoiceId() {
+    return this.activeInvoiceId;
+  }
+
+  /**
+   * @param activeInvoiceId The invoice ID of the latest invoice created for an active subscription.
+   */
+  public void setActiveInvoiceId(final String activeInvoiceId) {
+    this.activeInvoiceId = activeInvoiceId;
   }
 
   /** Add-ons */
