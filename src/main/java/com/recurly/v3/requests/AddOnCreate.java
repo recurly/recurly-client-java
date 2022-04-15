@@ -196,6 +196,14 @@ public class AddOnCreate extends Request {
   private BigDecimal usagePercentage;
 
   /**
+   * The time at which usage totals are reset for billing purposes. Allows for `tiered` add-ons to
+   * accumulate usage over the course of multiple billing periods.
+   */
+  @SerializedName("usage_timeframe")
+  @Expose
+  private Constants.UsageTimeframeCreate usageTimeframe;
+
+  /**
    * Type of usage, required if `add_on_type` is `usage`. See our
    * [Guide](https://developers.recurly.com/guides/usage-based-billing-guide.html) for an overview
    * of how to configure usage add-ons.
@@ -571,6 +579,22 @@ public class AddOnCreate extends Request {
    */
   public void setUsagePercentage(final BigDecimal usagePercentage) {
     this.usagePercentage = usagePercentage;
+  }
+
+  /**
+   * The time at which usage totals are reset for billing purposes. Allows for `tiered` add-ons to
+   * accumulate usage over the course of multiple billing periods.
+   */
+  public Constants.UsageTimeframeCreate getUsageTimeframe() {
+    return this.usageTimeframe;
+  }
+
+  /**
+   * @param usageTimeframe The time at which usage totals are reset for billing purposes. Allows for
+   *     `tiered` add-ons to accumulate usage over the course of multiple billing periods.
+   */
+  public void setUsageTimeframe(final Constants.UsageTimeframeCreate usageTimeframe) {
+    this.usageTimeframe = usageTimeframe;
   }
 
   /**
