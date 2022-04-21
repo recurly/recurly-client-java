@@ -34,12 +34,15 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
+import org.mockito.MockedStatic;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.eq;
 
 @SuppressWarnings("unchecked")
 public class BaseClientTest {
@@ -351,19 +354,16 @@ public class BaseClientTest {
 
   @Test
   public void testCantSetApiUrlWithoutRecurlyInsecure() throws Exception {
-    final HashMap<String, String> environmentVariables = new HashMap<String, String>();
-    environmentVariables.put("RECURLY_INSECURE", "false");
-    setEnv(environmentVariables);
-    final MockClient client = new MockClient("apiKey");
-    final String originalUrl = client.getApiUrl();
-    final String newApiUrl = "https://my.base.url/";
-    client._setApiUrl(newApiUrl);
+    try (MockedStatic<BaseClient> theMock = mockStatic(BaseClient.class)) {
+      theMock.when(() -> BaseClient.envEnabled(eq("RECURLY_INSECURE"))).thenReturn(false);
 
-    assertEquals(originalUrl, client.getApiUrl());
+      final MockClient client = new MockClient("apiKey");
+      final String originalUrl = client.getApiUrl();
+      final String newApiUrl = "https://my.base.url/";
+      client._setApiUrl(newApiUrl);
 
-    environmentVariables.clear();
-    environmentVariables.put("RECURLY_INSECURE", "true");
-    setEnv(environmentVariables);
+      assertEquals(originalUrl, client.getApiUrl());
+    }
   }
 
   @Test
@@ -411,35 +411,6 @@ public class BaseClientTest {
 
     final String interpolatedPath = client.interpolatePath(path, urlParams);
     assertEquals("/url_path/replacement", interpolatedPath);
-  }
-
-  protected static void setEnv(Map<String, String> newenv) throws Exception {
-    try {
-      Class<?> processEnvironmentClass = Class.forName("java.lang.ProcessEnvironment");
-      Field theEnvironmentField = processEnvironmentClass.getDeclaredField("theEnvironment");
-      theEnvironmentField.setAccessible(true);
-      Map<String, String> env = (Map<String, String>) theEnvironmentField.get(null);
-      env.putAll(newenv);
-      Field theCaseInsensitiveEnvironmentField =
-          processEnvironmentClass.getDeclaredField("theCaseInsensitiveEnvironment");
-      theCaseInsensitiveEnvironmentField.setAccessible(true);
-      Map<String, String> cienv =
-          (Map<String, String>) theCaseInsensitiveEnvironmentField.get(null);
-      cienv.putAll(newenv);
-    } catch (NoSuchFieldException e) {
-      Class[] classes = Collections.class.getDeclaredClasses();
-      Map<String, String> env = System.getenv();
-      for (Class cl : classes) {
-        if ("java.util.Collections$UnmodifiableMap".equals(cl.getName())) {
-          Field field = cl.getDeclaredField("m");
-          field.setAccessible(true);
-          Object obj = field.get(env);
-          Map<String, String> map = (Map<String, String>) obj;
-          map.clear();
-          map.putAll(newenv);
-        }
-      }
-    }
   }
 
   private static String getResponseJson() {

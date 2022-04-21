@@ -52,8 +52,7 @@ public abstract class BaseClient {
         new HeaderInterceptor(authToken, Client.API_VERSION);
     httpClientBuilder.addInterceptor(headerInterceptor);
 
-    if ("true".equals(System.getenv("RECURLY_INSECURE"))
-        && "true".equals(System.getenv("RECURLY_DEBUG"))) {
+    if (envEnabled("RECURLY_INSECURE") && envEnabled("RECURLY_DEBUG")) {
       final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
       logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
       httpClientBuilder.addInterceptor(logging);
@@ -62,14 +61,17 @@ public abstract class BaseClient {
     return httpClientBuilder.build();
   }
 
+  protected static boolean envEnabled(final String envVar) {
+    return "true".equals(System.getenv(envVar));
+  }
+
   protected void makeRequest(final String method, final String url) {
     final okhttp3.Request request = buildRequest(method, url, null, null);
 
     try (final Response response = client.newCall(request).execute()) {
       if (!response.isSuccessful()) {
         String responseString = response.body().string();
-        if ("true".equals(System.getenv("RECURLY_INSECURE"))
-            && "true".equals(System.getenv("RECURLY_DEBUG"))) {
+        if (envEnabled("RECURLY_INSECURE") && envEnabled("RECURLY_DEBUG")) {
           System.out.println(responseString);
         }
         throw jsonSerializer.deserializeError(responseString);
@@ -77,8 +79,7 @@ public abstract class BaseClient {
 
       final Headers responseHeaders = response.headers();
 
-      if ("true".equals(System.getenv("RECURLY_INSECURE"))
-          && "true".equals(System.getenv("RECURLY_DEBUG"))) {
+      if (envEnabled("RECURLY_INSECURE") && envEnabled("RECURLY_DEBUG")) {
         for (int i = 0; i < responseHeaders.size(); i++) {
           System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
         }
@@ -206,8 +207,7 @@ public abstract class BaseClient {
 
     final HttpUrl requestUrl = httpBuilder.build();
 
-    if ("true".equals(System.getenv("RECURLY_INSECURE"))
-        && "true".equals(System.getenv("RECURLY_DEBUG"))) {
+    if (envEnabled("RECURLY_INSECURE") && envEnabled("RECURLY_DEBUG")) {
       System.out.println("Performing " + method + " request to " + requestUrl);
     }
 
@@ -271,7 +271,7 @@ public abstract class BaseClient {
     System.out.println(
         "[SECURITY WARNING] _setApiUrl is for testing only and not supported in production.");
 
-    if ("true".equals(System.getenv("RECURLY_INSECURE"))) {
+    if (envEnabled("RECURLY_INSECURE")) {
       this.apiUrl = uri;
     } else {
       System.out.println(
