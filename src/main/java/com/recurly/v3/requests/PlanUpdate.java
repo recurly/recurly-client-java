@@ -69,7 +69,7 @@ public class PlanUpdate extends Request {
   @Expose
   private String code;
 
-  /** Pricing */
+  /** Optional when the pricing model is 'ramp'. */
   @SerializedName("currencies")
   @Expose
   private List<PlanPricing> currencies;
@@ -272,12 +272,12 @@ public class PlanUpdate extends Request {
     this.code = code;
   }
 
-  /** Pricing */
+  /** Optional when the pricing model is 'ramp'. */
   public List<PlanPricing> getCurrencies() {
     return this.currencies;
   }
 
-  /** @param currencies Pricing */
+  /** @param currencies Optional when the pricing model is 'ramp'. */
   public void setCurrencies(final List<PlanPricing> currencies) {
     this.currencies = currencies;
   }

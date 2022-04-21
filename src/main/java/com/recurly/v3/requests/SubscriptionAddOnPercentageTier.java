@@ -13,32 +13,41 @@ import java.math.BigDecimal;
 
 public class SubscriptionAddOnPercentageTier extends Request {
 
-  /** Ending amount */
+  /**
+   * Ending amount for the tier. Allows up to 2 decimal places. Must be left empty if it is the
+   * final tier.
+   */
   @SerializedName("ending_amount")
   @Expose
   private BigDecimal endingAmount;
 
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
-   * places represented as a string. A value between 0.0 and 100.0.
+   * places represented as a string.
    */
   @SerializedName("usage_percentage")
   @Expose
   private String usagePercentage;
 
-  /** Ending amount */
+  /**
+   * Ending amount for the tier. Allows up to 2 decimal places. Must be left empty if it is the
+   * final tier.
+   */
   public BigDecimal getEndingAmount() {
     return this.endingAmount;
   }
 
-  /** @param endingAmount Ending amount */
+  /**
+   * @param endingAmount Ending amount for the tier. Allows up to 2 decimal places. Must be left
+   *     empty if it is the final tier.
+   */
   public void setEndingAmount(final BigDecimal endingAmount) {
     this.endingAmount = endingAmount;
   }
 
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
-   * places represented as a string. A value between 0.0 and 100.0.
+   * places represented as a string.
    */
   public String getUsagePercentage() {
     return this.usagePercentage;
@@ -46,7 +55,7 @@ public class SubscriptionAddOnPercentageTier extends Request {
 
   /**
    * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
-   *     be up to 4 decimal places represented as a string. A value between 0.0 and 100.0.
+   *     be up to 4 decimal places represented as a string.
    */
   public void setUsagePercentage(final String usagePercentage) {
     this.usagePercentage = usagePercentage;

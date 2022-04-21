@@ -27,15 +27,7 @@ public class PlanPricing extends Request {
   @Expose
   private BigDecimal setupFee;
 
-  /**
-   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
-   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
-   */
-  @SerializedName("tax_inclusive")
-  @Expose
-  private Boolean taxInclusive;
-
-  /** Unit price */
+  /** This field should not be sent when the pricing model is 'ramp'. */
   @SerializedName("unit_amount")
   @Expose
   private BigDecimal unitAmount;
@@ -69,29 +61,12 @@ public class PlanPricing extends Request {
     this.setupFee = setupFee;
   }
 
-  /**
-   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
-   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
-   */
-  public Boolean getTaxInclusive() {
-    return this.taxInclusive;
-  }
-
-  /**
-   * @param taxInclusive Determines whether or not tax is included in the unit amount. The Tax
-   *     Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to
-   *     use this flag.
-   */
-  public void setTaxInclusive(final Boolean taxInclusive) {
-    this.taxInclusive = taxInclusive;
-  }
-
-  /** Unit price */
+  /** This field should not be sent when the pricing model is 'ramp'. */
   public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Unit price */
+  /** @param unitAmount This field should not be sent when the pricing model is 'ramp'. */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }

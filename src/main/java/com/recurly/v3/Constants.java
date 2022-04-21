@@ -525,6 +525,28 @@ public class Constants {
     
     };
   
+    public enum UsageTimeframe {
+      UNDEFINED,
+    
+      @SerializedName("billing_period")
+      BILLING_PERIOD,
+    
+      @SerializedName("subscription_term")
+      SUBSCRIPTION_TERM,
+    
+    };
+  
+    public enum UsageTimeframeCreate {
+      UNDEFINED,
+    
+      @SerializedName("billing_period")
+      BILLING_PERIOD,
+    
+      @SerializedName("subscription_term")
+      SUBSCRIPTION_TERM,
+    
+    };
+  
     public enum CreditPaymentAction {
       UNDEFINED,
     
@@ -553,6 +575,17 @@ public class Constants {
     
       @SerializedName("write")
       WRITE,
+    
+    };
+  
+    public enum PricingModelType {
+      UNDEFINED,
+    
+      @SerializedName("fixed")
+      FIXED,
+    
+      @SerializedName("ramp")
+      RAMP,
     
     };
   
@@ -1825,6 +1858,9 @@ public class Constants {
     
       @SerializedName("three_d_secure_not_supported")
       THREE_D_SECURE_NOT_SUPPORTED,
+    
+      @SerializedName("too_busy")
+      TOO_BUSY,
     
       @SerializedName("too_many_attempts")
       TOO_MANY_ATTEMPTS,
