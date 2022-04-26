@@ -10,14 +10,14 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
 
-public class Pricing extends Resource {
+public class PlanRampPricing extends Resource {
 
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
   @Expose
   private String currency;
 
-  /** Unit price */
+  /** Represents the price for the Ramp Interval. */
   @SerializedName("unit_amount")
   @Expose
   private BigDecimal unitAmount;
@@ -32,12 +32,12 @@ public class Pricing extends Resource {
     this.currency = currency;
   }
 
-  /** Unit price */
+  /** Represents the price for the Ramp Interval. */
   public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Unit price */
+  /** @param unitAmount Represents the price for the Ramp Interval. */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }

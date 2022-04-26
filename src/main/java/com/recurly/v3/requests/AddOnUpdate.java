@@ -10,7 +10,6 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
-import java.math.BigDecimal;
 import java.util.List;
 
 public class AddOnUpdate extends Request {
@@ -152,12 +151,12 @@ public class AddOnUpdate extends Request {
 
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
-   * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage, `tier_type` is
-   * `flat` and `usage_type` is percentage. Must be omitted otherwise.
+   * places represented as a string. A value between 0.0 and 100.0. Required if `add_on_type` is
+   * usage, `tier_type` is `flat` and `usage_type` is percentage. Must be omitted otherwise.
    */
   @SerializedName("usage_percentage")
   @Expose
-  private BigDecimal usagePercentage;
+  private String usagePercentage;
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
@@ -440,19 +439,20 @@ public class AddOnUpdate extends Request {
 
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
-   * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage, `tier_type` is
-   * `flat` and `usage_type` is percentage. Must be omitted otherwise.
+   * places represented as a string. A value between 0.0 and 100.0. Required if `add_on_type` is
+   * usage, `tier_type` is `flat` and `usage_type` is percentage. Must be omitted otherwise.
    */
-  public BigDecimal getUsagePercentage() {
+  public String getUsagePercentage() {
     return this.usagePercentage;
   }
 
   /**
    * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
-   *     be up to 4 decimal places. A value between 0.0 and 100.0. Required if `add_on_type` is
-   *     usage, `tier_type` is `flat` and `usage_type` is percentage. Must be omitted otherwise.
+   *     be up to 4 decimal places represented as a string. A value between 0.0 and 100.0. Required
+   *     if `add_on_type` is usage, `tier_type` is `flat` and `usage_type` is percentage. Must be
+   *     omitted otherwise.
    */
-  public void setUsagePercentage(final BigDecimal usagePercentage) {
+  public void setUsagePercentage(final String usagePercentage) {
     this.usagePercentage = usagePercentage;
   }
 }

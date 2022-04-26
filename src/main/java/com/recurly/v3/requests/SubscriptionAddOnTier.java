@@ -21,27 +21,18 @@ public class SubscriptionAddOnTier extends Request {
   @Expose
   private Integer endingQuantity;
 
-  /**
-   * Allows up to 2 decimal places. Optionally, override the tiers' default unit amount. If add-on's
-   * `add_on_type` is `usage` and `usage_type` is `percentage`, cannot be provided.
-   */
+  /** Allows up to 2 decimal places. Optionally, override the tiers' default unit amount. */
   @SerializedName("unit_amount")
   @Expose
   private BigDecimal unitAmount;
 
   /**
    * Allows up to 9 decimal places. Optionally, override tiers' default unit amount. If
-   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided. If add-on's `add_on_type`
-   * is `usage` and `usage_type` is `percentage`, cannot be provided.
+   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
    */
   @SerializedName("unit_amount_decimal")
   @Expose
   private String unitAmountDecimal;
-
-  /** (deprecated) -- Use the percentage_tiers object instead. */
-  @SerializedName("usage_percentage")
-  @Expose
-  private String usagePercentage;
 
   /**
    * Ending quantity for the tier. This represents a unit amount for unit-priced add ons. Must be
@@ -59,18 +50,14 @@ public class SubscriptionAddOnTier extends Request {
     this.endingQuantity = endingQuantity;
   }
 
-  /**
-   * Allows up to 2 decimal places. Optionally, override the tiers' default unit amount. If add-on's
-   * `add_on_type` is `usage` and `usage_type` is `percentage`, cannot be provided.
-   */
+  /** Allows up to 2 decimal places. Optionally, override the tiers' default unit amount. */
   public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
   /**
    * @param unitAmount Allows up to 2 decimal places. Optionally, override the tiers' default unit
-   *     amount. If add-on's `add_on_type` is `usage` and `usage_type` is `percentage`, cannot be
-   *     provided.
+   *     amount.
    */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
@@ -78,8 +65,7 @@ public class SubscriptionAddOnTier extends Request {
 
   /**
    * Allows up to 9 decimal places. Optionally, override tiers' default unit amount. If
-   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided. If add-on's `add_on_type`
-   * is `usage` and `usage_type` is `percentage`, cannot be provided.
+   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
    */
   public String getUnitAmountDecimal() {
     return this.unitAmountDecimal;
@@ -87,20 +73,9 @@ public class SubscriptionAddOnTier extends Request {
 
   /**
    * @param unitAmountDecimal Allows up to 9 decimal places. Optionally, override tiers' default
-   *     unit amount. If `unit_amount_decimal` is provided, `unit_amount` cannot be provided. If
-   *     add-on's `add_on_type` is `usage` and `usage_type` is `percentage`, cannot be provided.
+   *     unit amount. If `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
    */
   public void setUnitAmountDecimal(final String unitAmountDecimal) {
     this.unitAmountDecimal = unitAmountDecimal;
-  }
-
-  /** (deprecated) -- Use the percentage_tiers object instead. */
-  public String getUsagePercentage() {
-    return this.usagePercentage;
-  }
-
-  /** @param usagePercentage (deprecated) -- Use the percentage_tiers object instead. */
-  public void setUsagePercentage(final String usagePercentage) {
-    this.usagePercentage = usagePercentage;
   }
 }

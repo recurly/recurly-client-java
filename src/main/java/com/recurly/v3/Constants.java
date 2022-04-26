@@ -578,6 +578,17 @@ public class Constants {
     
     };
   
+    public enum PricingModelType {
+      UNDEFINED,
+    
+      @SerializedName("fixed")
+      FIXED,
+    
+      @SerializedName("ramp")
+      RAMP,
+    
+    };
+  
     public enum RevenueScheduleType {
       UNDEFINED,
     
@@ -947,9 +958,6 @@ public class Constants {
     
       @SerializedName("only_bill_what_changed")
       ONLY_BILL_WHAT_CHANGED,
-    
-      @SerializedName("subscription_terms")
-      SUBSCRIPTION_TERMS,
     
     };
   

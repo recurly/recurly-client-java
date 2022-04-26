@@ -97,6 +97,11 @@ public class SubscriptionChangeCreate extends Request {
   @Expose
   private Integer quantity;
 
+  /** Ramp Intervals */
+  @SerializedName("ramp_intervals")
+  @Expose
+  private List<SubscriptionRampInterval> rampIntervals;
+
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
@@ -110,14 +115,6 @@ public class SubscriptionChangeCreate extends Request {
   @SerializedName("shipping")
   @Expose
   private SubscriptionChangeShippingCreate shipping;
-
-  /**
-   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
-   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
-   */
-  @SerializedName("tax_inclusive")
-  @Expose
-  private Boolean taxInclusive;
 
   /**
    * The timeframe parameter controls when the upgrade or downgrade takes place. The subscription
@@ -314,6 +311,16 @@ public class SubscriptionChangeCreate extends Request {
     this.quantity = quantity;
   }
 
+  /** Ramp Intervals */
+  public List<SubscriptionRampInterval> getRampIntervals() {
+    return this.rampIntervals;
+  }
+
+  /** @param rampIntervals Ramp Intervals */
+  public void setRampIntervals(final List<SubscriptionRampInterval> rampIntervals) {
+    this.rampIntervals = rampIntervals;
+  }
+
   /** Revenue schedule type */
   public Constants.RevenueScheduleType getRevenueScheduleType() {
     return this.revenueScheduleType;
@@ -340,23 +347,6 @@ public class SubscriptionChangeCreate extends Request {
    */
   public void setShipping(final SubscriptionChangeShippingCreate shipping) {
     this.shipping = shipping;
-  }
-
-  /**
-   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
-   * (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
-   */
-  public Boolean getTaxInclusive() {
-    return this.taxInclusive;
-  }
-
-  /**
-   * @param taxInclusive Determines whether or not tax is included in the unit amount. The Tax
-   *     Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to
-   *     use this flag.
-   */
-  public void setTaxInclusive(final Boolean taxInclusive) {
-    this.taxInclusive = taxInclusive;
   }
 
   /**
