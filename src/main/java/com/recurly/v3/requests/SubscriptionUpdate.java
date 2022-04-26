@@ -107,14 +107,6 @@ public class SubscriptionUpdate extends Request {
   private SubscriptionShippingUpdate shipping;
 
   /**
-   * This field is deprecated. Do not use it anymore to update a subscription's tax inclusivity. Use
-   * the POST subscription change route instead.
-   */
-  @SerializedName("tax_inclusive")
-  @Expose
-  private Boolean taxInclusive;
-
-  /**
    * Specify custom notes to add or override Terms and Conditions. Custom notes will stay with a
    * subscription on all renewals.
    */
@@ -309,22 +301,6 @@ public class SubscriptionUpdate extends Request {
   /** @param shipping Subscription shipping details */
   public void setShipping(final SubscriptionShippingUpdate shipping) {
     this.shipping = shipping;
-  }
-
-  /**
-   * This field is deprecated. Do not use it anymore to update a subscription's tax inclusivity. Use
-   * the POST subscription change route instead.
-   */
-  public Boolean getTaxInclusive() {
-    return this.taxInclusive;
-  }
-
-  /**
-   * @param taxInclusive This field is deprecated. Do not use it anymore to update a subscription's
-   *     tax inclusivity. Use the POST subscription change route instead.
-   */
-  public void setTaxInclusive(final Boolean taxInclusive) {
-    this.taxInclusive = taxInclusive;
   }
 
   /**

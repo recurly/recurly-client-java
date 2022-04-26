@@ -3,21 +3,22 @@
  * make by hand will be lost. If you wish to make a change to this file, please create a Github
  * issue explaining the changes you need and we will usher them to the appropriate places.
  */
-package com.recurly.v3.resources;
+package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Resource;
+import com.recurly.v3.Request;
+import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
 
-public class Pricing extends Resource {
+public class PlanRampPricing extends Request {
 
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
   @Expose
   private String currency;
 
-  /** Unit price */
+  /** Represents the price for the Ramp Interval. */
   @SerializedName("unit_amount")
   @Expose
   private BigDecimal unitAmount;
@@ -32,12 +33,12 @@ public class Pricing extends Resource {
     this.currency = currency;
   }
 
-  /** Unit price */
+  /** Represents the price for the Ramp Interval. */
   public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Unit price */
+  /** @param unitAmount Represents the price for the Ramp Interval. */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }

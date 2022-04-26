@@ -26,11 +26,6 @@ public class Tier extends Request {
   @Expose
   private Integer endingQuantity;
 
-  /** (deprecated) -- Use the percentage_tiers object instead. */
-  @SerializedName("usage_percentage")
-  @Expose
-  private String usagePercentage;
-
   /** Tier pricing */
   public List<TierPricing> getCurrencies() {
     return this.currencies;
@@ -55,15 +50,5 @@ public class Tier extends Request {
    */
   public void setEndingQuantity(final Integer endingQuantity) {
     this.endingQuantity = endingQuantity;
-  }
-
-  /** (deprecated) -- Use the percentage_tiers object instead. */
-  public String getUsagePercentage() {
-    return this.usagePercentage;
-  }
-
-  /** @param usagePercentage (deprecated) -- Use the percentage_tiers object instead. */
-  public void setUsagePercentage(final String usagePercentage) {
-    this.usagePercentage = usagePercentage;
   }
 }
