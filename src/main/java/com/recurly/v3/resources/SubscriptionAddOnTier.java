@@ -12,7 +12,10 @@ import java.math.BigDecimal;
 
 public class SubscriptionAddOnTier extends Resource {
 
-  /** Ending quantity */
+  /**
+   * Ending quantity for the tier. This represents a unit amount for unit-priced add ons. Must be
+   * left empty if it is the final tier.
+   */
   @SerializedName("ending_quantity")
   @Expose
   private Integer endingQuantity;
@@ -30,12 +33,18 @@ public class SubscriptionAddOnTier extends Resource {
   @Expose
   private String unitAmountDecimal;
 
-  /** Ending quantity */
+  /**
+   * Ending quantity for the tier. This represents a unit amount for unit-priced add ons. Must be
+   * left empty if it is the final tier.
+   */
   public Integer getEndingQuantity() {
     return this.endingQuantity;
   }
 
-  /** @param endingQuantity Ending quantity */
+  /**
+   * @param endingQuantity Ending quantity for the tier. This represents a unit amount for
+   *     unit-priced add ons. Must be left empty if it is the final tier.
+   */
   public void setEndingQuantity(final Integer endingQuantity) {
     this.endingQuantity = endingQuantity;
   }

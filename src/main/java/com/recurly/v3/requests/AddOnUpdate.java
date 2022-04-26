@@ -113,7 +113,8 @@ public class AddOnUpdate extends Request {
 
   /**
    * `percentage_tiers` is an array of objects, which must have the set of tiers per currency and
-   * the currency code. The tier_type must be `volume` or `tiered`, if not, it must be absent.
+   * the currency code. The tier_type must be `volume` or `tiered`, if not, it must be absent. There
+   * must be one tier without an `ending_amount` value which represents the final tier.
    */
   @SerializedName("percentage_tiers")
   @Expose
@@ -142,7 +143,7 @@ public class AddOnUpdate extends Request {
   /**
    * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
    * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`. There must be
-   * one tier without an `ending_quantity` value that represents the final tier.
+   * one tier without an `ending_quantity` value which represents the final tier.
    */
   @SerializedName("tiers")
   @Expose
@@ -360,7 +361,8 @@ public class AddOnUpdate extends Request {
 
   /**
    * `percentage_tiers` is an array of objects, which must have the set of tiers per currency and
-   * the currency code. The tier_type must be `volume` or `tiered`, if not, it must be absent.
+   * the currency code. The tier_type must be `volume` or `tiered`, if not, it must be absent. There
+   * must be one tier without an `ending_amount` value which represents the final tier.
    */
   public List<PercentageTiersByCurrency> getPercentageTiers() {
     return this.percentageTiers;
@@ -369,7 +371,8 @@ public class AddOnUpdate extends Request {
   /**
    * @param percentageTiers `percentage_tiers` is an array of objects, which must have the set of
    *     tiers per currency and the currency code. The tier_type must be `volume` or `tiered`, if
-   *     not, it must be absent.
+   *     not, it must be absent. There must be one tier without an `ending_amount` value which
+   *     represents the final tier.
    */
   public void setPercentageTiers(final List<PercentageTiersByCurrency> percentageTiers) {
     this.percentageTiers = percentageTiers;
@@ -418,7 +421,7 @@ public class AddOnUpdate extends Request {
   /**
    * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
    * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`. There must be
-   * one tier without an `ending_quantity` value that represents the final tier.
+   * one tier without an `ending_quantity` value which represents the final tier.
    */
   public List<Tier> getTiers() {
     return this.tiers;
@@ -427,8 +430,8 @@ public class AddOnUpdate extends Request {
   /**
    * @param tiers If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must
    *     include one to many tiers with `ending_quantity` and `unit_amount` for the desired
-   *     `currencies`. There must be one tier without an `ending_quantity` value that represents the
-   *     final tier.
+   *     `currencies`. There must be one tier without an `ending_quantity` value which represents
+   *     the final tier.
    */
   public void setTiers(final List<Tier> tiers) {
     this.tiers = tiers;

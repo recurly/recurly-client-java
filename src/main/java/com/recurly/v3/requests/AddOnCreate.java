@@ -135,7 +135,7 @@ public class AddOnCreate extends Request {
   /**
    * Array of objects which must have at least one set of tiers per currency and the currency code.
    * The tier_type must be `volume` or `tiered`, if not, it must be absent. There must be one tier
-   * without ending_amount value.
+   * without an `ending_amount` value which represents the final tier.
    */
   @SerializedName("percentage_tiers")
   @Expose
@@ -179,7 +179,7 @@ public class AddOnCreate extends Request {
   /**
    * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
    * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`. There must be
-   * one tier with an `ending_quantity` of 999999999 which is the default if not provided.
+   * one tier without an `ending_quantity` value which represents the final tier.
    */
   @SerializedName("tiers")
   @Expose
@@ -193,6 +193,14 @@ public class AddOnCreate extends Request {
   @SerializedName("usage_percentage")
   @Expose
   private String usagePercentage;
+
+  /**
+   * The time at which usage totals are reset for billing purposes. Allows for `tiered` add-ons to
+   * accumulate usage over the course of multiple billing periods.
+   */
+  @SerializedName("usage_timeframe")
+  @Expose
+  private Constants.UsageTimeframeCreate usageTimeframe;
 
   /**
    * Type of usage, required if `add_on_type` is `usage`. See our
@@ -449,7 +457,7 @@ public class AddOnCreate extends Request {
   /**
    * Array of objects which must have at least one set of tiers per currency and the currency code.
    * The tier_type must be `volume` or `tiered`, if not, it must be absent. There must be one tier
-   * without ending_amount value.
+   * without an `ending_amount` value which represents the final tier.
    */
   public List<PercentageTiersByCurrency> getPercentageTiers() {
     return this.percentageTiers;
@@ -458,7 +466,8 @@ public class AddOnCreate extends Request {
   /**
    * @param percentageTiers Array of objects which must have at least one set of tiers per currency
    *     and the currency code. The tier_type must be `volume` or `tiered`, if not, it must be
-   *     absent. There must be one tier without ending_amount value.
+   *     absent. There must be one tier without an `ending_amount` value which represents the final
+   *     tier.
    */
   public void setPercentageTiers(final List<PercentageTiersByCurrency> percentageTiers) {
     this.percentageTiers = percentageTiers;
@@ -537,7 +546,7 @@ public class AddOnCreate extends Request {
   /**
    * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
    * many tiers with `ending_quantity` and `unit_amount` for the desired `currencies`. There must be
-   * one tier with an `ending_quantity` of 999999999 which is the default if not provided.
+   * one tier without an `ending_quantity` value which represents the final tier.
    */
   public List<Tier> getTiers() {
     return this.tiers;
@@ -546,8 +555,8 @@ public class AddOnCreate extends Request {
   /**
    * @param tiers If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must
    *     include one to many tiers with `ending_quantity` and `unit_amount` for the desired
-   *     `currencies`. There must be one tier with an `ending_quantity` of 999999999 which is the
-   *     default if not provided.
+   *     `currencies`. There must be one tier without an `ending_quantity` value which represents
+   *     the final tier.
    */
   public void setTiers(final List<Tier> tiers) {
     this.tiers = tiers;
@@ -570,6 +579,22 @@ public class AddOnCreate extends Request {
    */
   public void setUsagePercentage(final String usagePercentage) {
     this.usagePercentage = usagePercentage;
+  }
+
+  /**
+   * The time at which usage totals are reset for billing purposes. Allows for `tiered` add-ons to
+   * accumulate usage over the course of multiple billing periods.
+   */
+  public Constants.UsageTimeframeCreate getUsageTimeframe() {
+    return this.usageTimeframe;
+  }
+
+  /**
+   * @param usageTimeframe The time at which usage totals are reset for billing purposes. Allows for
+   *     `tiered` add-ons to accumulate usage over the course of multiple billing periods.
+   */
+  public void setUsageTimeframe(final Constants.UsageTimeframeCreate usageTimeframe) {
+    this.usageTimeframe = usageTimeframe;
   }
 
   /**
