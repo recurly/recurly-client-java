@@ -310,6 +310,9 @@ public class Constants {
       @SerializedName("nl-NL")
       NL_NL,
     
+      @SerializedName("pl-PL")
+      PL_PL,
+    
       @SerializedName("pt-BR")
       PT_BR,
     
@@ -324,6 +327,9 @@ public class Constants {
     
       @SerializedName("sk-SK")
       SK_SK,
+    
+      @SerializedName("sv-SE")
+      SV_SE,
     
       @SerializedName("tr-TR")
       TR_TR,
@@ -1918,6 +1924,9 @@ public class Constants {
     
       @SerializedName("cpf")
       CPF,
+    
+      @SerializedName("cnpj")
+      CNPJ,
     
       @SerializedName("cuit")
       CUIT,
