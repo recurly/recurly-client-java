@@ -21,6 +21,11 @@ public class AccountBalanceAmount extends Resource {
   @Expose
   private String currency;
 
+  /** Total amount for the prepayment credit invoices in a `processing` state on the account. */
+  @SerializedName("processing_prepayment_amount")
+  @Expose
+  private Float processingPrepaymentAmount;
+
   /** Total amount the account is past due. */
   public Float getAmount() {
     return this.amount;
@@ -39,5 +44,18 @@ public class AccountBalanceAmount extends Resource {
   /** @param currency 3-letter ISO 4217 currency code. */
   public void setCurrency(final String currency) {
     this.currency = currency;
+  }
+
+  /** Total amount for the prepayment credit invoices in a `processing` state on the account. */
+  public Float getProcessingPrepaymentAmount() {
+    return this.processingPrepaymentAmount;
+  }
+
+  /**
+   * @param processingPrepaymentAmount Total amount for the prepayment credit invoices in a
+   *     `processing` state on the account.
+   */
+  public void setProcessingPrepaymentAmount(final Float processingPrepaymentAmount) {
+    this.processingPrepaymentAmount = processingPrepaymentAmount;
   }
 }
