@@ -106,10 +106,7 @@ public class SubscriptionUpdate extends Request {
   @Expose
   private SubscriptionShippingUpdate shipping;
 
-  /**
-   * This field is deprecated. Do not use it anymore to update a subscription's tax inclusivity. Use
-   * the POST subscription change route instead.
-   */
+  /** This field is deprecated. Please do not use it. */
   @SerializedName("tax_inclusive")
   @Expose
   private Boolean taxInclusive;
@@ -311,18 +308,12 @@ public class SubscriptionUpdate extends Request {
     this.shipping = shipping;
   }
 
-  /**
-   * This field is deprecated. Do not use it anymore to update a subscription's tax inclusivity. Use
-   * the POST subscription change route instead.
-   */
+  /** This field is deprecated. Please do not use it. */
   public Boolean getTaxInclusive() {
     return this.taxInclusive;
   }
 
-  /**
-   * @param taxInclusive This field is deprecated. Do not use it anymore to update a subscription's
-   *     tax inclusivity. Use the POST subscription change route instead.
-   */
+  /** @param taxInclusive This field is deprecated. Please do not use it. */
   public void setTaxInclusive(final Boolean taxInclusive) {
     this.taxInclusive = taxInclusive;
   }

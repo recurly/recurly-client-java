@@ -151,16 +151,16 @@ public class BillingInfoCreate extends Request {
 
   /**
    * Tax identifier is required if adding a billing info that is a consumer card in Brazil or in
-   * Argentina. This would be the customer's CPF (Brazil) and CUIT (Argentina). CPF and CUIT are tax
-   * identifiers for all residents who pay taxes in Brazil and Argentina respectively.
+   * Argentina. This would be the customer's CPF/CNPJ (Brazil) and CUIT (Argentina). CPF, CNPJ and
+   * CUIT are tax identifiers for all residents who pay taxes in Brazil and Argentina respectively.
    */
   @SerializedName("tax_identifier")
   @Expose
   private String taxIdentifier;
 
   /**
-   * This field and a value of `cpf` or `cuit` are required if adding a billing info that is an elo
-   * or hipercard type in Brazil or in Argentina.
+   * This field and a value of `cpf`, `cnpj` or `cuit` are required if adding a billing info that is
+   * an elo or hipercard type in Brazil or in Argentina.
    */
   @SerializedName("tax_identifier_type")
   @Expose
@@ -493,8 +493,8 @@ public class BillingInfoCreate extends Request {
 
   /**
    * Tax identifier is required if adding a billing info that is a consumer card in Brazil or in
-   * Argentina. This would be the customer's CPF (Brazil) and CUIT (Argentina). CPF and CUIT are tax
-   * identifiers for all residents who pay taxes in Brazil and Argentina respectively.
+   * Argentina. This would be the customer's CPF/CNPJ (Brazil) and CUIT (Argentina). CPF, CNPJ and
+   * CUIT are tax identifiers for all residents who pay taxes in Brazil and Argentina respectively.
    */
   public String getTaxIdentifier() {
     return this.taxIdentifier;
@@ -502,25 +502,25 @@ public class BillingInfoCreate extends Request {
 
   /**
    * @param taxIdentifier Tax identifier is required if adding a billing info that is a consumer
-   *     card in Brazil or in Argentina. This would be the customer's CPF (Brazil) and CUIT
-   *     (Argentina). CPF and CUIT are tax identifiers for all residents who pay taxes in Brazil and
-   *     Argentina respectively.
+   *     card in Brazil or in Argentina. This would be the customer's CPF/CNPJ (Brazil) and CUIT
+   *     (Argentina). CPF, CNPJ and CUIT are tax identifiers for all residents who pay taxes in
+   *     Brazil and Argentina respectively.
    */
   public void setTaxIdentifier(final String taxIdentifier) {
     this.taxIdentifier = taxIdentifier;
   }
 
   /**
-   * This field and a value of `cpf` or `cuit` are required if adding a billing info that is an elo
-   * or hipercard type in Brazil or in Argentina.
+   * This field and a value of `cpf`, `cnpj` or `cuit` are required if adding a billing info that is
+   * an elo or hipercard type in Brazil or in Argentina.
    */
   public Constants.TaxIdentifierType getTaxIdentifierType() {
     return this.taxIdentifierType;
   }
 
   /**
-   * @param taxIdentifierType This field and a value of `cpf` or `cuit` are required if adding a
-   *     billing info that is an elo or hipercard type in Brazil or in Argentina.
+   * @param taxIdentifierType This field and a value of `cpf`, `cnpj` or `cuit` are required if
+   *     adding a billing info that is an elo or hipercard type in Brazil or in Argentina.
    */
   public void setTaxIdentifierType(final Constants.TaxIdentifierType taxIdentifierType) {
     this.taxIdentifierType = taxIdentifierType;
