@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.20.0](https://github.com/recurly/recurly-client-java/tree/3.20.0) (2022-06-16)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.19.0...3.20.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2019-10-10 [#202](https://github.com/recurly/recurly-client-java/pull/202) ([recurly-integrations](https://github.com/recurly-integrations))
+- Generated Latest Changes for v2019-10-10 [#194](https://github.com/recurly/recurly-client-java/pull/194) ([recurly-integrations](https://github.com/recurly-integrations))
+- Generated Latest Changes for v2019-10-10 [#189](https://github.com/recurly/recurly-client-java/pull/189) ([recurly-integrations](https://github.com/recurly-integrations))
+- Generated Latest Changes for v2019-10-10 [#186](https://github.com/recurly/recurly-client-java/pull/186) ([recurly-integrations](https://github.com/recurly-integrations))
+- Generated Latest Changes for v2019-10-10 [#185](https://github.com/recurly/recurly-client-java/pull/185) ([recurly-integrations](https://github.com/recurly-integrations))
+- Generated Latest Changes for v2019-10-10 (Tax Inclusive Pricing) [#178](https://github.com/recurly/recurly-client-java/pull/178) ([recurly-integrations](https://github.com/recurly-integrations))
+- Generated Latest Changes for v2019-10-10 (Account Hierarchy Invoice Rollup) [#176](https://github.com/recurly/recurly-client-java/pull/176) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [3.19.0](https://github.com/recurly/recurly-client-java/tree/3.19.0) (2021-10-23)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.18.0...3.19.0)
