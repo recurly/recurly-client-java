@@ -43,6 +43,10 @@ public class BillingInfoCreate extends Request {
   @Expose
   private Boolean backupPaymentMethod;
 
+  @SerializedName("card_type")
+  @Expose
+  private Constants.CardType cardType;
+
   /** Company name */
   @SerializedName("company")
   @Expose
@@ -268,6 +272,15 @@ public class BillingInfoCreate extends Request {
    */
   public void setBackupPaymentMethod(final Boolean backupPaymentMethod) {
     this.backupPaymentMethod = backupPaymentMethod;
+  }
+
+  public Constants.CardType getCardType() {
+    return this.cardType;
+  }
+
+  /** @param cardType */
+  public void setCardType(final Constants.CardType cardType) {
+    this.cardType = cardType;
   }
 
   /** Company name */
