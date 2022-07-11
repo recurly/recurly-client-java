@@ -2,8 +2,8 @@
 set -e
 
 if [[ -z "${TRAVIS}" ]]; then
-  RECURLY_INSECURE=true mvn clean test jacoco:report
+  mvn clean test jacoco:report
 else
-    RECURLY_INSECURE=true mvn clean test
-#   RECURLY_INSECURE=true mvn clean test jacoco:report coveralls:report
+    mvn clean test
+#   mvn clean test jacoco:report coveralls:report
 fi
