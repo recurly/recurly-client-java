@@ -348,11 +348,15 @@ public class BaseClientTest {
 
   @Test
   public void testSetApiUrl() {
-    final MockClient client = new MockClient("apiKey");
-    final String newApiUrl = "https://my.base.url/";
-    client._setApiUrl(newApiUrl);
+    try (MockedStatic<BaseClient> theMock = mockStatic(BaseClient.class)) {
+      theMock.when(() -> BaseClient.envEnabled(eq("RECURLY_INSECURE"))).thenReturn(true);
 
-    assertEquals(newApiUrl, client.getApiUrl());
+      final MockClient client = new MockClient("apiKey");
+      final String newApiUrl = "https://my.base.url/";
+      client._setApiUrl(newApiUrl);
+
+      assertEquals(newApiUrl, client.getApiUrl());
+    }
   }
 
   @Test
