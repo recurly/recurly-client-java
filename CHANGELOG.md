@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.22.0](https://github.com/recurly/recurly-client-java/tree/4.22.0) (2022-07-12)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.21.0...4.22.0)
+
+
+
+
+
 ## [4.21.0](https://github.com/recurly/recurly-client-java/tree/4.21.0) (2022-07-11)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.20.0...4.21.0)
