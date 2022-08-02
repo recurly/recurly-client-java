@@ -130,6 +130,20 @@ public class Plan extends Resource {
   @Expose
   private String object;
 
+  /**
+   * A fixed pricing model has the same price for each billing period. A ramp pricing model defines
+   * a set of Ramp Intervals, where a subscription changes price on a specified cadence of billing
+   * periods. The price change could be an increase or decrease.
+   */
+  @SerializedName("pricing_model")
+  @Expose
+  private String pricingModel;
+
+  /** Ramp Intervals */
+  @SerializedName("ramp_intervals")
+  @Expose
+  private List<PlanRampInterval> rampIntervals;
+
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
@@ -428,6 +442,34 @@ public class Plan extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  /**
+   * A fixed pricing model has the same price for each billing period. A ramp pricing model defines
+   * a set of Ramp Intervals, where a subscription changes price on a specified cadence of billing
+   * periods. The price change could be an increase or decrease.
+   */
+  public String getPricingModel() {
+    return this.pricingModel;
+  }
+
+  /**
+   * @param pricingModel A fixed pricing model has the same price for each billing period. A ramp
+   *     pricing model defines a set of Ramp Intervals, where a subscription changes price on a
+   *     specified cadence of billing periods. The price change could be an increase or decrease.
+   */
+  public void setPricingModel(final String pricingModel) {
+    this.pricingModel = pricingModel;
+  }
+
+  /** Ramp Intervals */
+  public List<PlanRampInterval> getRampIntervals() {
+    return this.rampIntervals;
+  }
+
+  /** @param rampIntervals Ramp Intervals */
+  public void setRampIntervals(final List<PlanRampInterval> rampIntervals) {
+    this.rampIntervals = rampIntervals;
   }
 
   /** Revenue schedule type */

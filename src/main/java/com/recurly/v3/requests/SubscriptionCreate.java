@@ -130,6 +130,11 @@ public class SubscriptionCreate extends Request {
   @Expose
   private Integer quantity;
 
+  /** The new set of ramp intervals for the subscription. */
+  @SerializedName("ramp_intervals")
+  @Expose
+  private List<SubscriptionRampInterval> rampIntervals;
+
   /**
    * If `auto_renew=true`, when a term completes, `total_billing_cycles` takes this value as the
    * length of subsequent terms. Defaults to the plan's `total_billing_cycles`.
@@ -443,6 +448,16 @@ public class SubscriptionCreate extends Request {
   /** @param quantity Optionally override the default quantity of 1. */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
+  }
+
+  /** The new set of ramp intervals for the subscription. */
+  public List<SubscriptionRampInterval> getRampIntervals() {
+    return this.rampIntervals;
+  }
+
+  /** @param rampIntervals The new set of ramp intervals for the subscription. */
+  public void setRampIntervals(final List<SubscriptionRampInterval> rampIntervals) {
+    this.rampIntervals = rampIntervals;
   }
 
   /**
