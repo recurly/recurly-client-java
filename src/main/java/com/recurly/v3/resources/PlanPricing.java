@@ -31,7 +31,7 @@ public class PlanPricing extends Resource {
   @Expose
   private Boolean taxInclusive;
 
-  /** Unit price */
+  /** This field should not be sent when the pricing model is 'ramp'. */
   @SerializedName("unit_amount")
   @Expose
   private BigDecimal unitAmount;
@@ -75,12 +75,12 @@ public class PlanPricing extends Resource {
     this.taxInclusive = taxInclusive;
   }
 
-  /** Unit price */
+  /** This field should not be sent when the pricing model is 'ramp'. */
   public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Unit price */
+  /** @param unitAmount This field should not be sent when the pricing model is 'ramp'. */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }

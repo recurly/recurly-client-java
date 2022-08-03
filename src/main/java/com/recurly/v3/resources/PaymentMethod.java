@@ -90,6 +90,11 @@ public class PaymentMethod extends Resource {
   @Expose
   private String routingNumberBank;
 
+  /** Username of the associated payment method. Currently only associated with Venmo. */
+  @SerializedName("username")
+  @Expose
+  private String username;
+
   /** The bank account type. Only present for ACH payment methods. */
   public Constants.AccountType getAccountType() {
     return this.accountType;
@@ -255,5 +260,18 @@ public class PaymentMethod extends Resource {
   /** @param routingNumberBank The bank name of this routing number. */
   public void setRoutingNumberBank(final String routingNumberBank) {
     this.routingNumberBank = routingNumberBank;
+  }
+
+  /** Username of the associated payment method. Currently only associated with Venmo. */
+  public String getUsername() {
+    return this.username;
+  }
+
+  /**
+   * @param username Username of the associated payment method. Currently only associated with
+   *     Venmo.
+   */
+  public void setUsername(final String username) {
+    this.username = username;
   }
 }
