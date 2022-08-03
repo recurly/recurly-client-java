@@ -30,7 +30,7 @@ public class PlanPricing extends Resource {
   @Expose
   private Boolean taxInclusive;
 
-  /** Unit price */
+  /** This field should not be sent when the pricing model is 'ramp'. */
   @SerializedName("unit_amount")
   @Expose
   private Float unitAmount;
@@ -74,12 +74,12 @@ public class PlanPricing extends Resource {
     this.taxInclusive = taxInclusive;
   }
 
-  /** Unit price */
+  /** This field should not be sent when the pricing model is 'ramp'. */
   public Float getUnitAmount() {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Unit price */
+  /** @param unitAmount This field should not be sent when the pricing model is 'ramp'. */
   public void setUnitAmount(final Float unitAmount) {
     this.unitAmount = unitAmount;
   }

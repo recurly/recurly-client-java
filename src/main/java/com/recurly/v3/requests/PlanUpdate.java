@@ -105,6 +105,11 @@ public class PlanUpdate extends Request {
   @Expose
   private String name;
 
+  /** Ramp Intervals */
+  @SerializedName("ramp_intervals")
+  @Expose
+  private List<PlanRampInterval> rampIntervals;
+
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
@@ -343,6 +348,16 @@ public class PlanUpdate extends Request {
    */
   public void setName(final String name) {
     this.name = name;
+  }
+
+  /** Ramp Intervals */
+  public List<PlanRampInterval> getRampIntervals() {
+    return this.rampIntervals;
+  }
+
+  /** @param rampIntervals Ramp Intervals */
+  public void setRampIntervals(final List<PlanRampInterval> rampIntervals) {
+    this.rampIntervals = rampIntervals;
   }
 
   /** Revenue schedule type */
