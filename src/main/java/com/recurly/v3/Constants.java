@@ -584,6 +584,17 @@ public class Constants {
     
     };
   
+    public enum PricingModelType {
+      UNDEFINED,
+    
+      @SerializedName("fixed")
+      FIXED,
+    
+      @SerializedName("ramp")
+      RAMP,
+    
+    };
+  
     public enum RevenueScheduleType {
       UNDEFINED,
     
@@ -1270,6 +1281,9 @@ public class Constants {
     
       @SerializedName("sepadirectdebit")
       SEPADIRECTDEBIT,
+    
+      @SerializedName("venmo")
+      VENMO,
     
       @SerializedName("wire_transfer")
       WIRE_TRANSFER,

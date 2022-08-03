@@ -69,7 +69,7 @@ public class PlanUpdate extends Request {
   @Expose
   private String code;
 
-  /** Pricing */
+  /** Optional when the pricing model is 'ramp'. */
   @SerializedName("currencies")
   @Expose
   private List<PlanPricing> currencies;
@@ -105,6 +105,11 @@ public class PlanUpdate extends Request {
   @SerializedName("name")
   @Expose
   private String name;
+
+  /** Ramp Intervals */
+  @SerializedName("ramp_intervals")
+  @Expose
+  private List<PlanRampInterval> rampIntervals;
 
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
@@ -272,12 +277,12 @@ public class PlanUpdate extends Request {
     this.code = code;
   }
 
-  /** Pricing */
+  /** Optional when the pricing model is 'ramp'. */
   public List<PlanPricing> getCurrencies() {
     return this.currencies;
   }
 
-  /** @param currencies Pricing */
+  /** @param currencies Optional when the pricing model is 'ramp'. */
   public void setCurrencies(final List<PlanPricing> currencies) {
     this.currencies = currencies;
   }
@@ -344,6 +349,16 @@ public class PlanUpdate extends Request {
    */
   public void setName(final String name) {
     this.name = name;
+  }
+
+  /** Ramp Intervals */
+  public List<PlanRampInterval> getRampIntervals() {
+    return this.rampIntervals;
+  }
+
+  /** @param rampIntervals Ramp Intervals */
+  public void setRampIntervals(final List<PlanRampInterval> rampIntervals) {
+    this.rampIntervals = rampIntervals;
   }
 
   /** Revenue schedule type */

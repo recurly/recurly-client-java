@@ -79,6 +79,11 @@ public class SubscriptionChange extends Resource {
   @Expose
   private Integer quantity;
 
+  /** The ramp intervals representing the pricing schedule for the subscription. */
+  @SerializedName("ramp_intervals")
+  @Expose
+  private List<SubscriptionRampIntervalResponse> rampIntervals;
+
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
@@ -235,6 +240,18 @@ public class SubscriptionChange extends Resource {
   /** @param quantity Subscription quantity */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
+  }
+
+  /** The ramp intervals representing the pricing schedule for the subscription. */
+  public List<SubscriptionRampIntervalResponse> getRampIntervals() {
+    return this.rampIntervals;
+  }
+
+  /**
+   * @param rampIntervals The ramp intervals representing the pricing schedule for the subscription.
+   */
+  public void setRampIntervals(final List<SubscriptionRampIntervalResponse> rampIntervals) {
+    this.rampIntervals = rampIntervals;
   }
 
   /** Revenue schedule type */
