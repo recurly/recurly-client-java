@@ -2347,12 +2347,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Assign a dunning campaign to multiple plans
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/put_dunning_campaign_bulk_update">put_dunning_campaign_bulk_update api documentation</a>
+   * @param dunningCampaignId Dunning Campaign ID, e.g. `e28zov4fw0v2`.
    * @param body The body of the request.
      * @return A list of updated plans.
    */
-  public DunningCampaignsBulkUpdateResponse putDunningCampaignBulkUpdate(DunningCampaignsBulkUpdate body) {
+  public DunningCampaignsBulkUpdateResponse putDunningCampaignBulkUpdate(String dunningCampaignId, DunningCampaignsBulkUpdate body) {
     final String url = "/dunning_campaigns/{dunning_campaign_id}/bulk_update";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("dunning_campaign_id", dunningCampaignId);
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = DunningCampaignsBulkUpdateResponse.class;
     return this.makeRequest("PUT", path, body, returnType);
