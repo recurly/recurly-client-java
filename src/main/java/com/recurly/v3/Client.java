@@ -301,6 +301,23 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Verify an account's credit card billing cvv
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/verify_billing_info_cvv">verify_billing_info_cvv api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param body The body of the request.
+     * @return Transaction information from verify.
+   */
+  public Transaction verifyBillingInfoCvv(String accountId, BillingInfoVerifyCVV body) {
+    final String url = "/accounts/{account_id}/billing_info/verify_cvv";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Transaction.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
    * Get the list of billing information associated with an account
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_billing_infos">list_billing_infos api documentation</a>
