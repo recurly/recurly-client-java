@@ -16,7 +16,7 @@ public class SubscriptionRampIntervalResponse extends Resource {
   @Expose
   private Integer remainingBillingCycles;
 
-  /** Represents how many billing cycles are included in a ramp interval. */
+  /** Represents the billing cycle where a ramp interval starts. */
   @SerializedName("starting_billing_cycle")
   @Expose
   private Integer startingBillingCycle;
@@ -38,14 +38,12 @@ public class SubscriptionRampIntervalResponse extends Resource {
     this.remainingBillingCycles = remainingBillingCycles;
   }
 
-  /** Represents how many billing cycles are included in a ramp interval. */
+  /** Represents the billing cycle where a ramp interval starts. */
   public Integer getStartingBillingCycle() {
     return this.startingBillingCycle;
   }
 
-  /**
-   * @param startingBillingCycle Represents how many billing cycles are included in a ramp interval.
-   */
+  /** @param startingBillingCycle Represents the billing cycle where a ramp interval starts. */
   public void setStartingBillingCycle(final Integer startingBillingCycle) {
     this.startingBillingCycle = startingBillingCycle;
   }
