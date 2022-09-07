@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.24.0](https://github.com/recurly/recurly-client-java/tree/4.24.0) (2022-09-07)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.23.0...4.24.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 [#213](https://github.com/recurly/recurly-client-java/pull/213) ([recurly-integrations](https://github.com/recurly-integrations))
+- Fixes bug with putDunningCampaignBulkUpdate [#211](https://github.com/recurly/recurly-client-java/pull/211) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.23.0](https://github.com/recurly/recurly-client-java/tree/4.23.0) (2022-08-03)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.22.0...4.23.0)
