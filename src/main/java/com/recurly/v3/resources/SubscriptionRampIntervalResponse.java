@@ -8,6 +8,7 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import java.math.BigDecimal;
 
 public class SubscriptionRampIntervalResponse extends Resource {
 
@@ -24,7 +25,7 @@ public class SubscriptionRampIntervalResponse extends Resource {
   /** Represents the price for the ramp interval. */
   @SerializedName("unit_amount")
   @Expose
-  private Integer unitAmount;
+  private BigDecimal unitAmount;
 
   /** Represents how many billing cycles are left in a ramp interval. */
   public Integer getRemainingBillingCycles() {
@@ -49,12 +50,12 @@ public class SubscriptionRampIntervalResponse extends Resource {
   }
 
   /** Represents the price for the ramp interval. */
-  public Integer getUnitAmount() {
+  public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
   /** @param unitAmount Represents the price for the ramp interval. */
-  public void setUnitAmount(final Integer unitAmount) {
+  public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
 }
