@@ -1,264 +1,356 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
- * make by hand will be lost. If you wish to make a change to this file, please create a Github
- * issue explaining the changes you need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process
+ * and thus any edits you make by hand will be lost. If you wish to make a
+ * change to this file, please create a Github issue explaining the changes you
+ * need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import com.recurly.v3.Constants;
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
 import org.joda.time.DateTime;
 
 public class ShippingAddress extends Resource {
 
-  /** Account ID */
+  
+  /**
+   * Account ID
+   */
+  
   @SerializedName("account_id")
   @Expose
   private String accountId;
 
+  
   @SerializedName("city")
   @Expose
   private String city;
 
+  
   @SerializedName("company")
   @Expose
   private String company;
 
-  /** Country, 2-letter ISO 3166-1 alpha-2 code. */
+  
+  /**
+   * Country, 2-letter ISO 3166-1 alpha-2 code.
+   */
+  
   @SerializedName("country")
   @Expose
   private String country;
 
-  /** Created at */
+  
+  /**
+   * Created at
+   */
+  
   @SerializedName("created_at")
   @Expose
   private DateTime createdAt;
 
+  
   @SerializedName("email")
   @Expose
   private String email;
 
+  
   @SerializedName("first_name")
   @Expose
   private String firstName;
 
-  /** Shipping Address ID */
+  
+  /**
+   * Shipping Address ID
+   */
+  
   @SerializedName("id")
   @Expose
   private String id;
 
+  
   @SerializedName("last_name")
   @Expose
   private String lastName;
 
+  
   @SerializedName("nickname")
   @Expose
   private String nickname;
 
-  /** Object type */
+  
+  /**
+   * Object type
+   */
+  
   @SerializedName("object")
   @Expose
   private String object;
 
+  
   @SerializedName("phone")
   @Expose
   private String phone;
 
-  /** Zip or postal code. */
+  
+  /**
+   * Zip or postal code.
+   */
+  
   @SerializedName("postal_code")
   @Expose
   private String postalCode;
 
-  /** State or province. */
+  
+  /**
+   * State or province.
+   */
+  
   @SerializedName("region")
   @Expose
   private String region;
 
+  
   @SerializedName("street1")
   @Expose
   private String street1;
 
+  
   @SerializedName("street2")
   @Expose
   private String street2;
 
-  /** Updated at */
+  
+  /**
+   * Updated at
+   */
+  
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
 
+  
   @SerializedName("vat_number")
   @Expose
   private String vatNumber;
 
-  /** Account ID */
-  public String getAccountId() {
-    return this.accountId;
-  }
 
-  /** @param accountId Account ID */
-  public void setAccountId(final String accountId) {
-    this.accountId = accountId;
-  }
 
-  public String getCity() {
-    return this.city;
-  }
+  
+  /**
+   * Account ID
+   */
+  
+  public String getAccountId() { return this.accountId; }
 
-  /** @param city */
-  public void setCity(final String city) {
-    this.city = city;
-  }
+  
+  /**
+   * @param accountId Account ID
+   */
+  
+  public void setAccountId(final String accountId) { this.accountId = accountId; }
 
-  public String getCompany() {
-    return this.company;
-  }
+  
+  public String getCity() { return this.city; }
 
-  /** @param company */
-  public void setCompany(final String company) {
-    this.company = company;
-  }
+  
+  /**
+   * @param city 
+   */
+  
+  public void setCity(final String city) { this.city = city; }
 
-  /** Country, 2-letter ISO 3166-1 alpha-2 code. */
-  public String getCountry() {
-    return this.country;
-  }
+  
+  public String getCompany() { return this.company; }
 
-  /** @param country Country, 2-letter ISO 3166-1 alpha-2 code. */
-  public void setCountry(final String country) {
-    this.country = country;
-  }
+  
+  /**
+   * @param company 
+   */
+  
+  public void setCompany(final String company) { this.company = company; }
 
-  /** Created at */
-  public DateTime getCreatedAt() {
-    return this.createdAt;
-  }
+  
+  /**
+   * Country, 2-letter ISO 3166-1 alpha-2 code.
+   */
+  
+  public String getCountry() { return this.country; }
 
-  /** @param createdAt Created at */
-  public void setCreatedAt(final DateTime createdAt) {
-    this.createdAt = createdAt;
-  }
+  
+  /**
+   * @param country Country, 2-letter ISO 3166-1 alpha-2 code.
+   */
+  
+  public void setCountry(final String country) { this.country = country; }
 
-  public String getEmail() {
-    return this.email;
-  }
+  
+  /**
+   * Created at
+   */
+  
+  public DateTime getCreatedAt() { return this.createdAt; }
 
-  /** @param email */
-  public void setEmail(final String email) {
-    this.email = email;
-  }
+  
+  /**
+   * @param createdAt Created at
+   */
+  
+  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
 
-  public String getFirstName() {
-    return this.firstName;
-  }
+  
+  public String getEmail() { return this.email; }
 
-  /** @param firstName */
-  public void setFirstName(final String firstName) {
-    this.firstName = firstName;
-  }
+  
+  /**
+   * @param email 
+   */
+  
+  public void setEmail(final String email) { this.email = email; }
 
-  /** Shipping Address ID */
-  public String getId() {
-    return this.id;
-  }
+  
+  public String getFirstName() { return this.firstName; }
 
-  /** @param id Shipping Address ID */
-  public void setId(final String id) {
-    this.id = id;
-  }
+  
+  /**
+   * @param firstName 
+   */
+  
+  public void setFirstName(final String firstName) { this.firstName = firstName; }
 
-  public String getLastName() {
-    return this.lastName;
-  }
+  
+  /**
+   * Shipping Address ID
+   */
+  
+  public String getId() { return this.id; }
 
-  /** @param lastName */
-  public void setLastName(final String lastName) {
-    this.lastName = lastName;
-  }
+  
+  /**
+   * @param id Shipping Address ID
+   */
+  
+  public void setId(final String id) { this.id = id; }
 
-  public String getNickname() {
-    return this.nickname;
-  }
+  
+  public String getLastName() { return this.lastName; }
 
-  /** @param nickname */
-  public void setNickname(final String nickname) {
-    this.nickname = nickname;
-  }
+  
+  /**
+   * @param lastName 
+   */
+  
+  public void setLastName(final String lastName) { this.lastName = lastName; }
 
-  /** Object type */
-  public String getObject() {
-    return this.object;
-  }
+  
+  public String getNickname() { return this.nickname; }
 
-  /** @param object Object type */
-  public void setObject(final String object) {
-    this.object = object;
-  }
+  
+  /**
+   * @param nickname 
+   */
+  
+  public void setNickname(final String nickname) { this.nickname = nickname; }
 
-  public String getPhone() {
-    return this.phone;
-  }
+  
+  /**
+   * Object type
+   */
+  
+  public String getObject() { return this.object; }
 
-  /** @param phone */
-  public void setPhone(final String phone) {
-    this.phone = phone;
-  }
+  
+  /**
+   * @param object Object type
+   */
+  
+  public void setObject(final String object) { this.object = object; }
 
-  /** Zip or postal code. */
-  public String getPostalCode() {
-    return this.postalCode;
-  }
+  
+  public String getPhone() { return this.phone; }
 
-  /** @param postalCode Zip or postal code. */
-  public void setPostalCode(final String postalCode) {
-    this.postalCode = postalCode;
-  }
+  
+  /**
+   * @param phone 
+   */
+  
+  public void setPhone(final String phone) { this.phone = phone; }
 
-  /** State or province. */
-  public String getRegion() {
-    return this.region;
-  }
+  
+  /**
+   * Zip or postal code.
+   */
+  
+  public String getPostalCode() { return this.postalCode; }
 
-  /** @param region State or province. */
-  public void setRegion(final String region) {
-    this.region = region;
-  }
+  
+  /**
+   * @param postalCode Zip or postal code.
+   */
+  
+  public void setPostalCode(final String postalCode) { this.postalCode = postalCode; }
 
-  public String getStreet1() {
-    return this.street1;
-  }
+  
+  /**
+   * State or province.
+   */
+  
+  public String getRegion() { return this.region; }
 
-  /** @param street1 */
-  public void setStreet1(final String street1) {
-    this.street1 = street1;
-  }
+  
+  /**
+   * @param region State or province.
+   */
+  
+  public void setRegion(final String region) { this.region = region; }
 
-  public String getStreet2() {
-    return this.street2;
-  }
+  
+  public String getStreet1() { return this.street1; }
 
-  /** @param street2 */
-  public void setStreet2(final String street2) {
-    this.street2 = street2;
-  }
+  
+  /**
+   * @param street1 
+   */
+  
+  public void setStreet1(final String street1) { this.street1 = street1; }
 
-  /** Updated at */
-  public DateTime getUpdatedAt() {
-    return this.updatedAt;
-  }
+  
+  public String getStreet2() { return this.street2; }
 
-  /** @param updatedAt Updated at */
-  public void setUpdatedAt(final DateTime updatedAt) {
-    this.updatedAt = updatedAt;
-  }
+  
+  /**
+   * @param street2 
+   */
+  
+  public void setStreet2(final String street2) { this.street2 = street2; }
 
-  public String getVatNumber() {
-    return this.vatNumber;
-  }
+  
+  /**
+   * Updated at
+   */
+  
+  public DateTime getUpdatedAt() { return this.updatedAt; }
 
-  /** @param vatNumber */
-  public void setVatNumber(final String vatNumber) {
-    this.vatNumber = vatNumber;
-  }
+  
+  /**
+   * @param updatedAt Updated at
+   */
+  
+  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+
+  
+  public String getVatNumber() { return this.vatNumber; }
+
+  
+  /**
+   * @param vatNumber 
+   */
+  
+  public void setVatNumber(final String vatNumber) { this.vatNumber = vatNumber; }
+
 }

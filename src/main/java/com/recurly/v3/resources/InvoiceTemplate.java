@@ -1,102 +1,152 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
- * make by hand will be lost. If you wish to make a change to this file, please create a Github
- * issue explaining the changes you need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process
+ * and thus any edits you make by hand will be lost. If you wish to make a
+ * change to this file, please create a Github issue explaining the changes you
+ * need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import com.recurly.v3.Constants;
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
 import org.joda.time.DateTime;
 
 public class InvoiceTemplate extends Resource {
 
-  /** Invoice template code. */
+  
+  /**
+   * Invoice template code.
+   */
+  
   @SerializedName("code")
   @Expose
   private String code;
 
-  /** When the invoice template was created in Recurly. */
+  
+  /**
+   * When the invoice template was created in Recurly.
+   */
+  
   @SerializedName("created_at")
   @Expose
   private DateTime createdAt;
 
-  /** Invoice template description. */
+  
+  /**
+   * Invoice template description.
+   */
+  
   @SerializedName("description")
   @Expose
   private String description;
 
+  
   @SerializedName("id")
   @Expose
   private String id;
 
-  /** Invoice template name. */
+  
+  /**
+   * Invoice template name.
+   */
+  
   @SerializedName("name")
   @Expose
   private String name;
 
-  /** When the invoice template was updated in Recurly. */
+  
+  /**
+   * When the invoice template was updated in Recurly.
+   */
+  
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
 
-  /** Invoice template code. */
-  public String getCode() {
-    return this.code;
-  }
 
-  /** @param code Invoice template code. */
-  public void setCode(final String code) {
-    this.code = code;
-  }
 
-  /** When the invoice template was created in Recurly. */
-  public DateTime getCreatedAt() {
-    return this.createdAt;
-  }
+  
+  /**
+   * Invoice template code.
+   */
+  
+  public String getCode() { return this.code; }
 
-  /** @param createdAt When the invoice template was created in Recurly. */
-  public void setCreatedAt(final DateTime createdAt) {
-    this.createdAt = createdAt;
-  }
+  
+  /**
+   * @param code Invoice template code.
+   */
+  
+  public void setCode(final String code) { this.code = code; }
 
-  /** Invoice template description. */
-  public String getDescription() {
-    return this.description;
-  }
+  
+  /**
+   * When the invoice template was created in Recurly.
+   */
+  
+  public DateTime getCreatedAt() { return this.createdAt; }
 
-  /** @param description Invoice template description. */
-  public void setDescription(final String description) {
-    this.description = description;
-  }
+  
+  /**
+   * @param createdAt When the invoice template was created in Recurly.
+   */
+  
+  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
 
-  public String getId() {
-    return this.id;
-  }
+  
+  /**
+   * Invoice template description.
+   */
+  
+  public String getDescription() { return this.description; }
 
-  /** @param id */
-  public void setId(final String id) {
-    this.id = id;
-  }
+  
+  /**
+   * @param description Invoice template description.
+   */
+  
+  public void setDescription(final String description) { this.description = description; }
 
-  /** Invoice template name. */
-  public String getName() {
-    return this.name;
-  }
+  
+  public String getId() { return this.id; }
 
-  /** @param name Invoice template name. */
-  public void setName(final String name) {
-    this.name = name;
-  }
+  
+  /**
+   * @param id 
+   */
+  
+  public void setId(final String id) { this.id = id; }
 
-  /** When the invoice template was updated in Recurly. */
-  public DateTime getUpdatedAt() {
-    return this.updatedAt;
-  }
+  
+  /**
+   * Invoice template name.
+   */
+  
+  public String getName() { return this.name; }
 
-  /** @param updatedAt When the invoice template was updated in Recurly. */
-  public void setUpdatedAt(final DateTime updatedAt) {
-    this.updatedAt = updatedAt;
-  }
+  
+  /**
+   * @param name Invoice template name.
+   */
+  
+  public void setName(final String name) { this.name = name; }
+
+  
+  /**
+   * When the invoice template was updated in Recurly.
+   */
+  
+  public DateTime getUpdatedAt() { return this.updatedAt; }
+
+  
+  /**
+   * @param updatedAt When the invoice template was updated in Recurly.
+   */
+  
+  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+
 }

@@ -1,547 +1,678 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
- * make by hand will be lost. If you wish to make a change to this file, please create a Github
- * issue explaining the changes you need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process
+ * and thus any edits you make by hand will be lost. If you wish to make a
+ * change to this file, please create a Github issue explaining the changes you
+ * need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import com.recurly.v3.Constants;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 import org.joda.time.DateTime;
 
 public class AddOn extends Resource {
 
+  
   /**
-   * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
-   * add-on's code.
+   * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to add-on's code.
    */
+  
   @SerializedName("accounting_code")
   @Expose
   private String accountingCode;
 
-  /** Whether the add-on type is fixed, or usage-based. */
+  
+  /**
+   * Whether the add-on type is fixed, or usage-based.
+   */
+  
   @SerializedName("add_on_type")
   @Expose
   private Constants.AddOnType addOnType;
 
+  
   /**
-   * Used by Avalara for Communications taxes. The transaction type in combination with the service
-   * type describe how the add-on is taxed. Refer to [the
-   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
-   * for more available t/s types.
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service type describe how the add-on is taxed. Refer to [the documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types) for more available t/s types.
    */
+  
   @SerializedName("avalara_service_type")
   @Expose
   private Integer avalaraServiceType;
 
+  
   /**
-   * Used by Avalara for Communications taxes. The transaction type in combination with the service
-   * type describe how the add-on is taxed. Refer to [the
-   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
-   * for more available t/s types.
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service type describe how the add-on is taxed. Refer to [the documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types) for more available t/s types.
    */
+  
   @SerializedName("avalara_transaction_type")
   @Expose
   private Integer avalaraTransactionType;
 
-  /** The unique identifier for the add-on within its plan. */
+  
+  /**
+   * The unique identifier for the add-on within its plan.
+   */
+  
   @SerializedName("code")
   @Expose
   private String code;
 
-  /** Created at */
+  
+  /**
+   * Created at
+   */
+  
   @SerializedName("created_at")
   @Expose
   private DateTime createdAt;
 
-  /** Add-on pricing */
+  
+  /**
+   * Add-on pricing
+   */
+  
   @SerializedName("currencies")
   @Expose
   private List<AddOnPricing> currencies;
 
-  /** Default quantity for the hosted pages. */
+  
+  /**
+   * Default quantity for the hosted pages.
+   */
+  
   @SerializedName("default_quantity")
   @Expose
   private Integer defaultQuantity;
 
-  /** Deleted at */
+  
+  /**
+   * Deleted at
+   */
+  
   @SerializedName("deleted_at")
   @Expose
   private DateTime deletedAt;
 
-  /** Determines if the quantity field is displayed on the hosted pages for the add-on. */
+  
+  /**
+   * Determines if the quantity field is displayed on the hosted pages for the add-on.
+   */
+  
   @SerializedName("display_quantity")
   @Expose
   private Boolean displayQuantity;
 
-  /** Optional, stock keeping unit to link the item to other inventory systems. */
+  
+  /**
+   * Optional, stock keeping unit to link the item to other inventory systems.
+   */
+  
   @SerializedName("external_sku")
   @Expose
   private String externalSku;
 
-  /** Add-on ID */
+  
+  /**
+   * Add-on ID
+   */
+  
   @SerializedName("id")
   @Expose
   private String id;
 
-  /** Just the important parts. */
+  
+  /**
+   * Just the important parts.
+   */
+  
   @SerializedName("item")
   @Expose
   private ItemMini item;
 
-  /** System-generated unique identifier for an measured unit associated with the add-on. */
+  
+  /**
+   * System-generated unique identifier for an measured unit associated with the add-on.
+   */
+  
   @SerializedName("measured_unit_id")
   @Expose
   private String measuredUnitId;
 
-  /** Describes your add-on and will appear in subscribers' invoices. */
+  
+  /**
+   * Describes your add-on and will appear in subscribers' invoices.
+   */
+  
   @SerializedName("name")
   @Expose
   private String name;
 
-  /** Object type */
+  
+  /**
+   * Object type
+   */
+  
   @SerializedName("object")
   @Expose
   private String object;
 
+  
   /**
-   * Whether the add-on is optional for the customer to include in their purchase on the hosted
-   * payment page. If false, the add-on will be included when a subscription is created through the
-   * Recurly UI. However, the add-on will not be included when a subscription is created through the
-   * API.
+   * Whether the add-on is optional for the customer to include in their purchase on the hosted payment page. If false, the add-on will be included when a subscription is created through the Recurly UI. However, the add-on will not be included when a subscription is created through the API.
    */
+  
   @SerializedName("optional")
   @Expose
   private Boolean optional;
 
-  /** Percentage Tiers */
+  
+  /**
+   * Percentage Tiers
+   */
+  
   @SerializedName("percentage_tiers")
   @Expose
   private List<PercentageTiersByCurrency> percentageTiers;
 
-  /** Plan ID */
+  
+  /**
+   * Plan ID
+   */
+  
   @SerializedName("plan_id")
   @Expose
   private String planId;
 
+  
   /**
-   * When this add-on is invoiced, the line item will use this revenue schedule. If
-   * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
-   * request as the value will be set from the item.
+   * When this add-on is invoiced, the line item will use this revenue schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the request as the value will be set from the item.
    */
+  
   @SerializedName("revenue_schedule_type")
   @Expose
   private Constants.RevenueScheduleType revenueScheduleType;
 
-  /** Add-ons can be either active or inactive. */
+  
+  /**
+   * Add-ons can be either active or inactive.
+   */
+  
   @SerializedName("state")
   @Expose
   private Constants.ActiveState state;
 
+  
   /**
-   * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
-   * each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`,
-   * or `digital`.
+   * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`, or `digital`.
    */
+  
   @SerializedName("tax_code")
   @Expose
   private String taxCode;
 
+  
   /**
-   * The pricing model for the add-on. For more information, [click
-   * here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
-   * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
-   * configure quantity-based pricing models.
+   * The pricing model for the add-on.  For more information,
+[click here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
+[Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
+to configure quantity-based pricing models.
+
    */
+  
   @SerializedName("tier_type")
   @Expose
   private Constants.TierType tierType;
 
-  /** Tiers */
+  
+  /**
+   * Tiers
+   */
+  
   @SerializedName("tiers")
   @Expose
   private List<Tier> tiers;
 
-  /** Last updated at */
+  
+  /**
+   * Last updated at
+   */
+  
   @SerializedName("updated_at")
   @Expose
   private DateTime updatedAt;
 
+  
   /**
-   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
-   * places. A value between 0.0 and 100.0.
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal places. A value between 0.0 and 100.0.
    */
+  
   @SerializedName("usage_percentage")
   @Expose
   private BigDecimal usagePercentage;
 
-  /** The time at which usage totals are reset for billing purposes. */
+  
+  /**
+   * The time at which usage totals are reset for billing purposes.
+   */
+  
   @SerializedName("usage_timeframe")
   @Expose
   private Constants.UsageTimeframe usageTimeframe;
 
-  /** Type of usage, returns usage type if `add_on_type` is `usage`. */
+  
+  /**
+   * Type of usage, returns usage type if `add_on_type` is `usage`.
+   */
+  
   @SerializedName("usage_type")
   @Expose
   private Constants.UsageType usageType;
 
+
+
+  
   /**
-   * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
-   * add-on's code.
+   * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to add-on's code.
    */
-  public String getAccountingCode() {
-    return this.accountingCode;
-  }
+  
+  public String getAccountingCode() { return this.accountingCode; }
 
+  
   /**
-   * @param accountingCode Accounting code for invoice line items for this add-on. If no value is
-   *     provided, it defaults to add-on's code.
+   * @param accountingCode Accounting code for invoice line items for this add-on. If no value is provided, it defaults to add-on's code.
    */
-  public void setAccountingCode(final String accountingCode) {
-    this.accountingCode = accountingCode;
-  }
+  
+  public void setAccountingCode(final String accountingCode) { this.accountingCode = accountingCode; }
 
-  /** Whether the add-on type is fixed, or usage-based. */
-  public Constants.AddOnType getAddOnType() {
-    return this.addOnType;
-  }
-
-  /** @param addOnType Whether the add-on type is fixed, or usage-based. */
-  public void setAddOnType(final Constants.AddOnType addOnType) {
-    this.addOnType = addOnType;
-  }
-
+  
   /**
-   * Used by Avalara for Communications taxes. The transaction type in combination with the service
-   * type describe how the add-on is taxed. Refer to [the
-   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
-   * for more available t/s types.
+   * Whether the add-on type is fixed, or usage-based.
    */
-  public Integer getAvalaraServiceType() {
-    return this.avalaraServiceType;
-  }
+  
+  public Constants.AddOnType getAddOnType() { return this.addOnType; }
 
+  
   /**
-   * @param avalaraServiceType Used by Avalara for Communications taxes. The transaction type in
-   *     combination with the service type describe how the add-on is taxed. Refer to [the
-   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
-   *     for more available t/s types.
+   * @param addOnType Whether the add-on type is fixed, or usage-based.
    */
-  public void setAvalaraServiceType(final Integer avalaraServiceType) {
-    this.avalaraServiceType = avalaraServiceType;
-  }
+  
+  public void setAddOnType(final Constants.AddOnType addOnType) { this.addOnType = addOnType; }
 
+  
   /**
-   * Used by Avalara for Communications taxes. The transaction type in combination with the service
-   * type describe how the add-on is taxed. Refer to [the
-   * documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
-   * for more available t/s types.
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service type describe how the add-on is taxed. Refer to [the documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types) for more available t/s types.
    */
-  public Integer getAvalaraTransactionType() {
-    return this.avalaraTransactionType;
-  }
+  
+  public Integer getAvalaraServiceType() { return this.avalaraServiceType; }
 
+  
   /**
-   * @param avalaraTransactionType Used by Avalara for Communications taxes. The transaction type in
-   *     combination with the service type describe how the add-on is taxed. Refer to [the
-   *     documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types)
-   *     for more available t/s types.
+   * @param avalaraServiceType Used by Avalara for Communications taxes. The transaction type in combination with the service type describe how the add-on is taxed. Refer to [the documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types) for more available t/s types.
    */
-  public void setAvalaraTransactionType(final Integer avalaraTransactionType) {
-    this.avalaraTransactionType = avalaraTransactionType;
-  }
+  
+  public void setAvalaraServiceType(final Integer avalaraServiceType) { this.avalaraServiceType = avalaraServiceType; }
 
-  /** The unique identifier for the add-on within its plan. */
-  public String getCode() {
-    return this.code;
-  }
-
-  /** @param code The unique identifier for the add-on within its plan. */
-  public void setCode(final String code) {
-    this.code = code;
-  }
-
-  /** Created at */
-  public DateTime getCreatedAt() {
-    return this.createdAt;
-  }
-
-  /** @param createdAt Created at */
-  public void setCreatedAt(final DateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  /** Add-on pricing */
-  public List<AddOnPricing> getCurrencies() {
-    return this.currencies;
-  }
-
-  /** @param currencies Add-on pricing */
-  public void setCurrencies(final List<AddOnPricing> currencies) {
-    this.currencies = currencies;
-  }
-
-  /** Default quantity for the hosted pages. */
-  public Integer getDefaultQuantity() {
-    return this.defaultQuantity;
-  }
-
-  /** @param defaultQuantity Default quantity for the hosted pages. */
-  public void setDefaultQuantity(final Integer defaultQuantity) {
-    this.defaultQuantity = defaultQuantity;
-  }
-
-  /** Deleted at */
-  public DateTime getDeletedAt() {
-    return this.deletedAt;
-  }
-
-  /** @param deletedAt Deleted at */
-  public void setDeletedAt(final DateTime deletedAt) {
-    this.deletedAt = deletedAt;
-  }
-
-  /** Determines if the quantity field is displayed on the hosted pages for the add-on. */
-  public Boolean getDisplayQuantity() {
-    return this.displayQuantity;
-  }
-
+  
   /**
-   * @param displayQuantity Determines if the quantity field is displayed on the hosted pages for
-   *     the add-on.
+   * Used by Avalara for Communications taxes. The transaction type in combination with the service type describe how the add-on is taxed. Refer to [the documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types) for more available t/s types.
    */
-  public void setDisplayQuantity(final Boolean displayQuantity) {
-    this.displayQuantity = displayQuantity;
-  }
+  
+  public Integer getAvalaraTransactionType() { return this.avalaraTransactionType; }
 
-  /** Optional, stock keeping unit to link the item to other inventory systems. */
-  public String getExternalSku() {
-    return this.externalSku;
-  }
+  
+  /**
+   * @param avalaraTransactionType Used by Avalara for Communications taxes. The transaction type in combination with the service type describe how the add-on is taxed. Refer to [the documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types) for more available t/s types.
+   */
+  
+  public void setAvalaraTransactionType(final Integer avalaraTransactionType) { this.avalaraTransactionType = avalaraTransactionType; }
 
+  
+  /**
+   * The unique identifier for the add-on within its plan.
+   */
+  
+  public String getCode() { return this.code; }
+
+  
+  /**
+   * @param code The unique identifier for the add-on within its plan.
+   */
+  
+  public void setCode(final String code) { this.code = code; }
+
+  
+  /**
+   * Created at
+   */
+  
+  public DateTime getCreatedAt() { return this.createdAt; }
+
+  
+  /**
+   * @param createdAt Created at
+   */
+  
+  public void setCreatedAt(final DateTime createdAt) { this.createdAt = createdAt; }
+
+  
+  /**
+   * Add-on pricing
+   */
+  
+  public List<AddOnPricing> getCurrencies() { return this.currencies; }
+
+  
+  /**
+   * @param currencies Add-on pricing
+   */
+  
+  public void setCurrencies(final List<AddOnPricing> currencies) { this.currencies = currencies; }
+
+  
+  /**
+   * Default quantity for the hosted pages.
+   */
+  
+  public Integer getDefaultQuantity() { return this.defaultQuantity; }
+
+  
+  /**
+   * @param defaultQuantity Default quantity for the hosted pages.
+   */
+  
+  public void setDefaultQuantity(final Integer defaultQuantity) { this.defaultQuantity = defaultQuantity; }
+
+  
+  /**
+   * Deleted at
+   */
+  
+  public DateTime getDeletedAt() { return this.deletedAt; }
+
+  
+  /**
+   * @param deletedAt Deleted at
+   */
+  
+  public void setDeletedAt(final DateTime deletedAt) { this.deletedAt = deletedAt; }
+
+  
+  /**
+   * Determines if the quantity field is displayed on the hosted pages for the add-on.
+   */
+  
+  public Boolean getDisplayQuantity() { return this.displayQuantity; }
+
+  
+  /**
+   * @param displayQuantity Determines if the quantity field is displayed on the hosted pages for the add-on.
+   */
+  
+  public void setDisplayQuantity(final Boolean displayQuantity) { this.displayQuantity = displayQuantity; }
+
+  
+  /**
+   * Optional, stock keeping unit to link the item to other inventory systems.
+   */
+  
+  public String getExternalSku() { return this.externalSku; }
+
+  
   /**
    * @param externalSku Optional, stock keeping unit to link the item to other inventory systems.
    */
-  public void setExternalSku(final String externalSku) {
-    this.externalSku = externalSku;
-  }
+  
+  public void setExternalSku(final String externalSku) { this.externalSku = externalSku; }
 
-  /** Add-on ID */
-  public String getId() {
-    return this.id;
-  }
-
-  /** @param id Add-on ID */
-  public void setId(final String id) {
-    this.id = id;
-  }
-
-  /** Just the important parts. */
-  public ItemMini getItem() {
-    return this.item;
-  }
-
-  /** @param item Just the important parts. */
-  public void setItem(final ItemMini item) {
-    this.item = item;
-  }
-
-  /** System-generated unique identifier for an measured unit associated with the add-on. */
-  public String getMeasuredUnitId() {
-    return this.measuredUnitId;
-  }
-
+  
   /**
-   * @param measuredUnitId System-generated unique identifier for an measured unit associated with
-   *     the add-on.
+   * Add-on ID
    */
-  public void setMeasuredUnitId(final String measuredUnitId) {
-    this.measuredUnitId = measuredUnitId;
-  }
+  
+  public String getId() { return this.id; }
 
-  /** Describes your add-on and will appear in subscribers' invoices. */
-  public String getName() {
-    return this.name;
-  }
-
-  /** @param name Describes your add-on and will appear in subscribers' invoices. */
-  public void setName(final String name) {
-    this.name = name;
-  }
-
-  /** Object type */
-  public String getObject() {
-    return this.object;
-  }
-
-  /** @param object Object type */
-  public void setObject(final String object) {
-    this.object = object;
-  }
-
+  
   /**
-   * Whether the add-on is optional for the customer to include in their purchase on the hosted
-   * payment page. If false, the add-on will be included when a subscription is created through the
-   * Recurly UI. However, the add-on will not be included when a subscription is created through the
-   * API.
+   * @param id Add-on ID
    */
-  public Boolean getOptional() {
-    return this.optional;
-  }
+  
+  public void setId(final String id) { this.id = id; }
 
+  
   /**
-   * @param optional Whether the add-on is optional for the customer to include in their purchase on
-   *     the hosted payment page. If false, the add-on will be included when a subscription is
-   *     created through the Recurly UI. However, the add-on will not be included when a
-   *     subscription is created through the API.
+   * Just the important parts.
    */
-  public void setOptional(final Boolean optional) {
-    this.optional = optional;
-  }
+  
+  public ItemMini getItem() { return this.item; }
 
-  /** Percentage Tiers */
-  public List<PercentageTiersByCurrency> getPercentageTiers() {
-    return this.percentageTiers;
-  }
-
-  /** @param percentageTiers Percentage Tiers */
-  public void setPercentageTiers(final List<PercentageTiersByCurrency> percentageTiers) {
-    this.percentageTiers = percentageTiers;
-  }
-
-  /** Plan ID */
-  public String getPlanId() {
-    return this.planId;
-  }
-
-  /** @param planId Plan ID */
-  public void setPlanId(final String planId) {
-    this.planId = planId;
-  }
-
+  
   /**
-   * When this add-on is invoiced, the line item will use this revenue schedule. If
-   * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
-   * request as the value will be set from the item.
+   * @param item Just the important parts.
    */
-  public Constants.RevenueScheduleType getRevenueScheduleType() {
-    return this.revenueScheduleType;
-  }
+  
+  public void setItem(final ItemMini item) { this.item = item; }
 
+  
   /**
-   * @param revenueScheduleType When this add-on is invoiced, the line item will use this revenue
-   *     schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must
-   *     be absent in the request as the value will be set from the item.
+   * System-generated unique identifier for an measured unit associated with the add-on.
    */
-  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
-    this.revenueScheduleType = revenueScheduleType;
-  }
+  
+  public String getMeasuredUnitId() { return this.measuredUnitId; }
 
-  /** Add-ons can be either active or inactive. */
-  public Constants.ActiveState getState() {
-    return this.state;
-  }
-
-  /** @param state Add-ons can be either active or inactive. */
-  public void setState(final Constants.ActiveState state) {
-    this.state = state;
-  }
-
+  
   /**
-   * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
-   * each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`,
-   * or `digital`.
+   * @param measuredUnitId System-generated unique identifier for an measured unit associated with the add-on.
    */
-  public String getTaxCode() {
-    return this.taxCode;
-  }
+  
+  public void setMeasuredUnitId(final String measuredUnitId) { this.measuredUnitId = measuredUnitId; }
 
+  
   /**
-   * @param taxCode Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values
-   *     are specific to each tax system. If you are using Recurly’s EU VAT feature you can use
-   *     `unknown`, `physical`, or `digital`.
+   * Describes your add-on and will appear in subscribers' invoices.
    */
-  public void setTaxCode(final String taxCode) {
-    this.taxCode = taxCode;
-  }
+  
+  public String getName() { return this.name; }
 
+  
   /**
-   * The pricing model for the add-on. For more information, [click
-   * here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
-   * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
-   * configure quantity-based pricing models.
+   * @param name Describes your add-on and will appear in subscribers' invoices.
    */
-  public Constants.TierType getTierType() {
-    return this.tierType;
-  }
+  
+  public void setName(final String name) { this.name = name; }
 
+  
   /**
-   * @param tierType The pricing model for the add-on. For more information, [click
-   *     here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
-   *     [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
-   *     to configure quantity-based pricing models.
+   * Object type
    */
-  public void setTierType(final Constants.TierType tierType) {
-    this.tierType = tierType;
-  }
+  
+  public String getObject() { return this.object; }
 
-  /** Tiers */
-  public List<Tier> getTiers() {
-    return this.tiers;
-  }
-
-  /** @param tiers Tiers */
-  public void setTiers(final List<Tier> tiers) {
-    this.tiers = tiers;
-  }
-
-  /** Last updated at */
-  public DateTime getUpdatedAt() {
-    return this.updatedAt;
-  }
-
-  /** @param updatedAt Last updated at */
-  public void setUpdatedAt(final DateTime updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
+  
   /**
-   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
-   * places. A value between 0.0 and 100.0.
+   * @param object Object type
    */
-  public BigDecimal getUsagePercentage() {
-    return this.usagePercentage;
-  }
+  
+  public void setObject(final String object) { this.object = object; }
 
+  
   /**
-   * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can
-   *     be up to 4 decimal places. A value between 0.0 and 100.0.
+   * Whether the add-on is optional for the customer to include in their purchase on the hosted payment page. If false, the add-on will be included when a subscription is created through the Recurly UI. However, the add-on will not be included when a subscription is created through the API.
    */
-  public void setUsagePercentage(final BigDecimal usagePercentage) {
-    this.usagePercentage = usagePercentage;
-  }
+  
+  public Boolean getOptional() { return this.optional; }
 
-  /** The time at which usage totals are reset for billing purposes. */
-  public Constants.UsageTimeframe getUsageTimeframe() {
-    return this.usageTimeframe;
-  }
+  
+  /**
+   * @param optional Whether the add-on is optional for the customer to include in their purchase on the hosted payment page. If false, the add-on will be included when a subscription is created through the Recurly UI. However, the add-on will not be included when a subscription is created through the API.
+   */
+  
+  public void setOptional(final Boolean optional) { this.optional = optional; }
 
-  /** @param usageTimeframe The time at which usage totals are reset for billing purposes. */
-  public void setUsageTimeframe(final Constants.UsageTimeframe usageTimeframe) {
-    this.usageTimeframe = usageTimeframe;
-  }
+  
+  /**
+   * Percentage Tiers
+   */
+  
+  public List<PercentageTiersByCurrency> getPercentageTiers() { return this.percentageTiers; }
 
-  /** Type of usage, returns usage type if `add_on_type` is `usage`. */
-  public Constants.UsageType getUsageType() {
-    return this.usageType;
-  }
+  
+  /**
+   * @param percentageTiers Percentage Tiers
+   */
+  
+  public void setPercentageTiers(final List<PercentageTiersByCurrency> percentageTiers) { this.percentageTiers = percentageTiers; }
 
-  /** @param usageType Type of usage, returns usage type if `add_on_type` is `usage`. */
-  public void setUsageType(final Constants.UsageType usageType) {
-    this.usageType = usageType;
-  }
+  
+  /**
+   * Plan ID
+   */
+  
+  public String getPlanId() { return this.planId; }
+
+  
+  /**
+   * @param planId Plan ID
+   */
+  
+  public void setPlanId(final String planId) { this.planId = planId; }
+
+  
+  /**
+   * When this add-on is invoiced, the line item will use this revenue schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the request as the value will be set from the item.
+   */
+  
+  public Constants.RevenueScheduleType getRevenueScheduleType() { return this.revenueScheduleType; }
+
+  
+  /**
+   * @param revenueScheduleType When this add-on is invoiced, the line item will use this revenue schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the request as the value will be set from the item.
+   */
+  
+  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) { this.revenueScheduleType = revenueScheduleType; }
+
+  
+  /**
+   * Add-ons can be either active or inactive.
+   */
+  
+  public Constants.ActiveState getState() { return this.state; }
+
+  
+  /**
+   * @param state Add-ons can be either active or inactive.
+   */
+  
+  public void setState(final Constants.ActiveState state) { this.state = state; }
+
+  
+  /**
+   * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`, or `digital`.
+   */
+  
+  public String getTaxCode() { return this.taxCode; }
+
+  
+  /**
+   * @param taxCode Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`, or `digital`.
+   */
+  
+  public void setTaxCode(final String taxCode) { this.taxCode = taxCode; }
+
+  
+  /**
+   * The pricing model for the add-on.  For more information,
+[click here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
+[Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
+to configure quantity-based pricing models.
+
+   */
+  
+  public Constants.TierType getTierType() { return this.tierType; }
+
+  
+  /**
+   * @param tierType The pricing model for the add-on.  For more information,
+[click here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
+[Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
+to configure quantity-based pricing models.
+
+   */
+  
+  public void setTierType(final Constants.TierType tierType) { this.tierType = tierType; }
+
+  
+  /**
+   * Tiers
+   */
+  
+  public List<Tier> getTiers() { return this.tiers; }
+
+  
+  /**
+   * @param tiers Tiers
+   */
+  
+  public void setTiers(final List<Tier> tiers) { this.tiers = tiers; }
+
+  
+  /**
+   * Last updated at
+   */
+  
+  public DateTime getUpdatedAt() { return this.updatedAt; }
+
+  
+  /**
+   * @param updatedAt Last updated at
+   */
+  
+  public void setUpdatedAt(final DateTime updatedAt) { this.updatedAt = updatedAt; }
+
+  
+  /**
+   * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal places. A value between 0.0 and 100.0.
+   */
+  
+  public BigDecimal getUsagePercentage() { return this.usagePercentage; }
+
+  
+  /**
+   * @param usagePercentage The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal places. A value between 0.0 and 100.0.
+   */
+  
+  public void setUsagePercentage(final BigDecimal usagePercentage) { this.usagePercentage = usagePercentage; }
+
+  
+  /**
+   * The time at which usage totals are reset for billing purposes.
+   */
+  
+  public Constants.UsageTimeframe getUsageTimeframe() { return this.usageTimeframe; }
+
+  
+  /**
+   * @param usageTimeframe The time at which usage totals are reset for billing purposes.
+   */
+  
+  public void setUsageTimeframe(final Constants.UsageTimeframe usageTimeframe) { this.usageTimeframe = usageTimeframe; }
+
+  
+  /**
+   * Type of usage, returns usage type if `add_on_type` is `usage`.
+   */
+  
+  public Constants.UsageType getUsageType() { return this.usageType; }
+
+  
+  /**
+   * @param usageType Type of usage, returns usage type if `add_on_type` is `usage`.
+   */
+  
+  public void setUsageType(final Constants.UsageType usageType) { this.usageType = usageType; }
+
 }
