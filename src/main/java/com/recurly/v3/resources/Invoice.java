@@ -96,6 +96,16 @@ public class Invoice extends Resource {
   @Expose
   private String dunningCampaignId;
 
+  /** Number of times the event was sent. */
+  @SerializedName("dunning_events_sent")
+  @Expose
+  private Integer dunningEventsSent;
+
+  /** Last communication attempt. */
+  @SerializedName("final_dunning_event")
+  @Expose
+  private Boolean finalDunningEvent;
+
   /**
    * Identifies if the invoice has more line items than are returned in `line_items`. If
    * `has_more_line_items` is `true`, then a request needs to be made to the
@@ -413,6 +423,26 @@ public class Invoice extends Resource {
    */
   public void setDunningCampaignId(final String dunningCampaignId) {
     this.dunningCampaignId = dunningCampaignId;
+  }
+
+  /** Number of times the event was sent. */
+  public Integer getDunningEventsSent() {
+    return this.dunningEventsSent;
+  }
+
+  /** @param dunningEventsSent Number of times the event was sent. */
+  public void setDunningEventsSent(final Integer dunningEventsSent) {
+    this.dunningEventsSent = dunningEventsSent;
+  }
+
+  /** Last communication attempt. */
+  public Boolean getFinalDunningEvent() {
+    return this.finalDunningEvent;
+  }
+
+  /** @param finalDunningEvent Last communication attempt. */
+  public void setFinalDunningEvent(final Boolean finalDunningEvent) {
+    this.finalDunningEvent = finalDunningEvent;
   }
 
   /**
