@@ -43,6 +43,10 @@ public class BillingInfoCreate extends Request {
   @Expose
   private Boolean backupPaymentMethod;
 
+  @SerializedName("card_type")
+  @Expose
+  private Constants.CardType cardType;
+
   /** Company name */
   @SerializedName("company")
   @Expose
@@ -53,7 +57,10 @@ public class BillingInfoCreate extends Request {
   @Expose
   private String cvv;
 
-  /** Use for Adyen HPP billing info. */
+  /**
+   * Use for Adyen HPP billing info. This should only be used as part of a pending purchase request,
+   * when the billing info is nested inside an account object.
+   */
   @SerializedName("external_hpp_type")
   @Expose
   private Constants.ExternalHppType externalHppType;
@@ -117,7 +124,10 @@ public class BillingInfoCreate extends Request {
   @Expose
   private String number;
 
-  /** Use for Online Banking billing info. */
+  /**
+   * Use for Online Banking billing info. This should only be used as part of a pending purchase
+   * request, when the billing info is nested inside an account object.
+   */
   @SerializedName("online_banking_payment_type")
   @Expose
   private Constants.OnlineBankingPaymentType onlineBankingPaymentType;
@@ -151,16 +161,16 @@ public class BillingInfoCreate extends Request {
 
   /**
    * Tax identifier is required if adding a billing info that is a consumer card in Brazil or in
-   * Argentina. This would be the customer's CPF (Brazil) and CUIT (Argentina). CPF and CUIT are tax
-   * identifiers for all residents who pay taxes in Brazil and Argentina respectively.
+   * Argentina. This would be the customer's CPF/CNPJ (Brazil) and CUIT (Argentina). CPF, CNPJ and
+   * CUIT are tax identifiers for all residents who pay taxes in Brazil and Argentina respectively.
    */
   @SerializedName("tax_identifier")
   @Expose
   private String taxIdentifier;
 
   /**
-   * This field and a value of `cpf` or `cuit` are required if adding a billing info that is an elo
-   * or hipercard type in Brazil or in Argentina.
+   * This field and a value of `cpf`, `cnpj` or `cuit` are required if adding a billing info that is
+   * an elo or hipercard type in Brazil or in Argentina.
    */
   @SerializedName("tax_identifier_type")
   @Expose
@@ -270,6 +280,15 @@ public class BillingInfoCreate extends Request {
     this.backupPaymentMethod = backupPaymentMethod;
   }
 
+  public Constants.CardType getCardType() {
+    return this.cardType;
+  }
+
+  /** @param cardType */
+  public void setCardType(final Constants.CardType cardType) {
+    this.cardType = cardType;
+  }
+
   /** Company name */
   public String getCompany() {
     return this.company;
@@ -290,12 +309,18 @@ public class BillingInfoCreate extends Request {
     this.cvv = cvv;
   }
 
-  /** Use for Adyen HPP billing info. */
+  /**
+   * Use for Adyen HPP billing info. This should only be used as part of a pending purchase request,
+   * when the billing info is nested inside an account object.
+   */
   public Constants.ExternalHppType getExternalHppType() {
     return this.externalHppType;
   }
 
-  /** @param externalHppType Use for Adyen HPP billing info. */
+  /**
+   * @param externalHppType Use for Adyen HPP billing info. This should only be used as part of a
+   *     pending purchase request, when the billing info is nested inside an account object.
+   */
   public void setExternalHppType(final Constants.ExternalHppType externalHppType) {
     this.externalHppType = externalHppType;
   }
@@ -422,12 +447,19 @@ public class BillingInfoCreate extends Request {
     this.number = number;
   }
 
-  /** Use for Online Banking billing info. */
+  /**
+   * Use for Online Banking billing info. This should only be used as part of a pending purchase
+   * request, when the billing info is nested inside an account object.
+   */
   public Constants.OnlineBankingPaymentType getOnlineBankingPaymentType() {
     return this.onlineBankingPaymentType;
   }
 
-  /** @param onlineBankingPaymentType Use for Online Banking billing info. */
+  /**
+   * @param onlineBankingPaymentType Use for Online Banking billing info. This should only be used
+   *     as part of a pending purchase request, when the billing info is nested inside an account
+   *     object.
+   */
   public void setOnlineBankingPaymentType(
       final Constants.OnlineBankingPaymentType onlineBankingPaymentType) {
     this.onlineBankingPaymentType = onlineBankingPaymentType;
@@ -493,8 +525,8 @@ public class BillingInfoCreate extends Request {
 
   /**
    * Tax identifier is required if adding a billing info that is a consumer card in Brazil or in
-   * Argentina. This would be the customer's CPF (Brazil) and CUIT (Argentina). CPF and CUIT are tax
-   * identifiers for all residents who pay taxes in Brazil and Argentina respectively.
+   * Argentina. This would be the customer's CPF/CNPJ (Brazil) and CUIT (Argentina). CPF, CNPJ and
+   * CUIT are tax identifiers for all residents who pay taxes in Brazil and Argentina respectively.
    */
   public String getTaxIdentifier() {
     return this.taxIdentifier;
@@ -502,25 +534,25 @@ public class BillingInfoCreate extends Request {
 
   /**
    * @param taxIdentifier Tax identifier is required if adding a billing info that is a consumer
-   *     card in Brazil or in Argentina. This would be the customer's CPF (Brazil) and CUIT
-   *     (Argentina). CPF and CUIT are tax identifiers for all residents who pay taxes in Brazil and
-   *     Argentina respectively.
+   *     card in Brazil or in Argentina. This would be the customer's CPF/CNPJ (Brazil) and CUIT
+   *     (Argentina). CPF, CNPJ and CUIT are tax identifiers for all residents who pay taxes in
+   *     Brazil and Argentina respectively.
    */
   public void setTaxIdentifier(final String taxIdentifier) {
     this.taxIdentifier = taxIdentifier;
   }
 
   /**
-   * This field and a value of `cpf` or `cuit` are required if adding a billing info that is an elo
-   * or hipercard type in Brazil or in Argentina.
+   * This field and a value of `cpf`, `cnpj` or `cuit` are required if adding a billing info that is
+   * an elo or hipercard type in Brazil or in Argentina.
    */
   public Constants.TaxIdentifierType getTaxIdentifierType() {
     return this.taxIdentifierType;
   }
 
   /**
-   * @param taxIdentifierType This field and a value of `cpf` or `cuit` are required if adding a
-   *     billing info that is an elo or hipercard type in Brazil or in Argentina.
+   * @param taxIdentifierType This field and a value of `cpf`, `cnpj` or `cuit` are required if
+   *     adding a billing info that is an elo or hipercard type in Brazil or in Argentina.
    */
   public void setTaxIdentifierType(final Constants.TaxIdentifierType taxIdentifierType) {
     this.taxIdentifierType = taxIdentifierType;

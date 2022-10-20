@@ -185,6 +185,11 @@ public class Subscription extends Resource {
   @Expose
   private Integer quantity;
 
+  /** The ramp intervals representing the pricing schedule for the subscription. */
+  @SerializedName("ramp_intervals")
+  @Expose
+  private List<SubscriptionRampIntervalResponse> rampIntervals;
+
   /** The remaining billing cycles in the current term. */
   @SerializedName("remaining_billing_cycles")
   @Expose
@@ -227,6 +232,14 @@ public class Subscription extends Resource {
   @SerializedName("tax")
   @Expose
   private BigDecimal tax;
+
+  /**
+   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
+   * (separate from the Mixed Tax Pricing feature) must be enabled to utilize this flag.
+   */
+  @SerializedName("tax_inclusive")
+  @Expose
+  private Boolean taxInclusive;
 
   /** Tax info */
   @SerializedName("tax_info")
@@ -635,6 +648,18 @@ public class Subscription extends Resource {
     this.quantity = quantity;
   }
 
+  /** The ramp intervals representing the pricing schedule for the subscription. */
+  public List<SubscriptionRampIntervalResponse> getRampIntervals() {
+    return this.rampIntervals;
+  }
+
+  /**
+   * @param rampIntervals The ramp intervals representing the pricing schedule for the subscription.
+   */
+  public void setRampIntervals(final List<SubscriptionRampIntervalResponse> rampIntervals) {
+    this.rampIntervals = rampIntervals;
+  }
+
   /** The remaining billing cycles in the current term. */
   public Integer getRemainingBillingCycles() {
     return this.remainingBillingCycles;
@@ -723,6 +748,23 @@ public class Subscription extends Resource {
   /** @param tax Estimated tax */
   public void setTax(final BigDecimal tax) {
     this.tax = tax;
+  }
+
+  /**
+   * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
+   * (separate from the Mixed Tax Pricing feature) must be enabled to utilize this flag.
+   */
+  public Boolean getTaxInclusive() {
+    return this.taxInclusive;
+  }
+
+  /**
+   * @param taxInclusive Determines whether or not tax is included in the unit amount. The Tax
+   *     Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to
+   *     utilize this flag.
+   */
+  public void setTaxInclusive(final Boolean taxInclusive) {
+    this.taxInclusive = taxInclusive;
   }
 
   /** Tax info */

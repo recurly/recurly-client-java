@@ -17,7 +17,7 @@ public class PlanRampInterval extends Resource {
   @Expose
   private List<PlanRampPricing> currencies;
 
-  /** Represents the first billing cycle of a ramp. */
+  /** Represents the billing cycle where a ramp interval starts. */
   @SerializedName("starting_billing_cycle")
   @Expose
   private Integer startingBillingCycle;
@@ -32,12 +32,12 @@ public class PlanRampInterval extends Resource {
     this.currencies = currencies;
   }
 
-  /** Represents the first billing cycle of a ramp. */
+  /** Represents the billing cycle where a ramp interval starts. */
   public Integer getStartingBillingCycle() {
     return this.startingBillingCycle;
   }
 
-  /** @param startingBillingCycle Represents the first billing cycle of a ramp. */
+  /** @param startingBillingCycle Represents the billing cycle where a ramp interval starts. */
   public void setStartingBillingCycle(final Integer startingBillingCycle) {
     this.startingBillingCycle = startingBillingCycle;
   }

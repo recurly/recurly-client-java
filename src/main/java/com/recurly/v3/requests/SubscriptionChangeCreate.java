@@ -97,7 +97,7 @@ public class SubscriptionChangeCreate extends Request {
   @Expose
   private Integer quantity;
 
-  /** Ramp Intervals */
+  /** The new set of ramp intervals for the subscription. */
   @SerializedName("ramp_intervals")
   @Expose
   private List<SubscriptionRampInterval> rampIntervals;
@@ -311,12 +311,12 @@ public class SubscriptionChangeCreate extends Request {
     this.quantity = quantity;
   }
 
-  /** Ramp Intervals */
+  /** The new set of ramp intervals for the subscription. */
   public List<SubscriptionRampInterval> getRampIntervals() {
     return this.rampIntervals;
   }
 
-  /** @param rampIntervals Ramp Intervals */
+  /** @param rampIntervals The new set of ramp intervals for the subscription. */
   public void setRampIntervals(final List<SubscriptionRampInterval> rampIntervals) {
     this.rampIntervals = rampIntervals;
   }

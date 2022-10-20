@@ -79,7 +79,7 @@ public class SubscriptionChange extends Resource {
   @Expose
   private Integer quantity;
 
-  /** Ramp Intervals */
+  /** The ramp intervals representing the pricing schedule for the subscription. */
   @SerializedName("ramp_intervals")
   @Expose
   private List<SubscriptionRampIntervalResponse> rampIntervals;
@@ -237,12 +237,14 @@ public class SubscriptionChange extends Resource {
     this.quantity = quantity;
   }
 
-  /** Ramp Intervals */
+  /** The ramp intervals representing the pricing schedule for the subscription. */
   public List<SubscriptionRampIntervalResponse> getRampIntervals() {
     return this.rampIntervals;
   }
 
-  /** @param rampIntervals Ramp Intervals */
+  /**
+   * @param rampIntervals The ramp intervals representing the pricing schedule for the subscription.
+   */
   public void setRampIntervals(final List<SubscriptionRampIntervalResponse> rampIntervals) {
     this.rampIntervals = rampIntervals;
   }
