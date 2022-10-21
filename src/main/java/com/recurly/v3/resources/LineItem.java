@@ -219,6 +219,16 @@ public class LineItem extends Resource {
   @Expose
   private Integer quantity;
 
+  /**
+   * A floating-point alternative to Quantity. If this value is present, it will be used in place of
+   * Quantity for calculations, and Quantity will be the rounded integer value of this number. This
+   * field supports up to 9 decimal places. The Decimal Quantity feature must be enabled to utilize
+   * this field.
+   */
+  @SerializedName("quantity_decimal")
+  @Expose
+  private String quantityDecimal;
+
   /** Refund? */
   @SerializedName("refund")
   @Expose
@@ -231,6 +241,15 @@ public class LineItem extends Resource {
   @SerializedName("refunded_quantity")
   @Expose
   private Integer refundedQuantity;
+
+  /**
+   * A floating-point alternative to Refunded Quantity. For refund charges, the quantity being
+   * refunded. For non-refund charges, the total quantity refunded (possibly over multiple refunds).
+   * The Decimal Quantity feature must be enabled to utilize this field.
+   */
+  @SerializedName("refunded_quantity_decimal")
+  @Expose
+  private String refundedQuantityDecimal;
 
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
@@ -765,6 +784,26 @@ public class LineItem extends Resource {
     this.quantity = quantity;
   }
 
+  /**
+   * A floating-point alternative to Quantity. If this value is present, it will be used in place of
+   * Quantity for calculations, and Quantity will be the rounded integer value of this number. This
+   * field supports up to 9 decimal places. The Decimal Quantity feature must be enabled to utilize
+   * this field.
+   */
+  public String getQuantityDecimal() {
+    return this.quantityDecimal;
+  }
+
+  /**
+   * @param quantityDecimal A floating-point alternative to Quantity. If this value is present, it
+   *     will be used in place of Quantity for calculations, and Quantity will be the rounded
+   *     integer value of this number. This field supports up to 9 decimal places. The Decimal
+   *     Quantity feature must be enabled to utilize this field.
+   */
+  public void setQuantityDecimal(final String quantityDecimal) {
+    this.quantityDecimal = quantityDecimal;
+  }
+
   /** Refund? */
   public Boolean getRefund() {
     return this.refund;
@@ -789,6 +828,25 @@ public class LineItem extends Resource {
    */
   public void setRefundedQuantity(final Integer refundedQuantity) {
     this.refundedQuantity = refundedQuantity;
+  }
+
+  /**
+   * A floating-point alternative to Refunded Quantity. For refund charges, the quantity being
+   * refunded. For non-refund charges, the total quantity refunded (possibly over multiple refunds).
+   * The Decimal Quantity feature must be enabled to utilize this field.
+   */
+  public String getRefundedQuantityDecimal() {
+    return this.refundedQuantityDecimal;
+  }
+
+  /**
+   * @param refundedQuantityDecimal A floating-point alternative to Refunded Quantity. For refund
+   *     charges, the quantity being refunded. For non-refund charges, the total quantity refunded
+   *     (possibly over multiple refunds). The Decimal Quantity feature must be enabled to utilize
+   *     this field.
+   */
+  public void setRefundedQuantityDecimal(final String refundedQuantityDecimal) {
+    this.refundedQuantityDecimal = refundedQuantityDecimal;
   }
 
   /** Revenue schedule type */
