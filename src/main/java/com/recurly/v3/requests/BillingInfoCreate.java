@@ -57,7 +57,10 @@ public class BillingInfoCreate extends Request {
   @Expose
   private String cvv;
 
-  /** Use for Adyen HPP billing info. */
+  /**
+   * Use for Adyen HPP billing info. This should only be used as part of a pending purchase request,
+   * when the billing info is nested inside an account object.
+   */
   @SerializedName("external_hpp_type")
   @Expose
   private Constants.ExternalHppType externalHppType;
@@ -121,7 +124,10 @@ public class BillingInfoCreate extends Request {
   @Expose
   private String number;
 
-  /** Use for Online Banking billing info. */
+  /**
+   * Use for Online Banking billing info. This should only be used as part of a pending purchase
+   * request, when the billing info is nested inside an account object.
+   */
   @SerializedName("online_banking_payment_type")
   @Expose
   private Constants.OnlineBankingPaymentType onlineBankingPaymentType;
@@ -303,12 +309,18 @@ public class BillingInfoCreate extends Request {
     this.cvv = cvv;
   }
 
-  /** Use for Adyen HPP billing info. */
+  /**
+   * Use for Adyen HPP billing info. This should only be used as part of a pending purchase request,
+   * when the billing info is nested inside an account object.
+   */
   public Constants.ExternalHppType getExternalHppType() {
     return this.externalHppType;
   }
 
-  /** @param externalHppType Use for Adyen HPP billing info. */
+  /**
+   * @param externalHppType Use for Adyen HPP billing info. This should only be used as part of a
+   *     pending purchase request, when the billing info is nested inside an account object.
+   */
   public void setExternalHppType(final Constants.ExternalHppType externalHppType) {
     this.externalHppType = externalHppType;
   }
@@ -435,12 +447,19 @@ public class BillingInfoCreate extends Request {
     this.number = number;
   }
 
-  /** Use for Online Banking billing info. */
+  /**
+   * Use for Online Banking billing info. This should only be used as part of a pending purchase
+   * request, when the billing info is nested inside an account object.
+   */
   public Constants.OnlineBankingPaymentType getOnlineBankingPaymentType() {
     return this.onlineBankingPaymentType;
   }
 
-  /** @param onlineBankingPaymentType Use for Online Banking billing info. */
+  /**
+   * @param onlineBankingPaymentType Use for Online Banking billing info. This should only be used
+   *     as part of a pending purchase request, when the billing info is nested inside an account
+   *     object.
+   */
   public void setOnlineBankingPaymentType(
       final Constants.OnlineBankingPaymentType onlineBankingPaymentType) {
     this.onlineBankingPaymentType = onlineBankingPaymentType;

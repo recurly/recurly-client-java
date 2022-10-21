@@ -30,6 +30,16 @@ public class LineItemRefund extends Request {
   @Expose
   private Integer quantity;
 
+  /**
+   * A floating-point alternative to Quantity. If this value is present, it will be used in place of
+   * Quantity for calculations, and Quantity will be the rounded integer value of this number. This
+   * field supports up to 9 decimal places. The Decimal Quantity feature must be enabled to utilize
+   * this field.
+   */
+  @SerializedName("quantity_decimal")
+  @Expose
+  private String quantityDecimal;
+
   /** Line item ID */
   public String getId() {
     return this.id;
@@ -64,5 +74,25 @@ public class LineItemRefund extends Request {
   /** @param quantity Line item quantity to be refunded. */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
+  }
+
+  /**
+   * A floating-point alternative to Quantity. If this value is present, it will be used in place of
+   * Quantity for calculations, and Quantity will be the rounded integer value of this number. This
+   * field supports up to 9 decimal places. The Decimal Quantity feature must be enabled to utilize
+   * this field.
+   */
+  public String getQuantityDecimal() {
+    return this.quantityDecimal;
+  }
+
+  /**
+   * @param quantityDecimal A floating-point alternative to Quantity. If this value is present, it
+   *     will be used in place of Quantity for calculations, and Quantity will be the rounded
+   *     integer value of this number. This field supports up to 9 decimal places. The Decimal
+   *     Quantity feature must be enabled to utilize this field.
+   */
+  public void setQuantityDecimal(final String quantityDecimal) {
+    this.quantityDecimal = quantityDecimal;
   }
 }
