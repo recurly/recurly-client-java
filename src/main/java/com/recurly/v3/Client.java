@@ -2409,4 +2409,23 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     Type returnType = InvoiceTemplate.class;
     return this.makeRequest("GET", path, returnType);
   }
+
+  /**
+   * Show all entitlements granted to an account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_entitlements">list_entitlements api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the entitlements granted to an account.
+   */
+  public Pager<Entitlements> listEntitlements(String accountId, QueryParams queryParams) {
+    final String url = "/accounts/{account_id}/entitlements";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Entitlements.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
 }

@@ -130,6 +130,23 @@ public class Constants {
     
     };
   
+    public enum FilterLimitedSubscriptionState {
+      UNDEFINED,
+    
+      @SerializedName("active")
+      ACTIVE,
+    
+      @SerializedName("canceled")
+      CANCELED,
+    
+      @SerializedName("expired")
+      EXPIRED,
+    
+      @SerializedName("future")
+      FUTURE,
+    
+    };
+  
     public enum True {
       UNDEFINED,
     
