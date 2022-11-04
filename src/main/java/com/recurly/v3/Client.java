@@ -386,7 +386,7 @@ public class Client extends BaseClient {
   }
 
   /**
-   * Show the coupon redemptions for an account
+   * List the coupon redemptions for an account
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_account_coupon_redemptions">list_account_coupon_redemptions api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
@@ -405,7 +405,7 @@ public class Client extends BaseClient {
   }
 
   /**
-   * Show the coupon redemption that is active on an account
+   * Fetch the coupon redemption that is active on an account
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_active_coupon_redemption">get_active_coupon_redemption api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
@@ -562,7 +562,7 @@ public class Client extends BaseClient {
   }
 
   /**
-   * Fetch a list of an account's notes
+   * List an account's notes
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_account_notes">list_account_notes api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
@@ -1322,7 +1322,7 @@ public class Client extends BaseClient {
   }
 
   /**
-   * Show the coupon redemptions applied to an invoice
+   * List the coupon redemptions applied to an invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_invoice_coupon_redemptions">list_invoice_coupon_redemptions api documentation</a>
    * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
@@ -2007,7 +2007,7 @@ public class Client extends BaseClient {
   }
 
   /**
-   * Show the coupon redemptions for a subscription
+   * List the coupon redemptions for a subscription
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_subscription_coupon_redemptions">list_subscription_coupon_redemptions api documentation</a>
    * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
@@ -2254,7 +2254,7 @@ public class Client extends BaseClient {
   }
 
   /**
-   * Show the dunning campaigns for a site
+   * List the dunning campaigns for a site
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_dunning_campaigns">list_dunning_campaigns api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
@@ -2271,7 +2271,7 @@ public class Client extends BaseClient {
   }
 
   /**
-   * Show the settings for a dunning campaign
+   * Fetch a dunning campaign
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_dunning_campaign">get_dunning_campaign api documentation</a>
    * @param dunningCampaignId Dunning Campaign ID, e.g. `e28zov4fw0v2`.
