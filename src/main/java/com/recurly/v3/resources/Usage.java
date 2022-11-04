@@ -73,7 +73,7 @@ public class Usage extends Resource {
   /**
    * The pricing model for the add-on. For more information, [click
    * here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
-   * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
+   * [Guide](https://recurly.com/developers/guides/item-addon-guide.html) for an overview of how to
    * configure quantity-based pricing models.
    */
   @SerializedName("tier_type")
@@ -243,7 +243,7 @@ public class Usage extends Resource {
   /**
    * The pricing model for the add-on. For more information, [click
    * here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
-   * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
+   * [Guide](https://recurly.com/developers/guides/item-addon-guide.html) for an overview of how to
    * configure quantity-based pricing models.
    */
   public Constants.TierType getTierType() {
@@ -253,7 +253,7 @@ public class Usage extends Resource {
   /**
    * @param tierType The pricing model for the add-on. For more information, [click
    *     here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
-   *     [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
+   *     [Guide](https://recurly.com/developers/guides/item-addon-guide.html) for an overview of how
    *     to configure quantity-based pricing models.
    */
   public void setTierType(final Constants.TierType tierType) {

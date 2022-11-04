@@ -19,6 +19,9 @@ public class Constants {
       @SerializedName("item")
       ITEM,
     
+      @SerializedName("plan")
+      PLAN,
+    
       @SerializedName("subscription")
       SUBSCRIPTION,
     

@@ -74,6 +74,15 @@ public class PlanUpdate extends Request {
   @Expose
   private List<PlanPricing> currencies;
 
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
+  @SerializedName("custom_fields")
+  @Expose
+  private List<CustomField> customFields;
+
   /** Optional description, not displayed. */
   @SerializedName("description")
   @Expose
@@ -285,6 +294,24 @@ public class PlanUpdate extends Request {
   /** @param currencies Optional when the pricing model is 'ramp'. */
   public void setCurrencies(final List<PlanPricing> currencies) {
     this.currencies = currencies;
+  }
+
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
+  public List<CustomField> getCustomFields() {
+    return this.customFields;
+  }
+
+  /**
+   * @param customFields The custom fields will only be altered when they are included in a request.
+   *     Sending an empty array will not remove any existing values. To remove a field send the name
+   *     with a null or empty value.
+   */
+  public void setCustomFields(final List<CustomField> customFields) {
+    this.customFields = customFields;
   }
 
   /** Optional description, not displayed. */
