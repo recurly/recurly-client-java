@@ -407,7 +407,7 @@ public class Client extends BaseClient {
   }
 
   /**
-   * Show the coupon redemptions for an account
+   * List the coupon redemptions for an account
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_coupon_redemptions">list_account_coupon_redemptions api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
@@ -426,7 +426,7 @@ public class Client extends BaseClient {
   }
 
   /**
-   * Show the coupon redemptions that are active on an account
+   * List the coupon redemptions that are active on an account
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_active_coupon_redemptions">list_active_coupon_redemptions api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
@@ -583,7 +583,7 @@ public class Client extends BaseClient {
   }
 
   /**
-   * Fetch a list of an account's notes
+   * List an account's notes
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_notes">list_account_notes api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
@@ -1381,7 +1381,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
-   * Show the coupon redemptions applied to an invoice
+   * List the coupon redemptions applied to an invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_coupon_redemptions">list_invoice_coupon_redemptions api documentation</a>
    * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
@@ -2066,7 +2066,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
-   * Show the coupon redemptions for a subscription
+   * List the coupon redemptions for a subscription
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_coupon_redemptions">list_subscription_coupon_redemptions api documentation</a>
    * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
@@ -2328,7 +2328,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
-   * Show the dunning campaigns for a site
+   * List the dunning campaigns for a site
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_dunning_campaigns">list_dunning_campaigns api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
@@ -2345,7 +2345,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
-   * Show the settings for a dunning campaign
+   * Fetch a dunning campaign
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_dunning_campaign">get_dunning_campaign api documentation</a>
    * @param dunningCampaignId Dunning Campaign ID, e.g. `e28zov4fw0v2`.
@@ -2395,7 +2395,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
-   * Show the settings for an invoice template
+   * Fetch an invoice template
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_invoice_template">get_invoice_template api documentation</a>
    * @param invoiceTemplateId Invoice template ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
@@ -2411,7 +2411,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
-   * Show all entitlements granted to an account
+   * List entitlements granted to an account
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_entitlements">list_entitlements api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.

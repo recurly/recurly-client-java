@@ -170,7 +170,7 @@ public class AddOnCreate extends Request {
   /**
    * The pricing model for the add-on. For more information, [click
    * here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
-   * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
+   * [Guide](https://recurly.com/developers/guides/item-addon-guide.html) for an overview of how to
    * configure quantity-based pricing models.
    */
   @SerializedName("tier_type")
@@ -205,7 +205,7 @@ public class AddOnCreate extends Request {
 
   /**
    * Type of usage, required if `add_on_type` is `usage`. See our
-   * [Guide](https://developers.recurly.com/guides/usage-based-billing-guide.html) for an overview
+   * [Guide](https://recurly.com/developers/guides/usage-based-billing-guide.html) for an overview
    * of how to configure usage add-ons.
    */
   @SerializedName("usage_type")
@@ -527,7 +527,7 @@ public class AddOnCreate extends Request {
   /**
    * The pricing model for the add-on. For more information, [click
    * here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
-   * [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how to
+   * [Guide](https://recurly.com/developers/guides/item-addon-guide.html) for an overview of how to
    * configure quantity-based pricing models.
    */
   public Constants.TierType getTierType() {
@@ -537,7 +537,7 @@ public class AddOnCreate extends Request {
   /**
    * @param tierType The pricing model for the add-on. For more information, [click
    *     here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
-   *     [Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
+   *     [Guide](https://recurly.com/developers/guides/item-addon-guide.html) for an overview of how
    *     to configure quantity-based pricing models.
    */
   public void setTierType(final Constants.TierType tierType) {
@@ -599,7 +599,7 @@ public class AddOnCreate extends Request {
 
   /**
    * Type of usage, required if `add_on_type` is `usage`. See our
-   * [Guide](https://developers.recurly.com/guides/usage-based-billing-guide.html) for an overview
+   * [Guide](https://recurly.com/developers/guides/usage-based-billing-guide.html) for an overview
    * of how to configure usage add-ons.
    */
   public Constants.UsageTypeCreate getUsageType() {
@@ -608,7 +608,7 @@ public class AddOnCreate extends Request {
 
   /**
    * @param usageType Type of usage, required if `add_on_type` is `usage`. See our
-   *     [Guide](https://developers.recurly.com/guides/usage-based-billing-guide.html) for an
+   *     [Guide](https://recurly.com/developers/guides/usage-based-billing-guide.html) for an
    *     overview of how to configure usage add-ons.
    */
   public void setUsageType(final Constants.UsageTypeCreate usageType) {
