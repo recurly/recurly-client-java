@@ -172,6 +172,16 @@ public class AddOn extends Resource {
   private DateTime updatedAt;
 
   /**
+   * The type of calculation to be employed for an add-on. Cumulative billing will sum all usage
+   * records created in the current billing cycle. Last-in-period billing will apply only the most
+   * recent usage record in the billing period. If no value is specified, cumulative billing will be
+   * used.
+   */
+  @SerializedName("usage_calculation_type")
+  @Expose
+  private Constants.UsageCalculationType usageCalculationType;
+
+  /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
    * places. A value between 0.0 and 100.0.
    */
@@ -507,6 +517,26 @@ public class AddOn extends Resource {
   /** @param updatedAt Last updated at */
   public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  /**
+   * The type of calculation to be employed for an add-on. Cumulative billing will sum all usage
+   * records created in the current billing cycle. Last-in-period billing will apply only the most
+   * recent usage record in the billing period. If no value is specified, cumulative billing will be
+   * used.
+   */
+  public Constants.UsageCalculationType getUsageCalculationType() {
+    return this.usageCalculationType;
+  }
+
+  /**
+   * @param usageCalculationType The type of calculation to be employed for an add-on. Cumulative
+   *     billing will sum all usage records created in the current billing cycle. Last-in-period
+   *     billing will apply only the most recent usage record in the billing period. If no value is
+   *     specified, cumulative billing will be used.
+   */
+  public void setUsageCalculationType(final Constants.UsageCalculationType usageCalculationType) {
+    this.usageCalculationType = usageCalculationType;
   }
 
   /**

@@ -187,6 +187,16 @@ public class AddOnCreate extends Request {
   private List<Tier> tiers;
 
   /**
+   * The type of calculation to be employed for an add-on. Cumulative billing will sum all usage
+   * records created in the current billing cycle. Last-in-period billing will apply only the most
+   * recent usage record in the billing period. If no value is specified, cumulative billing will be
+   * used.
+   */
+  @SerializedName("usage_calculation_type")
+  @Expose
+  private Constants.UsageCalculationType usageCalculationType;
+
+  /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
    * places. A value between 0.0 and 100.0. Required if `add_on_type` is usage, `tier_type` is
    * `flat` and `usage_type` is percentage. Must be omitted otherwise.
@@ -561,6 +571,26 @@ public class AddOnCreate extends Request {
    */
   public void setTiers(final List<Tier> tiers) {
     this.tiers = tiers;
+  }
+
+  /**
+   * The type of calculation to be employed for an add-on. Cumulative billing will sum all usage
+   * records created in the current billing cycle. Last-in-period billing will apply only the most
+   * recent usage record in the billing period. If no value is specified, cumulative billing will be
+   * used.
+   */
+  public Constants.UsageCalculationType getUsageCalculationType() {
+    return this.usageCalculationType;
+  }
+
+  /**
+   * @param usageCalculationType The type of calculation to be employed for an add-on. Cumulative
+   *     billing will sum all usage records created in the current billing cycle. Last-in-period
+   *     billing will apply only the most recent usage record in the billing period. If no value is
+   *     specified, cumulative billing will be used.
+   */
+  public void setUsageCalculationType(final Constants.UsageCalculationType usageCalculationType) {
+    this.usageCalculationType = usageCalculationType;
   }
 
   /**
