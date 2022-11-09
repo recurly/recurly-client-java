@@ -74,6 +74,17 @@ public class Constants {
     
     };
   
+    public enum UsageCalculationType {
+      UNDEFINED,
+    
+      @SerializedName("cumulative")
+      CUMULATIVE,
+    
+      @SerializedName("last_in_period")
+      LAST_IN_PERIOD,
+    
+    };
+  
     public enum BillingStatus {
       UNDEFINED,
     

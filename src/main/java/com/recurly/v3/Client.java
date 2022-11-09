@@ -1182,6 +1182,72 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
+   * List a site's external products
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_products">list_external_products api documentation</a>
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the the external_products on a site.
+   */
+  public Pager<ExternalProduct> listExternalProducts(QueryParams queryParams) {
+    final String url = "/external_products";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalProduct.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * Fetch an external product
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_external_product">get_external_product api documentation</a>
+   * @param externalProductId External product id
+     * @return Settings for an external product.
+   */
+  public ExternalProduct getExternalProduct(String externalProductId) {
+    final String url = "/external_products/{external_product_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_product_id", externalProductId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalProduct.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * List a site's external subscriptions
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_subscriptions">list_external_subscriptions api documentation</a>
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the the external_subscriptions on a site.
+   */
+  public Pager<ExternalSubscription> listExternalSubscriptions(QueryParams queryParams) {
+    final String url = "/external_subscriptions";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalSubscription.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * Fetch an external subscription
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_external_subscription">get_external_subscription api documentation</a>
+   * @param externalSubscriptionId External subscription id
+     * @return Settings for an external subscription.
+   */
+  public ExternalSubscription getExternalSubscription(String externalSubscriptionId) {
+    final String url = "/external_subscriptions/{external_subscription_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_subscription_id", externalSubscriptionId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalSubscription.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
    * List a site's invoices
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoices">list_invoices api documentation</a>
@@ -2426,6 +2492,25 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Entitlements.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * List an account's external subscriptions
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_external_subscriptions">list_account_external_subscriptions api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the the external_subscriptions on an account.
+   */
+  public Pager<ExternalSubscription> listAccountExternalSubscriptions(String accountId, QueryParams queryParams) {
+    final String url = "/accounts/{account_id}/external_subscriptions";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalSubscription.class).getType();
     return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 }
