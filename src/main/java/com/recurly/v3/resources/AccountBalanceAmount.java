@@ -16,6 +16,11 @@ public class AccountBalanceAmount extends Resource {
   @Expose
   private Float amount;
 
+  /** Total amount of the open balances on credit invoices for the account. */
+  @SerializedName("available_credit_amount")
+  @Expose
+  private Float availableCreditAmount;
+
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
   @Expose
@@ -34,6 +39,19 @@ public class AccountBalanceAmount extends Resource {
   /** @param amount Total amount the account is past due. */
   public void setAmount(final Float amount) {
     this.amount = amount;
+  }
+
+  /** Total amount of the open balances on credit invoices for the account. */
+  public Float getAvailableCreditAmount() {
+    return this.availableCreditAmount;
+  }
+
+  /**
+   * @param availableCreditAmount Total amount of the open balances on credit invoices for the
+   *     account.
+   */
+  public void setAvailableCreditAmount(final Float availableCreditAmount) {
+    this.availableCreditAmount = availableCreditAmount;
   }
 
   /** 3-letter ISO 4217 currency code. */
