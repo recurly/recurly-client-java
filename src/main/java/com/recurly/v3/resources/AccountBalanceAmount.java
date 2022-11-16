@@ -17,6 +17,11 @@ public class AccountBalanceAmount extends Resource {
   @Expose
   private BigDecimal amount;
 
+  /** Total amount of the open balances on credit invoices for the account. */
+  @SerializedName("available_credit_amount")
+  @Expose
+  private BigDecimal availableCreditAmount;
+
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
   @Expose
@@ -35,6 +40,19 @@ public class AccountBalanceAmount extends Resource {
   /** @param amount Total amount the account is past due. */
   public void setAmount(final BigDecimal amount) {
     this.amount = amount;
+  }
+
+  /** Total amount of the open balances on credit invoices for the account. */
+  public BigDecimal getAvailableCreditAmount() {
+    return this.availableCreditAmount;
+  }
+
+  /**
+   * @param availableCreditAmount Total amount of the open balances on credit invoices for the
+   *     account.
+   */
+  public void setAvailableCreditAmount(final BigDecimal availableCreditAmount) {
+    this.availableCreditAmount = availableCreditAmount;
   }
 
   /** 3-letter ISO 4217 currency code. */

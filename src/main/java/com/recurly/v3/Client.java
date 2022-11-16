@@ -1314,6 +1314,22 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
+   * Apply available credit to a pending or past due charge invoice
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/apply_credit_balance">apply_credit_balance api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @return The updated invoice.
+   */
+  public Invoice applyCreditBalance(String invoiceId) {
+    final String url = "/invoices/{invoice_id}/apply_credit_balance";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("invoice_id", invoiceId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Invoice.class;
+    return this.makeRequest("PUT", path, returnType);
+  }
+
+  /**
    * Collect a pending or past due, automatic invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/collect_invoice">collect_invoice api documentation</a>

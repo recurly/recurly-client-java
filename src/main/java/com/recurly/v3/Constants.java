@@ -1339,8 +1339,14 @@ public class Constants {
       @SerializedName("Discover")
       DISCOVER,
     
+      @SerializedName("ELO")
+      ELO,
+    
       @SerializedName("Forbrugsforeningen")
       FORBRUGSFORENINGEN,
+    
+      @SerializedName("Hipercard")
+      HIPERCARD,
     
       @SerializedName("JCB")
       JCB,
