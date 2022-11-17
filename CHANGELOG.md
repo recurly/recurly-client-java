@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.23.0](https://github.com/recurly/recurly-client-java/tree/3.23.0) (2022-11-17)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.22.0...3.23.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2019-10-10 (Apply Credit Balance feature) [#227](https://github.com/recurly/recurly-client-java/pull/227) ([recurly-integrations](https://github.com/recurly-integrations))
+- Generated Latest Changes for v2019-10-10 [#224](https://github.com/recurly/recurly-client-java/pull/224) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [3.22.0](https://github.com/recurly/recurly-client-java/tree/3.22.0) (2022-10-21)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.21.0...3.22.0)
