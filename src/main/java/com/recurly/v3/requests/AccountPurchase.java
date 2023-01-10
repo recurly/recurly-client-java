@@ -133,6 +133,15 @@ public class AccountPurchase extends Request {
   private String preferredLocale;
 
   /**
+   * Used to determine the time zone of emails sent on behalf of the merchant to the customer. Must
+   * be a [supported IANA time zone
+   * name](https://docs.recurly.com/docs/email-time-zones-and-time-stamps#supported-api-iana-time-zone-names)
+   */
+  @SerializedName("preferred_time_zone")
+  @Expose
+  private String preferredTimeZone;
+
+  /**
    * The tax status of the account. `true` exempts tax on the account, `false` applies tax on the
    * account.
    */
@@ -408,6 +417,24 @@ public class AccountPurchase extends Request {
    */
   public void setPreferredLocale(final String preferredLocale) {
     this.preferredLocale = preferredLocale;
+  }
+
+  /**
+   * Used to determine the time zone of emails sent on behalf of the merchant to the customer. Must
+   * be a [supported IANA time zone
+   * name](https://docs.recurly.com/docs/email-time-zones-and-time-stamps#supported-api-iana-time-zone-names)
+   */
+  public String getPreferredTimeZone() {
+    return this.preferredTimeZone;
+  }
+
+  /**
+   * @param preferredTimeZone Used to determine the time zone of emails sent on behalf of the
+   *     merchant to the customer. Must be a [supported IANA time zone
+   *     name](https://docs.recurly.com/docs/email-time-zones-and-time-stamps#supported-api-iana-time-zone-names)
+   */
+  public void setPreferredTimeZone(final String preferredTimeZone) {
+    this.preferredTimeZone = preferredTimeZone;
   }
 
   /**

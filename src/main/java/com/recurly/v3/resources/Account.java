@@ -163,6 +163,15 @@ public class Account extends Resource {
   @Expose
   private String preferredLocale;
 
+  /**
+   * The [IANA time zone
+   * name](https://docs.recurly.com/docs/email-time-zones-and-time-stamps#supported-api-iana-time-zone-names)
+   * used to determine the time zone of emails sent on behalf of the merchant to the customer.
+   */
+  @SerializedName("preferred_time_zone")
+  @Expose
+  private String preferredTimeZone;
+
   /** The shipping addresses on the account. */
   @SerializedName("shipping_addresses")
   @Expose
@@ -508,6 +517,24 @@ public class Account extends Resource {
    */
   public void setPreferredLocale(final String preferredLocale) {
     this.preferredLocale = preferredLocale;
+  }
+
+  /**
+   * The [IANA time zone
+   * name](https://docs.recurly.com/docs/email-time-zones-and-time-stamps#supported-api-iana-time-zone-names)
+   * used to determine the time zone of emails sent on behalf of the merchant to the customer.
+   */
+  public String getPreferredTimeZone() {
+    return this.preferredTimeZone;
+  }
+
+  /**
+   * @param preferredTimeZone The [IANA time zone
+   *     name](https://docs.recurly.com/docs/email-time-zones-and-time-stamps#supported-api-iana-time-zone-names)
+   *     used to determine the time zone of emails sent on behalf of the merchant to the customer.
+   */
+  public void setPreferredTimeZone(final String preferredTimeZone) {
+    this.preferredTimeZone = preferredTimeZone;
   }
 
   /** The shipping addresses on the account. */
