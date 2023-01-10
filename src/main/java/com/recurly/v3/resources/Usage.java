@@ -59,7 +59,8 @@ public class Usage extends Resource {
 
   /**
    * The percentage tiers of the subscription based on the usage_timestamp. If tier_type = flat,
-   * percentage_tiers = []
+   * percentage_tiers = []. This feature is currently in development and requires approval and
+   * enablement, please contact support.
    */
   @SerializedName("percentage_tiers")
   @Expose
@@ -216,7 +217,8 @@ public class Usage extends Resource {
 
   /**
    * The percentage tiers of the subscription based on the usage_timestamp. If tier_type = flat,
-   * percentage_tiers = []
+   * percentage_tiers = []. This feature is currently in development and requires approval and
+   * enablement, please contact support.
    */
   public List<SubscriptionAddOnPercentageTier> getPercentageTiers() {
     return this.percentageTiers;
@@ -224,7 +226,8 @@ public class Usage extends Resource {
 
   /**
    * @param percentageTiers The percentage tiers of the subscription based on the usage_timestamp.
-   *     If tier_type = flat, percentage_tiers = []
+   *     If tier_type = flat, percentage_tiers = []. This feature is currently in development and
+   *     requires approval and enablement, please contact support.
    */
   public void setPercentageTiers(final List<SubscriptionAddOnPercentageTier> percentageTiers) {
     this.percentageTiers = percentageTiers;

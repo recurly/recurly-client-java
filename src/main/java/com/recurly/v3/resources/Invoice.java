@@ -166,7 +166,11 @@ public class Invoice extends Resource {
 
   /**
    * On refund invoices, this value will exist and show the invoice ID of the purchase invoice the
-   * refund was created from.
+   * refund was created from. This field is only populated for sites without the [Only Bill What
+   * Changed](https://docs.recurly.com/docs/only-bill-what-changed) feature enabled. Sites with Only
+   * Bill What Changed enabled should use the [related_invoices
+   * endpoint](https://recurly.com/developers/api/v2021-02-25/index.html#operation/list_related_invoices)
+   * to see purchase invoices refunded by this invoice.
    */
   @SerializedName("previous_invoice_id")
   @Expose
@@ -566,7 +570,11 @@ public class Invoice extends Resource {
 
   /**
    * On refund invoices, this value will exist and show the invoice ID of the purchase invoice the
-   * refund was created from.
+   * refund was created from. This field is only populated for sites without the [Only Bill What
+   * Changed](https://docs.recurly.com/docs/only-bill-what-changed) feature enabled. Sites with Only
+   * Bill What Changed enabled should use the [related_invoices
+   * endpoint](https://recurly.com/developers/api/v2021-02-25/index.html#operation/list_related_invoices)
+   * to see purchase invoices refunded by this invoice.
    */
   public String getPreviousInvoiceId() {
     return this.previousInvoiceId;
@@ -574,7 +582,11 @@ public class Invoice extends Resource {
 
   /**
    * @param previousInvoiceId On refund invoices, this value will exist and show the invoice ID of
-   *     the purchase invoice the refund was created from.
+   *     the purchase invoice the refund was created from. This field is only populated for sites
+   *     without the [Only Bill What Changed](https://docs.recurly.com/docs/only-bill-what-changed)
+   *     feature enabled. Sites with Only Bill What Changed enabled should use the [related_invoices
+   *     endpoint](https://recurly.com/developers/api/v2021-02-25/index.html#operation/list_related_invoices)
+   *     to see purchase invoices refunded by this invoice.
    */
   public void setPreviousInvoiceId(final String previousInvoiceId) {
     this.previousInvoiceId = previousInvoiceId;

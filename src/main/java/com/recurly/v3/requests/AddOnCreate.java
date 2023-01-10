@@ -136,7 +136,8 @@ public class AddOnCreate extends Request {
   /**
    * Array of objects which must have at least one set of tiers per currency and the currency code.
    * The tier_type must be `volume` or `tiered`, if not, it must be absent. There must be one tier
-   * without an `ending_amount` value which represents the final tier.
+   * without an `ending_amount` value which represents the final tier. This feature is currently in
+   * development and requires approval and enablement, please contact support.
    */
   @SerializedName("percentage_tiers")
   @Expose
@@ -468,7 +469,8 @@ public class AddOnCreate extends Request {
   /**
    * Array of objects which must have at least one set of tiers per currency and the currency code.
    * The tier_type must be `volume` or `tiered`, if not, it must be absent. There must be one tier
-   * without an `ending_amount` value which represents the final tier.
+   * without an `ending_amount` value which represents the final tier. This feature is currently in
+   * development and requires approval and enablement, please contact support.
    */
   public List<PercentageTiersByCurrency> getPercentageTiers() {
     return this.percentageTiers;
@@ -478,7 +480,8 @@ public class AddOnCreate extends Request {
    * @param percentageTiers Array of objects which must have at least one set of tiers per currency
    *     and the currency code. The tier_type must be `volume` or `tiered`, if not, it must be
    *     absent. There must be one tier without an `ending_amount` value which represents the final
-   *     tier.
+   *     tier. This feature is currently in development and requires approval and enablement, please
+   *     contact support.
    */
   public void setPercentageTiers(final List<PercentageTiersByCurrency> percentageTiers) {
     this.percentageTiers = percentageTiers;

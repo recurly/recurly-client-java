@@ -54,7 +54,8 @@ public class SubscriptionAddOn extends Resource {
    * If percentage tiers are provided in the request, all existing percentage tiers on the
    * Subscription Add-on will be removed and replaced by the percentage tiers in the request. Use
    * only if add_on.tier_type is tiered or volume and add_on.usage_type is percentage. There must be
-   * one tier without an `ending_amount` value which represents the final tier.
+   * one tier without an `ending_amount` value which represents the final tier. This feature is
+   * currently in development and requires approval and enablement, please contact support.
    */
   @SerializedName("percentage_tiers")
   @Expose
@@ -209,7 +210,8 @@ public class SubscriptionAddOn extends Resource {
    * If percentage tiers are provided in the request, all existing percentage tiers on the
    * Subscription Add-on will be removed and replaced by the percentage tiers in the request. Use
    * only if add_on.tier_type is tiered or volume and add_on.usage_type is percentage. There must be
-   * one tier without an `ending_amount` value which represents the final tier.
+   * one tier without an `ending_amount` value which represents the final tier. This feature is
+   * currently in development and requires approval and enablement, please contact support.
    */
   public List<SubscriptionAddOnPercentageTier> getPercentageTiers() {
     return this.percentageTiers;
@@ -220,7 +222,8 @@ public class SubscriptionAddOn extends Resource {
    *     tiers on the Subscription Add-on will be removed and replaced by the percentage tiers in
    *     the request. Use only if add_on.tier_type is tiered or volume and add_on.usage_type is
    *     percentage. There must be one tier without an `ending_amount` value which represents the
-   *     final tier.
+   *     final tier. This feature is currently in development and requires approval and enablement,
+   *     please contact support.
    */
   public void setPercentageTiers(final List<SubscriptionAddOnPercentageTier> percentageTiers) {
     this.percentageTiers = percentageTiers;
