@@ -118,7 +118,10 @@ public class AddOn extends Resource {
   @Expose
   private Boolean optional;
 
-  /** Percentage Tiers */
+  /**
+   * This feature is currently in development and requires approval and enablement, please contact
+   * support.
+   */
   @SerializedName("percentage_tiers")
   @Expose
   private List<PercentageTiersByCurrency> percentageTiers;
@@ -413,12 +416,18 @@ public class AddOn extends Resource {
     this.optional = optional;
   }
 
-  /** Percentage Tiers */
+  /**
+   * This feature is currently in development and requires approval and enablement, please contact
+   * support.
+   */
   public List<PercentageTiersByCurrency> getPercentageTiers() {
     return this.percentageTiers;
   }
 
-  /** @param percentageTiers Percentage Tiers */
+  /**
+   * @param percentageTiers This feature is currently in development and requires approval and
+   *     enablement, please contact support.
+   */
   public void setPercentageTiers(final List<PercentageTiersByCurrency> percentageTiers) {
     this.percentageTiers = percentageTiers;
   }

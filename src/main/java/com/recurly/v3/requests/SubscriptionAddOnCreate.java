@@ -38,7 +38,8 @@ public class SubscriptionAddOnCreate extends Request {
    * If percentage tiers are provided in the request, all existing percentage tiers on the
    * Subscription Add-on will be removed and replaced by the percentage tiers in the request. There
    * must be one tier without ending_amount value which represents the final tier. Use only if
-   * add_on.tier_type is tiered or volume and add_on.usage_type is percentage.
+   * add_on.tier_type is tiered or volume and add_on.usage_type is percentage. This feature is
+   * currently in development and requires approval and enablement, please contact support.
    */
   @SerializedName("percentage_tiers")
   @Expose
@@ -138,7 +139,8 @@ public class SubscriptionAddOnCreate extends Request {
    * If percentage tiers are provided in the request, all existing percentage tiers on the
    * Subscription Add-on will be removed and replaced by the percentage tiers in the request. There
    * must be one tier without ending_amount value which represents the final tier. Use only if
-   * add_on.tier_type is tiered or volume and add_on.usage_type is percentage.
+   * add_on.tier_type is tiered or volume and add_on.usage_type is percentage. This feature is
+   * currently in development and requires approval and enablement, please contact support.
    */
   public List<SubscriptionAddOnPercentageTier> getPercentageTiers() {
     return this.percentageTiers;
@@ -149,6 +151,8 @@ public class SubscriptionAddOnCreate extends Request {
    *     tiers on the Subscription Add-on will be removed and replaced by the percentage tiers in
    *     the request. There must be one tier without ending_amount value which represents the final
    *     tier. Use only if add_on.tier_type is tiered or volume and add_on.usage_type is percentage.
+   *     This feature is currently in development and requires approval and enablement, please
+   *     contact support.
    */
   public void setPercentageTiers(final List<SubscriptionAddOnPercentageTier> percentageTiers) {
     this.percentageTiers = percentageTiers;
