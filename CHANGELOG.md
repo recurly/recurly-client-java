@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.24.0](https://github.com/recurly/recurly-client-java/tree/3.24.0) (2023-01-11)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.23.0...3.24.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2019-10-10 (Account Preferred Time Zone) [#230](https://github.com/recurly/recurly-client-java/pull/230) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [3.23.0](https://github.com/recurly/recurly-client-java/tree/3.23.0) (2022-11-17)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.22.0...3.23.0)
