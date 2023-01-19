@@ -25,6 +25,9 @@ public class Constants {
       @SerializedName("subscription")
       SUBSCRIPTION,
     
+      @SerializedName("charge")
+      CHARGE,
+    
     };
   
     public enum RefundType {
