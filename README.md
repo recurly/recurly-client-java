@@ -21,14 +21,14 @@ As a Maven dependency:
 <dependency>
   <groupId>com.recurly.v3</groupId>
   <artifactId>api-client</artifactId>
-  <version>3.24.0</version>
+  <version>3.25.0</version>
 </dependency>
 ```
 
 Gradle:
 
 ```groovy
-implementation 'com.recurly.v3:api-client:3.24.0'
+implementation 'com.recurly.v3:api-client:3.25.0'
 ```
 
 You can find further release and distribution details on
