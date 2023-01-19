@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.util.List;
 import org.joda.time.DateTime;
 
 public class LineItemCreate extends Request {
@@ -61,6 +62,15 @@ public class LineItemCreate extends Request {
   @SerializedName("currency")
   @Expose
   private String currency;
+
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
+  @SerializedName("custom_fields")
+  @Expose
+  private List<CustomField> customFields;
 
   /**
    * Description that appears on the invoice. If `item_code`/`item_id` is part of the request then
@@ -272,6 +282,24 @@ public class LineItemCreate extends Request {
    */
   public void setCurrency(final String currency) {
     this.currency = currency;
+  }
+
+  /**
+   * The custom fields will only be altered when they are included in a request. Sending an empty
+   * array will not remove any existing values. To remove a field send the name with a null or empty
+   * value.
+   */
+  public List<CustomField> getCustomFields() {
+    return this.customFields;
+  }
+
+  /**
+   * @param customFields The custom fields will only be altered when they are included in a request.
+   *     Sending an empty array will not remove any existing values. To remove a field send the name
+   *     with a null or empty value.
+   */
+  public void setCustomFields(final List<CustomField> customFields) {
+    this.customFields = customFields;
   }
 
   /**
