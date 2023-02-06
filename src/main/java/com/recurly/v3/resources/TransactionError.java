@@ -22,6 +22,11 @@ public class TransactionError extends Resource {
   @Expose
   private Constants.ErrorCode code;
 
+  /** Decline code */
+  @SerializedName("decline_code")
+  @Expose
+  private Constants.DeclineCode declineCode;
+
   /** Merchant message */
   @SerializedName("merchant_advice")
   @Expose
@@ -68,6 +73,16 @@ public class TransactionError extends Resource {
   /** @param code Code */
   public void setCode(final Constants.ErrorCode code) {
     this.code = code;
+  }
+
+  /** Decline code */
+  public Constants.DeclineCode getDeclineCode() {
+    return this.declineCode;
+  }
+
+  /** @param declineCode Decline code */
+  public void setDeclineCode(final Constants.DeclineCode declineCode) {
+    this.declineCode = declineCode;
   }
 
   /** Merchant message */
