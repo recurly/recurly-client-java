@@ -384,6 +384,17 @@ public class Constants {
     
     };
   
+    public enum DeliveryMethod {
+      UNDEFINED,
+    
+      @SerializedName("email")
+      EMAIL,
+    
+      @SerializedName("post")
+      POST,
+    
+    };
+  
     public enum GatewayTransactionType {
       UNDEFINED,
     
@@ -1970,6 +1981,98 @@ public class Constants {
     
       @SerializedName("zero_dollar_auth_not_supported")
       ZERO_DOLLAR_AUTH_NOT_SUPPORTED,
+    
+    };
+  
+    public enum DeclineCode {
+      UNDEFINED,
+    
+      @SerializedName("account_closed")
+      ACCOUNT_CLOSED,
+    
+      @SerializedName("call_issuer")
+      CALL_ISSUER,
+    
+      @SerializedName("card_not_activated")
+      CARD_NOT_ACTIVATED,
+    
+      @SerializedName("card_not_supported")
+      CARD_NOT_SUPPORTED,
+    
+      @SerializedName("cardholder_requested_stop")
+      CARDHOLDER_REQUESTED_STOP,
+    
+      @SerializedName("do_not_honor")
+      DO_NOT_HONOR,
+    
+      @SerializedName("do_not_try_again")
+      DO_NOT_TRY_AGAIN,
+    
+      @SerializedName("exceeds_daily_limit")
+      EXCEEDS_DAILY_LIMIT,
+    
+      @SerializedName("generic_decline")
+      GENERIC_DECLINE,
+    
+      @SerializedName("expired_card")
+      EXPIRED_CARD,
+    
+      @SerializedName("fraudulent")
+      FRAUDULENT,
+    
+      @SerializedName("insufficient_funds")
+      INSUFFICIENT_FUNDS,
+    
+      @SerializedName("incorrect_address")
+      INCORRECT_ADDRESS,
+    
+      @SerializedName("incorrect_security_code")
+      INCORRECT_SECURITY_CODE,
+    
+      @SerializedName("invalid_amount")
+      INVALID_AMOUNT,
+    
+      @SerializedName("invalid_number")
+      INVALID_NUMBER,
+    
+      @SerializedName("invalid_transaction")
+      INVALID_TRANSACTION,
+    
+      @SerializedName("issuer_unavailable")
+      ISSUER_UNAVAILABLE,
+    
+      @SerializedName("lifecycle_decline")
+      LIFECYCLE_DECLINE,
+    
+      @SerializedName("lost_card")
+      LOST_CARD,
+    
+      @SerializedName("pickup_card")
+      PICKUP_CARD,
+    
+      @SerializedName("policy_decline")
+      POLICY_DECLINE,
+    
+      @SerializedName("restricted_card")
+      RESTRICTED_CARD,
+    
+      @SerializedName("restricted_card_chargeback")
+      RESTRICTED_CARD_CHARGEBACK,
+    
+      @SerializedName("security_decline")
+      SECURITY_DECLINE,
+    
+      @SerializedName("stolen_card")
+      STOLEN_CARD,
+    
+      @SerializedName("try_again")
+      TRY_AGAIN,
+    
+      @SerializedName("update_cardholder_data")
+      UPDATE_CARDHOLDER_DATA,
+    
+      @SerializedName("requires_3d_secure")
+      REQUIRES_3D_SECURE,
     
     };
   

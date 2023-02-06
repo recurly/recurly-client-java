@@ -69,6 +69,11 @@ public class Subscription extends Resource {
   @Expose
   private Constants.CollectionMethod collectionMethod;
 
+  /** When the subscription was converted from a gift card. */
+  @SerializedName("converted_at")
+  @Expose
+  private DateTime convertedAt;
+
   /** Returns subscription level coupon redemptions that are tied to this subscription. */
   @SerializedName("coupon_redemptions")
   @Expose
@@ -217,6 +222,11 @@ public class Subscription extends Resource {
   @SerializedName("shipping")
   @Expose
   private SubscriptionShipping shipping;
+
+  /** Whether the subscription was started with a gift certificate. */
+  @SerializedName("started_with_gift")
+  @Expose
+  private Boolean startedWithGift;
 
   /** State */
   @SerializedName("state")
@@ -401,6 +411,16 @@ public class Subscription extends Resource {
   /** @param collectionMethod Collection method */
   public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
     this.collectionMethod = collectionMethod;
+  }
+
+  /** When the subscription was converted from a gift card. */
+  public DateTime getConvertedAt() {
+    return this.convertedAt;
+  }
+
+  /** @param convertedAt When the subscription was converted from a gift card. */
+  public void setConvertedAt(final DateTime convertedAt) {
+    this.convertedAt = convertedAt;
   }
 
   /** Returns subscription level coupon redemptions that are tied to this subscription. */
@@ -718,6 +738,16 @@ public class Subscription extends Resource {
   /** @param shipping Subscription shipping details */
   public void setShipping(final SubscriptionShipping shipping) {
     this.shipping = shipping;
+  }
+
+  /** Whether the subscription was started with a gift certificate. */
+  public Boolean getStartedWithGift() {
+    return this.startedWithGift;
+  }
+
+  /** @param startedWithGift Whether the subscription was started with a gift certificate. */
+  public void setStartedWithGift(final Boolean startedWithGift) {
+    this.startedWithGift = startedWithGift;
   }
 
   /** State */
