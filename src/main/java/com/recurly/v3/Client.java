@@ -2529,4 +2529,81 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalSubscription.class).getType();
     return new Pager<>(path, paramsMap, this, parameterizedType);
   }
+
+  /**
+   * List gift cards
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_gift_cards">list_gift_cards api documentation</a>
+     * @return List of all created gift cards on your site.
+   */
+  public Pager<GiftCard> listGiftCards() {
+    final String url = "/gift_cards";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, GiftCard.class).getType();
+    return new Pager<>(path, null, this, parameterizedType);
+  }
+
+  /**
+   * Create gift card
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_gift_card">create_gift_card api documentation</a>
+   * @param body The body of the request.
+     * @return Returns the gift card
+   */
+  public GiftCard createGiftCard(GiftCardCreate body) {
+    final String url = "/gift_cards";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = GiftCard.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * Fetch a gift card
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_gift_card">get_gift_card api documentation</a>
+   * @param giftCardId Gift Card ID, e.g. `e28zov4fw0v2`.
+     * @return Gift card details
+   */
+  public GiftCard getGiftCard(String giftCardId) {
+    final String url = "/gift_cards/{gift_card_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("gift_card_id", giftCardId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = GiftCard.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Preview gift card
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/preview_gift_card">preview_gift_card api documentation</a>
+   * @param body The body of the request.
+     * @return Returns the gift card
+   */
+  public GiftCard previewGiftCard(GiftCardCreate body) {
+    final String url = "/gift_cards/preview";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = GiftCard.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * Redeem gift card
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/redeem_gift_card">redeem_gift_card api documentation</a>
+   * @param redemptionCode Gift Card redemption code, e.g., `N1A2T8IRXSCMO40V`.
+   * @param body The body of the request.
+     * @return Redeems and returns the gift card
+   */
+  public GiftCard redeemGiftCard(String redemptionCode, GiftCardRedeem body) {
+    final String url = "/gift_cards/{redemption_code}/redeem";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("redemption_code", redemptionCode);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = GiftCard.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
 }

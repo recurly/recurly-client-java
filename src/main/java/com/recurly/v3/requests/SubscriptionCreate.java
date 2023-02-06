@@ -81,6 +81,11 @@ public class SubscriptionCreate extends Request {
   @Expose
   private String customerNotes;
 
+  /** A gift card redemption code to be redeemed on the purchase invoice. */
+  @SerializedName("gift_card_redemption_code")
+  @Expose
+  private String giftCardRedemptionCode;
+
   /**
    * Integer representing the number of days after an invoice's creation that the invoice will
    * become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will
@@ -345,6 +350,19 @@ public class SubscriptionCreate extends Request {
    */
   public void setCustomerNotes(final String customerNotes) {
     this.customerNotes = customerNotes;
+  }
+
+  /** A gift card redemption code to be redeemed on the purchase invoice. */
+  public String getGiftCardRedemptionCode() {
+    return this.giftCardRedemptionCode;
+  }
+
+  /**
+   * @param giftCardRedemptionCode A gift card redemption code to be redeemed on the purchase
+   *     invoice.
+   */
+  public void setGiftCardRedemptionCode(final String giftCardRedemptionCode) {
+    this.giftCardRedemptionCode = giftCardRedemptionCode;
   }
 
   /**
