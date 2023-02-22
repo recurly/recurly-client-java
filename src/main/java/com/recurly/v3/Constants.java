@@ -627,6 +627,9 @@ public class Constants {
       @SerializedName("write")
       WRITE,
     
+      @SerializedName("set_only")
+      SET_ONLY,
+    
     };
   
     public enum PricingModelType {
