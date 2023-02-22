@@ -45,15 +45,17 @@ public class ExternalSubscription extends Resource {
   @Expose
   private DateTime expiresAt;
 
+  /**
+   * The id of the subscription in the external systems., I.e. Apple App Store or Google Play Store.
+   */
+  @SerializedName("external_id")
+  @Expose
+  private String externalId;
+
   /** External Product Reference details */
   @SerializedName("external_product_reference")
   @Expose
   private ExternalProductReferenceMini externalProductReference;
-
-  /** External Resource mini details */
-  @SerializedName("external_resource")
-  @Expose
-  private ExternalResourceMini externalResource;
 
   /** System-generated unique identifier for an external subscription ID, e.g. `e28zov4fw0v2`. */
   @SerializedName("id")
@@ -77,6 +79,11 @@ public class ExternalSubscription extends Resource {
   @SerializedName("quantity")
   @Expose
   private Integer quantity;
+
+  /** External subscriptions can be active, canceled, expired, or future. */
+  @SerializedName("state")
+  @Expose
+  private String state;
 
   /** When the external subscription was updated in Recurly. */
   @SerializedName("updated_at")
@@ -149,6 +156,21 @@ public class ExternalSubscription extends Resource {
     this.expiresAt = expiresAt;
   }
 
+  /**
+   * The id of the subscription in the external systems., I.e. Apple App Store or Google Play Store.
+   */
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  /**
+   * @param externalId The id of the subscription in the external systems., I.e. Apple App Store or
+   *     Google Play Store.
+   */
+  public void setExternalId(final String externalId) {
+    this.externalId = externalId;
+  }
+
   /** External Product Reference details */
   public ExternalProductReferenceMini getExternalProductReference() {
     return this.externalProductReference;
@@ -158,16 +180,6 @@ public class ExternalSubscription extends Resource {
   public void setExternalProductReference(
       final ExternalProductReferenceMini externalProductReference) {
     this.externalProductReference = externalProductReference;
-  }
-
-  /** External Resource mini details */
-  public ExternalResourceMini getExternalResource() {
-    return this.externalResource;
-  }
-
-  /** @param externalResource External Resource mini details */
-  public void setExternalResource(final ExternalResourceMini externalResource) {
-    this.externalResource = externalResource;
   }
 
   /** System-generated unique identifier for an external subscription ID, e.g. `e28zov4fw0v2`. */
@@ -217,6 +229,16 @@ public class ExternalSubscription extends Resource {
   /** @param quantity An indication of the quantity of a subscribed item's quantity. */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
+  }
+
+  /** External subscriptions can be active, canceled, expired, or future. */
+  public String getState() {
+    return this.state;
+  }
+
+  /** @param state External subscriptions can be active, canceled, expired, or future. */
+  public void setState(final String state) {
+    this.state = state;
   }
 
   /** When the external subscription was updated in Recurly. */
