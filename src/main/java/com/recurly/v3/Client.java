@@ -494,6 +494,25 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List the external invoices on an account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_external_invoices">list_account_external_invoices api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the the external_invoices on an account.
+   */
+  public Pager<ExternalInvoice> listAccountExternalInvoices(String accountId, QueryParams queryParams) {
+    final String url = "/accounts/{account_id}/external_invoices";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalInvoice.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
    * List an account's invoices
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_invoices">list_account_invoices api documentation</a>
@@ -1245,6 +1264,25 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = ExternalSubscription.class;
     return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * List the external invoices on an external subscription
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_subscription_external_invoices">list_external_subscription_external_invoices api documentation</a>
+   * @param externalSubscriptionId External subscription id
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the the external_invoices on a site.
+   */
+  public Pager<ExternalInvoice> listExternalSubscriptionExternalInvoices(String externalSubscriptionId, QueryParams queryParams) {
+    final String url = "/external_subscriptions/{external_subscription_id}/external_invoices";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_subscription_id", externalSubscriptionId);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalInvoice.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 
   /**
@@ -2489,6 +2527,39 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     urlParams.put("invoice_template_id", invoiceTemplateId);
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = InvoiceTemplate.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * List the external invoices on a site
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_invoices">list_external_invoices api documentation</a>
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the the external_invoices on a site.
+   */
+  public Pager<ExternalInvoice> listExternalInvoices(QueryParams queryParams) {
+    final String url = "/external_invoices";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalInvoice.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * Fetch an external invoice
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/show_external_invoice">show_external_invoice api documentation</a>
+   * @param externalInvoiceId External invoice ID, e.g. `e28zov4fw0v2`.
+     * @return Returns the external invoice
+   */
+  public ExternalInvoice showExternalInvoice(String externalInvoiceId) {
+    final String url = "/external_invoices/{external_invoice_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_invoice_id", externalInvoiceId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalInvoice.class;
     return this.makeRequest("GET", path, returnType);
   }
 

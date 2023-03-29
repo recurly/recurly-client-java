@@ -2148,4 +2148,12 @@ public class Constants {
     
     };
   
+    public enum ExternalInvoiceState {
+      UNDEFINED,
+    
+      @SerializedName("paid")
+      PAID,
+    
+    };
+  
 }
