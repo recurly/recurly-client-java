@@ -9,7 +9,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
-import java.math.BigDecimal;
 import java.util.List;
 import org.joda.time.DateTime;
 
@@ -69,7 +68,7 @@ public class ExternalInvoice extends Resource {
   /** Total */
   @SerializedName("total")
   @Expose
-  private BigDecimal total;
+  private String total;
 
   /** When the external invoice was updated in Recurly. */
   @SerializedName("updated_at")
@@ -186,12 +185,12 @@ public class ExternalInvoice extends Resource {
   }
 
   /** Total */
-  public BigDecimal getTotal() {
+  public String getTotal() {
     return this.total;
   }
 
   /** @param total Total */
-  public void setTotal(final BigDecimal total) {
+  public void setTotal(final String total) {
     this.total = total;
   }
 

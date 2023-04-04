@@ -8,7 +8,6 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import java.math.BigDecimal;
 import org.joda.time.DateTime;
 
 public class ExternalCharge extends Resource {
@@ -54,7 +53,7 @@ public class ExternalCharge extends Resource {
   /** Unit Amount */
   @SerializedName("unit_amount")
   @Expose
-  private BigDecimal unitAmount;
+  private String unitAmount;
 
   /** When the external charge was updated in Recurly. */
   @SerializedName("updated_at")
@@ -143,12 +142,12 @@ public class ExternalCharge extends Resource {
   }
 
   /** Unit Amount */
-  public BigDecimal getUnitAmount() {
+  public String getUnitAmount() {
     return this.unitAmount;
   }
 
   /** @param unitAmount Unit Amount */
-  public void setUnitAmount(final BigDecimal unitAmount) {
+  public void setUnitAmount(final String unitAmount) {
     this.unitAmount = unitAmount;
   }
 
