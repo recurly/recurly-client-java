@@ -1,515 +1,518 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
- * make by hand will be lost. If you wish to make a change to this file, please create a Github
- * issue explaining the changes you need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process
+ * and thus any edits you make by hand will be lost. If you wish to make a
+ * change to this file, please create a Github issue explaining the changes you
+ * need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
+import com.recurly.v3.Constants;
 import com.recurly.v3.resources.*;
+import org.joda.time.DateTime;
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 public class AccountCreate extends Request {
 
+  
   @SerializedName("acquisition")
   @Expose
   private AccountAcquisitionUpdate acquisition;
 
+  
   @SerializedName("address")
   @Expose
   private Address address;
 
+  
   /**
-   * An enumerable describing the billing behavior of the account, specifically whether the account
-   * is self-paying or will rely on the parent account to pay.
+   * An enumerable describing the billing behavior of the account, specifically whether the account is self-paying or will rely on the parent account to pay.
    */
+  
   @SerializedName("bill_to")
   @Expose
   private Constants.BillTo billTo;
 
+  
   @SerializedName("billing_info")
   @Expose
   private BillingInfoCreate billingInfo;
 
+  
   /**
-   * Additional email address that should receive account correspondence. These should be separated
-   * only by commas. These CC emails will receive all emails that the `email` field also receives.
+   * Additional email address that should receive account correspondence. These should be separated only by commas. These CC emails will receive all emails that the `email` field also receives.
    */
+  
   @SerializedName("cc_emails")
   @Expose
   private String ccEmails;
 
-  /** The unique identifier of the account. This cannot be changed once the account is created. */
+  
+  /**
+   * The unique identifier of the account. This cannot be changed once the account is created.
+   */
+  
   @SerializedName("code")
   @Expose
   private String code;
 
+  
   @SerializedName("company")
   @Expose
   private String company;
 
+  
   /**
-   * The custom fields will only be altered when they are included in a request. Sending an empty
-   * array will not remove any existing values. To remove a field send the name with a null or empty
-   * value.
+   * The custom fields will only be altered when they are included in a request. Sending an empty array will not remove any existing values. To remove a field send the name with a null or empty value.
    */
+  
   @SerializedName("custom_fields")
   @Expose
   private List<CustomField> customFields;
 
+  
   /**
-   * Unique ID to identify a dunning campaign. Used to specify if a non-default dunning campaign
-   * should be assigned to this account. For sites without multiple dunning campaigns enabled, the
-   * default dunning campaign will always be used.
+   * Unique ID to identify a dunning campaign. Used to specify if a non-default dunning campaign should be assigned to this account. For sites without multiple dunning campaigns enabled, the default dunning campaign will always be used.
    */
+  
   @SerializedName("dunning_campaign_id")
   @Expose
   private String dunningCampaignId;
 
+  
   /**
-   * The email address used for communicating with this customer. The customer will also use this
-   * email address to log into your hosted account management pages. This value does not need to be
-   * unique.
+   * The email address used for communicating with this customer. The customer will also use this email address to log into your hosted account management pages. This value does not need to be unique.
    */
+  
   @SerializedName("email")
   @Expose
   private String email;
 
+  
   /**
-   * The tax exemption certificate number for the account. If the merchant has an integration for
-   * the Vertex tax provider, this optional value will be sent in any tax calculation requests for
-   * the account.
+   * The tax exemption certificate number for the account. If the merchant has an integration for the Vertex tax provider, this optional value will be sent in any tax calculation requests for the account.
    */
+  
   @SerializedName("exemption_certificate")
   @Expose
   private String exemptionCertificate;
 
+  
+  /**
+   * External Accounts
+   */
+  
+  @SerializedName("external_accounts")
+  @Expose
+  private List<ExternalAccount> externalAccounts;
+
+  
   @SerializedName("first_name")
   @Expose
   private String firstName;
 
+  
   /**
-   * Unique ID to identify an invoice template. Available when the site is on a Pro or Enterprise
-   * plan. Used to specify which invoice template, if any, should be used to generate invoices for
-   * the account.
+   * Unique ID to identify an invoice template.  Available when the site is on a Pro or Enterprise plan.  Used to specify which invoice template, if any, should be used to generate invoices for the account.
    */
+  
   @SerializedName("invoice_template_id")
   @Expose
   private String invoiceTemplateId;
 
+  
   @SerializedName("last_name")
   @Expose
   private String lastName;
 
+  
   /**
-   * The account code of the parent account to be associated with this account. Passing an empty
-   * value removes any existing parent association from this account. If both `parent_account_code`
-   * and `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used.
-   * Only one level of parent child relationship is allowed. You cannot assign a parent account that
-   * itself has a parent account.
+   * The account code of the parent account to be associated with this account. Passing an empty value removes any existing parent association from this account. If both `parent_account_code` and `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used. Only one level of parent child relationship is allowed. You cannot assign a parent account that itself has a parent account.
    */
+  
   @SerializedName("parent_account_code")
   @Expose
   private String parentAccountCode;
 
+  
   /**
-   * The UUID of the parent account to be associated with this account. Passing an empty value
-   * removes any existing parent association from this account. If both `parent_account_code` and
-   * `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used. Only
-   * one level of parent child relationship is allowed. You cannot assign a parent account that
-   * itself has a parent account.
+   * The UUID of the parent account to be associated with this account. Passing an empty value removes any existing parent association from this account. If both `parent_account_code` and `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used. Only one level of parent child relationship is allowed. You cannot assign a parent account that itself has a parent account.
    */
+  
   @SerializedName("parent_account_id")
   @Expose
   private String parentAccountId;
 
+  
   /**
-   * Used to determine the language and locale of emails sent on behalf of the merchant to the
-   * customer. The list of locales is restricted to those the merchant has enabled on the site.
+   * Used to determine the language and locale of emails sent on behalf of the merchant to the customer. The list of locales is restricted to those the merchant has enabled on the site.
    */
+  
   @SerializedName("preferred_locale")
   @Expose
   private Constants.PreferredLocale preferredLocale;
 
+  
   /**
-   * Used to determine the time zone of emails sent on behalf of the merchant to the customer. Must
-   * be a [supported IANA time zone
-   * name](https://docs.recurly.com/docs/email-time-zones-and-time-stamps#supported-api-iana-time-zone-names)
+   * Used to determine the time zone of emails sent on behalf of the merchant to the customer. Must be a [supported IANA time zone name](https://docs.recurly.com/docs/email-time-zones-and-time-stamps#supported-api-iana-time-zone-names)
    */
+  
   @SerializedName("preferred_time_zone")
   @Expose
   private String preferredTimeZone;
 
+  
   @SerializedName("shipping_addresses")
   @Expose
   private List<ShippingAddressCreate> shippingAddresses;
 
+  
   /**
-   * The tax status of the account. `true` exempts tax on the account, `false` applies tax on the
-   * account.
+   * The tax status of the account. `true` exempts tax on the account, `false` applies tax on the account.
    */
+  
   @SerializedName("tax_exempt")
   @Expose
   private Boolean taxExempt;
 
+  
   /**
-   * An optional type designation for the payment gateway transaction created by this request.
-   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   * An optional type designation for the payment gateway transaction created by this request. Supports 'moto' value, which is the acronym for mail order and telephone transactions.
    */
+  
   @SerializedName("transaction_type")
   @Expose
   private Constants.GatewayTransactionType transactionType;
 
-  /** A secondary value for the account. */
+  
+  /**
+   * A secondary value for the account.
+   */
+  
   @SerializedName("username")
   @Expose
   private String username;
 
+  
   /**
-   * The VAT number of the account (to avoid having the VAT applied). This is only used for manually
-   * collected invoices.
+   * The VAT number of the account (to avoid having the VAT applied). This is only used for manually collected invoices.
    */
+  
   @SerializedName("vat_number")
   @Expose
   private String vatNumber;
 
-  public AccountAcquisitionUpdate getAcquisition() {
-    return this.acquisition;
-  }
 
-  /** @param acquisition */
-  public void setAcquisition(final AccountAcquisitionUpdate acquisition) {
-    this.acquisition = acquisition;
-  }
+  
+  public AccountAcquisitionUpdate getAcquisition() { return this.acquisition; }
 
-  public Address getAddress() {
-    return this.address;
-  }
-
-  /** @param address */
-  public void setAddress(final Address address) {
-    this.address = address;
-  }
-
+  
   /**
-   * An enumerable describing the billing behavior of the account, specifically whether the account
-   * is self-paying or will rely on the parent account to pay.
+   * @param acquisition 
    */
-  public Constants.BillTo getBillTo() {
-    return this.billTo;
-  }
+  
+  public void setAcquisition(final AccountAcquisitionUpdate acquisition) { this.acquisition = acquisition; }
 
+  
+  public Address getAddress() { return this.address; }
+
+  
   /**
-   * @param billTo An enumerable describing the billing behavior of the account, specifically
-   *     whether the account is self-paying or will rely on the parent account to pay.
+   * @param address 
    */
-  public void setBillTo(final Constants.BillTo billTo) {
-    this.billTo = billTo;
-  }
+  
+  public void setAddress(final Address address) { this.address = address; }
 
-  public BillingInfoCreate getBillingInfo() {
-    return this.billingInfo;
-  }
-
-  /** @param billingInfo */
-  public void setBillingInfo(final BillingInfoCreate billingInfo) {
-    this.billingInfo = billingInfo;
-  }
-
+  
   /**
-   * Additional email address that should receive account correspondence. These should be separated
-   * only by commas. These CC emails will receive all emails that the `email` field also receives.
+   * An enumerable describing the billing behavior of the account, specifically whether the account is self-paying or will rely on the parent account to pay.
    */
-  public String getCcEmails() {
-    return this.ccEmails;
-  }
+  
+  public Constants.BillTo getBillTo() { return this.billTo; }
 
+  
   /**
-   * @param ccEmails Additional email address that should receive account correspondence. These
-   *     should be separated only by commas. These CC emails will receive all emails that the
-   *     `email` field also receives.
+   * @param billTo An enumerable describing the billing behavior of the account, specifically whether the account is self-paying or will rely on the parent account to pay.
    */
-  public void setCcEmails(final String ccEmails) {
-    this.ccEmails = ccEmails;
-  }
+  
+  public void setBillTo(final Constants.BillTo billTo) { this.billTo = billTo; }
 
-  /** The unique identifier of the account. This cannot be changed once the account is created. */
-  public String getCode() {
-    return this.code;
-  }
+  
+  public BillingInfoCreate getBillingInfo() { return this.billingInfo; }
 
+  
   /**
-   * @param code The unique identifier of the account. This cannot be changed once the account is
-   *     created.
+   * @param billingInfo 
    */
-  public void setCode(final String code) {
-    this.code = code;
-  }
+  
+  public void setBillingInfo(final BillingInfoCreate billingInfo) { this.billingInfo = billingInfo; }
 
-  public String getCompany() {
-    return this.company;
-  }
-
-  /** @param company */
-  public void setCompany(final String company) {
-    this.company = company;
-  }
-
+  
   /**
-   * The custom fields will only be altered when they are included in a request. Sending an empty
-   * array will not remove any existing values. To remove a field send the name with a null or empty
-   * value.
+   * Additional email address that should receive account correspondence. These should be separated only by commas. These CC emails will receive all emails that the `email` field also receives.
    */
-  public List<CustomField> getCustomFields() {
-    return this.customFields;
-  }
+  
+  public String getCcEmails() { return this.ccEmails; }
 
+  
   /**
-   * @param customFields The custom fields will only be altered when they are included in a request.
-   *     Sending an empty array will not remove any existing values. To remove a field send the name
-   *     with a null or empty value.
+   * @param ccEmails Additional email address that should receive account correspondence. These should be separated only by commas. These CC emails will receive all emails that the `email` field also receives.
    */
-  public void setCustomFields(final List<CustomField> customFields) {
-    this.customFields = customFields;
-  }
+  
+  public void setCcEmails(final String ccEmails) { this.ccEmails = ccEmails; }
 
+  
   /**
-   * Unique ID to identify a dunning campaign. Used to specify if a non-default dunning campaign
-   * should be assigned to this account. For sites without multiple dunning campaigns enabled, the
-   * default dunning campaign will always be used.
+   * The unique identifier of the account. This cannot be changed once the account is created.
    */
-  public String getDunningCampaignId() {
-    return this.dunningCampaignId;
-  }
+  
+  public String getCode() { return this.code; }
 
+  
   /**
-   * @param dunningCampaignId Unique ID to identify a dunning campaign. Used to specify if a
-   *     non-default dunning campaign should be assigned to this account. For sites without multiple
-   *     dunning campaigns enabled, the default dunning campaign will always be used.
+   * @param code The unique identifier of the account. This cannot be changed once the account is created.
    */
-  public void setDunningCampaignId(final String dunningCampaignId) {
-    this.dunningCampaignId = dunningCampaignId;
-  }
+  
+  public void setCode(final String code) { this.code = code; }
 
+  
+  public String getCompany() { return this.company; }
+
+  
   /**
-   * The email address used for communicating with this customer. The customer will also use this
-   * email address to log into your hosted account management pages. This value does not need to be
-   * unique.
+   * @param company 
    */
-  public String getEmail() {
-    return this.email;
-  }
+  
+  public void setCompany(final String company) { this.company = company; }
 
+  
   /**
-   * @param email The email address used for communicating with this customer. The customer will
-   *     also use this email address to log into your hosted account management pages. This value
-   *     does not need to be unique.
+   * The custom fields will only be altered when they are included in a request. Sending an empty array will not remove any existing values. To remove a field send the name with a null or empty value.
    */
-  public void setEmail(final String email) {
-    this.email = email;
-  }
+  
+  public List<CustomField> getCustomFields() { return this.customFields; }
 
+  
   /**
-   * The tax exemption certificate number for the account. If the merchant has an integration for
-   * the Vertex tax provider, this optional value will be sent in any tax calculation requests for
-   * the account.
+   * @param customFields The custom fields will only be altered when they are included in a request. Sending an empty array will not remove any existing values. To remove a field send the name with a null or empty value.
    */
-  public String getExemptionCertificate() {
-    return this.exemptionCertificate;
-  }
+  
+  public void setCustomFields(final List<CustomField> customFields) { this.customFields = customFields; }
 
+  
   /**
-   * @param exemptionCertificate The tax exemption certificate number for the account. If the
-   *     merchant has an integration for the Vertex tax provider, this optional value will be sent
-   *     in any tax calculation requests for the account.
+   * Unique ID to identify a dunning campaign. Used to specify if a non-default dunning campaign should be assigned to this account. For sites without multiple dunning campaigns enabled, the default dunning campaign will always be used.
    */
-  public void setExemptionCertificate(final String exemptionCertificate) {
-    this.exemptionCertificate = exemptionCertificate;
-  }
+  
+  public String getDunningCampaignId() { return this.dunningCampaignId; }
 
-  public String getFirstName() {
-    return this.firstName;
-  }
-
-  /** @param firstName */
-  public void setFirstName(final String firstName) {
-    this.firstName = firstName;
-  }
-
+  
   /**
-   * Unique ID to identify an invoice template. Available when the site is on a Pro or Enterprise
-   * plan. Used to specify which invoice template, if any, should be used to generate invoices for
-   * the account.
+   * @param dunningCampaignId Unique ID to identify a dunning campaign. Used to specify if a non-default dunning campaign should be assigned to this account. For sites without multiple dunning campaigns enabled, the default dunning campaign will always be used.
    */
-  public String getInvoiceTemplateId() {
-    return this.invoiceTemplateId;
-  }
+  
+  public void setDunningCampaignId(final String dunningCampaignId) { this.dunningCampaignId = dunningCampaignId; }
 
+  
   /**
-   * @param invoiceTemplateId Unique ID to identify an invoice template. Available when the site is
-   *     on a Pro or Enterprise plan. Used to specify which invoice template, if any, should be used
-   *     to generate invoices for the account.
+   * The email address used for communicating with this customer. The customer will also use this email address to log into your hosted account management pages. This value does not need to be unique.
    */
-  public void setInvoiceTemplateId(final String invoiceTemplateId) {
-    this.invoiceTemplateId = invoiceTemplateId;
-  }
+  
+  public String getEmail() { return this.email; }
 
-  public String getLastName() {
-    return this.lastName;
-  }
-
-  /** @param lastName */
-  public void setLastName(final String lastName) {
-    this.lastName = lastName;
-  }
-
+  
   /**
-   * The account code of the parent account to be associated with this account. Passing an empty
-   * value removes any existing parent association from this account. If both `parent_account_code`
-   * and `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used.
-   * Only one level of parent child relationship is allowed. You cannot assign a parent account that
-   * itself has a parent account.
+   * @param email The email address used for communicating with this customer. The customer will also use this email address to log into your hosted account management pages. This value does not need to be unique.
    */
-  public String getParentAccountCode() {
-    return this.parentAccountCode;
-  }
+  
+  public void setEmail(final String email) { this.email = email; }
 
+  
   /**
-   * @param parentAccountCode The account code of the parent account to be associated with this
-   *     account. Passing an empty value removes any existing parent association from this account.
-   *     If both `parent_account_code` and `parent_account_id` are passed, the non-blank value in
-   *     `parent_account_id` will be used. Only one level of parent child relationship is allowed.
-   *     You cannot assign a parent account that itself has a parent account.
+   * The tax exemption certificate number for the account. If the merchant has an integration for the Vertex tax provider, this optional value will be sent in any tax calculation requests for the account.
    */
-  public void setParentAccountCode(final String parentAccountCode) {
-    this.parentAccountCode = parentAccountCode;
-  }
+  
+  public String getExemptionCertificate() { return this.exemptionCertificate; }
 
+  
   /**
-   * The UUID of the parent account to be associated with this account. Passing an empty value
-   * removes any existing parent association from this account. If both `parent_account_code` and
-   * `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used. Only
-   * one level of parent child relationship is allowed. You cannot assign a parent account that
-   * itself has a parent account.
+   * @param exemptionCertificate The tax exemption certificate number for the account. If the merchant has an integration for the Vertex tax provider, this optional value will be sent in any tax calculation requests for the account.
    */
-  public String getParentAccountId() {
-    return this.parentAccountId;
-  }
+  
+  public void setExemptionCertificate(final String exemptionCertificate) { this.exemptionCertificate = exemptionCertificate; }
 
+  
   /**
-   * @param parentAccountId The UUID of the parent account to be associated with this account.
-   *     Passing an empty value removes any existing parent association from this account. If both
-   *     `parent_account_code` and `parent_account_id` are passed, the non-blank value in
-   *     `parent_account_id` will be used. Only one level of parent child relationship is allowed.
-   *     You cannot assign a parent account that itself has a parent account.
+   * External Accounts
    */
-  public void setParentAccountId(final String parentAccountId) {
-    this.parentAccountId = parentAccountId;
-  }
+  
+  public List<ExternalAccount> getExternalAccounts() { return this.externalAccounts; }
 
+  
   /**
-   * Used to determine the language and locale of emails sent on behalf of the merchant to the
-   * customer. The list of locales is restricted to those the merchant has enabled on the site.
+   * @param externalAccounts External Accounts
    */
-  public Constants.PreferredLocale getPreferredLocale() {
-    return this.preferredLocale;
-  }
+  
+  public void setExternalAccounts(final List<ExternalAccount> externalAccounts) { this.externalAccounts = externalAccounts; }
 
+  
+  public String getFirstName() { return this.firstName; }
+
+  
   /**
-   * @param preferredLocale Used to determine the language and locale of emails sent on behalf of
-   *     the merchant to the customer. The list of locales is restricted to those the merchant has
-   *     enabled on the site.
+   * @param firstName 
    */
-  public void setPreferredLocale(final Constants.PreferredLocale preferredLocale) {
-    this.preferredLocale = preferredLocale;
-  }
+  
+  public void setFirstName(final String firstName) { this.firstName = firstName; }
 
+  
   /**
-   * Used to determine the time zone of emails sent on behalf of the merchant to the customer. Must
-   * be a [supported IANA time zone
-   * name](https://docs.recurly.com/docs/email-time-zones-and-time-stamps#supported-api-iana-time-zone-names)
+   * Unique ID to identify an invoice template.  Available when the site is on a Pro or Enterprise plan.  Used to specify which invoice template, if any, should be used to generate invoices for the account.
    */
-  public String getPreferredTimeZone() {
-    return this.preferredTimeZone;
-  }
+  
+  public String getInvoiceTemplateId() { return this.invoiceTemplateId; }
 
+  
   /**
-   * @param preferredTimeZone Used to determine the time zone of emails sent on behalf of the
-   *     merchant to the customer. Must be a [supported IANA time zone
-   *     name](https://docs.recurly.com/docs/email-time-zones-and-time-stamps#supported-api-iana-time-zone-names)
+   * @param invoiceTemplateId Unique ID to identify an invoice template.  Available when the site is on a Pro or Enterprise plan.  Used to specify which invoice template, if any, should be used to generate invoices for the account.
    */
-  public void setPreferredTimeZone(final String preferredTimeZone) {
-    this.preferredTimeZone = preferredTimeZone;
-  }
+  
+  public void setInvoiceTemplateId(final String invoiceTemplateId) { this.invoiceTemplateId = invoiceTemplateId; }
 
-  public List<ShippingAddressCreate> getShippingAddresses() {
-    return this.shippingAddresses;
-  }
+  
+  public String getLastName() { return this.lastName; }
 
-  /** @param shippingAddresses */
-  public void setShippingAddresses(final List<ShippingAddressCreate> shippingAddresses) {
-    this.shippingAddresses = shippingAddresses;
-  }
-
+  
   /**
-   * The tax status of the account. `true` exempts tax on the account, `false` applies tax on the
-   * account.
+   * @param lastName 
    */
-  public Boolean getTaxExempt() {
-    return this.taxExempt;
-  }
+  
+  public void setLastName(final String lastName) { this.lastName = lastName; }
 
+  
   /**
-   * @param taxExempt The tax status of the account. `true` exempts tax on the account, `false`
-   *     applies tax on the account.
+   * The account code of the parent account to be associated with this account. Passing an empty value removes any existing parent association from this account. If both `parent_account_code` and `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used. Only one level of parent child relationship is allowed. You cannot assign a parent account that itself has a parent account.
    */
-  public void setTaxExempt(final Boolean taxExempt) {
-    this.taxExempt = taxExempt;
-  }
+  
+  public String getParentAccountCode() { return this.parentAccountCode; }
 
+  
   /**
-   * An optional type designation for the payment gateway transaction created by this request.
-   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   * @param parentAccountCode The account code of the parent account to be associated with this account. Passing an empty value removes any existing parent association from this account. If both `parent_account_code` and `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used. Only one level of parent child relationship is allowed. You cannot assign a parent account that itself has a parent account.
    */
-  public Constants.GatewayTransactionType getTransactionType() {
-    return this.transactionType;
-  }
+  
+  public void setParentAccountCode(final String parentAccountCode) { this.parentAccountCode = parentAccountCode; }
 
+  
   /**
-   * @param transactionType An optional type designation for the payment gateway transaction created
-   *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
-   *     transactions.
+   * The UUID of the parent account to be associated with this account. Passing an empty value removes any existing parent association from this account. If both `parent_account_code` and `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used. Only one level of parent child relationship is allowed. You cannot assign a parent account that itself has a parent account.
    */
-  public void setTransactionType(final Constants.GatewayTransactionType transactionType) {
-    this.transactionType = transactionType;
-  }
+  
+  public String getParentAccountId() { return this.parentAccountId; }
 
-  /** A secondary value for the account. */
-  public String getUsername() {
-    return this.username;
-  }
-
-  /** @param username A secondary value for the account. */
-  public void setUsername(final String username) {
-    this.username = username;
-  }
-
+  
   /**
-   * The VAT number of the account (to avoid having the VAT applied). This is only used for manually
-   * collected invoices.
+   * @param parentAccountId The UUID of the parent account to be associated with this account. Passing an empty value removes any existing parent association from this account. If both `parent_account_code` and `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used. Only one level of parent child relationship is allowed. You cannot assign a parent account that itself has a parent account.
    */
-  public String getVatNumber() {
-    return this.vatNumber;
-  }
+  
+  public void setParentAccountId(final String parentAccountId) { this.parentAccountId = parentAccountId; }
 
+  
   /**
-   * @param vatNumber The VAT number of the account (to avoid having the VAT applied). This is only
-   *     used for manually collected invoices.
+   * Used to determine the language and locale of emails sent on behalf of the merchant to the customer. The list of locales is restricted to those the merchant has enabled on the site.
    */
-  public void setVatNumber(final String vatNumber) {
-    this.vatNumber = vatNumber;
-  }
+  
+  public Constants.PreferredLocale getPreferredLocale() { return this.preferredLocale; }
+
+  
+  /**
+   * @param preferredLocale Used to determine the language and locale of emails sent on behalf of the merchant to the customer. The list of locales is restricted to those the merchant has enabled on the site.
+   */
+  
+  public void setPreferredLocale(final Constants.PreferredLocale preferredLocale) { this.preferredLocale = preferredLocale; }
+
+  
+  /**
+   * Used to determine the time zone of emails sent on behalf of the merchant to the customer. Must be a [supported IANA time zone name](https://docs.recurly.com/docs/email-time-zones-and-time-stamps#supported-api-iana-time-zone-names)
+   */
+  
+  public String getPreferredTimeZone() { return this.preferredTimeZone; }
+
+  
+  /**
+   * @param preferredTimeZone Used to determine the time zone of emails sent on behalf of the merchant to the customer. Must be a [supported IANA time zone name](https://docs.recurly.com/docs/email-time-zones-and-time-stamps#supported-api-iana-time-zone-names)
+   */
+  
+  public void setPreferredTimeZone(final String preferredTimeZone) { this.preferredTimeZone = preferredTimeZone; }
+
+  
+  public List<ShippingAddressCreate> getShippingAddresses() { return this.shippingAddresses; }
+
+  
+  /**
+   * @param shippingAddresses 
+   */
+  
+  public void setShippingAddresses(final List<ShippingAddressCreate> shippingAddresses) { this.shippingAddresses = shippingAddresses; }
+
+  
+  /**
+   * The tax status of the account. `true` exempts tax on the account, `false` applies tax on the account.
+   */
+  
+  public Boolean getTaxExempt() { return this.taxExempt; }
+
+  
+  /**
+   * @param taxExempt The tax status of the account. `true` exempts tax on the account, `false` applies tax on the account.
+   */
+  
+  public void setTaxExempt(final Boolean taxExempt) { this.taxExempt = taxExempt; }
+
+  
+  /**
+   * An optional type designation for the payment gateway transaction created by this request. Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  
+  public Constants.GatewayTransactionType getTransactionType() { return this.transactionType; }
+
+  
+  /**
+   * @param transactionType An optional type designation for the payment gateway transaction created by this request. Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  
+  public void setTransactionType(final Constants.GatewayTransactionType transactionType) { this.transactionType = transactionType; }
+
+  
+  /**
+   * A secondary value for the account.
+   */
+  
+  public String getUsername() { return this.username; }
+
+  
+  /**
+   * @param username A secondary value for the account.
+   */
+  
+  public void setUsername(final String username) { this.username = username; }
+
+  
+  /**
+   * The VAT number of the account (to avoid having the VAT applied). This is only used for manually collected invoices.
+   */
+  
+  public String getVatNumber() { return this.vatNumber; }
+
+  
+  /**
+   * @param vatNumber The VAT number of the account (to avoid having the VAT applied). This is only used for manually collected invoices.
+   */
+  
+  public void setVatNumber(final String vatNumber) { this.vatNumber = vatNumber; }
+
 }

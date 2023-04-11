@@ -1,150 +1,206 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
- * make by hand will be lost. If you wish to make a change to this file, please create a Github
- * issue explaining the changes you need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process
+ * and thus any edits you make by hand will be lost. If you wish to make a
+ * change to this file, please create a Github issue explaining the changes you
+ * need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import com.recurly.v3.Constants;
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
 import org.joda.time.DateTime;
 
 public class GiftCardDelivery extends Resource {
 
+  
   /**
-   * When the gift card should be delivered to the recipient. If null, the gift card will be
-   * delivered immediately. If a datetime is provided, the delivery will be in an hourly window,
-   * rounding down. For example, 6:23 pm will be in the 6:00 pm hourly batch.
+   * When the gift card should be delivered to the recipient. If null, the gift card will be delivered immediately. If a datetime is provided, the delivery will be in an hourly window, rounding down. For example, 6:23 pm will be in the 6:00 pm hourly batch.
    */
+  
   @SerializedName("deliver_at")
   @Expose
   private DateTime deliverAt;
 
-  /** The email address of the recipient. */
+  
+  /**
+   * The email address of the recipient.
+   */
+  
   @SerializedName("email_address")
   @Expose
   private String emailAddress;
 
-  /** The first name of the recipient. */
+  
+  /**
+   * The first name of the recipient.
+   */
+  
   @SerializedName("first_name")
   @Expose
   private String firstName;
 
-  /** The name of the gifter for the purpose of a message displayed to the recipient. */
+  
+  /**
+   * The name of the gifter for the purpose of a message displayed to the recipient.
+   */
+  
   @SerializedName("gifter_name")
   @Expose
   private String gifterName;
 
-  /** The last name of the recipient. */
+  
+  /**
+   * The last name of the recipient.
+   */
+  
   @SerializedName("last_name")
   @Expose
   private String lastName;
 
-  /** Whether the delivery method is email or postal service. */
+  
+  /**
+   * Whether the delivery method is email or postal service.
+   */
+  
   @SerializedName("method")
   @Expose
   private Constants.DeliveryMethod method;
 
-  /** The personal message from the gifter to the recipient. */
+  
+  /**
+   * The personal message from the gifter to the recipient.
+   */
+  
   @SerializedName("personal_message")
   @Expose
   private String personalMessage;
 
-  /** Address information for the recipient. */
+  
+  /**
+   * Address information for the recipient.
+   */
+  
   @SerializedName("recipient_address")
   @Expose
   private Address recipientAddress;
 
+
+
+  
   /**
-   * When the gift card should be delivered to the recipient. If null, the gift card will be
-   * delivered immediately. If a datetime is provided, the delivery will be in an hourly window,
-   * rounding down. For example, 6:23 pm will be in the 6:00 pm hourly batch.
+   * When the gift card should be delivered to the recipient. If null, the gift card will be delivered immediately. If a datetime is provided, the delivery will be in an hourly window, rounding down. For example, 6:23 pm will be in the 6:00 pm hourly batch.
    */
-  public DateTime getDeliverAt() {
-    return this.deliverAt;
-  }
+  
+  public DateTime getDeliverAt() { return this.deliverAt; }
 
+  
   /**
-   * @param deliverAt When the gift card should be delivered to the recipient. If null, the gift
-   *     card will be delivered immediately. If a datetime is provided, the delivery will be in an
-   *     hourly window, rounding down. For example, 6:23 pm will be in the 6:00 pm hourly batch.
+   * @param deliverAt When the gift card should be delivered to the recipient. If null, the gift card will be delivered immediately. If a datetime is provided, the delivery will be in an hourly window, rounding down. For example, 6:23 pm will be in the 6:00 pm hourly batch.
    */
-  public void setDeliverAt(final DateTime deliverAt) {
-    this.deliverAt = deliverAt;
-  }
+  
+  public void setDeliverAt(final DateTime deliverAt) { this.deliverAt = deliverAt; }
 
-  /** The email address of the recipient. */
-  public String getEmailAddress() {
-    return this.emailAddress;
-  }
-
-  /** @param emailAddress The email address of the recipient. */
-  public void setEmailAddress(final String emailAddress) {
-    this.emailAddress = emailAddress;
-  }
-
-  /** The first name of the recipient. */
-  public String getFirstName() {
-    return this.firstName;
-  }
-
-  /** @param firstName The first name of the recipient. */
-  public void setFirstName(final String firstName) {
-    this.firstName = firstName;
-  }
-
-  /** The name of the gifter for the purpose of a message displayed to the recipient. */
-  public String getGifterName() {
-    return this.gifterName;
-  }
-
+  
   /**
-   * @param gifterName The name of the gifter for the purpose of a message displayed to the
-   *     recipient.
+   * The email address of the recipient.
    */
-  public void setGifterName(final String gifterName) {
-    this.gifterName = gifterName;
-  }
+  
+  public String getEmailAddress() { return this.emailAddress; }
 
-  /** The last name of the recipient. */
-  public String getLastName() {
-    return this.lastName;
-  }
+  
+  /**
+   * @param emailAddress The email address of the recipient.
+   */
+  
+  public void setEmailAddress(final String emailAddress) { this.emailAddress = emailAddress; }
 
-  /** @param lastName The last name of the recipient. */
-  public void setLastName(final String lastName) {
-    this.lastName = lastName;
-  }
+  
+  /**
+   * The first name of the recipient.
+   */
+  
+  public String getFirstName() { return this.firstName; }
 
-  /** Whether the delivery method is email or postal service. */
-  public Constants.DeliveryMethod getMethod() {
-    return this.method;
-  }
+  
+  /**
+   * @param firstName The first name of the recipient.
+   */
+  
+  public void setFirstName(final String firstName) { this.firstName = firstName; }
 
-  /** @param method Whether the delivery method is email or postal service. */
-  public void setMethod(final Constants.DeliveryMethod method) {
-    this.method = method;
-  }
+  
+  /**
+   * The name of the gifter for the purpose of a message displayed to the recipient.
+   */
+  
+  public String getGifterName() { return this.gifterName; }
 
-  /** The personal message from the gifter to the recipient. */
-  public String getPersonalMessage() {
-    return this.personalMessage;
-  }
+  
+  /**
+   * @param gifterName The name of the gifter for the purpose of a message displayed to the recipient.
+   */
+  
+  public void setGifterName(final String gifterName) { this.gifterName = gifterName; }
 
-  /** @param personalMessage The personal message from the gifter to the recipient. */
-  public void setPersonalMessage(final String personalMessage) {
-    this.personalMessage = personalMessage;
-  }
+  
+  /**
+   * The last name of the recipient.
+   */
+  
+  public String getLastName() { return this.lastName; }
 
-  /** Address information for the recipient. */
-  public Address getRecipientAddress() {
-    return this.recipientAddress;
-  }
+  
+  /**
+   * @param lastName The last name of the recipient.
+   */
+  
+  public void setLastName(final String lastName) { this.lastName = lastName; }
 
-  /** @param recipientAddress Address information for the recipient. */
-  public void setRecipientAddress(final Address recipientAddress) {
-    this.recipientAddress = recipientAddress;
-  }
+  
+  /**
+   * Whether the delivery method is email or postal service.
+   */
+  
+  public Constants.DeliveryMethod getMethod() { return this.method; }
+
+  
+  /**
+   * @param method Whether the delivery method is email or postal service.
+   */
+  
+  public void setMethod(final Constants.DeliveryMethod method) { this.method = method; }
+
+  
+  /**
+   * The personal message from the gifter to the recipient.
+   */
+  
+  public String getPersonalMessage() { return this.personalMessage; }
+
+  
+  /**
+   * @param personalMessage The personal message from the gifter to the recipient.
+   */
+  
+  public void setPersonalMessage(final String personalMessage) { this.personalMessage = personalMessage; }
+
+  
+  /**
+   * Address information for the recipient.
+   */
+  
+  public Address getRecipientAddress() { return this.recipientAddress; }
+
+  
+  /**
+   * @param recipientAddress Address information for the recipient.
+   */
+  
+  public void setRecipientAddress(final Address recipientAddress) { this.recipientAddress = recipientAddress; }
+
 }

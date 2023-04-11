@@ -1,561 +1,620 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
- * make by hand will be lost. If you wish to make a change to this file, please create a Github
- * issue explaining the changes you need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process
+ * and thus any edits you make by hand will be lost. If you wish to make a
+ * change to this file, please create a Github issue explaining the changes you
+ * need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
+import com.recurly.v3.Constants;
 import com.recurly.v3.resources.*;
+import org.joda.time.DateTime;
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 public class CouponCreate extends Request {
 
+  
   /**
-   * To apply coupon to Items in your Catalog, include a list of `item_codes` in the request that
-   * the coupon will apply to. Or set value to true to apply to all Items in your Catalog. The
-   * following values are not permitted when `applies_to_all_items` is included: `free_trial_amount`
-   * and `free_trial_unit`.
+   * To apply coupon to Items in your Catalog, include a list
+of `item_codes` in the request that the coupon will apply to. Or set value
+to true to apply to all Items in your Catalog. The following values
+are not permitted when `applies_to_all_items` is included: `free_trial_amount`
+and `free_trial_unit`.
+
    */
+  
   @SerializedName("applies_to_all_items")
   @Expose
   private Boolean appliesToAllItems;
 
+  
   /**
-   * The coupon is valid for all plans if true. If false then `plans` will list the applicable
-   * plans.
+   * The coupon is valid for all plans if true. If false then `plans` will list the applicable plans.
    */
+  
   @SerializedName("applies_to_all_plans")
   @Expose
   private Boolean appliesToAllPlans;
 
-  /** The coupon is valid for one-time, non-plan charges if true. */
+  
+  /**
+   * The coupon is valid for one-time, non-plan charges if true.
+   */
+  
   @SerializedName("applies_to_non_plan_charges")
   @Expose
   private Boolean appliesToNonPlanCharges;
 
-  /** The code the customer enters to redeem the coupon. */
+  
+  /**
+   * The code the customer enters to redeem the coupon.
+   */
+  
   @SerializedName("code")
   @Expose
   private String code;
 
+  
   /**
-   * Whether the coupon is "single_code" or "bulk". Bulk coupons will require a
-   * `unique_code_template` and will generate unique codes through the `/generate` endpoint.
+   * Whether the coupon is "single_code" or "bulk". Bulk coupons will require a `unique_code_template` and will generate unique codes through the `/generate` endpoint.
    */
+  
   @SerializedName("coupon_type")
   @Expose
   private Constants.CouponType couponType;
 
+  
   /**
-   * Fixed discount currencies by currency. Required if the coupon type is `fixed`. This parameter
-   * should contain the coupon discount values
+   * Fixed discount currencies by currency. Required if the coupon type is `fixed`. This parameter should contain the coupon discount values
    */
+  
   @SerializedName("currencies")
   @Expose
   private List<CouponPricing> currencies;
 
+  
   /**
-   * The percent of the price discounted by the coupon. Required if `discount_type` is `percent`.
+   * The percent of the price discounted by the coupon.  Required if `discount_type` is `percent`.
    */
+  
   @SerializedName("discount_percent")
   @Expose
   private Integer discountPercent;
 
-  /** The type of discount provided by the coupon (how the amount discounted is calculated) */
+  
+  /**
+   * The type of discount provided by the coupon (how the amount discounted is calculated)
+   */
+  
   @SerializedName("discount_type")
   @Expose
   private Constants.DiscountType discountType;
 
+  
   /**
-   * This field does not apply when the discount_type is `free_trial`. - "single_use" coupons
-   * applies to the first invoice only. - "temporal" coupons will apply to invoices for the duration
-   * determined by the `temporal_unit` and `temporal_amount` attributes. - "forever" coupons will
-   * apply to invoices forever.
+   * This field does not apply when the discount_type is `free_trial`.
+- "single_use" coupons applies to the first invoice only.
+- "temporal" coupons will apply to invoices for the duration determined by the `temporal_unit` and `temporal_amount` attributes.
+- "forever" coupons will apply to invoices forever.
+
    */
+  
   @SerializedName("duration")
   @Expose
   private Constants.CouponDuration duration;
 
+  
   /**
-   * Sets the duration of time the `free_trial_unit` is for. Required if `discount_type` is
-   * `free_trial`.
+   * Sets the duration of time the `free_trial_unit` is for. Required if `discount_type` is `free_trial`.
    */
+  
   @SerializedName("free_trial_amount")
   @Expose
   private Integer freeTrialAmount;
 
+  
   /**
-   * Description of the unit of time the coupon is for. Used with `free_trial_amount` to determine
-   * the duration of time the coupon is for. Required if `discount_type` is `free_trial`.
+   * Description of the unit of time the coupon is for. Used with `free_trial_amount` to determine the duration of time the coupon is for.  Required if `discount_type` is `free_trial`.
    */
+  
   @SerializedName("free_trial_unit")
   @Expose
   private Constants.FreeTrialUnit freeTrialUnit;
 
+  
   /**
-   * This description will show up when a customer redeems a coupon on your Hosted Payment Pages, or
-   * if you choose to show the description on your own checkout page.
+   * This description will show up when a customer redeems a coupon on your Hosted Payment Pages, or if you choose to show the description on your own checkout page.
    */
+  
   @SerializedName("hosted_description")
   @Expose
   private String hostedDescription;
 
-  /** Description of the coupon on the invoice. */
+  
+  /**
+   * Description of the coupon on the invoice.
+   */
+  
   @SerializedName("invoice_description")
   @Expose
   private String invoiceDescription;
 
+  
   /**
-   * List of item codes to which this coupon applies. Sending `item_codes` is only permitted when
-   * `applies_to_all_items` is set to false. The following values are not permitted when
-   * `item_codes` is included: `free_trial_amount` and `free_trial_unit`.
+   * List of item codes to which this coupon applies. Sending
+`item_codes` is only permitted when `applies_to_all_items` is set to false.
+The following values are not permitted when `item_codes` is included:
+`free_trial_amount` and `free_trial_unit`.
+
    */
+  
   @SerializedName("item_codes")
   @Expose
   private List<String> itemCodes;
 
+  
   /**
-   * A maximum number of redemptions for the coupon. The coupon will expire when it hits its maximum
-   * redemptions.
+   * A maximum number of redemptions for the coupon. The coupon will expire when it hits its maximum redemptions.
    */
+  
   @SerializedName("max_redemptions")
   @Expose
   private Integer maxRedemptions;
 
+  
   /**
-   * Redemptions per account is the number of times a specific account can redeem the coupon. Set
-   * redemptions per account to `1` if you want to keep customers from gaming the system and getting
-   * more than one discount from the coupon campaign.
+   * Redemptions per account is the number of times a specific account can redeem the coupon. Set redemptions per account to `1` if you want to keep customers from gaming the system and getting more than one discount from the coupon campaign.
    */
+  
   @SerializedName("max_redemptions_per_account")
   @Expose
   private Integer maxRedemptionsPerAccount;
 
-  /** The internal name for the coupon. */
+  
+  /**
+   * The internal name for the coupon.
+   */
+  
   @SerializedName("name")
   @Expose
   private String name;
 
+  
   /**
-   * List of plan codes to which this coupon applies. Required if `applies_to_all_plans` is false.
-   * Overrides `applies_to_all_plans` when `applies_to_all_plans` is true.
+   * List of plan codes to which this coupon applies. Required
+if `applies_to_all_plans` is false. Overrides `applies_to_all_plans`
+when `applies_to_all_plans` is true.
+
    */
+  
   @SerializedName("plan_codes")
   @Expose
   private List<String> planCodes;
 
+  
   /**
-   * The date and time the coupon will expire and can no longer be redeemed. Time is always
-   * 11:59:59, the end-of-day Pacific time.
+   * The date and time the coupon will expire and can no longer be redeemed. Time is always 11:59:59, the end-of-day Pacific time.
    */
+  
   @SerializedName("redeem_by_date")
   @Expose
   private String redeemByDate;
 
+  
   /**
-   * Whether the discount is for all eligible charges on the account, or only a specific
-   * subscription.
+   * Whether the discount is for all eligible charges on the account, or only a specific subscription.
    */
+  
   @SerializedName("redemption_resource")
   @Expose
   private Constants.RedemptionResource redemptionResource;
 
+  
   /**
-   * If `duration` is "temporal" than `temporal_amount` is an integer which is multiplied by
-   * `temporal_unit` to define the duration that the coupon will be applied to invoices for.
+   * If `duration` is "temporal" than `temporal_amount` is an integer which is multiplied by `temporal_unit` to define the duration that the coupon will be applied to invoices for.
    */
+  
   @SerializedName("temporal_amount")
   @Expose
   private Integer temporalAmount;
 
+  
   /**
-   * If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define
-   * the duration that the coupon will be applied to invoices for.
+   * If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define the duration that the coupon will be applied to invoices for.
    */
+  
   @SerializedName("temporal_unit")
   @Expose
   private Constants.TemporalUnit temporalUnit;
 
+  
   /**
-   * On a bulk coupon, the template from which unique coupon codes are generated. - You must start
-   * the template with your coupon_code wrapped in single quotes. - Outside of single quotes, use a
-   * 9 for a character that you want to be a random number. - Outside of single quotes, use an "x"
-   * for a character that you want to be a random letter. - Outside of single quotes, use an * for a
-   * character that you want to be a random number or letter. - Use single quotes ' ' for characters
-   * that you want to remain static. These strings can be alphanumeric and may contain a - _ or +.
-   * For example: "'abc-'****'-def'"
+   * On a bulk coupon, the template from which unique coupon codes are generated.
+- You must start the template with your coupon_code wrapped in single quotes.
+- Outside of single quotes, use a 9 for a character that you want to be a random number.
+- Outside of single quotes, use an "x" for a character that you want to be a random letter.
+- Outside of single quotes, use an * for a character that you want to be a random number or letter.
+- Use single quotes ' ' for characters that you want to remain static. These strings can be alphanumeric and may contain a - _ or +.
+For example: "'abc-'****'-def'"
+
    */
+  
   @SerializedName("unique_code_template")
   @Expose
   private String uniqueCodeTemplate;
 
+
+  
   /**
-   * To apply coupon to Items in your Catalog, include a list of `item_codes` in the request that
-   * the coupon will apply to. Or set value to true to apply to all Items in your Catalog. The
-   * following values are not permitted when `applies_to_all_items` is included: `free_trial_amount`
-   * and `free_trial_unit`.
-   */
-  public Boolean getAppliesToAllItems() {
-    return this.appliesToAllItems;
-  }
+   * To apply coupon to Items in your Catalog, include a list
+of `item_codes` in the request that the coupon will apply to. Or set value
+to true to apply to all Items in your Catalog. The following values
+are not permitted when `applies_to_all_items` is included: `free_trial_amount`
+and `free_trial_unit`.
 
+   */
+  
+  public Boolean getAppliesToAllItems() { return this.appliesToAllItems; }
+
+  
   /**
-   * @param appliesToAllItems To apply coupon to Items in your Catalog, include a list of
-   *     `item_codes` in the request that the coupon will apply to. Or set value to true to apply to
-   *     all Items in your Catalog. The following values are not permitted when
-   *     `applies_to_all_items` is included: `free_trial_amount` and `free_trial_unit`.
-   */
-  public void setAppliesToAllItems(final Boolean appliesToAllItems) {
-    this.appliesToAllItems = appliesToAllItems;
-  }
+   * @param appliesToAllItems To apply coupon to Items in your Catalog, include a list
+of `item_codes` in the request that the coupon will apply to. Or set value
+to true to apply to all Items in your Catalog. The following values
+are not permitted when `applies_to_all_items` is included: `free_trial_amount`
+and `free_trial_unit`.
 
+   */
+  
+  public void setAppliesToAllItems(final Boolean appliesToAllItems) { this.appliesToAllItems = appliesToAllItems; }
+
+  
   /**
-   * The coupon is valid for all plans if true. If false then `plans` will list the applicable
-   * plans.
+   * The coupon is valid for all plans if true. If false then `plans` will list the applicable plans.
    */
-  public Boolean getAppliesToAllPlans() {
-    return this.appliesToAllPlans;
-  }
+  
+  public Boolean getAppliesToAllPlans() { return this.appliesToAllPlans; }
 
+  
   /**
-   * @param appliesToAllPlans The coupon is valid for all plans if true. If false then `plans` will
-   *     list the applicable plans.
+   * @param appliesToAllPlans The coupon is valid for all plans if true. If false then `plans` will list the applicable plans.
    */
-  public void setAppliesToAllPlans(final Boolean appliesToAllPlans) {
-    this.appliesToAllPlans = appliesToAllPlans;
-  }
+  
+  public void setAppliesToAllPlans(final Boolean appliesToAllPlans) { this.appliesToAllPlans = appliesToAllPlans; }
 
-  /** The coupon is valid for one-time, non-plan charges if true. */
-  public Boolean getAppliesToNonPlanCharges() {
-    return this.appliesToNonPlanCharges;
-  }
-
-  /** @param appliesToNonPlanCharges The coupon is valid for one-time, non-plan charges if true. */
-  public void setAppliesToNonPlanCharges(final Boolean appliesToNonPlanCharges) {
-    this.appliesToNonPlanCharges = appliesToNonPlanCharges;
-  }
-
-  /** The code the customer enters to redeem the coupon. */
-  public String getCode() {
-    return this.code;
-  }
-
-  /** @param code The code the customer enters to redeem the coupon. */
-  public void setCode(final String code) {
-    this.code = code;
-  }
-
+  
   /**
-   * Whether the coupon is "single_code" or "bulk". Bulk coupons will require a
-   * `unique_code_template` and will generate unique codes through the `/generate` endpoint.
+   * The coupon is valid for one-time, non-plan charges if true.
    */
-  public Constants.CouponType getCouponType() {
-    return this.couponType;
-  }
+  
+  public Boolean getAppliesToNonPlanCharges() { return this.appliesToNonPlanCharges; }
 
+  
   /**
-   * @param couponType Whether the coupon is "single_code" or "bulk". Bulk coupons will require a
-   *     `unique_code_template` and will generate unique codes through the `/generate` endpoint.
+   * @param appliesToNonPlanCharges The coupon is valid for one-time, non-plan charges if true.
    */
-  public void setCouponType(final Constants.CouponType couponType) {
-    this.couponType = couponType;
-  }
+  
+  public void setAppliesToNonPlanCharges(final Boolean appliesToNonPlanCharges) { this.appliesToNonPlanCharges = appliesToNonPlanCharges; }
 
+  
   /**
-   * Fixed discount currencies by currency. Required if the coupon type is `fixed`. This parameter
-   * should contain the coupon discount values
+   * The code the customer enters to redeem the coupon.
    */
-  public List<CouponPricing> getCurrencies() {
-    return this.currencies;
-  }
+  
+  public String getCode() { return this.code; }
 
+  
   /**
-   * @param currencies Fixed discount currencies by currency. Required if the coupon type is
-   *     `fixed`. This parameter should contain the coupon discount values
+   * @param code The code the customer enters to redeem the coupon.
    */
-  public void setCurrencies(final List<CouponPricing> currencies) {
-    this.currencies = currencies;
-  }
+  
+  public void setCode(final String code) { this.code = code; }
 
+  
   /**
-   * The percent of the price discounted by the coupon. Required if `discount_type` is `percent`.
+   * Whether the coupon is "single_code" or "bulk". Bulk coupons will require a `unique_code_template` and will generate unique codes through the `/generate` endpoint.
    */
-  public Integer getDiscountPercent() {
-    return this.discountPercent;
-  }
+  
+  public Constants.CouponType getCouponType() { return this.couponType; }
 
+  
   /**
-   * @param discountPercent The percent of the price discounted by the coupon. Required if
-   *     `discount_type` is `percent`.
+   * @param couponType Whether the coupon is "single_code" or "bulk". Bulk coupons will require a `unique_code_template` and will generate unique codes through the `/generate` endpoint.
    */
-  public void setDiscountPercent(final Integer discountPercent) {
-    this.discountPercent = discountPercent;
-  }
+  
+  public void setCouponType(final Constants.CouponType couponType) { this.couponType = couponType; }
 
-  /** The type of discount provided by the coupon (how the amount discounted is calculated) */
-  public Constants.DiscountType getDiscountType() {
-    return this.discountType;
-  }
-
+  
   /**
-   * @param discountType The type of discount provided by the coupon (how the amount discounted is
-   *     calculated)
+   * Fixed discount currencies by currency. Required if the coupon type is `fixed`. This parameter should contain the coupon discount values
    */
-  public void setDiscountType(final Constants.DiscountType discountType) {
-    this.discountType = discountType;
-  }
+  
+  public List<CouponPricing> getCurrencies() { return this.currencies; }
 
+  
   /**
-   * This field does not apply when the discount_type is `free_trial`. - "single_use" coupons
-   * applies to the first invoice only. - "temporal" coupons will apply to invoices for the duration
-   * determined by the `temporal_unit` and `temporal_amount` attributes. - "forever" coupons will
-   * apply to invoices forever.
+   * @param currencies Fixed discount currencies by currency. Required if the coupon type is `fixed`. This parameter should contain the coupon discount values
    */
-  public Constants.CouponDuration getDuration() {
-    return this.duration;
-  }
+  
+  public void setCurrencies(final List<CouponPricing> currencies) { this.currencies = currencies; }
 
+  
   /**
-   * @param duration This field does not apply when the discount_type is `free_trial`. -
-   *     "single_use" coupons applies to the first invoice only. - "temporal" coupons will apply to
-   *     invoices for the duration determined by the `temporal_unit` and `temporal_amount`
-   *     attributes. - "forever" coupons will apply to invoices forever.
+   * The percent of the price discounted by the coupon.  Required if `discount_type` is `percent`.
    */
-  public void setDuration(final Constants.CouponDuration duration) {
-    this.duration = duration;
-  }
+  
+  public Integer getDiscountPercent() { return this.discountPercent; }
 
+  
   /**
-   * Sets the duration of time the `free_trial_unit` is for. Required if `discount_type` is
-   * `free_trial`.
+   * @param discountPercent The percent of the price discounted by the coupon.  Required if `discount_type` is `percent`.
    */
-  public Integer getFreeTrialAmount() {
-    return this.freeTrialAmount;
-  }
+  
+  public void setDiscountPercent(final Integer discountPercent) { this.discountPercent = discountPercent; }
 
+  
   /**
-   * @param freeTrialAmount Sets the duration of time the `free_trial_unit` is for. Required if
-   *     `discount_type` is `free_trial`.
+   * The type of discount provided by the coupon (how the amount discounted is calculated)
    */
-  public void setFreeTrialAmount(final Integer freeTrialAmount) {
-    this.freeTrialAmount = freeTrialAmount;
-  }
+  
+  public Constants.DiscountType getDiscountType() { return this.discountType; }
 
+  
   /**
-   * Description of the unit of time the coupon is for. Used with `free_trial_amount` to determine
-   * the duration of time the coupon is for. Required if `discount_type` is `free_trial`.
+   * @param discountType The type of discount provided by the coupon (how the amount discounted is calculated)
    */
-  public Constants.FreeTrialUnit getFreeTrialUnit() {
-    return this.freeTrialUnit;
-  }
+  
+  public void setDiscountType(final Constants.DiscountType discountType) { this.discountType = discountType; }
 
+  
   /**
-   * @param freeTrialUnit Description of the unit of time the coupon is for. Used with
-   *     `free_trial_amount` to determine the duration of time the coupon is for. Required if
-   *     `discount_type` is `free_trial`.
-   */
-  public void setFreeTrialUnit(final Constants.FreeTrialUnit freeTrialUnit) {
-    this.freeTrialUnit = freeTrialUnit;
-  }
+   * This field does not apply when the discount_type is `free_trial`.
+- "single_use" coupons applies to the first invoice only.
+- "temporal" coupons will apply to invoices for the duration determined by the `temporal_unit` and `temporal_amount` attributes.
+- "forever" coupons will apply to invoices forever.
 
+   */
+  
+  public Constants.CouponDuration getDuration() { return this.duration; }
+
+  
   /**
-   * This description will show up when a customer redeems a coupon on your Hosted Payment Pages, or
-   * if you choose to show the description on your own checkout page.
-   */
-  public String getHostedDescription() {
-    return this.hostedDescription;
-  }
+   * @param duration This field does not apply when the discount_type is `free_trial`.
+- "single_use" coupons applies to the first invoice only.
+- "temporal" coupons will apply to invoices for the duration determined by the `temporal_unit` and `temporal_amount` attributes.
+- "forever" coupons will apply to invoices forever.
 
+   */
+  
+  public void setDuration(final Constants.CouponDuration duration) { this.duration = duration; }
+
+  
   /**
-   * @param hostedDescription This description will show up when a customer redeems a coupon on your
-   *     Hosted Payment Pages, or if you choose to show the description on your own checkout page.
+   * Sets the duration of time the `free_trial_unit` is for. Required if `discount_type` is `free_trial`.
    */
-  public void setHostedDescription(final String hostedDescription) {
-    this.hostedDescription = hostedDescription;
-  }
+  
+  public Integer getFreeTrialAmount() { return this.freeTrialAmount; }
 
-  /** Description of the coupon on the invoice. */
-  public String getInvoiceDescription() {
-    return this.invoiceDescription;
-  }
-
-  /** @param invoiceDescription Description of the coupon on the invoice. */
-  public void setInvoiceDescription(final String invoiceDescription) {
-    this.invoiceDescription = invoiceDescription;
-  }
-
+  
   /**
-   * List of item codes to which this coupon applies. Sending `item_codes` is only permitted when
-   * `applies_to_all_items` is set to false. The following values are not permitted when
-   * `item_codes` is included: `free_trial_amount` and `free_trial_unit`.
+   * @param freeTrialAmount Sets the duration of time the `free_trial_unit` is for. Required if `discount_type` is `free_trial`.
    */
-  public List<String> getItemCodes() {
-    return this.itemCodes;
-  }
+  
+  public void setFreeTrialAmount(final Integer freeTrialAmount) { this.freeTrialAmount = freeTrialAmount; }
 
+  
   /**
-   * @param itemCodes List of item codes to which this coupon applies. Sending `item_codes` is only
-   *     permitted when `applies_to_all_items` is set to false. The following values are not
-   *     permitted when `item_codes` is included: `free_trial_amount` and `free_trial_unit`.
+   * Description of the unit of time the coupon is for. Used with `free_trial_amount` to determine the duration of time the coupon is for.  Required if `discount_type` is `free_trial`.
    */
-  public void setItemCodes(final List<String> itemCodes) {
-    this.itemCodes = itemCodes;
-  }
+  
+  public Constants.FreeTrialUnit getFreeTrialUnit() { return this.freeTrialUnit; }
 
+  
   /**
-   * A maximum number of redemptions for the coupon. The coupon will expire when it hits its maximum
-   * redemptions.
+   * @param freeTrialUnit Description of the unit of time the coupon is for. Used with `free_trial_amount` to determine the duration of time the coupon is for.  Required if `discount_type` is `free_trial`.
    */
-  public Integer getMaxRedemptions() {
-    return this.maxRedemptions;
-  }
+  
+  public void setFreeTrialUnit(final Constants.FreeTrialUnit freeTrialUnit) { this.freeTrialUnit = freeTrialUnit; }
 
+  
   /**
-   * @param maxRedemptions A maximum number of redemptions for the coupon. The coupon will expire
-   *     when it hits its maximum redemptions.
+   * This description will show up when a customer redeems a coupon on your Hosted Payment Pages, or if you choose to show the description on your own checkout page.
    */
-  public void setMaxRedemptions(final Integer maxRedemptions) {
-    this.maxRedemptions = maxRedemptions;
-  }
+  
+  public String getHostedDescription() { return this.hostedDescription; }
 
+  
   /**
-   * Redemptions per account is the number of times a specific account can redeem the coupon. Set
-   * redemptions per account to `1` if you want to keep customers from gaming the system and getting
-   * more than one discount from the coupon campaign.
+   * @param hostedDescription This description will show up when a customer redeems a coupon on your Hosted Payment Pages, or if you choose to show the description on your own checkout page.
    */
-  public Integer getMaxRedemptionsPerAccount() {
-    return this.maxRedemptionsPerAccount;
-  }
+  
+  public void setHostedDescription(final String hostedDescription) { this.hostedDescription = hostedDescription; }
 
+  
   /**
-   * @param maxRedemptionsPerAccount Redemptions per account is the number of times a specific
-   *     account can redeem the coupon. Set redemptions per account to `1` if you want to keep
-   *     customers from gaming the system and getting more than one discount from the coupon
-   *     campaign.
+   * Description of the coupon on the invoice.
    */
-  public void setMaxRedemptionsPerAccount(final Integer maxRedemptionsPerAccount) {
-    this.maxRedemptionsPerAccount = maxRedemptionsPerAccount;
-  }
+  
+  public String getInvoiceDescription() { return this.invoiceDescription; }
 
-  /** The internal name for the coupon. */
-  public String getName() {
-    return this.name;
-  }
-
-  /** @param name The internal name for the coupon. */
-  public void setName(final String name) {
-    this.name = name;
-  }
-
+  
   /**
-   * List of plan codes to which this coupon applies. Required if `applies_to_all_plans` is false.
-   * Overrides `applies_to_all_plans` when `applies_to_all_plans` is true.
+   * @param invoiceDescription Description of the coupon on the invoice.
    */
-  public List<String> getPlanCodes() {
-    return this.planCodes;
-  }
+  
+  public void setInvoiceDescription(final String invoiceDescription) { this.invoiceDescription = invoiceDescription; }
 
+  
   /**
-   * @param planCodes List of plan codes to which this coupon applies. Required if
-   *     `applies_to_all_plans` is false. Overrides `applies_to_all_plans` when
-   *     `applies_to_all_plans` is true.
-   */
-  public void setPlanCodes(final List<String> planCodes) {
-    this.planCodes = planCodes;
-  }
+   * List of item codes to which this coupon applies. Sending
+`item_codes` is only permitted when `applies_to_all_items` is set to false.
+The following values are not permitted when `item_codes` is included:
+`free_trial_amount` and `free_trial_unit`.
 
-  /**
-   * The date and time the coupon will expire and can no longer be redeemed. Time is always
-   * 11:59:59, the end-of-day Pacific time.
    */
-  public String getRedeemByDate() {
-    return this.redeemByDate;
-  }
+  
+  public List<String> getItemCodes() { return this.itemCodes; }
 
+  
   /**
-   * @param redeemByDate The date and time the coupon will expire and can no longer be redeemed.
-   *     Time is always 11:59:59, the end-of-day Pacific time.
-   */
-  public void setRedeemByDate(final String redeemByDate) {
-    this.redeemByDate = redeemByDate;
-  }
+   * @param itemCodes List of item codes to which this coupon applies. Sending
+`item_codes` is only permitted when `applies_to_all_items` is set to false.
+The following values are not permitted when `item_codes` is included:
+`free_trial_amount` and `free_trial_unit`.
 
-  /**
-   * Whether the discount is for all eligible charges on the account, or only a specific
-   * subscription.
    */
-  public Constants.RedemptionResource getRedemptionResource() {
-    return this.redemptionResource;
-  }
+  
+  public void setItemCodes(final List<String> itemCodes) { this.itemCodes = itemCodes; }
 
+  
   /**
-   * @param redemptionResource Whether the discount is for all eligible charges on the account, or
-   *     only a specific subscription.
+   * A maximum number of redemptions for the coupon. The coupon will expire when it hits its maximum redemptions.
    */
-  public void setRedemptionResource(final Constants.RedemptionResource redemptionResource) {
-    this.redemptionResource = redemptionResource;
-  }
+  
+  public Integer getMaxRedemptions() { return this.maxRedemptions; }
 
+  
   /**
-   * If `duration` is "temporal" than `temporal_amount` is an integer which is multiplied by
-   * `temporal_unit` to define the duration that the coupon will be applied to invoices for.
+   * @param maxRedemptions A maximum number of redemptions for the coupon. The coupon will expire when it hits its maximum redemptions.
    */
-  public Integer getTemporalAmount() {
-    return this.temporalAmount;
-  }
+  
+  public void setMaxRedemptions(final Integer maxRedemptions) { this.maxRedemptions = maxRedemptions; }
 
+  
   /**
-   * @param temporalAmount If `duration` is "temporal" than `temporal_amount` is an integer which is
-   *     multiplied by `temporal_unit` to define the duration that the coupon will be applied to
-   *     invoices for.
+   * Redemptions per account is the number of times a specific account can redeem the coupon. Set redemptions per account to `1` if you want to keep customers from gaming the system and getting more than one discount from the coupon campaign.
    */
-  public void setTemporalAmount(final Integer temporalAmount) {
-    this.temporalAmount = temporalAmount;
-  }
+  
+  public Integer getMaxRedemptionsPerAccount() { return this.maxRedemptionsPerAccount; }
 
+  
   /**
-   * If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define
-   * the duration that the coupon will be applied to invoices for.
+   * @param maxRedemptionsPerAccount Redemptions per account is the number of times a specific account can redeem the coupon. Set redemptions per account to `1` if you want to keep customers from gaming the system and getting more than one discount from the coupon campaign.
    */
-  public Constants.TemporalUnit getTemporalUnit() {
-    return this.temporalUnit;
-  }
+  
+  public void setMaxRedemptionsPerAccount(final Integer maxRedemptionsPerAccount) { this.maxRedemptionsPerAccount = maxRedemptionsPerAccount; }
 
+  
   /**
-   * @param temporalUnit If `duration` is "temporal" than `temporal_unit` is multiplied by
-   *     `temporal_amount` to define the duration that the coupon will be applied to invoices for.
+   * The internal name for the coupon.
    */
-  public void setTemporalUnit(final Constants.TemporalUnit temporalUnit) {
-    this.temporalUnit = temporalUnit;
-  }
+  
+  public String getName() { return this.name; }
 
+  
   /**
-   * On a bulk coupon, the template from which unique coupon codes are generated. - You must start
-   * the template with your coupon_code wrapped in single quotes. - Outside of single quotes, use a
-   * 9 for a character that you want to be a random number. - Outside of single quotes, use an "x"
-   * for a character that you want to be a random letter. - Outside of single quotes, use an * for a
-   * character that you want to be a random number or letter. - Use single quotes ' ' for characters
-   * that you want to remain static. These strings can be alphanumeric and may contain a - _ or +.
-   * For example: "'abc-'****'-def'"
+   * @param name The internal name for the coupon.
    */
-  public String getUniqueCodeTemplate() {
-    return this.uniqueCodeTemplate;
-  }
+  
+  public void setName(final String name) { this.name = name; }
 
+  
   /**
-   * @param uniqueCodeTemplate On a bulk coupon, the template from which unique coupon codes are
-   *     generated. - You must start the template with your coupon_code wrapped in single quotes. -
-   *     Outside of single quotes, use a 9 for a character that you want to be a random number. -
-   *     Outside of single quotes, use an "x" for a character that you want to be a random letter. -
-   *     Outside of single quotes, use an * for a character that you want to be a random number or
-   *     letter. - Use single quotes ' ' for characters that you want to remain static. These
-   *     strings can be alphanumeric and may contain a - _ or +. For example: "'abc-'****'-def'"
+   * List of plan codes to which this coupon applies. Required
+if `applies_to_all_plans` is false. Overrides `applies_to_all_plans`
+when `applies_to_all_plans` is true.
+
    */
-  public void setUniqueCodeTemplate(final String uniqueCodeTemplate) {
-    this.uniqueCodeTemplate = uniqueCodeTemplate;
-  }
+  
+  public List<String> getPlanCodes() { return this.planCodes; }
+
+  
+  /**
+   * @param planCodes List of plan codes to which this coupon applies. Required
+if `applies_to_all_plans` is false. Overrides `applies_to_all_plans`
+when `applies_to_all_plans` is true.
+
+   */
+  
+  public void setPlanCodes(final List<String> planCodes) { this.planCodes = planCodes; }
+
+  
+  /**
+   * The date and time the coupon will expire and can no longer be redeemed. Time is always 11:59:59, the end-of-day Pacific time.
+   */
+  
+  public String getRedeemByDate() { return this.redeemByDate; }
+
+  
+  /**
+   * @param redeemByDate The date and time the coupon will expire and can no longer be redeemed. Time is always 11:59:59, the end-of-day Pacific time.
+   */
+  
+  public void setRedeemByDate(final String redeemByDate) { this.redeemByDate = redeemByDate; }
+
+  
+  /**
+   * Whether the discount is for all eligible charges on the account, or only a specific subscription.
+   */
+  
+  public Constants.RedemptionResource getRedemptionResource() { return this.redemptionResource; }
+
+  
+  /**
+   * @param redemptionResource Whether the discount is for all eligible charges on the account, or only a specific subscription.
+   */
+  
+  public void setRedemptionResource(final Constants.RedemptionResource redemptionResource) { this.redemptionResource = redemptionResource; }
+
+  
+  /**
+   * If `duration` is "temporal" than `temporal_amount` is an integer which is multiplied by `temporal_unit` to define the duration that the coupon will be applied to invoices for.
+   */
+  
+  public Integer getTemporalAmount() { return this.temporalAmount; }
+
+  
+  /**
+   * @param temporalAmount If `duration` is "temporal" than `temporal_amount` is an integer which is multiplied by `temporal_unit` to define the duration that the coupon will be applied to invoices for.
+   */
+  
+  public void setTemporalAmount(final Integer temporalAmount) { this.temporalAmount = temporalAmount; }
+
+  
+  /**
+   * If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define the duration that the coupon will be applied to invoices for.
+   */
+  
+  public Constants.TemporalUnit getTemporalUnit() { return this.temporalUnit; }
+
+  
+  /**
+   * @param temporalUnit If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define the duration that the coupon will be applied to invoices for.
+   */
+  
+  public void setTemporalUnit(final Constants.TemporalUnit temporalUnit) { this.temporalUnit = temporalUnit; }
+
+  
+  /**
+   * On a bulk coupon, the template from which unique coupon codes are generated.
+- You must start the template with your coupon_code wrapped in single quotes.
+- Outside of single quotes, use a 9 for a character that you want to be a random number.
+- Outside of single quotes, use an "x" for a character that you want to be a random letter.
+- Outside of single quotes, use an * for a character that you want to be a random number or letter.
+- Use single quotes ' ' for characters that you want to remain static. These strings can be alphanumeric and may contain a - _ or +.
+For example: "'abc-'****'-def'"
+
+   */
+  
+  public String getUniqueCodeTemplate() { return this.uniqueCodeTemplate; }
+
+  
+  /**
+   * @param uniqueCodeTemplate On a bulk coupon, the template from which unique coupon codes are generated.
+- You must start the template with your coupon_code wrapped in single quotes.
+- Outside of single quotes, use a 9 for a character that you want to be a random number.
+- Outside of single quotes, use an "x" for a character that you want to be a random letter.
+- Outside of single quotes, use an * for a character that you want to be a random number or letter.
+- Use single quotes ' ' for characters that you want to remain static. These strings can be alphanumeric and may contain a - _ or +.
+For example: "'abc-'****'-def'"
+
+   */
+  
+  public void setUniqueCodeTemplate(final String uniqueCodeTemplate) { this.uniqueCodeTemplate = uniqueCodeTemplate; }
+
 }

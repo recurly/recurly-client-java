@@ -1,340 +1,397 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
- * make by hand will be lost. If you wish to make a change to this file, please create a Github
- * issue explaining the changes you need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process
+ * and thus any edits you make by hand will be lost. If you wish to make a
+ * change to this file, please create a Github issue explaining the changes you
+ * need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
+import com.recurly.v3.Constants;
 import com.recurly.v3.resources.*;
+import org.joda.time.DateTime;
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 public class PurchaseCreate extends Request {
 
+  
   @SerializedName("account")
   @Expose
   private AccountPurchase account;
 
+  
   /**
-   * The `billing_info_id` is the value that represents a specific billing info for an end customer.
-   * When `billing_info_id` is used to assign billing info to the subscription, all future billing
-   * events for the subscription will bill to the specified billing info. `billing_info_id` can ONLY
-   * be used for sites utilizing the Wallet feature.
+   * The `billing_info_id` is the value that represents a specific billing info for an end customer. When `billing_info_id` is used to assign billing info to the subscription, all future billing events for the subscription will bill to the specified billing info. `billing_info_id` can ONLY be used for sites utilizing the Wallet feature.
    */
+  
   @SerializedName("billing_info_id")
   @Expose
   private String billingInfoId;
 
+  
   /**
-   * Must be set to manual in order to preview a purchase for an Account that does not have payment
-   * information associated with the Billing Info.
+   * Must be set to manual in order to preview a purchase for an Account that does not have payment information associated with the Billing Info.
    */
+  
   @SerializedName("collection_method")
   @Expose
   private Constants.CollectionMethod collectionMethod;
 
-  /** A list of coupon_codes to be redeemed on the subscription or account during the purchase. */
+  
+  /**
+   * A list of coupon_codes to be redeemed on the subscription or account during the purchase.
+   */
+  
   @SerializedName("coupon_codes")
   @Expose
   private List<String> couponCodes;
 
-  /** Notes to be put on the credit invoice resulting from credits in the purchase, if any. */
+  
+  /**
+   * Notes to be put on the credit invoice resulting from credits in the purchase, if any.
+   */
+  
   @SerializedName("credit_customer_notes")
   @Expose
   private String creditCustomerNotes;
 
-  /** 3-letter ISO 4217 currency code. */
+  
+  /**
+   * 3-letter ISO 4217 currency code.
+   */
+  
   @SerializedName("currency")
   @Expose
   private String currency;
 
-  /** Customer notes */
+  
+  /**
+   * Customer notes
+   */
+  
   @SerializedName("customer_notes")
   @Expose
   private String customerNotes;
 
+  
   /**
-   * The default payment gateway identifier to be used for the purchase transaction. This will also
-   * be applied as the default for any subscriptions included in the purchase request.
+   * The default payment gateway identifier to be used for the purchase transaction.  This will also be applied as the default for any subscriptions included in the purchase request.
    */
+  
   @SerializedName("gateway_code")
   @Expose
   private String gatewayCode;
 
-  /** A gift card redemption code to be redeemed on the purchase invoice. */
+  
+  /**
+   * A gift card redemption code to be redeemed on the purchase invoice.
+   */
+  
   @SerializedName("gift_card_redemption_code")
   @Expose
   private String giftCardRedemptionCode;
 
-  /** A list of one time charges or credits to be created with the purchase. */
+  
+  /**
+   * A list of one time charges or credits to be created with the purchase.
+   */
+  
   @SerializedName("line_items")
   @Expose
   private List<LineItemCreate> lineItems;
 
+  
   /**
-   * Integer representing the number of days after an invoice's creation that the invoice will
-   * become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will
-   * become past due 24 hours after it’s created. If an invoice is due net 30, it will become past
-   * due at 31 days exactly.
+   * Integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30, it will become past due at 31 days exactly.
    */
+  
   @SerializedName("net_terms")
   @Expose
   private Integer netTerms;
 
-  /** For manual invoicing, this identifies the PO number associated with the subscription. */
+  
+  /**
+   * For manual invoicing, this identifies the PO number associated with the subscription.
+   */
+  
   @SerializedName("po_number")
   @Expose
   private String poNumber;
 
+  
   @SerializedName("shipping")
   @Expose
   private ShippingPurchase shipping;
 
-  /** A list of subscriptions to be created with the purchase. */
+  
+  /**
+   * A list of subscriptions to be created with the purchase.
+   */
+  
   @SerializedName("subscriptions")
   @Expose
   private List<SubscriptionPurchase> subscriptions;
 
-  /** Terms and conditions to be put on the purchase invoice. */
+  
+  /**
+   * Terms and conditions to be put on the purchase invoice.
+   */
+  
   @SerializedName("terms_and_conditions")
   @Expose
   private String termsAndConditions;
 
+  
   /**
-   * An optional type designation for the payment gateway transaction created by this request.
-   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   * An optional type designation for the payment gateway transaction created by this request. Supports 'moto' value, which is the acronym for mail order and telephone transactions.
    */
+  
   @SerializedName("transaction_type")
   @Expose
   private Constants.GatewayTransactionType transactionType;
 
-  /** VAT reverse charge notes for cross border European tax settlement. */
+  
+  /**
+   * VAT reverse charge notes for cross border European tax settlement.
+   */
+  
   @SerializedName("vat_reverse_charge_notes")
   @Expose
   private String vatReverseChargeNotes;
 
-  public AccountPurchase getAccount() {
-    return this.account;
-  }
 
-  /** @param account */
-  public void setAccount(final AccountPurchase account) {
-    this.account = account;
-  }
+  
+  public AccountPurchase getAccount() { return this.account; }
 
+  
   /**
-   * The `billing_info_id` is the value that represents a specific billing info for an end customer.
-   * When `billing_info_id` is used to assign billing info to the subscription, all future billing
-   * events for the subscription will bill to the specified billing info. `billing_info_id` can ONLY
-   * be used for sites utilizing the Wallet feature.
+   * @param account 
    */
-  public String getBillingInfoId() {
-    return this.billingInfoId;
-  }
+  
+  public void setAccount(final AccountPurchase account) { this.account = account; }
 
+  
   /**
-   * @param billingInfoId The `billing_info_id` is the value that represents a specific billing info
-   *     for an end customer. When `billing_info_id` is used to assign billing info to the
-   *     subscription, all future billing events for the subscription will bill to the specified
-   *     billing info. `billing_info_id` can ONLY be used for sites utilizing the Wallet feature.
+   * The `billing_info_id` is the value that represents a specific billing info for an end customer. When `billing_info_id` is used to assign billing info to the subscription, all future billing events for the subscription will bill to the specified billing info. `billing_info_id` can ONLY be used for sites utilizing the Wallet feature.
    */
-  public void setBillingInfoId(final String billingInfoId) {
-    this.billingInfoId = billingInfoId;
-  }
+  
+  public String getBillingInfoId() { return this.billingInfoId; }
 
+  
   /**
-   * Must be set to manual in order to preview a purchase for an Account that does not have payment
-   * information associated with the Billing Info.
+   * @param billingInfoId The `billing_info_id` is the value that represents a specific billing info for an end customer. When `billing_info_id` is used to assign billing info to the subscription, all future billing events for the subscription will bill to the specified billing info. `billing_info_id` can ONLY be used for sites utilizing the Wallet feature.
    */
-  public Constants.CollectionMethod getCollectionMethod() {
-    return this.collectionMethod;
-  }
+  
+  public void setBillingInfoId(final String billingInfoId) { this.billingInfoId = billingInfoId; }
 
+  
   /**
-   * @param collectionMethod Must be set to manual in order to preview a purchase for an Account
-   *     that does not have payment information associated with the Billing Info.
+   * Must be set to manual in order to preview a purchase for an Account that does not have payment information associated with the Billing Info.
    */
-  public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
-    this.collectionMethod = collectionMethod;
-  }
+  
+  public Constants.CollectionMethod getCollectionMethod() { return this.collectionMethod; }
 
-  /** A list of coupon_codes to be redeemed on the subscription or account during the purchase. */
-  public List<String> getCouponCodes() {
-    return this.couponCodes;
-  }
-
+  
   /**
-   * @param couponCodes A list of coupon_codes to be redeemed on the subscription or account during
-   *     the purchase.
+   * @param collectionMethod Must be set to manual in order to preview a purchase for an Account that does not have payment information associated with the Billing Info.
    */
-  public void setCouponCodes(final List<String> couponCodes) {
-    this.couponCodes = couponCodes;
-  }
+  
+  public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) { this.collectionMethod = collectionMethod; }
 
-  /** Notes to be put on the credit invoice resulting from credits in the purchase, if any. */
-  public String getCreditCustomerNotes() {
-    return this.creditCustomerNotes;
-  }
-
+  
   /**
-   * @param creditCustomerNotes Notes to be put on the credit invoice resulting from credits in the
-   *     purchase, if any.
+   * A list of coupon_codes to be redeemed on the subscription or account during the purchase.
    */
-  public void setCreditCustomerNotes(final String creditCustomerNotes) {
-    this.creditCustomerNotes = creditCustomerNotes;
-  }
+  
+  public List<String> getCouponCodes() { return this.couponCodes; }
 
-  /** 3-letter ISO 4217 currency code. */
-  public String getCurrency() {
-    return this.currency;
-  }
-
-  /** @param currency 3-letter ISO 4217 currency code. */
-  public void setCurrency(final String currency) {
-    this.currency = currency;
-  }
-
-  /** Customer notes */
-  public String getCustomerNotes() {
-    return this.customerNotes;
-  }
-
-  /** @param customerNotes Customer notes */
-  public void setCustomerNotes(final String customerNotes) {
-    this.customerNotes = customerNotes;
-  }
-
+  
   /**
-   * The default payment gateway identifier to be used for the purchase transaction. This will also
-   * be applied as the default for any subscriptions included in the purchase request.
+   * @param couponCodes A list of coupon_codes to be redeemed on the subscription or account during the purchase.
    */
-  public String getGatewayCode() {
-    return this.gatewayCode;
-  }
+  
+  public void setCouponCodes(final List<String> couponCodes) { this.couponCodes = couponCodes; }
 
+  
   /**
-   * @param gatewayCode The default payment gateway identifier to be used for the purchase
-   *     transaction. This will also be applied as the default for any subscriptions included in the
-   *     purchase request.
+   * Notes to be put on the credit invoice resulting from credits in the purchase, if any.
    */
-  public void setGatewayCode(final String gatewayCode) {
-    this.gatewayCode = gatewayCode;
-  }
+  
+  public String getCreditCustomerNotes() { return this.creditCustomerNotes; }
 
-  /** A gift card redemption code to be redeemed on the purchase invoice. */
-  public String getGiftCardRedemptionCode() {
-    return this.giftCardRedemptionCode;
-  }
-
+  
   /**
-   * @param giftCardRedemptionCode A gift card redemption code to be redeemed on the purchase
-   *     invoice.
+   * @param creditCustomerNotes Notes to be put on the credit invoice resulting from credits in the purchase, if any.
    */
-  public void setGiftCardRedemptionCode(final String giftCardRedemptionCode) {
-    this.giftCardRedemptionCode = giftCardRedemptionCode;
-  }
+  
+  public void setCreditCustomerNotes(final String creditCustomerNotes) { this.creditCustomerNotes = creditCustomerNotes; }
 
-  /** A list of one time charges or credits to be created with the purchase. */
-  public List<LineItemCreate> getLineItems() {
-    return this.lineItems;
-  }
-
-  /** @param lineItems A list of one time charges or credits to be created with the purchase. */
-  public void setLineItems(final List<LineItemCreate> lineItems) {
-    this.lineItems = lineItems;
-  }
-
+  
   /**
-   * Integer representing the number of days after an invoice's creation that the invoice will
-   * become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will
-   * become past due 24 hours after it’s created. If an invoice is due net 30, it will become past
-   * due at 31 days exactly.
+   * 3-letter ISO 4217 currency code.
    */
-  public Integer getNetTerms() {
-    return this.netTerms;
-  }
+  
+  public String getCurrency() { return this.currency; }
 
+  
   /**
-   * @param netTerms Integer representing the number of days after an invoice's creation that the
-   *     invoice will become past due. If an invoice's net terms are set to '0', it is due 'On
-   *     Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30,
-   *     it will become past due at 31 days exactly.
+   * @param currency 3-letter ISO 4217 currency code.
    */
-  public void setNetTerms(final Integer netTerms) {
-    this.netTerms = netTerms;
-  }
+  
+  public void setCurrency(final String currency) { this.currency = currency; }
 
-  /** For manual invoicing, this identifies the PO number associated with the subscription. */
-  public String getPoNumber() {
-    return this.poNumber;
-  }
-
+  
   /**
-   * @param poNumber For manual invoicing, this identifies the PO number associated with the
-   *     subscription.
+   * Customer notes
    */
-  public void setPoNumber(final String poNumber) {
-    this.poNumber = poNumber;
-  }
+  
+  public String getCustomerNotes() { return this.customerNotes; }
 
-  public ShippingPurchase getShipping() {
-    return this.shipping;
-  }
-
-  /** @param shipping */
-  public void setShipping(final ShippingPurchase shipping) {
-    this.shipping = shipping;
-  }
-
-  /** A list of subscriptions to be created with the purchase. */
-  public List<SubscriptionPurchase> getSubscriptions() {
-    return this.subscriptions;
-  }
-
-  /** @param subscriptions A list of subscriptions to be created with the purchase. */
-  public void setSubscriptions(final List<SubscriptionPurchase> subscriptions) {
-    this.subscriptions = subscriptions;
-  }
-
-  /** Terms and conditions to be put on the purchase invoice. */
-  public String getTermsAndConditions() {
-    return this.termsAndConditions;
-  }
-
-  /** @param termsAndConditions Terms and conditions to be put on the purchase invoice. */
-  public void setTermsAndConditions(final String termsAndConditions) {
-    this.termsAndConditions = termsAndConditions;
-  }
-
+  
   /**
-   * An optional type designation for the payment gateway transaction created by this request.
-   * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   * @param customerNotes Customer notes
    */
-  public Constants.GatewayTransactionType getTransactionType() {
-    return this.transactionType;
-  }
+  
+  public void setCustomerNotes(final String customerNotes) { this.customerNotes = customerNotes; }
 
+  
   /**
-   * @param transactionType An optional type designation for the payment gateway transaction created
-   *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
-   *     transactions.
+   * The default payment gateway identifier to be used for the purchase transaction.  This will also be applied as the default for any subscriptions included in the purchase request.
    */
-  public void setTransactionType(final Constants.GatewayTransactionType transactionType) {
-    this.transactionType = transactionType;
-  }
+  
+  public String getGatewayCode() { return this.gatewayCode; }
 
-  /** VAT reverse charge notes for cross border European tax settlement. */
-  public String getVatReverseChargeNotes() {
-    return this.vatReverseChargeNotes;
-  }
+  
+  /**
+   * @param gatewayCode The default payment gateway identifier to be used for the purchase transaction.  This will also be applied as the default for any subscriptions included in the purchase request.
+   */
+  
+  public void setGatewayCode(final String gatewayCode) { this.gatewayCode = gatewayCode; }
 
+  
+  /**
+   * A gift card redemption code to be redeemed on the purchase invoice.
+   */
+  
+  public String getGiftCardRedemptionCode() { return this.giftCardRedemptionCode; }
+
+  
+  /**
+   * @param giftCardRedemptionCode A gift card redemption code to be redeemed on the purchase invoice.
+   */
+  
+  public void setGiftCardRedemptionCode(final String giftCardRedemptionCode) { this.giftCardRedemptionCode = giftCardRedemptionCode; }
+
+  
+  /**
+   * A list of one time charges or credits to be created with the purchase.
+   */
+  
+  public List<LineItemCreate> getLineItems() { return this.lineItems; }
+
+  
+  /**
+   * @param lineItems A list of one time charges or credits to be created with the purchase.
+   */
+  
+  public void setLineItems(final List<LineItemCreate> lineItems) { this.lineItems = lineItems; }
+
+  
+  /**
+   * Integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30, it will become past due at 31 days exactly.
+   */
+  
+  public Integer getNetTerms() { return this.netTerms; }
+
+  
+  /**
+   * @param netTerms Integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30, it will become past due at 31 days exactly.
+   */
+  
+  public void setNetTerms(final Integer netTerms) { this.netTerms = netTerms; }
+
+  
+  /**
+   * For manual invoicing, this identifies the PO number associated with the subscription.
+   */
+  
+  public String getPoNumber() { return this.poNumber; }
+
+  
+  /**
+   * @param poNumber For manual invoicing, this identifies the PO number associated with the subscription.
+   */
+  
+  public void setPoNumber(final String poNumber) { this.poNumber = poNumber; }
+
+  
+  public ShippingPurchase getShipping() { return this.shipping; }
+
+  
+  /**
+   * @param shipping 
+   */
+  
+  public void setShipping(final ShippingPurchase shipping) { this.shipping = shipping; }
+
+  
+  /**
+   * A list of subscriptions to be created with the purchase.
+   */
+  
+  public List<SubscriptionPurchase> getSubscriptions() { return this.subscriptions; }
+
+  
+  /**
+   * @param subscriptions A list of subscriptions to be created with the purchase.
+   */
+  
+  public void setSubscriptions(final List<SubscriptionPurchase> subscriptions) { this.subscriptions = subscriptions; }
+
+  
+  /**
+   * Terms and conditions to be put on the purchase invoice.
+   */
+  
+  public String getTermsAndConditions() { return this.termsAndConditions; }
+
+  
+  /**
+   * @param termsAndConditions Terms and conditions to be put on the purchase invoice.
+   */
+  
+  public void setTermsAndConditions(final String termsAndConditions) { this.termsAndConditions = termsAndConditions; }
+
+  
+  /**
+   * An optional type designation for the payment gateway transaction created by this request. Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  
+  public Constants.GatewayTransactionType getTransactionType() { return this.transactionType; }
+
+  
+  /**
+   * @param transactionType An optional type designation for the payment gateway transaction created by this request. Supports 'moto' value, which is the acronym for mail order and telephone transactions.
+   */
+  
+  public void setTransactionType(final Constants.GatewayTransactionType transactionType) { this.transactionType = transactionType; }
+
+  
+  /**
+   * VAT reverse charge notes for cross border European tax settlement.
+   */
+  
+  public String getVatReverseChargeNotes() { return this.vatReverseChargeNotes; }
+
+  
   /**
    * @param vatReverseChargeNotes VAT reverse charge notes for cross border European tax settlement.
    */
-  public void setVatReverseChargeNotes(final String vatReverseChargeNotes) {
-    this.vatReverseChargeNotes = vatReverseChargeNotes;
-  }
+  
+  public void setVatReverseChargeNotes(final String vatReverseChargeNotes) { this.vatReverseChargeNotes = vatReverseChargeNotes; }
+
 }

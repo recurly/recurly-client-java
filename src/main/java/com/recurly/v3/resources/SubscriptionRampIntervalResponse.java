@@ -1,61 +1,91 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
- * make by hand will be lost. If you wish to make a change to this file, please create a Github
- * issue explaining the changes you need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process
+ * and thus any edits you make by hand will be lost. If you wish to make a
+ * change to this file, please create a Github issue explaining the changes you
+ * need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import com.recurly.v3.Constants;
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
+import org.joda.time.DateTime;
 
 public class SubscriptionRampIntervalResponse extends Resource {
 
-  /** Represents how many billing cycles are left in a ramp interval. */
+  
+  /**
+   * Represents how many billing cycles are left in a ramp interval.
+   */
+  
   @SerializedName("remaining_billing_cycles")
   @Expose
   private Integer remainingBillingCycles;
 
-  /** Represents the billing cycle where a ramp interval starts. */
+  
+  /**
+   * Represents the billing cycle where a ramp interval starts.
+   */
+  
   @SerializedName("starting_billing_cycle")
   @Expose
   private Integer startingBillingCycle;
 
-  /** Represents the price for the ramp interval. */
+  
+  /**
+   * Represents the price for the ramp interval.
+   */
+  
   @SerializedName("unit_amount")
   @Expose
   private BigDecimal unitAmount;
 
-  /** Represents how many billing cycles are left in a ramp interval. */
-  public Integer getRemainingBillingCycles() {
-    return this.remainingBillingCycles;
-  }
 
+
+  
+  /**
+   * Represents how many billing cycles are left in a ramp interval.
+   */
+  
+  public Integer getRemainingBillingCycles() { return this.remainingBillingCycles; }
+
+  
   /**
    * @param remainingBillingCycles Represents how many billing cycles are left in a ramp interval.
    */
-  public void setRemainingBillingCycles(final Integer remainingBillingCycles) {
-    this.remainingBillingCycles = remainingBillingCycles;
-  }
+  
+  public void setRemainingBillingCycles(final Integer remainingBillingCycles) { this.remainingBillingCycles = remainingBillingCycles; }
 
-  /** Represents the billing cycle where a ramp interval starts. */
-  public Integer getStartingBillingCycle() {
-    return this.startingBillingCycle;
-  }
+  
+  /**
+   * Represents the billing cycle where a ramp interval starts.
+   */
+  
+  public Integer getStartingBillingCycle() { return this.startingBillingCycle; }
 
-  /** @param startingBillingCycle Represents the billing cycle where a ramp interval starts. */
-  public void setStartingBillingCycle(final Integer startingBillingCycle) {
-    this.startingBillingCycle = startingBillingCycle;
-  }
+  
+  /**
+   * @param startingBillingCycle Represents the billing cycle where a ramp interval starts.
+   */
+  
+  public void setStartingBillingCycle(final Integer startingBillingCycle) { this.startingBillingCycle = startingBillingCycle; }
 
-  /** Represents the price for the ramp interval. */
-  public BigDecimal getUnitAmount() {
-    return this.unitAmount;
-  }
+  
+  /**
+   * Represents the price for the ramp interval.
+   */
+  
+  public BigDecimal getUnitAmount() { return this.unitAmount; }
 
-  /** @param unitAmount Represents the price for the ramp interval. */
-  public void setUnitAmount(final BigDecimal unitAmount) {
-    this.unitAmount = unitAmount;
-  }
+  
+  /**
+   * @param unitAmount Represents the price for the ramp interval.
+   */
+  
+  public void setUnitAmount(final BigDecimal unitAmount) { this.unitAmount = unitAmount; }
+
 }

@@ -1,143 +1,206 @@
 /**
- * This file is automatically created by Recurly's OpenAPI generation process and thus any edits you
- * make by hand will be lost. If you wish to make a change to this file, please create a Github
- * issue explaining the changes you need and we will usher them to the appropriate places.
+ * This file is automatically created by Recurly's OpenAPI generation process
+ * and thus any edits you make by hand will be lost. If you wish to make a
+ * change to this file, please create a Github issue explaining the changes you
+ * need and we will usher them to the appropriate places.
  */
 package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import com.recurly.v3.Constants;
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
+import org.joda.time.DateTime;
 
 public class TransactionError extends Resource {
 
-  /** Category */
+  
+  /**
+   * Category
+   */
+  
   @SerializedName("category")
   @Expose
   private Constants.ErrorCategory category;
 
-  /** Code */
+  
+  /**
+   * Code
+   */
+  
   @SerializedName("code")
   @Expose
   private Constants.ErrorCode code;
 
-  /** Decline code */
+  
+  /**
+   * Decline code
+   */
+  
   @SerializedName("decline_code")
   @Expose
   private Constants.DeclineCode declineCode;
 
-  /** Merchant message */
+  
+  /**
+   * Merchant message
+   */
+  
   @SerializedName("merchant_advice")
   @Expose
   private String merchantAdvice;
 
-  /** Customer message */
+  
+  /**
+   * Customer message
+   */
+  
   @SerializedName("message")
   @Expose
   private String message;
 
-  /** Object type */
+  
+  /**
+   * Object type
+   */
+  
   @SerializedName("object")
   @Expose
   private String object;
 
+  
   /**
-   * Returned when 3-D Secure authentication is required for a transaction. Pass this value to
-   * Recurly.js so it can continue the challenge flow.
+   * Returned when 3-D Secure authentication is required for a transaction. Pass this value to Recurly.js so it can continue the challenge flow.
    */
+  
   @SerializedName("three_d_secure_action_token_id")
   @Expose
   private String threeDSecureActionTokenId;
 
-  /** Transaction ID */
+  
+  /**
+   * Transaction ID
+   */
+  
   @SerializedName("transaction_id")
   @Expose
   private String transactionId;
 
-  /** Category */
-  public Constants.ErrorCategory getCategory() {
-    return this.category;
-  }
 
-  /** @param category Category */
-  public void setCategory(final Constants.ErrorCategory category) {
-    this.category = category;
-  }
 
-  /** Code */
-  public Constants.ErrorCode getCode() {
-    return this.code;
-  }
-
-  /** @param code Code */
-  public void setCode(final Constants.ErrorCode code) {
-    this.code = code;
-  }
-
-  /** Decline code */
-  public Constants.DeclineCode getDeclineCode() {
-    return this.declineCode;
-  }
-
-  /** @param declineCode Decline code */
-  public void setDeclineCode(final Constants.DeclineCode declineCode) {
-    this.declineCode = declineCode;
-  }
-
-  /** Merchant message */
-  public String getMerchantAdvice() {
-    return this.merchantAdvice;
-  }
-
-  /** @param merchantAdvice Merchant message */
-  public void setMerchantAdvice(final String merchantAdvice) {
-    this.merchantAdvice = merchantAdvice;
-  }
-
-  /** Customer message */
-  public String getMessage() {
-    return this.message;
-  }
-
-  /** @param message Customer message */
-  public void setMessage(final String message) {
-    this.message = message;
-  }
-
-  /** Object type */
-  public String getObject() {
-    return this.object;
-  }
-
-  /** @param object Object type */
-  public void setObject(final String object) {
-    this.object = object;
-  }
-
+  
   /**
-   * Returned when 3-D Secure authentication is required for a transaction. Pass this value to
-   * Recurly.js so it can continue the challenge flow.
+   * Category
    */
-  public String getThreeDSecureActionTokenId() {
-    return this.threeDSecureActionTokenId;
-  }
+  
+  public Constants.ErrorCategory getCategory() { return this.category; }
 
+  
   /**
-   * @param threeDSecureActionTokenId Returned when 3-D Secure authentication is required for a
-   *     transaction. Pass this value to Recurly.js so it can continue the challenge flow.
+   * @param category Category
    */
-  public void setThreeDSecureActionTokenId(final String threeDSecureActionTokenId) {
-    this.threeDSecureActionTokenId = threeDSecureActionTokenId;
-  }
+  
+  public void setCategory(final Constants.ErrorCategory category) { this.category = category; }
 
-  /** Transaction ID */
-  public String getTransactionId() {
-    return this.transactionId;
-  }
+  
+  /**
+   * Code
+   */
+  
+  public Constants.ErrorCode getCode() { return this.code; }
 
-  /** @param transactionId Transaction ID */
-  public void setTransactionId(final String transactionId) {
-    this.transactionId = transactionId;
-  }
+  
+  /**
+   * @param code Code
+   */
+  
+  public void setCode(final Constants.ErrorCode code) { this.code = code; }
+
+  
+  /**
+   * Decline code
+   */
+  
+  public Constants.DeclineCode getDeclineCode() { return this.declineCode; }
+
+  
+  /**
+   * @param declineCode Decline code
+   */
+  
+  public void setDeclineCode(final Constants.DeclineCode declineCode) { this.declineCode = declineCode; }
+
+  
+  /**
+   * Merchant message
+   */
+  
+  public String getMerchantAdvice() { return this.merchantAdvice; }
+
+  
+  /**
+   * @param merchantAdvice Merchant message
+   */
+  
+  public void setMerchantAdvice(final String merchantAdvice) { this.merchantAdvice = merchantAdvice; }
+
+  
+  /**
+   * Customer message
+   */
+  
+  public String getMessage() { return this.message; }
+
+  
+  /**
+   * @param message Customer message
+   */
+  
+  public void setMessage(final String message) { this.message = message; }
+
+  
+  /**
+   * Object type
+   */
+  
+  public String getObject() { return this.object; }
+
+  
+  /**
+   * @param object Object type
+   */
+  
+  public void setObject(final String object) { this.object = object; }
+
+  
+  /**
+   * Returned when 3-D Secure authentication is required for a transaction. Pass this value to Recurly.js so it can continue the challenge flow.
+   */
+  
+  public String getThreeDSecureActionTokenId() { return this.threeDSecureActionTokenId; }
+
+  
+  /**
+   * @param threeDSecureActionTokenId Returned when 3-D Secure authentication is required for a transaction. Pass this value to Recurly.js so it can continue the challenge flow.
+   */
+  
+  public void setThreeDSecureActionTokenId(final String threeDSecureActionTokenId) { this.threeDSecureActionTokenId = threeDSecureActionTokenId; }
+
+  
+  /**
+   * Transaction ID
+   */
+  
+  public String getTransactionId() { return this.transactionId; }
+
+  
+  /**
+   * @param transactionId Transaction ID
+   */
+  
+  public void setTransactionId(final String transactionId) { this.transactionId = transactionId; }
+
 }
