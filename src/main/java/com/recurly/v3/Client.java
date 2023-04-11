@@ -494,6 +494,94 @@ public class Client extends BaseClient {
   }
 
   /**
+   * List external accounts for an account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_external_account">list_account_external_account api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of external accounts on an account.
+   */
+  public Pager<ExternalAccount> listAccountExternalAccount(String accountId) {
+    final String url = "/accounts/{account_id}/external_accounts";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalAccount.class).getType();
+    return new Pager<>(path, null, this, parameterizedType);
+  }
+
+  /**
+   * Create an external account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_account_external_account">create_account_external_account api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param body The body of the request.
+     * @return A representation of the created external_account.
+   */
+  public ExternalAccount createAccountExternalAccount(String accountId, ExternalAccountCreate body) {
+    final String url = "/accounts/{account_id}/external_accounts";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalAccount.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * Get an external account for an account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_account_external_account">get_account_external_account api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param externalAccountId External account ID, e.g. `s28zov4fw0cb`.
+     * @return A external account on an account.
+   */
+  public ExternalAccount getAccountExternalAccount(String accountId, String externalAccountId) {
+    final String url = "/accounts/{account_id}/external_accounts/{external_account_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("external_account_id", externalAccountId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalAccount.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Update an external account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/update_account_external_account">update_account_external_account api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param externalAccountId External account ID, e.g. `s28zov4fw0cb`.
+   * @param body The body of the request.
+     * @return A representation of the updated external_account.
+   */
+  public ExternalAccount updateAccountExternalAccount(String accountId, String externalAccountId, ExternalAccountUpdate body) {
+    final String url = "/accounts/{account_id}/external_accounts/{external_account_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("external_account_id", externalAccountId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalAccount.class;
+    return this.makeRequest("PUT", path, body, returnType);
+  }
+
+  /**
+   * Delete an external account for an account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/delete_account_external_account">delete_account_external_account api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param externalAccountId External account ID, e.g. `s28zov4fw0cb`.
+     * @return Successful Delete
+   */
+  public ExternalAccount deleteAccountExternalAccount(String accountId, String externalAccountId) {
+    final String url = "/accounts/{account_id}/external_accounts/{external_account_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("external_account_id", externalAccountId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalAccount.class;
+    return this.makeRequest("DELETE", path, returnType);
+  }
+
+  /**
    * List the external invoices on an account
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_external_invoices">list_account_external_invoices api documentation</a>

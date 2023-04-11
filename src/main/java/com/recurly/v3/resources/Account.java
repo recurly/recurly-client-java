@@ -93,6 +93,11 @@ public class Account extends Resource {
   @Expose
   private String exemptionCertificate;
 
+  /** The external accounts belonging to this account */
+  @SerializedName("external_accounts")
+  @Expose
+  private List<ExternalAccount> externalAccounts;
+
   @SerializedName("first_name")
   @Expose
   private String firstName;
@@ -382,6 +387,16 @@ public class Account extends Resource {
    */
   public void setExemptionCertificate(final String exemptionCertificate) {
     this.exemptionCertificate = exemptionCertificate;
+  }
+
+  /** The external accounts belonging to this account */
+  public List<ExternalAccount> getExternalAccounts() {
+    return this.externalAccounts;
+  }
+
+  /** @param externalAccounts The external accounts belonging to this account */
+  public void setExternalAccounts(final List<ExternalAccount> externalAccounts) {
+    this.externalAccounts = externalAccounts;
   }
 
   public String getFirstName() {
