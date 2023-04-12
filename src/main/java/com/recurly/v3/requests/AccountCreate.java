@@ -87,6 +87,11 @@ public class AccountCreate extends Request {
   @Expose
   private String exemptionCertificate;
 
+  /** External Accounts */
+  @SerializedName("external_accounts")
+  @Expose
+  private List<ExternalAccountCreate> externalAccounts;
+
   @SerializedName("first_name")
   @Expose
   private String firstName;
@@ -328,6 +333,16 @@ public class AccountCreate extends Request {
    */
   public void setExemptionCertificate(final String exemptionCertificate) {
     this.exemptionCertificate = exemptionCertificate;
+  }
+
+  /** External Accounts */
+  public List<ExternalAccountCreate> getExternalAccounts() {
+    return this.externalAccounts;
+  }
+
+  /** @param externalAccounts External Accounts */
+  public void setExternalAccounts(final List<ExternalAccountCreate> externalAccounts) {
+    this.externalAccounts = externalAccounts;
   }
 
   public String getFirstName() {
