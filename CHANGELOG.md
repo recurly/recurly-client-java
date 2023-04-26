@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.26.0](https://github.com/recurly/recurly-client-java/tree/3.26.0) (2023-04-26)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.25.0...3.26.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2019-10-10 (usedTaxService on Invoice) [#241](https://github.com/recurly/recurly-client-java/pull/241) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [3.25.0](https://github.com/recurly/recurly-client-java/tree/3.25.0) (2023-01-19)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/3.24.0...3.25.0)
