@@ -68,7 +68,8 @@ public class CustomFieldDefinition extends Resource {
    * view or edit this field's data via the admin UI. - `read_only` - Users with the Customers role
    * will be able to view this field's data via the admin UI, but editing will only be available via
    * the API. - `write` - Users with the Customers role will be able to view and edit this field's
-   * data via the admin UI.
+   * data via the admin UI. - `set_only` - Users with the Customers role will be able to set this
+   * field's data via the admin console.
    */
   @SerializedName("user_access")
   @Expose
@@ -184,7 +185,8 @@ public class CustomFieldDefinition extends Resource {
    * view or edit this field's data via the admin UI. - `read_only` - Users with the Customers role
    * will be able to view this field's data via the admin UI, but editing will only be available via
    * the API. - `write` - Users with the Customers role will be able to view and edit this field's
-   * data via the admin UI.
+   * data via the admin UI. - `set_only` - Users with the Customers role will be able to set this
+   * field's data via the admin console.
    */
   public String getUserAccess() {
     return this.userAccess;
@@ -195,7 +197,8 @@ public class CustomFieldDefinition extends Resource {
    *     will be able to view or edit this field's data via the admin UI. - `read_only` - Users with
    *     the Customers role will be able to view this field's data via the admin UI, but editing
    *     will only be available via the API. - `write` - Users with the Customers role will be able
-   *     to view and edit this field's data via the admin UI.
+   *     to view and edit this field's data via the admin UI. - `set_only` - Users with the
+   *     Customers role will be able to set this field's data via the admin console.
    */
   public void setUserAccess(final String userAccess) {
     this.userAccess = userAccess;

@@ -219,6 +219,15 @@ public class Invoice extends Resource {
   private DateTime updatedAt;
 
   /**
+   * Will be `true` when the invoice had a successful response from the tax service and `false` when
+   * the invoice was not sent to tax service due to a lack of address or enabled jurisdiction or was
+   * processed without tax due to a non-blocking error returned from the tax service.
+   */
+  @SerializedName("used_tax_service")
+  @Expose
+  private Boolean usedTaxService;
+
+  /**
    * VAT registration number for the customer on this invoice. This will come from the VAT Number
    * field in the Billing Info or the Account Info depending on your tax settings and the invoice
    * collection method.
@@ -661,6 +670,25 @@ public class Invoice extends Resource {
   /** @param updatedAt Last updated at */
   public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  /**
+   * Will be `true` when the invoice had a successful response from the tax service and `false` when
+   * the invoice was not sent to tax service due to a lack of address or enabled jurisdiction or was
+   * processed without tax due to a non-blocking error returned from the tax service.
+   */
+  public Boolean getUsedTaxService() {
+    return this.usedTaxService;
+  }
+
+  /**
+   * @param usedTaxService Will be `true` when the invoice had a successful response from the tax
+   *     service and `false` when the invoice was not sent to tax service due to a lack of address
+   *     or enabled jurisdiction or was processed without tax due to a non-blocking error returned
+   *     from the tax service.
+   */
+  public void setUsedTaxService(final Boolean usedTaxService) {
+    this.usedTaxService = usedTaxService;
   }
 
   /**
