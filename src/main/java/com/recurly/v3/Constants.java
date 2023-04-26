@@ -320,8 +320,14 @@ public class Constants {
       @SerializedName("fi-FI")
       FI_FI,
     
+      @SerializedName("fr-BE")
+      FR_BE,
+    
       @SerializedName("fr-CA")
       FR_CA,
+    
+      @SerializedName("fr-CH")
+      FR_CH,
     
       @SerializedName("fr-FR")
       FR_FR,
