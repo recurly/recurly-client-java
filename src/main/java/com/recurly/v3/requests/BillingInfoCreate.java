@@ -47,6 +47,11 @@ public class BillingInfoCreate extends Request {
   @Expose
   private String company;
 
+  /** 3-letter ISO 4217 currency code. */
+  @SerializedName("currency")
+  @Expose
+  private String currency;
+
   /** *STRONGLY RECOMMENDED* */
   @SerializedName("cvv")
   @Expose
@@ -266,6 +271,16 @@ public class BillingInfoCreate extends Request {
   /** @param company Company name */
   public void setCompany(final String company) {
     this.company = company;
+  }
+
+  /** 3-letter ISO 4217 currency code. */
+  public String getCurrency() {
+    return this.currency;
+  }
+
+  /** @param currency 3-letter ISO 4217 currency code. */
+  public void setCurrency(final String currency) {
+    this.currency = currency;
   }
 
   /** *STRONGLY RECOMMENDED* */
