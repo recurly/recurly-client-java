@@ -12,7 +12,7 @@ import java.util.List;
 
 public class TaxInfo extends Resource {
 
-  /** Rate */
+  /** The combined tax rate. Not present when Avalara for Communications is enabled. */
   @SerializedName("rate")
   @Expose
   private Float rate;
@@ -20,16 +20,19 @@ public class TaxInfo extends Resource {
   /**
    * Provides the tax region applied on an invoice. For U.S. Sales Tax, this will be the 2 letter
    * state code. For EU VAT this will be the 2 letter country code. For all country level tax types,
-   * this will display the regional tax, like VAT, GST, or PST.
+   * this will display the regional tax, like VAT, GST, or PST. Not present when Avalara for
+   * Communications is enabled.
    */
   @SerializedName("region")
   @Expose
   private String region;
 
   /**
-   * Provides additional tax details for Canadian Sales Tax when there is tax applied at both the
-   * country and province levels. This will only be populated for the Invoice response when fetching
-   * a single invoice and not for the InvoiceList or LineItem.
+   * Provides additional tax details for Communications taxes when Avalara for Communications is
+   * enabled or Canadian Sales Tax when there is tax applied at both the country and province
+   * levels. This will only be populated for the Invoice response when fetching a single invoice and
+   * not for the InvoiceList or LineItemList. Only populated for a single LineItem fetch when
+   * Avalara for Communications is enabled.
    */
   @SerializedName("tax_details")
   @Expose
@@ -38,18 +41,18 @@ public class TaxInfo extends Resource {
   /**
    * Provides the tax type as "vat" for EU VAT, "usst" for U.S. Sales Tax, or the 2 letter country
    * code for country level tax types like Canada, Australia, New Zealand, Israel, and all non-EU
-   * European countries.
+   * European countries. Not present when Avalara for Communications is enabled.
    */
   @SerializedName("type")
   @Expose
   private String type;
 
-  /** Rate */
+  /** The combined tax rate. Not present when Avalara for Communications is enabled. */
   public Float getRate() {
     return this.rate;
   }
 
-  /** @param rate Rate */
+  /** @param rate The combined tax rate. Not present when Avalara for Communications is enabled. */
   public void setRate(final Float rate) {
     this.rate = rate;
   }
@@ -57,7 +60,8 @@ public class TaxInfo extends Resource {
   /**
    * Provides the tax region applied on an invoice. For U.S. Sales Tax, this will be the 2 letter
    * state code. For EU VAT this will be the 2 letter country code. For all country level tax types,
-   * this will display the regional tax, like VAT, GST, or PST.
+   * this will display the regional tax, like VAT, GST, or PST. Not present when Avalara for
+   * Communications is enabled.
    */
   public String getRegion() {
     return this.region;
@@ -66,25 +70,30 @@ public class TaxInfo extends Resource {
   /**
    * @param region Provides the tax region applied on an invoice. For U.S. Sales Tax, this will be
    *     the 2 letter state code. For EU VAT this will be the 2 letter country code. For all country
-   *     level tax types, this will display the regional tax, like VAT, GST, or PST.
+   *     level tax types, this will display the regional tax, like VAT, GST, or PST. Not present
+   *     when Avalara for Communications is enabled.
    */
   public void setRegion(final String region) {
     this.region = region;
   }
 
   /**
-   * Provides additional tax details for Canadian Sales Tax when there is tax applied at both the
-   * country and province levels. This will only be populated for the Invoice response when fetching
-   * a single invoice and not for the InvoiceList or LineItem.
+   * Provides additional tax details for Communications taxes when Avalara for Communications is
+   * enabled or Canadian Sales Tax when there is tax applied at both the country and province
+   * levels. This will only be populated for the Invoice response when fetching a single invoice and
+   * not for the InvoiceList or LineItemList. Only populated for a single LineItem fetch when
+   * Avalara for Communications is enabled.
    */
   public List<TaxDetail> getTaxDetails() {
     return this.taxDetails;
   }
 
   /**
-   * @param taxDetails Provides additional tax details for Canadian Sales Tax when there is tax
-   *     applied at both the country and province levels. This will only be populated for the
-   *     Invoice response when fetching a single invoice and not for the InvoiceList or LineItem.
+   * @param taxDetails Provides additional tax details for Communications taxes when Avalara for
+   *     Communications is enabled or Canadian Sales Tax when there is tax applied at both the
+   *     country and province levels. This will only be populated for the Invoice response when
+   *     fetching a single invoice and not for the InvoiceList or LineItemList. Only populated for a
+   *     single LineItem fetch when Avalara for Communications is enabled.
    */
   public void setTaxDetails(final List<TaxDetail> taxDetails) {
     this.taxDetails = taxDetails;
@@ -93,7 +102,7 @@ public class TaxInfo extends Resource {
   /**
    * Provides the tax type as "vat" for EU VAT, "usst" for U.S. Sales Tax, or the 2 letter country
    * code for country level tax types like Canada, Australia, New Zealand, Israel, and all non-EU
-   * European countries.
+   * European countries. Not present when Avalara for Communications is enabled.
    */
   public String getType() {
     return this.type;
@@ -102,7 +111,8 @@ public class TaxInfo extends Resource {
   /**
    * @param type Provides the tax type as "vat" for EU VAT, "usst" for U.S. Sales Tax, or the 2
    *     letter country code for country level tax types like Canada, Australia, New Zealand,
-   *     Israel, and all non-EU European countries.
+   *     Israel, and all non-EU European countries. Not present when Avalara for Communications is
+   *     enabled.
    */
   public void setType(final String type) {
     this.type = type;
