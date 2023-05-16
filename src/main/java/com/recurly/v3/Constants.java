@@ -804,6 +804,9 @@ public class Constants {
     public enum ExternalPaymentMethod {
       UNDEFINED,
     
+      @SerializedName("bacs")
+      BACS,
+    
       @SerializedName("ach")
       ACH,
     
@@ -1104,6 +1107,9 @@ public class Constants {
       @SerializedName("chargeback")
       CHARGEBACK,
     
+      @SerializedName("external_recovery")
+      EXTERNAL_RECOVERY,
+    
       @SerializedName("force_collect")
       FORCE_COLLECT,
     
@@ -1290,6 +1296,9 @@ public class Constants {
   
     public enum PaymentMethod {
       UNDEFINED,
+    
+      @SerializedName("bacs")
+      BACS,
     
       @SerializedName("amazon")
       AMAZON,
