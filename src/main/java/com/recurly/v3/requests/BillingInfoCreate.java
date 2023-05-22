@@ -80,6 +80,11 @@ public class BillingInfoCreate extends Request {
   @Expose
   private String fraudSessionId;
 
+  /** Additional attributes to send to the gateway. */
+  @SerializedName("gateway_attributes")
+  @Expose
+  private GatewayAttributes gatewayAttributes;
+
   /**
    * An identifier for a specific payment gateway. Must be used in conjunction with `gateway_token`.
    */
@@ -358,6 +363,16 @@ public class BillingInfoCreate extends Request {
   /** @param fraudSessionId Fraud Session ID */
   public void setFraudSessionId(final String fraudSessionId) {
     this.fraudSessionId = fraudSessionId;
+  }
+
+  /** Additional attributes to send to the gateway. */
+  public GatewayAttributes getGatewayAttributes() {
+    return this.gatewayAttributes;
+  }
+
+  /** @param gatewayAttributes Additional attributes to send to the gateway. */
+  public void setGatewayAttributes(final GatewayAttributes gatewayAttributes) {
+    this.gatewayAttributes = gatewayAttributes;
   }
 
   /**
