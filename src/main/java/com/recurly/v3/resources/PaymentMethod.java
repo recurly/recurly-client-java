@@ -51,6 +51,11 @@ public class PaymentMethod extends Resource {
   @Expose
   private String firstSix;
 
+  /** Gateway specific attributes associated with this PaymentMethod */
+  @SerializedName("gateway_attributes")
+  @Expose
+  private GatewayAttributes gatewayAttributes;
+
   /** An identifier for a specific payment gateway. */
   @SerializedName("gateway_code")
   @Expose
@@ -174,6 +179,16 @@ public class PaymentMethod extends Resource {
   /** @param firstSix Credit card number's first six digits. */
   public void setFirstSix(final String firstSix) {
     this.firstSix = firstSix;
+  }
+
+  /** Gateway specific attributes associated with this PaymentMethod */
+  public GatewayAttributes getGatewayAttributes() {
+    return this.gatewayAttributes;
+  }
+
+  /** @param gatewayAttributes Gateway specific attributes associated with this PaymentMethod */
+  public void setGatewayAttributes(final GatewayAttributes gatewayAttributes) {
+    this.gatewayAttributes = gatewayAttributes;
   }
 
   /** An identifier for a specific payment gateway. */
