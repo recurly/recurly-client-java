@@ -1306,6 +1306,21 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
+   * Create an external product
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_external_product">create_external_product api documentation</a>
+   * @param body The body of the request.
+     * @return Returns the external product
+   */
+  public ExternalProduct createExternalProduct(ExternalProductCreate body) {
+    final String url = "/external_products";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalProduct.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
    * Fetch an external product
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_external_product">get_external_product api documentation</a>
@@ -1319,6 +1334,111 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = ExternalProduct.class;
     return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Update an external product
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/update_external_product">update_external_product api documentation</a>
+   * @param externalProductId External product id
+   * @param body The body of the request.
+     * @return Settings for an external product.
+   */
+  public ExternalProduct updateExternalProduct(String externalProductId, ExternalProductUpdate body) {
+    final String url = "/external_products/{external_product_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_product_id", externalProductId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalProduct.class;
+    return this.makeRequest("PUT", path, body, returnType);
+  }
+
+  /**
+   * Deactivate an external product
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/deactivate_external_products">deactivate_external_products api documentation</a>
+   * @param externalProductId External product id
+     * @return Deactivated external product.
+   */
+  public ExternalProduct deactivateExternalProducts(String externalProductId) {
+    final String url = "/external_products/{external_product_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_product_id", externalProductId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalProduct.class;
+    return this.makeRequest("DELETE", path, returnType);
+  }
+
+  /**
+   * List the external product references for an external product
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_product_external_product_references">list_external_product_external_product_references api documentation</a>
+   * @param externalProductId External product id
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the the external product references for an external product.
+   */
+  public Pager<ExternalProductReferenceCollection> listExternalProductExternalProductReferences(String externalProductId, QueryParams queryParams) {
+    final String url = "/external_products/{external_product_id}/external_product_references";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_product_id", externalProductId);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalProductReferenceCollection.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * Create an external product reference on an external product
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_external_product_external_product_reference">create_external_product_external_product_reference api documentation</a>
+   * @param externalProductId External product id
+   * @param body The body of the request.
+     * @return Details for the external product reference.
+   */
+  public ExternalProductReferenceMini createExternalProductExternalProductReference(String externalProductId, ExternalProductReferenceCreate body) {
+    final String url = "/external_products/{external_product_id}/external_product_references";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_product_id", externalProductId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalProductReferenceMini.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * Fetch an external product reference
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_external_product_external_product_reference">get_external_product_external_product_reference api documentation</a>
+   * @param externalProductId External product id
+   * @param externalProductReferenceId External product reference ID, e.g. `d39iun2fw1v4`.
+     * @return Details for an external product reference.
+   */
+  public ExternalProductReferenceMini getExternalProductExternalProductReference(String externalProductId, String externalProductReferenceId) {
+    final String url = "/external_products/{external_product_id}/external_product_references/{external_product_reference_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_product_id", externalProductId);
+    urlParams.put("external_product_reference_id", externalProductReferenceId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalProductReferenceMini.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Deactivate an external product reference
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/deactivate_external_product_external_product_reference">deactivate_external_product_external_product_reference api documentation</a>
+   * @param externalProductId External product id
+   * @param externalProductReferenceId External product reference ID, e.g. `d39iun2fw1v4`.
+     * @return Details for an external product reference.
+   */
+  public ExternalProductReferenceMini deactivateExternalProductExternalProductReference(String externalProductId, String externalProductReferenceId) {
+    final String url = "/external_products/{external_product_id}/external_product_references/{external_product_reference_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_product_id", externalProductId);
+    urlParams.put("external_product_reference_id", externalProductReferenceId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalProductReferenceMini.class;
+    return this.makeRequest("DELETE", path, returnType);
   }
 
   /**

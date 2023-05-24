@@ -10,6 +10,17 @@ import com.google.gson.annotations.SerializedName;
 
 public class Constants {
   
+    public enum ExternalProductReferenceConnectionType {
+      UNDEFINED,
+    
+      @SerializedName("apple_app_store")
+      APPLE_APP_STORE,
+    
+      @SerializedName("google_play_store")
+      GOOGLE_PLAY_STORE,
+    
+    };
+  
     public enum RelatedType {
       UNDEFINED,
     
