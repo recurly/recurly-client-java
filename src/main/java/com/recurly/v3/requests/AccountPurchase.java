@@ -113,6 +113,14 @@ public class AccountPurchase extends Request {
   private String lastName;
 
   /**
+   * Unique ID to identify the business entity assigned to the account. Available when the `Multiple
+   * Business Entities` feature is enabled.
+   */
+  @SerializedName("override_business_entity_id")
+  @Expose
+  private String overrideBusinessEntityId;
+
+  /**
    * The account code of the parent account to be associated with this account. Passing an empty
    * value removes any existing parent association from this account. If both `parent_account_code`
    * and `parent_account_id` are passed, the non-blank value in `parent_account_id` will be used.
@@ -384,6 +392,22 @@ public class AccountPurchase extends Request {
   /** @param lastName */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
+  }
+
+  /**
+   * Unique ID to identify the business entity assigned to the account. Available when the `Multiple
+   * Business Entities` feature is enabled.
+   */
+  public String getOverrideBusinessEntityId() {
+    return this.overrideBusinessEntityId;
+  }
+
+  /**
+   * @param overrideBusinessEntityId Unique ID to identify the business entity assigned to the
+   *     account. Available when the `Multiple Business Entities` feature is enabled.
+   */
+  public void setOverrideBusinessEntityId(final String overrideBusinessEntityId) {
+    this.overrideBusinessEntityId = overrideBusinessEntityId;
   }
 
   /**
