@@ -39,6 +39,14 @@ public class Invoice extends Resource {
   @Expose
   private String billingInfoId;
 
+  /**
+   * Unique ID to identify the business entity assigned to the invoice. Available when the `Multiple
+   * Business Entities` feature is enabled.
+   */
+  @SerializedName("business_entity_id")
+  @Expose
+  private String businessEntityId;
+
   /** Date invoice was marked paid or failed. */
   @SerializedName("closed_at")
   @Expose
@@ -321,6 +329,22 @@ public class Invoice extends Resource {
    */
   public void setBillingInfoId(final String billingInfoId) {
     this.billingInfoId = billingInfoId;
+  }
+
+  /**
+   * Unique ID to identify the business entity assigned to the invoice. Available when the `Multiple
+   * Business Entities` feature is enabled.
+   */
+  public String getBusinessEntityId() {
+    return this.businessEntityId;
+  }
+
+  /**
+   * @param businessEntityId Unique ID to identify the business entity assigned to the invoice.
+   *     Available when the `Multiple Business Entities` feature is enabled.
+   */
+  public void setBusinessEntityId(final String businessEntityId) {
+    this.businessEntityId = businessEntityId;
   }
 
   /** Date invoice was marked paid or failed. */

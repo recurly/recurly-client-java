@@ -166,6 +166,14 @@ public class Account extends Resource {
   @Expose
   private String object;
 
+  /**
+   * Unique ID to identify the business entity assigned to the account. Available when the `Multiple
+   * Business Entities` feature is enabled.
+   */
+  @SerializedName("override_business_entity_id")
+  @Expose
+  private String overrideBusinessEntityId;
+
   /** The UUID of the parent account associated with this account. */
   @SerializedName("parent_account_id")
   @Expose
@@ -537,6 +545,22 @@ public class Account extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  /**
+   * Unique ID to identify the business entity assigned to the account. Available when the `Multiple
+   * Business Entities` feature is enabled.
+   */
+  public String getOverrideBusinessEntityId() {
+    return this.overrideBusinessEntityId;
+  }
+
+  /**
+   * @param overrideBusinessEntityId Unique ID to identify the business entity assigned to the
+   *     account. Available when the `Multiple Business Entities` feature is enabled.
+   */
+  public void setOverrideBusinessEntityId(final String overrideBusinessEntityId) {
+    this.overrideBusinessEntityId = overrideBusinessEntityId;
   }
 
   /** The UUID of the parent account associated with this account. */

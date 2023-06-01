@@ -2810,6 +2810,36 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
+   * Fetch a business entity
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_business_entity">get_business_entity api documentation</a>
+   * @param businessEntityId Business Entity ID. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-entity1`.
+     * @return Business entity details
+   */
+  public BusinessEntity getBusinessEntity(String businessEntityId) {
+    final String url = "/business_entities/{business_entity_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("business_entity_id", businessEntityId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = BusinessEntity.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * List business entities
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_business_entities">list_business_entities api documentation</a>
+     * @return List of all business entities on your site.
+   */
+  public Pager<BusinessEntity> listBusinessEntities() {
+    final String url = "/business_entities";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, BusinessEntity.class).getType();
+    return new Pager<>(path, null, this, parameterizedType);
+  }
+
+  /**
    * List gift cards
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_gift_cards">list_gift_cards api documentation</a>
@@ -2884,5 +2914,24 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = GiftCard.class;
     return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * List a business entity's invoices
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_business_entity_invoices">list_business_entity_invoices api documentation</a>
+   * @param businessEntityId Business Entity ID. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-entity1`.
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the business entity's invoices.
+   */
+  public Pager<Invoice> listBusinessEntityInvoices(String businessEntityId, QueryParams queryParams) {
+    final String url = "/business_entities/{business_entity_id}/invoices";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("business_entity_id", businessEntityId);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 }
