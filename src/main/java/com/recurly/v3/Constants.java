@@ -1365,6 +1365,9 @@ public class Constants {
       @SerializedName("braintree_v_zero")
       BRAINTREE_V_ZERO,
     
+      @SerializedName("boleto")
+      BOLETO,
+    
     };
   
     public enum CardType {

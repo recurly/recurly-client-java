@@ -35,6 +35,11 @@ public class ExternalSubscription extends Resource {
   @Expose
   private Boolean autoRenew;
 
+  /** When the external subscription was canceled in the external platform. */
+  @SerializedName("canceled_at")
+  @Expose
+  private DateTime canceledAt;
+
   /** When the external subscription was created in Recurly. */
   @SerializedName("created_at")
   @Expose
@@ -62,6 +67,11 @@ public class ExternalSubscription extends Resource {
   @Expose
   private String id;
 
+  /** An indication of whether or not the external subscription is in a grace period. */
+  @SerializedName("in_grace_period")
+  @Expose
+  private Boolean inGracePeriod;
+
   /**
    * When a new billing event occurred on the external subscription in conjunction with a recent
    * billing period, reactivation or upgrade/downgrade.
@@ -80,10 +90,20 @@ public class ExternalSubscription extends Resource {
   @Expose
   private Integer quantity;
 
-  /** External subscriptions can be active, canceled, expired, or future. */
+  /** External subscriptions can be active, canceled, expired, or past_due. */
   @SerializedName("state")
   @Expose
   private String state;
+
+  /** When the external subscription trial period ends in the external platform. */
+  @SerializedName("trial_ends_at")
+  @Expose
+  private DateTime trialEndsAt;
+
+  /** When the external subscription trial period started in the external platform. */
+  @SerializedName("trial_started_at")
+  @Expose
+  private DateTime trialStartedAt;
 
   /** When the external subscription was updated in Recurly. */
   @SerializedName("updated_at")
@@ -134,6 +154,16 @@ public class ExternalSubscription extends Resource {
    */
   public void setAutoRenew(final Boolean autoRenew) {
     this.autoRenew = autoRenew;
+  }
+
+  /** When the external subscription was canceled in the external platform. */
+  public DateTime getCanceledAt() {
+    return this.canceledAt;
+  }
+
+  /** @param canceledAt When the external subscription was canceled in the external platform. */
+  public void setCanceledAt(final DateTime canceledAt) {
+    this.canceledAt = canceledAt;
   }
 
   /** When the external subscription was created in Recurly. */
@@ -195,6 +225,19 @@ public class ExternalSubscription extends Resource {
     this.id = id;
   }
 
+  /** An indication of whether or not the external subscription is in a grace period. */
+  public Boolean getInGracePeriod() {
+    return this.inGracePeriod;
+  }
+
+  /**
+   * @param inGracePeriod An indication of whether or not the external subscription is in a grace
+   *     period.
+   */
+  public void setInGracePeriod(final Boolean inGracePeriod) {
+    this.inGracePeriod = inGracePeriod;
+  }
+
   /**
    * When a new billing event occurred on the external subscription in conjunction with a recent
    * billing period, reactivation or upgrade/downgrade.
@@ -231,14 +274,39 @@ public class ExternalSubscription extends Resource {
     this.quantity = quantity;
   }
 
-  /** External subscriptions can be active, canceled, expired, or future. */
+  /** External subscriptions can be active, canceled, expired, or past_due. */
   public String getState() {
     return this.state;
   }
 
-  /** @param state External subscriptions can be active, canceled, expired, or future. */
+  /** @param state External subscriptions can be active, canceled, expired, or past_due. */
   public void setState(final String state) {
     this.state = state;
+  }
+
+  /** When the external subscription trial period ends in the external platform. */
+  public DateTime getTrialEndsAt() {
+    return this.trialEndsAt;
+  }
+
+  /**
+   * @param trialEndsAt When the external subscription trial period ends in the external platform.
+   */
+  public void setTrialEndsAt(final DateTime trialEndsAt) {
+    this.trialEndsAt = trialEndsAt;
+  }
+
+  /** When the external subscription trial period started in the external platform. */
+  public DateTime getTrialStartedAt() {
+    return this.trialStartedAt;
+  }
+
+  /**
+   * @param trialStartedAt When the external subscription trial period started in the external
+   *     platform.
+   */
+  public void setTrialStartedAt(final DateTime trialStartedAt) {
+    this.trialStartedAt = trialStartedAt;
   }
 
   /** When the external subscription was updated in Recurly. */
