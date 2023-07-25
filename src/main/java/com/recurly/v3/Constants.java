@@ -677,6 +677,17 @@ public class Constants {
     
     };
   
+    public enum NetTermsType {
+      UNDEFINED,
+    
+      @SerializedName("net")
+      NET,
+    
+      @SerializedName("eom")
+      EOM,
+    
+    };
+  
     public enum InvoiceType {
       UNDEFINED,
     

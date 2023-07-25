@@ -62,14 +62,29 @@ public class SubscriptionChangeCreate extends Request {
   private List<CustomField> customFields;
 
   /**
-   * Integer representing the number of days after an invoice's creation that the invoice will
-   * become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will
-   * become past due 24 hours after it’s created. If an invoice is due net 30, it will become past
-   * due at 31 days exactly.
+   * Integer normally paired with `Net Terms Type` and representing the number of days past the
+   * current date (for `net` Net Terms Type) or days after the last day of the current month (for
+   * `eom` Net Terms Type) that the invoice will become past due. During a subscription change, it's
+   * not necessary to provide both the `Net Terms Type` and `Net Terms` parameters.
+   *
+   * <p>For more information please visit our docs page
+   * (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
    */
   @SerializedName("net_terms")
   @Expose
   private Integer netTerms;
+
+  /**
+   * Optionally supplied string that may be either `net` or `eom` (end-of-month). When `net`, an
+   * invoice becomes past due the specified number of `Net Terms` days from the current date. When
+   * `eom` an invoice becomes past due the specified number of `Net Terms` days from the last day of
+   * the current month.
+   *
+   * <p>This field is only available when the EOM Net Terms feature is enabled.
+   */
+  @SerializedName("net_terms_type")
+  @Expose
+  private Constants.NetTermsType netTermsType;
 
   /**
    * If you want to change to a new plan, you can provide the plan's code or id. If both are
@@ -242,23 +257,52 @@ public class SubscriptionChangeCreate extends Request {
   }
 
   /**
-   * Integer representing the number of days after an invoice's creation that the invoice will
-   * become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will
-   * become past due 24 hours after it’s created. If an invoice is due net 30, it will become past
-   * due at 31 days exactly.
+   * Integer normally paired with `Net Terms Type` and representing the number of days past the
+   * current date (for `net` Net Terms Type) or days after the last day of the current month (for
+   * `eom` Net Terms Type) that the invoice will become past due. During a subscription change, it's
+   * not necessary to provide both the `Net Terms Type` and `Net Terms` parameters.
+   *
+   * <p>For more information please visit our docs page
+   * (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
    */
   public Integer getNetTerms() {
     return this.netTerms;
   }
 
   /**
-   * @param netTerms Integer representing the number of days after an invoice's creation that the
-   *     invoice will become past due. If an invoice's net terms are set to '0', it is due 'On
-   *     Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30,
-   *     it will become past due at 31 days exactly.
+   * @param netTerms Integer normally paired with `Net Terms Type` and representing the number of
+   *     days past the current date (for `net` Net Terms Type) or days after the last day of the
+   *     current month (for `eom` Net Terms Type) that the invoice will become past due. During a
+   *     subscription change, it's not necessary to provide both the `Net Terms Type` and `Net
+   *     Terms` parameters.
+   *     <p>For more information please visit our docs page
+   *     (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
    */
   public void setNetTerms(final Integer netTerms) {
     this.netTerms = netTerms;
+  }
+
+  /**
+   * Optionally supplied string that may be either `net` or `eom` (end-of-month). When `net`, an
+   * invoice becomes past due the specified number of `Net Terms` days from the current date. When
+   * `eom` an invoice becomes past due the specified number of `Net Terms` days from the last day of
+   * the current month.
+   *
+   * <p>This field is only available when the EOM Net Terms feature is enabled.
+   */
+  public Constants.NetTermsType getNetTermsType() {
+    return this.netTermsType;
+  }
+
+  /**
+   * @param netTermsType Optionally supplied string that may be either `net` or `eom`
+   *     (end-of-month). When `net`, an invoice becomes past due the specified number of `Net Terms`
+   *     days from the current date. When `eom` an invoice becomes past due the specified number of
+   *     `Net Terms` days from the last day of the current month.
+   *     <p>This field is only available when the EOM Net Terms feature is enabled.
+   */
+  public void setNetTermsType(final Constants.NetTermsType netTermsType) {
+    this.netTermsType = netTermsType;
   }
 
   /**
