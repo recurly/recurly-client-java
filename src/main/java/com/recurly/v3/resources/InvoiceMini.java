@@ -12,6 +12,14 @@ import com.recurly.v3.Resource;
 
 public class InvoiceMini extends Resource {
 
+  /**
+   * Unique ID to identify the business entity assigned to the invoice. Available when the `Multiple
+   * Business Entities` feature is enabled.
+   */
+  @SerializedName("business_entity_id")
+  @Expose
+  private String businessEntityId;
+
   /** Invoice ID */
   @SerializedName("id")
   @Expose
@@ -36,6 +44,22 @@ public class InvoiceMini extends Resource {
   @SerializedName("type")
   @Expose
   private Constants.InvoiceType type;
+
+  /**
+   * Unique ID to identify the business entity assigned to the invoice. Available when the `Multiple
+   * Business Entities` feature is enabled.
+   */
+  public String getBusinessEntityId() {
+    return this.businessEntityId;
+  }
+
+  /**
+   * @param businessEntityId Unique ID to identify the business entity assigned to the invoice.
+   *     Available when the `Multiple Business Entities` feature is enabled.
+   */
+  public void setBusinessEntityId(final String businessEntityId) {
+    this.businessEntityId = businessEntityId;
+  }
 
   /** Invoice ID */
   public String getId() {
