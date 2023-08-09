@@ -21,6 +21,14 @@ public class Transaction extends Resource {
   @Expose
   private AccountMini account;
 
+  /**
+   * Action result params to be used in Recurly-JS to complete a payment when using asynchronous
+   * payment methods, e.g., Boleto, iDEAL and Sofort.
+   */
+  @SerializedName("action_result")
+  @Expose
+  private Map actionResult;
+
   /** Total transaction amount sent to the payment gateway. */
   @SerializedName("amount")
   @Expose
@@ -234,6 +242,22 @@ public class Transaction extends Resource {
   /** @param account Account mini details */
   public void setAccount(final AccountMini account) {
     this.account = account;
+  }
+
+  /**
+   * Action result params to be used in Recurly-JS to complete a payment when using asynchronous
+   * payment methods, e.g., Boleto, iDEAL and Sofort.
+   */
+  public Map getActionResult() {
+    return this.actionResult;
+  }
+
+  /**
+   * @param actionResult Action result params to be used in Recurly-JS to complete a payment when
+   *     using asynchronous payment methods, e.g., Boleto, iDEAL and Sofort.
+   */
+  public void setActionResult(final Map actionResult) {
+    this.actionResult = actionResult;
   }
 
   /** Total transaction amount sent to the payment gateway. */

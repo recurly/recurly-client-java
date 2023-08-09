@@ -13,25 +13,28 @@ import com.recurly.v3.resources.*;
 public class GatewayAttributes extends Request {
 
   /**
-   * Used by Adyen gateways. The Shopper Reference value used when the external token was created.
-   * Must be used in conjunction with gateway_token and gateway_code.
+   * Used by Adyen and Braintree gateways. For Adyen the Shopper Reference value used when the
+   * external token was created. Must be used in conjunction with gateway_token and gateway_code.
+   * For Braintree the PayPal PayerID is populated in the response.
    */
   @SerializedName("account_reference")
   @Expose
   private String accountReference;
 
   /**
-   * Used by Adyen gateways. The Shopper Reference value used when the external token was created.
-   * Must be used in conjunction with gateway_token and gateway_code.
+   * Used by Adyen and Braintree gateways. For Adyen the Shopper Reference value used when the
+   * external token was created. Must be used in conjunction with gateway_token and gateway_code.
+   * For Braintree the PayPal PayerID is populated in the response.
    */
   public String getAccountReference() {
     return this.accountReference;
   }
 
   /**
-   * @param accountReference Used by Adyen gateways. The Shopper Reference value used when the
-   *     external token was created. Must be used in conjunction with gateway_token and
-   *     gateway_code.
+   * @param accountReference Used by Adyen and Braintree gateways. For Adyen the Shopper Reference
+   *     value used when the external token was created. Must be used in conjunction with
+   *     gateway_token and gateway_code. For Braintree the PayPal PayerID is populated in the
+   *     response.
    */
   public void setAccountReference(final String accountReference) {
     this.accountReference = accountReference;
