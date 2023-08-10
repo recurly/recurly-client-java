@@ -11,6 +11,7 @@ import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 import org.joda.time.DateTime;
 
 public class Subscription extends Resource {
@@ -19,6 +20,14 @@ public class Subscription extends Resource {
   @SerializedName("account")
   @Expose
   private AccountMini account;
+
+  /**
+   * Action result params to be used in Recurly-JS to complete a payment when using asynchronous
+   * payment methods, e.g., Boleto, iDEAL and Sofort.
+   */
+  @SerializedName("action_result")
+  @Expose
+  private Map actionResult;
 
   /** Activated at */
   @SerializedName("activated_at")
@@ -332,6 +341,22 @@ public class Subscription extends Resource {
   /** @param account Account mini details */
   public void setAccount(final AccountMini account) {
     this.account = account;
+  }
+
+  /**
+   * Action result params to be used in Recurly-JS to complete a payment when using asynchronous
+   * payment methods, e.g., Boleto, iDEAL and Sofort.
+   */
+  public Map getActionResult() {
+    return this.actionResult;
+  }
+
+  /**
+   * @param actionResult Action result params to be used in Recurly-JS to complete a payment when
+   *     using asynchronous payment methods, e.g., Boleto, iDEAL and Sofort.
+   */
+  public void setActionResult(final Map actionResult) {
+    this.actionResult = actionResult;
   }
 
   /** Activated at */
