@@ -224,6 +224,15 @@ public class Transaction extends Resource {
   @Expose
   private String uuid;
 
+  /**
+   * VAT number for the customer on this transaction. If the customer's Billing Info country is BR
+   * or AR, then this will be their Tax Identifier. For all other countries this will come from the
+   * VAT Number field in the Billing Info.
+   */
+  @SerializedName("vat_number")
+  @Expose
+  private String vatNumber;
+
   /** Voided at */
   @SerializedName("voided_at")
   @Expose
@@ -670,6 +679,24 @@ public class Transaction extends Resource {
    */
   public void setUuid(final String uuid) {
     this.uuid = uuid;
+  }
+
+  /**
+   * VAT number for the customer on this transaction. If the customer's Billing Info country is BR
+   * or AR, then this will be their Tax Identifier. For all other countries this will come from the
+   * VAT Number field in the Billing Info.
+   */
+  public String getVatNumber() {
+    return this.vatNumber;
+  }
+
+  /**
+   * @param vatNumber VAT number for the customer on this transaction. If the customer's Billing
+   *     Info country is BR or AR, then this will be their Tax Identifier. For all other countries
+   *     this will come from the VAT Number field in the Billing Info.
+   */
+  public void setVatNumber(final String vatNumber) {
+    this.vatNumber = vatNumber;
   }
 
   /** Voided at */

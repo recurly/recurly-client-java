@@ -1839,6 +1839,9 @@ public class Constants {
       @SerializedName("issuer_unavailable")
       ISSUER_UNAVAILABLE,
     
+      @SerializedName("lifecycle_decline")
+      LIFECYCLE_DECLINE,
+    
       @SerializedName("merch_max_transaction_limit_exceeded")
       MERCH_MAX_TRANSACTION_LIMIT_EXCEEDED,
     
