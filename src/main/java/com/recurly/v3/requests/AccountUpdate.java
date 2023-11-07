@@ -83,9 +83,9 @@ public class AccountUpdate extends Request {
   private String firstName;
 
   /**
-   * Unique ID to identify an invoice template. Available when the site is on a Pro or Enterprise
-   * plan. Used to specify which invoice template, if any, should be used to generate invoices for
-   * the account.
+   * Unique ID to identify an invoice template. Available when the site is on a Pro or Elite plan.
+   * Used to specify which invoice template, if any, should be used to generate invoices for the
+   * account.
    */
   @SerializedName("invoice_template_id")
   @Expose
@@ -313,9 +313,9 @@ public class AccountUpdate extends Request {
   }
 
   /**
-   * Unique ID to identify an invoice template. Available when the site is on a Pro or Enterprise
-   * plan. Used to specify which invoice template, if any, should be used to generate invoices for
-   * the account.
+   * Unique ID to identify an invoice template. Available when the site is on a Pro or Elite plan.
+   * Used to specify which invoice template, if any, should be used to generate invoices for the
+   * account.
    */
   public String getInvoiceTemplateId() {
     return this.invoiceTemplateId;
@@ -323,8 +323,8 @@ public class AccountUpdate extends Request {
 
   /**
    * @param invoiceTemplateId Unique ID to identify an invoice template. Available when the site is
-   *     on a Pro or Enterprise plan. Used to specify which invoice template, if any, should be used
-   *     to generate invoices for the account.
+   *     on a Pro or Elite plan. Used to specify which invoice template, if any, should be used to
+   *     generate invoices for the account.
    */
   public void setInvoiceTemplateId(final String invoiceTemplateId) {
     this.invoiceTemplateId = invoiceTemplateId;

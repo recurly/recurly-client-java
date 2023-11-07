@@ -22,6 +22,14 @@ public class Address extends Request {
   @Expose
   private String country;
 
+  /**
+   * Code that represents a geographic entity (location or object). Only returned for Sling Vertex
+   * Integration
+   */
+  @SerializedName("geo_code")
+  @Expose
+  private String geoCode;
+
   /** Phone number */
   @SerializedName("phone")
   @Expose
@@ -65,6 +73,22 @@ public class Address extends Request {
   /** @param country Country, 2-letter ISO 3166-1 alpha-2 code. */
   public void setCountry(final String country) {
     this.country = country;
+  }
+
+  /**
+   * Code that represents a geographic entity (location or object). Only returned for Sling Vertex
+   * Integration
+   */
+  public String getGeoCode() {
+    return this.geoCode;
+  }
+
+  /**
+   * @param geoCode Code that represents a geographic entity (location or object). Only returned for
+   *     Sling Vertex Integration
+   */
+  public void setGeoCode(final String geoCode) {
+    this.geoCode = geoCode;
   }
 
   /** Phone number */
