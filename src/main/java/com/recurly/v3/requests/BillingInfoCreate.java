@@ -159,6 +159,11 @@ public class BillingInfoCreate extends Request {
   @Expose
   private Boolean primaryPaymentMethod;
 
+  /** Roku's CIB if billing through Roku */
+  @SerializedName("roku_billing_agreement_id")
+  @Expose
+  private String rokuBillingAgreementId;
+
   /** The bank's rounting number. (ACH only) */
   @SerializedName("routing_number")
   @Expose
@@ -528,6 +533,16 @@ public class BillingInfoCreate extends Request {
    */
   public void setPrimaryPaymentMethod(final Boolean primaryPaymentMethod) {
     this.primaryPaymentMethod = primaryPaymentMethod;
+  }
+
+  /** Roku's CIB if billing through Roku */
+  public String getRokuBillingAgreementId() {
+    return this.rokuBillingAgreementId;
+  }
+
+  /** @param rokuBillingAgreementId Roku's CIB if billing through Roku */
+  public void setRokuBillingAgreementId(final String rokuBillingAgreementId) {
+    this.rokuBillingAgreementId = rokuBillingAgreementId;
   }
 
   /** The bank's rounting number. (ACH only) */

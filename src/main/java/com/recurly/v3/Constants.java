@@ -847,6 +847,9 @@ public class Constants {
       @SerializedName("eft")
       EFT,
     
+      @SerializedName("google_pay")
+      GOOGLE_PAY,
+    
       @SerializedName("money_order")
       MONEY_ORDER,
     
@@ -1345,6 +1348,9 @@ public class Constants {
     
       @SerializedName("gateway_token")
       GATEWAY_TOKEN,
+    
+      @SerializedName("google_pay")
+      GOOGLE_PAY,
     
       @SerializedName("iban_bank_account")
       IBAN_BANK_ACCOUNT,

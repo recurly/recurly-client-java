@@ -148,10 +148,10 @@ public class Account extends Resource {
   private String id;
 
   /**
-   * Unique ID to identify an invoice template. Available when the site is on a Pro or Enterprise
-   * plan. Used to specify if a non-default invoice template will be used to generate invoices for
-   * the account. For sites without multiple invoice templates enabled, the default template will
-   * always be used.
+   * Unique ID to identify an invoice template. Available when the site is on a Pro or Elite plan.
+   * Used to specify if a non-default invoice template will be used to generate invoices for the
+   * account. For sites without multiple invoice templates enabled, the default template will always
+   * be used.
    */
   @SerializedName("invoice_template_id")
   @Expose
@@ -509,10 +509,10 @@ public class Account extends Resource {
   }
 
   /**
-   * Unique ID to identify an invoice template. Available when the site is on a Pro or Enterprise
-   * plan. Used to specify if a non-default invoice template will be used to generate invoices for
-   * the account. For sites without multiple invoice templates enabled, the default template will
-   * always be used.
+   * Unique ID to identify an invoice template. Available when the site is on a Pro or Elite plan.
+   * Used to specify if a non-default invoice template will be used to generate invoices for the
+   * account. For sites without multiple invoice templates enabled, the default template will always
+   * be used.
    */
   public String getInvoiceTemplateId() {
     return this.invoiceTemplateId;
@@ -520,8 +520,8 @@ public class Account extends Resource {
 
   /**
    * @param invoiceTemplateId Unique ID to identify an invoice template. Available when the site is
-   *     on a Pro or Enterprise plan. Used to specify if a non-default invoice template will be used
-   *     to generate invoices for the account. For sites without multiple invoice templates enabled,
+   *     on a Pro or Elite plan. Used to specify if a non-default invoice template will be used to
+   *     generate invoices for the account. For sites without multiple invoice templates enabled,
    *     the default template will always be used.
    */
   public void setInvoiceTemplateId(final String invoiceTemplateId) {
