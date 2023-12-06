@@ -81,6 +81,11 @@ public class SubscriptionCreate extends Request {
   @Expose
   private String customerNotes;
 
+  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  @SerializedName("gateway_code")
+  @Expose
+  private String gatewayCode;
+
   /** A gift card redemption code to be redeemed on the purchase invoice. */
   @SerializedName("gift_card_redemption_code")
   @Expose
@@ -372,6 +377,19 @@ public class SubscriptionCreate extends Request {
    */
   public void setCustomerNotes(final String customerNotes) {
     this.customerNotes = customerNotes;
+  }
+
+  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  public String getGatewayCode() {
+    return this.gatewayCode;
+  }
+
+  /**
+   * @param gatewayCode If present, this subscription's transactions will use the payment gateway
+   *     with this code.
+   */
+  public void setGatewayCode(final String gatewayCode) {
+    this.gatewayCode = gatewayCode;
   }
 
   /** A gift card redemption code to be redeemed on the purchase invoice. */

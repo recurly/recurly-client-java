@@ -269,7 +269,7 @@ public class Subscription extends Resource {
   @Expose
   private BigDecimal subtotal;
 
-  /** Estimated tax */
+  /** Only for merchants using Recurly's In-The-Box taxes. */
   @SerializedName("tax")
   @Expose
   private BigDecimal tax;
@@ -282,7 +282,7 @@ public class Subscription extends Resource {
   @Expose
   private Boolean taxInclusive;
 
-  /** Tax info */
+  /** Only for merchants using Recurly's In-The-Box taxes. */
   @SerializedName("tax_info")
   @Expose
   private TaxInfo taxInfo;
@@ -858,12 +858,12 @@ public class Subscription extends Resource {
     this.subtotal = subtotal;
   }
 
-  /** Estimated tax */
+  /** Only for merchants using Recurly's In-The-Box taxes. */
   public BigDecimal getTax() {
     return this.tax;
   }
 
-  /** @param tax Estimated tax */
+  /** @param tax Only for merchants using Recurly's In-The-Box taxes. */
   public void setTax(final BigDecimal tax) {
     this.tax = tax;
   }
@@ -885,12 +885,12 @@ public class Subscription extends Resource {
     this.taxInclusive = taxInclusive;
   }
 
-  /** Tax info */
+  /** Only for merchants using Recurly's In-The-Box taxes. */
   public TaxInfo getTaxInfo() {
     return this.taxInfo;
   }
 
-  /** @param taxInfo Tax info */
+  /** @param taxInfo Only for merchants using Recurly's In-The-Box taxes. */
   public void setTaxInfo(final TaxInfo taxInfo) {
     this.taxInfo = taxInfo;
   }
