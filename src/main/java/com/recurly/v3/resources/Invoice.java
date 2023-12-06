@@ -235,7 +235,7 @@ public class Invoice extends Resource {
   @Expose
   private BigDecimal tax;
 
-  /** Tax info */
+  /** Only for merchants using Recurly's In-The-Box taxes. */
   @SerializedName("tax_info")
   @Expose
   private TaxInfo taxInfo;
@@ -753,12 +753,12 @@ public class Invoice extends Resource {
     this.tax = tax;
   }
 
-  /** Tax info */
+  /** Only for merchants using Recurly's In-The-Box taxes. */
   public TaxInfo getTaxInfo() {
     return this.taxInfo;
   }
 
-  /** @param taxInfo Tax info */
+  /** @param taxInfo Only for merchants using Recurly's In-The-Box taxes. */
   public void setTaxInfo(final TaxInfo taxInfo) {
     this.taxInfo = taxInfo;
   }

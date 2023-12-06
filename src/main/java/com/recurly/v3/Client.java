@@ -2772,6 +2772,43 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
+   * List the external payment phases on an external subscription
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_subscription_external_payment_phases">list_external_subscription_external_payment_phases api documentation</a>
+   * @param externalSubscriptionId External subscription id
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the the external_payment_phases on a site.
+   */
+  public Pager<ExternalPaymentPhase> listExternalSubscriptionExternalPaymentPhases(String externalSubscriptionId, QueryParams queryParams) {
+    final String url = "/external_subscriptions/{external_subscription_id}/external_payment_phases";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_subscription_id", externalSubscriptionId);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalPaymentPhase.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * Fetch an external payment_phase
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_external_subscription_external_payment_phase">get_external_subscription_external_payment_phase api documentation</a>
+   * @param externalSubscriptionId External subscription id
+   * @param externalPaymentPhaseId External payment phase ID, e.g. `a34ypb2ef9w1`.
+     * @return Details for an external payment_phase.
+   */
+  public ExternalPaymentPhase getExternalSubscriptionExternalPaymentPhase(String externalSubscriptionId, String externalPaymentPhaseId) {
+    final String url = "/external_subscriptions/{external_subscription_id}/external_payment_phases/{external_payment_phase_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_subscription_id", externalSubscriptionId);
+    urlParams.put("external_payment_phase_id", externalPaymentPhaseId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalPaymentPhase.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
    * List entitlements granted to an account
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_entitlements">list_entitlements api documentation</a>
