@@ -136,18 +136,24 @@ public class Invoice extends Resource {
   /**
    * Integer paired with `Net Terms Type` and representing the number of days past the current date
    * (for `net` Net Terms Type) or days after the last day of the current month (for `eom` Net Terms
-   * Type) that the invoice will become past due. For any value, an additional 24 hours is added to
-   * ensure the customer has the entire last day to make payment before becoming past due. For
-   * example:
+   * Type) that the invoice will become past due. For `manual` collection method, an additional 24
+   * hours is added to ensure the customer has the entire last day to make payment before becoming
+   * past due. For example:
    *
    * <p>If an invoice is due `net 0`, it is due 'On Receipt' and will become past due 24 hours after
    * it's created. If an invoice is due `net 30`, it will become past due at 31 days exactly. If an
    * invoice is due `eom 30`, it will become past due 31 days from the last day of the current
    * month.
    *
-   * <p>When `eom` Net Terms Type is passed, the value for `Net Terms` is restricted to `0, 15, 30,
-   * 45, 60, or 90`. For more information please visit our docs page
-   * (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
+   * <p>For `automatic` collection method, the additional 24 hours is not added. For example,
+   * On-Receipt is due immediately, and `net 30` will become due exactly 30 days from invoice
+   * generation, at which point Recurly will attempt collection. When `eom` Net Terms Type is
+   * passed, the value for `Net Terms` is restricted to `0, 15, 30, 45, 60, or 90`.
+   *
+   * <p>For more information on how net terms work with `manual` collection visit our docs page
+   * (https://docs.recurly.com/docs/manual-payments#section-collection-terms) or visit
+   * (https://docs.recurly.com/docs/automatic-invoicing-terms#section-collection-terms) for
+   * information about net terms using `automatic` collection.
    */
   @SerializedName("net_terms")
   @Expose
@@ -545,18 +551,24 @@ public class Invoice extends Resource {
   /**
    * Integer paired with `Net Terms Type` and representing the number of days past the current date
    * (for `net` Net Terms Type) or days after the last day of the current month (for `eom` Net Terms
-   * Type) that the invoice will become past due. For any value, an additional 24 hours is added to
-   * ensure the customer has the entire last day to make payment before becoming past due. For
-   * example:
+   * Type) that the invoice will become past due. For `manual` collection method, an additional 24
+   * hours is added to ensure the customer has the entire last day to make payment before becoming
+   * past due. For example:
    *
    * <p>If an invoice is due `net 0`, it is due 'On Receipt' and will become past due 24 hours after
    * it's created. If an invoice is due `net 30`, it will become past due at 31 days exactly. If an
    * invoice is due `eom 30`, it will become past due 31 days from the last day of the current
    * month.
    *
-   * <p>When `eom` Net Terms Type is passed, the value for `Net Terms` is restricted to `0, 15, 30,
-   * 45, 60, or 90`. For more information please visit our docs page
-   * (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
+   * <p>For `automatic` collection method, the additional 24 hours is not added. For example,
+   * On-Receipt is due immediately, and `net 30` will become due exactly 30 days from invoice
+   * generation, at which point Recurly will attempt collection. When `eom` Net Terms Type is
+   * passed, the value for `Net Terms` is restricted to `0, 15, 30, 45, 60, or 90`.
+   *
+   * <p>For more information on how net terms work with `manual` collection visit our docs page
+   * (https://docs.recurly.com/docs/manual-payments#section-collection-terms) or visit
+   * (https://docs.recurly.com/docs/automatic-invoicing-terms#section-collection-terms) for
+   * information about net terms using `automatic` collection.
    */
   public Integer getNetTerms() {
     return this.netTerms;
@@ -565,16 +577,21 @@ public class Invoice extends Resource {
   /**
    * @param netTerms Integer paired with `Net Terms Type` and representing the number of days past
    *     the current date (for `net` Net Terms Type) or days after the last day of the current month
-   *     (for `eom` Net Terms Type) that the invoice will become past due. For any value, an
-   *     additional 24 hours is added to ensure the customer has the entire last day to make payment
-   *     before becoming past due. For example:
+   *     (for `eom` Net Terms Type) that the invoice will become past due. For `manual` collection
+   *     method, an additional 24 hours is added to ensure the customer has the entire last day to
+   *     make payment before becoming past due. For example:
    *     <p>If an invoice is due `net 0`, it is due 'On Receipt' and will become past due 24 hours
    *     after it's created. If an invoice is due `net 30`, it will become past due at 31 days
    *     exactly. If an invoice is due `eom 30`, it will become past due 31 days from the last day
    *     of the current month.
-   *     <p>When `eom` Net Terms Type is passed, the value for `Net Terms` is restricted to `0, 15,
-   *     30, 45, 60, or 90`. For more information please visit our docs page
-   *     (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
+   *     <p>For `automatic` collection method, the additional 24 hours is not added. For example,
+   *     On-Receipt is due immediately, and `net 30` will become due exactly 30 days from invoice
+   *     generation, at which point Recurly will attempt collection. When `eom` Net Terms Type is
+   *     passed, the value for `Net Terms` is restricted to `0, 15, 30, 45, 60, or 90`.
+   *     <p>For more information on how net terms work with `manual` collection visit our docs page
+   *     (https://docs.recurly.com/docs/manual-payments#section-collection-terms) or visit
+   *     (https://docs.recurly.com/docs/automatic-invoicing-terms#section-collection-terms) for
+   *     information about net terms using `automatic` collection.
    */
   public void setNetTerms(final Integer netTerms) {
     this.netTerms = netTerms;
