@@ -67,8 +67,10 @@ public class SubscriptionChangeCreate extends Request {
    * `eom` Net Terms Type) that the invoice will become past due. During a subscription change, it's
    * not necessary to provide both the `Net Terms Type` and `Net Terms` parameters.
    *
-   * <p>For more information please visit our docs page
-   * (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
+   * <p>For more information on how net terms work with `manual` collection visit our docs page
+   * (https://docs.recurly.com/docs/manual-payments#section-collection-terms) or visit
+   * (https://docs.recurly.com/docs/automatic-invoicing-terms#section-collection-terms) for
+   * information about net terms using `automatic` collection.
    */
   @SerializedName("net_terms")
   @Expose
@@ -262,8 +264,10 @@ public class SubscriptionChangeCreate extends Request {
    * `eom` Net Terms Type) that the invoice will become past due. During a subscription change, it's
    * not necessary to provide both the `Net Terms Type` and `Net Terms` parameters.
    *
-   * <p>For more information please visit our docs page
-   * (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
+   * <p>For more information on how net terms work with `manual` collection visit our docs page
+   * (https://docs.recurly.com/docs/manual-payments#section-collection-terms) or visit
+   * (https://docs.recurly.com/docs/automatic-invoicing-terms#section-collection-terms) for
+   * information about net terms using `automatic` collection.
    */
   public Integer getNetTerms() {
     return this.netTerms;
@@ -275,8 +279,10 @@ public class SubscriptionChangeCreate extends Request {
    *     current month (for `eom` Net Terms Type) that the invoice will become past due. During a
    *     subscription change, it's not necessary to provide both the `Net Terms Type` and `Net
    *     Terms` parameters.
-   *     <p>For more information please visit our docs page
-   *     (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
+   *     <p>For more information on how net terms work with `manual` collection visit our docs page
+   *     (https://docs.recurly.com/docs/manual-payments#section-collection-terms) or visit
+   *     (https://docs.recurly.com/docs/automatic-invoicing-terms#section-collection-terms) for
+   *     information about net terms using `automatic` collection.
    */
   public void setNetTerms(final Integer netTerms) {
     this.netTerms = netTerms;

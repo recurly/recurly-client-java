@@ -83,6 +83,11 @@ public class Transaction extends Resource {
   @Expose
   private Constants.CvvCheck cvvCheck;
 
+  /** Fraud information */
+  @SerializedName("fraud_info")
+  @Expose
+  private TransactionFraudInfo fraudInfo;
+
   /** Transaction approval code from the payment gateway. */
   @SerializedName("gateway_approval_code")
   @Expose
@@ -384,6 +389,16 @@ public class Transaction extends Resource {
   /** @param cvvCheck When processed, result from checking the CVV/CVC value on the transaction. */
   public void setCvvCheck(final Constants.CvvCheck cvvCheck) {
     this.cvvCheck = cvvCheck;
+  }
+
+  /** Fraud information */
+  public TransactionFraudInfo getFraudInfo() {
+    return this.fraudInfo;
+  }
+
+  /** @param fraudInfo Fraud information */
+  public void setFraudInfo(final TransactionFraudInfo fraudInfo) {
+    this.fraudInfo = fraudInfo;
   }
 
   /** Transaction approval code from the payment gateway. */
