@@ -27,6 +27,11 @@ public class TransactionError extends Resource {
   @Expose
   private Constants.DeclineCode declineCode;
 
+  /** Fraud information */
+  @SerializedName("fraud_info")
+  @Expose
+  private TransactionFraudInfo fraudInfo;
+
   /** Merchant message */
   @SerializedName("merchant_advice")
   @Expose
@@ -83,6 +88,16 @@ public class TransactionError extends Resource {
   /** @param declineCode Decline code */
   public void setDeclineCode(final Constants.DeclineCode declineCode) {
     this.declineCode = declineCode;
+  }
+
+  /** Fraud information */
+  public TransactionFraudInfo getFraudInfo() {
+    return this.fraudInfo;
+  }
+
+  /** @param fraudInfo Fraud information */
+  public void setFraudInfo(final TransactionFraudInfo fraudInfo) {
+    this.fraudInfo = fraudInfo;
   }
 
   /** Merchant message */
