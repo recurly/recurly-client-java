@@ -784,6 +784,23 @@ public class Constants {
     
     };
   
+    public enum InvoiceStateQueryParam {
+      UNDEFINED,
+    
+      @SerializedName("pending")
+      PENDING,
+    
+      @SerializedName("past_due")
+      PAST_DUE,
+    
+      @SerializedName("paid")
+      PAID,
+    
+      @SerializedName("failed")
+      FAILED,
+    
+    };
+  
     public enum CollectionMethod {
       UNDEFINED,
     
