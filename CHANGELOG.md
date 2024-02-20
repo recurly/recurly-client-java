@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.50.0](https://github.com/recurly/recurly-client-java/tree/4.50.0) (2024-02-20)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.49.0...4.50.0)
+
+
+**Merged Pull Requests**
+
+- Add invoice state param for v2021-02-25 [#262](https://github.com/recurly/recurly-client-java/pull/262) ([recurly-integrations](https://github.com/recurly-integrations))
+- Remove internal wiki link from codel config. [#260](https://github.com/recurly/recurly-client-java/pull/260) ([recurly-bearley](https://github.com/recurly-bearley))
+
+
+
 ## [4.49.0](https://github.com/recurly/recurly-client-java/tree/4.49.0) (2024-01-24)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.48.0...4.49.0)
