@@ -43,6 +43,14 @@ public class BillingInfoCreate extends Request {
   @Expose
   private Boolean backupPaymentMethod;
 
+  /**
+   * Represents the card network preference associated with the billing info for dual badged cards.
+   * Must be a supported card network.
+   */
+  @SerializedName("card_network_preference")
+  @Expose
+  private Constants.CardNetwork cardNetworkPreference;
+
   @SerializedName("card_type")
   @Expose
   private Constants.CardType cardType;
@@ -293,6 +301,22 @@ public class BillingInfoCreate extends Request {
    */
   public void setBackupPaymentMethod(final Boolean backupPaymentMethod) {
     this.backupPaymentMethod = backupPaymentMethod;
+  }
+
+  /**
+   * Represents the card network preference associated with the billing info for dual badged cards.
+   * Must be a supported card network.
+   */
+  public Constants.CardNetwork getCardNetworkPreference() {
+    return this.cardNetworkPreference;
+  }
+
+  /**
+   * @param cardNetworkPreference Represents the card network preference associated with the billing
+   *     info for dual badged cards. Must be a supported card network.
+   */
+  public void setCardNetworkPreference(final Constants.CardNetwork cardNetworkPreference) {
+    this.cardNetworkPreference = cardNetworkPreference;
   }
 
   public Constants.CardType getCardType() {

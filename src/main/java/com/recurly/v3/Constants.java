@@ -1457,6 +1457,26 @@ public class Constants {
     
     };
   
+    public enum CardNetwork {
+      UNDEFINED,
+    
+      @SerializedName("Bancontact")
+      BANCONTACT,
+    
+      @SerializedName("CartesBancaires")
+      CARTESBANCAIRES,
+    
+      @SerializedName("Dankort")
+      DANKORT,
+    
+      @SerializedName("MasterCard")
+      MASTERCARD,
+    
+      @SerializedName("Visa")
+      VISA,
+    
+    };
+  
     public enum AccountType {
       UNDEFINED,
     

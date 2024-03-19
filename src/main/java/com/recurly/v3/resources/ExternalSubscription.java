@@ -95,6 +95,14 @@ public class ExternalSubscription extends Resource {
   @Expose
   private String state;
 
+  /**
+   * An indication of whether or not the external subscription was purchased in a sandbox
+   * environment.
+   */
+  @SerializedName("test")
+  @Expose
+  private Boolean test;
+
   /** When the external subscription trial period ends in the external platform. */
   @SerializedName("trial_ends_at")
   @Expose
@@ -282,6 +290,22 @@ public class ExternalSubscription extends Resource {
   /** @param state External subscriptions can be active, canceled, expired, or past_due. */
   public void setState(final String state) {
     this.state = state;
+  }
+
+  /**
+   * An indication of whether or not the external subscription was purchased in a sandbox
+   * environment.
+   */
+  public Boolean getTest() {
+    return this.test;
+  }
+
+  /**
+   * @param test An indication of whether or not the external subscription was purchased in a
+   *     sandbox environment.
+   */
+  public void setTest(final Boolean test) {
+    this.test = test;
   }
 
   /** When the external subscription trial period ends in the external platform. */
