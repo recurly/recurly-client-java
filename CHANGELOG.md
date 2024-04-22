@@ -1,5 +1,16 @@
 # Changelog
 
+## [](https://github.com/recurly/recurly-client-java/tree/) (2024-04-22)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.51.0...)
+
+
+**Merged Pull Requests**
+
+- chore: Update dependencies to address security warnings: [#269](https://github.com/recurly/recurly-client-java/pull/269) ([douglasmiller](https://github.com/douglasmiller))
+
+
+
 ## [4.51.0](https://github.com/recurly/recurly-client-java/tree/4.51.0) (2024-03-19)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.50.0...4.51.0)
