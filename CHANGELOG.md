@@ -1,8 +1,8 @@
 # Changelog
 
-## [](https://github.com/recurly/recurly-client-java/tree/) (2024-04-22)
+## [4.51.1](https://github.com/recurly/recurly-client-java/tree/4.51.1) (2024-04-22)
 
-[Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.51.0...)
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.51.0...4.51.1)
 
 
 **Merged Pull Requests**
