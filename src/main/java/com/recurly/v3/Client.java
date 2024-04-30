@@ -2626,6 +2626,53 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
+   * Authorize a purchase
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_authorize_purchase">create_authorize_purchase api documentation</a>
+   * @param body The body of the request.
+     * @return Returns the authorize invoice
+   */
+  public InvoiceCollection createAuthorizePurchase(PurchaseCreate body) {
+    final String url = "/purchases/authorize";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = InvoiceCollection.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * Capture a purchase
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_capture_purchase">create_capture_purchase api documentation</a>
+   * @param transactionId Transaction ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @return Returns the captured invoice
+   */
+  public InvoiceCollection createCapturePurchase(String transactionId) {
+    final String url = "/purchases/{transaction_id}/capture";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("transaction_id", transactionId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = InvoiceCollection.class;
+    return this.makeRequest("POST", path, returnType);
+  }
+
+  /**
+   * Cancel Purchase
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/cancelPurchase">cancelPurchase api documentation</a>
+   * @param transactionId Transaction ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @return Returns the cancelled invoice
+   */
+  public InvoiceCollection cancelpurchase(String transactionId) {
+    final String url = "/purchases/{transaction_id}/cancel/";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("transaction_id", transactionId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = InvoiceCollection.class;
+    return this.makeRequest("POST", path, returnType);
+  }
+
+  /**
    * List the dates that have an available export to download.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_export_dates">get_export_dates api documentation</a>

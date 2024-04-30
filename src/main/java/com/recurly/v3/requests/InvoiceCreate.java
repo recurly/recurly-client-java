@@ -76,8 +76,6 @@ public class InvoiceCreate extends Request {
    * invoice becomes past due the specified number of `Net Terms` days from the current date. When
    * `eom` an invoice becomes past due the specified number of `Net Terms` days from the last day of
    * the current month.
-   *
-   * <p>This field is only available when the EOM Net Terms feature is enabled.
    */
   @SerializedName("net_terms_type")
   @Expose
@@ -227,8 +225,6 @@ public class InvoiceCreate extends Request {
    * invoice becomes past due the specified number of `Net Terms` days from the current date. When
    * `eom` an invoice becomes past due the specified number of `Net Terms` days from the last day of
    * the current month.
-   *
-   * <p>This field is only available when the EOM Net Terms feature is enabled.
    */
   public Constants.NetTermsType getNetTermsType() {
     return this.netTermsType;
@@ -239,7 +235,6 @@ public class InvoiceCreate extends Request {
    *     (end-of-month). When `net`, an invoice becomes past due the specified number of `Net Terms`
    *     days from the current date. When `eom` an invoice becomes past due the specified number of
    *     `Net Terms` days from the last day of the current month.
-   *     <p>This field is only available when the EOM Net Terms feature is enabled.
    */
   public void setNetTermsType(final Constants.NetTermsType netTermsType) {
     this.netTermsType = netTermsType;
