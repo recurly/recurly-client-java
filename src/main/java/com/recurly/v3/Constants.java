@@ -10,6 +10,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class Constants {
   
+    public enum ProrationSettingsCharge {
+      UNDEFINED,
+    
+      @SerializedName("full_amount")
+      FULL_AMOUNT,
+    
+      @SerializedName("prorated_amount")
+      PRORATED_AMOUNT,
+    
+      @SerializedName("none")
+      NONE,
+    
+    };
+  
+    public enum ProrationSettingsCredit {
+      UNDEFINED,
+    
+      @SerializedName("full_amount")
+      FULL_AMOUNT,
+    
+      @SerializedName("prorated_amount")
+      PRORATED_AMOUNT,
+    
+      @SerializedName("none")
+      NONE,
+    
+    };
+  
     public enum ExternalProductReferenceConnectionType {
       UNDEFINED,
     
