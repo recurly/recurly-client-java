@@ -107,6 +107,13 @@ public class SubscriptionChangeCreate extends Request {
   @Expose
   private String poNumber;
 
+  /**
+   * Allows you to control how any resulting charges and credits will be calculated and prorated.
+   */
+  @SerializedName("proration_settings")
+  @Expose
+  private ProrationSettings prorationSettings;
+
   /** Optionally override the default quantity of 1. */
   @SerializedName("quantity")
   @Expose
@@ -349,6 +356,21 @@ public class SubscriptionChangeCreate extends Request {
    */
   public void setPoNumber(final String poNumber) {
     this.poNumber = poNumber;
+  }
+
+  /**
+   * Allows you to control how any resulting charges and credits will be calculated and prorated.
+   */
+  public ProrationSettings getProrationSettings() {
+    return this.prorationSettings;
+  }
+
+  /**
+   * @param prorationSettings Allows you to control how any resulting charges and credits will be
+   *     calculated and prorated.
+   */
+  public void setProrationSettings(final ProrationSettings prorationSettings) {
+    this.prorationSettings = prorationSettings;
   }
 
   /** Optionally override the default quantity of 1. */
