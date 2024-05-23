@@ -85,6 +85,14 @@ public class Account extends Resource {
   private String email;
 
   /**
+   * The Avalara AvaTax value that can be passed to identify the customer type for tax purposes. The
+   * range of values can be A - R (more info at Avalara). Value is case-sensitive.
+   */
+  @SerializedName("entity_use_code")
+  @Expose
+  private String entityUseCode;
+
+  /**
    * The tax exemption certificate number for the account. If the merchant has an integration for
    * the Vertex tax provider, this optional value will be sent in any tax calculation requests for
    * the account.
@@ -377,6 +385,23 @@ public class Account extends Resource {
    */
   public void setEmail(final String email) {
     this.email = email;
+  }
+
+  /**
+   * The Avalara AvaTax value that can be passed to identify the customer type for tax purposes. The
+   * range of values can be A - R (more info at Avalara). Value is case-sensitive.
+   */
+  public String getEntityUseCode() {
+    return this.entityUseCode;
+  }
+
+  /**
+   * @param entityUseCode The Avalara AvaTax value that can be passed to identify the customer type
+   *     for tax purposes. The range of values can be A - R (more info at Avalara). Value is
+   *     case-sensitive.
+   */
+  public void setEntityUseCode(final String entityUseCode) {
+    this.entityUseCode = entityUseCode;
   }
 
   /**
