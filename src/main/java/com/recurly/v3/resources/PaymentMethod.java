@@ -21,6 +21,14 @@ public class PaymentMethod extends Resource {
   @Expose
   private String billingAgreementId;
 
+  /**
+   * Represents the card network preference associated with the billing info for dual badged cards.
+   * Must be a supported card network.
+   */
+  @SerializedName("card_network_preference")
+  @Expose
+  private String cardNetworkPreference;
+
   /** Visa, MasterCard, American Express, Discover, JCB, etc. */
   @SerializedName("card_type")
   @Expose
@@ -115,6 +123,22 @@ public class PaymentMethod extends Resource {
    */
   public void setBillingAgreementId(final String billingAgreementId) {
     this.billingAgreementId = billingAgreementId;
+  }
+
+  /**
+   * Represents the card network preference associated with the billing info for dual badged cards.
+   * Must be a supported card network.
+   */
+  public String getCardNetworkPreference() {
+    return this.cardNetworkPreference;
+  }
+
+  /**
+   * @param cardNetworkPreference Represents the card network preference associated with the billing
+   *     info for dual badged cards. Must be a supported card network.
+   */
+  public void setCardNetworkPreference(final String cardNetworkPreference) {
+    this.cardNetworkPreference = cardNetworkPreference;
   }
 
   /** Visa, MasterCard, American Express, Discover, JCB, etc. */
