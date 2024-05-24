@@ -8,8 +8,14 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import org.joda.time.DateTime;
 
 public class SubscriptionRampIntervalResponse extends Resource {
+
+  /** Date the ramp interval ends */
+  @SerializedName("ending_on")
+  @Expose
+  private DateTime endingOn;
 
   /** Represents how many billing cycles are left in a ramp interval. */
   @SerializedName("remaining_billing_cycles")
@@ -21,10 +27,25 @@ public class SubscriptionRampIntervalResponse extends Resource {
   @Expose
   private Integer startingBillingCycle;
 
+  /** Date the ramp interval starts */
+  @SerializedName("starting_on")
+  @Expose
+  private DateTime startingOn;
+
   /** Represents the price for the ramp interval. */
   @SerializedName("unit_amount")
   @Expose
   private Integer unitAmount;
+
+  /** Date the ramp interval ends */
+  public DateTime getEndingOn() {
+    return this.endingOn;
+  }
+
+  /** @param endingOn Date the ramp interval ends */
+  public void setEndingOn(final DateTime endingOn) {
+    this.endingOn = endingOn;
+  }
 
   /** Represents how many billing cycles are left in a ramp interval. */
   public Integer getRemainingBillingCycles() {
@@ -46,6 +67,16 @@ public class SubscriptionRampIntervalResponse extends Resource {
   /** @param startingBillingCycle Represents the billing cycle where a ramp interval starts. */
   public void setStartingBillingCycle(final Integer startingBillingCycle) {
     this.startingBillingCycle = startingBillingCycle;
+  }
+
+  /** Date the ramp interval starts */
+  public DateTime getStartingOn() {
+    return this.startingOn;
+  }
+
+  /** @param startingOn Date the ramp interval starts */
+  public void setStartingOn(final DateTime startingOn) {
+    this.startingOn = startingOn;
   }
 
   /** Represents the price for the ramp interval. */

@@ -42,6 +42,14 @@ public class BillingInfoCreate extends Request {
   @Expose
   private Boolean backupPaymentMethod;
 
+  /**
+   * Represents the card network preference associated with the billing info for dual badged cards.
+   * Must be a supported card network.
+   */
+  @SerializedName("card_network_preference")
+  @Expose
+  private String cardNetworkPreference;
+
   /** Company name */
   @SerializedName("company")
   @Expose
@@ -137,6 +145,11 @@ public class BillingInfoCreate extends Request {
   @SerializedName("primary_payment_method")
   @Expose
   private Boolean primaryPaymentMethod;
+
+  /** Roku's CIB if billing through Roku */
+  @SerializedName("roku_billing_agreement_id")
+  @Expose
+  private String rokuBillingAgreementId;
 
   /** The bank's rounting number. (ACH only) */
   @SerializedName("routing_number")
@@ -266,6 +279,22 @@ public class BillingInfoCreate extends Request {
    */
   public void setBackupPaymentMethod(final Boolean backupPaymentMethod) {
     this.backupPaymentMethod = backupPaymentMethod;
+  }
+
+  /**
+   * Represents the card network preference associated with the billing info for dual badged cards.
+   * Must be a supported card network.
+   */
+  public String getCardNetworkPreference() {
+    return this.cardNetworkPreference;
+  }
+
+  /**
+   * @param cardNetworkPreference Represents the card network preference associated with the billing
+   *     info for dual badged cards. Must be a supported card network.
+   */
+  public void setCardNetworkPreference(final String cardNetworkPreference) {
+    this.cardNetworkPreference = cardNetworkPreference;
   }
 
   /** Company name */
@@ -463,6 +492,16 @@ public class BillingInfoCreate extends Request {
    */
   public void setPrimaryPaymentMethod(final Boolean primaryPaymentMethod) {
     this.primaryPaymentMethod = primaryPaymentMethod;
+  }
+
+  /** Roku's CIB if billing through Roku */
+  public String getRokuBillingAgreementId() {
+    return this.rokuBillingAgreementId;
+  }
+
+  /** @param rokuBillingAgreementId Roku's CIB if billing through Roku */
+  public void setRokuBillingAgreementId(final String rokuBillingAgreementId) {
+    this.rokuBillingAgreementId = rokuBillingAgreementId;
   }
 
   /** The bank's rounting number. (ACH only) */

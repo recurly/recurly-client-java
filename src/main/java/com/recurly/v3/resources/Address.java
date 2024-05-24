@@ -26,6 +26,14 @@ public class Address extends Resource {
   @Expose
   private String firstName;
 
+  /**
+   * Code that represents a geographic entity (location or object). Only returned for Sling Vertex
+   * Integration
+   */
+  @SerializedName("geo_code")
+  @Expose
+  private String geoCode;
+
   /** Last name */
   @SerializedName("last_name")
   @Expose
@@ -84,6 +92,22 @@ public class Address extends Resource {
   /** @param firstName First name */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
+  }
+
+  /**
+   * Code that represents a geographic entity (location or object). Only returned for Sling Vertex
+   * Integration
+   */
+  public String getGeoCode() {
+    return this.geoCode;
+  }
+
+  /**
+   * @param geoCode Code that represents a geographic entity (location or object). Only returned for
+   *     Sling Vertex Integration
+   */
+  public void setGeoCode(final String geoCode) {
+    this.geoCode = geoCode;
   }
 
   /** Last name */

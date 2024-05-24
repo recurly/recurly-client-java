@@ -33,6 +33,14 @@ public class ShippingAddressCreate extends Request {
   @Expose
   private String firstName;
 
+  /**
+   * Code that represents a geographic entity (location or object). Only returned for Sling Vertex
+   * Integration
+   */
+  @SerializedName("geo_code")
+  @Expose
+  private String geoCode;
+
   @SerializedName("last_name")
   @Expose
   private String lastName;
@@ -111,6 +119,22 @@ public class ShippingAddressCreate extends Request {
   /** @param firstName */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
+  }
+
+  /**
+   * Code that represents a geographic entity (location or object). Only returned for Sling Vertex
+   * Integration
+   */
+  public String getGeoCode() {
+    return this.geoCode;
+  }
+
+  /**
+   * @param geoCode Code that represents a geographic entity (location or object). Only returned for
+   *     Sling Vertex Integration
+   */
+  public void setGeoCode(final String geoCode) {
+    this.geoCode = geoCode;
   }
 
   public String getLastName() {
