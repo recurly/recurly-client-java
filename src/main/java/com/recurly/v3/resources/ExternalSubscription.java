@@ -90,7 +90,9 @@ public class ExternalSubscription extends Resource {
   @Expose
   private Integer quantity;
 
-  /** External subscriptions can be active, canceled, expired, or past_due. */
+  /**
+   * External subscriptions can be active, canceled, expired, past_due, voided, revoked, or paused.
+   */
   @SerializedName("state")
   @Expose
   private String state;
@@ -282,12 +284,17 @@ public class ExternalSubscription extends Resource {
     this.quantity = quantity;
   }
 
-  /** External subscriptions can be active, canceled, expired, or past_due. */
+  /**
+   * External subscriptions can be active, canceled, expired, past_due, voided, revoked, or paused.
+   */
   public String getState() {
     return this.state;
   }
 
-  /** @param state External subscriptions can be active, canceled, expired, or past_due. */
+  /**
+   * @param state External subscriptions can be active, canceled, expired, past_due, voided,
+   *     revoked, or paused.
+   */
   public void setState(final String state) {
     this.state = state;
   }
