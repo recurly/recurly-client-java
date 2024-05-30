@@ -22,6 +22,14 @@ public class InvoiceUpdate extends Request {
   private String customerNotes;
 
   /**
+   * An alphanumeric code shown per gateway on your site's payment gateways page. Set this code to
+   * ensure that a given invoice targets a given gateway.
+   */
+  @SerializedName("gateway_code")
+  @Expose
+  private String gatewayCode;
+
+  /**
    * Integer representing the number of days after an invoice's creation that the invoice will
    * become past due. Changing Net terms changes due_on, and the invoice could move between past due
    * and pending.
@@ -67,6 +75,22 @@ public class InvoiceUpdate extends Request {
   /** @param customerNotes Customer notes are an optional note field. */
   public void setCustomerNotes(final String customerNotes) {
     this.customerNotes = customerNotes;
+  }
+
+  /**
+   * An alphanumeric code shown per gateway on your site's payment gateways page. Set this code to
+   * ensure that a given invoice targets a given gateway.
+   */
+  public String getGatewayCode() {
+    return this.gatewayCode;
+  }
+
+  /**
+   * @param gatewayCode An alphanumeric code shown per gateway on your site's payment gateways page.
+   *     Set this code to ensure that a given invoice targets a given gateway.
+   */
+  public void setGatewayCode(final String gatewayCode) {
+    this.gatewayCode = gatewayCode;
   }
 
   /**

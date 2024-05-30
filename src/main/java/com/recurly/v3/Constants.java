@@ -1430,6 +1430,9 @@ public class Constants {
       @SerializedName("boleto")
       BOLETO,
     
+      @SerializedName("cash_app")
+      CASH_APP,
+    
     };
   
     public enum CardType {
