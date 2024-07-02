@@ -84,6 +84,14 @@ public class Item extends Resource {
   private String id;
 
   /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("liability_gl_account_id")
+  @Expose
+  private String liabilityGlAccountId;
+
+  /**
    * This name describes your item and will appear on the invoice when it's purchased on a one time
    * basis.
    */
@@ -95,6 +103,22 @@ public class Item extends Resource {
   @SerializedName("object")
   @Expose
   private String object;
+
+  /**
+   * The ID of a performance obligation. Performance obligations are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("performance_obligation_id")
+  @Expose
+  private String performanceObligationId;
+
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("revenue_gl_account_id")
+  @Expose
+  private String revenueGlAccountId;
 
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
@@ -266,6 +290,23 @@ public class Item extends Resource {
   }
 
   /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getLiabilityGlAccountId() {
+    return this.liabilityGlAccountId;
+  }
+
+  /**
+   * @param liabilityGlAccountId The ID of a general ledger account. General ledger accounts are
+   *     only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setLiabilityGlAccountId(final String liabilityGlAccountId) {
+    this.liabilityGlAccountId = liabilityGlAccountId;
+  }
+
+  /**
    * This name describes your item and will appear on the invoice when it's purchased on a one time
    * basis.
    */
@@ -289,6 +330,39 @@ public class Item extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  /**
+   * The ID of a performance obligation. Performance obligations are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getPerformanceObligationId() {
+    return this.performanceObligationId;
+  }
+
+  /**
+   * @param performanceObligationId The ID of a performance obligation. Performance obligations are
+   *     only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setPerformanceObligationId(final String performanceObligationId) {
+    this.performanceObligationId = performanceObligationId;
+  }
+
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getRevenueGlAccountId() {
+    return this.revenueGlAccountId;
+  }
+
+  /**
+   * @param revenueGlAccountId The ID of a general ledger account. General ledger accounts are only
+   *     accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public void setRevenueGlAccountId(final String revenueGlAccountId) {
+    this.revenueGlAccountId = revenueGlAccountId;
   }
 
   /** Revenue schedule type */

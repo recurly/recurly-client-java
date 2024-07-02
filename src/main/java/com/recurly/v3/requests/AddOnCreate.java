@@ -60,7 +60,7 @@ public class AddOnCreate extends Request {
   private String code;
 
   /**
-   * * If `item_code`/`item_id` is part of the request and the item has a default currency then
+   * * If `item_code`/`item_id` is part of the request and the item has a default currency, then
    * `currencies` is optional. If the item does not have a default currency, then `currencies` is
    * required. If `item_code`/`item_id` is not present `currencies` is required. If the add-on's
    * `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must be absent. Must be
@@ -81,7 +81,7 @@ public class AddOnCreate extends Request {
   private Boolean displayQuantity;
 
   /**
-   * Unique code to identify an item. Available when the `Credit Invoices` feature are enabled. If
+   * Unique code to identify an item. Available when the `Credit Invoices` feature is enabled. If
    * `item_id` and `item_code` are both present, `item_id` will be used.
    */
   @SerializedName("item_code")
@@ -95,6 +95,14 @@ public class AddOnCreate extends Request {
   @SerializedName("item_id")
   @Expose
   private String itemId;
+
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("liability_gl_account_id")
+  @Expose
+  private String liabilityGlAccountId;
 
   /**
    * System-generated unique identifier for a measured unit to be associated with the add-on. Either
@@ -143,10 +151,26 @@ public class AddOnCreate extends Request {
   @Expose
   private List<PercentageTiersByCurrency> percentageTiers;
 
+  /**
+   * The ID of a performance obligation. Performance obligations are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("performance_obligation_id")
+  @Expose
+  private String performanceObligationId;
+
   /** Plan ID */
   @SerializedName("plan_id")
   @Expose
   private String planId;
+
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("revenue_gl_account_id")
+  @Expose
+  private String revenueGlAccountId;
 
   /**
    * When this add-on is invoiced, the line item will use this revenue schedule. If
@@ -313,7 +337,7 @@ public class AddOnCreate extends Request {
   }
 
   /**
-   * * If `item_code`/`item_id` is part of the request and the item has a default currency then
+   * * If `item_code`/`item_id` is part of the request and the item has a default currency, then
    * `currencies` is optional. If the item does not have a default currency, then `currencies` is
    * required. If `item_code`/`item_id` is not present `currencies` is required. If the add-on's
    * `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must be absent. Must be
@@ -325,7 +349,7 @@ public class AddOnCreate extends Request {
 
   /**
    * @param currencies * If `item_code`/`item_id` is part of the request and the item has a default
-   *     currency then `currencies` is optional. If the item does not have a default currency, then
+   *     currency, then `currencies` is optional. If the item does not have a default currency, then
    *     `currencies` is required. If `item_code`/`item_id` is not present `currencies` is required.
    *     If the add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then `currencies` must
    *     be absent. Must be absent if `add_on_type` is `usage` and `usage_type` is `percentage`.
@@ -358,7 +382,7 @@ public class AddOnCreate extends Request {
   }
 
   /**
-   * Unique code to identify an item. Available when the `Credit Invoices` feature are enabled. If
+   * Unique code to identify an item. Available when the `Credit Invoices` feature is enabled. If
    * `item_id` and `item_code` are both present, `item_id` will be used.
    */
   public String getItemCode() {
@@ -367,7 +391,7 @@ public class AddOnCreate extends Request {
 
   /**
    * @param itemCode Unique code to identify an item. Available when the `Credit Invoices` feature
-   *     are enabled. If `item_id` and `item_code` are both present, `item_id` will be used.
+   *     is enabled. If `item_id` and `item_code` are both present, `item_id` will be used.
    */
   public void setItemCode(final String itemCode) {
     this.itemCode = itemCode;
@@ -388,6 +412,23 @@ public class AddOnCreate extends Request {
    */
   public void setItemId(final String itemId) {
     this.itemId = itemId;
+  }
+
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getLiabilityGlAccountId() {
+    return this.liabilityGlAccountId;
+  }
+
+  /**
+   * @param liabilityGlAccountId The ID of a general ledger account. General ledger accounts are
+   *     only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setLiabilityGlAccountId(final String liabilityGlAccountId) {
+    this.liabilityGlAccountId = liabilityGlAccountId;
   }
 
   /**
@@ -487,6 +528,23 @@ public class AddOnCreate extends Request {
     this.percentageTiers = percentageTiers;
   }
 
+  /**
+   * The ID of a performance obligation. Performance obligations are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getPerformanceObligationId() {
+    return this.performanceObligationId;
+  }
+
+  /**
+   * @param performanceObligationId The ID of a performance obligation. Performance obligations are
+   *     only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setPerformanceObligationId(final String performanceObligationId) {
+    this.performanceObligationId = performanceObligationId;
+  }
+
   /** Plan ID */
   public String getPlanId() {
     return this.planId;
@@ -495,6 +553,22 @@ public class AddOnCreate extends Request {
   /** @param planId Plan ID */
   public void setPlanId(final String planId) {
     this.planId = planId;
+  }
+
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getRevenueGlAccountId() {
+    return this.revenueGlAccountId;
+  }
+
+  /**
+   * @param revenueGlAccountId The ID of a general ledger account. General ledger accounts are only
+   *     accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public void setRevenueGlAccountId(final String revenueGlAccountId) {
+    this.revenueGlAccountId = revenueGlAccountId;
   }
 
   /**

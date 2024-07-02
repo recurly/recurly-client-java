@@ -1080,7 +1080,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_custom_field_definition">get_custom_field_definition api documentation</a>
    * @param customFieldDefinitionId Custom Field Definition ID
-     * @return An custom field definition.
+     * @return A custom field definition.
    */
   public CustomFieldDefinition getCustomFieldDefinition(String customFieldDefinitionId) {
     final String url = "/custom_field_definitions/{custom_field_definition_id}";
@@ -1089,6 +1089,101 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = CustomFieldDefinition.class;
     return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Create a new general ledger account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_general_ledger_account">create_general_ledger_account api documentation</a>
+   * @param body The body of the request.
+     * @return A new general ledger account.
+   */
+  public GeneralLedgerAccount createGeneralLedgerAccount(GeneralLedgerAccountCreate body) {
+    final String url = "/general_ledger_accounts";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = GeneralLedgerAccount.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * List a site's general ledger accounts
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_general_ledger_accounts">list_general_ledger_accounts api documentation</a>
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of the site's general ledger accounts.
+   */
+  public Pager<GeneralLedgerAccount> listGeneralLedgerAccounts(QueryParams queryParams) {
+    final String url = "/general_ledger_accounts";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, GeneralLedgerAccount.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * Fetch a general ledger account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_general_ledger_account">get_general_ledger_account api documentation</a>
+   * @param generalLedgerAccountId General Ledger Account ID
+     * @return A general ledger account.
+   */
+  public GeneralLedgerAccount getGeneralLedgerAccount(String generalLedgerAccountId) {
+    final String url = "/general_ledger_accounts/{general_ledger_account_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("general_ledger_account_id", generalLedgerAccountId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = GeneralLedgerAccount.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Update a general ledger account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/update_general_ledger_account">update_general_ledger_account api documentation</a>
+   * @param generalLedgerAccountId General Ledger Account ID
+   * @param body The body of the request.
+     * @return The updated general ledger account.
+   */
+  public GeneralLedgerAccount updateGeneralLedgerAccount(String generalLedgerAccountId, GeneralLedgerAccountUpdate body) {
+    final String url = "/general_ledger_accounts/{general_ledger_account_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("general_ledger_account_id", generalLedgerAccountId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = GeneralLedgerAccount.class;
+    return this.makeRequest("PUT", path, body, returnType);
+  }
+
+  /**
+   * Get a single Performance Obligation.
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_performance_obligation">get_performance_obligation api documentation</a>
+   * @param performanceObligationId Performance Obligation id.
+     * @return A single Performance Obligation.
+   */
+  public PerformanceObligation getPerformanceObligation(String performanceObligationId) {
+    final String url = "/performance_obligations/{performance_obligation_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("performance_obligation_id", performanceObligationId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = PerformanceObligation.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Get a site's Performance Obligations
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_performance_obligations">get_performance_obligations api documentation</a>
+     * @return A list of Performance Obligations.
+   */
+  public Pager<PerformanceObligation> getPerformanceObligations() {
+    final String url = "/performance_obligations";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, PerformanceObligation.class).getType();
+    return new Pager<>(path, null, this, parameterizedType);
   }
 
   /**
@@ -1462,7 +1557,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Fetch an external subscription
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_external_subscription">get_external_subscription api documentation</a>
-   * @param externalSubscriptionId External subscription id
+   * @param externalSubscriptionId External subscription ID or external_id. For ID no prefix is used e.g. `e28zov4fw0v2`. For external_id use prefix `external-id-`, e.g. `external-id-123456`.
      * @return Settings for an external subscription.
    */
   public ExternalSubscription getExternalSubscription(String externalSubscriptionId) {
@@ -2838,12 +2933,12 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
-   * Fetch an external payment_phase
+   * Fetch an external payment phase
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_external_subscription_external_payment_phase">get_external_subscription_external_payment_phase api documentation</a>
    * @param externalSubscriptionId External subscription id
    * @param externalPaymentPhaseId External payment phase ID, e.g. `a34ypb2ef9w1`.
-     * @return Details for an external payment_phase.
+     * @return Details for an external payment phase.
    */
   public ExternalPaymentPhase getExternalSubscriptionExternalPaymentPhase(String externalSubscriptionId, String externalPaymentPhaseId) {
     final String url = "/external_subscriptions/{external_subscription_id}/external_payment_phases/{external_payment_phase_id}";

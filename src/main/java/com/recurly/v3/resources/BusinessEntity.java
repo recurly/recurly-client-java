@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -23,15 +24,40 @@ public class BusinessEntity extends Resource {
   @Expose
   private DateTime createdAt;
 
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("default_liability_gl_account_id")
+  @Expose
+  private String defaultLiabilityGlAccountId;
+
   /** Registration number for the customer used on the invoice. */
   @SerializedName("default_registration_number")
   @Expose
   private String defaultRegistrationNumber;
 
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("default_revenue_gl_account_id")
+  @Expose
+  private String defaultRevenueGlAccountId;
+
   /** VAT number for the customer used on the invoice. */
   @SerializedName("default_vat_number")
   @Expose
   private String defaultVatNumber;
+
+  /**
+   * The source of the address that will be used as the destinaion in determining taxes. Available
+   * only when the site is on an Elite plan. A value of "destination" refers to the "Customer tax
+   * address". A value of "origin" refers to the "Business entity tax address".
+   */
+  @SerializedName("destination_tax_address_source")
+  @Expose
+  private Constants.DestinationTaxAddressSource destinationTaxAddressSource;
 
   /** Business entity ID */
   @SerializedName("id")
@@ -52,6 +78,15 @@ public class BusinessEntity extends Resource {
   @SerializedName("object")
   @Expose
   private String object;
+
+  /**
+   * The source of the address that will be used as the origin in determining taxes. Available only
+   * when the site is on an Elite plan. A value of "origin" refers to the "Business entity tax
+   * address". A value of "destination" refers to the "Customer tax address".
+   */
+  @SerializedName("origin_tax_address_source")
+  @Expose
+  private Constants.OriginTaxAddressSource originTaxAddressSource;
 
   /** List of countries for which the business entity will be used. */
   @SerializedName("subscriber_location_countries")
@@ -88,6 +123,23 @@ public class BusinessEntity extends Resource {
     this.createdAt = createdAt;
   }
 
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getDefaultLiabilityGlAccountId() {
+    return this.defaultLiabilityGlAccountId;
+  }
+
+  /**
+   * @param defaultLiabilityGlAccountId The ID of a general ledger account. General ledger accounts
+   *     are only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setDefaultLiabilityGlAccountId(final String defaultLiabilityGlAccountId) {
+    this.defaultLiabilityGlAccountId = defaultLiabilityGlAccountId;
+  }
+
   /** Registration number for the customer used on the invoice. */
   public String getDefaultRegistrationNumber() {
     return this.defaultRegistrationNumber;
@@ -98,6 +150,23 @@ public class BusinessEntity extends Resource {
     this.defaultRegistrationNumber = defaultRegistrationNumber;
   }
 
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getDefaultRevenueGlAccountId() {
+    return this.defaultRevenueGlAccountId;
+  }
+
+  /**
+   * @param defaultRevenueGlAccountId The ID of a general ledger account. General ledger accounts
+   *     are only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setDefaultRevenueGlAccountId(final String defaultRevenueGlAccountId) {
+    this.defaultRevenueGlAccountId = defaultRevenueGlAccountId;
+  }
+
   /** VAT number for the customer used on the invoice. */
   public String getDefaultVatNumber() {
     return this.defaultVatNumber;
@@ -106,6 +175,26 @@ public class BusinessEntity extends Resource {
   /** @param defaultVatNumber VAT number for the customer used on the invoice. */
   public void setDefaultVatNumber(final String defaultVatNumber) {
     this.defaultVatNumber = defaultVatNumber;
+  }
+
+  /**
+   * The source of the address that will be used as the destinaion in determining taxes. Available
+   * only when the site is on an Elite plan. A value of "destination" refers to the "Customer tax
+   * address". A value of "origin" refers to the "Business entity tax address".
+   */
+  public Constants.DestinationTaxAddressSource getDestinationTaxAddressSource() {
+    return this.destinationTaxAddressSource;
+  }
+
+  /**
+   * @param destinationTaxAddressSource The source of the address that will be used as the
+   *     destinaion in determining taxes. Available only when the site is on an Elite plan. A value
+   *     of "destination" refers to the "Customer tax address". A value of "origin" refers to the
+   *     "Business entity tax address".
+   */
+  public void setDestinationTaxAddressSource(
+      final Constants.DestinationTaxAddressSource destinationTaxAddressSource) {
+    this.destinationTaxAddressSource = destinationTaxAddressSource;
   }
 
   /** Business entity ID */
@@ -149,6 +238,26 @@ public class BusinessEntity extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  /**
+   * The source of the address that will be used as the origin in determining taxes. Available only
+   * when the site is on an Elite plan. A value of "origin" refers to the "Business entity tax
+   * address". A value of "destination" refers to the "Customer tax address".
+   */
+  public Constants.OriginTaxAddressSource getOriginTaxAddressSource() {
+    return this.originTaxAddressSource;
+  }
+
+  /**
+   * @param originTaxAddressSource The source of the address that will be used as the origin in
+   *     determining taxes. Available only when the site is on an Elite plan. A value of "origin"
+   *     refers to the "Business entity tax address". A value of "destination" refers to the
+   *     "Customer tax address".
+   */
+  public void setOriginTaxAddressSource(
+      final Constants.OriginTaxAddressSource originTaxAddressSource) {
+    this.originTaxAddressSource = originTaxAddressSource;
   }
 
   /** List of countries for which the business entity will be used. */
