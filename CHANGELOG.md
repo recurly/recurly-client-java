@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.56.0](https://github.com/recurly/recurly-client-java/tree/4.56.0) (2024-07-03)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.55.0...4.56.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 (Taxable Address Control, RevRec) [#276](https://github.com/recurly/recurly-client-java/pull/276) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.55.0](https://github.com/recurly/recurly-client-java/tree/4.55.0) (2024-05-31)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.54.0...4.55.0)
