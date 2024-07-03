@@ -2273,4 +2273,37 @@ public class Constants {
     
     };
   
+    public enum GeneralLedgerAccountType {
+      UNDEFINED,
+    
+      @SerializedName("liability")
+      LIABILITY,
+    
+      @SerializedName("revenue")
+      REVENUE,
+    
+    };
+  
+    public enum OriginTaxAddressSource {
+      UNDEFINED,
+    
+      @SerializedName("origin")
+      ORIGIN,
+    
+      @SerializedName("destination")
+      DESTINATION,
+    
+    };
+  
+    public enum DestinationTaxAddressSource {
+      UNDEFINED,
+    
+      @SerializedName("destination")
+      DESTINATION,
+    
+      @SerializedName("origin")
+      ORIGIN,
+    
+    };
+  
 }

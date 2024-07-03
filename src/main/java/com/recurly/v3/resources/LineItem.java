@@ -107,6 +107,15 @@ public class LineItem extends Resource {
   @Expose
   private String description;
 
+  /**
+   * The source of the address that will be used as the destinaion in determining taxes. Available
+   * only when the site is on an Elite plan. A value of "destination" refers to the "Customer tax
+   * address". A value of "origin" refers to the "Business entity tax address".
+   */
+  @SerializedName("destination_tax_address_source")
+  @Expose
+  private Constants.DestinationTaxAddressSource destinationTaxAddressSource;
+
   /** The discount applied to the line item. */
   @SerializedName("discount")
   @Expose
@@ -170,6 +179,14 @@ public class LineItem extends Resource {
   @Expose
   private Constants.LegacyCategory legacyCategory;
 
+  /**
+   * Unique code to identify the ledger account. Each code must start with a letter or number. The
+   * following special characters are allowed: `-_.,:`
+   */
+  @SerializedName("liability_gl_account_code")
+  @Expose
+  private String liabilityGlAccountCode;
+
   /** Object type */
   @SerializedName("object")
   @Expose
@@ -181,12 +198,29 @@ public class LineItem extends Resource {
   private Constants.LineItemOrigin origin;
 
   /**
+   * The source of the address that will be used as the origin in determining taxes. Available only
+   * when the site is on an Elite plan. A value of "origin" refers to the "Business entity tax
+   * address". A value of "destination" refers to the "Customer tax address".
+   */
+  @SerializedName("origin_tax_address_source")
+  @Expose
+  private Constants.OriginTaxAddressSource originTaxAddressSource;
+
+  /**
    * The invoice where the credit originated. Will only have a value if the line item is a credit
    * created from a previous credit, or if the credit was created from a charge refund.
    */
   @SerializedName("original_line_item_invoice_id")
   @Expose
   private String originalLineItemInvoiceId;
+
+  /**
+   * The ID of a performance obligation. Performance obligations are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("performance_obligation_id")
+  @Expose
+  private String performanceObligationId;
 
   /** If the line item is a charge or credit for a plan or add-on, this is the plan's code. */
   @SerializedName("plan_code")
@@ -262,6 +296,14 @@ public class LineItem extends Resource {
   @SerializedName("refunded_quantity_decimal")
   @Expose
   private String refundedQuantityDecimal;
+
+  /**
+   * Unique code to identify the ledger account. Each code must start with a letter or number. The
+   * following special characters are allowed: `-_.,:`
+   */
+  @SerializedName("revenue_gl_account_code")
+  @Expose
+  private String revenueGlAccountCode;
 
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
@@ -555,6 +597,26 @@ public class LineItem extends Resource {
     this.description = description;
   }
 
+  /**
+   * The source of the address that will be used as the destinaion in determining taxes. Available
+   * only when the site is on an Elite plan. A value of "destination" refers to the "Customer tax
+   * address". A value of "origin" refers to the "Business entity tax address".
+   */
+  public Constants.DestinationTaxAddressSource getDestinationTaxAddressSource() {
+    return this.destinationTaxAddressSource;
+  }
+
+  /**
+   * @param destinationTaxAddressSource The source of the address that will be used as the
+   *     destinaion in determining taxes. Available only when the site is on an Elite plan. A value
+   *     of "destination" refers to the "Customer tax address". A value of "origin" refers to the
+   *     "Business entity tax address".
+   */
+  public void setDestinationTaxAddressSource(
+      final Constants.DestinationTaxAddressSource destinationTaxAddressSource) {
+    this.destinationTaxAddressSource = destinationTaxAddressSource;
+  }
+
   /** The discount applied to the line item. */
   public BigDecimal getDiscount() {
     return this.discount;
@@ -685,6 +747,22 @@ public class LineItem extends Resource {
     this.legacyCategory = legacyCategory;
   }
 
+  /**
+   * Unique code to identify the ledger account. Each code must start with a letter or number. The
+   * following special characters are allowed: `-_.,:`
+   */
+  public String getLiabilityGlAccountCode() {
+    return this.liabilityGlAccountCode;
+  }
+
+  /**
+   * @param liabilityGlAccountCode Unique code to identify the ledger account. Each code must start
+   *     with a letter or number. The following special characters are allowed: `-_.,:`
+   */
+  public void setLiabilityGlAccountCode(final String liabilityGlAccountCode) {
+    this.liabilityGlAccountCode = liabilityGlAccountCode;
+  }
+
   /** Object type */
   public String getObject() {
     return this.object;
@@ -709,6 +787,26 @@ public class LineItem extends Resource {
   }
 
   /**
+   * The source of the address that will be used as the origin in determining taxes. Available only
+   * when the site is on an Elite plan. A value of "origin" refers to the "Business entity tax
+   * address". A value of "destination" refers to the "Customer tax address".
+   */
+  public Constants.OriginTaxAddressSource getOriginTaxAddressSource() {
+    return this.originTaxAddressSource;
+  }
+
+  /**
+   * @param originTaxAddressSource The source of the address that will be used as the origin in
+   *     determining taxes. Available only when the site is on an Elite plan. A value of "origin"
+   *     refers to the "Business entity tax address". A value of "destination" refers to the
+   *     "Customer tax address".
+   */
+  public void setOriginTaxAddressSource(
+      final Constants.OriginTaxAddressSource originTaxAddressSource) {
+    this.originTaxAddressSource = originTaxAddressSource;
+  }
+
+  /**
    * The invoice where the credit originated. Will only have a value if the line item is a credit
    * created from a previous credit, or if the credit was created from a charge refund.
    */
@@ -723,6 +821,23 @@ public class LineItem extends Resource {
    */
   public void setOriginalLineItemInvoiceId(final String originalLineItemInvoiceId) {
     this.originalLineItemInvoiceId = originalLineItemInvoiceId;
+  }
+
+  /**
+   * The ID of a performance obligation. Performance obligations are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getPerformanceObligationId() {
+    return this.performanceObligationId;
+  }
+
+  /**
+   * @param performanceObligationId The ID of a performance obligation. Performance obligations are
+   *     only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setPerformanceObligationId(final String performanceObligationId) {
+    this.performanceObligationId = performanceObligationId;
   }
 
   /** If the line item is a charge or credit for a plan or add-on, this is the plan's code. */
@@ -882,6 +997,22 @@ public class LineItem extends Resource {
    */
   public void setRefundedQuantityDecimal(final String refundedQuantityDecimal) {
     this.refundedQuantityDecimal = refundedQuantityDecimal;
+  }
+
+  /**
+   * Unique code to identify the ledger account. Each code must start with a letter or number. The
+   * following special characters are allowed: `-_.,:`
+   */
+  public String getRevenueGlAccountCode() {
+    return this.revenueGlAccountCode;
+  }
+
+  /**
+   * @param revenueGlAccountCode Unique code to identify the ledger account. Each code must start
+   *     with a letter or number. The following special characters are allowed: `-_.,:`
+   */
+  public void setRevenueGlAccountCode(final String revenueGlAccountCode) {
+    this.revenueGlAccountCode = revenueGlAccountCode;
   }
 
   /** Revenue schedule type */

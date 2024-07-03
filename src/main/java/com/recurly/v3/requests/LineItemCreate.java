@@ -82,6 +82,15 @@ public class LineItemCreate extends Request {
   @Expose
   private String description;
 
+  /**
+   * The source of the address that will be used as the destinaion in determining taxes. Available
+   * only when the site is on an Elite plan. A value of "destination" refers to the "Customer tax
+   * address". A value of "origin" refers to the "Business entity tax address".
+   */
+  @SerializedName("destination_tax_address_source")
+  @Expose
+  private Constants.DestinationTaxAddressSource destinationTaxAddressSource;
+
   /** If this date is provided, it indicates the end of a time range. */
   @SerializedName("end_date")
   @Expose
@@ -101,6 +110,14 @@ public class LineItemCreate extends Request {
   private String itemId;
 
   /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("liability_gl_account_id")
+  @Expose
+  private String liabilityGlAccountId;
+
+  /**
    * Origin `external_gift_card` is allowed if the Gift Cards feature is enabled on your site and
    * `type` is `credit`. Set this value in order to track gift card credits from external gift cards
    * (like InComm). It also skips billing information requirements. Origin `prepayment` is only
@@ -110,6 +127,23 @@ public class LineItemCreate extends Request {
   @SerializedName("origin")
   @Expose
   private Constants.LineItemCreateOrigin origin;
+
+  /**
+   * The source of the address that will be used as the origin in determining taxes. Available only
+   * when the site is on an Elite plan. A value of "origin" refers to the "Business entity tax
+   * address". A value of "destination" refers to the "Customer tax address".
+   */
+  @SerializedName("origin_tax_address_source")
+  @Expose
+  private Constants.OriginTaxAddressSource originTaxAddressSource;
+
+  /**
+   * The ID of a performance obligation. Performance obligations are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("performance_obligation_id")
+  @Expose
+  private String performanceObligationId;
 
   /**
    * Optional field to track a product code or SKU for the line item. This can be used to later
@@ -128,6 +162,14 @@ public class LineItemCreate extends Request {
   @SerializedName("quantity")
   @Expose
   private Integer quantity;
+
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("revenue_gl_account_id")
+  @Expose
+  private String revenueGlAccountId;
 
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
@@ -320,6 +362,26 @@ public class LineItemCreate extends Request {
     this.description = description;
   }
 
+  /**
+   * The source of the address that will be used as the destinaion in determining taxes. Available
+   * only when the site is on an Elite plan. A value of "destination" refers to the "Customer tax
+   * address". A value of "origin" refers to the "Business entity tax address".
+   */
+  public Constants.DestinationTaxAddressSource getDestinationTaxAddressSource() {
+    return this.destinationTaxAddressSource;
+  }
+
+  /**
+   * @param destinationTaxAddressSource The source of the address that will be used as the
+   *     destinaion in determining taxes. Available only when the site is on an Elite plan. A value
+   *     of "destination" refers to the "Customer tax address". A value of "origin" refers to the
+   *     "Business entity tax address".
+   */
+  public void setDestinationTaxAddressSource(
+      final Constants.DestinationTaxAddressSource destinationTaxAddressSource) {
+    this.destinationTaxAddressSource = destinationTaxAddressSource;
+  }
+
   /** If this date is provided, it indicates the end of a time range. */
   public DateTime getEndDate() {
     return this.endDate;
@@ -360,6 +422,23 @@ public class LineItemCreate extends Request {
   }
 
   /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getLiabilityGlAccountId() {
+    return this.liabilityGlAccountId;
+  }
+
+  /**
+   * @param liabilityGlAccountId The ID of a general ledger account. General ledger accounts are
+   *     only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setLiabilityGlAccountId(final String liabilityGlAccountId) {
+    this.liabilityGlAccountId = liabilityGlAccountId;
+  }
+
+  /**
    * Origin `external_gift_card` is allowed if the Gift Cards feature is enabled on your site and
    * `type` is `credit`. Set this value in order to track gift card credits from external gift cards
    * (like InComm). It also skips billing information requirements. Origin `prepayment` is only
@@ -380,6 +459,43 @@ public class LineItemCreate extends Request {
    */
   public void setOrigin(final Constants.LineItemCreateOrigin origin) {
     this.origin = origin;
+  }
+
+  /**
+   * The source of the address that will be used as the origin in determining taxes. Available only
+   * when the site is on an Elite plan. A value of "origin" refers to the "Business entity tax
+   * address". A value of "destination" refers to the "Customer tax address".
+   */
+  public Constants.OriginTaxAddressSource getOriginTaxAddressSource() {
+    return this.originTaxAddressSource;
+  }
+
+  /**
+   * @param originTaxAddressSource The source of the address that will be used as the origin in
+   *     determining taxes. Available only when the site is on an Elite plan. A value of "origin"
+   *     refers to the "Business entity tax address". A value of "destination" refers to the
+   *     "Customer tax address".
+   */
+  public void setOriginTaxAddressSource(
+      final Constants.OriginTaxAddressSource originTaxAddressSource) {
+    this.originTaxAddressSource = originTaxAddressSource;
+  }
+
+  /**
+   * The ID of a performance obligation. Performance obligations are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getPerformanceObligationId() {
+    return this.performanceObligationId;
+  }
+
+  /**
+   * @param performanceObligationId The ID of a performance obligation. Performance obligations are
+   *     only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setPerformanceObligationId(final String performanceObligationId) {
+    this.performanceObligationId = performanceObligationId;
   }
 
   /**
@@ -416,6 +532,22 @@ public class LineItemCreate extends Request {
    */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
+  }
+
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getRevenueGlAccountId() {
+    return this.revenueGlAccountId;
+  }
+
+  /**
+   * @param revenueGlAccountId The ID of a general ledger account. General ledger accounts are only
+   *     accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public void setRevenueGlAccountId(final String revenueGlAccountId) {
+    this.revenueGlAccountId = revenueGlAccountId;
   }
 
   /** Revenue schedule type */

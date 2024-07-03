@@ -93,6 +93,14 @@ public class AddOn extends Resource {
   @Expose
   private ItemMini item;
 
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("liability_gl_account_id")
+  @Expose
+  private String liabilityGlAccountId;
+
   /** System-generated unique identifier for an measured unit associated with the add-on. */
   @SerializedName("measured_unit_id")
   @Expose
@@ -126,10 +134,26 @@ public class AddOn extends Resource {
   @Expose
   private List<PercentageTiersByCurrency> percentageTiers;
 
+  /**
+   * The ID of a performance obligation. Performance obligations are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("performance_obligation_id")
+  @Expose
+  private String performanceObligationId;
+
   /** Plan ID */
   @SerializedName("plan_id")
   @Expose
   private String planId;
+
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("revenue_gl_account_id")
+  @Expose
+  private String revenueGlAccountId;
 
   /**
    * When this add-on is invoiced, the line item will use this revenue schedule. If
@@ -363,6 +387,23 @@ public class AddOn extends Resource {
     this.item = item;
   }
 
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getLiabilityGlAccountId() {
+    return this.liabilityGlAccountId;
+  }
+
+  /**
+   * @param liabilityGlAccountId The ID of a general ledger account. General ledger accounts are
+   *     only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setLiabilityGlAccountId(final String liabilityGlAccountId) {
+    this.liabilityGlAccountId = liabilityGlAccountId;
+  }
+
   /** System-generated unique identifier for an measured unit associated with the add-on. */
   public String getMeasuredUnitId() {
     return this.measuredUnitId;
@@ -432,6 +473,23 @@ public class AddOn extends Resource {
     this.percentageTiers = percentageTiers;
   }
 
+  /**
+   * The ID of a performance obligation. Performance obligations are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getPerformanceObligationId() {
+    return this.performanceObligationId;
+  }
+
+  /**
+   * @param performanceObligationId The ID of a performance obligation. Performance obligations are
+   *     only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setPerformanceObligationId(final String performanceObligationId) {
+    this.performanceObligationId = performanceObligationId;
+  }
+
   /** Plan ID */
   public String getPlanId() {
     return this.planId;
@@ -440,6 +498,22 @@ public class AddOn extends Resource {
   /** @param planId Plan ID */
   public void setPlanId(final String planId) {
     this.planId = planId;
+  }
+
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getRevenueGlAccountId() {
+    return this.revenueGlAccountId;
+  }
+
+  /**
+   * @param revenueGlAccountId The ID of a general ledger account. General ledger accounts are only
+   *     accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public void setRevenueGlAccountId(final String revenueGlAccountId) {
+    this.revenueGlAccountId = revenueGlAccountId;
   }
 
   /**

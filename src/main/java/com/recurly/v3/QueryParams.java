@@ -82,6 +82,10 @@ public class QueryParams {
     this.add("related_type", relatedType);
   }
 
+  public void setAccountType(final Constants.GeneralLedgerAccountType accountType) {
+    this.add("account_type", accountType);
+  }
+
   public void setRefund(final Constants.RefundType refund) {
     this.add("refund", refund);
   }

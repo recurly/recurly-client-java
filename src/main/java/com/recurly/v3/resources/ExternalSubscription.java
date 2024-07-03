@@ -8,6 +8,7 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import java.util.List;
 import org.joda.time.DateTime;
 
 public class ExternalSubscription extends Resource {
@@ -57,6 +58,11 @@ public class ExternalSubscription extends Resource {
   @Expose
   private String externalId;
 
+  /** The phases of the external subscription payment lifecycle. */
+  @SerializedName("external_payment_phases")
+  @Expose
+  private List<ExternalPaymentPhase> externalPaymentPhases;
+
   /** External Product Reference details */
   @SerializedName("external_product_reference")
   @Expose
@@ -66,6 +72,14 @@ public class ExternalSubscription extends Resource {
   @SerializedName("id")
   @Expose
   private String id;
+
+  /**
+   * An indication of whether or not the external subscription was created by a historical data
+   * import.
+   */
+  @SerializedName("imported")
+  @Expose
+  private Boolean imported;
 
   /** An indication of whether or not the external subscription is in a grace period. */
   @SerializedName("in_grace_period")
@@ -211,6 +225,16 @@ public class ExternalSubscription extends Resource {
     this.externalId = externalId;
   }
 
+  /** The phases of the external subscription payment lifecycle. */
+  public List<ExternalPaymentPhase> getExternalPaymentPhases() {
+    return this.externalPaymentPhases;
+  }
+
+  /** @param externalPaymentPhases The phases of the external subscription payment lifecycle. */
+  public void setExternalPaymentPhases(final List<ExternalPaymentPhase> externalPaymentPhases) {
+    this.externalPaymentPhases = externalPaymentPhases;
+  }
+
   /** External Product Reference details */
   public ExternalProductReferenceMini getExternalProductReference() {
     return this.externalProductReference;
@@ -233,6 +257,22 @@ public class ExternalSubscription extends Resource {
    */
   public void setId(final String id) {
     this.id = id;
+  }
+
+  /**
+   * An indication of whether or not the external subscription was created by a historical data
+   * import.
+   */
+  public Boolean getImported() {
+    return this.imported;
+  }
+
+  /**
+   * @param imported An indication of whether or not the external subscription was created by a
+   *     historical data import.
+   */
+  public void setImported(final Boolean imported) {
+    this.imported = imported;
   }
 
   /** An indication of whether or not the external subscription is in a grace period. */

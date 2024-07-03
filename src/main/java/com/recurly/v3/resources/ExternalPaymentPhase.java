@@ -37,11 +37,6 @@ public class ExternalPaymentPhase extends Resource {
   @Expose
   private DateTime endsAt;
 
-  /** Subscription from an external resource such as Apple App Store or Google Play Store. */
-  @SerializedName("external_subscription")
-  @Expose
-  private ExternalSubscription externalSubscription;
-
   /** System-generated unique identifier for an external payment phase ID, e.g. `e28zov4fw0v2`. */
   @SerializedName("id")
   @Expose
@@ -135,19 +130,6 @@ public class ExternalPaymentPhase extends Resource {
   /** @param endsAt Ends At */
   public void setEndsAt(final DateTime endsAt) {
     this.endsAt = endsAt;
-  }
-
-  /** Subscription from an external resource such as Apple App Store or Google Play Store. */
-  public ExternalSubscription getExternalSubscription() {
-    return this.externalSubscription;
-  }
-
-  /**
-   * @param externalSubscription Subscription from an external resource such as Apple App Store or
-   *     Google Play Store.
-   */
-  public void setExternalSubscription(final ExternalSubscription externalSubscription) {
-    this.externalSubscription = externalSubscription;
   }
 
   /** System-generated unique identifier for an external payment phase ID, e.g. `e28zov4fw0v2`. */
