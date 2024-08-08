@@ -187,10 +187,10 @@ public class PlanUpdate extends Request {
   private Constants.RevenueScheduleType setupFeeRevenueScheduleType;
 
   /**
-   * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
-   * rules. If you have your own AvaTax or Vertex account configured, use their tax codes to assign
-   * specific tax rules. If you are using Recurly's EU VAT feature, you can use values of `unknown`,
-   * `physical`, or `digital`.
+   * Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to determine
+   * taxation rules. You can pass in specific tax codes using any of these tax integrations. For
+   * Recurly's In-the-Box tax offering you can also choose to instead use simple values of
+   * `unknown`, `physical`, or `digital` tax codes.
    */
   @SerializedName("tax_code")
   @Expose
@@ -575,20 +575,20 @@ public class PlanUpdate extends Request {
   }
 
   /**
-   * Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to determine taxation
-   * rules. If you have your own AvaTax or Vertex account configured, use their tax codes to assign
-   * specific tax rules. If you are using Recurly's EU VAT feature, you can use values of `unknown`,
-   * `physical`, or `digital`.
+   * Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to determine
+   * taxation rules. You can pass in specific tax codes using any of these tax integrations. For
+   * Recurly's In-the-Box tax offering you can also choose to instead use simple values of
+   * `unknown`, `physical`, or `digital` tax codes.
    */
   public String getTaxCode() {
     return this.taxCode;
   }
 
   /**
-   * @param taxCode Optional field used by Avalara, Vertex, and Recurly's EU VAT tax feature to
-   *     determine taxation rules. If you have your own AvaTax or Vertex account configured, use
-   *     their tax codes to assign specific tax rules. If you are using Recurly's EU VAT feature,
-   *     you can use values of `unknown`, `physical`, or `digital`.
+   * @param taxCode Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to
+   *     determine taxation rules. You can pass in specific tax codes using any of these tax
+   *     integrations. For Recurly's In-the-Box tax offering you can also choose to instead use
+   *     simple values of `unknown`, `physical`, or `digital` tax codes.
    */
   public void setTaxCode(final String taxCode) {
     this.taxCode = taxCode;

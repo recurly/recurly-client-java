@@ -846,12 +846,15 @@ public class Constants {
       @SerializedName("amount")
       AMOUNT,
     
+      @SerializedName("percentage")
+      PERCENTAGE,
+    
       @SerializedName("line_items")
       LINE_ITEMS,
     
     };
   
-    public enum RefuneMethod {
+    public enum RefundMethod {
       UNDEFINED,
     
       @SerializedName("all_credit")
@@ -882,6 +885,9 @@ public class Constants {
     
       @SerializedName("apple_pay")
       APPLE_PAY,
+    
+      @SerializedName("braintree_apple_pay")
+      BRAINTREE_APPLE_PAY,
     
       @SerializedName("check")
       CHECK,
@@ -1381,6 +1387,9 @@ public class Constants {
     
       @SerializedName("bank_account_info")
       BANK_ACCOUNT_INFO,
+    
+      @SerializedName("braintree_apple_pay")
+      BRAINTREE_APPLE_PAY,
     
       @SerializedName("check")
       CHECK,
