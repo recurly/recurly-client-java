@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.57.0](https://github.com/recurly/recurly-client-java/tree/4.57.0) (2024-08-09)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.56.0...4.57.0)
+
+
+**Merged Pull Requests**
+
+- Breaking change: The constant RefuneMethodEnum has been renamed RefundMethodEnum [#277](https://github.com/recurly/recurly-client-java/pull/277) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.56.0](https://github.com/recurly/recurly-client-java/tree/4.56.0) (2024-07-03)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.55.0...4.56.0)
