@@ -16,8 +16,9 @@ import java.util.List;
 public class InvoiceRefund extends Request {
 
   /**
-   * The amount to be refunded. The amount will be split between the line items. If no amount is
-   * specified, it will default to refunding the total refundable amount on the invoice.
+   * The amount to be refunded. The amount will be split between the line items. If `type` is
+   * "amount" and no amount is specified, it will default to refunding the total refundable amount
+   * on the invoice. Can only be present if `type` is "amount".
    */
   @SerializedName("amount")
   @Expose
@@ -52,6 +53,16 @@ public class InvoiceRefund extends Request {
   private List<LineItemRefund> lineItems;
 
   /**
+   * The percentage of the remaining balance to be refunded. The percentage will be split between
+   * the line items. If `type` is "percentage" and no percentage is specified, it will default to
+   * refunding 100% of the refundable amount on the invoice. Can only be present if `type` is
+   * "percentage".
+   */
+  @SerializedName("percentage")
+  @Expose
+  private Integer percentage;
+
+  /**
    * Indicates how the invoice should be refunded when both a credit and transaction are present on
    * the invoice: - `transaction_first` – Refunds the transaction first, then any amount is issued
    * as credit back to the account. Default value when Credit Invoices feature is enabled. -
@@ -64,7 +75,7 @@ public class InvoiceRefund extends Request {
    */
   @SerializedName("refund_method")
   @Expose
-  private Constants.RefuneMethod refundMethod;
+  private Constants.RefundMethod refundMethod;
 
   /** The type of refund. Amount and line items cannot both be specified in the request. */
   @SerializedName("type")
@@ -72,17 +83,18 @@ public class InvoiceRefund extends Request {
   private Constants.InvoiceRefundType type;
 
   /**
-   * The amount to be refunded. The amount will be split between the line items. If no amount is
-   * specified, it will default to refunding the total refundable amount on the invoice.
+   * The amount to be refunded. The amount will be split between the line items. If `type` is
+   * "amount" and no amount is specified, it will default to refunding the total refundable amount
+   * on the invoice. Can only be present if `type` is "amount".
    */
   public BigDecimal getAmount() {
     return this.amount;
   }
 
   /**
-   * @param amount The amount to be refunded. The amount will be split between the line items. If no
-   *     amount is specified, it will default to refunding the total refundable amount on the
-   *     invoice.
+   * @param amount The amount to be refunded. The amount will be split between the line items. If
+   *     `type` is "amount" and no amount is specified, it will default to refunding the total
+   *     refundable amount on the invoice. Can only be present if `type` is "amount".
    */
   public void setAmount(final BigDecimal amount) {
     this.amount = amount;
@@ -142,6 +154,26 @@ public class InvoiceRefund extends Request {
   }
 
   /**
+   * The percentage of the remaining balance to be refunded. The percentage will be split between
+   * the line items. If `type` is "percentage" and no percentage is specified, it will default to
+   * refunding 100% of the refundable amount on the invoice. Can only be present if `type` is
+   * "percentage".
+   */
+  public Integer getPercentage() {
+    return this.percentage;
+  }
+
+  /**
+   * @param percentage The percentage of the remaining balance to be refunded. The percentage will
+   *     be split between the line items. If `type` is "percentage" and no percentage is specified,
+   *     it will default to refunding 100% of the refundable amount on the invoice. Can only be
+   *     present if `type` is "percentage".
+   */
+  public void setPercentage(final Integer percentage) {
+    this.percentage = percentage;
+  }
+
+  /**
    * Indicates how the invoice should be refunded when both a credit and transaction are present on
    * the invoice: - `transaction_first` – Refunds the transaction first, then any amount is issued
    * as credit back to the account. Default value when Credit Invoices feature is enabled. -
@@ -152,7 +184,7 @@ public class InvoiceRefund extends Request {
    * back to transactions, using transactions from previous invoices if necessary. Only available
    * when the Credit Invoices feature is enabled.
    */
-  public Constants.RefuneMethod getRefundMethod() {
+  public Constants.RefundMethod getRefundMethod() {
     return this.refundMethod;
   }
 
@@ -167,7 +199,7 @@ public class InvoiceRefund extends Request {
    *     `all_transaction` – Refunds the entire amount back to transactions, using transactions from
    *     previous invoices if necessary. Only available when the Credit Invoices feature is enabled.
    */
-  public void setRefundMethod(final Constants.RefuneMethod refundMethod) {
+  public void setRefundMethod(final Constants.RefundMethod refundMethod) {
     this.refundMethod = refundMethod;
   }
 
