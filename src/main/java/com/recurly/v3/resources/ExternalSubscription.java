@@ -134,6 +134,11 @@ public class ExternalSubscription extends Resource {
   @Expose
   private DateTime updatedAt;
 
+  /** Universally Unique Identifier created automatically. */
+  @SerializedName("uuid")
+  @Expose
+  private String uuid;
+
   /** Account mini details */
   public AccountMini getAccount() {
     return this.account;
@@ -388,5 +393,15 @@ public class ExternalSubscription extends Resource {
   /** @param updatedAt When the external subscription was updated in Recurly. */
   public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  /** Universally Unique Identifier created automatically. */
+  public String getUuid() {
+    return this.uuid;
+  }
+
+  /** @param uuid Universally Unique Identifier created automatically. */
+  public void setUuid(final String uuid) {
+    this.uuid = uuid;
   }
 }
