@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.58.0](https://github.com/recurly/recurly-client-java/tree/4.58.0) (2024-08-28)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.57.0...4.58.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 (add UUID to external subscriptions) [#279](https://github.com/recurly/recurly-client-java/pull/279) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.57.0](https://github.com/recurly/recurly-client-java/tree/4.57.0) (2024-08-09)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.56.0...4.57.0)
@@ -7,7 +18,7 @@
 
 **Merged Pull Requests**
 
-- Breaking change: The constant RefuneMethodEnum has been renamed RefundMethodEnum [#277](https://github.com/recurly/recurly-client-java/pull/277) ([recurly-integrations](https://github.com/recurly-integrations))
+- Breaking change: The constant RefuneMethod Enum has been renamed RefundMethod [#277](https://github.com/recurly/recurly-client-java/pull/277) ([recurly-integrations](https://github.com/recurly-integrations))
 
 
 
