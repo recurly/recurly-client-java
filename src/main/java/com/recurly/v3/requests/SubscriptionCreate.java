@@ -40,6 +40,14 @@ public class SubscriptionCreate extends Request {
   @Expose
   private String billingInfoId;
 
+  /**
+   * Optional field to be used only when needing to bypass the 60 second limit on creating
+   * subscriptions. Should only be used when creating subscriptions in bulk from the API.
+   */
+  @SerializedName("bulk")
+  @Expose
+  private Boolean bulk;
+
   /** Collection method */
   @SerializedName("collection_method")
   @Expose
@@ -295,6 +303,23 @@ public class SubscriptionCreate extends Request {
    */
   public void setBillingInfoId(final String billingInfoId) {
     this.billingInfoId = billingInfoId;
+  }
+
+  /**
+   * Optional field to be used only when needing to bypass the 60 second limit on creating
+   * subscriptions. Should only be used when creating subscriptions in bulk from the API.
+   */
+  public Boolean getBulk() {
+    return this.bulk;
+  }
+
+  /**
+   * @param bulk Optional field to be used only when needing to bypass the 60 second limit on
+   *     creating subscriptions. Should only be used when creating subscriptions in bulk from the
+   *     API.
+   */
+  public void setBulk(final Boolean bulk) {
+    this.bulk = bulk;
   }
 
   /** Collection method */
