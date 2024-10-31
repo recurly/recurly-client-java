@@ -6,7 +6,7 @@
 
     <groupId>com.recurly.v3</groupId>
     <artifactId>api-client</artifactId>
-    <version>4.59.0-SNAPSHOT</version>
+    <version>4.59.0</version>
 
     <name>Recurly API V3 Java Client</name>
     <description>The official Java client for Recurly's V3 API.</description>
@@ -20,18 +20,6 @@
     </licenses>
 
     <developers>
-      <developer>
-        <name>Benjamin Eckel</name>
-        <email>dx@recurly.com</email>
-        <organization>Recurly</organization>
-        <organizationUrl>https://recurly.com</organizationUrl>
-      </developer>
-      <developer>
-        <name>Aaron Suarez</name>
-        <email>dx@recurly.com</email>
-        <organization>Recurly</organization>
-        <organizationUrl>https://recurly.com</organizationUrl>
-      </developer>
       <developer>
         <name>Douglas Miller</name>
         <email>dx@recurly.com</email>
@@ -277,13 +265,13 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>4.4.0</version>
+            <version>5.14.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-inline</artifactId>
-            <version>4.4.0</version>
+            <version>5.2.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
