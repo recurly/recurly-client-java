@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.59.1](https://github.com/recurly/recurly-client-java/tree/4.59.1) (2024-10-31)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.59.0...4.59.1)
+
+
+**Merged Pull Requests**
+
+- fix: Adding workaround for incorrectly cased constants returned from the API [#281](https://github.com/recurly/recurly-client-java/pull/281) ([douglasmiller](https://github.com/douglasmiller))
+
+
+
 ## [4.59.0](https://github.com/recurly/recurly-client-java/tree/4.59.0) (2024-10-30)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.58.0...4.59.0)
