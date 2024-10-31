@@ -81,7 +81,12 @@ public class JsonSerializer {
         in.nextNull();
         return null;
       }
-      T constant = nameToConstant.get(in.nextString());
+      String constantString = in.nextString();
+      T constant = nameToConstant.get(constantString);
+      // TODO: Remove this once the API stops Capitalizing the Coupon's redemption_resource
+      if (constant == null) {
+        constant = nameToConstant.get(constantString.toLowerCase());
+      }
       if (constant == null) {
         return nameToConstant.get("UNDEFINED");
       }

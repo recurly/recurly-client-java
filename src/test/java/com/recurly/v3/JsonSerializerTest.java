@@ -22,6 +22,14 @@ public class JsonSerializerTest {
   }
 
   @Test
+  public void testDeserializeCapitalizedEnum() {
+    final JsonSerializer jsonSerializer = new JsonSerializer();
+    final MyResource mockResource =
+        jsonSerializer.deserialize("{\"my_constant\":\"TwEnty-thRee\"}", MyResource.class);
+    assertEquals(FixtureConstants.ConstantType.TWENTY_THREE, mockResource.getMyConstant());
+  }
+
+  @Test
   public void testDeserializeUnknownEnum() {
     final JsonSerializer jsonSerializer = new JsonSerializer();
     final MyResource mockResource =
