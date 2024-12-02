@@ -224,6 +224,11 @@ public class Plan extends Resource {
   @Expose
   private DateTime updatedAt;
 
+  /** Used by Vertex for tax calculations. Possible values are `sale`, `rental`, `lease`. */
+  @SerializedName("vertex_transaction_type")
+  @Expose
+  private String vertexTransactionType;
+
   /**
    * Accounting code for invoice line items for the plan. If no value is provided, it defaults to
    * plan's code.
@@ -644,5 +649,18 @@ public class Plan extends Resource {
   /** @param updatedAt Last updated at */
   public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  /** Used by Vertex for tax calculations. Possible values are `sale`, `rental`, `lease`. */
+  public String getVertexTransactionType() {
+    return this.vertexTransactionType;
+  }
+
+  /**
+   * @param vertexTransactionType Used by Vertex for tax calculations. Possible values are `sale`,
+   *     `rental`, `lease`.
+   */
+  public void setVertexTransactionType(final String vertexTransactionType) {
+    this.vertexTransactionType = vertexTransactionType;
   }
 }
