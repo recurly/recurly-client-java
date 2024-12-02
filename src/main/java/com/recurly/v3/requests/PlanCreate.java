@@ -243,6 +243,11 @@ public class PlanCreate extends Request {
   @Expose
   private Constants.IntervalUnit trialUnit;
 
+  /** Used by Vertex for tax calculations. Possible values are `sale`, `rental`, `lease`. */
+  @SerializedName("vertex_transaction_type")
+  @Expose
+  private String vertexTransactionType;
+
   /**
    * Accounting code for invoice line items for the plan. If no value is provided, it defaults to
    * plan's code.
@@ -709,5 +714,18 @@ public class PlanCreate extends Request {
   /** @param trialUnit Units for the plan's trial period. */
   public void setTrialUnit(final Constants.IntervalUnit trialUnit) {
     this.trialUnit = trialUnit;
+  }
+
+  /** Used by Vertex for tax calculations. Possible values are `sale`, `rental`, `lease`. */
+  public String getVertexTransactionType() {
+    return this.vertexTransactionType;
+  }
+
+  /**
+   * @param vertexTransactionType Used by Vertex for tax calculations. Possible values are `sale`,
+   *     `rental`, `lease`.
+   */
+  public void setVertexTransactionType(final String vertexTransactionType) {
+    this.vertexTransactionType = vertexTransactionType;
   }
 }
