@@ -68,6 +68,14 @@ public class Subscription extends Resource {
   @Expose
   private String billingInfoId;
 
+  /**
+   * The ID of the business entity associated with the subscription. This will be `null` if the
+   * subscription relies on resolving the business entity during renewal.
+   */
+  @SerializedName("business_entity_id")
+  @Expose
+  private String businessEntityId;
+
   /** Canceled at */
   @SerializedName("canceled_at")
   @Expose
@@ -442,6 +450,22 @@ public class Subscription extends Resource {
   /** @param billingInfoId Billing Info ID. */
   public void setBillingInfoId(final String billingInfoId) {
     this.billingInfoId = billingInfoId;
+  }
+
+  /**
+   * The ID of the business entity associated with the subscription. This will be `null` if the
+   * subscription relies on resolving the business entity during renewal.
+   */
+  public String getBusinessEntityId() {
+    return this.businessEntityId;
+  }
+
+  /**
+   * @param businessEntityId The ID of the business entity associated with the subscription. This
+   *     will be `null` if the subscription relies on resolving the business entity during renewal.
+   */
+  public void setBusinessEntityId(final String businessEntityId) {
+    this.businessEntityId = businessEntityId;
   }
 
   /** Canceled at */

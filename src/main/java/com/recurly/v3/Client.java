@@ -1537,7 +1537,22 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
-   * List a site's external subscriptions
+   * Create an external subscription
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_external_subscription">create_external_subscription api documentation</a>
+   * @param body The body of the request.
+     * @return Returns the external subscription
+   */
+  public ExternalSubscription createExternalSubscription(ExternalSubscriptionCreate body) {
+    final String url = "/external_subscriptions";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalSubscription.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * List the external subscriptions on a site
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_subscriptions">list_external_subscriptions api documentation</a>
    * @param queryParams The {@link QueryParams} for this endpoint.
@@ -1567,6 +1582,39 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = ExternalSubscription.class;
     return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Update an external subscription
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/put_external_subscription">put_external_subscription api documentation</a>
+   * @param externalSubscriptionId External subscription id
+     * @return Settings for an external subscription.
+   */
+  public ExternalSubscription putExternalSubscription(String externalSubscriptionId) {
+    final String url = "/external_subscriptions/{external_subscription_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_subscription_id", externalSubscriptionId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalSubscription.class;
+    return this.makeRequest("PUT", path, returnType);
+  }
+
+  /**
+   * Update an external subscription
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/put_external_subscription">put_external_subscription api documentation</a>
+   * @param externalSubscriptionId External subscription id
+   * @param body The body of the request.
+     * @return Settings for an external subscription.
+   */
+  public ExternalSubscription putExternalSubscription(String externalSubscriptionId, ExternalSubscriptionUpdate body) {
+    final String url = "/external_subscriptions/{external_subscription_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_subscription_id", externalSubscriptionId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalSubscription.class;
+    return this.makeRequest("PUT", path, body, returnType);
   }
 
   /**

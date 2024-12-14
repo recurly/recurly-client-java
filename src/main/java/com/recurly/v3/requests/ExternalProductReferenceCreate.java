@@ -7,15 +7,15 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 
 public class ExternalProductReferenceCreate extends Request {
 
+  /** Represents the connection type. One of the connection types of your enabled App Connectors */
   @SerializedName("external_connection_type")
   @Expose
-  private Constants.ExternalProductReferenceConnectionType externalConnectionType;
+  private ExternalProductReferenceConnectionType externalConnectionType;
 
   /**
    * A code which associates the external product to a corresponding object or resource in an
@@ -25,13 +25,17 @@ public class ExternalProductReferenceCreate extends Request {
   @Expose
   private String referenceCode;
 
-  public Constants.ExternalProductReferenceConnectionType getExternalConnectionType() {
+  /** Represents the connection type. One of the connection types of your enabled App Connectors */
+  public ExternalProductReferenceConnectionType getExternalConnectionType() {
     return this.externalConnectionType;
   }
 
-  /** @param externalConnectionType */
+  /**
+   * @param externalConnectionType Represents the connection type. One of the connection types of
+   *     your enabled App Connectors
+   */
   public void setExternalConnectionType(
-      final Constants.ExternalProductReferenceConnectionType externalConnectionType) {
+      final ExternalProductReferenceConnectionType externalConnectionType) {
     this.externalConnectionType = externalConnectionType;
   }
 

@@ -38,17 +38,6 @@ public class Constants {
     
     };
   
-    public enum ExternalProductReferenceConnectionType {
-      UNDEFINED,
-    
-      @SerializedName("apple_app_store")
-      APPLE_APP_STORE,
-    
-      @SerializedName("google_play_store")
-      GOOGLE_PLAY_STORE,
-    
-    };
-  
     public enum RelatedType {
       UNDEFINED,
     
@@ -2312,6 +2301,40 @@ public class Constants {
     
       @SerializedName("origin")
       ORIGIN,
+    
+    };
+  
+    public enum TransactionMerchantReasonCode {
+      UNDEFINED,
+    
+      @SerializedName("incremental")
+      INCREMENTAL,
+    
+      @SerializedName("no_show")
+      NO_SHOW,
+    
+      @SerializedName("resubmission")
+      RESUBMISSION,
+    
+      @SerializedName("service_extension")
+      SERVICE_EXTENSION,
+    
+      @SerializedName("split_shipment")
+      SPLIT_SHIPMENT,
+    
+      @SerializedName("top_up")
+      TOP_UP,
+    
+    };
+  
+    public enum TransactionIndicator {
+      UNDEFINED,
+    
+      @SerializedName("customer")
+      CUSTOMER,
+    
+      @SerializedName("merchant")
+      MERCHANT,
     
     };
   

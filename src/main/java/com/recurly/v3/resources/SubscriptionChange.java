@@ -35,6 +35,11 @@ public class SubscriptionChange extends Resource {
   @Expose
   private SubscriptionChangeBillingInfo billingInfo;
 
+  /** Business entity details */
+  @SerializedName("business_entity")
+  @Expose
+  private BusinessEntityMini businessEntity;
+
   /** Created at */
   @SerializedName("created_at")
   @Expose
@@ -152,6 +157,16 @@ public class SubscriptionChange extends Resource {
   /** @param billingInfo Accept nested attributes for three_d_secure_action_result_token_id */
   public void setBillingInfo(final SubscriptionChangeBillingInfo billingInfo) {
     this.billingInfo = billingInfo;
+  }
+
+  /** Business entity details */
+  public BusinessEntityMini getBusinessEntity() {
+    return this.businessEntity;
+  }
+
+  /** @param businessEntity Business entity details */
+  public void setBusinessEntity(final BusinessEntityMini businessEntity) {
+    this.businessEntity = businessEntity;
   }
 
   /** Created at */
