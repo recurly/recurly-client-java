@@ -11,6 +11,7 @@ import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.util.List;
+import java.util.Map;
 
 public class PurchaseCreate extends Request {
 
@@ -27,6 +28,28 @@ public class PurchaseCreate extends Request {
   @SerializedName("billing_info_id")
   @Expose
   private String billingInfoId;
+
+  /**
+   * The `business_entity_code` is the value that represents a specific business entity for an end
+   * customer. When `business_entity_code` is used to assign a business entity to the subscription,
+   * all future billing events for the subscription will bill to the specified business entity.
+   * Available when the `Multiple Business Entities` feature is enabled. If both
+   * `business_entity_id` and `business_entity_code` are present, `business_entity_id` will be used.
+   */
+  @SerializedName("business_entity_code")
+  @Expose
+  private String businessEntityCode;
+
+  /**
+   * The `business_entity_id` is the value that represents a specific business entity for an end
+   * customer. When `business_entity_id` is used to assign a business entity to the subscription,
+   * all future billing events for the subscription will bill to the specified business entity.
+   * Available when the `Multiple Business Entities` feature is enabled. If both
+   * `business_entity_id` and `business_entity_code` are present, `business_entity_id` will be used.
+   */
+  @SerializedName("business_entity_id")
+  @Expose
+  private String businessEntityId;
 
   /**
    * Must be set to manual in order to preview a purchase for an Account that does not have payment
@@ -130,6 +153,14 @@ public class PurchaseCreate extends Request {
   private String termsAndConditions;
 
   /**
+   * (Transaction Data, Card on File) - Options for flagging transactions as Customer or Merchant
+   * Initiated Unscheduled.
+   */
+  @SerializedName("transaction")
+  @Expose
+  private Map transaction;
+
+  /**
    * An optional type designation for the payment gateway transaction created by this request.
    * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
    */
@@ -169,6 +200,52 @@ public class PurchaseCreate extends Request {
    */
   public void setBillingInfoId(final String billingInfoId) {
     this.billingInfoId = billingInfoId;
+  }
+
+  /**
+   * The `business_entity_code` is the value that represents a specific business entity for an end
+   * customer. When `business_entity_code` is used to assign a business entity to the subscription,
+   * all future billing events for the subscription will bill to the specified business entity.
+   * Available when the `Multiple Business Entities` feature is enabled. If both
+   * `business_entity_id` and `business_entity_code` are present, `business_entity_id` will be used.
+   */
+  public String getBusinessEntityCode() {
+    return this.businessEntityCode;
+  }
+
+  /**
+   * @param businessEntityCode The `business_entity_code` is the value that represents a specific
+   *     business entity for an end customer. When `business_entity_code` is used to assign a
+   *     business entity to the subscription, all future billing events for the subscription will
+   *     bill to the specified business entity. Available when the `Multiple Business Entities`
+   *     feature is enabled. If both `business_entity_id` and `business_entity_code` are present,
+   *     `business_entity_id` will be used.
+   */
+  public void setBusinessEntityCode(final String businessEntityCode) {
+    this.businessEntityCode = businessEntityCode;
+  }
+
+  /**
+   * The `business_entity_id` is the value that represents a specific business entity for an end
+   * customer. When `business_entity_id` is used to assign a business entity to the subscription,
+   * all future billing events for the subscription will bill to the specified business entity.
+   * Available when the `Multiple Business Entities` feature is enabled. If both
+   * `business_entity_id` and `business_entity_code` are present, `business_entity_id` will be used.
+   */
+  public String getBusinessEntityId() {
+    return this.businessEntityId;
+  }
+
+  /**
+   * @param businessEntityId The `business_entity_id` is the value that represents a specific
+   *     business entity for an end customer. When `business_entity_id` is used to assign a business
+   *     entity to the subscription, all future billing events for the subscription will bill to the
+   *     specified business entity. Available when the `Multiple Business Entities` feature is
+   *     enabled. If both `business_entity_id` and `business_entity_code` are present,
+   *     `business_entity_id` will be used.
+   */
+  public void setBusinessEntityId(final String businessEntityId) {
+    this.businessEntityId = businessEntityId;
   }
 
   /**
@@ -382,6 +459,22 @@ public class PurchaseCreate extends Request {
   /** @param termsAndConditions Terms and conditions to be put on the purchase invoice. */
   public void setTermsAndConditions(final String termsAndConditions) {
     this.termsAndConditions = termsAndConditions;
+  }
+
+  /**
+   * (Transaction Data, Card on File) - Options for flagging transactions as Customer or Merchant
+   * Initiated Unscheduled.
+   */
+  public Map getTransaction() {
+    return this.transaction;
+  }
+
+  /**
+   * @param transaction (Transaction Data, Card on File) - Options for flagging transactions as
+   *     Customer or Merchant Initiated Unscheduled.
+   */
+  public void setTransaction(final Map transaction) {
+    this.transaction = transaction;
   }
 
   /**

@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 
-public class ExternalProductReferenceBase extends Request {
+public class ExternalProductReferenceUpdate extends Request {
 
   /** Represents the connection type. One of the connection types of your enabled App Connectors */
   @SerializedName("external_connection_type")

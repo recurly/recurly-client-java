@@ -14,6 +14,26 @@ import com.recurly.v3.resources.*;
 public class InvoiceCreate extends Request {
 
   /**
+   * The `business_entity_code` is the value that represents a specific business entity for an end
+   * customer which will be assigned to the invoice. Available when the `Multiple Business Entities`
+   * feature is enabled. If both `business_entity_id` and `business_entity_code` are present,
+   * `business_entity_id` will be used.
+   */
+  @SerializedName("business_entity_code")
+  @Expose
+  private String businessEntityCode;
+
+  /**
+   * The `business_entity_id` is the value that represents a specific business entity for an end
+   * customer which will be assigned to the invoice. Available when the `Multiple Business Entities`
+   * feature is enabled. If both `business_entity_id` and `business_entity_code` are present,
+   * `business_entity_id` will be used.
+   */
+  @SerializedName("business_entity_id")
+  @Expose
+  private String businessEntityId;
+
+  /**
    * This will default to the Customer Notes text specified on the Invoice Settings for charge
    * invoices. Specify custom notes to add or override Customer Notes on charge invoices.
    */
@@ -104,6 +124,46 @@ public class InvoiceCreate extends Request {
   @SerializedName("vat_reverse_charge_notes")
   @Expose
   private String vatReverseChargeNotes;
+
+  /**
+   * The `business_entity_code` is the value that represents a specific business entity for an end
+   * customer which will be assigned to the invoice. Available when the `Multiple Business Entities`
+   * feature is enabled. If both `business_entity_id` and `business_entity_code` are present,
+   * `business_entity_id` will be used.
+   */
+  public String getBusinessEntityCode() {
+    return this.businessEntityCode;
+  }
+
+  /**
+   * @param businessEntityCode The `business_entity_code` is the value that represents a specific
+   *     business entity for an end customer which will be assigned to the invoice. Available when
+   *     the `Multiple Business Entities` feature is enabled. If both `business_entity_id` and
+   *     `business_entity_code` are present, `business_entity_id` will be used.
+   */
+  public void setBusinessEntityCode(final String businessEntityCode) {
+    this.businessEntityCode = businessEntityCode;
+  }
+
+  /**
+   * The `business_entity_id` is the value that represents a specific business entity for an end
+   * customer which will be assigned to the invoice. Available when the `Multiple Business Entities`
+   * feature is enabled. If both `business_entity_id` and `business_entity_code` are present,
+   * `business_entity_id` will be used.
+   */
+  public String getBusinessEntityId() {
+    return this.businessEntityId;
+  }
+
+  /**
+   * @param businessEntityId The `business_entity_id` is the value that represents a specific
+   *     business entity for an end customer which will be assigned to the invoice. Available when
+   *     the `Multiple Business Entities` feature is enabled. If both `business_entity_id` and
+   *     `business_entity_code` are present, `business_entity_id` will be used.
+   */
+  public void setBusinessEntityId(final String businessEntityId) {
+    this.businessEntityId = businessEntityId;
+  }
 
   /**
    * This will default to the Customer Notes text specified on the Invoice Settings for charge

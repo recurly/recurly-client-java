@@ -48,6 +48,28 @@ public class SubscriptionCreate extends Request {
   @Expose
   private Boolean bulk;
 
+  /**
+   * The `business_entity_code` is the value that represents a specific business entity for an end
+   * customer. When `business_entity_code` is used to assign a business entity to the subscription,
+   * all future billing events for the subscription will bill to the specified business entity.
+   * Available when the `Multiple Business Entities` feature is enabled. If both
+   * `business_entity_id` and `business_entity_code` are present, `business_entity_id` will be used.
+   */
+  @SerializedName("business_entity_code")
+  @Expose
+  private String businessEntityCode;
+
+  /**
+   * The `business_entity_id` is the value that represents a specific business entity for an end
+   * customer. When `business_entity_id` is used to assign a business entity to the subscription,
+   * all future billing events for the subscription will bill to the specified business entity.
+   * Available when the `Multiple Business Entities` feature is enabled. If both
+   * `business_entity_id` and `business_entity_code` are present, `business_entity_id` will be used.
+   */
+  @SerializedName("business_entity_id")
+  @Expose
+  private String businessEntityId;
+
   /** Collection method */
   @SerializedName("collection_method")
   @Expose
@@ -320,6 +342,52 @@ public class SubscriptionCreate extends Request {
    */
   public void setBulk(final Boolean bulk) {
     this.bulk = bulk;
+  }
+
+  /**
+   * The `business_entity_code` is the value that represents a specific business entity for an end
+   * customer. When `business_entity_code` is used to assign a business entity to the subscription,
+   * all future billing events for the subscription will bill to the specified business entity.
+   * Available when the `Multiple Business Entities` feature is enabled. If both
+   * `business_entity_id` and `business_entity_code` are present, `business_entity_id` will be used.
+   */
+  public String getBusinessEntityCode() {
+    return this.businessEntityCode;
+  }
+
+  /**
+   * @param businessEntityCode The `business_entity_code` is the value that represents a specific
+   *     business entity for an end customer. When `business_entity_code` is used to assign a
+   *     business entity to the subscription, all future billing events for the subscription will
+   *     bill to the specified business entity. Available when the `Multiple Business Entities`
+   *     feature is enabled. If both `business_entity_id` and `business_entity_code` are present,
+   *     `business_entity_id` will be used.
+   */
+  public void setBusinessEntityCode(final String businessEntityCode) {
+    this.businessEntityCode = businessEntityCode;
+  }
+
+  /**
+   * The `business_entity_id` is the value that represents a specific business entity for an end
+   * customer. When `business_entity_id` is used to assign a business entity to the subscription,
+   * all future billing events for the subscription will bill to the specified business entity.
+   * Available when the `Multiple Business Entities` feature is enabled. If both
+   * `business_entity_id` and `business_entity_code` are present, `business_entity_id` will be used.
+   */
+  public String getBusinessEntityId() {
+    return this.businessEntityId;
+  }
+
+  /**
+   * @param businessEntityId The `business_entity_id` is the value that represents a specific
+   *     business entity for an end customer. When `business_entity_id` is used to assign a business
+   *     entity to the subscription, all future billing events for the subscription will bill to the
+   *     specified business entity. Available when the `Multiple Business Entities` feature is
+   *     enabled. If both `business_entity_id` and `business_entity_code` are present,
+   *     `business_entity_id` will be used.
+   */
+  public void setBusinessEntityId(final String businessEntityId) {
+    this.businessEntityId = businessEntityId;
   }
 
   /** Collection method */
