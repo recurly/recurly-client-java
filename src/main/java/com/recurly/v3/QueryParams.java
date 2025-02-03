@@ -78,6 +78,10 @@ public class QueryParams {
     this.add("success", success);
   }
 
+  public void setRedeemed(final Constants.FilterRedeemed redeemed) {
+    this.add("redeemed", redeemed);
+  }
+
   public void setRelatedType(final Constants.RelatedType relatedType) {
     this.add("related_type", relatedType);
   }

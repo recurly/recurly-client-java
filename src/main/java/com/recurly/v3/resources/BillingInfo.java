@@ -8,6 +8,7 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import java.util.List;
 import org.joda.time.DateTime;
 
 public class BillingInfo extends Resource {
@@ -58,6 +59,14 @@ public class BillingInfo extends Resource {
   @SerializedName("object")
   @Expose
   private String object;
+
+  /**
+   * Array of Payment Gateway References, each a reference to a third-party gateway object of
+   * varying types.
+   */
+  @SerializedName("payment_gateway_references")
+  @Expose
+  private List<PaymentGatewayReferences> paymentGatewayReferences;
 
   @SerializedName("payment_method")
   @Expose
@@ -192,6 +201,23 @@ public class BillingInfo extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  /**
+   * Array of Payment Gateway References, each a reference to a third-party gateway object of
+   * varying types.
+   */
+  public List<PaymentGatewayReferences> getPaymentGatewayReferences() {
+    return this.paymentGatewayReferences;
+  }
+
+  /**
+   * @param paymentGatewayReferences Array of Payment Gateway References, each a reference to a
+   *     third-party gateway object of varying types.
+   */
+  public void setPaymentGatewayReferences(
+      final List<PaymentGatewayReferences> paymentGatewayReferences) {
+    this.paymentGatewayReferences = paymentGatewayReferences;
   }
 
   public PaymentMethod getPaymentMethod() {
