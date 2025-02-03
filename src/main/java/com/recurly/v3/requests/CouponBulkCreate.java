@@ -12,17 +12,26 @@ import com.recurly.v3.resources.*;
 
 public class CouponBulkCreate extends Request {
 
-  /** The quantity of unique coupon codes to generate */
+  /**
+   * The quantity of unique coupon codes to generate. A bulk coupon can have up to 100,000 unique
+   * codes (or your site's configured limit).
+   */
   @SerializedName("number_of_unique_codes")
   @Expose
   private Integer numberOfUniqueCodes;
 
-  /** The quantity of unique coupon codes to generate */
+  /**
+   * The quantity of unique coupon codes to generate. A bulk coupon can have up to 100,000 unique
+   * codes (or your site's configured limit).
+   */
   public Integer getNumberOfUniqueCodes() {
     return this.numberOfUniqueCodes;
   }
 
-  /** @param numberOfUniqueCodes The quantity of unique coupon codes to generate */
+  /**
+   * @param numberOfUniqueCodes The quantity of unique coupon codes to generate. A bulk coupon can
+   *     have up to 100,000 unique codes (or your site's configured limit).
+   */
   public void setNumberOfUniqueCodes(final Integer numberOfUniqueCodes) {
     this.numberOfUniqueCodes = numberOfUniqueCodes;
   }

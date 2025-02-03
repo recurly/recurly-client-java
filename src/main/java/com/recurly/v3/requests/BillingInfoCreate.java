@@ -10,6 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.util.List;
 
 public class BillingInfoCreate extends Request {
 
@@ -93,9 +94,7 @@ public class BillingInfoCreate extends Request {
   @Expose
   private GatewayAttributes gatewayAttributes;
 
-  /**
-   * An identifier for a specific payment gateway. Must be used in conjunction with `gateway_token`.
-   */
+  /** An identifier for a specific payment gateway. */
   @SerializedName("gateway_code")
   @Expose
   private String gatewayCode;
@@ -149,6 +148,14 @@ public class BillingInfoCreate extends Request {
   @SerializedName("online_banking_payment_type")
   @Expose
   private Constants.OnlineBankingPaymentType onlineBankingPaymentType;
+
+  /**
+   * Array of Payment Gateway References, each a reference to a third-party gateway object of
+   * varying types.
+   */
+  @SerializedName("payment_gateway_references")
+  @Expose
+  private List<PaymentGatewayReferences> paymentGatewayReferences;
 
   /** PayPal billing agreement ID */
   @SerializedName("paypal_billing_agreement_id")
@@ -404,17 +411,12 @@ public class BillingInfoCreate extends Request {
     this.gatewayAttributes = gatewayAttributes;
   }
 
-  /**
-   * An identifier for a specific payment gateway. Must be used in conjunction with `gateway_token`.
-   */
+  /** An identifier for a specific payment gateway. */
   public String getGatewayCode() {
     return this.gatewayCode;
   }
 
-  /**
-   * @param gatewayCode An identifier for a specific payment gateway. Must be used in conjunction
-   *     with `gateway_token`.
-   */
+  /** @param gatewayCode An identifier for a specific payment gateway. */
   public void setGatewayCode(final String gatewayCode) {
     this.gatewayCode = gatewayCode;
   }
@@ -522,6 +524,23 @@ public class BillingInfoCreate extends Request {
   public void setOnlineBankingPaymentType(
       final Constants.OnlineBankingPaymentType onlineBankingPaymentType) {
     this.onlineBankingPaymentType = onlineBankingPaymentType;
+  }
+
+  /**
+   * Array of Payment Gateway References, each a reference to a third-party gateway object of
+   * varying types.
+   */
+  public List<PaymentGatewayReferences> getPaymentGatewayReferences() {
+    return this.paymentGatewayReferences;
+  }
+
+  /**
+   * @param paymentGatewayReferences Array of Payment Gateway References, each a reference to a
+   *     third-party gateway object of varying types.
+   */
+  public void setPaymentGatewayReferences(
+      final List<PaymentGatewayReferences> paymentGatewayReferences) {
+    this.paymentGatewayReferences = paymentGatewayReferences;
   }
 
   /** PayPal billing agreement ID */

@@ -262,6 +262,17 @@ public class Constants {
     
     };
   
+    public enum FilterRedeemed {
+      UNDEFINED,
+    
+      @SerializedName("true")
+      TRUE,
+    
+      @SerializedName("false")
+      FALSE,
+    
+    };
+  
     public enum Channel {
       UNDEFINED,
     
@@ -426,6 +437,20 @@ public class Constants {
     
       @SerializedName("post")
       POST,
+    
+    };
+  
+    public enum PaymentGatewayReferences {
+      UNDEFINED,
+    
+      @SerializedName("stripe_confirmation_token")
+      STRIPE_CONFIRMATION_TOKEN,
+    
+      @SerializedName("stripe_customer")
+      STRIPE_CUSTOMER,
+    
+      @SerializedName("stripe_payment_method")
+      STRIPE_PAYMENT_METHOD,
     
     };
   
