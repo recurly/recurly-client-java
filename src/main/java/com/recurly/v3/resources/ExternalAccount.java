@@ -22,7 +22,7 @@ public class ExternalAccount extends Resource {
   @Expose
   private String externalAccountCode;
 
-  /** Represents the connection type. `AppleAppStore` or `GooglePlayStore` */
+  /** Represents the connection type. One of the connection types of your enabled App Connectors */
   @SerializedName("external_connection_type")
   @Expose
   private String externalConnectionType;
@@ -61,14 +61,14 @@ public class ExternalAccount extends Resource {
     this.externalAccountCode = externalAccountCode;
   }
 
-  /** Represents the connection type. `AppleAppStore` or `GooglePlayStore` */
+  /** Represents the connection type. One of the connection types of your enabled App Connectors */
   public String getExternalConnectionType() {
     return this.externalConnectionType;
   }
 
   /**
-   * @param externalConnectionType Represents the connection type. `AppleAppStore` or
-   *     `GooglePlayStore`
+   * @param externalConnectionType Represents the connection type. One of the connection types of
+   *     your enabled App Connectors
    */
   public void setExternalConnectionType(final String externalConnectionType) {
     this.externalConnectionType = externalConnectionType;
