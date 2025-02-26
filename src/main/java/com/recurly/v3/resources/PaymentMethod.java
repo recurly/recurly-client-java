@@ -35,11 +35,7 @@ public class PaymentMethod extends Resource {
   @Expose
   private Constants.CardType cardType;
 
-  /**
-   * The 2-letter ISO 3166-1 alpha-2 country code associated with the credit card BIN, if known by
-   * Recurly. Available on the BillingInfo object only. Available when the BIN country lookup
-   * feature is enabled.
-   */
+  /** The 2-letter ISO 3166-1 alpha-2 country code associated with the card's issuer, if known. */
   @SerializedName("cc_bin_country")
   @Expose
   private String ccBinCountry;
@@ -58,6 +54,11 @@ public class PaymentMethod extends Resource {
   @SerializedName("first_six")
   @Expose
   private String firstSix;
+
+  /** The funding source of the card, if known. */
+  @SerializedName("funding_source")
+  @Expose
+  private Constants.CardFundingSource fundingSource;
 
   /** Gateway specific attributes associated with this PaymentMethod */
   @SerializedName("gateway_attributes")
@@ -157,19 +158,14 @@ public class PaymentMethod extends Resource {
     this.cardType = cardType;
   }
 
-  /**
-   * The 2-letter ISO 3166-1 alpha-2 country code associated with the credit card BIN, if known by
-   * Recurly. Available on the BillingInfo object only. Available when the BIN country lookup
-   * feature is enabled.
-   */
+  /** The 2-letter ISO 3166-1 alpha-2 country code associated with the card's issuer, if known. */
   public String getCcBinCountry() {
     return this.ccBinCountry;
   }
 
   /**
-   * @param ccBinCountry The 2-letter ISO 3166-1 alpha-2 country code associated with the credit
-   *     card BIN, if known by Recurly. Available on the BillingInfo object only. Available when the
-   *     BIN country lookup feature is enabled.
+   * @param ccBinCountry The 2-letter ISO 3166-1 alpha-2 country code associated with the card's
+   *     issuer, if known.
    */
   public void setCcBinCountry(final String ccBinCountry) {
     this.ccBinCountry = ccBinCountry;
@@ -203,6 +199,16 @@ public class PaymentMethod extends Resource {
   /** @param firstSix Credit card number's first six digits. */
   public void setFirstSix(final String firstSix) {
     this.firstSix = firstSix;
+  }
+
+  /** The funding source of the card, if known. */
+  public Constants.CardFundingSource getFundingSource() {
+    return this.fundingSource;
+  }
+
+  /** @param fundingSource The funding source of the card, if known. */
+  public void setFundingSource(final Constants.CardFundingSource fundingSource) {
+    this.fundingSource = fundingSource;
   }
 
   /** Gateway specific attributes associated with this PaymentMethod */

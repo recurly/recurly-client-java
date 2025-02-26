@@ -1531,6 +1531,26 @@ public class Constants {
     
     };
   
+    public enum CardFundingSource {
+      UNDEFINED,
+    
+      @SerializedName("credit")
+      CREDIT,
+    
+      @SerializedName("debit")
+      DEBIT,
+    
+      @SerializedName("charge")
+      CHARGE,
+    
+      @SerializedName("prepaid")
+      PREPAID,
+    
+      @SerializedName("deferred_debit")
+      DEFERRED_DEBIT,
+    
+    };
+  
     public enum AccountType {
       UNDEFINED,
     
