@@ -210,6 +210,11 @@ public class Invoice extends Resource {
   @Expose
   private String previousInvoiceId;
 
+  /** Reference Only Currency Conversion */
+  @SerializedName("reference_only_currency_conversion")
+  @Expose
+  private ReferenceOnlyCurrencyConversion referenceOnlyCurrencyConversion;
+
   /** The refundable amount on a charge invoice. It will be null for all other invoices. */
   @SerializedName("refundable_amount")
   @Expose
@@ -698,6 +703,17 @@ public class Invoice extends Resource {
    */
   public void setPreviousInvoiceId(final String previousInvoiceId) {
     this.previousInvoiceId = previousInvoiceId;
+  }
+
+  /** Reference Only Currency Conversion */
+  public ReferenceOnlyCurrencyConversion getReferenceOnlyCurrencyConversion() {
+    return this.referenceOnlyCurrencyConversion;
+  }
+
+  /** @param referenceOnlyCurrencyConversion Reference Only Currency Conversion */
+  public void setReferenceOnlyCurrencyConversion(
+      final ReferenceOnlyCurrencyConversion referenceOnlyCurrencyConversion) {
+    this.referenceOnlyCurrencyConversion = referenceOnlyCurrencyConversion;
   }
 
   /** The refundable amount on a charge invoice. It will be null for all other invoices. */
