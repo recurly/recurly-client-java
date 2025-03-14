@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.63.0](https://github.com/recurly/recurly-client-java/tree/4.63.0) (2025-03-14)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.62.0...4.63.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 [#288](https://github.com/recurly/recurly-client-java/pull/288) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.62.0](https://github.com/recurly/recurly-client-java/tree/4.62.0) (2025-02-26)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/4.61.0...4.62.0)
