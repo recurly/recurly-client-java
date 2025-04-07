@@ -25,6 +25,14 @@ public class SubscriptionPurchase extends Request {
   private Boolean autoRenew;
 
   /**
+   * Optional field to be used only when needing to bypass the 60 second limit on creating
+   * subscriptions. Should only be used when creating subscriptions in bulk from the API.
+   */
+  @SerializedName("bulk")
+  @Expose
+  private Boolean bulk;
+
+  /**
    * The custom fields will only be altered when they are included in a request. Sending an empty
    * array will not remove any existing values. To remove a field send the name with a null or empty
    * value.
@@ -84,7 +92,7 @@ public class SubscriptionPurchase extends Request {
   private SubscriptionShippingPurchase shipping;
 
   /**
-   * If set, the subscription will begin in the future on this date. The subscription will apply the
+   * If set, the subscription will begin on this specified date. The subscription will apply the
    * setup fee and trial period, unless the plan has no trial.
    */
   @SerializedName("starts_at")
@@ -144,6 +152,23 @@ public class SubscriptionPurchase extends Request {
   /** @param autoRenew Whether the subscription renews at the end of its term. */
   public void setAutoRenew(final Boolean autoRenew) {
     this.autoRenew = autoRenew;
+  }
+
+  /**
+   * Optional field to be used only when needing to bypass the 60 second limit on creating
+   * subscriptions. Should only be used when creating subscriptions in bulk from the API.
+   */
+  public Boolean getBulk() {
+    return this.bulk;
+  }
+
+  /**
+   * @param bulk Optional field to be used only when needing to bypass the 60 second limit on
+   *     creating subscriptions. Should only be used when creating subscriptions in bulk from the
+   *     API.
+   */
+  public void setBulk(final Boolean bulk) {
+    this.bulk = bulk;
   }
 
   /**
@@ -266,7 +291,7 @@ public class SubscriptionPurchase extends Request {
   }
 
   /**
-   * If set, the subscription will begin in the future on this date. The subscription will apply the
+   * If set, the subscription will begin on this specified date. The subscription will apply the
    * setup fee and trial period, unless the plan has no trial.
    */
   public DateTime getStartsAt() {
@@ -274,8 +299,8 @@ public class SubscriptionPurchase extends Request {
   }
 
   /**
-   * @param startsAt If set, the subscription will begin in the future on this date. The
-   *     subscription will apply the setup fee and trial period, unless the plan has no trial.
+   * @param startsAt If set, the subscription will begin on this specified date. The subscription
+   *     will apply the setup fee and trial period, unless the plan has no trial.
    */
   public void setStartsAt(final DateTime startsAt) {
     this.startsAt = startsAt;
