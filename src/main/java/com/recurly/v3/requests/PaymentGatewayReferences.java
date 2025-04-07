@@ -13,43 +13,47 @@ import com.recurly.v3.resources.*;
 
 public class PaymentGatewayReferences extends Request {
 
-  /** The type of reference token. Required if token is passed in for Stripe Gateway. */
+  /**
+   * The type of reference token. Required if token is passed in for Stripe Gateway or Ebanx UPI.
+   */
   @SerializedName("reference_type")
   @Expose
   private Constants.PaymentGatewayReferences referenceType;
 
   /**
-   * Reference value used when the external token was created. If Stripe gateway is used, this value
-   * will need to be accompanied by its reference_type.
+   * Reference value used when the external token was created. If a Stripe gateway or Ebanx gateway
+   * is used, this value will need to be accompanied by its reference_type.
    */
   @SerializedName("token")
   @Expose
   private String token;
 
-  /** The type of reference token. Required if token is passed in for Stripe Gateway. */
+  /**
+   * The type of reference token. Required if token is passed in for Stripe Gateway or Ebanx UPI.
+   */
   public Constants.PaymentGatewayReferences getReferenceType() {
     return this.referenceType;
   }
 
   /**
    * @param referenceType The type of reference token. Required if token is passed in for Stripe
-   *     Gateway.
+   *     Gateway or Ebanx UPI.
    */
   public void setReferenceType(final Constants.PaymentGatewayReferences referenceType) {
     this.referenceType = referenceType;
   }
 
   /**
-   * Reference value used when the external token was created. If Stripe gateway is used, this value
-   * will need to be accompanied by its reference_type.
+   * Reference value used when the external token was created. If a Stripe gateway or Ebanx gateway
+   * is used, this value will need to be accompanied by its reference_type.
    */
   public String getToken() {
     return this.token;
   }
 
   /**
-   * @param token Reference value used when the external token was created. If Stripe gateway is
-   *     used, this value will need to be accompanied by its reference_type.
+   * @param token Reference value used when the external token was created. If a Stripe gateway or
+   *     Ebanx gateway is used, this value will need to be accompanied by its reference_type.
    */
   public void setToken(final String token) {
     this.token = token;

@@ -452,6 +452,9 @@ public class Constants {
       @SerializedName("stripe_payment_method")
       STRIPE_PAYMENT_METHOD,
     
+      @SerializedName("upi_vpa")
+      UPI_VPA,
+    
     };
   
     public enum GatewayTransactionType {
