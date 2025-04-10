@@ -1637,6 +1637,23 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
+   * Create an external invoice
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_external_invoice">create_external_invoice api documentation</a>
+   * @param externalSubscriptionId External subscription id
+   * @param body The body of the request.
+     * @return Returns the external invoice
+   */
+  public ExternalInvoice createExternalInvoice(String externalSubscriptionId, ExternalInvoiceCreate body) {
+    final String url = "/external_subscriptions/{external_subscription_id}/external_invoices";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("external_subscription_id", externalSubscriptionId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = ExternalInvoice.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
    * List a site's invoices
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoices">list_invoices api documentation</a>
