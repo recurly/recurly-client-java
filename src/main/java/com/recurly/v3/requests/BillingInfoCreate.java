@@ -174,6 +174,15 @@ public class BillingInfoCreate extends Request {
   @Expose
   private Boolean primaryPaymentMethod;
 
+  /**
+   * Specifies a URL to which a consumer will be redirected upon completion of a redirect payment
+   * flow. Only redirect payment flows operating through Adyen Components will utilize this return
+   * URL.
+   */
+  @SerializedName("return_url")
+  @Expose
+  private String returnUrl;
+
   /** Roku's CIB if billing through Roku */
   @SerializedName("roku_billing_agreement_id")
   @Expose
@@ -576,6 +585,24 @@ public class BillingInfoCreate extends Request {
    */
   public void setPrimaryPaymentMethod(final Boolean primaryPaymentMethod) {
     this.primaryPaymentMethod = primaryPaymentMethod;
+  }
+
+  /**
+   * Specifies a URL to which a consumer will be redirected upon completion of a redirect payment
+   * flow. Only redirect payment flows operating through Adyen Components will utilize this return
+   * URL.
+   */
+  public String getReturnUrl() {
+    return this.returnUrl;
+  }
+
+  /**
+   * @param returnUrl Specifies a URL to which a consumer will be redirected upon completion of a
+   *     redirect payment flow. Only redirect payment flows operating through Adyen Components will
+   *     utilize this return URL.
+   */
+  public void setReturnUrl(final String returnUrl) {
+    this.returnUrl = returnUrl;
   }
 
   /** Roku's CIB if billing through Roku */
