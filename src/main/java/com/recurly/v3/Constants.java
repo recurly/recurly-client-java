@@ -1459,6 +1459,9 @@ public class Constants {
       @SerializedName("cash_app")
       CASH_APP,
     
+      @SerializedName("upi_autopay")
+      UPI_AUTOPAY,
+    
     };
   
     public enum CardType {

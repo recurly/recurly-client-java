@@ -220,7 +220,8 @@ public class SubscriptionCreate extends Request {
 
   /**
    * If set, the subscription will begin on this specified date. The subscription will apply the
-   * setup fee and trial period, unless the plan has no trial.
+   * setup fee and trial period, unless the plan has no trial. Omit this field if the subscription
+   * should be started immediately.
    */
   @SerializedName("starts_at")
   @Expose
@@ -699,7 +700,8 @@ public class SubscriptionCreate extends Request {
 
   /**
    * If set, the subscription will begin on this specified date. The subscription will apply the
-   * setup fee and trial period, unless the plan has no trial.
+   * setup fee and trial period, unless the plan has no trial. Omit this field if the subscription
+   * should be started immediately.
    */
   public DateTime getStartsAt() {
     return this.startsAt;
@@ -707,7 +709,8 @@ public class SubscriptionCreate extends Request {
 
   /**
    * @param startsAt If set, the subscription will begin on this specified date. The subscription
-   *     will apply the setup fee and trial period, unless the plan has no trial.
+   *     will apply the setup fee and trial period, unless the plan has no trial. Omit this field if
+   *     the subscription should be started immediately.
    */
   public void setStartsAt(final DateTime startsAt) {
     this.startsAt = startsAt;
