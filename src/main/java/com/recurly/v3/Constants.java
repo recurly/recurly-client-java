@@ -446,12 +446,6 @@ public class Constants {
       @SerializedName("stripe_confirmation_token")
       STRIPE_CONFIRMATION_TOKEN,
     
-      @SerializedName("stripe_customer")
-      STRIPE_CUSTOMER,
-    
-      @SerializedName("stripe_payment_method")
-      STRIPE_PAYMENT_METHOD,
-    
       @SerializedName("upi_vpa")
       UPI_VPA,
     
@@ -1226,6 +1220,24 @@ public class Constants {
     
       @SerializedName("transparent")
       TRANSPARENT,
+    
+      @SerializedName("token_api")
+      TOKEN_API,
+    
+      @SerializedName("api_force_collect")
+      API_FORCE_COLLECT,
+    
+      @SerializedName("api_sub_change")
+      API_SUB_CHANGE,
+    
+      @SerializedName("api_verify_card")
+      API_VERIFY_CARD,
+    
+      @SerializedName("refund_balance")
+      REFUND_BALANCE,
+    
+      @SerializedName("amazon_v2_ipn")
+      AMAZON_V2_IPN,
     
     };
   
@@ -2378,7 +2390,7 @@ public class Constants {
     
     };
   
-    public enum TransactionIndicator {
+    public enum TransactionInitiator {
       UNDEFINED,
     
       @SerializedName("customer")
