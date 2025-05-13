@@ -129,9 +129,9 @@ public class Transaction extends Resource {
    * customer is in session, send `customer`. If this is a merchant initiated one-time transaction,
    * send `merchant`.
    */
-  @SerializedName("indicator")
+  @SerializedName("initiator")
   @Expose
-  private Constants.TransactionIndicator indicator;
+  private Constants.TransactionInitiator initiator;
 
   /** Invoice mini details */
   @SerializedName("invoice")
@@ -514,18 +514,18 @@ public class Transaction extends Resource {
    * customer is in session, send `customer`. If this is a merchant initiated one-time transaction,
    * send `merchant`.
    */
-  public Constants.TransactionIndicator getIndicator() {
-    return this.indicator;
+  public Constants.TransactionInitiator getInitiator() {
+    return this.initiator;
   }
 
   /**
-   * @param indicator Must be sent for one-time transactions in order to provide context on which
+   * @param initiator Must be sent for one-time transactions in order to provide context on which
    *     entity is submitting the transaction to ensure proper fraud checks are observed, such as
    *     3DS. If the customer is in session, send `customer`. If this is a merchant initiated
    *     one-time transaction, send `merchant`.
    */
-  public void setIndicator(final Constants.TransactionIndicator indicator) {
-    this.indicator = indicator;
+  public void setInitiator(final Constants.TransactionInitiator initiator) {
+    this.initiator = initiator;
   }
 
   /** Invoice mini details */
