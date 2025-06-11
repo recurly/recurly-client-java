@@ -407,6 +407,62 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Verify a billing information's credit card
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/verify_billing_infos">verify_billing_infos api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param billingInfoId Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
+     * @return Transaction information from verify.
+   */
+  public Transaction verifyBillingInfos(String accountId, String billingInfoId) {
+    final String url = "/accounts/{account_id}/billing_infos/{billing_info_id}/verify";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("billing_info_id", billingInfoId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Transaction.class;
+    return this.makeRequest("POST", path, returnType);
+  }
+
+  /**
+   * Verify a billing information's credit card
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/verify_billing_infos">verify_billing_infos api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param billingInfoId Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
+   * @param body The body of the request.
+     * @return Transaction information from verify.
+   */
+  public Transaction verifyBillingInfos(String accountId, String billingInfoId, BillingInfoVerify body) {
+    final String url = "/accounts/{account_id}/billing_infos/{billing_info_id}/verify";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("billing_info_id", billingInfoId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Transaction.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * Verify a billing information's credit card cvv
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/verify_billing_infos_cvv">verify_billing_infos_cvv api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param billingInfoId Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
+   * @param body The body of the request.
+     * @return Transaction information from verify.
+   */
+  public Transaction verifyBillingInfosCvv(String accountId, String billingInfoId, BillingInfoVerifyCVV body) {
+    final String url = "/accounts/{account_id}/billing_infos/{billing_info_id}/verify_cvv";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("billing_info_id", billingInfoId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Transaction.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
    * List the coupon redemptions for an account
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_coupon_redemptions">list_account_coupon_redemptions api documentation</a>

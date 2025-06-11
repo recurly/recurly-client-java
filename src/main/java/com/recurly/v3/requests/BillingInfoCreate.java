@@ -28,7 +28,7 @@ public class BillingInfoCreate extends Request {
   @Expose
   private Address address;
 
-  /** Amazon billing agreement ID */
+  /** Only supported on Amazon V1. For Amazon V2, use token_id with Recurly.js. */
   @SerializedName("amazon_billing_agreement_id")
   @Expose
   private String amazonBillingAgreementId;
@@ -286,12 +286,15 @@ public class BillingInfoCreate extends Request {
     this.address = address;
   }
 
-  /** Amazon billing agreement ID */
+  /** Only supported on Amazon V1. For Amazon V2, use token_id with Recurly.js. */
   public String getAmazonBillingAgreementId() {
     return this.amazonBillingAgreementId;
   }
 
-  /** @param amazonBillingAgreementId Amazon billing agreement ID */
+  /**
+   * @param amazonBillingAgreementId Only supported on Amazon V1. For Amazon V2, use token_id with
+   *     Recurly.js.
+   */
   public void setAmazonBillingAgreementId(final String amazonBillingAgreementId) {
     this.amazonBillingAgreementId = amazonBillingAgreementId;
   }

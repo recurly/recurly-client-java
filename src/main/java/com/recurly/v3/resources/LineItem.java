@@ -40,7 +40,7 @@ public class LineItem extends Resource {
   @Expose
   private String addOnId;
 
-  /** `(quantity * unit_amount) - (discount + tax)` */
+  /** `(quantity * unit_amount) - discount + tax` */
   @SerializedName("amount")
   @Expose
   private BigDecimal amount;
@@ -462,12 +462,12 @@ public class LineItem extends Resource {
     this.addOnId = addOnId;
   }
 
-  /** `(quantity * unit_amount) - (discount + tax)` */
+  /** `(quantity * unit_amount) - discount + tax` */
   public BigDecimal getAmount() {
     return this.amount;
   }
 
-  /** @param amount `(quantity * unit_amount) - (discount + tax)` */
+  /** @param amount `(quantity * unit_amount) - discount + tax` */
   public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }

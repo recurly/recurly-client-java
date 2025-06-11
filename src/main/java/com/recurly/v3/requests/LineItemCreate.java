@@ -118,11 +118,12 @@ public class LineItemCreate extends Request {
   private String liabilityGlAccountId;
 
   /**
-   * Origin `external_gift_card` is allowed if the Gift Cards feature is enabled on your site and
-   * `type` is `credit`. Set this value in order to track gift card credits from external gift cards
-   * (like InComm). It also skips billing information requirements. Origin `prepayment` is only
-   * allowed if `type` is `charge` and `tax_exempt` is left blank or set to true. This origin
-   * creates a charge and opposite credit on the account to be used for future invoices.
+   * Origin `external_gift_card` is allowed if the Gift Cards feature is enabled on your site,
+   * `type` is `credit` and `tax_exempt` is `true` if you are using taxes. Set this value in order
+   * to track gift card credits from external gift cards (like InComm). It also skips billing
+   * information requirements. Origin `prepayment` is only allowed if `type` is `charge` and
+   * `tax_exempt` is left blank or set to true. This origin creates a charge and opposite credit on
+   * the account to be used for future invoices.
    */
   @SerializedName("origin")
   @Expose
@@ -439,11 +440,12 @@ public class LineItemCreate extends Request {
   }
 
   /**
-   * Origin `external_gift_card` is allowed if the Gift Cards feature is enabled on your site and
-   * `type` is `credit`. Set this value in order to track gift card credits from external gift cards
-   * (like InComm). It also skips billing information requirements. Origin `prepayment` is only
-   * allowed if `type` is `charge` and `tax_exempt` is left blank or set to true. This origin
-   * creates a charge and opposite credit on the account to be used for future invoices.
+   * Origin `external_gift_card` is allowed if the Gift Cards feature is enabled on your site,
+   * `type` is `credit` and `tax_exempt` is `true` if you are using taxes. Set this value in order
+   * to track gift card credits from external gift cards (like InComm). It also skips billing
+   * information requirements. Origin `prepayment` is only allowed if `type` is `charge` and
+   * `tax_exempt` is left blank or set to true. This origin creates a charge and opposite credit on
+   * the account to be used for future invoices.
    */
   public Constants.LineItemCreateOrigin getOrigin() {
     return this.origin;
@@ -451,11 +453,11 @@ public class LineItemCreate extends Request {
 
   /**
    * @param origin Origin `external_gift_card` is allowed if the Gift Cards feature is enabled on
-   *     your site and `type` is `credit`. Set this value in order to track gift card credits from
-   *     external gift cards (like InComm). It also skips billing information requirements. Origin
-   *     `prepayment` is only allowed if `type` is `charge` and `tax_exempt` is left blank or set to
-   *     true. This origin creates a charge and opposite credit on the account to be used for future
-   *     invoices.
+   *     your site, `type` is `credit` and `tax_exempt` is `true` if you are using taxes. Set this
+   *     value in order to track gift card credits from external gift cards (like InComm). It also
+   *     skips billing information requirements. Origin `prepayment` is only allowed if `type` is
+   *     `charge` and `tax_exempt` is left blank or set to true. This origin creates a charge and
+   *     opposite credit on the account to be used for future invoices.
    */
   public void setOrigin(final Constants.LineItemCreateOrigin origin) {
     this.origin = origin;
