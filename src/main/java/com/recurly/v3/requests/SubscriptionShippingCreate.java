@@ -10,6 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
+import org.joda.time.DateTime;
 
 public class SubscriptionShippingCreate extends Request {
 
@@ -32,6 +33,11 @@ public class SubscriptionShippingCreate extends Request {
   @SerializedName("amount")
   @Expose
   private BigDecimal amount;
+
+  /** The expected date of the first delivery for the subscription. */
+  @SerializedName("expected_first_delivery_at")
+  @Expose
+  private DateTime expectedFirstDeliveryAt;
 
   /**
    * The code of the shipping method used to deliver the subscription. If `method_id` and
@@ -88,6 +94,18 @@ public class SubscriptionShippingCreate extends Request {
    */
   public void setAmount(final BigDecimal amount) {
     this.amount = amount;
+  }
+
+  /** The expected date of the first delivery for the subscription. */
+  public DateTime getExpectedFirstDeliveryAt() {
+    return this.expectedFirstDeliveryAt;
+  }
+
+  /**
+   * @param expectedFirstDeliveryAt The expected date of the first delivery for the subscription.
+   */
+  public void setExpectedFirstDeliveryAt(final DateTime expectedFirstDeliveryAt) {
+    this.expectedFirstDeliveryAt = expectedFirstDeliveryAt;
   }
 
   /**

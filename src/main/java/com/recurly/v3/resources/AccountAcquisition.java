@@ -19,6 +19,14 @@ public class AccountAcquisition extends Resource {
   private AccountMini account;
 
   /**
+   * Date the account was first created if different than the account.created_at. ie Importing
+   * accounts.
+   */
+  @SerializedName("acquired_at")
+  @Expose
+  private DateTime acquiredAt;
+
+  /**
    * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.
    */
   @SerializedName("campaign")
@@ -69,6 +77,22 @@ public class AccountAcquisition extends Resource {
   /** @param account Account mini details */
   public void setAccount(final AccountMini account) {
     this.account = account;
+  }
+
+  /**
+   * Date the account was first created if different than the account.created_at. ie Importing
+   * accounts.
+   */
+  public DateTime getAcquiredAt() {
+    return this.acquiredAt;
+  }
+
+  /**
+   * @param acquiredAt Date the account was first created if different than the account.created_at.
+   *     ie Importing accounts.
+   */
+  public void setAcquiredAt(final DateTime acquiredAt) {
+    this.acquiredAt = acquiredAt;
   }
 
   /**

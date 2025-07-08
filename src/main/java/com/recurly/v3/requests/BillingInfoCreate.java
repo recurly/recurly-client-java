@@ -28,6 +28,14 @@ public class BillingInfoCreate extends Request {
   @Expose
   private Address address;
 
+  /**
+   * The Adyen Risk Profile Reference ID is used to identify the risk profile for the payment
+   * method.
+   */
+  @SerializedName("adyen_risk_profile_reference_id")
+  @Expose
+  private String adyenRiskProfileReferenceId;
+
   /** Only supported on Amazon V1. For Amazon V2, use token_id with Recurly.js. */
   @SerializedName("amazon_billing_agreement_id")
   @Expose
@@ -284,6 +292,22 @@ public class BillingInfoCreate extends Request {
   /** @param address */
   public void setAddress(final Address address) {
     this.address = address;
+  }
+
+  /**
+   * The Adyen Risk Profile Reference ID is used to identify the risk profile for the payment
+   * method.
+   */
+  public String getAdyenRiskProfileReferenceId() {
+    return this.adyenRiskProfileReferenceId;
+  }
+
+  /**
+   * @param adyenRiskProfileReferenceId The Adyen Risk Profile Reference ID is used to identify the
+   *     risk profile for the payment method.
+   */
+  public void setAdyenRiskProfileReferenceId(final String adyenRiskProfileReferenceId) {
+    this.adyenRiskProfileReferenceId = adyenRiskProfileReferenceId;
   }
 
   /** Only supported on Amazon V1. For Amazon V2, use token_id with Recurly.js. */

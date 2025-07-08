@@ -1414,6 +1414,9 @@ public class Constants {
       @SerializedName("apple_pay")
       APPLE_PAY,
     
+      @SerializedName("apple_pay_merchant_token")
+      APPLE_PAY_MERCHANT_TOKEN,
+    
       @SerializedName("bank_account_info")
       BANK_ACCOUNT_INFO,
     
