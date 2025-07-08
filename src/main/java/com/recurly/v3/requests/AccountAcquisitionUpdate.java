@@ -10,8 +10,17 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import org.joda.time.DateTime;
 
 public class AccountAcquisitionUpdate extends Request {
+
+  /**
+   * Date the account was first created if different than the account.created_at. ie Importing
+   * accounts.
+   */
+  @SerializedName("acquired_at")
+  @Expose
+  private DateTime acquiredAt;
 
   /**
    * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.
@@ -36,6 +45,22 @@ public class AccountAcquisitionUpdate extends Request {
   @SerializedName("subchannel")
   @Expose
   private String subchannel;
+
+  /**
+   * Date the account was first created if different than the account.created_at. ie Importing
+   * accounts.
+   */
+  public DateTime getAcquiredAt() {
+    return this.acquiredAt;
+  }
+
+  /**
+   * @param acquiredAt Date the account was first created if different than the account.created_at.
+   *     ie Importing accounts.
+   */
+  public void setAcquiredAt(final DateTime acquiredAt) {
+    this.acquiredAt = acquiredAt;
+  }
 
   /**
    * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.

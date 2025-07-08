@@ -15,7 +15,7 @@ public class ExternalProductReferenceUpdate extends Request {
   /** Represents the connection type. One of the connection types of your enabled App Connectors */
   @SerializedName("external_connection_type")
   @Expose
-  private ExternalProductReferenceConnectionType externalConnectionType;
+  private String externalConnectionType;
 
   /**
    * A code which associates the external product to a corresponding object or resource in an
@@ -26,7 +26,7 @@ public class ExternalProductReferenceUpdate extends Request {
   private String referenceCode;
 
   /** Represents the connection type. One of the connection types of your enabled App Connectors */
-  public ExternalProductReferenceConnectionType getExternalConnectionType() {
+  public String getExternalConnectionType() {
     return this.externalConnectionType;
   }
 
@@ -34,8 +34,7 @@ public class ExternalProductReferenceUpdate extends Request {
    * @param externalConnectionType Represents the connection type. One of the connection types of
    *     your enabled App Connectors
    */
-  public void setExternalConnectionType(
-      final ExternalProductReferenceConnectionType externalConnectionType) {
+  public void setExternalConnectionType(final String externalConnectionType) {
     this.externalConnectionType = externalConnectionType;
   }
 
