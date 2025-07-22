@@ -131,6 +131,11 @@ public class SubscriptionChangeCreate extends Request {
   @Expose
   private String poNumber;
 
+  /** The price segment ID, e.g. `e28zov4fw0v2`. */
+  @SerializedName("price_segment_id")
+  @Expose
+  private String priceSegmentId;
+
   /**
    * Allows you to control how any resulting charges and credits will be calculated and prorated.
    */
@@ -428,6 +433,16 @@ public class SubscriptionChangeCreate extends Request {
    */
   public void setPoNumber(final String poNumber) {
     this.poNumber = poNumber;
+  }
+
+  /** The price segment ID, e.g. `e28zov4fw0v2`. */
+  public String getPriceSegmentId() {
+    return this.priceSegmentId;
+  }
+
+  /** @param priceSegmentId The price segment ID, e.g. `e28zov4fw0v2`. */
+  public void setPriceSegmentId(final String priceSegmentId) {
+    this.priceSegmentId = priceSegmentId;
   }
 
   /**

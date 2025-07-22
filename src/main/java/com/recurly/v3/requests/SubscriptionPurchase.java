@@ -65,6 +65,14 @@ public class SubscriptionPurchase extends Request {
   @Expose
   private String planId;
 
+  /**
+   * The price segment ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For requests, the
+   * code can also be used. Use prefix `code-`, e.g. `code-gold`.
+   */
+  @SerializedName("price_segment_id")
+  @Expose
+  private String priceSegmentId;
+
   /** Optionally override the default quantity of 1. */
   @SerializedName("quantity")
   @Expose
@@ -234,6 +242,23 @@ public class SubscriptionPurchase extends Request {
   /** @param planId Plan ID */
   public void setPlanId(final String planId) {
     this.planId = planId;
+  }
+
+  /**
+   * The price segment ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For requests, the
+   * code can also be used. Use prefix `code-`, e.g. `code-gold`.
+   */
+  public String getPriceSegmentId() {
+    return this.priceSegmentId;
+  }
+
+  /**
+   * @param priceSegmentId The price segment ID or code. For ID no prefix is used e.g.
+   *     `e28zov4fw0v2`. For requests, the code can also be used. Use prefix `code-`, e.g.
+   *     `code-gold`.
+   */
+  public void setPriceSegmentId(final String priceSegmentId) {
+    this.priceSegmentId = priceSegmentId;
   }
 
   /** Optionally override the default quantity of 1. */
