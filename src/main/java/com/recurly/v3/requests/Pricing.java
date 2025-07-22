@@ -23,7 +23,6 @@ public class Pricing extends Request {
   @Expose
   private Boolean taxInclusive;
 
-  /** Unit price */
   @SerializedName("unit_amount")
   @Expose
   private BigDecimal unitAmount;
@@ -48,12 +47,11 @@ public class Pricing extends Request {
     this.taxInclusive = taxInclusive;
   }
 
-  /** Unit price */
   public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Unit price */
+  /** @param unitAmount */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }

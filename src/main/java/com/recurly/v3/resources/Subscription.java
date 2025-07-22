@@ -228,6 +228,14 @@ public class Subscription extends Resource {
   @Expose
   private String poNumber;
 
+  /**
+   * The price segment ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For requests, the
+   * code can also be used. Use prefix `code-`, e.g. `code-gold`.
+   */
+  @SerializedName("price_segment_id")
+  @Expose
+  private String priceSegmentId;
+
   /** Subscription quantity */
   @SerializedName("quantity")
   @Expose
@@ -780,6 +788,23 @@ public class Subscription extends Resource {
    */
   public void setPoNumber(final String poNumber) {
     this.poNumber = poNumber;
+  }
+
+  /**
+   * The price segment ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For requests, the
+   * code can also be used. Use prefix `code-`, e.g. `code-gold`.
+   */
+  public String getPriceSegmentId() {
+    return this.priceSegmentId;
+  }
+
+  /**
+   * @param priceSegmentId The price segment ID or code. For ID no prefix is used e.g.
+   *     `e28zov4fw0v2`. For requests, the code can also be used. Use prefix `code-`, e.g.
+   *     `code-gold`.
+   */
+  public void setPriceSegmentId(final String priceSegmentId) {
+    this.priceSegmentId = priceSegmentId;
   }
 
   /** Subscription quantity */

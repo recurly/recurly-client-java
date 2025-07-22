@@ -1730,7 +1730,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Fetch an invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_invoice">get_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return An invoice.
    */
   public Invoice getInvoice(String invoiceId) {
@@ -1746,7 +1746,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Update an invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/update_invoice">update_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
    * @param body The body of the request.
      * @return An invoice.
    */
@@ -1763,7 +1763,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Fetch an invoice as a PDF
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_invoice_pdf">get_invoice_pdf api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return An invoice as a PDF.
    */
   public BinaryFile getInvoicePdf(String invoiceId) {
@@ -1779,7 +1779,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Apply available credit to a pending or past due charge invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/apply_credit_balance">apply_credit_balance api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return The updated invoice.
    */
   public Invoice applyCreditBalance(String invoiceId) {
@@ -1795,7 +1795,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Collect a pending or past due, automatic invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/collect_invoice">collect_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return The updated invoice.
    */
   public Invoice collectInvoice(String invoiceId) {
@@ -1811,7 +1811,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Collect a pending or past due, automatic invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/collect_invoice">collect_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
    * @param body The body of the request.
      * @return The updated invoice.
    */
@@ -1828,7 +1828,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Mark an open invoice as failed
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/mark_invoice_failed">mark_invoice_failed api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return The updated invoice.
    */
   public Invoice markInvoiceFailed(String invoiceId) {
@@ -1844,7 +1844,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Mark an open invoice as successful
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/mark_invoice_successful">mark_invoice_successful api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return The updated invoice.
    */
   public Invoice markInvoiceSuccessful(String invoiceId) {
@@ -1860,7 +1860,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Reopen a closed, manual invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/reopen_invoice">reopen_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return The updated invoice.
    */
   public Invoice reopenInvoice(String invoiceId) {
@@ -1876,7 +1876,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Void a credit invoice.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/void_invoice">void_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return The updated invoice.
    */
   public Invoice voidInvoice(String invoiceId) {
@@ -1892,7 +1892,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Record an external payment for a manual invoices.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/record_external_transaction">record_external_transaction api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
    * @param body The body of the request.
      * @return The recorded transaction.
    */
@@ -1909,7 +1909,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List an invoice's line items
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_line_items">list_invoice_line_items api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the invoice's line items.
    */
@@ -1928,7 +1928,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List the coupon redemptions applied to an invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_coupon_redemptions">list_invoice_coupon_redemptions api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the the coupon redemptions associated with the invoice.
    */
@@ -1947,7 +1947,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List an invoice's related credit or charge invoices
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_related_invoices">list_related_invoices api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return A list of the credit or charge invoices associated with the invoice.
    */
   public Pager<Invoice> listRelatedInvoices(String invoiceId) {
@@ -1963,7 +1963,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Refund an invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/refund_invoice">refund_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
    * @param body The body of the request.
      * @return Returns the new credit invoice.
    */
@@ -2193,6 +2193,39 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = AddOn.class;
     return this.makeRequest("DELETE", path, returnType);
+  }
+
+  /**
+   * List a site's price segments
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_price_segments">list_price_segments api documentation</a>
+   * @param queryParams The {@link QueryParams} for this endpoint.
+     * @return A list of price segments.
+   */
+  public Pager<PriceSegment> listPriceSegments(QueryParams queryParams) {
+    final String url = "/price_segments";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, PriceSegment.class).getType();
+    return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * Fetch a price segment
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_price_segment">get_price_segment api documentation</a>
+   * @param priceSegmentId The price segment ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
+     * @return A price segment.
+   */
+  public PriceSegment getPriceSegment(String priceSegmentId) {
+    final String url = "/price_segments/{price_segment_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("price_segment_id", priceSegmentId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = PriceSegment.class;
+    return this.makeRequest("GET", path, returnType);
   }
 
   /**

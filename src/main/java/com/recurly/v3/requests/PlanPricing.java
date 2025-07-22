@@ -19,9 +19,18 @@ public class PlanPricing extends Request {
   private String currency;
 
   /**
-   * Amount of one-time setup fee automatically charged at the beginning of a subscription billing
-   * cycle. For subscription plans with a trial, the setup fee will be charged at the time of
-   * signup. Setup fees do not increase with the quantity of a subscription plan.
+   * The price segment ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For requests, the
+   * code can also be used. Use prefix `code-`, e.g. `code-gold`.
+   */
+  @SerializedName("price_segment_id")
+  @Expose
+  private String priceSegmentId;
+
+  /**
+   * This field is deprecated, please use top level `setup_fees` instead. Amount of one-time setup
+   * fee automatically charged at the beginning of a subscription billing cycle. For subscription
+   * plans with a trial, the setup fee will be charged at the time of signup. Setup fees do not
+   * increase with the quantity of a subscription plan.
    */
   @SerializedName("setup_fee")
   @Expose
@@ -32,7 +41,7 @@ public class PlanPricing extends Request {
   @Expose
   private Boolean taxInclusive;
 
-  /** This field should not be sent when the pricing model is 'ramp'. */
+  /** This field should not be sent when the pricing model is `'ramp'`. */
   @SerializedName("unit_amount")
   @Expose
   private BigDecimal unitAmount;
@@ -48,19 +57,37 @@ public class PlanPricing extends Request {
   }
 
   /**
-   * Amount of one-time setup fee automatically charged at the beginning of a subscription billing
-   * cycle. For subscription plans with a trial, the setup fee will be charged at the time of
-   * signup. Setup fees do not increase with the quantity of a subscription plan.
+   * The price segment ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For requests, the
+   * code can also be used. Use prefix `code-`, e.g. `code-gold`.
+   */
+  public String getPriceSegmentId() {
+    return this.priceSegmentId;
+  }
+
+  /**
+   * @param priceSegmentId The price segment ID or code. For ID no prefix is used e.g.
+   *     `e28zov4fw0v2`. For requests, the code can also be used. Use prefix `code-`, e.g.
+   *     `code-gold`.
+   */
+  public void setPriceSegmentId(final String priceSegmentId) {
+    this.priceSegmentId = priceSegmentId;
+  }
+
+  /**
+   * This field is deprecated, please use top level `setup_fees` instead. Amount of one-time setup
+   * fee automatically charged at the beginning of a subscription billing cycle. For subscription
+   * plans with a trial, the setup fee will be charged at the time of signup. Setup fees do not
+   * increase with the quantity of a subscription plan.
    */
   public BigDecimal getSetupFee() {
     return this.setupFee;
   }
 
   /**
-   * @param setupFee Amount of one-time setup fee automatically charged at the beginning of a
-   *     subscription billing cycle. For subscription plans with a trial, the setup fee will be
-   *     charged at the time of signup. Setup fees do not increase with the quantity of a
-   *     subscription plan.
+   * @param setupFee This field is deprecated, please use top level `setup_fees` instead. Amount of
+   *     one-time setup fee automatically charged at the beginning of a subscription billing cycle.
+   *     For subscription plans with a trial, the setup fee will be charged at the time of signup.
+   *     Setup fees do not increase with the quantity of a subscription plan.
    */
   public void setSetupFee(final BigDecimal setupFee) {
     this.setupFee = setupFee;
@@ -76,12 +103,12 @@ public class PlanPricing extends Request {
     this.taxInclusive = taxInclusive;
   }
 
-  /** This field should not be sent when the pricing model is 'ramp'. */
+  /** This field should not be sent when the pricing model is `'ramp'`. */
   public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
-  /** @param unitAmount This field should not be sent when the pricing model is 'ramp'. */
+  /** @param unitAmount This field should not be sent when the pricing model is `'ramp'`. */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }

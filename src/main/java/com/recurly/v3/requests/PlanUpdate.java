@@ -69,7 +69,7 @@ public class PlanUpdate extends Request {
   @Expose
   private String code;
 
-  /** Optional when the pricing model is 'ramp'. */
+  /** Required only when `pricing_model` is `'fixed'`. */
   @SerializedName("currencies")
   @Expose
   private List<PlanPricing> currencies;
@@ -102,7 +102,7 @@ public class PlanUpdate extends Request {
   @Expose
   private PlanHostedPages hostedPages;
 
-  /** Plan ID */
+  /** This field has no effect on the request/response. */
   @SerializedName("id")
   @Expose
   private String id;
@@ -186,6 +186,11 @@ public class PlanUpdate extends Request {
   @Expose
   private Constants.RevenueScheduleType setupFeeRevenueScheduleType;
 
+  /** Setup Fees */
+  @SerializedName("setup_fees")
+  @Expose
+  private List<PlanSetupPricingCreate> setupFees;
+
   /**
    * Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to determine
    * taxation rules. You can pass in specific tax codes using any of these tax integrations. For
@@ -201,7 +206,11 @@ public class PlanUpdate extends Request {
   @Expose
   private Boolean taxExempt;
 
-  /** Automatically terminate plans after a defined number of billing cycles. */
+  /**
+   * Automatically terminate subscriptions after a defined number of billing cycles. Number of
+   * billing cycles before the plan automatically stops renewing, defaults to `null` for continuous,
+   * automatic renewal.
+   */
   @SerializedName("total_billing_cycles")
   @Expose
   private Integer totalBillingCycles;
@@ -339,12 +348,12 @@ public class PlanUpdate extends Request {
     this.code = code;
   }
 
-  /** Optional when the pricing model is 'ramp'. */
+  /** Required only when `pricing_model` is `'fixed'`. */
   public List<PlanPricing> getCurrencies() {
     return this.currencies;
   }
 
-  /** @param currencies Optional when the pricing model is 'ramp'. */
+  /** @param currencies Required only when `pricing_model` is `'fixed'`. */
   public void setCurrencies(final List<PlanPricing> currencies) {
     this.currencies = currencies;
   }
@@ -405,12 +414,12 @@ public class PlanUpdate extends Request {
     this.hostedPages = hostedPages;
   }
 
-  /** Plan ID */
+  /** This field has no effect on the request/response. */
   public String getId() {
     return this.id;
   }
 
-  /** @param id Plan ID */
+  /** @param id This field has no effect on the request/response. */
   public void setId(final String id) {
     this.id = id;
   }
@@ -579,6 +588,16 @@ public class PlanUpdate extends Request {
     this.setupFeeRevenueScheduleType = setupFeeRevenueScheduleType;
   }
 
+  /** Setup Fees */
+  public List<PlanSetupPricingCreate> getSetupFees() {
+    return this.setupFees;
+  }
+
+  /** @param setupFees Setup Fees */
+  public void setSetupFees(final List<PlanSetupPricingCreate> setupFees) {
+    this.setupFees = setupFees;
+  }
+
   /**
    * Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to determine
    * taxation rules. You can pass in specific tax codes using any of these tax integrations. For
@@ -609,14 +628,19 @@ public class PlanUpdate extends Request {
     this.taxExempt = taxExempt;
   }
 
-  /** Automatically terminate plans after a defined number of billing cycles. */
+  /**
+   * Automatically terminate subscriptions after a defined number of billing cycles. Number of
+   * billing cycles before the plan automatically stops renewing, defaults to `null` for continuous,
+   * automatic renewal.
+   */
   public Integer getTotalBillingCycles() {
     return this.totalBillingCycles;
   }
 
   /**
-   * @param totalBillingCycles Automatically terminate plans after a defined number of billing
-   *     cycles.
+   * @param totalBillingCycles Automatically terminate subscriptions after a defined number of
+   *     billing cycles. Number of billing cycles before the plan automatically stops renewing,
+   *     defaults to `null` for continuous, automatic renewal.
    */
   public void setTotalBillingCycles(final Integer totalBillingCycles) {
     this.totalBillingCycles = totalBillingCycles;
