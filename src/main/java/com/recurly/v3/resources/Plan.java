@@ -74,7 +74,7 @@ public class Plan extends Resource {
   @Expose
   private DateTime createdAt;
 
-  /** Pricing */
+  /** Present only when `pricing_model` is `'fixed'`. */
   @SerializedName("currencies")
   @Expose
   private List<PlanPricing> currencies;
@@ -128,6 +128,14 @@ public class Plan extends Resource {
   private Constants.IntervalUnit intervalUnit;
 
   /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("liability_gl_account_id")
+  @Expose
+  private String liabilityGlAccountId;
+
+  /**
    * This name describes your plan and will appear on the Hosted Payment Page and the subscriber's
    * invoice.
    */
@@ -139,6 +147,14 @@ public class Plan extends Resource {
   @SerializedName("object")
   @Expose
   private String object;
+
+  /**
+   * The ID of a performance obligation. Performance obligations are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("performance_obligation_id")
+  @Expose
+  private String performanceObligationId;
 
   /**
    * A fixed pricing model has the same price for each billing period. A ramp pricing model defines
@@ -154,6 +170,14 @@ public class Plan extends Resource {
   @Expose
   private List<PlanRampInterval> rampIntervals;
 
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("revenue_gl_account_id")
+  @Expose
+  private String revenueGlAccountId;
+
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
@@ -167,10 +191,39 @@ public class Plan extends Resource {
   @Expose
   private String setupFeeAccountingCode;
 
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("setup_fee_liability_gl_account_id")
+  @Expose
+  private String setupFeeLiabilityGlAccountId;
+
+  /**
+   * The ID of a performance obligation. Performance obligations are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("setup_fee_performance_obligation_id")
+  @Expose
+  private String setupFeePerformanceObligationId;
+
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  @SerializedName("setup_fee_revenue_gl_account_id")
+  @Expose
+  private String setupFeeRevenueGlAccountId;
+
   /** Setup fee revenue schedule type */
   @SerializedName("setup_fee_revenue_schedule_type")
   @Expose
   private Constants.RevenueScheduleType setupFeeRevenueScheduleType;
+
+  /** Setup Fees */
+  @SerializedName("setup_fees")
+  @Expose
+  private List<PlanSetupPricing> setupFees;
 
   /** The current state of the plan. */
   @SerializedName("state")
@@ -349,12 +402,12 @@ public class Plan extends Resource {
     this.createdAt = createdAt;
   }
 
-  /** Pricing */
+  /** Present only when `pricing_model` is `'fixed'`. */
   public List<PlanPricing> getCurrencies() {
     return this.currencies;
   }
 
-  /** @param currencies Pricing */
+  /** @param currencies Present only when `pricing_model` is `'fixed'`. */
   public void setCurrencies(final List<PlanPricing> currencies) {
     this.currencies = currencies;
   }
@@ -456,6 +509,23 @@ public class Plan extends Resource {
   }
 
   /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getLiabilityGlAccountId() {
+    return this.liabilityGlAccountId;
+  }
+
+  /**
+   * @param liabilityGlAccountId The ID of a general ledger account. General ledger accounts are
+   *     only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setLiabilityGlAccountId(final String liabilityGlAccountId) {
+    this.liabilityGlAccountId = liabilityGlAccountId;
+  }
+
+  /**
    * This name describes your plan and will appear on the Hosted Payment Page and the subscriber's
    * invoice.
    */
@@ -479,6 +549,23 @@ public class Plan extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  /**
+   * The ID of a performance obligation. Performance obligations are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getPerformanceObligationId() {
+    return this.performanceObligationId;
+  }
+
+  /**
+   * @param performanceObligationId The ID of a performance obligation. Performance obligations are
+   *     only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setPerformanceObligationId(final String performanceObligationId) {
+    this.performanceObligationId = performanceObligationId;
   }
 
   /**
@@ -509,6 +596,22 @@ public class Plan extends Resource {
     this.rampIntervals = rampIntervals;
   }
 
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getRevenueGlAccountId() {
+    return this.revenueGlAccountId;
+  }
+
+  /**
+   * @param revenueGlAccountId The ID of a general ledger account. General ledger accounts are only
+   *     accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public void setRevenueGlAccountId(final String revenueGlAccountId) {
+    this.revenueGlAccountId = revenueGlAccountId;
+  }
+
   /** Revenue schedule type */
   public Constants.RevenueScheduleType getRevenueScheduleType() {
     return this.revenueScheduleType;
@@ -535,6 +638,57 @@ public class Plan extends Resource {
     this.setupFeeAccountingCode = setupFeeAccountingCode;
   }
 
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getSetupFeeLiabilityGlAccountId() {
+    return this.setupFeeLiabilityGlAccountId;
+  }
+
+  /**
+   * @param setupFeeLiabilityGlAccountId The ID of a general ledger account. General ledger accounts
+   *     are only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setSetupFeeLiabilityGlAccountId(final String setupFeeLiabilityGlAccountId) {
+    this.setupFeeLiabilityGlAccountId = setupFeeLiabilityGlAccountId;
+  }
+
+  /**
+   * The ID of a performance obligation. Performance obligations are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getSetupFeePerformanceObligationId() {
+    return this.setupFeePerformanceObligationId;
+  }
+
+  /**
+   * @param setupFeePerformanceObligationId The ID of a performance obligation. Performance
+   *     obligations are only accessible as a part of the Recurly RevRec Standard and Recurly RevRec
+   *     Advanced features.
+   */
+  public void setSetupFeePerformanceObligationId(final String setupFeePerformanceObligationId) {
+    this.setupFeePerformanceObligationId = setupFeePerformanceObligationId;
+  }
+
+  /**
+   * The ID of a general ledger account. General ledger accounts are only accessible as a part of
+   * the Recurly RevRec Standard and Recurly RevRec Advanced features.
+   */
+  public String getSetupFeeRevenueGlAccountId() {
+    return this.setupFeeRevenueGlAccountId;
+  }
+
+  /**
+   * @param setupFeeRevenueGlAccountId The ID of a general ledger account. General ledger accounts
+   *     are only accessible as a part of the Recurly RevRec Standard and Recurly RevRec Advanced
+   *     features.
+   */
+  public void setSetupFeeRevenueGlAccountId(final String setupFeeRevenueGlAccountId) {
+    this.setupFeeRevenueGlAccountId = setupFeeRevenueGlAccountId;
+  }
+
   /** Setup fee revenue schedule type */
   public Constants.RevenueScheduleType getSetupFeeRevenueScheduleType() {
     return this.setupFeeRevenueScheduleType;
@@ -544,6 +698,16 @@ public class Plan extends Resource {
   public void setSetupFeeRevenueScheduleType(
       final Constants.RevenueScheduleType setupFeeRevenueScheduleType) {
     this.setupFeeRevenueScheduleType = setupFeeRevenueScheduleType;
+  }
+
+  /** Setup Fees */
+  public List<PlanSetupPricing> getSetupFees() {
+    return this.setupFees;
+  }
+
+  /** @param setupFees Setup Fees */
+  public void setSetupFees(final List<PlanSetupPricing> setupFees) {
+    this.setupFees = setupFees;
   }
 
   /** The current state of the plan. */

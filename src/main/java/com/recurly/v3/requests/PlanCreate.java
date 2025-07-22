@@ -74,7 +74,7 @@ public class PlanCreate extends Request {
   @Expose
   private String code;
 
-  /** Pricing */
+  /** Required only when `pricing_model` is `'fixed'`. */
   @SerializedName("currencies")
   @Expose
   private List<PlanPricing> currencies;
@@ -205,6 +205,11 @@ public class PlanCreate extends Request {
   @Expose
   private Constants.RevenueScheduleType setupFeeRevenueScheduleType;
 
+  /** Setup Fees */
+  @SerializedName("setup_fees")
+  @Expose
+  private List<PlanSetupPricingCreate> setupFees;
+
   /**
    * Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to determine
    * taxation rules. You can pass in specific tax codes using any of these tax integrations. For
@@ -220,7 +225,11 @@ public class PlanCreate extends Request {
   @Expose
   private Boolean taxExempt;
 
-  /** Automatically terminate plans after a defined number of billing cycles. */
+  /**
+   * Automatically terminate subscriptions after a defined number of billing cycles. Number of
+   * billing cycles before the plan automatically stops renewing, defaults to `null` for continuous,
+   * automatic renewal.
+   */
   @SerializedName("total_billing_cycles")
   @Expose
   private Integer totalBillingCycles;
@@ -368,12 +377,12 @@ public class PlanCreate extends Request {
     this.code = code;
   }
 
-  /** Pricing */
+  /** Required only when `pricing_model` is `'fixed'`. */
   public List<PlanPricing> getCurrencies() {
     return this.currencies;
   }
 
-  /** @param currencies Pricing */
+  /** @param currencies Required only when `pricing_model` is `'fixed'`. */
   public void setCurrencies(final List<PlanPricing> currencies) {
     this.currencies = currencies;
   }
@@ -636,6 +645,16 @@ public class PlanCreate extends Request {
     this.setupFeeRevenueScheduleType = setupFeeRevenueScheduleType;
   }
 
+  /** Setup Fees */
+  public List<PlanSetupPricingCreate> getSetupFees() {
+    return this.setupFees;
+  }
+
+  /** @param setupFees Setup Fees */
+  public void setSetupFees(final List<PlanSetupPricingCreate> setupFees) {
+    this.setupFees = setupFees;
+  }
+
   /**
    * Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to determine
    * taxation rules. You can pass in specific tax codes using any of these tax integrations. For
@@ -666,14 +685,19 @@ public class PlanCreate extends Request {
     this.taxExempt = taxExempt;
   }
 
-  /** Automatically terminate plans after a defined number of billing cycles. */
+  /**
+   * Automatically terminate subscriptions after a defined number of billing cycles. Number of
+   * billing cycles before the plan automatically stops renewing, defaults to `null` for continuous,
+   * automatic renewal.
+   */
   public Integer getTotalBillingCycles() {
     return this.totalBillingCycles;
   }
 
   /**
-   * @param totalBillingCycles Automatically terminate plans after a defined number of billing
-   *     cycles.
+   * @param totalBillingCycles Automatically terminate subscriptions after a defined number of
+   *     billing cycles. Number of billing cycles before the plan automatically stops renewing,
+   *     defaults to `null` for continuous, automatic renewal.
    */
   public void setTotalBillingCycles(final Integer totalBillingCycles) {
     this.totalBillingCycles = totalBillingCycles;

@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
 
-public class PlanRampPricing extends Resource {
+public class PlanSetupPricing extends Resource {
 
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
@@ -18,14 +18,10 @@ public class PlanRampPricing extends Resource {
   private String currency;
 
   /**
-   * The price segment ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For requests, the
-   * code can also be used. Use prefix `code-`, e.g. `code-gold`.
+   * Amount of one-time setup fee automatically charged at the beginning of a subscription billing
+   * cycle. For subscription plans with a trial, the setup fee will be charged at the time of
+   * signup. Setup fees do not increase with the quantity of a subscription plan.
    */
-  @SerializedName("price_segment_id")
-  @Expose
-  private String priceSegmentId;
-
-  /** Represents the price for the Ramp Interval. */
   @SerializedName("unit_amount")
   @Expose
   private BigDecimal unitAmount;
@@ -41,28 +37,20 @@ public class PlanRampPricing extends Resource {
   }
 
   /**
-   * The price segment ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For requests, the
-   * code can also be used. Use prefix `code-`, e.g. `code-gold`.
+   * Amount of one-time setup fee automatically charged at the beginning of a subscription billing
+   * cycle. For subscription plans with a trial, the setup fee will be charged at the time of
+   * signup. Setup fees do not increase with the quantity of a subscription plan.
    */
-  public String getPriceSegmentId() {
-    return this.priceSegmentId;
-  }
-
-  /**
-   * @param priceSegmentId The price segment ID or code. For ID no prefix is used e.g.
-   *     `e28zov4fw0v2`. For requests, the code can also be used. Use prefix `code-`, e.g.
-   *     `code-gold`.
-   */
-  public void setPriceSegmentId(final String priceSegmentId) {
-    this.priceSegmentId = priceSegmentId;
-  }
-
-  /** Represents the price for the Ramp Interval. */
   public BigDecimal getUnitAmount() {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Represents the price for the Ramp Interval. */
+  /**
+   * @param unitAmount Amount of one-time setup fee automatically charged at the beginning of a
+   *     subscription billing cycle. For subscription plans with a trial, the setup fee will be
+   *     charged at the time of signup. Setup fees do not increase with the quantity of a
+   *     subscription plan.
+   */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
