@@ -1438,6 +1438,9 @@ public class Constants {
       @SerializedName("google_pay")
       GOOGLE_PAY,
     
+      @SerializedName("google_pay_device_pan")
+      GOOGLE_PAY_DEVICE_PAN,
+    
       @SerializedName("iban_bank_account")
       IBAN_BANK_ACCOUNT,
     
