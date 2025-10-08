@@ -80,9 +80,7 @@ public class BillingInfoCreate extends Request {
   @Expose
   private GatewayAttributes gatewayAttributes;
 
-  /**
-   * An identifier for a specific payment gateway. Must be used in conjunction with `gateway_token`.
-   */
+  /** An identifier for a specific payment gateway. */
   @SerializedName("gateway_code")
   @Expose
   private String gatewayCode;
@@ -357,17 +355,12 @@ public class BillingInfoCreate extends Request {
     this.gatewayAttributes = gatewayAttributes;
   }
 
-  /**
-   * An identifier for a specific payment gateway. Must be used in conjunction with `gateway_token`.
-   */
+  /** An identifier for a specific payment gateway. */
   public String getGatewayCode() {
     return this.gatewayCode;
   }
 
-  /**
-   * @param gatewayCode An identifier for a specific payment gateway. Must be used in conjunction
-   *     with `gateway_token`.
-   */
+  /** @param gatewayCode An identifier for a specific payment gateway. */
   public void setGatewayCode(final String gatewayCode) {
     this.gatewayCode = gatewayCode;
   }

@@ -178,6 +178,11 @@ public class Invoice extends Resource {
   @Expose
   private Float subtotal;
 
+  /** The summation of charges and credits, after discounts applied. */
+  @SerializedName("subtotal_after_discount")
+  @Expose
+  private Float subtotalAfterDiscount;
+
   /** The total tax on this invoice. */
   @SerializedName("tax")
   @Expose
@@ -588,6 +593,16 @@ public class Invoice extends Resource {
   /** @param subtotal The summation of charges and credits, before discounts and taxes. */
   public void setSubtotal(final Float subtotal) {
     this.subtotal = subtotal;
+  }
+
+  /** The summation of charges and credits, after discounts applied. */
+  public Float getSubtotalAfterDiscount() {
+    return this.subtotalAfterDiscount;
+  }
+
+  /** @param subtotalAfterDiscount The summation of charges and credits, after discounts applied. */
+  public void setSubtotalAfterDiscount(final Float subtotalAfterDiscount) {
+    this.subtotalAfterDiscount = subtotalAfterDiscount;
   }
 
   /** The total tax on this invoice. */

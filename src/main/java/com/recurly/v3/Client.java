@@ -297,6 +297,23 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Verify an account's credit card billing cvv
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/verify_billing_info_cvv">verify_billing_info_cvv api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param body The body of the request.
+     * @return Transaction information from verify.
+   */
+  public Transaction verifyBillingInfoCvv(String accountId, BillingInfoVerifyCVV body) {
+    final String url = "/accounts/{account_id}/billing_info/verify_cvv";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Transaction.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
    * Get the list of billing information associated with an account
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_billing_infos">list_billing_infos api documentation</a>
@@ -383,6 +400,62 @@ public class Client extends BaseClient {
     urlParams.put("billing_info_id", billingInfoId);
     final String path = this.interpolatePath(url, urlParams);
     this.makeRequest("DELETE", path);
+  }
+
+  /**
+   * Verify a billing information's credit card
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/verify_billing_infos">verify_billing_infos api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param billingInfoId Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
+     * @return Transaction information from verify.
+   */
+  public Transaction verifyBillingInfos(String accountId, String billingInfoId) {
+    final String url = "/accounts/{account_id}/billing_infos/{billing_info_id}/verify";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("billing_info_id", billingInfoId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Transaction.class;
+    return this.makeRequest("POST", path, returnType);
+  }
+
+  /**
+   * Verify a billing information's credit card
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/verify_billing_infos">verify_billing_infos api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param billingInfoId Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
+   * @param body The body of the request.
+     * @return Transaction information from verify.
+   */
+  public Transaction verifyBillingInfos(String accountId, String billingInfoId, BillingInfoVerify body) {
+    final String url = "/accounts/{account_id}/billing_infos/{billing_info_id}/verify";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("billing_info_id", billingInfoId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Transaction.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * Verify a billing information's credit card cvv
+   *
+   * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/verify_billing_infos_cvv">verify_billing_infos_cvv api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param billingInfoId Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
+   * @param body The body of the request.
+     * @return Transaction information from verify.
+   */
+  public Transaction verifyBillingInfosCvv(String accountId, String billingInfoId, BillingInfoVerifyCVV body) {
+    final String url = "/accounts/{account_id}/billing_infos/{billing_info_id}/verify_cvv";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("billing_info_id", billingInfoId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Transaction.class;
+    return this.makeRequest("POST", path, body, returnType);
   }
 
   /**
@@ -1143,7 +1216,7 @@ public class Client extends BaseClient {
    * Fetch an invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_invoice">get_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return An invoice.
    */
   public Invoice getInvoice(String invoiceId) {
@@ -1159,7 +1232,7 @@ public class Client extends BaseClient {
    * Update an invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/put_invoice">put_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
    * @param body The body of the request.
      * @return An invoice.
    */
@@ -1176,7 +1249,7 @@ public class Client extends BaseClient {
    * Fetch an invoice as a PDF
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/get_invoice_pdf">get_invoice_pdf api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return An invoice as a PDF.
    */
   public BinaryFile getInvoicePdf(String invoiceId) {
@@ -1192,7 +1265,7 @@ public class Client extends BaseClient {
    * Apply available credit to a pending or past due charge invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/apply_credit_balance">apply_credit_balance api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return The updated invoice.
    */
   public Invoice applyCreditBalance(String invoiceId) {
@@ -1208,7 +1281,7 @@ public class Client extends BaseClient {
    * Collect a pending or past due, automatic invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/collect_invoice">collect_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return The updated invoice.
    */
   public Invoice collectInvoice(String invoiceId) {
@@ -1224,7 +1297,7 @@ public class Client extends BaseClient {
    * Collect a pending or past due, automatic invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/collect_invoice">collect_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
    * @param body The body of the request.
      * @return The updated invoice.
    */
@@ -1241,7 +1314,7 @@ public class Client extends BaseClient {
    * Mark an open invoice as failed
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/fail_invoice">fail_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return The updated invoice.
    */
   public Invoice failInvoice(String invoiceId) {
@@ -1257,7 +1330,7 @@ public class Client extends BaseClient {
    * Mark an open invoice as successful
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/mark_invoice_successful">mark_invoice_successful api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return The updated invoice.
    */
   public Invoice markInvoiceSuccessful(String invoiceId) {
@@ -1273,7 +1346,7 @@ public class Client extends BaseClient {
    * Reopen a closed, manual invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/reopen_invoice">reopen_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return The updated invoice.
    */
   public Invoice reopenInvoice(String invoiceId) {
@@ -1289,7 +1362,7 @@ public class Client extends BaseClient {
    * Void a credit invoice.
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/void_invoice">void_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return The updated invoice.
    */
   public Invoice voidInvoice(String invoiceId) {
@@ -1305,7 +1378,7 @@ public class Client extends BaseClient {
    * Record an external payment for a manual invoices.
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/record_external_transaction">record_external_transaction api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
    * @param body The body of the request.
      * @return The recorded transaction.
    */
@@ -1322,7 +1395,7 @@ public class Client extends BaseClient {
    * List an invoice's line items
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_invoice_line_items">list_invoice_line_items api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the invoice's line items.
    */
@@ -1341,7 +1414,7 @@ public class Client extends BaseClient {
    * List the coupon redemptions applied to an invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_invoice_coupon_redemptions">list_invoice_coupon_redemptions api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
    * @param queryParams The {@link QueryParams} for this endpoint.
      * @return A list of the the coupon redemptions associated with the invoice.
    */
@@ -1360,7 +1433,7 @@ public class Client extends BaseClient {
    * List an invoice's related credit or charge invoices
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/list_related_invoices">list_related_invoices api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @return A list of the credit or charge invoices associated with the invoice.
    */
   public Pager<Invoice> listRelatedInvoices(String invoiceId) {
@@ -1376,7 +1449,7 @@ public class Client extends BaseClient {
    * Refund an invoice
    *
    * @see <a href="https://developers.recurly.com/api/v2019-10-10#operation/refund_invoice">refund_invoice api documentation</a>
-   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
    * @param body The body of the request.
      * @return Returns the new credit invoice.
    */

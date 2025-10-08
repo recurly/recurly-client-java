@@ -81,9 +81,10 @@ public class ItemCreate extends Request {
   private String revenueScheduleType;
 
   /**
-   * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
-   * each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`,
-   * or `digital`.
+   * Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to determine
+   * taxation rules. You can pass in specific tax codes using any of these tax integrations. For
+   * Recurly's In-the-Box tax offering you can also choose to instead use simple values of
+   * `unknown`, `physical`, or `digital` tax codes.
    */
   @SerializedName("tax_code")
   @Expose
@@ -231,18 +232,20 @@ public class ItemCreate extends Request {
   }
 
   /**
-   * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to
-   * each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`,
-   * or `digital`.
+   * Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to determine
+   * taxation rules. You can pass in specific tax codes using any of these tax integrations. For
+   * Recurly's In-the-Box tax offering you can also choose to instead use simple values of
+   * `unknown`, `physical`, or `digital` tax codes.
    */
   public String getTaxCode() {
     return this.taxCode;
   }
 
   /**
-   * @param taxCode Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values
-   *     are specific to each tax system. If you are using Recurly’s EU VAT feature you can use
-   *     `unknown`, `physical`, or `digital`.
+   * @param taxCode Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to
+   *     determine taxation rules. You can pass in specific tax codes using any of these tax
+   *     integrations. For Recurly's In-the-Box tax offering you can also choose to instead use
+   *     simple values of `unknown`, `physical`, or `digital` tax codes.
    */
   public void setTaxCode(final String taxCode) {
     this.taxCode = taxCode;
