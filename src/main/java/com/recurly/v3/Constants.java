@@ -38,6 +38,17 @@ public class Constants {
     
     };
   
+    public enum SubscriptionCreateProrationSettingsCharge {
+      UNDEFINED,
+    
+      @SerializedName("full_amount")
+      FULL_AMOUNT,
+    
+      @SerializedName("prorated_amount")
+      PRORATED_AMOUNT,
+    
+    };
+  
     public enum RelatedType {
       UNDEFINED,
     

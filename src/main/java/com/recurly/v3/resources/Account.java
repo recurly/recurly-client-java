@@ -19,6 +19,14 @@ public class Account extends Resource {
   private Address address;
 
   /**
+   * The preferred billing date for the account. This date will be used as the billing date for when
+   * activating new subscriptions on the account.
+   */
+  @SerializedName("bill_date")
+  @Expose
+  private DateTime billDate;
+
+  /**
    * An enumerable describing the billing behavior of the account, specifically whether the account
    * is self-paying or will rely on the parent account to pay.
    */
@@ -247,6 +255,22 @@ public class Account extends Resource {
   /** @param address */
   public void setAddress(final Address address) {
     this.address = address;
+  }
+
+  /**
+   * The preferred billing date for the account. This date will be used as the billing date for when
+   * activating new subscriptions on the account.
+   */
+  public DateTime getBillDate() {
+    return this.billDate;
+  }
+
+  /**
+   * @param billDate The preferred billing date for the account. This date will be used as the
+   *     billing date for when activating new subscriptions on the account.
+   */
+  public void setBillDate(final DateTime billDate) {
+    this.billDate = billDate;
   }
 
   /**

@@ -71,6 +71,17 @@ public class AddOnUpdate extends Request {
   @Expose
   private Boolean displayQuantity;
 
+  /**
+   * The Harmonized System (HS) code is an internationally standardized system of names and numbers
+   * to classify traded products. The HS code, sometimes called Commodity Code, is used by customs
+   * authorities around the world to identify products when assessing duties and taxes. The HS code
+   * may also be referred to as the tariff code or customs code. Values should contain only digits
+   * and decimals.
+   */
+  @SerializedName("harmonized_system_code")
+  @Expose
+  private String harmonizedSystemCode;
+
   /** Add-on ID */
   @SerializedName("id")
   @Expose
@@ -309,6 +320,28 @@ public class AddOnUpdate extends Request {
    */
   public void setDisplayQuantity(final Boolean displayQuantity) {
     this.displayQuantity = displayQuantity;
+  }
+
+  /**
+   * The Harmonized System (HS) code is an internationally standardized system of names and numbers
+   * to classify traded products. The HS code, sometimes called Commodity Code, is used by customs
+   * authorities around the world to identify products when assessing duties and taxes. The HS code
+   * may also be referred to as the tariff code or customs code. Values should contain only digits
+   * and decimals.
+   */
+  public String getHarmonizedSystemCode() {
+    return this.harmonizedSystemCode;
+  }
+
+  /**
+   * @param harmonizedSystemCode The Harmonized System (HS) code is an internationally standardized
+   *     system of names and numbers to classify traded products. The HS code, sometimes called
+   *     Commodity Code, is used by customs authorities around the world to identify products when
+   *     assessing duties and taxes. The HS code may also be referred to as the tariff code or
+   *     customs code. Values should contain only digits and decimals.
+   */
+  public void setHarmonizedSystemCode(final String harmonizedSystemCode) {
+    this.harmonizedSystemCode = harmonizedSystemCode;
   }
 
   /** Add-on ID */

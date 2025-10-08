@@ -134,6 +134,17 @@ public class LineItem extends Resource {
   @Expose
   private String externalSku;
 
+  /**
+   * The Harmonized System (HS) code is an internationally standardized system of names and numbers
+   * to classify traded products. The HS code, sometimes called Commodity Code, is used by customs
+   * authorities around the world to identify products when assessing duties and taxes. The HS code
+   * may also be referred to as the tariff code or customs code. Values should contain only digits
+   * and decimals.
+   */
+  @SerializedName("harmonized_system_code")
+  @Expose
+  private String harmonizedSystemCode;
+
   /** Line item ID */
   @SerializedName("id")
   @Expose
@@ -652,6 +663,28 @@ public class LineItem extends Resource {
    */
   public void setExternalSku(final String externalSku) {
     this.externalSku = externalSku;
+  }
+
+  /**
+   * The Harmonized System (HS) code is an internationally standardized system of names and numbers
+   * to classify traded products. The HS code, sometimes called Commodity Code, is used by customs
+   * authorities around the world to identify products when assessing duties and taxes. The HS code
+   * may also be referred to as the tariff code or customs code. Values should contain only digits
+   * and decimals.
+   */
+  public String getHarmonizedSystemCode() {
+    return this.harmonizedSystemCode;
+  }
+
+  /**
+   * @param harmonizedSystemCode The Harmonized System (HS) code is an internationally standardized
+   *     system of names and numbers to classify traded products. The HS code, sometimes called
+   *     Commodity Code, is used by customs authorities around the world to identify products when
+   *     assessing duties and taxes. The HS code may also be referred to as the tariff code or
+   *     customs code. Values should contain only digits and decimals.
+   */
+  public void setHarmonizedSystemCode(final String harmonizedSystemCode) {
+    this.harmonizedSystemCode = harmonizedSystemCode;
   }
 
   /** Line item ID */

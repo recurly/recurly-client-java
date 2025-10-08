@@ -69,6 +69,17 @@ public class ItemCreate extends Request {
   private String externalSku;
 
   /**
+   * The Harmonized System (HS) code is an internationally standardized system of names and numbers
+   * to classify traded products. The HS code, sometimes called Commodity Code, is used by customs
+   * authorities around the world to identify products when assessing duties and taxes. The HS code
+   * may also be referred to as the tariff code or customs code. Values should contain only digits
+   * and decimals.
+   */
+  @SerializedName("harmonized_system_code")
+  @Expose
+  private String harmonizedSystemCode;
+
+  /**
    * The ID of a general ledger account. General ledger accounts are only accessible as a part of
    * the Recurly RevRec Standard and Recurly RevRec Advanced features.
    */
@@ -228,6 +239,28 @@ public class ItemCreate extends Request {
    */
   public void setExternalSku(final String externalSku) {
     this.externalSku = externalSku;
+  }
+
+  /**
+   * The Harmonized System (HS) code is an internationally standardized system of names and numbers
+   * to classify traded products. The HS code, sometimes called Commodity Code, is used by customs
+   * authorities around the world to identify products when assessing duties and taxes. The HS code
+   * may also be referred to as the tariff code or customs code. Values should contain only digits
+   * and decimals.
+   */
+  public String getHarmonizedSystemCode() {
+    return this.harmonizedSystemCode;
+  }
+
+  /**
+   * @param harmonizedSystemCode The Harmonized System (HS) code is an internationally standardized
+   *     system of names and numbers to classify traded products. The HS code, sometimes called
+   *     Commodity Code, is used by customs authorities around the world to identify products when
+   *     assessing duties and taxes. The HS code may also be referred to as the tariff code or
+   *     customs code. Values should contain only digits and decimals.
+   */
+  public void setHarmonizedSystemCode(final String harmonizedSystemCode) {
+    this.harmonizedSystemCode = harmonizedSystemCode;
   }
 
   /**
