@@ -765,6 +765,23 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Create an account note
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_account_note">create_account_note api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param body The body of the request.
+     * @return An account note.
+   */
+  public AccountNote createAccountNote(String accountId, AccountNoteCreate body) {
+    final String url = "/accounts/{account_id}/notes";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = AccountNote.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
    * Fetch an account note
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_account_note">get_account_note api documentation</a>
@@ -780,6 +797,22 @@ public class Client extends BaseClient {
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = AccountNote.class;
     return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Delete an account note
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/remove_account_note">remove_account_note api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param accountNoteId Account Note ID.
+   */
+  public void removeAccountNote(String accountId, String accountNoteId) {
+    final String url = "/accounts/{account_id}/notes/{account_note_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("account_note_id", accountNoteId);
+    final String path = this.interpolatePath(url, urlParams);
+    this.makeRequest("DELETE", path);
   }
 
   /**

@@ -107,6 +107,17 @@ public class Plan extends Resource {
   @Expose
   private String dunningCampaignId;
 
+  /**
+   * The Harmonized System (HS) code is an internationally standardized system of names and numbers
+   * to classify traded products. The HS code, sometimes called Commodity Code, is used by customs
+   * authorities around the world to identify products when assessing duties and taxes. The HS code
+   * may also be referred to as the tariff code or customs code. Values should contain only digits
+   * and decimals.
+   */
+  @SerializedName("harmonized_system_code")
+  @Expose
+  private String harmonizedSystemCode;
+
   /** Hosted pages settings */
   @SerializedName("hosted_pages")
   @Expose
@@ -466,6 +477,28 @@ public class Plan extends Resource {
    */
   public void setDunningCampaignId(final String dunningCampaignId) {
     this.dunningCampaignId = dunningCampaignId;
+  }
+
+  /**
+   * The Harmonized System (HS) code is an internationally standardized system of names and numbers
+   * to classify traded products. The HS code, sometimes called Commodity Code, is used by customs
+   * authorities around the world to identify products when assessing duties and taxes. The HS code
+   * may also be referred to as the tariff code or customs code. Values should contain only digits
+   * and decimals.
+   */
+  public String getHarmonizedSystemCode() {
+    return this.harmonizedSystemCode;
+  }
+
+  /**
+   * @param harmonizedSystemCode The Harmonized System (HS) code is an internationally standardized
+   *     system of names and numbers to classify traded products. The HS code, sometimes called
+   *     Commodity Code, is used by customs authorities around the world to identify products when
+   *     assessing duties and taxes. The HS code may also be referred to as the tariff code or
+   *     customs code. Values should contain only digits and decimals.
+   */
+  public void setHarmonizedSystemCode(final String harmonizedSystemCode) {
+    this.harmonizedSystemCode = harmonizedSystemCode;
   }
 
   /** Hosted pages settings */

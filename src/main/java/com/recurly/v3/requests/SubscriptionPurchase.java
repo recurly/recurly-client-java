@@ -73,6 +73,11 @@ public class SubscriptionPurchase extends Request {
   @Expose
   private String priceSegmentId;
 
+  /** Allows you to control how any resulting charges will be calculated and prorated. */
+  @SerializedName("proration_settings")
+  @Expose
+  private SubscriptionCreateProrationSettings prorationSettings;
+
   /** Optionally override the default quantity of 1. */
   @SerializedName("quantity")
   @Expose
@@ -259,6 +264,19 @@ public class SubscriptionPurchase extends Request {
    */
   public void setPriceSegmentId(final String priceSegmentId) {
     this.priceSegmentId = priceSegmentId;
+  }
+
+  /** Allows you to control how any resulting charges will be calculated and prorated. */
+  public SubscriptionCreateProrationSettings getProrationSettings() {
+    return this.prorationSettings;
+  }
+
+  /**
+   * @param prorationSettings Allows you to control how any resulting charges will be calculated and
+   *     prorated.
+   */
+  public void setProrationSettings(final SubscriptionCreateProrationSettings prorationSettings) {
+    this.prorationSettings = prorationSettings;
   }
 
   /** Optionally override the default quantity of 1. */

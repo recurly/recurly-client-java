@@ -96,6 +96,18 @@ public class LineItemCreate extends Request {
   @Expose
   private DateTime endDate;
 
+  /**
+   * The Harmonized System (HS) code is an internationally standardized system of names and numbers
+   * to classify traded products. The HS code, sometimes called Commodity Code, is used by customs
+   * authorities around the world to identify products when assessing duties and taxes. The HS code
+   * may also be referred to as the tariff code or customs code. Values should contain only digits
+   * and decimals. If `item_code`/`item_id` is part of the request then `harmonized_system_code`
+   * must be absent.
+   */
+  @SerializedName("harmonized_system_code")
+  @Expose
+  private String harmonizedSystemCode;
+
   /** Unique code to identify an item. Available when the Credit Invoices feature is enabled. */
   @SerializedName("item_code")
   @Expose
@@ -391,6 +403,30 @@ public class LineItemCreate extends Request {
   /** @param endDate If this date is provided, it indicates the end of a time range. */
   public void setEndDate(final DateTime endDate) {
     this.endDate = endDate;
+  }
+
+  /**
+   * The Harmonized System (HS) code is an internationally standardized system of names and numbers
+   * to classify traded products. The HS code, sometimes called Commodity Code, is used by customs
+   * authorities around the world to identify products when assessing duties and taxes. The HS code
+   * may also be referred to as the tariff code or customs code. Values should contain only digits
+   * and decimals. If `item_code`/`item_id` is part of the request then `harmonized_system_code`
+   * must be absent.
+   */
+  public String getHarmonizedSystemCode() {
+    return this.harmonizedSystemCode;
+  }
+
+  /**
+   * @param harmonizedSystemCode The Harmonized System (HS) code is an internationally standardized
+   *     system of names and numbers to classify traded products. The HS code, sometimes called
+   *     Commodity Code, is used by customs authorities around the world to identify products when
+   *     assessing duties and taxes. The HS code may also be referred to as the tariff code or
+   *     customs code. Values should contain only digits and decimals. If `item_code`/`item_id` is
+   *     part of the request then `harmonized_system_code` must be absent.
+   */
+  public void setHarmonizedSystemCode(final String harmonizedSystemCode) {
+    this.harmonizedSystemCode = harmonizedSystemCode;
   }
 
   /** Unique code to identify an item. Available when the Credit Invoices feature is enabled. */

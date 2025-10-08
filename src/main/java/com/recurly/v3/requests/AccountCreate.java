@@ -11,6 +11,7 @@ import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.util.List;
+import org.joda.time.DateTime;
 
 public class AccountCreate extends Request {
 
@@ -21,6 +22,14 @@ public class AccountCreate extends Request {
   @SerializedName("address")
   @Expose
   private Address address;
+
+  /**
+   * The preferred billing date for the account. This date will be used as the billing date for when
+   * activating new subscriptions on the account.
+   */
+  @SerializedName("bill_date")
+  @Expose
+  private DateTime billDate;
 
   /**
    * An enumerable describing the billing behavior of the account, specifically whether the account
@@ -213,6 +222,22 @@ public class AccountCreate extends Request {
   /** @param address */
   public void setAddress(final Address address) {
     this.address = address;
+  }
+
+  /**
+   * The preferred billing date for the account. This date will be used as the billing date for when
+   * activating new subscriptions on the account.
+   */
+  public DateTime getBillDate() {
+    return this.billDate;
+  }
+
+  /**
+   * @param billDate The preferred billing date for the account. This date will be used as the
+   *     billing date for when activating new subscriptions on the account.
+   */
+  public void setBillDate(final DateTime billDate) {
+    this.billDate = billDate;
   }
 
   /**
