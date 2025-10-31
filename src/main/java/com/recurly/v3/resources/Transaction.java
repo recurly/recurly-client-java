@@ -179,6 +179,14 @@ public class Transaction extends Resource {
   @Expose
   private Constants.TransactionMerchantReasonCode merchantReasonCode;
 
+  /**
+   * Next action values are used for any required customer follow-up action. Currently, this is
+   * supported for Ebanx when using Pix Automatico.
+   */
+  @SerializedName("next_action")
+  @Expose
+  private TransactionNextAction nextAction;
+
   /** Object type */
   @SerializedName("object")
   @Expose
@@ -622,6 +630,22 @@ public class Transaction extends Resource {
   public void setMerchantReasonCode(
       final Constants.TransactionMerchantReasonCode merchantReasonCode) {
     this.merchantReasonCode = merchantReasonCode;
+  }
+
+  /**
+   * Next action values are used for any required customer follow-up action. Currently, this is
+   * supported for Ebanx when using Pix Automatico.
+   */
+  public TransactionNextAction getNextAction() {
+    return this.nextAction;
+  }
+
+  /**
+   * @param nextAction Next action values are used for any required customer follow-up action.
+   *     Currently, this is supported for Ebanx when using Pix Automatico.
+   */
+  public void setNextAction(final TransactionNextAction nextAction) {
+    this.nextAction = nextAction;
   }
 
   /** Object type */
