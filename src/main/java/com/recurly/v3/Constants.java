@@ -923,6 +923,9 @@ public class Constants {
       @SerializedName("google_pay")
       GOOGLE_PAY,
     
+      @SerializedName("mercadopago")
+      MERCADOPAGO,
+    
       @SerializedName("money_order")
       MONEY_ORDER,
     
@@ -931,6 +934,9 @@ public class Constants {
     
       @SerializedName("paypal")
       PAYPAL,
+    
+      @SerializedName("pix_automatico")
+      PIX_AUTOMATICO,
     
       @SerializedName("roku")
       ROKU,
@@ -1281,6 +1287,14 @@ public class Constants {
     
     };
   
+    public enum NextActionType {
+      UNDEFINED,
+    
+      @SerializedName("qr_code")
+      QR_CODE,
+    
+    };
+  
     public enum CvvCheck {
       UNDEFINED,
     
@@ -1490,6 +1504,15 @@ public class Constants {
     
       @SerializedName("upi_autopay")
       UPI_AUTOPAY,
+    
+      @SerializedName("pix_automatico")
+      PIX_AUTOMATICO,
+    
+      @SerializedName("mercadopago")
+      MERCADOPAGO,
+    
+      @SerializedName("klarna")
+      KLARNA,
     
     };
   
@@ -2310,6 +2333,12 @@ public class Constants {
     
       @SerializedName("becs")
       BECS,
+    
+      @SerializedName("pix-automatico")
+      PIX_AUTOMATICO,
+    
+      @SerializedName("mercadopago")
+      MERCADOPAGO,
     
     };
   
