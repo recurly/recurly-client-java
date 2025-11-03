@@ -111,7 +111,11 @@ public class SubscriptionCreate extends Request {
   @Expose
   private String customerNotes;
 
-  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  /**
+   * If present, this subscription's subsequent transactions will use the payment gateway with this
+   * code. To select a payment gateway to use when creating a Subscription, be sure to set the
+   * `account.billing_info.gateway_code` as well.
+   */
   @SerializedName("gateway_code")
   @Expose
   private String gatewayCode;
@@ -487,14 +491,19 @@ public class SubscriptionCreate extends Request {
     this.customerNotes = customerNotes;
   }
 
-  /** If present, this subscription's transactions will use the payment gateway with this code. */
+  /**
+   * If present, this subscription's subsequent transactions will use the payment gateway with this
+   * code. To select a payment gateway to use when creating a Subscription, be sure to set the
+   * `account.billing_info.gateway_code` as well.
+   */
   public String getGatewayCode() {
     return this.gatewayCode;
   }
 
   /**
-   * @param gatewayCode If present, this subscription's transactions will use the payment gateway
-   *     with this code.
+   * @param gatewayCode If present, this subscription's subsequent transactions will use the payment
+   *     gateway with this code. To select a payment gateway to use when creating a Subscription, be
+   *     sure to set the `account.billing_info.gateway_code` as well.
    */
   public void setGatewayCode(final String gatewayCode) {
     this.gatewayCode = gatewayCode;

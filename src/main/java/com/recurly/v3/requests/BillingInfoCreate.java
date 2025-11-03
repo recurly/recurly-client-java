@@ -248,8 +248,8 @@ public class BillingInfoCreate extends Request {
   private Constants.GatewayTransactionType transactionType;
 
   /**
-   * The payment method type for a non-credit card based billing info. `bacs` and `becs` are the
-   * only accepted values.
+   * The payment method type for a non-credit card based billing info. `bacs`, `becs`,
+   * `pix-automatico`, `mercadopago` are the only accepted values.
    */
   @SerializedName("type")
   @Expose
@@ -750,16 +750,16 @@ public class BillingInfoCreate extends Request {
   }
 
   /**
-   * The payment method type for a non-credit card based billing info. `bacs` and `becs` are the
-   * only accepted values.
+   * The payment method type for a non-credit card based billing info. `bacs`, `becs`,
+   * `pix-automatico`, `mercadopago` are the only accepted values.
    */
   public Constants.AchType getType() {
     return this.type;
   }
 
   /**
-   * @param type The payment method type for a non-credit card based billing info. `bacs` and `becs`
-   *     are the only accepted values.
+   * @param type The payment method type for a non-credit card based billing info. `bacs`, `becs`,
+   *     `pix-automatico`, `mercadopago` are the only accepted values.
    */
   public void setType(final Constants.AchType type) {
     this.type = type;
