@@ -29,11 +29,11 @@ public class TaxInfo extends Resource {
   private String region;
 
   /**
-   * Provides additional tax details for Communications taxes when Avalara for Communications is
-   * enabled or Canadian Sales Tax when there is tax applied at both the country and province
-   * levels. This will only be populated for the Invoice response when fetching a single invoice and
-   * not for the InvoiceList or LineItemList. Only populated for a single LineItem fetch when
-   * Avalara for Communications is enabled.
+   * Provides additional tax details for Communications taxes when Avalara for Communications or
+   * Vertex Tax Breakdown is enabled or Canadian Sales Tax. Tax details will only be populated for
+   * the Invoice response when fetching a single invoice and not for the InvoiceList or
+   * LineItemList. Only populated for a single LineItem fetch when Avalara for Communications is
+   * enabled.
    */
   @SerializedName("tax_details")
   @Expose
@@ -79,11 +79,11 @@ public class TaxInfo extends Resource {
   }
 
   /**
-   * Provides additional tax details for Communications taxes when Avalara for Communications is
-   * enabled or Canadian Sales Tax when there is tax applied at both the country and province
-   * levels. This will only be populated for the Invoice response when fetching a single invoice and
-   * not for the InvoiceList or LineItemList. Only populated for a single LineItem fetch when
-   * Avalara for Communications is enabled.
+   * Provides additional tax details for Communications taxes when Avalara for Communications or
+   * Vertex Tax Breakdown is enabled or Canadian Sales Tax. Tax details will only be populated for
+   * the Invoice response when fetching a single invoice and not for the InvoiceList or
+   * LineItemList. Only populated for a single LineItem fetch when Avalara for Communications is
+   * enabled.
    */
   public List<TaxDetail> getTaxDetails() {
     return this.taxDetails;
@@ -91,10 +91,10 @@ public class TaxInfo extends Resource {
 
   /**
    * @param taxDetails Provides additional tax details for Communications taxes when Avalara for
-   *     Communications is enabled or Canadian Sales Tax when there is tax applied at both the
-   *     country and province levels. This will only be populated for the Invoice response when
-   *     fetching a single invoice and not for the InvoiceList or LineItemList. Only populated for a
-   *     single LineItem fetch when Avalara for Communications is enabled.
+   *     Communications or Vertex Tax Breakdown is enabled or Canadian Sales Tax. Tax details will
+   *     only be populated for the Invoice response when fetching a single invoice and not for the
+   *     InvoiceList or LineItemList. Only populated for a single LineItem fetch when Avalara for
+   *     Communications is enabled.
    */
   public void setTaxDetails(final List<TaxDetail> taxDetails) {
     this.taxDetails = taxDetails;
