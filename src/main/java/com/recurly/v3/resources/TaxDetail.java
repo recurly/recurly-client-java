@@ -14,7 +14,7 @@ public class TaxDetail extends Resource {
 
   /**
    * Whether or not the line item is taxable. Only populated for a single LineItem fetch when
-   * Avalara for Communications is enabled.
+   * Avalara for Communications or Vertex is enabled.
    */
   @SerializedName("billable")
   @Expose
@@ -22,7 +22,7 @@ public class TaxDetail extends Resource {
 
   /**
    * Provides the jurisdiction level for the Communications tax applied. Example values include
-   * city, state and federal. Present only when Avalara for Communications is enabled.
+   * city, state and federal. Present only when Avalara for Communications or Vertex is enabled.
    */
   @SerializedName("level")
   @Expose
@@ -30,7 +30,7 @@ public class TaxDetail extends Resource {
 
   /**
    * Provides the name of the Communications tax applied. Present only when Avalara for
-   * Communications is enabled.
+   * Communications or Vertex is enabled.
    */
   @SerializedName("name")
   @Expose
@@ -56,7 +56,7 @@ public class TaxDetail extends Resource {
 
   /**
    * Provides the tax type for the region or type of Comminications tax when Avalara for
-   * Communications is enabled. For Canadian Sales Tax, this will be GST, HST, QST or PST.
+   * Communications or Vertex is enabled. For Canadian Sales Tax, this will be GST, HST, QST or PST.
    */
   @SerializedName("type")
   @Expose
@@ -64,7 +64,7 @@ public class TaxDetail extends Resource {
 
   /**
    * Whether or not the line item is taxable. Only populated for a single LineItem fetch when
-   * Avalara for Communications is enabled.
+   * Avalara for Communications or Vertex is enabled.
    */
   public Boolean getBillable() {
     return this.billable;
@@ -72,7 +72,7 @@ public class TaxDetail extends Resource {
 
   /**
    * @param billable Whether or not the line item is taxable. Only populated for a single LineItem
-   *     fetch when Avalara for Communications is enabled.
+   *     fetch when Avalara for Communications or Vertex is enabled.
    */
   public void setBillable(final Boolean billable) {
     this.billable = billable;
@@ -80,7 +80,7 @@ public class TaxDetail extends Resource {
 
   /**
    * Provides the jurisdiction level for the Communications tax applied. Example values include
-   * city, state and federal. Present only when Avalara for Communications is enabled.
+   * city, state and federal. Present only when Avalara for Communications or Vertex is enabled.
    */
   public String getLevel() {
     return this.level;
@@ -88,7 +88,8 @@ public class TaxDetail extends Resource {
 
   /**
    * @param level Provides the jurisdiction level for the Communications tax applied. Example values
-   *     include city, state and federal. Present only when Avalara for Communications is enabled.
+   *     include city, state and federal. Present only when Avalara for Communications or Vertex is
+   *     enabled.
    */
   public void setLevel(final String level) {
     this.level = level;
@@ -96,7 +97,7 @@ public class TaxDetail extends Resource {
 
   /**
    * Provides the name of the Communications tax applied. Present only when Avalara for
-   * Communications is enabled.
+   * Communications or Vertex is enabled.
    */
   public String getName() {
     return this.name;
@@ -104,7 +105,7 @@ public class TaxDetail extends Resource {
 
   /**
    * @param name Provides the name of the Communications tax applied. Present only when Avalara for
-   *     Communications is enabled.
+   *     Communications or Vertex is enabled.
    */
   public void setName(final String name) {
     this.name = name;
@@ -149,7 +150,7 @@ public class TaxDetail extends Resource {
 
   /**
    * Provides the tax type for the region or type of Comminications tax when Avalara for
-   * Communications is enabled. For Canadian Sales Tax, this will be GST, HST, QST or PST.
+   * Communications or Vertex is enabled. For Canadian Sales Tax, this will be GST, HST, QST or PST.
    */
   public String getType() {
     return this.type;
@@ -157,7 +158,8 @@ public class TaxDetail extends Resource {
 
   /**
    * @param type Provides the tax type for the region or type of Comminications tax when Avalara for
-   *     Communications is enabled. For Canadian Sales Tax, this will be GST, HST, QST or PST.
+   *     Communications or Vertex is enabled. For Canadian Sales Tax, this will be GST, HST, QST or
+   *     PST.
    */
   public void setType(final String type) {
     this.type = type;
