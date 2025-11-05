@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.8.0](https://github.com/recurly/recurly-client-java/tree/5.8.0) (2025-11-05)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/5.7.0...5.8.0)
+
+
+
+
+
 ## [5.7.0](https://github.com/recurly/recurly-client-java/tree/5.7.0) (2025-11-03)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/5.6.0...5.7.0)
