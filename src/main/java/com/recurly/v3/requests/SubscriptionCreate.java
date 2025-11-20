@@ -81,6 +81,14 @@ public class SubscriptionCreate extends Request {
   private List<String> couponCodes;
 
   /**
+   * Controls whether credit invoices are automatically applied to new invoices. The `mode` field
+   * determines the application behavior.
+   */
+  @SerializedName("credit_application_policy")
+  @Expose
+  private CreditApplicationPolicy creditApplicationPolicy;
+
+  /**
    * If there are pending credits on the account that will be invoiced during the subscription
    * creation, these will be used as the Customer Notes on the credit invoice.
    */
@@ -426,6 +434,22 @@ public class SubscriptionCreate extends Request {
    */
   public void setCouponCodes(final List<String> couponCodes) {
     this.couponCodes = couponCodes;
+  }
+
+  /**
+   * Controls whether credit invoices are automatically applied to new invoices. The `mode` field
+   * determines the application behavior.
+   */
+  public CreditApplicationPolicy getCreditApplicationPolicy() {
+    return this.creditApplicationPolicy;
+  }
+
+  /**
+   * @param creditApplicationPolicy Controls whether credit invoices are automatically applied to
+   *     new invoices. The `mode` field determines the application behavior.
+   */
+  public void setCreditApplicationPolicy(final CreditApplicationPolicy creditApplicationPolicy) {
+    this.creditApplicationPolicy = creditApplicationPolicy;
   }
 
   /**

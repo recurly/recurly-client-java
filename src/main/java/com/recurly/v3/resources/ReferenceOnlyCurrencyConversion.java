@@ -17,6 +17,21 @@ public class ReferenceOnlyCurrencyConversion extends Resource {
   @Expose
   private String currency;
 
+  /** The date of the conversion rate. */
+  @SerializedName("date")
+  @Expose
+  private String date;
+
+  /** The conversion rate to the currency. */
+  @SerializedName("rate")
+  @Expose
+  private String rate;
+
+  /** The source of the conversion rate. */
+  @SerializedName("source")
+  @Expose
+  private String source;
+
   /** The subtotal converted to the currency. */
   @SerializedName("subtotal_in_cents")
   @Expose
@@ -35,6 +50,36 @@ public class ReferenceOnlyCurrencyConversion extends Resource {
   /** @param currency 3-letter ISO 4217 currency code. */
   public void setCurrency(final String currency) {
     this.currency = currency;
+  }
+
+  /** The date of the conversion rate. */
+  public String getDate() {
+    return this.date;
+  }
+
+  /** @param date The date of the conversion rate. */
+  public void setDate(final String date) {
+    this.date = date;
+  }
+
+  /** The conversion rate to the currency. */
+  public String getRate() {
+    return this.rate;
+  }
+
+  /** @param rate The conversion rate to the currency. */
+  public void setRate(final String rate) {
+    this.rate = rate;
+  }
+
+  /** The source of the conversion rate. */
+  public String getSource() {
+    return this.source;
+  }
+
+  /** @param source The source of the conversion rate. */
+  public void setSource(final String source) {
+    this.source = source;
   }
 
   /** The subtotal converted to the currency. */
