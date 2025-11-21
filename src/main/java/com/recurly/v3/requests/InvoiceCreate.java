@@ -53,6 +53,14 @@ public class InvoiceCreate extends Request {
   private Constants.CollectionMethod collectionMethod;
 
   /**
+   * Controls whether credit invoices are automatically applied to new invoices. The `mode` field
+   * determines the application behavior.
+   */
+  @SerializedName("credit_application_policy")
+  @Expose
+  private CreditApplicationPolicy creditApplicationPolicy;
+
+  /**
    * This will default to the Customer Notes text specified on the Invoice Settings for credit
    * invoices. Specify customer notes to add or override Customer Notes on credit invoices.
    */
@@ -202,6 +210,22 @@ public class InvoiceCreate extends Request {
    */
   public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
     this.collectionMethod = collectionMethod;
+  }
+
+  /**
+   * Controls whether credit invoices are automatically applied to new invoices. The `mode` field
+   * determines the application behavior.
+   */
+  public CreditApplicationPolicy getCreditApplicationPolicy() {
+    return this.creditApplicationPolicy;
+  }
+
+  /**
+   * @param creditApplicationPolicy Controls whether credit invoices are automatically applied to
+   *     new invoices. The `mode` field determines the application behavior.
+   */
+  public void setCreditApplicationPolicy(final CreditApplicationPolicy creditApplicationPolicy) {
+    this.creditApplicationPolicy = creditApplicationPolicy;
   }
 
   /**

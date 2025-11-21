@@ -64,6 +64,14 @@ public class PurchaseCreate extends Request {
   @Expose
   private List<String> couponCodes;
 
+  /**
+   * Controls whether credit invoices are automatically applied to new invoices. The `mode` field
+   * determines the application behavior.
+   */
+  @SerializedName("credit_application_policy_override")
+  @Expose
+  private CreditApplicationPolicy creditApplicationPolicyOverride;
+
   /** Notes to be put on the credit invoice resulting from credits in the purchase, if any. */
   @SerializedName("credit_customer_notes")
   @Expose
@@ -275,6 +283,23 @@ public class PurchaseCreate extends Request {
    */
   public void setCouponCodes(final List<String> couponCodes) {
     this.couponCodes = couponCodes;
+  }
+
+  /**
+   * Controls whether credit invoices are automatically applied to new invoices. The `mode` field
+   * determines the application behavior.
+   */
+  public CreditApplicationPolicy getCreditApplicationPolicyOverride() {
+    return this.creditApplicationPolicyOverride;
+  }
+
+  /**
+   * @param creditApplicationPolicyOverride Controls whether credit invoices are automatically
+   *     applied to new invoices. The `mode` field determines the application behavior.
+   */
+  public void setCreditApplicationPolicyOverride(
+      final CreditApplicationPolicy creditApplicationPolicyOverride) {
+    this.creditApplicationPolicyOverride = creditApplicationPolicyOverride;
   }
 
   /** Notes to be put on the credit invoice resulting from credits in the purchase, if any. */
