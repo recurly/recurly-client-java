@@ -862,6 +862,17 @@ public class Constants {
     
     };
   
+    public enum CreditApplicationMode {
+      UNDEFINED,
+    
+      @SerializedName("all")
+      ALL,
+    
+      @SerializedName("none")
+      NONE,
+    
+    };
+  
     public enum InvoiceRefundType {
       UNDEFINED,
     
