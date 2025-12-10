@@ -133,6 +133,11 @@ public class InvoiceCreate extends Request {
   @Expose
   private String vatReverseChargeNotes;
 
+  /** Used by Vertex for tax calculations. Possible values are sale, rental, lease. */
+  @SerializedName("vertex_transaction_type")
+  @Expose
+  private Constants.VertexTransactionType vertexTransactionType;
+
   /**
    * The `business_entity_code` is the value that represents a specific business entity for an end
    * customer which will be assigned to the invoice. Available when the `Multiple Business Entities`
@@ -374,5 +379,19 @@ public class InvoiceCreate extends Request {
    */
   public void setVatReverseChargeNotes(final String vatReverseChargeNotes) {
     this.vatReverseChargeNotes = vatReverseChargeNotes;
+  }
+
+  /** Used by Vertex for tax calculations. Possible values are sale, rental, lease. */
+  public Constants.VertexTransactionType getVertexTransactionType() {
+    return this.vertexTransactionType;
+  }
+
+  /**
+   * @param vertexTransactionType Used by Vertex for tax calculations. Possible values are sale,
+   *     rental, lease.
+   */
+  public void setVertexTransactionType(
+      final Constants.VertexTransactionType vertexTransactionType) {
+    this.vertexTransactionType = vertexTransactionType;
   }
 }

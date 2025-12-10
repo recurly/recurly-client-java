@@ -423,6 +423,11 @@ public class LineItem extends Resource {
   @Expose
   private String uuid;
 
+  /** Used by Vertex for tax calculations. Possible values are sale, rental, lease. */
+  @SerializedName("vertex_transaction_type")
+  @Expose
+  private Constants.VertexTransactionType vertexTransactionType;
+
   /** Account mini details */
   public AccountMini getAccount() {
     return this.account;
@@ -1269,5 +1274,19 @@ public class LineItem extends Resource {
    */
   public void setUuid(final String uuid) {
     this.uuid = uuid;
+  }
+
+  /** Used by Vertex for tax calculations. Possible values are sale, rental, lease. */
+  public Constants.VertexTransactionType getVertexTransactionType() {
+    return this.vertexTransactionType;
+  }
+
+  /**
+   * @param vertexTransactionType Used by Vertex for tax calculations. Possible values are sale,
+   *     rental, lease.
+   */
+  public void setVertexTransactionType(
+      final Constants.VertexTransactionType vertexTransactionType) {
+    this.vertexTransactionType = vertexTransactionType;
   }
 }

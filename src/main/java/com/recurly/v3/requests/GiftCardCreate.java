@@ -34,6 +34,14 @@ public class GiftCardCreate extends Request {
   private String productCode;
 
   /**
+   * Set to `true` to bypass sending the purchase to your configured tax service. Defaults to
+   * `false`.
+   */
+  @SerializedName("tax_service_opt_out")
+  @Expose
+  private Boolean taxServiceOptOut;
+
+  /**
    * The amount of the gift card, which is the amount of the charge to the gifter account and the
    * amount of credit that is applied to the recipient account upon successful redemption.
    */
@@ -82,6 +90,22 @@ public class GiftCardCreate extends Request {
   /** @param productCode The product code or SKU of the gift card product. */
   public void setProductCode(final String productCode) {
     this.productCode = productCode;
+  }
+
+  /**
+   * Set to `true` to bypass sending the purchase to your configured tax service. Defaults to
+   * `false`.
+   */
+  public Boolean getTaxServiceOptOut() {
+    return this.taxServiceOptOut;
+  }
+
+  /**
+   * @param taxServiceOptOut Set to `true` to bypass sending the purchase to your configured tax
+   *     service. Defaults to `false`.
+   */
+  public void setTaxServiceOptOut(final Boolean taxServiceOptOut) {
+    this.taxServiceOptOut = taxServiceOptOut;
   }
 
   /**
