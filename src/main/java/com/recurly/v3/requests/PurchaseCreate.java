@@ -181,6 +181,11 @@ public class PurchaseCreate extends Request {
   @Expose
   private String vatReverseChargeNotes;
 
+  /** Used by Vertex for tax calculations. Possible values are sale, rental, lease. */
+  @SerializedName("vertex_transaction_type")
+  @Expose
+  private Constants.VertexTransactionType vertexTransactionType;
+
   public AccountPurchase getAccount() {
     return this.account;
   }
@@ -529,5 +534,19 @@ public class PurchaseCreate extends Request {
    */
   public void setVatReverseChargeNotes(final String vatReverseChargeNotes) {
     this.vatReverseChargeNotes = vatReverseChargeNotes;
+  }
+
+  /** Used by Vertex for tax calculations. Possible values are sale, rental, lease. */
+  public Constants.VertexTransactionType getVertexTransactionType() {
+    return this.vertexTransactionType;
+  }
+
+  /**
+   * @param vertexTransactionType Used by Vertex for tax calculations. Possible values are sale,
+   *     rental, lease.
+   */
+  public void setVertexTransactionType(
+      final Constants.VertexTransactionType vertexTransactionType) {
+    this.vertexTransactionType = vertexTransactionType;
   }
 }

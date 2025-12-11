@@ -243,6 +243,11 @@ public class LineItemCreate extends Request {
   @Expose
   private BigDecimal unitAmount;
 
+  /** Used by Vertex for tax calculations. Possible values are sale, rental, lease. */
+  @SerializedName("vertex_transaction_type")
+  @Expose
+  private Constants.VertexTransactionType vertexTransactionType;
+
   /**
    * Accounting Code for the `LineItem`. If `item_code`/`item_id` is part of the request then
    * `accounting_code` must be absent.
@@ -708,5 +713,19 @@ public class LineItemCreate extends Request {
    */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
+  }
+
+  /** Used by Vertex for tax calculations. Possible values are sale, rental, lease. */
+  public Constants.VertexTransactionType getVertexTransactionType() {
+    return this.vertexTransactionType;
+  }
+
+  /**
+   * @param vertexTransactionType Used by Vertex for tax calculations. Possible values are sale,
+   *     rental, lease.
+   */
+  public void setVertexTransactionType(
+      final Constants.VertexTransactionType vertexTransactionType) {
+    this.vertexTransactionType = vertexTransactionType;
   }
 }

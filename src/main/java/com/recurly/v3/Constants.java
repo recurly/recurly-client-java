@@ -233,6 +233,20 @@ public class Constants {
     
     };
   
+    public enum VertexTransactionType {
+      UNDEFINED,
+    
+      @SerializedName("sale")
+      SALE,
+    
+      @SerializedName("rental")
+      RENTAL,
+    
+      @SerializedName("lease")
+      LEASE,
+    
+    };
+  
     public enum FilterTransactionType {
       UNDEFINED,
     
