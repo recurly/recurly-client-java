@@ -69,6 +69,15 @@ public class SubscriptionChange extends Resource {
   @Expose
   private InvoiceCollection invoiceCollection;
 
+  /**
+   * If present, this sets the date the subscription's next billing period will start
+   * (`current_period_ends_at`). When combined with proration_settings, proration calculation should
+   * occur, only supported when timeframe is now.
+   */
+  @SerializedName("next_bill_date")
+  @Expose
+  private DateTime nextBillDate;
+
   /** Object type */
   @SerializedName("object")
   @Expose
@@ -225,6 +234,24 @@ public class SubscriptionChange extends Resource {
   /** @param invoiceCollection Invoice Collection */
   public void setInvoiceCollection(final InvoiceCollection invoiceCollection) {
     this.invoiceCollection = invoiceCollection;
+  }
+
+  /**
+   * If present, this sets the date the subscription's next billing period will start
+   * (`current_period_ends_at`). When combined with proration_settings, proration calculation should
+   * occur, only supported when timeframe is now.
+   */
+  public DateTime getNextBillDate() {
+    return this.nextBillDate;
+  }
+
+  /**
+   * @param nextBillDate If present, this sets the date the subscription's next billing period will
+   *     start (`current_period_ends_at`). When combined with proration_settings, proration
+   *     calculation should occur, only supported when timeframe is now.
+   */
+  public void setNextBillDate(final DateTime nextBillDate) {
+    this.nextBillDate = nextBillDate;
   }
 
   /** Object type */
