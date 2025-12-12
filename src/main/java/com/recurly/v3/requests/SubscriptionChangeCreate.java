@@ -12,6 +12,7 @@ import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
 import java.util.List;
+import org.joda.time.DateTime;
 
 public class SubscriptionChangeCreate extends Request {
 
@@ -109,6 +110,15 @@ public class SubscriptionChangeCreate extends Request {
   @SerializedName("net_terms_type")
   @Expose
   private Constants.NetTermsType netTermsType;
+
+  /**
+   * If present, this sets the date the subscription's next billing period will start
+   * (`current_period_ends_at`). When combined with proration_settings, proration calculation should
+   * occur, only supported when timeframe is now.
+   */
+  @SerializedName("next_bill_date")
+  @Expose
+  private DateTime nextBillDate;
 
   /**
    * If you want to change to a new plan, you can provide the plan's code or id. If both are
@@ -388,6 +398,24 @@ public class SubscriptionChangeCreate extends Request {
    */
   public void setNetTermsType(final Constants.NetTermsType netTermsType) {
     this.netTermsType = netTermsType;
+  }
+
+  /**
+   * If present, this sets the date the subscription's next billing period will start
+   * (`current_period_ends_at`). When combined with proration_settings, proration calculation should
+   * occur, only supported when timeframe is now.
+   */
+  public DateTime getNextBillDate() {
+    return this.nextBillDate;
+  }
+
+  /**
+   * @param nextBillDate If present, this sets the date the subscription's next billing period will
+   *     start (`current_period_ends_at`). When combined with proration_settings, proration
+   *     calculation should occur, only supported when timeframe is now.
+   */
+  public void setNextBillDate(final DateTime nextBillDate) {
+    this.nextBillDate = nextBillDate;
   }
 
   /**
