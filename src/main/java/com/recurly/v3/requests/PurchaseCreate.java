@@ -66,7 +66,8 @@ public class PurchaseCreate extends Request {
 
   /**
    * Controls whether credit invoices are automatically applied to new invoices. The `mode` field
-   * determines the application behavior.
+   * determines the application behavior. When mode is `all`, the optional `allowed_origins` array
+   * can restrict which credit invoice origins are applied.
    */
   @SerializedName("credit_application_policy_override")
   @Expose
@@ -292,7 +293,8 @@ public class PurchaseCreate extends Request {
 
   /**
    * Controls whether credit invoices are automatically applied to new invoices. The `mode` field
-   * determines the application behavior.
+   * determines the application behavior. When mode is `all`, the optional `allowed_origins` array
+   * can restrict which credit invoice origins are applied.
    */
   public CreditApplicationPolicy getCreditApplicationPolicyOverride() {
     return this.creditApplicationPolicyOverride;
@@ -300,7 +302,9 @@ public class PurchaseCreate extends Request {
 
   /**
    * @param creditApplicationPolicyOverride Controls whether credit invoices are automatically
-   *     applied to new invoices. The `mode` field determines the application behavior.
+   *     applied to new invoices. The `mode` field determines the application behavior. When mode is
+   *     `all`, the optional `allowed_origins` array can restrict which credit invoice origins are
+   *     applied.
    */
   public void setCreditApplicationPolicyOverride(
       final CreditApplicationPolicy creditApplicationPolicyOverride) {

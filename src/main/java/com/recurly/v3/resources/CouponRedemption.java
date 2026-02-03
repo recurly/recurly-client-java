@@ -70,6 +70,13 @@ public class CouponRedemption extends Resource {
   @Expose
   private DateTime updatedAt;
 
+  /**
+   * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
+   */
+  @SerializedName("uuid")
+  @Expose
+  private String uuid;
+
   /** The Account on which the coupon was applied. */
   public AccountMini getAccount() {
     return this.account;
@@ -184,5 +191,20 @@ public class CouponRedemption extends Resource {
   /** @param updatedAt Last updated at */
   public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  /**
+   * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
+   */
+  public String getUuid() {
+    return this.uuid;
+  }
+
+  /**
+   * @param uuid The UUID is useful for matching data with the CSV exports and building URLs into
+   *     Recurly's UI.
+   */
+  public void setUuid(final String uuid) {
+    this.uuid = uuid;
   }
 }

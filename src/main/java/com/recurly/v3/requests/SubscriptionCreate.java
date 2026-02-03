@@ -82,7 +82,8 @@ public class SubscriptionCreate extends Request {
 
   /**
    * Controls whether credit invoices are automatically applied to new invoices. The `mode` field
-   * determines the application behavior.
+   * determines the application behavior. When mode is `all`, the optional `allowed_origins` array
+   * can restrict which credit invoice origins are applied.
    */
   @SerializedName("credit_application_policy")
   @Expose
@@ -438,7 +439,8 @@ public class SubscriptionCreate extends Request {
 
   /**
    * Controls whether credit invoices are automatically applied to new invoices. The `mode` field
-   * determines the application behavior.
+   * determines the application behavior. When mode is `all`, the optional `allowed_origins` array
+   * can restrict which credit invoice origins are applied.
    */
   public CreditApplicationPolicy getCreditApplicationPolicy() {
     return this.creditApplicationPolicy;
@@ -446,7 +448,8 @@ public class SubscriptionCreate extends Request {
 
   /**
    * @param creditApplicationPolicy Controls whether credit invoices are automatically applied to
-   *     new invoices. The `mode` field determines the application behavior.
+   *     new invoices. The `mode` field determines the application behavior. When mode is `all`, the
+   *     optional `allowed_origins` array can restrict which credit invoice origins are applied.
    */
   public void setCreditApplicationPolicy(final CreditApplicationPolicy creditApplicationPolicy) {
     this.creditApplicationPolicy = creditApplicationPolicy;
