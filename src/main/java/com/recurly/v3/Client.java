@@ -531,6 +531,42 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Show the coupon redemption
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_coupon_redemption">get_coupon_redemption api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param couponRedemptionId Coupon Redemption ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @return A coupon redemption.
+   */
+  public CouponRedemption getCouponRedemption(String accountId, String couponRedemptionId) {
+    final String url = "/accounts/{account_id}/coupon_redemptions/{coupon_redemption_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("coupon_redemption_id", couponRedemptionId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = CouponRedemption.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Delete the coupon redemption
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/remove_coupon_redemption_by_id">remove_coupon_redemption_by_id api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param couponRedemptionId Coupon Redemption ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @return Coupon redemption deleted.
+   */
+  public CouponRedemption removeCouponRedemptionById(String accountId, String couponRedemptionId) {
+    final String url = "/accounts/{account_id}/coupon_redemptions/{coupon_redemption_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    urlParams.put("coupon_redemption_id", couponRedemptionId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = CouponRedemption.class;
+    return this.makeRequest("DELETE", path, returnType);
+  }
+
+  /**
    * List an account's credit payments
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_credit_payments">list_account_credit_payments api documentation</a>
@@ -2692,6 +2728,42 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, CouponRedemption.class).getType();
     return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * Show the coupon redemption for a subscription
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_subscription_coupon_redemption">get_subscription_coupon_redemption api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+   * @param couponRedemptionId Coupon Redemption ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @return The coupon redemption on a subscription.
+   */
+  public CouponRedemption getSubscriptionCouponRedemption(String subscriptionId, String couponRedemptionId) {
+    final String url = "/subscriptions/{subscription_id}/coupon_redemptions/{coupon_redemption_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("subscription_id", subscriptionId);
+    urlParams.put("coupon_redemption_id", couponRedemptionId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = CouponRedemption.class;
+    return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * Delete the coupon redemption from a subscription
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/remove_subscription_coupon_redemption">remove_subscription_coupon_redemption api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+   * @param couponRedemptionId Coupon Redemption ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @return Coupon redemption deleted.
+   */
+  public CouponRedemption removeSubscriptionCouponRedemption(String subscriptionId, String couponRedemptionId) {
+    final String url = "/subscriptions/{subscription_id}/coupon_redemptions/{coupon_redemption_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("subscription_id", subscriptionId);
+    urlParams.put("coupon_redemption_id", couponRedemptionId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = CouponRedemption.class;
+    return this.makeRequest("DELETE", path, returnType);
   }
 
   /**

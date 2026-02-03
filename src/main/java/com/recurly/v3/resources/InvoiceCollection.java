@@ -26,6 +26,11 @@ public class InvoiceCollection extends Resource {
   @Expose
   private String object;
 
+  /** Verification transactions (used for free trial payment method validation) */
+  @SerializedName("verification_transactions")
+  @Expose
+  private List<Transaction> verificationTransactions;
+
   public Invoice getChargeInvoice() {
     return this.chargeInvoice;
   }
@@ -53,5 +58,18 @@ public class InvoiceCollection extends Resource {
   /** @param object Object type */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  /** Verification transactions (used for free trial payment method validation) */
+  public List<Transaction> getVerificationTransactions() {
+    return this.verificationTransactions;
+  }
+
+  /**
+   * @param verificationTransactions Verification transactions (used for free trial payment method
+   *     validation)
+   */
+  public void setVerificationTransactions(final List<Transaction> verificationTransactions) {
+    this.verificationTransactions = verificationTransactions;
   }
 }

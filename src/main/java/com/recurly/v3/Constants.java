@@ -887,6 +887,50 @@ public class Constants {
     
     };
   
+    public enum CreditApplicationAllowedOriginType {
+      UNDEFINED,
+    
+      @SerializedName("line_item_refund")
+      LINE_ITEM_REFUND,
+    
+      @SerializedName("open_amount_refund")
+      OPEN_AMOUNT_REFUND,
+    
+      @SerializedName("immediate_change")
+      IMMEDIATE_CHANGE,
+    
+      @SerializedName("termination")
+      TERMINATION,
+    
+      @SerializedName("credit")
+      CREDIT,
+    
+      @SerializedName("write_off")
+      WRITE_OFF,
+    
+      @SerializedName("refund")
+      REFUND,
+    
+      @SerializedName("external_refund")
+      EXTERNAL_REFUND,
+    
+      @SerializedName("carryforward_credit")
+      CARRYFORWARD_CREDIT,
+    
+      @SerializedName("usage_correction")
+      USAGE_CORRECTION,
+    
+      @SerializedName("prepayment")
+      PREPAYMENT,
+    
+      @SerializedName("gift_card")
+      GIFT_CARD,
+    
+      @SerializedName("carryforward_gift_credit")
+      CARRYFORWARD_GIFT_CREDIT,
+    
+    };
+  
     public enum InvoiceRefundType {
       UNDEFINED,
     
