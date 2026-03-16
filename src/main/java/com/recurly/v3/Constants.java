@@ -854,6 +854,9 @@ public class Constants {
       @SerializedName("pending")
       PENDING,
     
+      @SerializedName("processing")
+      PROCESSING,
+    
       @SerializedName("past_due")
       PAST_DUE,
     
@@ -862,6 +865,15 @@ public class Constants {
     
       @SerializedName("failed")
       FAILED,
+    
+      @SerializedName("open")
+      OPEN,
+    
+      @SerializedName("closed")
+      CLOSED,
+    
+      @SerializedName("voided")
+      VOIDED,
     
     };
   
@@ -1582,6 +1594,9 @@ public class Constants {
     
       @SerializedName("klarna")
       KLARNA,
+    
+      @SerializedName("braintree_google_pay")
+      BRAINTREE_GOOGLE_PAY,
     
     };
   
