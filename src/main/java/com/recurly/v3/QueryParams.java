@@ -66,6 +66,10 @@ public class QueryParams {
     this.add("past_due", pastDue);
   }
 
+  public void setRedact(final Boolean redact) {
+    this.add("redact", redact);
+  }
+
   public void setType(final Constants.FilterInvoiceType type) {
     this.add("type", type);
   }

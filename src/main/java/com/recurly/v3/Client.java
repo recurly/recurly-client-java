@@ -130,15 +130,34 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/deactivate_account">deactivate_account api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param queryParams The {@link QueryParams} for this endpoint.
      * @return An account.
    */
-  public Account deactivateAccount(String accountId) {
+  public Account deactivateAccount(String accountId, QueryParams queryParams) {
     final String url = "/accounts/{account_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    if (queryParams == null) queryParams = new QueryParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Account.class;
+    return this.makeRequest("DELETE", path, paramsMap, returnType);
+  }
+
+  /**
+   * Redact an account (GDPR Right to Erasure)
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/redact_account">redact_account api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return Account has been accepted for redaction and will be processed asynchronously.
+   */
+  public Account redactAccount(String accountId) {
+    final String url = "/accounts/{account_id}/redact";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Account.class;
-    return this.makeRequest("DELETE", path, returnType);
+    return this.makeRequest("PUT", path, returnType);
   }
 
   /**
