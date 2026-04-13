@@ -1,10 +1,10 @@
 package com.recurly.v3.fixtures;
 
-import com.recurly.v3.QueryParams;
+import com.recurly.v3.AbstractQueryParams;
 import java.util.ArrayList;
 import org.joda.time.DateTime;
 
-public class MockQueryParams extends QueryParams {
+public class MockQueryParams extends AbstractQueryParams {
   public void setMyString(String myString) {
     this.add("my_string", myString);
   }

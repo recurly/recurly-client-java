@@ -9,6 +9,7 @@ package com.recurly.v3;
 import com.google.gson.reflect.TypeToken;
 import com.recurly.v3.requests.*;
 import com.recurly.v3.resources.*;
+import com.recurly.v3.queryparams.*;
 import okhttp3.OkHttpClient;
 import org.joda.time.DateTime;
 
@@ -31,13 +32,13 @@ public class Client extends BaseClient {
    * List sites
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_sites">list_sites api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListSitesParams} for this endpoint.
      * @return A list of sites.
    */
-  public Pager<Site> listSites(QueryParams queryParams) {
+  public Pager<Site> listSites(ListSitesParams queryParams) {
     final String url = "/sites";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListSitesParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Site.class).getType();
@@ -64,13 +65,13 @@ public class Client extends BaseClient {
    * List a site's accounts
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_accounts">list_accounts api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListAccountsParams} for this endpoint.
      * @return A list of the site's accounts.
    */
-  public Pager<Account> listAccounts(QueryParams queryParams) {
+  public Pager<Account> listAccounts(ListAccountsParams queryParams) {
     final String url = "/accounts";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListAccountsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Account.class).getType();
@@ -322,14 +323,14 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_billing_infos">list_billing_infos api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListBillingInfosParams} for this endpoint.
      * @return A list of the the billing information for an account's
    */
-  public Pager<BillingInfo> listBillingInfos(String accountId, QueryParams queryParams) {
+  public Pager<BillingInfo> listBillingInfos(String accountId, ListBillingInfosParams queryParams) {
     final String url = "/accounts/{account_id}/billing_infos";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListBillingInfosParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, BillingInfo.class).getType();
@@ -467,14 +468,14 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_coupon_redemptions">list_account_coupon_redemptions api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListAccountCouponRedemptionsParams} for this endpoint.
      * @return A list of the the coupon redemptions on an account.
    */
-  public Pager<CouponRedemption> listAccountCouponRedemptions(String accountId, QueryParams queryParams) {
+  public Pager<CouponRedemption> listAccountCouponRedemptions(String accountId, ListAccountCouponRedemptionsParams queryParams) {
     final String url = "/accounts/{account_id}/coupon_redemptions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListAccountCouponRedemptionsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, CouponRedemption.class).getType();
@@ -571,14 +572,14 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_credit_payments">list_account_credit_payments api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListAccountCreditPaymentsParams} for this endpoint.
      * @return A list of the account's credit payments.
    */
-  public Pager<CreditPayment> listAccountCreditPayments(String accountId, QueryParams queryParams) {
+  public Pager<CreditPayment> listAccountCreditPayments(String accountId, ListAccountCreditPaymentsParams queryParams) {
     final String url = "/accounts/{account_id}/credit_payments";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListAccountCreditPaymentsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, CreditPayment.class).getType();
@@ -678,14 +679,14 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_external_invoices">list_account_external_invoices api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListAccountExternalInvoicesParams} for this endpoint.
      * @return A list of the the external_invoices on an account.
    */
-  public Pager<ExternalInvoice> listAccountExternalInvoices(String accountId, QueryParams queryParams) {
+  public Pager<ExternalInvoice> listAccountExternalInvoices(String accountId, ListAccountExternalInvoicesParams queryParams) {
     final String url = "/accounts/{account_id}/external_invoices";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListAccountExternalInvoicesParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalInvoice.class).getType();
@@ -697,14 +698,14 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_invoices">list_account_invoices api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListAccountInvoicesParams} for this endpoint.
      * @return A list of the account's invoices.
    */
-  public Pager<Invoice> listAccountInvoices(String accountId, QueryParams queryParams) {
+  public Pager<Invoice> listAccountInvoices(String accountId, ListAccountInvoicesParams queryParams) {
     final String url = "/accounts/{account_id}/invoices";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListAccountInvoicesParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
@@ -750,14 +751,14 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_line_items">list_account_line_items api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListAccountLineItemsParams} for this endpoint.
      * @return A list of the account's line items.
    */
-  public Pager<LineItem> listAccountLineItems(String accountId, QueryParams queryParams) {
+  public Pager<LineItem> listAccountLineItems(String accountId, ListAccountLineItemsParams queryParams) {
     final String url = "/accounts/{account_id}/line_items";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListAccountLineItemsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
@@ -786,14 +787,14 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_notes">list_account_notes api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListAccountNotesParams} for this endpoint.
      * @return A list of an account's notes.
    */
-  public Pager<AccountNote> listAccountNotes(String accountId, QueryParams queryParams) {
+  public Pager<AccountNote> listAccountNotes(String accountId, ListAccountNotesParams queryParams) {
     final String url = "/accounts/{account_id}/notes";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListAccountNotesParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, AccountNote.class).getType();
@@ -856,14 +857,14 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_shipping_addresses">list_shipping_addresses api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListShippingAddressesParams} for this endpoint.
      * @return A list of an account's shipping addresses.
    */
-  public Pager<ShippingAddress> listShippingAddresses(String accountId, QueryParams queryParams) {
+  public Pager<ShippingAddress> listShippingAddresses(String accountId, ListShippingAddressesParams queryParams) {
     final String url = "/accounts/{account_id}/shipping_addresses";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListShippingAddressesParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, ShippingAddress.class).getType();
@@ -945,14 +946,14 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_subscriptions">list_account_subscriptions api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListAccountSubscriptionsParams} for this endpoint.
      * @return A list of the account's subscriptions.
    */
-  public Pager<Subscription> listAccountSubscriptions(String accountId, QueryParams queryParams) {
+  public Pager<Subscription> listAccountSubscriptions(String accountId, ListAccountSubscriptionsParams queryParams) {
     final String url = "/accounts/{account_id}/subscriptions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListAccountSubscriptionsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Subscription.class).getType();
@@ -964,14 +965,14 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_transactions">list_account_transactions api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListAccountTransactionsParams} for this endpoint.
      * @return A list of the account's transactions.
    */
-  public Pager<Transaction> listAccountTransactions(String accountId, QueryParams queryParams) {
+  public Pager<Transaction> listAccountTransactions(String accountId, ListAccountTransactionsParams queryParams) {
     final String url = "/accounts/{account_id}/transactions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListAccountTransactionsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Transaction.class).getType();
@@ -983,14 +984,14 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_child_accounts">list_child_accounts api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListChildAccountsParams} for this endpoint.
      * @return A list of an account's child accounts.
    */
-  public Pager<Account> listChildAccounts(String accountId, QueryParams queryParams) {
+  public Pager<Account> listChildAccounts(String accountId, ListChildAccountsParams queryParams) {
     final String url = "/accounts/{account_id}/accounts";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListChildAccountsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Account.class).getType();
@@ -1001,13 +1002,13 @@ public class Client extends BaseClient {
    * List a site's account acquisition data
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_acquisition">list_account_acquisition api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListAccountAcquisitionParams} for this endpoint.
      * @return A list of the site's account acquisition data.
    */
-  public Pager<AccountAcquisition> listAccountAcquisition(QueryParams queryParams) {
+  public Pager<AccountAcquisition> listAccountAcquisition(ListAccountAcquisitionParams queryParams) {
     final String url = "/acquisitions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListAccountAcquisitionParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, AccountAcquisition.class).getType();
@@ -1018,13 +1019,13 @@ public class Client extends BaseClient {
    * List a site's coupons
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_coupons">list_coupons api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListCouponsParams} for this endpoint.
      * @return A list of the site's coupons.
    */
-  public Pager<Coupon> listCoupons(QueryParams queryParams) {
+  public Pager<Coupon> listCoupons(ListCouponsParams queryParams) {
     final String url = "/coupons";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListCouponsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Coupon.class).getType();
@@ -1136,14 +1137,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_unique_coupon_codes">list_unique_coupon_codes api documentation</a>
    * @param couponId Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListUniqueCouponCodesParams} for this endpoint.
      * @return A list of unique coupon codes that were generated
    */
-  public Pager<UniqueCouponCode> listUniqueCouponCodes(String couponId, QueryParams queryParams) {
+  public Pager<UniqueCouponCode> listUniqueCouponCodes(String couponId, ListUniqueCouponCodesParams queryParams) {
     final String url = "/coupons/{coupon_id}/unique_coupon_codes";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("coupon_id", couponId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListUniqueCouponCodesParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, UniqueCouponCode.class).getType();
@@ -1154,13 +1155,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's credit payments
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_credit_payments">list_credit_payments api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListCreditPaymentsParams} for this endpoint.
      * @return A list of the site's credit payments.
    */
-  public Pager<CreditPayment> listCreditPayments(QueryParams queryParams) {
+  public Pager<CreditPayment> listCreditPayments(ListCreditPaymentsParams queryParams) {
     final String url = "/credit_payments";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListCreditPaymentsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, CreditPayment.class).getType();
@@ -1187,13 +1188,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's custom field definitions
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_custom_field_definitions">list_custom_field_definitions api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListCustomFieldDefinitionsParams} for this endpoint.
      * @return A list of the site's custom field definitions.
    */
-  public Pager<CustomFieldDefinition> listCustomFieldDefinitions(QueryParams queryParams) {
+  public Pager<CustomFieldDefinition> listCustomFieldDefinitions(ListCustomFieldDefinitionsParams queryParams) {
     final String url = "/custom_field_definitions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListCustomFieldDefinitionsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, CustomFieldDefinition.class).getType();
@@ -1235,13 +1236,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's general ledger accounts
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_general_ledger_accounts">list_general_ledger_accounts api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListGeneralLedgerAccountsParams} for this endpoint.
      * @return A list of the site's general ledger accounts.
    */
-  public Pager<GeneralLedgerAccount> listGeneralLedgerAccounts(QueryParams queryParams) {
+  public Pager<GeneralLedgerAccount> listGeneralLedgerAccounts(ListGeneralLedgerAccountsParams queryParams) {
     final String url = "/general_ledger_accounts";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListGeneralLedgerAccountsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, GeneralLedgerAccount.class).getType();
@@ -1316,14 +1317,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_template_accounts">list_invoice_template_accounts api documentation</a>
    * @param invoiceTemplateId Invoice template ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListInvoiceTemplateAccountsParams} for this endpoint.
      * @return A list of an invoice template's associated accounts.
    */
-  public Pager<Account> listInvoiceTemplateAccounts(String invoiceTemplateId, QueryParams queryParams) {
+  public Pager<Account> listInvoiceTemplateAccounts(String invoiceTemplateId, ListInvoiceTemplateAccountsParams queryParams) {
     final String url = "/invoice_templates/{invoice_template_id}/accounts";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_template_id", invoiceTemplateId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListInvoiceTemplateAccountsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Account.class).getType();
@@ -1334,13 +1335,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's items
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_items">list_items api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListItemsParams} for this endpoint.
      * @return A list of the site's items.
    */
-  public Pager<Item> listItems(QueryParams queryParams) {
+  public Pager<Item> listItems(ListItemsParams queryParams) {
     final String url = "/items";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListItemsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Item.class).getType();
@@ -1431,13 +1432,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's measured units
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_measured_unit">list_measured_unit api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListMeasuredUnitParams} for this endpoint.
      * @return A list of the site's measured units.
    */
-  public Pager<MeasuredUnit> listMeasuredUnit(QueryParams queryParams) {
+  public Pager<MeasuredUnit> listMeasuredUnit(ListMeasuredUnitParams queryParams) {
     final String url = "/measured_units";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListMeasuredUnitParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, MeasuredUnit.class).getType();
@@ -1512,13 +1513,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's external products
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_products">list_external_products api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListExternalProductsParams} for this endpoint.
      * @return A list of the the external_products on a site.
    */
-  public Pager<ExternalProduct> listExternalProducts(QueryParams queryParams) {
+  public Pager<ExternalProduct> listExternalProducts(ListExternalProductsParams queryParams) {
     final String url = "/external_products";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListExternalProductsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalProduct.class).getType();
@@ -1594,14 +1595,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_product_external_product_references">list_external_product_external_product_references api documentation</a>
    * @param externalProductId External product id
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListExternalProductExternalProductReferencesParams} for this endpoint.
      * @return A list of the the external product references for an external product.
    */
-  public Pager<ExternalProductReferenceCollection> listExternalProductExternalProductReferences(String externalProductId, QueryParams queryParams) {
+  public Pager<ExternalProductReferenceCollection> listExternalProductExternalProductReferences(String externalProductId, ListExternalProductExternalProductReferencesParams queryParams) {
     final String url = "/external_products/{external_product_id}/external_product_references";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("external_product_id", externalProductId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListExternalProductExternalProductReferencesParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalProductReferenceCollection.class).getType();
@@ -1680,13 +1681,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List the external subscriptions on a site
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_subscriptions">list_external_subscriptions api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListExternalSubscriptionsParams} for this endpoint.
      * @return A list of the the external_subscriptions on a site.
    */
-  public Pager<ExternalSubscription> listExternalSubscriptions(QueryParams queryParams) {
+  public Pager<ExternalSubscription> listExternalSubscriptions(ListExternalSubscriptionsParams queryParams) {
     final String url = "/external_subscriptions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListExternalSubscriptionsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalSubscription.class).getType();
@@ -1747,14 +1748,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_subscription_external_invoices">list_external_subscription_external_invoices api documentation</a>
    * @param externalSubscriptionId External subscription id
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListExternalSubscriptionExternalInvoicesParams} for this endpoint.
      * @return A list of the the external_invoices on a site.
    */
-  public Pager<ExternalInvoice> listExternalSubscriptionExternalInvoices(String externalSubscriptionId, QueryParams queryParams) {
+  public Pager<ExternalInvoice> listExternalSubscriptionExternalInvoices(String externalSubscriptionId, ListExternalSubscriptionExternalInvoicesParams queryParams) {
     final String url = "/external_subscriptions/{external_subscription_id}/external_invoices";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("external_subscription_id", externalSubscriptionId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListExternalSubscriptionExternalInvoicesParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalInvoice.class).getType();
@@ -1782,13 +1783,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's invoices
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoices">list_invoices api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListInvoicesParams} for this endpoint.
      * @return A list of the site's invoices.
    */
-  public Pager<Invoice> listInvoices(QueryParams queryParams) {
+  public Pager<Invoice> listInvoices(ListInvoicesParams queryParams) {
     final String url = "/invoices";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListInvoicesParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
@@ -1979,14 +1980,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_line_items">list_invoice_line_items api documentation</a>
    * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListInvoiceLineItemsParams} for this endpoint.
      * @return A list of the invoice's line items.
    */
-  public Pager<LineItem> listInvoiceLineItems(String invoiceId, QueryParams queryParams) {
+  public Pager<LineItem> listInvoiceLineItems(String invoiceId, ListInvoiceLineItemsParams queryParams) {
     final String url = "/invoices/{invoice_id}/line_items";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListInvoiceLineItemsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
@@ -1998,14 +1999,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_coupon_redemptions">list_invoice_coupon_redemptions api documentation</a>
    * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListInvoiceCouponRedemptionsParams} for this endpoint.
      * @return A list of the the coupon redemptions associated with the invoice.
    */
-  public Pager<CouponRedemption> listInvoiceCouponRedemptions(String invoiceId, QueryParams queryParams) {
+  public Pager<CouponRedemption> listInvoiceCouponRedemptions(String invoiceId, ListInvoiceCouponRedemptionsParams queryParams) {
     final String url = "/invoices/{invoice_id}/coupon_redemptions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("invoice_id", invoiceId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListInvoiceCouponRedemptionsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, CouponRedemption.class).getType();
@@ -2049,13 +2050,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's line items
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_line_items">list_line_items api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListLineItemsParams} for this endpoint.
      * @return A list of the site's line items.
    */
-  public Pager<LineItem> listLineItems(QueryParams queryParams) {
+  public Pager<LineItem> listLineItems(ListLineItemsParams queryParams) {
     final String url = "/line_items";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListLineItemsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
@@ -2096,13 +2097,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's plans
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_plans">list_plans api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListPlansParams} for this endpoint.
      * @return A list of plans.
    */
-  public Pager<Plan> listPlans(QueryParams queryParams) {
+  public Pager<Plan> listPlans(ListPlansParams queryParams) {
     final String url = "/plans";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListPlansParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Plan.class).getType();
@@ -2178,14 +2179,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_plan_add_ons">list_plan_add_ons api documentation</a>
    * @param planId Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListPlanAddOnsParams} for this endpoint.
      * @return A list of add-ons.
    */
-  public Pager<AddOn> listPlanAddOns(String planId, QueryParams queryParams) {
+  public Pager<AddOn> listPlanAddOns(String planId, ListPlanAddOnsParams queryParams) {
     final String url = "/plans/{plan_id}/add_ons";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("plan_id", planId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListPlanAddOnsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, AddOn.class).getType();
@@ -2268,13 +2269,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's price segments
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_price_segments">list_price_segments api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListPriceSegmentsParams} for this endpoint.
      * @return A list of price segments.
    */
-  public Pager<PriceSegment> listPriceSegments(QueryParams queryParams) {
+  public Pager<PriceSegment> listPriceSegments(ListPriceSegmentsParams queryParams) {
     final String url = "/price_segments";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListPriceSegmentsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, PriceSegment.class).getType();
@@ -2301,13 +2302,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's add-ons
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_add_ons">list_add_ons api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListAddOnsParams} for this endpoint.
      * @return A list of add-ons.
    */
-  public Pager<AddOn> listAddOns(QueryParams queryParams) {
+  public Pager<AddOn> listAddOns(ListAddOnsParams queryParams) {
     final String url = "/add_ons";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListAddOnsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, AddOn.class).getType();
@@ -2334,13 +2335,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's shipping methods
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_shipping_methods">list_shipping_methods api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListShippingMethodsParams} for this endpoint.
      * @return A list of the site's shipping methods.
    */
-  public Pager<ShippingMethod> listShippingMethods(QueryParams queryParams) {
+  public Pager<ShippingMethod> listShippingMethods(ListShippingMethodsParams queryParams) {
     final String url = "/shipping_methods";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListShippingMethodsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, ShippingMethod.class).getType();
@@ -2415,13 +2416,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's subscriptions
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_subscriptions">list_subscriptions api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListSubscriptionsParams} for this endpoint.
      * @return A list of the site's subscriptions.
    */
-  public Pager<Subscription> listSubscriptions(QueryParams queryParams) {
+  public Pager<Subscription> listSubscriptions(ListSubscriptionsParams queryParams) {
     final String url = "/subscriptions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListSubscriptionsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Subscription.class).getType();
@@ -2481,14 +2482,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/terminate_subscription">terminate_subscription api documentation</a>
    * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link TerminateSubscriptionParams} for this endpoint.
      * @return An expired subscription.
    */
-  public Subscription terminateSubscription(String subscriptionId, QueryParams queryParams) {
+  public Subscription terminateSubscription(String subscriptionId, TerminateSubscriptionParams queryParams) {
     final String url = "/subscriptions/{subscription_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new TerminateSubscriptionParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Subscription.class;
@@ -2678,14 +2679,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_invoices">list_subscription_invoices api documentation</a>
    * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListSubscriptionInvoicesParams} for this endpoint.
      * @return A list of the subscription's invoices.
    */
-  public Pager<Invoice> listSubscriptionInvoices(String subscriptionId, QueryParams queryParams) {
+  public Pager<Invoice> listSubscriptionInvoices(String subscriptionId, ListSubscriptionInvoicesParams queryParams) {
     final String url = "/subscriptions/{subscription_id}/invoices";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListSubscriptionInvoicesParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
@@ -2697,14 +2698,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_line_items">list_subscription_line_items api documentation</a>
    * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListSubscriptionLineItemsParams} for this endpoint.
      * @return A list of the subscription's line items.
    */
-  public Pager<LineItem> listSubscriptionLineItems(String subscriptionId, QueryParams queryParams) {
+  public Pager<LineItem> listSubscriptionLineItems(String subscriptionId, ListSubscriptionLineItemsParams queryParams) {
     final String url = "/subscriptions/{subscription_id}/line_items";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListSubscriptionLineItemsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
@@ -2716,14 +2717,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_coupon_redemptions">list_subscription_coupon_redemptions api documentation</a>
    * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListSubscriptionCouponRedemptionsParams} for this endpoint.
      * @return A list of the the coupon redemptions on a subscription.
    */
-  public Pager<CouponRedemption> listSubscriptionCouponRedemptions(String subscriptionId, QueryParams queryParams) {
+  public Pager<CouponRedemption> listSubscriptionCouponRedemptions(String subscriptionId, ListSubscriptionCouponRedemptionsParams queryParams) {
     final String url = "/subscriptions/{subscription_id}/coupon_redemptions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListSubscriptionCouponRedemptionsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, CouponRedemption.class).getType();
@@ -2772,15 +2773,15 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_usage">list_usage api documentation</a>
    * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
    * @param addOnId Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListUsageParams} for this endpoint.
      * @return A list of the subscription add-on's usage records.
    */
-  public Pager<Usage> listUsage(String subscriptionId, String addOnId, QueryParams queryParams) {
+  public Pager<Usage> listUsage(String subscriptionId, String addOnId, ListUsageParams queryParams) {
     final String url = "/subscriptions/{subscription_id}/add_ons/{add_on_id}/usage";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("subscription_id", subscriptionId);
     urlParams.put("add_on_id", addOnId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListUsageParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Usage.class).getType();
@@ -2857,13 +2858,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's transactions
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_transactions">list_transactions api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListTransactionsParams} for this endpoint.
      * @return A list of the site's transactions.
    */
-  public Pager<Transaction> listTransactions(QueryParams queryParams) {
+  public Pager<Transaction> listTransactions(ListTransactionsParams queryParams) {
     final String url = "/transactions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListTransactionsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Transaction.class).getType();
@@ -3060,13 +3061,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List the dunning campaigns for a site
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_dunning_campaigns">list_dunning_campaigns api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListDunningCampaignsParams} for this endpoint.
      * @return A list of the the dunning_campaigns on an account.
    */
-  public Pager<DunningCampaign> listDunningCampaigns(QueryParams queryParams) {
+  public Pager<DunningCampaign> listDunningCampaigns(ListDunningCampaignsParams queryParams) {
     final String url = "/dunning_campaigns";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListDunningCampaignsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, DunningCampaign.class).getType();
@@ -3110,13 +3111,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Show the invoice templates for a site
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_templates">list_invoice_templates api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListInvoiceTemplatesParams} for this endpoint.
      * @return A list of the the invoice templates on a site.
    */
-  public Pager<InvoiceTemplate> listInvoiceTemplates(QueryParams queryParams) {
+  public Pager<InvoiceTemplate> listInvoiceTemplates(ListInvoiceTemplatesParams queryParams) {
     final String url = "/invoice_templates";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListInvoiceTemplatesParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, InvoiceTemplate.class).getType();
@@ -3143,13 +3144,13 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List the external invoices on a site
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_invoices">list_external_invoices api documentation</a>
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListExternalInvoicesParams} for this endpoint.
      * @return A list of the the external_invoices on a site.
    */
-  public Pager<ExternalInvoice> listExternalInvoices(QueryParams queryParams) {
+  public Pager<ExternalInvoice> listExternalInvoices(ListExternalInvoicesParams queryParams) {
     final String url = "/external_invoices";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListExternalInvoicesParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalInvoice.class).getType();
@@ -3177,14 +3178,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_subscription_external_payment_phases">list_external_subscription_external_payment_phases api documentation</a>
    * @param externalSubscriptionId External subscription id
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListExternalSubscriptionExternalPaymentPhasesParams} for this endpoint.
      * @return A list of the the external_payment_phases on a site.
    */
-  public Pager<ExternalPaymentPhase> listExternalSubscriptionExternalPaymentPhases(String externalSubscriptionId, QueryParams queryParams) {
+  public Pager<ExternalPaymentPhase> listExternalSubscriptionExternalPaymentPhases(String externalSubscriptionId, ListExternalSubscriptionExternalPaymentPhasesParams queryParams) {
     final String url = "/external_subscriptions/{external_subscription_id}/external_payment_phases";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("external_subscription_id", externalSubscriptionId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListExternalSubscriptionExternalPaymentPhasesParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalPaymentPhase.class).getType();
@@ -3214,14 +3215,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_entitlements">list_entitlements api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListEntitlementsParams} for this endpoint.
      * @return A list of the entitlements granted to an account.
    */
-  public Pager<Entitlements> listEntitlements(String accountId, QueryParams queryParams) {
+  public Pager<Entitlements> listEntitlements(String accountId, ListEntitlementsParams queryParams) {
     final String url = "/accounts/{account_id}/entitlements";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListEntitlementsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Entitlements.class).getType();
@@ -3233,14 +3234,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_external_subscriptions">list_account_external_subscriptions api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListAccountExternalSubscriptionsParams} for this endpoint.
      * @return A list of the the external_subscriptions on an account.
    */
-  public Pager<ExternalSubscription> listAccountExternalSubscriptions(String accountId, QueryParams queryParams) {
+  public Pager<ExternalSubscription> listAccountExternalSubscriptions(String accountId, ListAccountExternalSubscriptionsParams queryParams) {
     final String url = "/accounts/{account_id}/external_subscriptions";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListAccountExternalSubscriptionsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalSubscription.class).getType();
@@ -3359,14 +3360,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_business_entity_invoices">list_business_entity_invoices api documentation</a>
    * @param businessEntityId Business Entity ID. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-entity1`.
-   * @param queryParams The {@link QueryParams} for this endpoint.
+   * @param queryParams The {@link ListBusinessEntityInvoicesParams} for this endpoint.
      * @return A list of the business entity's invoices.
    */
-  public Pager<Invoice> listBusinessEntityInvoices(String businessEntityId, QueryParams queryParams) {
+  public Pager<Invoice> listBusinessEntityInvoices(String businessEntityId, ListBusinessEntityInvoicesParams queryParams) {
     final String url = "/business_entities/{business_entity_id}/invoices";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("business_entity_id", businessEntityId);
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new ListBusinessEntityInvoicesParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Invoice.class).getType();
