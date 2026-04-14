@@ -1,6 +1,7 @@
 package com.recurly.v3;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.recurly.v3.fixtures.DateTimeTestClass;
 import com.recurly.v3.fixtures.FixtureConstants;
@@ -8,6 +9,8 @@ import com.recurly.v3.fixtures.MyRequest;
 import com.recurly.v3.fixtures.MyResource;
 import com.recurly.v3.Constants;
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.format.ISODateTimeFormat;
 import org.junit.jupiter.api.Test;
 
 public class JsonSerializerTest {
@@ -123,6 +126,36 @@ public class JsonSerializerTest {
         + "    \"date5\": \"2019-05-31T15:31:24.099Z\",\n"
         + "    \"date6\": \"2019-05-31T15:31:24Z\"\n"
         + "}";
+  }
+
+  @Test
+  public void testDateTimeSerializationFormatParity() {
+    final JsonSerializer jsonSerializer = new JsonSerializer();
+
+    // Verify the inline serializer produces the same ISO 8601 output
+    // as ISODateTimeFormat.dateTime() (which the removed library used)
+    final DateTime dt = new DateTime(2019, 5, 31, 15, 31, 24, 99, DateTimeZone.UTC);
+    final String expected = ISODateTimeFormat.dateTime().print(dt);
+
+    final MyRequest request = new MyRequest();
+    request.setMyDateTime(dt);
+    final String serialized = jsonSerializer.serialize(request);
+
+    assertTrue(serialized.contains("\"" + expected + "\""),
+        "Serialized JSON should contain ISO 8601 DateTime: " + expected
+            + " but got: " + serialized);
+
+    // Round-trip: serialize then deserialize and verify field values
+    final String json = "{\"my_datetime\":\"" + expected + "\"}";
+    final DateTimeTestClass deserialized =
+        jsonSerializer.deserialize("{\"date1\":\"" + expected + "\"}", DateTimeTestClass.class);
+    assertEquals(2019, deserialized.getDate1().getYear());
+    assertEquals(5, deserialized.getDate1().getMonthOfYear());
+    assertEquals(31, deserialized.getDate1().getDayOfMonth());
+    assertEquals(15, deserialized.getDate1().getHourOfDay());
+    assertEquals(31, deserialized.getDate1().getMinuteOfHour());
+    assertEquals(24, deserialized.getDate1().getSecondOfMinute());
+    assertEquals(99, deserialized.getDate1().getMillisOfSecond());
   }
 
   private static void checkDateTime(DateTime date) {

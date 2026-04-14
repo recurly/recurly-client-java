@@ -249,11 +249,7 @@
             <artifactId>joda-time</artifactId>
             <version>2.10.6</version>
         </dependency>
-        <dependency>
-            <groupId>com.fatboyindustrial.gson-jodatime-serialisers</groupId>
-            <artifactId>gson-jodatime-serialisers</artifactId>
-            <version>1.8.0</version>
-        </dependency>
+
         <dependency>
             <groupId>org.apache.maven.surefire</groupId>
             <artifactId>surefire</artifactId>
@@ -293,14 +289,17 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Specify versions of transitive dependencies
-            plexus:plexus-utils introduced through jacoco-maven-plugin, maven-compiler-plugin, and others
-              - can be removed when mvn dependency:list shows version 3.0.24 or higher and no snyk reported vulnerabilities
-        -->
-        <dependency>
-          <groupId>org.codehaus.plexus</groupId>
-          <artifactId>plexus-utils</artifactId>
-          <version>3.5.1</version>
-        </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Pin plexus-utils for Maven plugin resolution only (not shipped to consumers).
+                 Transitive dep of jacoco-maven-plugin, maven-compiler-plugin, and others. -->
+            <dependency>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-utils</artifactId>
+                <version>4.0.3</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

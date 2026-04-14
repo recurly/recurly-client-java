@@ -1,6 +1,5 @@
 package com.recurly.v3;
 
-import com.fatboyindustrial.gsonjodatime.Converters;
 import com.google.gson.*;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
@@ -15,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.joda.time.DateTime;
+import org.joda.time.format.ISODateTimeFormat;
 
 public class JsonSerializer {
   private class DateDeserializer implements JsonDeserializer<DateTime> {
@@ -25,7 +25,14 @@ public class JsonSerializer {
     }
   }
 
-  private final Gson gsonSerializer = Converters.registerDateTime(new GsonBuilder()).create();
+  private final Gson gsonSerializer =
+      new GsonBuilder()
+          .registerTypeAdapter(
+              DateTime.class,
+              (com.google.gson.JsonSerializer<DateTime>)
+                  (src, typeOfSrc, context) ->
+                      new JsonPrimitive(ISODateTimeFormat.dateTime().print(src)))
+          .create();
   private final Gson gsonDeserializer =
       new GsonBuilder()
           .excludeFieldsWithoutExposeAnnotation()
