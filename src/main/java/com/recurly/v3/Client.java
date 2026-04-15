@@ -142,6 +142,22 @@ public class Client extends BaseClient {
   }
 
   /**
+   * Redact an account (GDPR Right to Erasure)
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/redact_account">redact_account api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return Account has been accepted for redaction and will be processed asynchronously.
+   */
+  public Account redactAccount(String accountId) {
+    final String url = "/accounts/{account_id}/redact";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("account_id", accountId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = Account.class;
+    return this.makeRequest("PUT", path, returnType);
+  }
+
+  /**
    * Fetch an account's acquisition data
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_account_acquisition">get_account_acquisition api documentation</a>
@@ -1111,6 +1127,23 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     urlParams.put("coupon_id", couponId);
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = UniqueCouponCodeParams.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * Generate unique coupon codes synchronously
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/generate_unique_coupon_codes_sync">generate_unique_coupon_codes_sync api documentation</a>
+   * @param couponId Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
+   * @param body The body of the request.
+     * @return The newly generated unique coupon codes.
+   */
+  public UniqueCouponCodeGenerationResponse generateUniqueCouponCodesSync(String couponId, CouponBulkCreateSync body) {
+    final String url = "/coupons/{coupon_id}/generate_sync";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("coupon_id", couponId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = UniqueCouponCodeGenerationResponse.class;
     return this.makeRequest("POST", path, body, returnType);
   }
 
