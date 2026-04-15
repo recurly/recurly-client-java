@@ -276,13 +276,28 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>4.4.0</version>
+            <version>4.11.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-inline</artifactId>
-            <version>4.4.0</version>
+            <version>4.11.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Override Byte Buddy to a version that supports Java 21 (65) and above.
+             Mockito 4.11.0 bundles Byte Buddy 1.12.19 which only supports up to Java 20 (64).
+             Byte Buddy 1.14.9+ supports Java 21 while remaining compatible with Java 8. -->
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <version>1.14.18</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy-agent</artifactId>
+            <version>1.14.18</version>
             <scope>test</scope>
         </dependency>
         <dependency>
