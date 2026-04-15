@@ -9,41 +9,35 @@ import com.recurly.v3.exception.ValidationException;
 import com.recurly.v3.fixtures.FixtureConstants;
 import com.recurly.v3.ApiException;
 import com.recurly.v3.fixtures.MockClient;
+import com.recurly.v3.fixtures.MockHttpTransport;
 import com.recurly.v3.fixtures.MockQueryParams;
 import com.recurly.v3.fixtures.MyRequest;
 import com.recurly.v3.fixtures.MyResource;
-import okhttp3.Call;
-import okhttp3.Headers;
-import okhttp3.HttpUrl;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import com.recurly.v3.http.SimpleHttpRequest;
+import com.recurly.v3.http.SimpleHttpResponse;
 
-import org.apache.commons.io.IOUtils;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-import org.junit.Assert;
-import org.junit.jupiter.api.Test;
-import org.mockito.stubbing.Answer;
-
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Field;
+import java.io.InputStreamReader;
+import java.net.URLDecoder;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import org.junit.jupiter.api.Test;
+
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.Collectors;
 import org.mockito.MockedStatic;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.mock;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mockStatic;
-import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.eq;
 
 @SuppressWarnings("unchecked")
@@ -51,110 +45,66 @@ public class BaseClientTest {
 
   @Test
   public void testMakeRequestWithResource() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> {
-      Request request = i.getArgument(0);
-      HttpUrl url = request.url();
-      assertEquals("GET", request.method());
-      assertEquals("/resources/code-aaron", url.url().getPath());
-      return mCall;
-    };
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getResponseJson()));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(200, getResponseJson()));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
     final MyResource resource = client.getResource("code-aaron");
 
     assertEquals(MyResource.class, resource.getClass());
+
+    final SimpleHttpRequest request = transport.getLastRequest();
+    assertEquals("GET", request.getMethod());
+    assertEquals("/resources/code-aaron", getPath(request.getUrl()));
   }
 
   @Test
   public void testMakeRequestWithBody() throws IOException {
-    final Call mCall = mock(Call.class);
-    AtomicBoolean postCalled = new AtomicBoolean(false);
-    AtomicBoolean putCalled = new AtomicBoolean(false);
-    Answer answer = (i) -> {
-      Request request = i.getArgument(0);
-      HttpUrl url = request.url();
-      switch (request.method()) {
-        case "POST":
-          assertEquals("/resources", url.url().getPath());
-          postCalled.set(true);
-          break;
-        case "PUT":
-          assertEquals("/resources/someId", url.url().getPath());
-          putCalled.set(true);
-          break;
-        default:
-          // Any other request method is a failure
-          Assert.fail();
-      }
-      return mCall;
-    };
-    when(mCall.execute())
-      .thenReturn(MockClient.buildResponse(200, "OK", getResponseJson()))
-      .thenReturn(MockClient.buildResponse(200, "OK", getResponseJson()));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(200, getResponseJson()));
+    transport.enqueue(MockClient.buildResponse(200, getResponseJson()));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
     final MyRequest newResource = new MyRequest();
     newResource.setMyString("aaron");
 
     final MyResource resource = client.createResource(newResource);
     assertEquals(MyResource.class, resource.getClass());
     assertEquals("aaron", resource.getMyString());
-    assertTrue(postCalled.get());
 
     final MyResource anotherResource = client.updateResource("someId", newResource);
     assertEquals(MyResource.class, anotherResource.getClass());
     assertEquals("aaron", anotherResource.getMyString());
-    assertTrue(putCalled.get());
+
+    final List<SimpleHttpRequest> requests = transport.getRequests();
+    assertEquals(2, requests.size());
+    assertEquals("POST", requests.get(0).getMethod());
+    assertEquals("/resources", getPath(requests.get(0).getUrl()));
+    assertEquals("PUT", requests.get(1).getMethod());
+    assertEquals("/resources/someId", getPath(requests.get(1).getUrl()));
   }
 
   @Test
   public void testMakeRequestWithoutResource() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> {
-      Request request = i.getArgument(0);
-      HttpUrl url = request.url();
-      assertEquals("DELETE", request.method());
-      assertEquals("/resources/resource-id", url.url().getPath());
-      return mCall;
-    };
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", ""));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(200, ""));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
     client.removeResource("resource-id");
+
+    final SimpleHttpRequest request = transport.getLastRequest();
+    assertEquals("DELETE", request.getMethod());
+    assertEquals("/resources/resource-id", getPath(request.getUrl()));
   }
 
   @Test
   public void testMakeRequestWithQueryParams() throws IOException {
-    ZonedDateTime dateTime = ZonedDateTime.now();
+    final ZonedDateTime dateTime = ZonedDateTime.now();
 
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> {
-      Request request = i.getArgument(0);
-      HttpUrl url = request.url();
-      assertEquals("Aaron", url.queryParameter("my_string"));
-      assertEquals(DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(dateTime), url.queryParameter("my_date_time"));
-      assertEquals("1", url.queryParameter("my_integer"));
-      assertEquals("2.3", url.queryParameter("my_float"));
-      assertEquals("4.5", url.queryParameter("my_double"));
-      assertEquals("6", url.queryParameter("my_long"));
-      assertEquals("twenty-three", url.queryParameter("my_enum"));
-      assertEquals(null, url.queryParameter("my_random"));
-      assertEquals("[]", url.queryParameter("unsupported"));
-      return mCall;
-    };
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getResponseListJson()));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(200, getResponseListJson()));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
     final MockQueryParams qp = new MockQueryParams();
     qp.setMyString("Aaron");
     qp.setMyDateTime(dateTime);
@@ -167,19 +117,26 @@ public class BaseClientTest {
     qp.setUnsupported(new ArrayList<>());
     final Pager<MyResource> pager = client.listResources(qp);
     pager.getNextPage();
+
+    final String url = transport.getLastRequest().getUrl();
+    assertEquals("Aaron", getQueryParam(url, "my_string"));
+    assertEquals(DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(dateTime), getQueryParam(url, "my_date_time"));
+    assertEquals("1", getQueryParam(url, "my_integer"));
+    assertEquals("2.3", getQueryParam(url, "my_float"));
+    assertEquals("4.5", getQueryParam(url, "my_double"));
+    assertEquals("6", getQueryParam(url, "my_long"));
+    assertEquals("twenty-three", getQueryParam(url, "my_enum"));
+    assertEquals(null, getQueryParam(url, "my_random"));
+    assertEquals("[]", getQueryParam(url, "unsupported"));
   }
 
   @Test
   public void testNonJsonError0() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> { return mCall; };
-    Headers headers = new Headers.Builder().build();
-    MediaType contentType = MediaType.get("text/html; charset=UTF-8");
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(0, "Not A Real Status", "<html>badness</html>", headers, contentType));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(0, "text/html; charset=UTF-8",
+        "<html>badness</html>", Collections.<String, List<String>>emptyMap()));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
 
     assertThrows(
         ApiException.class,
@@ -190,15 +147,11 @@ public class BaseClientTest {
 
   @Test
   public void testNonJsonError500() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> { return mCall; };
-    Headers headers = new Headers.Builder().build();
-    MediaType contentType = MediaType.get("text/html; charset=UTF-8");
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(500, "Internal Server Error", "<html>badness</html>", headers, contentType));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(500, "text/html; charset=UTF-8",
+        "<html>badness</html>", Collections.<String, List<String>>emptyMap()));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
 
     assertThrows(
         InternalServerException.class,
@@ -209,15 +162,12 @@ public class BaseClientTest {
 
   @Test
   public void testInvalidApiKey() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> { return mCall; };
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(404, "Not Found", getErrorJson("invalid_api_key")));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(404, getErrorJson("invalid_api_key")));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
+    final MockClient client = new MockClient("apiKey", transport);
 
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
-
-    // This test is important because it ensures that application/json response errors are based on the json 
+    // This test is important because it ensures that application/json response errors are based on the json
     // body's error type and not the status code based error
     assertThrows(
         InvalidApiKeyException.class,
@@ -228,13 +178,10 @@ public class BaseClientTest {
 
   @Test
   public void testNotFoundError() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> { return mCall; };
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(404, "Not Found", getErrorJson("not_found")));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(404, getErrorJson("not_found")));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
 
     assertThrows(
         NotFoundException.class,
@@ -245,33 +192,27 @@ public class BaseClientTest {
 
   @Test
   public void testUnknownError() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> { return mCall; };
-    final Response response = MockClient.buildResponse(999, "Unknown", getErrorJson("unknown"));
-    when(mCall.execute()).thenReturn(response);
+    final MockHttpTransport transport = new MockHttpTransport();
+    SimpleHttpResponse response = MockClient.buildResponse(999, getErrorJson("unknown"));
+    transport.enqueue(response);
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
     // asserts that generic api exception is thrown for unknown error
     assertThrows(
         ApiException.class,
         () -> {
           client.getResource("code-aaron");
-        }); 
+        });
     final RecurlyException exception = ExceptionFactory.getExceptionClass(response);
     assertTrue(exception.toString().contains("ApiException"));
   }
 
   @Test
   public void testValidationError() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> { return mCall; };
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(422, "Unprocessable Entity", getErrorResponse("validation")));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(422, getErrorResponse("validation")));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
 
     assertThrows(
         ValidationException.class,
@@ -282,31 +223,25 @@ public class BaseClientTest {
 
   @Test
   public void testTransactionError() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> { return mCall; };
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(422, "Unprocessable Entity", getErrorResponse("transaction")));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(422, getErrorResponse("transaction")));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
 
     TransactionException t = assertThrows(
-            TransactionException.class,
-            () -> {
-              client.removeResource("code-aaron");
-            });
+        TransactionException.class,
+        () -> {
+          client.removeResource("code-aaron");
+        });
     assertEquals("mbca9aaao6xr", t.getError().getTransactionError().getTransactionId());
   }
 
   @Test
   public void testNetworkError() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> { return mCall; };
-    when(mCall.execute()).thenThrow(new IOException());
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.willThrow(new IOException());
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
     assertThrows(
         NetworkException.class,
         () -> {
@@ -316,13 +251,10 @@ public class BaseClientTest {
 
   @Test
   public void testNetworkErrorWithoutResource() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> { return mCall; };
-    when(mCall.execute()).thenThrow(new IOException());
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.willThrow(new IOException());
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
     assertThrows(
         NetworkException.class,
         () -> {
@@ -332,13 +264,7 @@ public class BaseClientTest {
 
   @Test
   public void testBadMethodError() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> { return mCall; };
-    when(mCall.execute()).thenThrow(new IOException());
-
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey");
 
     assertThrows(
         IllegalArgumentException.class,
@@ -444,6 +370,36 @@ public class BaseClientTest {
     assertEquals("/url_path/replacement", interpolatedPath);
   }
 
+  // --- Helpers ---
+
+  private static String getPath(String url) {
+    int schemeEnd = url.indexOf("://");
+    if (schemeEnd < 0) return url;
+    int pathStart = url.indexOf('/', schemeEnd + 3);
+    if (pathStart < 0) return "/";
+    int queryStart = url.indexOf('?', pathStart);
+    return queryStart < 0 ? url.substring(pathStart) : url.substring(pathStart, queryStart);
+  }
+
+  private static String getQueryParam(String url, String name) {
+    try {
+      int qIdx = url.indexOf('?');
+      if (qIdx < 0) return null;
+      final String query = url.substring(qIdx + 1);
+      for (String param : query.split("&")) {
+        final int eqIdx = param.indexOf('=');
+        final String key = URLDecoder.decode(
+            eqIdx >= 0 ? param.substring(0, eqIdx) : param, "UTF-8");
+        if (key.equals(name)) {
+          return eqIdx >= 0 ? URLDecoder.decode(param.substring(eqIdx + 1), "UTF-8") : "";
+        }
+      }
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+    return null;
+  }
+
   private static String getResponseJson() {
     return "{ \"my_string\": \"aaron\" }";
   }
@@ -488,8 +444,10 @@ public class BaseClientTest {
 
     if (resource != null) {
       try {
-        return IOUtils.toString(resource, StandardCharsets.UTF_8);
-      } catch (IOException e) {
+        final BufferedReader reader =
+            new BufferedReader(new InputStreamReader(resource, StandardCharsets.UTF_8));
+        return reader.lines().collect(Collectors.joining("\n"));
+      } catch (Exception e) {
         throw new IllegalStateException(e.getMessage(), e);
       }
     }

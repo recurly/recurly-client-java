@@ -4,39 +4,32 @@ import com.google.gson.reflect.TypeToken;
 import com.recurly.v3.BaseClient;
 import com.recurly.v3.Pager;
 import com.recurly.v3.ClientOptions;
-import com.recurly.v3.fixtures.MockQueryParams;
-
-import org.mockito.stubbing.Answer;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doAnswer;
-import static org.mockito.Mockito.mock;
+import com.recurly.v3.http.HttpTransport;
+import com.recurly.v3.http.SimpleHttpResponse;
 
 import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
-
-import okhttp3.Headers;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import java.util.List;
+import java.util.Map;
 
 public class MockClient extends BaseClient {
   public MockClient(final String apiKey) {
     super(apiKey);
   }
 
-  public MockClient(final String apiKey, final OkHttpClient client) {
-    super(apiKey, client, new ClientOptions());
+  public MockClient(final String apiKey, final HttpTransport transport) {
+    super(apiKey, transport, new ClientOptions());
   }
 
   public MockClient(final String apiKey, final ClientOptions clientOptions) {
     super(apiKey, clientOptions);
   }
 
-  public MockClient(final String apiKey, final OkHttpClient client, final ClientOptions clientOptions) {
-    super(apiKey, client, clientOptions);
+  public MockClient(final String apiKey, final HttpTransport transport, final ClientOptions clientOptions) {
+    super(apiKey, transport, clientOptions);
   }
 
   public String apiUrl;
@@ -79,6 +72,15 @@ public class MockClient extends BaseClient {
     return this.makeRequest("PUT", path, body, returnType);
   }
 
+  public MyResource reactivateResource(String resourceId) {
+    final String url = "/resources/{resource_id}/reactivate";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("resource_id", resourceId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = MyResource.class;
+    return this.makeRequest("PUT", path, returnType);
+  }
+
   public void removeResource(String resourceId) {
     final String url = "/resources/{resource_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
@@ -92,34 +94,25 @@ public class MockClient extends BaseClient {
     this.makeRequest("BOGUS", "/accounts");
   }
 
-  public static final Response buildResponse(Integer code, String message, String response) {
-    Headers headers = new Headers.Builder().build();
-    return buildResponse(code, message, response, headers);
+  /** Builds a mock response with application/json content type. */
+  public static SimpleHttpResponse buildResponse(int code, String body) {
+    return buildResponse(code, "application/json; charset=utf-8", body, Collections.<String, List<String>>emptyMap());
   }
 
-  public static final Response buildResponse(Integer code, String message, String response, Headers headers) {
-    MediaType contentType = MediaType.get("application/json; charset=utf-8");
-    return buildResponse(code, message, response, headers, contentType);
+  /** Builds a mock response with application/json content type and extra headers. */
+  public static SimpleHttpResponse buildResponse(int code, String body, Map<String, List<String>> extraHeaders) {
+    return buildResponse(code, "application/json; charset=utf-8", body, extraHeaders);
   }
 
-  public static final Response buildResponse(Integer code, String message, String response, Headers headers, MediaType contentType) {
-    final Request mRequest = new Request.Builder().url("https://v3.recurly.com").build();
+  /** Builds a mock response with an explicit content type and extra headers. */
+  public static SimpleHttpResponse buildResponse(int code, String contentType, String body, Map<String, List<String>> extraHeaders) {
+    final Map<String, List<String>> headers = new HashMap<>(extraHeaders);
+    headers.put("Content-Type", Arrays.asList(contentType));
 
-    final Response mResponse =
-        new Response.Builder()
-            .request(mRequest)
-            .protocol(okhttp3.Protocol.HTTP_1_1)
-            .code(code) // status code
-            .message(message)
-            .body(ResponseBody.create(contentType, response))
-            .headers(headers)
-            .build();
-    return mResponse;
-  }
+    final byte[] bodyBytes = (body != null)
+        ? body.getBytes(StandardCharsets.UTF_8)
+        : new byte[0];
 
-  public static OkHttpClient getMockOkHttpClient(Answer answer) {
-    final OkHttpClient mockOkHttpClient = mock(OkHttpClient.class);
-    doAnswer(answer).when(mockOkHttpClient).newCall(any());
-    return mockOkHttpClient;
+    return new SimpleHttpResponse(code, headers, bodyBytes);
   }
 }

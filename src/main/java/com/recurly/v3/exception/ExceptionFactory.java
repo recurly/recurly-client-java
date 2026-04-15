@@ -7,8 +7,8 @@ package com.recurly.v3.exception;
 
 import com.recurly.v3.ApiException;
 import com.recurly.v3.RecurlyException;
+import com.recurly.v3.http.SimpleHttpResponse;
 import com.recurly.v3.resources.ErrorMayHaveTransaction;
-import okhttp3.Response;
 
 public class ExceptionFactory {
 
@@ -79,9 +79,9 @@ public class ExceptionFactory {
   }
 
   @SuppressWarnings("unchecked")
-  public static <T extends RecurlyException> T getExceptionClass(Response response) {
-    String requestId = response.header("X-Request-Id", "none");
-    int code = response.code();
+  public static <T extends RecurlyException> T getExceptionClass(SimpleHttpResponse response) {
+    String requestId = response.getRequestId();
+    int code = response.getStatusCode();
     String message = "Unexpected " + code + " Error. Recurly Request Id: " + requestId;
     switch (code) {
       case 500:

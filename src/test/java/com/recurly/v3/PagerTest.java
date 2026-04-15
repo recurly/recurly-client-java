@@ -1,40 +1,30 @@
 package com.recurly.v3;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 import com.recurly.v3.fixtures.MockClient;
+import com.recurly.v3.fixtures.MockHttpTransport;
 import com.recurly.v3.fixtures.MyResource;
+import com.recurly.v3.http.SimpleHttpRequest;
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-import okhttp3.*;
-import okhttp3.Request;
 import org.junit.jupiter.api.Test;
-import org.mockito.stubbing.Answer;
 
 public class PagerTest {
   @Test
   public void testForEach() throws IOException {
-    final Call mCall = mock(Call.class);
-    AtomicBoolean firstCalled = new AtomicBoolean(false);
-    Answer answer = (i) -> {
-      Request request = i.getArgument(0);
-      HttpUrl url = request.url();
-      if (firstCalled.get()) {
-        assertEquals("/next", url.url().getPath());
-      }
-      firstCalled.set(true);
-      return mCall;
-    };
-    when(mCall.execute())
-      .thenReturn(MockClient.buildResponse(200, "OK", getResourceFirstPageJson("/next")))
-      .thenReturn(MockClient.buildResponse(200, "OK", getResourceSecondPageJson()));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(200, getResourceFirstPageJson("/next")));
+    transport.enqueue(MockClient.buildResponse(200, getResourceSecondPageJson()));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
     Pager<MyResource> pager = client.listResources(null);
     AtomicInteger count = new AtomicInteger(0);
     pager.forEach(
@@ -46,30 +36,27 @@ public class PagerTest {
           }
           count.incrementAndGet();
         });
+
+    // Second request should be to the "next" path
+    assertEquals("/next", getPath(transport.getRequests().get(1).getUrl()));
   }
 
   @Test
   public void testEachItem() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> { return mCall; };
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getResourceSecondPageJson()));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(200, getResourceSecondPageJson()));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
     Pager<MyResource> pager = client.listResources(null);
     pager.eachItem(resource -> assertNotNull(resource.getMyString()));
   }
 
   @Test
   public void testEmptyList() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> { return mCall; };
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getEmptyListJson()));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(200, getEmptyListJson()));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
     Pager<MyResource> pager = client.listResources(null);
     assertEquals(0, pager.getData().size());
 
@@ -83,24 +70,11 @@ public class PagerTest {
 
   @Test
   public void testForLoop() throws IOException {
-    final Call mCall = mock(Call.class);
-    AtomicBoolean firstCalled = new AtomicBoolean(false);
-    Answer answer = (i) -> {
-      Request request = i.getArgument(0);
-      HttpUrl url = request.url();
-      if (firstCalled.get()) {
-        assertEquals("/next", url.url().getPath());
-      }
-      firstCalled.set(true);
-      return mCall;
-    };
-    when(mCall.execute())
-      .thenReturn(MockClient.buildResponse(200, "OK", getResourceFirstPageJson("/next")))
-      .thenReturn(MockClient.buildResponse(200, "OK", getResourceSecondPageJson()));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(200, getResourceFirstPageJson("/next")));
+    transport.enqueue(MockClient.buildResponse(200, getResourceSecondPageJson()));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
     Pager<MyResource> pager = client.listResources(null);
     int count = 0;
     for (MyResource res : pager) {
@@ -112,6 +86,9 @@ public class PagerTest {
       count++;
     }
     assertEquals(5, count);
+
+    // Second request should be to the "next" path
+    assertEquals("/next", getPath(transport.getRequests().get(1).getUrl()));
   }
 
   @Test
@@ -123,40 +100,60 @@ public class PagerTest {
 
   @Test
   public void testCount() throws IOException {
-    final Call mCall = mock(Call.class);
-    Headers headers = new Headers.Builder().set("Recurly-Total-Records", "1337").build();
-    Answer answer = (i) -> {
-      Request request = i.getArgument(0);
-      assertEquals("HEAD", request.method());
-      return mCall;
-    };
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getResourceFirstItemJson(), headers));
+    final MockHttpTransport transport = new MockHttpTransport();
+    final Map<String, List<String>> headers = new HashMap<>();
+    headers.put("Recurly-Total-Records", Arrays.asList("1337"));
+    transport.enqueue(MockClient.buildResponse(200, getResourceFirstItemJson(), headers));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
     Pager<MyResource> pager = client.listResources(null);
     int count = pager.getCount();
     assertEquals(1337, count);
+
+    assertEquals("HEAD", transport.getLastRequest().getMethod());
   }
 
   @Test
   public void testFirst() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> {
-      Request request = i.getArgument(0);
-      HttpUrl url = request.url();
-      assertEquals("1", url.queryParameter("limit"));
-      return mCall;
-    };
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getResourceFirstItemJson()));
+    final MockHttpTransport transport = new MockHttpTransport();
+    transport.enqueue(MockClient.buildResponse(200, getResourceFirstItemJson()));
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = new MockClient("apiKey", transport);
     Pager<MyResource> pager = client.listResources(null);
     MyResource resource = pager.getFirst();
     assertEquals("Resource First Item", resource.getMyString());
+
+    assertEquals("1", getQueryParam(transport.getLastRequest().getUrl(), "limit"));
+  }
+
+  // --- Helpers ---
+
+  private static String getPath(String url) {
+    int schemeEnd = url.indexOf("://");
+    if (schemeEnd < 0) return url;
+    int pathStart = url.indexOf('/', schemeEnd + 3);
+    if (pathStart < 0) return "/";
+    int queryStart = url.indexOf('?', pathStart);
+    return queryStart < 0 ? url.substring(pathStart) : url.substring(pathStart, queryStart);
+  }
+
+  private static String getQueryParam(String url, String name) {
+    try {
+      int qIdx = url.indexOf('?');
+      if (qIdx < 0) return null;
+      final String query = url.substring(qIdx + 1);
+      for (String param : query.split("&")) {
+        final int eqIdx = param.indexOf('=');
+        final String key = URLDecoder.decode(
+            eqIdx >= 0 ? param.substring(0, eqIdx) : param, "UTF-8");
+        if (key.equals(name)) {
+          return eqIdx >= 0 ? URLDecoder.decode(param.substring(eqIdx + 1), "UTF-8") : "";
+        }
+      }
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+    return null;
   }
 
   private String getResourceFirstPageJson(String next) {
@@ -202,13 +199,13 @@ public class PagerTest {
 
   private String getResourceFirstItemJson() {
     return "{" +
-      "\"object\": \"list\"," +
-      "\"has_more\": false," +
-      "\"next\": null," +
-      "\"data\": [" +
-      "  {" +
-      "    \"my_string\":\"Resource First Item\"" +
-      "  }" +
-      "]}";
+        "\"object\": \"list\"," +
+        "\"has_more\": false," +
+        "\"next\": null," +
+        "\"data\": [" +
+        "  {" +
+        "    \"my_string\":\"Resource First Item\"" +
+        "  }" +
+        "]}";
   }
 }
