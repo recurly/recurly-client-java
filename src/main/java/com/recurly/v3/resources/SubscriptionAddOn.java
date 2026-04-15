@@ -10,8 +10,8 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.List;
-import org.joda.time.DateTime;
 
 public class SubscriptionAddOn extends Resource {
 
@@ -33,12 +33,12 @@ public class SubscriptionAddOn extends Resource {
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /** Expired at */
   @SerializedName("expired_at")
   @Expose
-  private DateTime expiredAt;
+  private ZonedDateTime expiredAt;
 
   /** Subscription Add-on ID */
   @SerializedName("id")
@@ -109,7 +109,7 @@ public class SubscriptionAddOn extends Resource {
   /** Updated at */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /**
    * The type of calculation to be employed for an add-on. Cumulative billing will sum all usage
@@ -167,22 +167,22 @@ public class SubscriptionAddOn extends Resource {
   }
 
   /** Created at */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
   /** Expired at */
-  public DateTime getExpiredAt() {
+  public ZonedDateTime getExpiredAt() {
     return this.expiredAt;
   }
 
   /** @param expiredAt Expired at */
-  public void setExpiredAt(final DateTime expiredAt) {
+  public void setExpiredAt(final ZonedDateTime expiredAt) {
     this.expiredAt = expiredAt;
   }
 
@@ -320,12 +320,12 @@ public class SubscriptionAddOn extends Resource {
   }
 
   /** Updated at */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Updated at */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 

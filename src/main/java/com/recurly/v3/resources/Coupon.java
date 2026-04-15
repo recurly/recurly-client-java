@@ -9,9 +9,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Map;
-import org.joda.time.DateTime;
 
 public class Coupon extends Resource {
 
@@ -52,7 +52,7 @@ public class Coupon extends Resource {
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /**
    * Details of the discount a coupon applies. Will contain a `type` property and one of the
@@ -73,7 +73,7 @@ public class Coupon extends Resource {
   /** The date and time the coupon was expired early or reached its `max_redemptions`. */
   @SerializedName("expired_at")
   @Expose
-  private DateTime expiredAt;
+  private ZonedDateTime expiredAt;
 
   /** Sets the duration of time the `free_trial_unit` is for. */
   @SerializedName("free_trial_amount")
@@ -155,7 +155,7 @@ public class Coupon extends Resource {
    */
   @SerializedName("redeem_by")
   @Expose
-  private DateTime redeemBy;
+  private ZonedDateTime redeemBy;
 
   /**
    * Whether the discount is for all eligible charges on the account, or only a specific
@@ -204,7 +204,7 @@ public class Coupon extends Resource {
   /** Last updated at */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /**
    * The coupon is valid for all items if true. If false then `items` will list the applicable
@@ -275,12 +275,12 @@ public class Coupon extends Resource {
   }
 
   /** Created at */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -318,7 +318,7 @@ public class Coupon extends Resource {
   }
 
   /** The date and time the coupon was expired early or reached its `max_redemptions`. */
-  public DateTime getExpiredAt() {
+  public ZonedDateTime getExpiredAt() {
     return this.expiredAt;
   }
 
@@ -326,7 +326,7 @@ public class Coupon extends Resource {
    * @param expiredAt The date and time the coupon was expired early or reached its
    *     `max_redemptions`.
    */
-  public void setExpiredAt(final DateTime expiredAt) {
+  public void setExpiredAt(final ZonedDateTime expiredAt) {
     this.expiredAt = expiredAt;
   }
 
@@ -484,7 +484,7 @@ public class Coupon extends Resource {
    * The date and time the coupon will expire and can no longer be redeemed. Time is always
    * 11:59:59, the end-of-day Pacific time.
    */
-  public DateTime getRedeemBy() {
+  public ZonedDateTime getRedeemBy() {
     return this.redeemBy;
   }
 
@@ -492,7 +492,7 @@ public class Coupon extends Resource {
    * @param redeemBy The date and time the coupon will expire and can no longer be redeemed. Time is
    *     always 11:59:59, the end-of-day Pacific time.
    */
-  public void setRedeemBy(final DateTime redeemBy) {
+  public void setRedeemBy(final ZonedDateTime redeemBy) {
     this.redeemBy = redeemBy;
   }
 
@@ -595,12 +595,12 @@ public class Coupon extends Resource {
   }
 
   /** Last updated at */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Last updated at */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 }

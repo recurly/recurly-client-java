@@ -2,14 +2,14 @@ package com.recurly.v3.fixtures;
 
 import com.recurly.v3.AbstractQueryParams;
 import java.util.ArrayList;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class MockQueryParams extends AbstractQueryParams {
   public void setMyString(String myString) {
     this.add("my_string", myString);
   }
 
-  public void setMyDateTime(DateTime myDateTime) {
+  public void setMyDateTime(ZonedDateTime myDateTime) {
     this.add("my_date_time", myDateTime);
   }
 

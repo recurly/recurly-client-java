@@ -10,9 +10,9 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Map;
-import org.joda.time.DateTime;
 
 public class Transaction extends Resource {
 
@@ -51,7 +51,7 @@ public class Transaction extends Resource {
   /** Collected at, or if not collected yet, the time the transaction was created. */
   @SerializedName("collected_at")
   @Expose
-  private DateTime collectedAt;
+  private ZonedDateTime collectedAt;
 
   /** The method by which the payment was collected. */
   @SerializedName("collection_method")
@@ -61,7 +61,7 @@ public class Transaction extends Resource {
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
@@ -262,7 +262,7 @@ public class Transaction extends Resource {
   /** Updated at */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /**
    * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
@@ -283,7 +283,7 @@ public class Transaction extends Resource {
   /** Voided at */
   @SerializedName("voided_at")
   @Expose
-  private DateTime voidedAt;
+  private ZonedDateTime voidedAt;
 
   /** Invoice mini details */
   @SerializedName("voided_by_invoice")
@@ -359,14 +359,14 @@ public class Transaction extends Resource {
   }
 
   /** Collected at, or if not collected yet, the time the transaction was created. */
-  public DateTime getCollectedAt() {
+  public ZonedDateTime getCollectedAt() {
     return this.collectedAt;
   }
 
   /**
    * @param collectedAt Collected at, or if not collected yet, the time the transaction was created.
    */
-  public void setCollectedAt(final DateTime collectedAt) {
+  public void setCollectedAt(final ZonedDateTime collectedAt) {
     this.collectedAt = collectedAt;
   }
 
@@ -381,12 +381,12 @@ public class Transaction extends Resource {
   }
 
   /** Created at */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -800,12 +800,12 @@ public class Transaction extends Resource {
   }
 
   /** Updated at */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Updated at */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 
@@ -843,12 +843,12 @@ public class Transaction extends Resource {
   }
 
   /** Voided at */
-  public DateTime getVoidedAt() {
+  public ZonedDateTime getVoidedAt() {
     return this.voidedAt;
   }
 
   /** @param voidedAt Voided at */
-  public void setVoidedAt(final DateTime voidedAt) {
+  public void setVoidedAt(final ZonedDateTime voidedAt) {
     this.voidedAt = voidedAt;
   }
 

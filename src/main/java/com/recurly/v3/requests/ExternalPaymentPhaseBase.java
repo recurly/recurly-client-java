@@ -9,7 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class ExternalPaymentPhaseBase extends Request {
 
@@ -31,7 +31,7 @@ public class ExternalPaymentPhaseBase extends Request {
   /** Ends At */
   @SerializedName("ends_at")
   @Expose
-  private DateTime endsAt;
+  private ZonedDateTime endsAt;
 
   /** Name of the discount offer given, e.g. "introductory" */
   @SerializedName("offer_name")
@@ -56,7 +56,7 @@ public class ExternalPaymentPhaseBase extends Request {
   /** Started At */
   @SerializedName("started_at")
   @Expose
-  private DateTime startedAt;
+  private ZonedDateTime startedAt;
 
   /** Starting Billing Period Index */
   @SerializedName("starting_billing_period_index")
@@ -94,12 +94,12 @@ public class ExternalPaymentPhaseBase extends Request {
   }
 
   /** Ends At */
-  public DateTime getEndsAt() {
+  public ZonedDateTime getEndsAt() {
     return this.endsAt;
   }
 
   /** @param endsAt Ends At */
-  public void setEndsAt(final DateTime endsAt) {
+  public void setEndsAt(final ZonedDateTime endsAt) {
     this.endsAt = endsAt;
   }
 
@@ -144,12 +144,12 @@ public class ExternalPaymentPhaseBase extends Request {
   }
 
   /** Started At */
-  public DateTime getStartedAt() {
+  public ZonedDateTime getStartedAt() {
     return this.startedAt;
   }
 
   /** @param startedAt Started At */
-  public void setStartedAt(final DateTime startedAt) {
+  public void setStartedAt(final ZonedDateTime startedAt) {
     this.startedAt = startedAt;
   }
 

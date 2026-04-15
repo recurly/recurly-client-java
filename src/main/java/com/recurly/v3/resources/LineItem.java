@@ -10,8 +10,8 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.List;
-import org.joda.time.DateTime;
 
 public class LineItem extends Resource {
 
@@ -73,7 +73,7 @@ public class LineItem extends Resource {
   /** When the line item was created. */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /** The amount of credit from this line item that was applied to the invoice. */
   @SerializedName("credit_applied")
@@ -124,7 +124,7 @@ public class LineItem extends Resource {
   /** If this date is provided, it indicates the end of a time range. */
   @SerializedName("end_date")
   @Expose
-  private DateTime endDate;
+  private ZonedDateTime endDate;
 
   /**
    * Optional Stock Keeping Unit assigned to an item. Available when the Credit Invoices feature is
@@ -331,7 +331,7 @@ public class LineItem extends Resource {
    */
   @SerializedName("start_date")
   @Expose
-  private DateTime startDate;
+  private ZonedDateTime startDate;
 
   /**
    * Pending line items are charges or credits on an account that have not been applied to an
@@ -414,7 +414,7 @@ public class LineItem extends Resource {
   /** When the line item was last changed. */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /**
    * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
@@ -539,12 +539,12 @@ public class LineItem extends Resource {
   }
 
   /** When the line item was created. */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt When the line item was created. */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -645,12 +645,12 @@ public class LineItem extends Resource {
   }
 
   /** If this date is provided, it indicates the end of a time range. */
-  public DateTime getEndDate() {
+  public ZonedDateTime getEndDate() {
     return this.endDate;
   }
 
   /** @param endDate If this date is provided, it indicates the end of a time range. */
-  public void setEndDate(final DateTime endDate) {
+  public void setEndDate(final ZonedDateTime endDate) {
     this.endDate = endDate;
   }
 
@@ -1078,7 +1078,7 @@ public class LineItem extends Resource {
    * If an end date is present, this is value indicates the beginning of a billing time range. If no
    * end date is present it indicates billing for a specific date.
    */
-  public DateTime getStartDate() {
+  public ZonedDateTime getStartDate() {
     return this.startDate;
   }
 
@@ -1086,7 +1086,7 @@ public class LineItem extends Resource {
    * @param startDate If an end date is present, this is value indicates the beginning of a billing
    *     time range. If no end date is present it indicates billing for a specific date.
    */
-  public void setStartDate(final DateTime startDate) {
+  public void setStartDate(final ZonedDateTime startDate) {
     this.startDate = startDate;
   }
 
@@ -1252,12 +1252,12 @@ public class LineItem extends Resource {
   }
 
   /** When the line item was last changed. */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt When the line item was last changed. */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 

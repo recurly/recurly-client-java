@@ -7,8 +7,8 @@ package com.recurly.v3.queryparams;
 
 import com.recurly.v3.AbstractQueryParams;
 import com.recurly.v3.Constants;
+import java.time.ZonedDateTime;
 import java.util.List;
-import org.joda.time.DateTime;
 
 public class ListPlansParams extends AbstractQueryParams {
 
@@ -28,11 +28,11 @@ public class ListPlansParams extends AbstractQueryParams {
     this.add("sort", sort);
   }
 
-  public void setBeginTime(final DateTime beginTime) {
+  public void setBeginTime(final ZonedDateTime beginTime) {
     this.add("begin_time", beginTime);
   }
 
-  public void setEndTime(final DateTime endTime) {
+  public void setEndTime(final ZonedDateTime endTime) {
     this.add("end_time", endTime);
   }
 

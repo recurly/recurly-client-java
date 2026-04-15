@@ -8,15 +8,15 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
+import java.time.ZonedDateTime;
 import java.util.List;
-import org.joda.time.DateTime;
 
 public class ExternalProduct extends Resource {
 
   /** When the external product was created in Recurly. */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /** List of external product references of the external product. */
   @SerializedName("external_product_references")
@@ -46,15 +46,15 @@ public class ExternalProduct extends Resource {
   /** When the external product was updated in Recurly. */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /** When the external product was created in Recurly. */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt When the external product was created in Recurly. */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -114,12 +114,12 @@ public class ExternalProduct extends Resource {
   }
 
   /** When the external product was updated in Recurly. */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt When the external product was updated in Recurly. */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 }

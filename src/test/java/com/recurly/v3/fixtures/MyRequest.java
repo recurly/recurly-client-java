@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import java.math.BigDecimal;
 import java.util.List;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class MyRequest extends Request {
   @SerializedName("my_string")
@@ -26,7 +26,7 @@ public class MyRequest extends Request {
 
   @SerializedName("my_datetime")
   @Expose
-  private DateTime myDateTime;
+  private ZonedDateTime myDateTime;
 
   @SerializedName("my_nested_request")
   @Expose
@@ -76,11 +76,11 @@ public class MyRequest extends Request {
     this.myBoolean = myBoolean;
   }
 
-  public DateTime getMyDateTime() {
+  public ZonedDateTime getMyDateTime() {
     return this.myDateTime;
   }
 
-  public void setMyDateTime(final DateTime myDateTime) {
+  public void setMyDateTime(final ZonedDateTime myDateTime) {
     this.myDateTime = myDateTime;
   }
 

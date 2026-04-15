@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class CreditPayment extends Resource {
 
@@ -37,7 +37,7 @@ public class CreditPayment extends Resource {
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
@@ -71,7 +71,7 @@ public class CreditPayment extends Resource {
   /** Last updated at */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /**
    * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
@@ -83,7 +83,7 @@ public class CreditPayment extends Resource {
   /** Voided at */
   @SerializedName("voided_at")
   @Expose
-  private DateTime voidedAt;
+  private ZonedDateTime voidedAt;
 
   /** Account mini details */
   public AccountMini getAccount() {
@@ -126,12 +126,12 @@ public class CreditPayment extends Resource {
   }
 
   /** Created at */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -198,12 +198,12 @@ public class CreditPayment extends Resource {
   }
 
   /** Last updated at */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Last updated at */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 
@@ -223,12 +223,12 @@ public class CreditPayment extends Resource {
   }
 
   /** Voided at */
-  public DateTime getVoidedAt() {
+  public ZonedDateTime getVoidedAt() {
     return this.voidedAt;
   }
 
   /** @param voidedAt Voided at */
-  public void setVoidedAt(final DateTime voidedAt) {
+  public void setVoidedAt(final ZonedDateTime voidedAt) {
     this.voidedAt = voidedAt;
   }
 }

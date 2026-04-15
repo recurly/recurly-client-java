@@ -9,8 +9,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import java.time.ZonedDateTime;
 import java.util.List;
-import org.joda.time.DateTime;
 
 public class DunningCycle extends Resource {
 
@@ -24,7 +24,7 @@ public class DunningCycle extends Resource {
   /** When the current settings were created in Recurly. */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /** Whether the subscription(s) should be cancelled at the end of the dunning cycle. */
   @SerializedName("expire_subscription")
@@ -74,7 +74,7 @@ public class DunningCycle extends Resource {
   /** When the current settings were updated in Recurly. */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /** Current campaign version. */
   @SerializedName("version")
@@ -97,12 +97,12 @@ public class DunningCycle extends Resource {
   }
 
   /** When the current settings were created in Recurly. */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt When the current settings were created in Recurly. */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -208,12 +208,12 @@ public class DunningCycle extends Resource {
   }
 
   /** When the current settings were updated in Recurly. */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt When the current settings were updated in Recurly. */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 

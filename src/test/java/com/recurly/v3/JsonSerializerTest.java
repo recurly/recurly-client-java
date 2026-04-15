@@ -7,7 +7,7 @@ import com.recurly.v3.fixtures.FixtureConstants;
 import com.recurly.v3.fixtures.MyRequest;
 import com.recurly.v3.fixtures.MyResource;
 import com.recurly.v3.Constants;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 import org.junit.jupiter.api.Test;
 
 public class JsonSerializerTest {
@@ -125,13 +125,13 @@ public class JsonSerializerTest {
         + "}";
   }
 
-  private static void checkDateTime(DateTime date) {
-    assertEquals(DateTime.class, date.getClass());
+  private static void checkDateTime(ZonedDateTime date) {
+    assertEquals(ZonedDateTime.class, date.getClass());
     assertEquals(2019, date.getYear());
-    assertEquals(5, date.getMonthOfYear());
+    assertEquals(5, date.getMonthValue());
     assertEquals(31, date.getDayOfMonth());
-    assertEquals(15, date.getHourOfDay());
-    assertEquals(31, date.getMinuteOfHour());
-    assertEquals(24, date.getSecondOfMinute());
+    assertEquals(15, date.getHour());
+    assertEquals(31, date.getMinute());
+    assertEquals(24, date.getSecond());
   }
 }

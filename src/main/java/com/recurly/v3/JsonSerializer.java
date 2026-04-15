@@ -1,6 +1,9 @@
 package com.recurly.v3;
 
-import com.fatboyindustrial.gsonjodatime.Converters;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import com.google.gson.*;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
@@ -14,22 +17,37 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class JsonSerializer {
-  private class DateDeserializer implements JsonDeserializer<DateTime> {
+  private class DateDeserializer implements JsonDeserializer<ZonedDateTime> {
     @Override
-    public DateTime deserialize(JsonElement element, Type arg1, JsonDeserializationContext arg2)
+    public ZonedDateTime deserialize(JsonElement element, Type arg1, JsonDeserializationContext arg2)
         throws JsonParseException {
-      return DateTime.parse(element.getAsString());
+      String s = element.getAsString();
+      try {
+        return ZonedDateTime.parse(s);
+      } catch (DateTimeParseException e) {
+        return LocalDateTime.parse(s).atZone(ZoneOffset.UTC);
+      }
     }
   }
 
-  private final Gson gsonSerializer = Converters.registerDateTime(new GsonBuilder()).create();
+  private class DateSerializer implements com.google.gson.JsonSerializer<ZonedDateTime> {
+    @Override
+    public JsonElement serialize(ZonedDateTime src, Type typeOfSrc, JsonSerializationContext context) {
+      return new JsonPrimitive(DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(src));
+    }
+  }
+
+  private final Gson gsonSerializer =
+      new GsonBuilder()
+          .registerTypeAdapter(ZonedDateTime.class, new DateSerializer())
+          .create();
   private final Gson gsonDeserializer =
       new GsonBuilder()
           .excludeFieldsWithoutExposeAnnotation()
-          .registerTypeAdapter(DateTime.class, new DateDeserializer())
+          .registerTypeAdapter(ZonedDateTime.class, new DateDeserializer())
           .registerTypeAdapterFactory(new RecurlyEnumTypeAdapterFactory())
           .create();
 
