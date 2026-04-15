@@ -9,8 +9,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.time.ZonedDateTime;
 import java.util.List;
-import org.joda.time.DateTime;
 
 public class RecoveryInvoiceCreate extends Request {
 
@@ -26,7 +26,7 @@ public class RecoveryInvoiceCreate extends Request {
   /** Date invoice was originally due. Must be in the past. */
   @SerializedName("due_at")
   @Expose
-  private DateTime dueAt;
+  private ZonedDateTime dueAt;
 
   /**
    * Must be set to `true` to acknowledge that the invoice is eligible for external recovery.
@@ -69,12 +69,12 @@ public class RecoveryInvoiceCreate extends Request {
   }
 
   /** Date invoice was originally due. Must be in the past. */
-  public DateTime getDueAt() {
+  public ZonedDateTime getDueAt() {
     return this.dueAt;
   }
 
   /** @param dueAt Date invoice was originally due. Must be in the past. */
-  public void setDueAt(final DateTime dueAt) {
+  public void setDueAt(final ZonedDateTime dueAt) {
     this.dueAt = dueAt;
   }
 

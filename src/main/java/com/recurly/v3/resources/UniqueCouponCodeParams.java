@@ -8,14 +8,14 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class UniqueCouponCodeParams extends Resource {
 
   /** The date-time to be included when listing UniqueCouponCodes */
   @SerializedName("begin_time")
   @Expose
-  private DateTime beginTime;
+  private ZonedDateTime beginTime;
 
   /** The number of UniqueCouponCodes that will be generated */
   @SerializedName("limit")
@@ -33,12 +33,12 @@ public class UniqueCouponCodeParams extends Resource {
   private String sort;
 
   /** The date-time to be included when listing UniqueCouponCodes */
-  public DateTime getBeginTime() {
+  public ZonedDateTime getBeginTime() {
     return this.beginTime;
   }
 
   /** @param beginTime The date-time to be included when listing UniqueCouponCodes */
-  public void setBeginTime(final DateTime beginTime) {
+  public void setBeginTime(final ZonedDateTime beginTime) {
     this.beginTime = beginTime;
   }
 

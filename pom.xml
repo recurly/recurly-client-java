@@ -243,16 +243,7 @@
             <version>${okhttp3.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.10.6</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fatboyindustrial.gson-jodatime-serialisers</groupId>
-            <artifactId>gson-jodatime-serialisers</artifactId>
-            <version>1.8.0</version>
-        </dependency>
+
         <dependency>
             <groupId>org.apache.maven.surefire</groupId>
             <artifactId>surefire</artifactId>

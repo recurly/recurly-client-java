@@ -9,8 +9,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import java.time.ZonedDateTime;
 import java.util.List;
-import org.joda.time.DateTime;
 
 public class ExternalInvoice extends Resource {
 
@@ -22,7 +22,7 @@ public class ExternalInvoice extends Resource {
   /** When the external invoice was created in Recurly. */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
@@ -59,7 +59,7 @@ public class ExternalInvoice extends Resource {
   /** When the invoice was created in the external platform. */
   @SerializedName("purchased_at")
   @Expose
-  private DateTime purchasedAt;
+  private ZonedDateTime purchasedAt;
 
   @SerializedName("state")
   @Expose
@@ -73,7 +73,7 @@ public class ExternalInvoice extends Resource {
   /** When the external invoice was updated in Recurly. */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /** Account mini details */
   public AccountMini getAccount() {
@@ -86,12 +86,12 @@ public class ExternalInvoice extends Resource {
   }
 
   /** When the external invoice was created in Recurly. */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt When the external invoice was created in Recurly. */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -166,12 +166,12 @@ public class ExternalInvoice extends Resource {
   }
 
   /** When the invoice was created in the external platform. */
-  public DateTime getPurchasedAt() {
+  public ZonedDateTime getPurchasedAt() {
     return this.purchasedAt;
   }
 
   /** @param purchasedAt When the invoice was created in the external platform. */
-  public void setPurchasedAt(final DateTime purchasedAt) {
+  public void setPurchasedAt(final ZonedDateTime purchasedAt) {
     this.purchasedAt = purchasedAt;
   }
 
@@ -195,12 +195,12 @@ public class ExternalInvoice extends Resource {
   }
 
   /** When the external invoice was updated in Recurly. */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt When the external invoice was updated in Recurly. */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 }

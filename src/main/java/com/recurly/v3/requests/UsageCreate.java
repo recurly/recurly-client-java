@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class UsageCreate extends Request {
 
@@ -35,7 +35,7 @@ public class UsageCreate extends Request {
   /** When the usage was recorded in your system. */
   @SerializedName("recording_timestamp")
   @Expose
-  private DateTime recordingTimestamp;
+  private ZonedDateTime recordingTimestamp;
 
   /**
    * When the usage actually happened. This will define the line item dates this usage is billed
@@ -43,7 +43,7 @@ public class UsageCreate extends Request {
    */
   @SerializedName("usage_timestamp")
   @Expose
-  private DateTime usageTimestamp;
+  private ZonedDateTime usageTimestamp;
 
   /**
    * The amount of usage. Can be positive, negative, or 0. If the Decimal Quantity feature is
@@ -84,12 +84,12 @@ public class UsageCreate extends Request {
   }
 
   /** When the usage was recorded in your system. */
-  public DateTime getRecordingTimestamp() {
+  public ZonedDateTime getRecordingTimestamp() {
     return this.recordingTimestamp;
   }
 
   /** @param recordingTimestamp When the usage was recorded in your system. */
-  public void setRecordingTimestamp(final DateTime recordingTimestamp) {
+  public void setRecordingTimestamp(final ZonedDateTime recordingTimestamp) {
     this.recordingTimestamp = recordingTimestamp;
   }
 
@@ -97,7 +97,7 @@ public class UsageCreate extends Request {
    * When the usage actually happened. This will define the line item dates this usage is billed
    * under and is important for revenue recognition.
    */
-  public DateTime getUsageTimestamp() {
+  public ZonedDateTime getUsageTimestamp() {
     return this.usageTimestamp;
   }
 
@@ -105,7 +105,7 @@ public class UsageCreate extends Request {
    * @param usageTimestamp When the usage actually happened. This will define the line item dates
    *     this usage is billed under and is important for revenue recognition.
    */
-  public void setUsageTimestamp(final DateTime usageTimestamp) {
+  public void setUsageTimestamp(final ZonedDateTime usageTimestamp) {
     this.usageTimestamp = usageTimestamp;
   }
 }

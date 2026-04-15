@@ -11,7 +11,7 @@ import com.recurly.v3.requests.*;
 import com.recurly.v3.resources.*;
 import com.recurly.v3.queryparams.*;
 import okhttp3.OkHttpClient;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;

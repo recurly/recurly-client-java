@@ -9,8 +9,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
+import java.time.ZonedDateTime;
 import java.util.List;
-import org.joda.time.DateTime;
 
 public class Account extends Resource {
 
@@ -24,7 +24,7 @@ public class Account extends Resource {
    */
   @SerializedName("bill_date")
   @Expose
-  private DateTime billDate;
+  private ZonedDateTime billDate;
 
   /**
    * An enumerable describing the billing behavior of the account, specifically whether the account
@@ -58,7 +58,7 @@ public class Account extends Resource {
   /** When the account was created. */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /**
    * The custom fields will only be altered when they are included in a request. Sending an empty
@@ -72,7 +72,7 @@ public class Account extends Resource {
   /** If present, when the account was last marked inactive. */
   @SerializedName("deleted_at")
   @Expose
-  private DateTime deletedAt;
+  private ZonedDateTime deletedAt;
 
   /**
    * Unique ID to identify a dunning campaign. Used to specify if a non-default dunning campaign
@@ -233,7 +233,7 @@ public class Account extends Resource {
   /** When the account was last changed. */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /** A secondary value for the account. */
   @SerializedName("username")
@@ -261,7 +261,7 @@ public class Account extends Resource {
    * The preferred billing date for the account. This date will be used as the billing date for when
    * activating new subscriptions on the account.
    */
-  public DateTime getBillDate() {
+  public ZonedDateTime getBillDate() {
     return this.billDate;
   }
 
@@ -269,7 +269,7 @@ public class Account extends Resource {
    * @param billDate The preferred billing date for the account. This date will be used as the
    *     billing date for when activating new subscriptions on the account.
    */
-  public void setBillDate(final DateTime billDate) {
+  public void setBillDate(final ZonedDateTime billDate) {
     this.billDate = billDate;
   }
 
@@ -338,12 +338,12 @@ public class Account extends Resource {
   }
 
   /** When the account was created. */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt When the account was created. */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -366,12 +366,12 @@ public class Account extends Resource {
   }
 
   /** If present, when the account was last marked inactive. */
-  public DateTime getDeletedAt() {
+  public ZonedDateTime getDeletedAt() {
     return this.deletedAt;
   }
 
   /** @param deletedAt If present, when the account was last marked inactive. */
-  public void setDeletedAt(final DateTime deletedAt) {
+  public void setDeletedAt(final ZonedDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
 
@@ -693,12 +693,12 @@ public class Account extends Resource {
   }
 
   /** When the account was last changed. */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt When the account was last changed. */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 

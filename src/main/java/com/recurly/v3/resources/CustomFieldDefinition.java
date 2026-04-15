@@ -9,14 +9,14 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class CustomFieldDefinition extends Resource {
 
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /**
    * Definitions are initially soft deleted, and once all the values are removed from the accouts or
@@ -24,7 +24,7 @@ public class CustomFieldDefinition extends Resource {
    */
   @SerializedName("deleted_at")
   @Expose
-  private DateTime deletedAt;
+  private ZonedDateTime deletedAt;
 
   /** Used to label the field when viewing and editing the field in Recurly's admin UI. */
   @SerializedName("display_name")
@@ -62,7 +62,7 @@ public class CustomFieldDefinition extends Resource {
   /** Last updated at */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /**
    * The access control applied inside Recurly's admin UI: - `api_only` - No one will be able to
@@ -77,12 +77,12 @@ public class CustomFieldDefinition extends Resource {
   private Constants.UserAccess userAccess;
 
   /** Created at */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -90,7 +90,7 @@ public class CustomFieldDefinition extends Resource {
    * Definitions are initially soft deleted, and once all the values are removed from the accouts or
    * subscriptions, will be hard deleted an no longer visible.
    */
-  public DateTime getDeletedAt() {
+  public ZonedDateTime getDeletedAt() {
     return this.deletedAt;
   }
 
@@ -98,7 +98,7 @@ public class CustomFieldDefinition extends Resource {
    * @param deletedAt Definitions are initially soft deleted, and once all the values are removed
    *     from the accouts or subscriptions, will be hard deleted an no longer visible.
    */
-  public void setDeletedAt(final DateTime deletedAt) {
+  public void setDeletedAt(final ZonedDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
 
@@ -172,12 +172,12 @@ public class CustomFieldDefinition extends Resource {
   }
 
   /** Last updated at */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Last updated at */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 
