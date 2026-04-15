@@ -9,7 +9,7 @@ jobs:
     name: Java ${{ matrix.java }} tests
     strategy:
       matrix:
-        java: [8, 11, 16, 17]
+        java: [8, 11, 16, 17, 18, 19, 20, 21]
     steps:
       - uses: actions/checkout@v6.0.3
       - name: Setup java
