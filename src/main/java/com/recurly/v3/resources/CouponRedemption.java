@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -58,7 +57,7 @@ public class CouponRedemption extends Resource {
   /** Coupon Redemption state */
   @SerializedName("state")
   @Expose
-  private Constants.ActiveState state;
+  private String state;
 
   /** Subscription ID */
   @SerializedName("subscription_id")
@@ -164,12 +163,12 @@ public class CouponRedemption extends Resource {
   }
 
   /** Coupon Redemption state */
-  public Constants.ActiveState getState() {
+  public String getState() {
     return this.state;
   }
 
   /** @param state Coupon Redemption state */
-  public void setState(final Constants.ActiveState state) {
+  public void setState(final String state) {
     this.state = state;
   }
 

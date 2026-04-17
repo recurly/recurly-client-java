@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -28,7 +27,7 @@ public class SubscriptionAddOn extends Resource {
    */
   @SerializedName("add_on_source")
   @Expose
-  private Constants.AddOnSource addOnSource;
+  private String addOnSource;
 
   /** Created at */
   @SerializedName("created_at")
@@ -69,7 +68,7 @@ public class SubscriptionAddOn extends Resource {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private Constants.RevenueScheduleType revenueScheduleType;
+  private String revenueScheduleType;
 
   /** Subscription ID */
   @SerializedName("subscription_id")
@@ -84,7 +83,7 @@ public class SubscriptionAddOn extends Resource {
    */
   @SerializedName("tier_type")
   @Expose
-  private Constants.TierType tierType;
+  private String tierType;
 
   /**
    * If tiers are provided in the request, all existing tiers on the Subscription Add-on will be
@@ -119,7 +118,7 @@ public class SubscriptionAddOn extends Resource {
    */
   @SerializedName("usage_calculation_type")
   @Expose
-  private Constants.UsageCalculationType usageCalculationType;
+  private String usageCalculationType;
 
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
@@ -133,7 +132,7 @@ public class SubscriptionAddOn extends Resource {
   /** The time at which usage totals are reset for billing purposes. */
   @SerializedName("usage_timeframe")
   @Expose
-  private Constants.UsageTimeframe usageTimeframe;
+  private String usageTimeframe;
 
   /** Just the important parts. */
   public AddOnMini getAddOn() {
@@ -151,7 +150,7 @@ public class SubscriptionAddOn extends Resource {
    * associated `plan` has `allow_any_item_on_subscriptions` set to `true` and this field is set to
    * `item`, then the associated add-on data will be pulled from the site's item catalog.
    */
-  public Constants.AddOnSource getAddOnSource() {
+  public String getAddOnSource() {
     return this.addOnSource;
   }
 
@@ -162,7 +161,7 @@ public class SubscriptionAddOn extends Resource {
    *     `true` and this field is set to `item`, then the associated add-on data will be pulled from
    *     the site's item catalog.
    */
-  public void setAddOnSource(final Constants.AddOnSource addOnSource) {
+  public void setAddOnSource(final String addOnSource) {
     this.addOnSource = addOnSource;
   }
 
@@ -240,12 +239,12 @@ public class SubscriptionAddOn extends Resource {
   }
 
   /** Revenue schedule type */
-  public Constants.RevenueScheduleType getRevenueScheduleType() {
+  public String getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
+  public void setRevenueScheduleType(final String revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -265,7 +264,7 @@ public class SubscriptionAddOn extends Resource {
    * [Guide](https://recurly.com/developers/guides/item-addon-guide.html) for an overview of how to
    * configure quantity-based pricing models.
    */
-  public Constants.TierType getTierType() {
+  public String getTierType() {
     return this.tierType;
   }
 
@@ -275,7 +274,7 @@ public class SubscriptionAddOn extends Resource {
    *     [Guide](https://recurly.com/developers/guides/item-addon-guide.html) for an overview of how
    *     to configure quantity-based pricing models.
    */
-  public void setTierType(final Constants.TierType tierType) {
+  public void setTierType(final String tierType) {
     this.tierType = tierType;
   }
 
@@ -335,7 +334,7 @@ public class SubscriptionAddOn extends Resource {
    * recent usage record in the billing period. If no value is specified, cumulative billing will be
    * used.
    */
-  public Constants.UsageCalculationType getUsageCalculationType() {
+  public String getUsageCalculationType() {
     return this.usageCalculationType;
   }
 
@@ -345,7 +344,7 @@ public class SubscriptionAddOn extends Resource {
    *     billing will apply only the most recent usage record in the billing period. If no value is
    *     specified, cumulative billing will be used.
    */
-  public void setUsageCalculationType(final Constants.UsageCalculationType usageCalculationType) {
+  public void setUsageCalculationType(final String usageCalculationType) {
     this.usageCalculationType = usageCalculationType;
   }
 
@@ -368,12 +367,12 @@ public class SubscriptionAddOn extends Resource {
   }
 
   /** The time at which usage totals are reset for billing purposes. */
-  public Constants.UsageTimeframe getUsageTimeframe() {
+  public String getUsageTimeframe() {
     return this.usageTimeframe;
   }
 
   /** @param usageTimeframe The time at which usage totals are reset for billing purposes. */
-  public void setUsageTimeframe(final Constants.UsageTimeframe usageTimeframe) {
+  public void setUsageTimeframe(final String usageTimeframe) {
     this.usageTimeframe = usageTimeframe;
   }
 }

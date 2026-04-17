@@ -6,7 +6,6 @@
 package com.recurly.v3.queryparams;
 
 import com.recurly.v3.AbstractQueryParams;
-import com.recurly.v3.Constants;
 import java.time.ZonedDateTime;
 import java.util.List;
 
@@ -20,11 +19,11 @@ public class ListUniqueCouponCodesParams extends AbstractQueryParams {
     this.add("limit", limit);
   }
 
-  public void setOrder(final Constants.AlphanumericSort order) {
+  public void setOrder(final String order) {
     this.add("order", order);
   }
 
-  public void setSort(final Constants.TimestampSort sort) {
+  public void setSort(final String sort) {
     this.add("sort", sort);
   }
 
@@ -36,7 +35,7 @@ public class ListUniqueCouponCodesParams extends AbstractQueryParams {
     this.add("end_time", endTime);
   }
 
-  public void setRedeemed(final Constants.FilterRedeemed redeemed) {
+  public void setRedeemed(final String redeemed) {
     this.add("redeemed", redeemed);
   }
 }

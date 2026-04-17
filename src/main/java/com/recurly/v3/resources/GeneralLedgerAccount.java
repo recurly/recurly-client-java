@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.time.ZonedDateTime;
 
@@ -15,7 +14,7 @@ public class GeneralLedgerAccount extends Resource {
 
   @SerializedName("account_type")
   @Expose
-  private Constants.GeneralLedgerAccountType accountType;
+  private String accountType;
 
   /**
    * Unique code to identify the ledger account. Each code must start with a letter or number. The
@@ -53,12 +52,12 @@ public class GeneralLedgerAccount extends Resource {
   @Expose
   private ZonedDateTime updatedAt;
 
-  public Constants.GeneralLedgerAccountType getAccountType() {
+  public String getAccountType() {
     return this.accountType;
   }
 
   /** @param accountType */
-  public void setAccountType(final Constants.GeneralLedgerAccountType accountType) {
+  public void setAccountType(final String accountType) {
     this.accountType = accountType;
   }
 

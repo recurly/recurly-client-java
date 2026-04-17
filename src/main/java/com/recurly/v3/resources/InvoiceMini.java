@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 
 public class InvoiceMini extends Resource {
@@ -38,12 +37,12 @@ public class InvoiceMini extends Resource {
   /** Invoice state */
   @SerializedName("state")
   @Expose
-  private Constants.InvoiceState state;
+  private String state;
 
   /** Invoice type */
   @SerializedName("type")
   @Expose
-  private Constants.InvoiceType type;
+  private String type;
 
   /**
    * Unique ID to identify the business entity assigned to the invoice. Available when the `Multiple
@@ -92,22 +91,22 @@ public class InvoiceMini extends Resource {
   }
 
   /** Invoice state */
-  public Constants.InvoiceState getState() {
+  public String getState() {
     return this.state;
   }
 
   /** @param state Invoice state */
-  public void setState(final Constants.InvoiceState state) {
+  public void setState(final String state) {
     this.state = state;
   }
 
   /** Invoice type */
-  public Constants.InvoiceType getType() {
+  public String getType() {
     return this.type;
   }
 
   /** @param type Invoice type */
-  public void setType(final Constants.InvoiceType type) {
+  public void setType(final String type) {
     this.type = type;
   }
 }

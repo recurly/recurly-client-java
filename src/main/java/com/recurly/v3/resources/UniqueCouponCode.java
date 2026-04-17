@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.time.ZonedDateTime;
 
@@ -56,7 +55,7 @@ public class UniqueCouponCode extends Resource {
   /** Indicates if the unique coupon code is redeemable or why not. */
   @SerializedName("state")
   @Expose
-  private Constants.CouponCodeState state;
+  private String state;
 
   /** Updated at */
   @SerializedName("updated_at")
@@ -147,12 +146,12 @@ public class UniqueCouponCode extends Resource {
   }
 
   /** Indicates if the unique coupon code is redeemable or why not. */
-  public Constants.CouponCodeState getState() {
+  public String getState() {
     return this.state;
   }
 
   /** @param state Indicates if the unique coupon code is redeemable or why not. */
-  public void setState(final Constants.CouponCodeState state) {
+  public void setState(final String state) {
     this.state = state;
   }
 

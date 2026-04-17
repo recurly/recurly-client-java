@@ -7,7 +7,6 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
@@ -53,7 +52,7 @@ public class LineItemCreate extends Request {
    */
   @SerializedName("credit_reason_code")
   @Expose
-  private Constants.PartialCreditReasonCode creditReasonCode;
+  private String creditReasonCode;
 
   /**
    * 3-letter ISO 4217 currency code. If `item_code`/`item_id` is part of the request then
@@ -89,7 +88,7 @@ public class LineItemCreate extends Request {
    */
   @SerializedName("destination_tax_address_source")
   @Expose
-  private Constants.DestinationTaxAddressSource destinationTaxAddressSource;
+  private String destinationTaxAddressSource;
 
   /** If this date is provided, it indicates the end of a time range. */
   @SerializedName("end_date")
@@ -139,7 +138,7 @@ public class LineItemCreate extends Request {
    */
   @SerializedName("origin")
   @Expose
-  private Constants.LineItemCreateOrigin origin;
+  private String origin;
 
   /**
    * The source of the address that will be used as the origin in determining taxes. Available only
@@ -148,7 +147,7 @@ public class LineItemCreate extends Request {
    */
   @SerializedName("origin_tax_address_source")
   @Expose
-  private Constants.OriginTaxAddressSource originTaxAddressSource;
+  private String originTaxAddressSource;
 
   /**
    * The ID of a performance obligation. Performance obligations are only accessible as a part of
@@ -187,7 +186,7 @@ public class LineItemCreate extends Request {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private Constants.LineItemRevenueScheduleType revenueScheduleType;
+  private String revenueScheduleType;
 
   /**
    * If an end date is present, this is value indicates the beginning of a billing time range. If no
@@ -231,7 +230,7 @@ public class LineItemCreate extends Request {
    */
   @SerializedName("type")
   @Expose
-  private Constants.LineItemType type;
+  private String type;
 
   /**
    * A positive or negative amount with `type=charge` will result in a positive `unit_amount`. A
@@ -246,7 +245,7 @@ public class LineItemCreate extends Request {
   /** Used by Vertex for tax calculations. Possible values are sale, rental, lease. */
   @SerializedName("vertex_transaction_type")
   @Expose
-  private Constants.VertexTransactionType vertexTransactionType;
+  private String vertexTransactionType;
 
   /**
    * Accounting Code for the `LineItem`. If `item_code`/`item_id` is part of the request then
@@ -313,7 +312,7 @@ public class LineItemCreate extends Request {
    * feature is enabled, the value can be set and will default to `general`. When the Credit
    * Invoices feature is not enabled, the value will always be `null`.
    */
-  public Constants.PartialCreditReasonCode getCreditReasonCode() {
+  public String getCreditReasonCode() {
     return this.creditReasonCode;
   }
 
@@ -322,7 +321,7 @@ public class LineItemCreate extends Request {
    *     the Credit Invoices feature is enabled, the value can be set and will default to `general`.
    *     When the Credit Invoices feature is not enabled, the value will always be `null`.
    */
-  public void setCreditReasonCode(final Constants.PartialCreditReasonCode creditReasonCode) {
+  public void setCreditReasonCode(final String creditReasonCode) {
     this.creditReasonCode = creditReasonCode;
   }
 
@@ -385,7 +384,7 @@ public class LineItemCreate extends Request {
    * only when the site is on an Elite plan. A value of "destination" refers to the "Customer tax
    * address". A value of "origin" refers to the "Business entity tax address".
    */
-  public Constants.DestinationTaxAddressSource getDestinationTaxAddressSource() {
+  public String getDestinationTaxAddressSource() {
     return this.destinationTaxAddressSource;
   }
 
@@ -395,8 +394,7 @@ public class LineItemCreate extends Request {
    *     of "destination" refers to the "Customer tax address". A value of "origin" refers to the
    *     "Business entity tax address".
    */
-  public void setDestinationTaxAddressSource(
-      final Constants.DestinationTaxAddressSource destinationTaxAddressSource) {
+  public void setDestinationTaxAddressSource(final String destinationTaxAddressSource) {
     this.destinationTaxAddressSource = destinationTaxAddressSource;
   }
 
@@ -488,7 +486,7 @@ public class LineItemCreate extends Request {
    * `tax_exempt` is left blank or set to true. This origin creates a charge and opposite credit on
    * the account to be used for future invoices.
    */
-  public Constants.LineItemCreateOrigin getOrigin() {
+  public String getOrigin() {
     return this.origin;
   }
 
@@ -500,7 +498,7 @@ public class LineItemCreate extends Request {
    *     `charge` and `tax_exempt` is left blank or set to true. This origin creates a charge and
    *     opposite credit on the account to be used for future invoices.
    */
-  public void setOrigin(final Constants.LineItemCreateOrigin origin) {
+  public void setOrigin(final String origin) {
     this.origin = origin;
   }
 
@@ -509,7 +507,7 @@ public class LineItemCreate extends Request {
    * when the site is on an Elite plan. A value of "origin" refers to the "Business entity tax
    * address". A value of "destination" refers to the "Customer tax address".
    */
-  public Constants.OriginTaxAddressSource getOriginTaxAddressSource() {
+  public String getOriginTaxAddressSource() {
     return this.originTaxAddressSource;
   }
 
@@ -519,8 +517,7 @@ public class LineItemCreate extends Request {
    *     refers to the "Business entity tax address". A value of "destination" refers to the
    *     "Customer tax address".
    */
-  public void setOriginTaxAddressSource(
-      final Constants.OriginTaxAddressSource originTaxAddressSource) {
+  public void setOriginTaxAddressSource(final String originTaxAddressSource) {
     this.originTaxAddressSource = originTaxAddressSource;
   }
 
@@ -594,13 +591,12 @@ public class LineItemCreate extends Request {
   }
 
   /** Revenue schedule type */
-  public Constants.LineItemRevenueScheduleType getRevenueScheduleType() {
+  public String getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(
-      final Constants.LineItemRevenueScheduleType revenueScheduleType) {
+  public void setRevenueScheduleType(final String revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -682,7 +678,7 @@ public class LineItemCreate extends Request {
    * Line item type. If `item_code`/`item_id` is present then `type` should not be present. If
    * `item_code`/`item_id` is not present then `type` is required.
    */
-  public Constants.LineItemType getType() {
+  public String getType() {
     return this.type;
   }
 
@@ -690,7 +686,7 @@ public class LineItemCreate extends Request {
    * @param type Line item type. If `item_code`/`item_id` is present then `type` should not be
    *     present. If `item_code`/`item_id` is not present then `type` is required.
    */
-  public void setType(final Constants.LineItemType type) {
+  public void setType(final String type) {
     this.type = type;
   }
 
@@ -716,7 +712,7 @@ public class LineItemCreate extends Request {
   }
 
   /** Used by Vertex for tax calculations. Possible values are sale, rental, lease. */
-  public Constants.VertexTransactionType getVertexTransactionType() {
+  public String getVertexTransactionType() {
     return this.vertexTransactionType;
   }
 
@@ -724,8 +720,7 @@ public class LineItemCreate extends Request {
    * @param vertexTransactionType Used by Vertex for tax calculations. Possible values are sale,
    *     rental, lease.
    */
-  public void setVertexTransactionType(
-      final Constants.VertexTransactionType vertexTransactionType) {
+  public void setVertexTransactionType(final String vertexTransactionType) {
     this.vertexTransactionType = vertexTransactionType;
   }
 }

@@ -7,7 +7,6 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
@@ -75,12 +74,12 @@ public class InvoiceRefund extends Request {
    */
   @SerializedName("refund_method")
   @Expose
-  private Constants.RefundMethod refundMethod;
+  private String refundMethod;
 
   /** The type of refund. Amount and line items cannot both be specified in the request. */
   @SerializedName("type")
   @Expose
-  private Constants.InvoiceRefundType type;
+  private String type;
 
   /**
    * The amount to be refunded. The amount will be split between the line items. If `type` is
@@ -184,7 +183,7 @@ public class InvoiceRefund extends Request {
    * back to transactions, using transactions from previous invoices if necessary. Only available
    * when the Credit Invoices feature is enabled.
    */
-  public Constants.RefundMethod getRefundMethod() {
+  public String getRefundMethod() {
     return this.refundMethod;
   }
 
@@ -199,19 +198,19 @@ public class InvoiceRefund extends Request {
    *     `all_transaction` – Refunds the entire amount back to transactions, using transactions from
    *     previous invoices if necessary. Only available when the Credit Invoices feature is enabled.
    */
-  public void setRefundMethod(final Constants.RefundMethod refundMethod) {
+  public void setRefundMethod(final String refundMethod) {
     this.refundMethod = refundMethod;
   }
 
   /** The type of refund. Amount and line items cannot both be specified in the request. */
-  public Constants.InvoiceRefundType getType() {
+  public String getType() {
     return this.type;
   }
 
   /**
    * @param type The type of refund. Amount and line items cannot both be specified in the request.
    */
-  public void setType(final Constants.InvoiceRefundType type) {
+  public void setType(final String type) {
     this.type = type;
   }
 }

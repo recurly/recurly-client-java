@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -134,12 +133,12 @@ public class Item extends Resource {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private Constants.RevenueScheduleType revenueScheduleType;
+  private String revenueScheduleType;
 
   /** The current state of the item. */
   @SerializedName("state")
   @Expose
-  private Constants.ActiveState state;
+  private String state;
 
   /**
    * Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to determine
@@ -400,22 +399,22 @@ public class Item extends Resource {
   }
 
   /** Revenue schedule type */
-  public Constants.RevenueScheduleType getRevenueScheduleType() {
+  public String getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
+  public void setRevenueScheduleType(final String revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
   /** The current state of the item. */
-  public Constants.ActiveState getState() {
+  public String getState() {
     return this.state;
   }
 
   /** @param state The current state of the item. */
-  public void setState(final Constants.ActiveState state) {
+  public void setState(final String state) {
     this.state = state;
   }
 

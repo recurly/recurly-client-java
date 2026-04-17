@@ -6,6 +6,7 @@
 package com.recurly.v3.exception;
 
 import com.recurly.v3.ApiException;
+import com.recurly.v3.Constants;
 import com.recurly.v3.RecurlyException;
 import com.recurly.v3.http.SimpleHttpResponse;
 import com.recurly.v3.resources.ErrorMayHaveTransaction;
@@ -15,62 +16,65 @@ public class ExceptionFactory {
   @SuppressWarnings("unchecked")
   public static <T extends RecurlyException> T getExceptionClass(ApiException apiException) {
     ErrorMayHaveTransaction e = apiException.getError();
+    if (e == null || e.getType() == null) {
+      return (T) apiException;
+    }
     switch (e.getType()) {
-      case BAD_REQUEST:
+      case Constants.ErrorType.BAD_REQUEST:
         return (T) new BadRequestException(e.getMessage(), e);
 
-      case IMMUTABLE_SUBSCRIPTION:
+      case Constants.ErrorType.IMMUTABLE_SUBSCRIPTION:
         return (T) new ImmutableSubscriptionException(e.getMessage(), e);
 
-      case INTERNAL_SERVER_ERROR:
+      case Constants.ErrorType.INTERNAL_SERVER_ERROR:
         return (T) new InternalServerException(e.getMessage(), e);
 
-      case INVALID_API_KEY:
+      case Constants.ErrorType.INVALID_API_KEY:
         return (T) new InvalidApiKeyException(e.getMessage(), e);
 
-      case INVALID_API_VERSION:
+      case Constants.ErrorType.INVALID_API_VERSION:
         return (T) new InvalidApiVersionException(e.getMessage(), e);
 
-      case INVALID_CONTENT_TYPE:
+      case Constants.ErrorType.INVALID_CONTENT_TYPE:
         return (T) new InvalidContentTypeException(e.getMessage(), e);
 
-      case INVALID_PERMISSIONS:
+      case Constants.ErrorType.INVALID_PERMISSIONS:
         return (T) new InvalidPermissionsException(e.getMessage(), e);
 
-      case INVALID_TOKEN:
+      case Constants.ErrorType.INVALID_TOKEN:
         return (T) new InvalidTokenException(e.getMessage(), e);
 
-      case MISSING_FEATURE:
+      case Constants.ErrorType.MISSING_FEATURE:
         return (T) new MissingFeatureException(e.getMessage(), e);
 
-      case NOT_FOUND:
+      case Constants.ErrorType.NOT_FOUND:
         return (T) new NotFoundException(e.getMessage(), e);
 
-      case RATE_LIMITED:
+      case Constants.ErrorType.RATE_LIMITED:
         return (T) new RateLimitedException(e.getMessage(), e);
 
-      case SERVICE_NOT_AVAILABLE:
+      case Constants.ErrorType.SERVICE_NOT_AVAILABLE:
         return (T) new ServiceNotAvailableException(e.getMessage(), e);
 
-      case SIMULTANEOUS_REQUEST:
+      case Constants.ErrorType.SIMULTANEOUS_REQUEST:
         return (T) new SimultaneousRequestException(e.getMessage(), e);
 
-      case TAX_SERVICE_ERROR:
+      case Constants.ErrorType.TAX_SERVICE_ERROR:
         return (T) new TaxServiceException(e.getMessage(), e);
 
-      case TRANSACTION:
+      case Constants.ErrorType.TRANSACTION:
         return (T) new TransactionException(e.getMessage(), e);
 
-      case UNAUTHORIZED:
+      case Constants.ErrorType.UNAUTHORIZED:
         return (T) new UnauthorizedException(e.getMessage(), e);
 
-      case UNAVAILABLE_IN_API_VERSION:
+      case Constants.ErrorType.UNAVAILABLE_IN_API_VERSION:
         return (T) new UnavailableInApiVersionException(e.getMessage(), e);
 
-      case UNKNOWN_API_VERSION:
+      case Constants.ErrorType.UNKNOWN_API_VERSION:
         return (T) new UnknownApiVersionException(e.getMessage(), e);
 
-      case VALIDATION:
+      case Constants.ErrorType.VALIDATION:
         return (T) new ValidationException(e.getMessage(), e);
 
       default:

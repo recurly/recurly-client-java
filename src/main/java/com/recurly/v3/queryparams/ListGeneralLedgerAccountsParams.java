@@ -6,7 +6,6 @@
 package com.recurly.v3.queryparams;
 
 import com.recurly.v3.AbstractQueryParams;
-import com.recurly.v3.Constants;
 import java.util.List;
 
 public class ListGeneralLedgerAccountsParams extends AbstractQueryParams {
@@ -19,15 +18,15 @@ public class ListGeneralLedgerAccountsParams extends AbstractQueryParams {
     this.add("limit", limit);
   }
 
-  public void setOrder(final Constants.AlphanumericSort order) {
+  public void setOrder(final String order) {
     this.add("order", order);
   }
 
-  public void setSort(final Constants.TimestampSort sort) {
+  public void setSort(final String sort) {
     this.add("sort", sort);
   }
 
-  public void setAccountType(final Constants.GeneralLedgerAccountType accountType) {
+  public void setAccountType(final String accountType) {
     this.add("account_type", accountType);
   }
 }

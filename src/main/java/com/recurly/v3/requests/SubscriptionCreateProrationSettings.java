@@ -7,7 +7,6 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 
@@ -16,15 +15,15 @@ public class SubscriptionCreateProrationSettings extends Request {
   /** Determines how the amount charged is determined for this change */
   @SerializedName("charge")
   @Expose
-  private Constants.SubscriptionCreateProrationSettingsCharge charge;
+  private String charge;
 
   /** Determines how the amount charged is determined for this change */
-  public Constants.SubscriptionCreateProrationSettingsCharge getCharge() {
+  public String getCharge() {
     return this.charge;
   }
 
   /** @param charge Determines how the amount charged is determined for this change */
-  public void setCharge(final Constants.SubscriptionCreateProrationSettingsCharge charge) {
+  public void setCharge(final String charge) {
     this.charge = charge;
   }
 }

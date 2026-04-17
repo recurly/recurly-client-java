@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 
 public class TransactionNextAction extends Resource {
@@ -15,7 +14,7 @@ public class TransactionNextAction extends Resource {
   /** The type of next action required. */
   @SerializedName("type")
   @Expose
-  private Constants.NextActionType type;
+  private String type;
 
   /** The value associated with the next action type. */
   @SerializedName("value")
@@ -23,12 +22,12 @@ public class TransactionNextAction extends Resource {
   private String value;
 
   /** The type of next action required. */
-  public Constants.NextActionType getType() {
+  public String getType() {
     return this.type;
   }
 
   /** @param type The type of next action required. */
-  public void setType(final Constants.NextActionType type) {
+  public void setType(final String type) {
     this.type = type;
   }
 

@@ -7,7 +7,6 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.time.ZonedDateTime;
@@ -37,7 +36,7 @@ public class AccountCreate extends Request {
    */
   @SerializedName("bill_to")
   @Expose
-  private Constants.BillTo billTo;
+  private String billTo;
 
   @SerializedName("billing_info")
   @Expose
@@ -162,7 +161,7 @@ public class AccountCreate extends Request {
    */
   @SerializedName("preferred_locale")
   @Expose
-  private Constants.PreferredLocale preferredLocale;
+  private String preferredLocale;
 
   /**
    * Used to determine the time zone of emails sent on behalf of the merchant to the customer. Must
@@ -191,7 +190,7 @@ public class AccountCreate extends Request {
    */
   @SerializedName("transaction_type")
   @Expose
-  private Constants.GatewayTransactionType transactionType;
+  private String transactionType;
 
   /** A secondary value for the account. */
   @SerializedName("username")
@@ -244,7 +243,7 @@ public class AccountCreate extends Request {
    * An enumerable describing the billing behavior of the account, specifically whether the account
    * is self-paying or will rely on the parent account to pay.
    */
-  public Constants.BillTo getBillTo() {
+  public String getBillTo() {
     return this.billTo;
   }
 
@@ -252,7 +251,7 @@ public class AccountCreate extends Request {
    * @param billTo An enumerable describing the billing behavior of the account, specifically
    *     whether the account is self-paying or will rely on the parent account to pay.
    */
-  public void setBillTo(final Constants.BillTo billTo) {
+  public void setBillTo(final String billTo) {
     this.billTo = billTo;
   }
 
@@ -503,7 +502,7 @@ public class AccountCreate extends Request {
    * Used to determine the language and locale of emails sent on behalf of the merchant to the
    * customer. The list of locales is restricted to those the merchant has enabled on the site.
    */
-  public Constants.PreferredLocale getPreferredLocale() {
+  public String getPreferredLocale() {
     return this.preferredLocale;
   }
 
@@ -512,7 +511,7 @@ public class AccountCreate extends Request {
    *     the merchant to the customer. The list of locales is restricted to those the merchant has
    *     enabled on the site.
    */
-  public void setPreferredLocale(final Constants.PreferredLocale preferredLocale) {
+  public void setPreferredLocale(final String preferredLocale) {
     this.preferredLocale = preferredLocale;
   }
 
@@ -563,7 +562,7 @@ public class AccountCreate extends Request {
    * An optional type designation for the payment gateway transaction created by this request.
    * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
    */
-  public Constants.GatewayTransactionType getTransactionType() {
+  public String getTransactionType() {
     return this.transactionType;
   }
 
@@ -572,7 +571,7 @@ public class AccountCreate extends Request {
    *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
    *     transactions.
    */
-  public void setTransactionType(final Constants.GatewayTransactionType transactionType) {
+  public void setTransactionType(final String transactionType) {
     this.transactionType = transactionType;
   }
 

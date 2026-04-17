@@ -29,7 +29,7 @@ public class MockQueryParams extends AbstractQueryParams {
     this.add("my_long", myLong);
   }
 
-  public void setMyEnum(FixtureConstants.ConstantType myEnum) {
+  public void setMyEnum(String myEnum) {
     this.add("my_enum", myEnum);
   }
 

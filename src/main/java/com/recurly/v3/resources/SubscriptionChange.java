@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -101,7 +100,7 @@ public class SubscriptionChange extends Resource {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private Constants.RevenueScheduleType revenueScheduleType;
+  private String revenueScheduleType;
 
   /** Subscription shipping details */
   @SerializedName("shipping")
@@ -297,12 +296,12 @@ public class SubscriptionChange extends Resource {
   }
 
   /** Revenue schedule type */
-  public Constants.RevenueScheduleType getRevenueScheduleType() {
+  public String getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
+  public void setRevenueScheduleType(final String revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 

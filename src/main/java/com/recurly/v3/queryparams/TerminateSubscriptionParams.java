@@ -6,11 +6,10 @@
 package com.recurly.v3.queryparams;
 
 import com.recurly.v3.AbstractQueryParams;
-import com.recurly.v3.Constants;
 
 public class TerminateSubscriptionParams extends AbstractQueryParams {
 
-  public void setRefund(final Constants.RefundType refund) {
+  public void setRefund(final String refund) {
     this.add("refund", refund);
   }
 

@@ -7,7 +7,6 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.time.ZonedDateTime;
@@ -22,7 +21,7 @@ public class ExternalRefund extends Request {
   /** Payment method used for external refund transaction. */
   @SerializedName("payment_method")
   @Expose
-  private Constants.ExternalPaymentMethod paymentMethod;
+  private String paymentMethod;
 
   /** Date the external refund payment was made. Defaults to the current date-time. */
   @SerializedName("refunded_at")
@@ -40,12 +39,12 @@ public class ExternalRefund extends Request {
   }
 
   /** Payment method used for external refund transaction. */
-  public Constants.ExternalPaymentMethod getPaymentMethod() {
+  public String getPaymentMethod() {
     return this.paymentMethod;
   }
 
   /** @param paymentMethod Payment method used for external refund transaction. */
-  public void setPaymentMethod(final Constants.ExternalPaymentMethod paymentMethod) {
+  public void setPaymentMethod(final String paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 

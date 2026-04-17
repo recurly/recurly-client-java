@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -84,7 +83,7 @@ public class Subscription extends Resource {
   /** Collection method */
   @SerializedName("collection_method")
   @Expose
-  private Constants.CollectionMethod collectionMethod;
+  private String collectionMethod;
 
   /** When the subscription was converted from a gift card. */
   @SerializedName("converted_at")
@@ -210,7 +209,7 @@ public class Subscription extends Resource {
    */
   @SerializedName("net_terms_type")
   @Expose
-  private Constants.NetTermsType netTermsType;
+  private String netTermsType;
 
   /** Object type */
   @SerializedName("object")
@@ -276,7 +275,7 @@ public class Subscription extends Resource {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private Constants.RevenueScheduleType revenueScheduleType;
+  private String revenueScheduleType;
 
   /** Subscription shipping details */
   @SerializedName("shipping")
@@ -291,7 +290,7 @@ public class Subscription extends Resource {
   /** State */
   @SerializedName("state")
   @Expose
-  private Constants.SubscriptionState state;
+  private String state;
 
   /** Estimated total, before tax. */
   @SerializedName("subtotal")
@@ -496,12 +495,12 @@ public class Subscription extends Resource {
   }
 
   /** Collection method */
-  public Constants.CollectionMethod getCollectionMethod() {
+  public String getCollectionMethod() {
     return this.collectionMethod;
   }
 
   /** @param collectionMethod Collection method */
-  public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
+  public void setCollectionMethod(final String collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
 
@@ -747,7 +746,7 @@ public class Subscription extends Resource {
    * `eom` an invoice becomes past due the specified number of `Net Terms` days from the last day of
    * the current month.
    */
-  public Constants.NetTermsType getNetTermsType() {
+  public String getNetTermsType() {
     return this.netTermsType;
   }
 
@@ -757,7 +756,7 @@ public class Subscription extends Resource {
    *     days from the current date. When `eom` an invoice becomes past due the specified number of
    *     `Net Terms` days from the last day of the current month.
    */
-  public void setNetTermsType(final Constants.NetTermsType netTermsType) {
+  public void setNetTermsType(final String netTermsType) {
     this.netTermsType = netTermsType;
   }
 
@@ -897,12 +896,12 @@ public class Subscription extends Resource {
   }
 
   /** Revenue schedule type */
-  public Constants.RevenueScheduleType getRevenueScheduleType() {
+  public String getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
+  public void setRevenueScheduleType(final String revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -927,12 +926,12 @@ public class Subscription extends Resource {
   }
 
   /** State */
-  public Constants.SubscriptionState getState() {
+  public String getState() {
     return this.state;
   }
 
   /** @param state State */
-  public void setState(final Constants.SubscriptionState state) {
+  public void setState(final String state) {
     this.state = state;
   }
 

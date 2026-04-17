@@ -7,7 +7,6 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 
@@ -15,7 +14,7 @@ public class GeneralLedgerAccountCreate extends Request {
 
   @SerializedName("account_type")
   @Expose
-  private Constants.GeneralLedgerAccountType accountType;
+  private String accountType;
 
   /**
    * Unique code to identify the ledger account. Each code must start with a letter or number. The
@@ -30,12 +29,12 @@ public class GeneralLedgerAccountCreate extends Request {
   @Expose
   private String description;
 
-  public Constants.GeneralLedgerAccountType getAccountType() {
+  public String getAccountType() {
     return this.accountType;
   }
 
   /** @param accountType */
-  public void setAccountType(final Constants.GeneralLedgerAccountType accountType) {
+  public void setAccountType(final String accountType) {
     this.accountType = accountType;
   }
 

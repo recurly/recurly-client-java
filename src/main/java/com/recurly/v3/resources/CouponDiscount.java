@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.util.List;
 
@@ -30,7 +29,7 @@ public class CouponDiscount extends Resource {
 
   @SerializedName("type")
   @Expose
-  private Constants.DiscountType type;
+  private String type;
 
   /** This is only present when `type=fixed`. */
   public List<CouponDiscountPricing> getCurrencies() {
@@ -62,12 +61,12 @@ public class CouponDiscount extends Resource {
     this.trial = trial;
   }
 
-  public Constants.DiscountType getType() {
+  public String getType() {
     return this.type;
   }
 
   /** @param type */
-  public void setType(final Constants.DiscountType type) {
+  public void setType(final String type) {
     this.type = type;
   }
 }

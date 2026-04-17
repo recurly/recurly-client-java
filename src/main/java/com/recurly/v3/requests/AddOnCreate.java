@@ -7,7 +7,6 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
@@ -27,7 +26,7 @@ public class AddOnCreate extends Request {
   /** Whether the add-on type is fixed, or usage-based. */
   @SerializedName("add_on_type")
   @Expose
-  private Constants.AddOnTypeCreate addOnType;
+  private String addOnType;
 
   /**
    * Used by Avalara for Communications taxes. The transaction type in combination with the service
@@ -190,7 +189,7 @@ public class AddOnCreate extends Request {
    */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private Constants.RevenueScheduleType revenueScheduleType;
+  private String revenueScheduleType;
 
   /**
    * Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to determine
@@ -211,7 +210,7 @@ public class AddOnCreate extends Request {
    */
   @SerializedName("tier_type")
   @Expose
-  private Constants.TierType tierType;
+  private String tierType;
 
   /**
    * If the tier_type is `flat`, then `tiers` must be absent. The `tiers` object must include one to
@@ -230,7 +229,7 @@ public class AddOnCreate extends Request {
    */
   @SerializedName("usage_calculation_type")
   @Expose
-  private Constants.UsageCalculationType usageCalculationType;
+  private String usageCalculationType;
 
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
@@ -247,7 +246,7 @@ public class AddOnCreate extends Request {
    */
   @SerializedName("usage_timeframe")
   @Expose
-  private Constants.UsageTimeframeCreate usageTimeframe;
+  private String usageTimeframe;
 
   /**
    * Type of usage, required if `add_on_type` is `usage`. See our
@@ -256,7 +255,7 @@ public class AddOnCreate extends Request {
    */
   @SerializedName("usage_type")
   @Expose
-  private Constants.UsageTypeCreate usageType;
+  private String usageType;
 
   /**
    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to
@@ -277,12 +276,12 @@ public class AddOnCreate extends Request {
   }
 
   /** Whether the add-on type is fixed, or usage-based. */
-  public Constants.AddOnTypeCreate getAddOnType() {
+  public String getAddOnType() {
     return this.addOnType;
   }
 
   /** @param addOnType Whether the add-on type is fixed, or usage-based. */
-  public void setAddOnType(final Constants.AddOnTypeCreate addOnType) {
+  public void setAddOnType(final String addOnType) {
     this.addOnType = addOnType;
   }
 
@@ -609,7 +608,7 @@ public class AddOnCreate extends Request {
    * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
    * request as the value will be set from the item.
    */
-  public Constants.RevenueScheduleType getRevenueScheduleType() {
+  public String getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
@@ -618,7 +617,7 @@ public class AddOnCreate extends Request {
    *     schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must
    *     be absent in the request as the value will be set from the item.
    */
-  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
+  public void setRevenueScheduleType(final String revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -650,7 +649,7 @@ public class AddOnCreate extends Request {
    * [Guide](https://recurly.com/developers/guides/item-addon-guide.html) for an overview of how to
    * configure quantity-based pricing models.
    */
-  public Constants.TierType getTierType() {
+  public String getTierType() {
     return this.tierType;
   }
 
@@ -660,7 +659,7 @@ public class AddOnCreate extends Request {
    *     [Guide](https://recurly.com/developers/guides/item-addon-guide.html) for an overview of how
    *     to configure quantity-based pricing models.
    */
-  public void setTierType(final Constants.TierType tierType) {
+  public void setTierType(final String tierType) {
     this.tierType = tierType;
   }
 
@@ -689,7 +688,7 @@ public class AddOnCreate extends Request {
    * recent usage record in the billing period. If no value is specified, cumulative billing will be
    * used.
    */
-  public Constants.UsageCalculationType getUsageCalculationType() {
+  public String getUsageCalculationType() {
     return this.usageCalculationType;
   }
 
@@ -699,7 +698,7 @@ public class AddOnCreate extends Request {
    *     billing will apply only the most recent usage record in the billing period. If no value is
    *     specified, cumulative billing will be used.
    */
-  public void setUsageCalculationType(final Constants.UsageCalculationType usageCalculationType) {
+  public void setUsageCalculationType(final String usageCalculationType) {
     this.usageCalculationType = usageCalculationType;
   }
 
@@ -725,7 +724,7 @@ public class AddOnCreate extends Request {
    * The time at which usage totals are reset for billing purposes. Allows for `tiered` add-ons to
    * accumulate usage over the course of multiple billing periods.
    */
-  public Constants.UsageTimeframeCreate getUsageTimeframe() {
+  public String getUsageTimeframe() {
     return this.usageTimeframe;
   }
 
@@ -733,7 +732,7 @@ public class AddOnCreate extends Request {
    * @param usageTimeframe The time at which usage totals are reset for billing purposes. Allows for
    *     `tiered` add-ons to accumulate usage over the course of multiple billing periods.
    */
-  public void setUsageTimeframe(final Constants.UsageTimeframeCreate usageTimeframe) {
+  public void setUsageTimeframe(final String usageTimeframe) {
     this.usageTimeframe = usageTimeframe;
   }
 
@@ -742,7 +741,7 @@ public class AddOnCreate extends Request {
    * [Guide](https://recurly.com/developers/guides/usage-based-billing-guide.html) for an overview
    * of how to configure usage add-ons.
    */
-  public Constants.UsageTypeCreate getUsageType() {
+  public String getUsageType() {
     return this.usageType;
   }
 
@@ -751,7 +750,7 @@ public class AddOnCreate extends Request {
    *     [Guide](https://recurly.com/developers/guides/usage-based-billing-guide.html) for an
    *     overview of how to configure usage add-ons.
    */
-  public void setUsageType(final Constants.UsageTypeCreate usageType) {
+  public void setUsageType(final String usageType) {
     this.usageType = usageType;
   }
 }

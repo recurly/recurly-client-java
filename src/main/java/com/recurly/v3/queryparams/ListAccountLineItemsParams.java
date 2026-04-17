@@ -6,7 +6,6 @@
 package com.recurly.v3.queryparams;
 
 import com.recurly.v3.AbstractQueryParams;
-import com.recurly.v3.Constants;
 import java.time.ZonedDateTime;
 import java.util.List;
 
@@ -20,11 +19,11 @@ public class ListAccountLineItemsParams extends AbstractQueryParams {
     this.add("limit", limit);
   }
 
-  public void setOrder(final Constants.AlphanumericSort order) {
+  public void setOrder(final String order) {
     this.add("order", order);
   }
 
-  public void setSort(final Constants.TimestampSort sort) {
+  public void setSort(final String sort) {
     this.add("sort", sort);
   }
 
@@ -36,15 +35,15 @@ public class ListAccountLineItemsParams extends AbstractQueryParams {
     this.add("end_time", endTime);
   }
 
-  public void setOriginal(final Constants.True original) {
+  public void setOriginal(final String original) {
     this.add("original", original);
   }
 
-  public void setState(final Constants.LineItemState state) {
+  public void setState(final String state) {
     this.add("state", state);
   }
 
-  public void setType(final Constants.LineItemType type) {
+  public void setType(final String type) {
     this.add("type", type);
   }
 }

@@ -6,11 +6,10 @@
 package com.recurly.v3.queryparams;
 
 import com.recurly.v3.AbstractQueryParams;
-import com.recurly.v3.Constants;
 
 public class ListEntitlementsParams extends AbstractQueryParams {
 
-  public void setState(final Constants.FilterLimitedSubscriptionState state) {
+  public void setState(final String state) {
     this.add("state", state);
   }
 }

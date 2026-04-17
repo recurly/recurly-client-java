@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.time.ZonedDateTime;
 
@@ -54,7 +53,7 @@ public class MeasuredUnit extends Resource {
   /** The current state of the measured unit. */
   @SerializedName("state")
   @Expose
-  private Constants.ActiveState state;
+  private String state;
 
   /** Last updated at */
   @SerializedName("updated_at")
@@ -138,12 +137,12 @@ public class MeasuredUnit extends Resource {
   }
 
   /** The current state of the measured unit. */
-  public Constants.ActiveState getState() {
+  public String getState() {
     return this.state;
   }
 
   /** @param state The current state of the measured unit. */
-  public void setState(final Constants.ActiveState state) {
+  public void setState(final String state) {
     this.state = state;
   }
 

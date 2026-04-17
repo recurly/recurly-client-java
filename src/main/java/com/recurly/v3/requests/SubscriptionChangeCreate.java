@@ -7,7 +7,6 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
@@ -67,7 +66,7 @@ public class SubscriptionChangeCreate extends Request {
   /** Collection method */
   @SerializedName("collection_method")
   @Expose
-  private Constants.CollectionMethod collectionMethod;
+  private String collectionMethod;
 
   /**
    * A list of coupon_codes to be redeemed on the subscription during the change. Only allowed if
@@ -109,7 +108,7 @@ public class SubscriptionChangeCreate extends Request {
    */
   @SerializedName("net_terms_type")
   @Expose
-  private Constants.NetTermsType netTermsType;
+  private String netTermsType;
 
   /**
    * If present, this sets the date the subscription's next billing period will start
@@ -166,7 +165,7 @@ public class SubscriptionChangeCreate extends Request {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private Constants.RevenueScheduleType revenueScheduleType;
+  private String revenueScheduleType;
 
   /**
    * Shipping addresses are tied to a customer's account. Each account can have up to 20 different
@@ -192,7 +191,7 @@ public class SubscriptionChangeCreate extends Request {
    */
   @SerializedName("timeframe")
   @Expose
-  private Constants.ChangeTimeframe timeframe;
+  private String timeframe;
 
   /**
    * An optional type designation for the payment gateway transaction created by this request.
@@ -200,7 +199,7 @@ public class SubscriptionChangeCreate extends Request {
    */
   @SerializedName("transaction_type")
   @Expose
-  private Constants.GatewayTransactionType transactionType;
+  private String transactionType;
 
   /**
    * Optionally, sets custom pricing for the subscription, overriding the plan's default unit
@@ -306,12 +305,12 @@ public class SubscriptionChangeCreate extends Request {
   }
 
   /** Collection method */
-  public Constants.CollectionMethod getCollectionMethod() {
+  public String getCollectionMethod() {
     return this.collectionMethod;
   }
 
   /** @param collectionMethod Collection method */
-  public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
+  public void setCollectionMethod(final String collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
 
@@ -386,7 +385,7 @@ public class SubscriptionChangeCreate extends Request {
    * `eom` an invoice becomes past due the specified number of `Net Terms` days from the last day of
    * the current month.
    */
-  public Constants.NetTermsType getNetTermsType() {
+  public String getNetTermsType() {
     return this.netTermsType;
   }
 
@@ -396,7 +395,7 @@ public class SubscriptionChangeCreate extends Request {
    *     days from the current date. When `eom` an invoice becomes past due the specified number of
    *     `Net Terms` days from the last day of the current month.
    */
-  public void setNetTermsType(final Constants.NetTermsType netTermsType) {
+  public void setNetTermsType(final String netTermsType) {
     this.netTermsType = netTermsType;
   }
 
@@ -509,12 +508,12 @@ public class SubscriptionChangeCreate extends Request {
   }
 
   /** Revenue schedule type */
-  public Constants.RevenueScheduleType getRevenueScheduleType() {
+  public String getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
+  public void setRevenueScheduleType(final String revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -554,7 +553,7 @@ public class SubscriptionChangeCreate extends Request {
    * `bill_date` so the change takes effect at a scheduled billing date. The `renewal` timeframe
    * option is accepted as an alias for `term_end`.
    */
-  public Constants.ChangeTimeframe getTimeframe() {
+  public String getTimeframe() {
     return this.timeframe;
   }
 
@@ -566,7 +565,7 @@ public class SubscriptionChangeCreate extends Request {
    *     timeframe to `term_end` or `bill_date` so the change takes effect at a scheduled billing
    *     date. The `renewal` timeframe option is accepted as an alias for `term_end`.
    */
-  public void setTimeframe(final Constants.ChangeTimeframe timeframe) {
+  public void setTimeframe(final String timeframe) {
     this.timeframe = timeframe;
   }
 
@@ -574,7 +573,7 @@ public class SubscriptionChangeCreate extends Request {
    * An optional type designation for the payment gateway transaction created by this request.
    * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
    */
-  public Constants.GatewayTransactionType getTransactionType() {
+  public String getTransactionType() {
     return this.transactionType;
   }
 
@@ -583,7 +582,7 @@ public class SubscriptionChangeCreate extends Request {
    *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
    *     transactions.
    */
-  public void setTransactionType(final Constants.GatewayTransactionType transactionType) {
+  public void setTransactionType(final String transactionType) {
     this.transactionType = transactionType;
   }
 

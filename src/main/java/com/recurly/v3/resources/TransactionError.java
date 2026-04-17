@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 
 public class TransactionError extends Resource {
@@ -15,17 +14,17 @@ public class TransactionError extends Resource {
   /** Category */
   @SerializedName("category")
   @Expose
-  private Constants.ErrorCategory category;
+  private String category;
 
   /** Code */
   @SerializedName("code")
   @Expose
-  private Constants.ErrorCode code;
+  private String code;
 
   /** Decline code */
   @SerializedName("decline_code")
   @Expose
-  private Constants.DeclineCode declineCode;
+  private String declineCode;
 
   /** Fraud information */
   @SerializedName("fraud_info")
@@ -61,32 +60,32 @@ public class TransactionError extends Resource {
   private String transactionId;
 
   /** Category */
-  public Constants.ErrorCategory getCategory() {
+  public String getCategory() {
     return this.category;
   }
 
   /** @param category Category */
-  public void setCategory(final Constants.ErrorCategory category) {
+  public void setCategory(final String category) {
     this.category = category;
   }
 
   /** Code */
-  public Constants.ErrorCode getCode() {
+  public String getCode() {
     return this.code;
   }
 
   /** @param code Code */
-  public void setCode(final Constants.ErrorCode code) {
+  public void setCode(final String code) {
     this.code = code;
   }
 
   /** Decline code */
-  public Constants.DeclineCode getDeclineCode() {
+  public String getDeclineCode() {
     return this.declineCode;
   }
 
   /** @param declineCode Decline code */
-  public void setDeclineCode(final Constants.DeclineCode declineCode) {
+  public void setDeclineCode(final String declineCode) {
     this.declineCode = declineCode;
   }
 

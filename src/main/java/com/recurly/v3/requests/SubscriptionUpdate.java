@@ -7,7 +7,6 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.time.ZonedDateTime;
@@ -33,7 +32,7 @@ public class SubscriptionUpdate extends Request {
   /** Change collection method */
   @SerializedName("collection_method")
   @Expose
-  private Constants.CollectionMethod collectionMethod;
+  private String collectionMethod;
 
   /**
    * Controls whether credit invoices are automatically applied to new invoices. The `mode` field
@@ -100,7 +99,7 @@ public class SubscriptionUpdate extends Request {
    */
   @SerializedName("net_terms_type")
   @Expose
-  private Constants.NetTermsType netTermsType;
+  private String netTermsType;
 
   /**
    * If present, this sets the date the subscription's next billing period will start
@@ -139,7 +138,7 @@ public class SubscriptionUpdate extends Request {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private Constants.RevenueScheduleType revenueScheduleType;
+  private String revenueScheduleType;
 
   /** Subscription shipping details */
   @SerializedName("shipping")
@@ -190,12 +189,12 @@ public class SubscriptionUpdate extends Request {
   }
 
   /** Change collection method */
-  public Constants.CollectionMethod getCollectionMethod() {
+  public String getCollectionMethod() {
     return this.collectionMethod;
   }
 
   /** @param collectionMethod Change collection method */
-  public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
+  public void setCollectionMethod(final String collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
 
@@ -319,7 +318,7 @@ public class SubscriptionUpdate extends Request {
    * `eom` an invoice becomes past due the specified number of `Net Terms` days from the last day of
    * the current month.
    */
-  public Constants.NetTermsType getNetTermsType() {
+  public String getNetTermsType() {
     return this.netTermsType;
   }
 
@@ -329,7 +328,7 @@ public class SubscriptionUpdate extends Request {
    *     days from the current date. When `eom` an invoice becomes past due the specified number of
    *     `Net Terms` days from the last day of the current month.
    */
-  public void setNetTermsType(final Constants.NetTermsType netTermsType) {
+  public void setNetTermsType(final String netTermsType) {
     this.netTermsType = netTermsType;
   }
 
@@ -406,12 +405,12 @@ public class SubscriptionUpdate extends Request {
   }
 
   /** Revenue schedule type */
-  public Constants.RevenueScheduleType getRevenueScheduleType() {
+  public String getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
+  public void setRevenueScheduleType(final String revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 

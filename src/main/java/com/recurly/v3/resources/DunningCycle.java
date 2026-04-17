@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -69,7 +68,7 @@ public class DunningCycle extends Resource {
   /** The type of invoice this cycle applies to. */
   @SerializedName("type")
   @Expose
-  private Constants.DunningCycleType type;
+  private String type;
 
   /** When the current settings were updated in Recurly. */
   @SerializedName("updated_at")
@@ -198,12 +197,12 @@ public class DunningCycle extends Resource {
   }
 
   /** The type of invoice this cycle applies to. */
-  public Constants.DunningCycleType getType() {
+  public String getType() {
     return this.type;
   }
 
   /** @param type The type of invoice this cycle applies to. */
-  public void setType(final Constants.DunningCycleType type) {
+  public void setType(final String type) {
     this.type = type;
   }
 

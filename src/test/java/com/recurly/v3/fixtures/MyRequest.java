@@ -42,7 +42,7 @@ public class MyRequest extends Request {
 
   @SerializedName("my_constant")
   @Expose
-  private FixtureConstants.ConstantType myConstant;
+  private String myConstant;
 
   public String getMyString() {
     return this.myString;
@@ -108,11 +108,11 @@ public class MyRequest extends Request {
     this.myNestedRequestList = myNestedRequestList;
   }
 
-  public FixtureConstants.ConstantType getMyConstant() {
+  public String getMyConstant() {
     return this.myConstant;
   }
 
-  public void setMyConstant(FixtureConstants.ConstantType myConstant) {
+  public void setMyConstant(String myConstant) {
     this.myConstant = myConstant;
   }
 }

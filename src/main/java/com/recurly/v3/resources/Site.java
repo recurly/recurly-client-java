@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -31,7 +30,7 @@ public class Site extends Resource {
   /** A list of features enabled for the site. */
   @SerializedName("features")
   @Expose
-  private List<Constants.Features> features;
+  private List<String> features;
 
   /** Site ID */
   @SerializedName("id")
@@ -41,7 +40,7 @@ public class Site extends Resource {
   /** Mode */
   @SerializedName("mode")
   @Expose
-  private Constants.SiteMode mode;
+  private String mode;
 
   /** Object type */
   @SerializedName("object")
@@ -96,12 +95,12 @@ public class Site extends Resource {
   }
 
   /** A list of features enabled for the site. */
-  public List<Constants.Features> getFeatures() {
+  public List<String> getFeatures() {
     return this.features;
   }
 
   /** @param features A list of features enabled for the site. */
-  public void setFeatures(final List<Constants.Features> features) {
+  public void setFeatures(final List<String> features) {
     this.features = features;
   }
 
@@ -116,12 +115,12 @@ public class Site extends Resource {
   }
 
   /** Mode */
-  public Constants.SiteMode getMode() {
+  public String getMode() {
     return this.mode;
   }
 
   /** @param mode Mode */
-  public void setMode(final Constants.SiteMode mode) {
+  public void setMode(final String mode) {
     this.mode = mode;
   }
 

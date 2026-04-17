@@ -7,7 +7,6 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
@@ -164,7 +163,7 @@ public class AddOnUpdate extends Request {
    */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private Constants.RevenueScheduleType revenueScheduleType;
+  private String revenueScheduleType;
 
   /**
    * Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to determine
@@ -194,7 +193,7 @@ public class AddOnUpdate extends Request {
    */
   @SerializedName("usage_calculation_type")
   @Expose
-  private Constants.UsageCalculationType usageCalculationType;
+  private String usageCalculationType;
 
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
@@ -504,7 +503,7 @@ public class AddOnUpdate extends Request {
    * `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the
    * request as the value will be set from the item.
    */
-  public Constants.RevenueScheduleType getRevenueScheduleType() {
+  public String getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
@@ -513,7 +512,7 @@ public class AddOnUpdate extends Request {
    *     schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must
    *     be absent in the request as the value will be set from the item.
    */
-  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
+  public void setRevenueScheduleType(final String revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -564,7 +563,7 @@ public class AddOnUpdate extends Request {
    * recent usage record in the billing period. If no value is specified, cumulative billing will be
    * used.
    */
-  public Constants.UsageCalculationType getUsageCalculationType() {
+  public String getUsageCalculationType() {
     return this.usageCalculationType;
   }
 
@@ -574,7 +573,7 @@ public class AddOnUpdate extends Request {
    *     billing will apply only the most recent usage record in the billing period. If no value is
    *     specified, cumulative billing will be used.
    */
-  public void setUsageCalculationType(final Constants.UsageCalculationType usageCalculationType) {
+  public void setUsageCalculationType(final String usageCalculationType) {
     this.usageCalculationType = usageCalculationType;
   }
 

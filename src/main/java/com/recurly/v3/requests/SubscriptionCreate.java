@@ -7,7 +7,6 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
@@ -73,7 +72,7 @@ public class SubscriptionCreate extends Request {
   /** Collection method */
   @SerializedName("collection_method")
   @Expose
-  private Constants.CollectionMethod collectionMethod;
+  private String collectionMethod;
 
   /** A list of coupon_codes to be redeemed on the subscription or account during the purchase. */
   @SerializedName("coupon_codes")
@@ -168,7 +167,7 @@ public class SubscriptionCreate extends Request {
    */
   @SerializedName("net_terms_type")
   @Expose
-  private Constants.NetTermsType netTermsType;
+  private String netTermsType;
 
   /**
    * If present, this sets the date the subscription's next billing period will start
@@ -234,7 +233,7 @@ public class SubscriptionCreate extends Request {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private Constants.RevenueScheduleType revenueScheduleType;
+  private String revenueScheduleType;
 
   /** Create a shipping address on the account and assign it to the subscription. */
   @SerializedName("shipping")
@@ -282,7 +281,7 @@ public class SubscriptionCreate extends Request {
    */
   @SerializedName("transaction_type")
   @Expose
-  private Constants.GatewayTransactionType transactionType;
+  private String transactionType;
 
   /**
    * If set, overrides the default trial behavior for the subscription. When the current date time
@@ -415,12 +414,12 @@ public class SubscriptionCreate extends Request {
   }
 
   /** Collection method */
-  public Constants.CollectionMethod getCollectionMethod() {
+  public String getCollectionMethod() {
     return this.collectionMethod;
   }
 
   /** @param collectionMethod Collection method */
-  public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
+  public void setCollectionMethod(final String collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
 
@@ -604,7 +603,7 @@ public class SubscriptionCreate extends Request {
    * `eom` an invoice becomes past due the specified number of `Net Terms` days from the last day of
    * the current month.
    */
-  public Constants.NetTermsType getNetTermsType() {
+  public String getNetTermsType() {
     return this.netTermsType;
   }
 
@@ -614,7 +613,7 @@ public class SubscriptionCreate extends Request {
    *     days from the current date. When `eom` an invoice becomes past due the specified number of
    *     `Net Terms` days from the last day of the current month.
    */
-  public void setNetTermsType(final Constants.NetTermsType netTermsType) {
+  public void setNetTermsType(final String netTermsType) {
     this.netTermsType = netTermsType;
   }
 
@@ -748,12 +747,12 @@ public class SubscriptionCreate extends Request {
   }
 
   /** Revenue schedule type */
-  public Constants.RevenueScheduleType getRevenueScheduleType() {
+  public String getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
+  public void setRevenueScheduleType(final String revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -842,7 +841,7 @@ public class SubscriptionCreate extends Request {
    * An optional type designation for the payment gateway transaction created by this request.
    * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
    */
-  public Constants.GatewayTransactionType getTransactionType() {
+  public String getTransactionType() {
     return this.transactionType;
   }
 
@@ -851,7 +850,7 @@ public class SubscriptionCreate extends Request {
    *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
    *     transactions.
    */
-  public void setTransactionType(final Constants.GatewayTransactionType transactionType) {
+  public void setTransactionType(final String transactionType) {
     this.transactionType = transactionType;
   }
 

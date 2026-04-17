@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 
 public class PaymentMethod extends Resource {
@@ -15,7 +14,7 @@ public class PaymentMethod extends Resource {
   /** The bank account type. Only present for ACH payment methods. */
   @SerializedName("account_type")
   @Expose
-  private Constants.AccountType accountType;
+  private String accountType;
 
   /** Billing Agreement identifier. Only present for Amazon or Paypal payment methods. */
   @SerializedName("billing_agreement_id")
@@ -28,12 +27,12 @@ public class PaymentMethod extends Resource {
    */
   @SerializedName("card_network_preference")
   @Expose
-  private Constants.CardNetwork cardNetworkPreference;
+  private String cardNetworkPreference;
 
   /** Visa, MasterCard, American Express, Discover, JCB, etc. */
   @SerializedName("card_type")
   @Expose
-  private Constants.CardType cardType;
+  private String cardType;
 
   /** The 2-letter ISO 3166-1 alpha-2 country code associated with the card's issuer, if known. */
   @SerializedName("cc_bin_country")
@@ -58,7 +57,7 @@ public class PaymentMethod extends Resource {
   /** The funding source of the card, if known. */
   @SerializedName("funding_source")
   @Expose
-  private Constants.CardFundingSource fundingSource;
+  private String fundingSource;
 
   /** Gateway specific attributes associated with this PaymentMethod */
   @SerializedName("gateway_attributes")
@@ -92,7 +91,7 @@ public class PaymentMethod extends Resource {
 
   @SerializedName("object")
   @Expose
-  private Constants.PaymentMethod object;
+  private String object;
 
   /** The bank account's routing number. Only present for ACH payment methods. */
   @SerializedName("routing_number")
@@ -110,12 +109,12 @@ public class PaymentMethod extends Resource {
   private String username;
 
   /** The bank account type. Only present for ACH payment methods. */
-  public Constants.AccountType getAccountType() {
+  public String getAccountType() {
     return this.accountType;
   }
 
   /** @param accountType The bank account type. Only present for ACH payment methods. */
-  public void setAccountType(final Constants.AccountType accountType) {
+  public void setAccountType(final String accountType) {
     this.accountType = accountType;
   }
 
@@ -136,7 +135,7 @@ public class PaymentMethod extends Resource {
    * Represents the card network preference associated with the billing info for dual badged cards.
    * Must be a supported card network.
    */
-  public Constants.CardNetwork getCardNetworkPreference() {
+  public String getCardNetworkPreference() {
     return this.cardNetworkPreference;
   }
 
@@ -144,17 +143,17 @@ public class PaymentMethod extends Resource {
    * @param cardNetworkPreference Represents the card network preference associated with the billing
    *     info for dual badged cards. Must be a supported card network.
    */
-  public void setCardNetworkPreference(final Constants.CardNetwork cardNetworkPreference) {
+  public void setCardNetworkPreference(final String cardNetworkPreference) {
     this.cardNetworkPreference = cardNetworkPreference;
   }
 
   /** Visa, MasterCard, American Express, Discover, JCB, etc. */
-  public Constants.CardType getCardType() {
+  public String getCardType() {
     return this.cardType;
   }
 
   /** @param cardType Visa, MasterCard, American Express, Discover, JCB, etc. */
-  public void setCardType(final Constants.CardType cardType) {
+  public void setCardType(final String cardType) {
     this.cardType = cardType;
   }
 
@@ -202,12 +201,12 @@ public class PaymentMethod extends Resource {
   }
 
   /** The funding source of the card, if known. */
-  public Constants.CardFundingSource getFundingSource() {
+  public String getFundingSource() {
     return this.fundingSource;
   }
 
   /** @param fundingSource The funding source of the card, if known. */
-  public void setFundingSource(final Constants.CardFundingSource fundingSource) {
+  public void setFundingSource(final String fundingSource) {
     this.fundingSource = fundingSource;
   }
 
@@ -276,12 +275,12 @@ public class PaymentMethod extends Resource {
     this.nameOnAccount = nameOnAccount;
   }
 
-  public Constants.PaymentMethod getObject() {
+  public String getObject() {
     return this.object;
   }
 
   /** @param object */
-  public void setObject(final Constants.PaymentMethod object) {
+  public void setObject(final String object) {
     this.object = object;
   }
 

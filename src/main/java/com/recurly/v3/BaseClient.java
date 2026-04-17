@@ -1,6 +1,5 @@
 package com.recurly.v3;
 
-import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.exception.ExceptionFactory;
 import com.recurly.v3.http.HttpTransport;
 import com.recurly.v3.http.HttpURLConnectionTransport;
@@ -9,7 +8,6 @@ import com.recurly.v3.http.SimpleHttpResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -204,16 +202,6 @@ public abstract class BaseClient {
     }
   }
 
-  private String getSerializedEnumName(Enum<?> e) {
-    try {
-      Field f = e.getClass().getField(e.name());
-      SerializedName a = f.getAnnotation(SerializedName.class);
-      return a == null ? null : a.value();
-    } catch (NoSuchFieldException ignored) {
-      return null;
-    }
-  }
-
   private SimpleHttpRequest buildRequest(
       final String method,
       final String url,
@@ -242,8 +230,6 @@ public abstract class BaseClient {
           stringValue = Double.toString((Double) value);
         } else if (value instanceof Long) {
           stringValue = Long.toString((Long) value);
-        } else if (value instanceof Enum) {
-          stringValue = getSerializedEnumName((Enum<?>) value);
         } else {
           stringValue = value.toString();
         }

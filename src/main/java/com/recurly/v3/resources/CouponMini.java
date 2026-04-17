@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.time.ZonedDateTime;
 
@@ -24,7 +23,7 @@ public class CouponMini extends Resource {
    */
   @SerializedName("coupon_type")
   @Expose
-  private Constants.CouponType couponType;
+  private String couponType;
 
   /**
    * Details of the discount a coupon applies. Will contain a `type` property and one of the
@@ -57,7 +56,7 @@ public class CouponMini extends Resource {
   /** Indicates if the coupon is redeemable, and if it is not, why. */
   @SerializedName("state")
   @Expose
-  private Constants.CouponState state;
+  private String state;
 
   /** The code the customer enters to redeem the coupon. */
   public String getCode() {
@@ -73,7 +72,7 @@ public class CouponMini extends Resource {
    * Whether the coupon is "single_code" or "bulk". Bulk coupons will require a
    * `unique_code_template` and will generate unique codes through the `/generate` endpoint.
    */
-  public Constants.CouponType getCouponType() {
+  public String getCouponType() {
     return this.couponType;
   }
 
@@ -81,7 +80,7 @@ public class CouponMini extends Resource {
    * @param couponType Whether the coupon is "single_code" or "bulk". Bulk coupons will require a
    *     `unique_code_template` and will generate unique codes through the `/generate` endpoint.
    */
-  public void setCouponType(final Constants.CouponType couponType) {
+  public void setCouponType(final String couponType) {
     this.couponType = couponType;
   }
 
@@ -145,12 +144,12 @@ public class CouponMini extends Resource {
   }
 
   /** Indicates if the coupon is redeemable, and if it is not, why. */
-  public Constants.CouponState getState() {
+  public String getState() {
     return this.state;
   }
 
   /** @param state Indicates if the coupon is redeemable, and if it is not, why. */
-  public void setState(final Constants.CouponState state) {
+  public void setState(final String state) {
     this.state = state;
   }
 }

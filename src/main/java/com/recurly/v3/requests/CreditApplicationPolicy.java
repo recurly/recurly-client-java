@@ -7,7 +7,6 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.util.List;
@@ -20,7 +19,7 @@ public class CreditApplicationPolicy extends Request {
    */
   @SerializedName("allowed_origins")
   @Expose
-  private List<Constants.CreditApplicationAllowedOriginType> allowedOrigins;
+  private List<String> allowedOrigins;
 
   /**
    * Determines which credit invoices are applied to invoices: - `all`: All available credit
@@ -28,13 +27,13 @@ public class CreditApplicationPolicy extends Request {
    */
   @SerializedName("mode")
   @Expose
-  private Constants.CreditApplicationMode mode;
+  private String mode;
 
   /**
    * Optional array of credit invoice origin types to allow when mode is `all`. If not specified
    * when mode is `all`, credits from all origins are applied. Only valid when mode is `all`.
    */
-  public List<Constants.CreditApplicationAllowedOriginType> getAllowedOrigins() {
+  public List<String> getAllowedOrigins() {
     return this.allowedOrigins;
   }
 
@@ -43,8 +42,7 @@ public class CreditApplicationPolicy extends Request {
    *     `all`. If not specified when mode is `all`, credits from all origins are applied. Only
    *     valid when mode is `all`.
    */
-  public void setAllowedOrigins(
-      final List<Constants.CreditApplicationAllowedOriginType> allowedOrigins) {
+  public void setAllowedOrigins(final List<String> allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
   }
 
@@ -52,7 +50,7 @@ public class CreditApplicationPolicy extends Request {
    * Determines which credit invoices are applied to invoices: - `all`: All available credit
    * invoices are applied (default) - `none`: No credit invoices are applied automatically
    */
-  public Constants.CreditApplicationMode getMode() {
+  public String getMode() {
     return this.mode;
   }
 
@@ -61,7 +59,7 @@ public class CreditApplicationPolicy extends Request {
    *     credit invoices are applied (default) - `none`: No credit invoices are applied
    *     automatically
    */
-  public void setMode(final Constants.CreditApplicationMode mode) {
+  public void setMode(final String mode) {
     this.mode = mode;
   }
 }

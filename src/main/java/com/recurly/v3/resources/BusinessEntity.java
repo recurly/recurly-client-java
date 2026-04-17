@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -57,7 +56,7 @@ public class BusinessEntity extends Resource {
    */
   @SerializedName("destination_tax_address_source")
   @Expose
-  private Constants.DestinationTaxAddressSource destinationTaxAddressSource;
+  private String destinationTaxAddressSource;
 
   /** Business entity ID */
   @SerializedName("id")
@@ -86,7 +85,7 @@ public class BusinessEntity extends Resource {
    */
   @SerializedName("origin_tax_address_source")
   @Expose
-  private Constants.OriginTaxAddressSource originTaxAddressSource;
+  private String originTaxAddressSource;
 
   /** List of countries for which the business entity will be used. */
   @SerializedName("subscriber_location_countries")
@@ -182,7 +181,7 @@ public class BusinessEntity extends Resource {
    * only when the site is on an Elite plan. A value of "destination" refers to the "Customer tax
    * address". A value of "origin" refers to the "Business entity tax address".
    */
-  public Constants.DestinationTaxAddressSource getDestinationTaxAddressSource() {
+  public String getDestinationTaxAddressSource() {
     return this.destinationTaxAddressSource;
   }
 
@@ -192,8 +191,7 @@ public class BusinessEntity extends Resource {
    *     of "destination" refers to the "Customer tax address". A value of "origin" refers to the
    *     "Business entity tax address".
    */
-  public void setDestinationTaxAddressSource(
-      final Constants.DestinationTaxAddressSource destinationTaxAddressSource) {
+  public void setDestinationTaxAddressSource(final String destinationTaxAddressSource) {
     this.destinationTaxAddressSource = destinationTaxAddressSource;
   }
 
@@ -245,7 +243,7 @@ public class BusinessEntity extends Resource {
    * when the site is on an Elite plan. A value of "origin" refers to the "Business entity tax
    * address". A value of "destination" refers to the "Customer tax address".
    */
-  public Constants.OriginTaxAddressSource getOriginTaxAddressSource() {
+  public String getOriginTaxAddressSource() {
     return this.originTaxAddressSource;
   }
 
@@ -255,8 +253,7 @@ public class BusinessEntity extends Resource {
    *     refers to the "Business entity tax address". A value of "destination" refers to the
    *     "Customer tax address".
    */
-  public void setOriginTaxAddressSource(
-      final Constants.OriginTaxAddressSource originTaxAddressSource) {
+  public void setOriginTaxAddressSource(final String originTaxAddressSource) {
     this.originTaxAddressSource = originTaxAddressSource;
   }
 

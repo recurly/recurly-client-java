@@ -7,7 +7,6 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 
@@ -37,7 +36,7 @@ public class InvoiceCollect extends Request {
    */
   @SerializedName("transaction_type")
   @Expose
-  private Constants.GatewayTransactionType transactionType;
+  private String transactionType;
 
   /**
    * The `billing_info_id` is the value that represents a specific billing info for an end customer.
@@ -79,7 +78,7 @@ public class InvoiceCollect extends Request {
    * An optional type designation for the payment gateway transaction created by this request.
    * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
    */
-  public Constants.GatewayTransactionType getTransactionType() {
+  public String getTransactionType() {
     return this.transactionType;
   }
 
@@ -88,7 +87,7 @@ public class InvoiceCollect extends Request {
    *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
    *     transactions.
    */
-  public void setTransactionType(final Constants.GatewayTransactionType transactionType) {
+  public void setTransactionType(final String transactionType) {
     this.transactionType = transactionType;
   }
 }

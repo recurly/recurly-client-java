@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -32,7 +31,7 @@ public class Account extends Resource {
    */
   @SerializedName("bill_to")
   @Expose
-  private Constants.BillTo billTo;
+  private String billTo;
 
   @SerializedName("billing_info")
   @Expose
@@ -201,7 +200,7 @@ public class Account extends Resource {
    */
   @SerializedName("preferred_locale")
   @Expose
-  private Constants.PreferredLocale preferredLocale;
+  private String preferredLocale;
 
   /**
    * The [IANA time zone
@@ -220,7 +219,7 @@ public class Account extends Resource {
   /** Accounts can be either active or inactive. */
   @SerializedName("state")
   @Expose
-  private Constants.ActiveState state;
+  private String state;
 
   /**
    * The tax status of the account. `true` exempts tax on the account, `false` applies tax on the
@@ -277,7 +276,7 @@ public class Account extends Resource {
    * An enumerable describing the billing behavior of the account, specifically whether the account
    * is self-paying or will rely on the parent account to pay.
    */
-  public Constants.BillTo getBillTo() {
+  public String getBillTo() {
     return this.billTo;
   }
 
@@ -285,7 +284,7 @@ public class Account extends Resource {
    * @param billTo An enumerable describing the billing behavior of the account, specifically
    *     whether the account is self-paying or will rely on the parent account to pay.
    */
-  public void setBillTo(final Constants.BillTo billTo) {
+  public void setBillTo(final String billTo) {
     this.billTo = billTo;
   }
 
@@ -626,7 +625,7 @@ public class Account extends Resource {
    * Used to determine the language and locale of emails sent on behalf of the merchant to the
    * customer.
    */
-  public Constants.PreferredLocale getPreferredLocale() {
+  public String getPreferredLocale() {
     return this.preferredLocale;
   }
 
@@ -634,7 +633,7 @@ public class Account extends Resource {
    * @param preferredLocale Used to determine the language and locale of emails sent on behalf of
    *     the merchant to the customer.
    */
-  public void setPreferredLocale(final Constants.PreferredLocale preferredLocale) {
+  public void setPreferredLocale(final String preferredLocale) {
     this.preferredLocale = preferredLocale;
   }
 
@@ -667,12 +666,12 @@ public class Account extends Resource {
   }
 
   /** Accounts can be either active or inactive. */
-  public Constants.ActiveState getState() {
+  public String getState() {
     return this.state;
   }
 
   /** @param state Accounts can be either active or inactive. */
-  public void setState(final Constants.ActiveState state) {
+  public void setState(final String state) {
     this.state = state;
   }
 

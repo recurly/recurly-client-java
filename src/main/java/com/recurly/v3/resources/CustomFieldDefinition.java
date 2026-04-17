@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.time.ZonedDateTime;
 
@@ -52,7 +51,7 @@ public class CustomFieldDefinition extends Resource {
   /** Related Recurly object type */
   @SerializedName("related_type")
   @Expose
-  private Constants.RelatedType relatedType;
+  private String relatedType;
 
   /** Displayed as a tooltip when editing the field in the Recurly admin UI. */
   @SerializedName("tooltip")
@@ -74,7 +73,7 @@ public class CustomFieldDefinition extends Resource {
    */
   @SerializedName("user_access")
   @Expose
-  private Constants.UserAccess userAccess;
+  private String userAccess;
 
   /** Created at */
   public ZonedDateTime getCreatedAt() {
@@ -152,12 +151,12 @@ public class CustomFieldDefinition extends Resource {
   }
 
   /** Related Recurly object type */
-  public Constants.RelatedType getRelatedType() {
+  public String getRelatedType() {
     return this.relatedType;
   }
 
   /** @param relatedType Related Recurly object type */
-  public void setRelatedType(final Constants.RelatedType relatedType) {
+  public void setRelatedType(final String relatedType) {
     this.relatedType = relatedType;
   }
 
@@ -189,7 +188,7 @@ public class CustomFieldDefinition extends Resource {
    * data via the admin UI. - `set_only` - Users with the Customers role will be able to set this
    * field's data via the admin console.
    */
-  public Constants.UserAccess getUserAccess() {
+  public String getUserAccess() {
     return this.userAccess;
   }
 
@@ -201,7 +200,7 @@ public class CustomFieldDefinition extends Resource {
    *     to view and edit this field's data via the admin UI. - `set_only` - Users with the
    *     Customers role will be able to set this field's data via the admin console.
    */
-  public void setUserAccess(final Constants.UserAccess userAccess) {
+  public void setUserAccess(final String userAccess) {
     this.userAccess = userAccess;
   }
 }

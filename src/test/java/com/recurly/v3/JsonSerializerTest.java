@@ -6,7 +6,6 @@ import com.recurly.v3.fixtures.DateTimeTestClass;
 import com.recurly.v3.fixtures.FixtureConstants;
 import com.recurly.v3.fixtures.MyRequest;
 import com.recurly.v3.fixtures.MyResource;
-import com.recurly.v3.Constants;
 import java.time.ZonedDateTime;
 import org.junit.jupiter.api.Test;
 
@@ -22,26 +21,18 @@ public class JsonSerializerTest {
   }
 
   @Test
-  public void testDeserializeCapitalizedEnum() {
-    final JsonSerializer jsonSerializer = new JsonSerializer();
-    final MyResource mockResource =
-        jsonSerializer.deserialize("{\"my_constant\":\"TwEnty-thRee\"}", MyResource.class);
-    assertEquals(FixtureConstants.ConstantType.TWENTY_THREE, mockResource.getMyConstant());
-  }
-
-  @Test
-  public void testDeserializeUnknownEnum() {
+  public void testDeserializeUnknownConstant() {
     final JsonSerializer jsonSerializer = new JsonSerializer();
     final MyResource mockResource =
         jsonSerializer.deserialize("{\"my_constant\":\"not-defined\"}", MyResource.class);
-    assertEquals(FixtureConstants.ConstantType.UNDEFINED, mockResource.getMyConstant());
+    assertEquals("not-defined", mockResource.getMyConstant());
   }
 
   @Test
   public void testDeserializeError() {
     final JsonSerializer jsonSerializer = new JsonSerializer();
     final ApiException error = jsonSerializer.deserialize(getMockErrorJson(), ApiException.class);
-    assertEquals(Constants.ErrorType.NOT_FOUND, error.getError().getType());
+    assertEquals("not_found", error.getError().getType());
     assertEquals("Couldn't find resource", error.getError().getMessage());
     assertEquals("some_param", error.getError().getParams().get(0).get("param"));
   }

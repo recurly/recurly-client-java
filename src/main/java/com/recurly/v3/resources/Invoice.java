@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -61,7 +60,7 @@ public class Invoice extends Resource {
    */
   @SerializedName("collection_method")
   @Expose
-  private Constants.CollectionMethod collectionMethod;
+  private String collectionMethod;
 
   /** Created at */
   @SerializedName("created_at")
@@ -167,7 +166,7 @@ public class Invoice extends Resource {
    */
   @SerializedName("net_terms_type")
   @Expose
-  private Constants.NetTermsType netTermsType;
+  private String netTermsType;
 
   /**
    * If VAT taxation and the Country Invoice Sequencing feature are enabled, invoices will have
@@ -186,7 +185,7 @@ public class Invoice extends Resource {
   /** The event that created the invoice. */
   @SerializedName("origin")
   @Expose
-  private Constants.Origin origin;
+  private String origin;
 
   /** The total amount of successful payments transaction on this invoice. */
   @SerializedName("paid")
@@ -227,7 +226,7 @@ public class Invoice extends Resource {
   /** Invoice state */
   @SerializedName("state")
   @Expose
-  private Constants.InvoiceState state;
+  private String state;
 
   /** If the invoice is charging or refunding for one or more subscriptions, these are their IDs. */
   @SerializedName("subscription_ids")
@@ -277,7 +276,7 @@ public class Invoice extends Resource {
   /** Invoices are either charge, credit, or legacy invoices. */
   @SerializedName("type")
   @Expose
-  private Constants.InvoiceType type;
+  private String type;
 
   /** Last updated at */
   @SerializedName("updated_at")
@@ -400,7 +399,7 @@ public class Invoice extends Resource {
    * customer pay the invoice with an automatic method, like credit card, PayPal, Amazon, or ACH
    * bank payment.
    */
-  public Constants.CollectionMethod getCollectionMethod() {
+  public String getCollectionMethod() {
     return this.collectionMethod;
   }
 
@@ -411,7 +410,7 @@ public class Invoice extends Resource {
    *     transaction or have the customer pay the invoice with an automatic method, like credit
    *     card, PayPal, Amazon, or ACH bank payment.
    */
-  public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
+  public void setCollectionMethod(final String collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
 
@@ -611,7 +610,7 @@ public class Invoice extends Resource {
    * `eom` an invoice becomes past due the specified number of `Net Terms` days from the last day of
    * the current month.
    */
-  public Constants.NetTermsType getNetTermsType() {
+  public String getNetTermsType() {
     return this.netTermsType;
   }
 
@@ -621,7 +620,7 @@ public class Invoice extends Resource {
    *     days from the current date. When `eom` an invoice becomes past due the specified number of
    *     `Net Terms` days from the last day of the current month.
    */
-  public void setNetTermsType(final Constants.NetTermsType netTermsType) {
+  public void setNetTermsType(final String netTermsType) {
     this.netTermsType = netTermsType;
   }
 
@@ -654,12 +653,12 @@ public class Invoice extends Resource {
   }
 
   /** The event that created the invoice. */
-  public Constants.Origin getOrigin() {
+  public String getOrigin() {
     return this.origin;
   }
 
   /** @param origin The event that created the invoice. */
-  public void setOrigin(final Constants.Origin origin) {
+  public void setOrigin(final String origin) {
     this.origin = origin;
   }
 
@@ -744,12 +743,12 @@ public class Invoice extends Resource {
   }
 
   /** Invoice state */
-  public Constants.InvoiceState getState() {
+  public String getState() {
     return this.state;
   }
 
   /** @param state Invoice state */
-  public void setState(final Constants.InvoiceState state) {
+  public void setState(final String state) {
     this.state = state;
   }
 
@@ -849,12 +848,12 @@ public class Invoice extends Resource {
   }
 
   /** Invoices are either charge, credit, or legacy invoices. */
-  public Constants.InvoiceType getType() {
+  public String getType() {
     return this.type;
   }
 
   /** @param type Invoices are either charge, credit, or legacy invoices. */
-  public void setType(final Constants.InvoiceType type) {
+  public void setType(final String type) {
     this.type = type;
   }
 

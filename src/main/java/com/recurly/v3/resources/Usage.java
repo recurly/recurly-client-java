@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -79,7 +78,7 @@ public class Usage extends Resource {
    */
   @SerializedName("tier_type")
   @Expose
-  private Constants.TierType tierType;
+  private String tierType;
 
   /**
    * The tiers and prices of the subscription based on the usage_timestamp. If tier_type = flat,
@@ -123,7 +122,7 @@ public class Usage extends Resource {
   /** Type of usage, returns usage type if `add_on_type` is `usage`. */
   @SerializedName("usage_type")
   @Expose
-  private Constants.UsageType usageType;
+  private String usageType;
 
   /**
    * The amount of usage. Can be positive, negative, or 0. If the Decimal Quantity feature is
@@ -249,7 +248,7 @@ public class Usage extends Resource {
    * [Guide](https://recurly.com/developers/guides/item-addon-guide.html) for an overview of how to
    * configure quantity-based pricing models.
    */
-  public Constants.TierType getTierType() {
+  public String getTierType() {
     return this.tierType;
   }
 
@@ -259,7 +258,7 @@ public class Usage extends Resource {
    *     [Guide](https://recurly.com/developers/guides/item-addon-guide.html) for an overview of how
    *     to configure quantity-based pricing models.
    */
-  public void setTierType(final Constants.TierType tierType) {
+  public void setTierType(final String tierType) {
     this.tierType = tierType;
   }
 
@@ -342,12 +341,12 @@ public class Usage extends Resource {
   }
 
   /** Type of usage, returns usage type if `add_on_type` is `usage`. */
-  public Constants.UsageType getUsageType() {
+  public String getUsageType() {
     return this.usageType;
   }
 
   /** @param usageType Type of usage, returns usage type if `add_on_type` is `usage`. */
-  public void setUsageType(final Constants.UsageType usageType) {
+  public void setUsageType(final String usageType) {
     this.usageType = usageType;
   }
 }

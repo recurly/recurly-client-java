@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -136,7 +135,7 @@ public class Plan extends Resource {
   /** Unit for the plan's billing interval. */
   @SerializedName("interval_unit")
   @Expose
-  private Constants.IntervalUnit intervalUnit;
+  private String intervalUnit;
 
   /**
    * The ID of a general ledger account. General ledger accounts are only accessible as a part of
@@ -174,7 +173,7 @@ public class Plan extends Resource {
    */
   @SerializedName("pricing_model")
   @Expose
-  private Constants.PricingModelType pricingModel;
+  private String pricingModel;
 
   /** Ramp Intervals */
   @SerializedName("ramp_intervals")
@@ -192,7 +191,7 @@ public class Plan extends Resource {
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
-  private Constants.RevenueScheduleType revenueScheduleType;
+  private String revenueScheduleType;
 
   /**
    * Accounting code for invoice line items for the plan's setup fee. If no value is provided, it
@@ -229,7 +228,7 @@ public class Plan extends Resource {
   /** Setup fee revenue schedule type */
   @SerializedName("setup_fee_revenue_schedule_type")
   @Expose
-  private Constants.RevenueScheduleType setupFeeRevenueScheduleType;
+  private String setupFeeRevenueScheduleType;
 
   /** Setup Fees */
   @SerializedName("setup_fees")
@@ -239,7 +238,7 @@ public class Plan extends Resource {
   /** The current state of the plan. */
   @SerializedName("state")
   @Expose
-  private Constants.ActiveState state;
+  private String state;
 
   /**
    * Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to determine
@@ -281,7 +280,7 @@ public class Plan extends Resource {
   /** Units for the plan's trial period. */
   @SerializedName("trial_unit")
   @Expose
-  private Constants.IntervalUnit trialUnit;
+  private String trialUnit;
 
   /** Last updated at */
   @SerializedName("updated_at")
@@ -532,12 +531,12 @@ public class Plan extends Resource {
   }
 
   /** Unit for the plan's billing interval. */
-  public Constants.IntervalUnit getIntervalUnit() {
+  public String getIntervalUnit() {
     return this.intervalUnit;
   }
 
   /** @param intervalUnit Unit for the plan's billing interval. */
-  public void setIntervalUnit(final Constants.IntervalUnit intervalUnit) {
+  public void setIntervalUnit(final String intervalUnit) {
     this.intervalUnit = intervalUnit;
   }
 
@@ -606,7 +605,7 @@ public class Plan extends Resource {
    * a set of Ramp Intervals, where a subscription changes price on a specified cadence of billing
    * periods. The price change could be an increase or decrease.
    */
-  public Constants.PricingModelType getPricingModel() {
+  public String getPricingModel() {
     return this.pricingModel;
   }
 
@@ -615,7 +614,7 @@ public class Plan extends Resource {
    *     pricing model defines a set of Ramp Intervals, where a subscription changes price on a
    *     specified cadence of billing periods. The price change could be an increase or decrease.
    */
-  public void setPricingModel(final Constants.PricingModelType pricingModel) {
+  public void setPricingModel(final String pricingModel) {
     this.pricingModel = pricingModel;
   }
 
@@ -646,12 +645,12 @@ public class Plan extends Resource {
   }
 
   /** Revenue schedule type */
-  public Constants.RevenueScheduleType getRevenueScheduleType() {
+  public String getRevenueScheduleType() {
     return this.revenueScheduleType;
   }
 
   /** @param revenueScheduleType Revenue schedule type */
-  public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
+  public void setRevenueScheduleType(final String revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
 
@@ -723,13 +722,12 @@ public class Plan extends Resource {
   }
 
   /** Setup fee revenue schedule type */
-  public Constants.RevenueScheduleType getSetupFeeRevenueScheduleType() {
+  public String getSetupFeeRevenueScheduleType() {
     return this.setupFeeRevenueScheduleType;
   }
 
   /** @param setupFeeRevenueScheduleType Setup fee revenue schedule type */
-  public void setSetupFeeRevenueScheduleType(
-      final Constants.RevenueScheduleType setupFeeRevenueScheduleType) {
+  public void setSetupFeeRevenueScheduleType(final String setupFeeRevenueScheduleType) {
     this.setupFeeRevenueScheduleType = setupFeeRevenueScheduleType;
   }
 
@@ -744,12 +742,12 @@ public class Plan extends Resource {
   }
 
   /** The current state of the plan. */
-  public Constants.ActiveState getState() {
+  public String getState() {
     return this.state;
   }
 
   /** @param state The current state of the plan. */
-  public void setState(final Constants.ActiveState state) {
+  public void setState(final String state) {
     this.state = state;
   }
 
@@ -829,12 +827,12 @@ public class Plan extends Resource {
   }
 
   /** Units for the plan's trial period. */
-  public Constants.IntervalUnit getTrialUnit() {
+  public String getTrialUnit() {
     return this.trialUnit;
   }
 
   /** @param trialUnit Units for the plan's trial period. */
-  public void setTrialUnit(final Constants.IntervalUnit trialUnit) {
+  public void setTrialUnit(final String trialUnit) {
     this.trialUnit = trialUnit;
   }
 

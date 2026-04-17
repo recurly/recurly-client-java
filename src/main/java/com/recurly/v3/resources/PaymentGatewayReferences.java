@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 
 public class PaymentGatewayReferences extends Resource {
@@ -17,7 +16,7 @@ public class PaymentGatewayReferences extends Resource {
    */
   @SerializedName("reference_type")
   @Expose
-  private Constants.PaymentGatewayReferences referenceType;
+  private String referenceType;
 
   /**
    * Reference value used when the external token was created. If a Stripe gateway or Ebanx gateway
@@ -30,7 +29,7 @@ public class PaymentGatewayReferences extends Resource {
   /**
    * The type of reference token. Required if token is passed in for Stripe Gateway or Ebanx UPI.
    */
-  public Constants.PaymentGatewayReferences getReferenceType() {
+  public String getReferenceType() {
     return this.referenceType;
   }
 
@@ -38,7 +37,7 @@ public class PaymentGatewayReferences extends Resource {
    * @param referenceType The type of reference token. Required if token is passed in for Stripe
    *     Gateway or Ebanx UPI.
    */
-  public void setReferenceType(final Constants.PaymentGatewayReferences referenceType) {
+  public void setReferenceType(final String referenceType) {
     this.referenceType = referenceType;
   }
 

@@ -6,2529 +6,1752 @@
  */
 package com.recurly.v3;
 
-import com.google.gson.annotations.SerializedName;
-
 public class Constants {
   
-    public enum ProrationSettingsCharge {
-      UNDEFINED,
+    public static class ProrationSettingsCharge {
     
-      @SerializedName("full_amount")
-      FULL_AMOUNT,
+      public static final String FULL_AMOUNT = "full_amount";
     
-      @SerializedName("prorated_amount")
-      PRORATED_AMOUNT,
+      public static final String PRORATED_AMOUNT = "prorated_amount";
     
-      @SerializedName("none")
-      NONE,
+      public static final String NONE = "none";
     
-    };
+    }
   
-    public enum ProrationSettingsCredit {
-      UNDEFINED,
+    public static class ProrationSettingsCredit {
     
-      @SerializedName("full_amount")
-      FULL_AMOUNT,
+      public static final String FULL_AMOUNT = "full_amount";
     
-      @SerializedName("prorated_amount")
-      PRORATED_AMOUNT,
+      public static final String PRORATED_AMOUNT = "prorated_amount";
     
-      @SerializedName("none")
-      NONE,
+      public static final String NONE = "none";
     
-    };
+    }
   
-    public enum SubscriptionCreateProrationSettingsCharge {
-      UNDEFINED,
+    public static class SubscriptionCreateProrationSettingsCharge {
     
-      @SerializedName("full_amount")
-      FULL_AMOUNT,
+      public static final String FULL_AMOUNT = "full_amount";
     
-      @SerializedName("prorated_amount")
-      PRORATED_AMOUNT,
+      public static final String PRORATED_AMOUNT = "prorated_amount";
     
-    };
+    }
   
-    public enum RelatedType {
-      UNDEFINED,
+    public static class RelatedType {
     
-      @SerializedName("account")
-      ACCOUNT,
+      public static final String ACCOUNT = "account";
     
-      @SerializedName("item")
-      ITEM,
+      public static final String ITEM = "item";
     
-      @SerializedName("plan")
-      PLAN,
+      public static final String PLAN = "plan";
     
-      @SerializedName("subscription")
-      SUBSCRIPTION,
+      public static final String SUBSCRIPTION = "subscription";
     
-      @SerializedName("charge")
-      CHARGE,
+      public static final String CHARGE = "charge";
     
-    };
+    }
   
-    public enum RefundType {
-      UNDEFINED,
+    public static class RefundType {
     
-      @SerializedName("full")
-      FULL,
+      public static final String FULL = "full";
     
-      @SerializedName("none")
-      NONE,
+      public static final String NONE = "none";
     
-      @SerializedName("partial")
-      PARTIAL,
+      public static final String PARTIAL = "partial";
     
-    };
+    }
   
-    public enum AlphanumericSort {
-      UNDEFINED,
+    public static class AlphanumericSort {
     
-      @SerializedName("asc")
-      ASC,
+      public static final String ASC = "asc";
     
-      @SerializedName("desc")
-      DESC,
+      public static final String DESC = "desc";
     
-    };
+    }
   
-    public enum UsageSort {
-      UNDEFINED,
+    public static class UsageSort {
     
-      @SerializedName("recorded_timestamp")
-      RECORDED_TIMESTAMP,
+      public static final String RECORDED_TIMESTAMP = "recorded_timestamp";
     
-      @SerializedName("usage_timestamp")
-      USAGE_TIMESTAMP,
+      public static final String USAGE_TIMESTAMP = "usage_timestamp";
     
-    };
+    }
   
-    public enum UsageType {
-      UNDEFINED,
+    public static class UsageType {
     
-      @SerializedName("price")
-      PRICE,
+      public static final String PRICE = "price";
     
-      @SerializedName("percentage")
-      PERCENTAGE,
+      public static final String PERCENTAGE = "percentage";
     
-    };
+    }
   
-    public enum UsageCalculationType {
-      UNDEFINED,
+    public static class UsageCalculationType {
     
-      @SerializedName("cumulative")
-      CUMULATIVE,
+      public static final String CUMULATIVE = "cumulative";
     
-      @SerializedName("last_in_period")
-      LAST_IN_PERIOD,
+      public static final String LAST_IN_PERIOD = "last_in_period";
     
-    };
+    }
   
-    public enum BillingStatus {
-      UNDEFINED,
+    public static class BillingStatus {
     
-      @SerializedName("unbilled")
-      UNBILLED,
+      public static final String UNBILLED = "unbilled";
     
-      @SerializedName("billed")
-      BILLED,
+      public static final String BILLED = "billed";
     
-      @SerializedName("all")
-      ALL,
+      public static final String ALL = "all";
     
-    };
+    }
   
-    public enum TimestampSort {
-      UNDEFINED,
+    public static class TimestampSort {
     
-      @SerializedName("created_at")
-      CREATED_AT,
+      public static final String CREATED_AT = "created_at";
     
-      @SerializedName("updated_at")
-      UPDATED_AT,
+      public static final String UPDATED_AT = "updated_at";
     
-    };
+    }
   
-    public enum ActiveState {
-      UNDEFINED,
+    public static class ActiveState {
     
-      @SerializedName("active")
-      ACTIVE,
+      public static final String ACTIVE = "active";
     
-      @SerializedName("inactive")
-      INACTIVE,
+      public static final String INACTIVE = "inactive";
     
-    };
+    }
   
-    public enum FilterSubscriptionState {
-      UNDEFINED,
+    public static class FilterSubscriptionState {
     
-      @SerializedName("active")
-      ACTIVE,
+      public static final String ACTIVE = "active";
     
-      @SerializedName("canceled")
-      CANCELED,
+      public static final String CANCELED = "canceled";
     
-      @SerializedName("expired")
-      EXPIRED,
+      public static final String EXPIRED = "expired";
     
-      @SerializedName("future")
-      FUTURE,
+      public static final String FUTURE = "future";
     
-      @SerializedName("in_trial")
-      IN_TRIAL,
+      public static final String IN_TRIAL = "in_trial";
     
-      @SerializedName("live")
-      LIVE,
+      public static final String LIVE = "live";
     
-    };
+    }
   
-    public enum FilterLimitedSubscriptionState {
-      UNDEFINED,
+    public static class FilterLimitedSubscriptionState {
     
-      @SerializedName("active")
-      ACTIVE,
+      public static final String ACTIVE = "active";
     
-      @SerializedName("canceled")
-      CANCELED,
+      public static final String CANCELED = "canceled";
     
-      @SerializedName("expired")
-      EXPIRED,
+      public static final String EXPIRED = "expired";
     
-      @SerializedName("future")
-      FUTURE,
+      public static final String FUTURE = "future";
     
-    };
+    }
   
-    public enum True {
-      UNDEFINED,
+    public static class True {
     
-      @SerializedName("true")
-      TRUE,
+      public static final String TRUE = "true";
     
-    };
+    }
   
-    public enum LineItemState {
-      UNDEFINED,
+    public static class LineItemState {
     
-      @SerializedName("invoiced")
-      INVOICED,
+      public static final String INVOICED = "invoiced";
     
-      @SerializedName("pending")
-      PENDING,
+      public static final String PENDING = "pending";
     
-    };
+    }
   
-    public enum LineItemType {
-      UNDEFINED,
+    public static class LineItemType {
     
-      @SerializedName("charge")
-      CHARGE,
+      public static final String CHARGE = "charge";
     
-      @SerializedName("credit")
-      CREDIT,
+      public static final String CREDIT = "credit";
     
-    };
+    }
   
-    public enum VertexTransactionType {
-      UNDEFINED,
+    public static class VertexTransactionType {
     
-      @SerializedName("sale")
-      SALE,
+      public static final String SALE = "sale";
     
-      @SerializedName("rental")
-      RENTAL,
+      public static final String RENTAL = "rental";
     
-      @SerializedName("lease")
-      LEASE,
+      public static final String LEASE = "lease";
     
-    };
+    }
   
-    public enum FilterTransactionType {
-      UNDEFINED,
+    public static class FilterTransactionType {
     
-      @SerializedName("authorization")
-      AUTHORIZATION,
+      public static final String AUTHORIZATION = "authorization";
     
-      @SerializedName("capture")
-      CAPTURE,
+      public static final String CAPTURE = "capture";
     
-      @SerializedName("payment")
-      PAYMENT,
+      public static final String PAYMENT = "payment";
     
-      @SerializedName("purchase")
-      PURCHASE,
+      public static final String PURCHASE = "purchase";
     
-      @SerializedName("refund")
-      REFUND,
+      public static final String REFUND = "refund";
     
-      @SerializedName("verify")
-      VERIFY,
+      public static final String VERIFY = "verify";
     
-    };
+    }
   
-    public enum FilterInvoiceType {
-      UNDEFINED,
+    public static class FilterInvoiceType {
     
-      @SerializedName("charge")
-      CHARGE,
+      public static final String CHARGE = "charge";
     
-      @SerializedName("credit")
-      CREDIT,
+      public static final String CREDIT = "credit";
     
-      @SerializedName("legacy")
-      LEGACY,
+      public static final String LEGACY = "legacy";
     
-      @SerializedName("non-legacy")
-      NON_LEGACY,
+      public static final String NON_LEGACY = "non-legacy";
     
-    };
+    }
   
-    public enum FilterRedeemed {
-      UNDEFINED,
+    public static class FilterRedeemed {
     
-      @SerializedName("true")
-      TRUE,
+      public static final String TRUE = "true";
     
-      @SerializedName("false")
-      FALSE,
+      public static final String FALSE = "false";
     
-    };
+    }
   
-    public enum Channel {
-      UNDEFINED,
+    public static class Channel {
     
-      @SerializedName("advertising")
-      ADVERTISING,
+      public static final String ADVERTISING = "advertising";
     
-      @SerializedName("blog")
-      BLOG,
+      public static final String BLOG = "blog";
     
-      @SerializedName("direct_traffic")
-      DIRECT_TRAFFIC,
+      public static final String DIRECT_TRAFFIC = "direct_traffic";
     
-      @SerializedName("email")
-      EMAIL,
+      public static final String EMAIL = "email";
     
-      @SerializedName("events")
-      EVENTS,
+      public static final String EVENTS = "events";
     
-      @SerializedName("marketing_content")
-      MARKETING_CONTENT,
+      public static final String MARKETING_CONTENT = "marketing_content";
     
-      @SerializedName("organic_search")
-      ORGANIC_SEARCH,
+      public static final String ORGANIC_SEARCH = "organic_search";
     
-      @SerializedName("other")
-      OTHER,
+      public static final String OTHER = "other";
     
-      @SerializedName("outbound_sales")
-      OUTBOUND_SALES,
+      public static final String OUTBOUND_SALES = "outbound_sales";
     
-      @SerializedName("paid_search")
-      PAID_SEARCH,
+      public static final String PAID_SEARCH = "paid_search";
     
-      @SerializedName("public_relations")
-      PUBLIC_RELATIONS,
+      public static final String PUBLIC_RELATIONS = "public_relations";
     
-      @SerializedName("referral")
-      REFERRAL,
+      public static final String REFERRAL = "referral";
     
-      @SerializedName("social_media")
-      SOCIAL_MEDIA,
+      public static final String SOCIAL_MEDIA = "social_media";
     
-    };
+    }
   
-    public enum PreferredLocale {
-      UNDEFINED,
+    public static class PreferredLocale {
     
-      @SerializedName("da-DK")
-      DA_DK,
+      public static final String DA_DK = "da-DK";
     
-      @SerializedName("de-CH")
-      DE_CH,
+      public static final String DE_CH = "de-CH";
     
-      @SerializedName("de-DE")
-      DE_DE,
+      public static final String DE_DE = "de-DE";
     
-      @SerializedName("en-AU")
-      EN_AU,
+      public static final String EN_AU = "en-AU";
     
-      @SerializedName("en-CA")
-      EN_CA,
+      public static final String EN_CA = "en-CA";
     
-      @SerializedName("en-GB")
-      EN_GB,
+      public static final String EN_GB = "en-GB";
     
-      @SerializedName("en-IE")
-      EN_IE,
+      public static final String EN_IE = "en-IE";
     
-      @SerializedName("en-NZ")
-      EN_NZ,
+      public static final String EN_NZ = "en-NZ";
     
-      @SerializedName("en-US")
-      EN_US,
+      public static final String EN_US = "en-US";
     
-      @SerializedName("es-ES")
-      ES_ES,
+      public static final String ES_ES = "es-ES";
     
-      @SerializedName("es-MX")
-      ES_MX,
+      public static final String ES_MX = "es-MX";
     
-      @SerializedName("es-US")
-      ES_US,
+      public static final String ES_US = "es-US";
     
-      @SerializedName("fi-FI")
-      FI_FI,
+      public static final String FI_FI = "fi-FI";
     
-      @SerializedName("fr-BE")
-      FR_BE,
+      public static final String FR_BE = "fr-BE";
     
-      @SerializedName("fr-CA")
-      FR_CA,
+      public static final String FR_CA = "fr-CA";
     
-      @SerializedName("fr-CH")
-      FR_CH,
+      public static final String FR_CH = "fr-CH";
     
-      @SerializedName("fr-FR")
-      FR_FR,
+      public static final String FR_FR = "fr-FR";
     
-      @SerializedName("hi-IN")
-      HI_IN,
+      public static final String HI_IN = "hi-IN";
     
-      @SerializedName("it-IT")
-      IT_IT,
+      public static final String IT_IT = "it-IT";
     
-      @SerializedName("ja-JP")
-      JA_JP,
+      public static final String JA_JP = "ja-JP";
     
-      @SerializedName("ko-KR")
-      KO_KR,
+      public static final String KO_KR = "ko-KR";
     
-      @SerializedName("nl-BE")
-      NL_BE,
+      public static final String NL_BE = "nl-BE";
     
-      @SerializedName("nl-NL")
-      NL_NL,
+      public static final String NL_NL = "nl-NL";
     
-      @SerializedName("pl-PL")
-      PL_PL,
+      public static final String PL_PL = "pl-PL";
     
-      @SerializedName("pt-BR")
-      PT_BR,
+      public static final String PT_BR = "pt-BR";
     
-      @SerializedName("pt-PT")
-      PT_PT,
+      public static final String PT_PT = "pt-PT";
     
-      @SerializedName("ro-RO")
-      RO_RO,
+      public static final String RO_RO = "ro-RO";
     
-      @SerializedName("ru-RU")
-      RU_RU,
+      public static final String RU_RU = "ru-RU";
     
-      @SerializedName("sk-SK")
-      SK_SK,
+      public static final String SK_SK = "sk-SK";
     
-      @SerializedName("sv-SE")
-      SV_SE,
+      public static final String SV_SE = "sv-SE";
     
-      @SerializedName("tr-TR")
-      TR_TR,
+      public static final String TR_TR = "tr-TR";
     
-      @SerializedName("zh-CN")
-      ZH_CN,
+      public static final String ZH_CN = "zh-CN";
     
-    };
+    }
   
-    public enum BillTo {
-      UNDEFINED,
+    public static class BillTo {
     
-      @SerializedName("parent")
-      PARENT,
+      public static final String PARENT = "parent";
     
-      @SerializedName("self")
-      SELF,
+      public static final String SELF = "self";
     
-    };
+    }
   
-    public enum DeliveryMethod {
-      UNDEFINED,
+    public static class DeliveryMethod {
     
-      @SerializedName("email")
-      EMAIL,
+      public static final String EMAIL = "email";
     
-      @SerializedName("post")
-      POST,
+      public static final String POST = "post";
     
-    };
+    }
   
-    public enum PaymentGatewayReferences {
-      UNDEFINED,
+    public static class PaymentGatewayReferences {
     
-      @SerializedName("stripe_confirmation_token")
-      STRIPE_CONFIRMATION_TOKEN,
+      public static final String STRIPE_CONFIRMATION_TOKEN = "stripe_confirmation_token";
     
-      @SerializedName("upi_vpa")
-      UPI_VPA,
+      public static final String UPI_VPA = "upi_vpa";
     
-    };
+    }
   
-    public enum GatewayTransactionType {
-      UNDEFINED,
+    public static class GatewayTransactionType {
     
-      @SerializedName("moto")
-      MOTO,
+      public static final String MOTO = "moto";
     
-    };
+    }
   
-    public enum KountDecision {
-      UNDEFINED,
+    public static class KountDecision {
     
-      @SerializedName("approve")
-      APPROVE,
+      public static final String APPROVE = "approve";
     
-      @SerializedName("decline")
-      DECLINE,
+      public static final String DECLINE = "decline";
     
-      @SerializedName("escalate")
-      ESCALATE,
+      public static final String ESCALATE = "escalate";
     
-      @SerializedName("review")
-      REVIEW,
+      public static final String REVIEW = "review";
     
-    };
+    }
   
-    public enum CouponState {
-      UNDEFINED,
+    public static class CouponState {
     
-      @SerializedName("expired")
-      EXPIRED,
+      public static final String EXPIRED = "expired";
     
-      @SerializedName("maxed_out")
-      MAXED_OUT,
+      public static final String MAXED_OUT = "maxed_out";
     
-      @SerializedName("redeemable")
-      REDEEMABLE,
+      public static final String REDEEMABLE = "redeemable";
     
-    };
+    }
   
-    public enum CouponDuration {
-      UNDEFINED,
+    public static class CouponDuration {
     
-      @SerializedName("forever")
-      FOREVER,
+      public static final String FOREVER = "forever";
     
-      @SerializedName("single_use")
-      SINGLE_USE,
+      public static final String SINGLE_USE = "single_use";
     
-      @SerializedName("temporal")
-      TEMPORAL,
+      public static final String TEMPORAL = "temporal";
     
-    };
+    }
   
-    public enum TemporalUnit {
-      UNDEFINED,
+    public static class TemporalUnit {
     
-      @SerializedName("day")
-      DAY,
+      public static final String DAY = "day";
     
-      @SerializedName("month")
-      MONTH,
+      public static final String MONTH = "month";
     
-      @SerializedName("week")
-      WEEK,
+      public static final String WEEK = "week";
     
-      @SerializedName("year")
-      YEAR,
+      public static final String YEAR = "year";
     
-    };
+    }
   
-    public enum FreeTrialUnit {
-      UNDEFINED,
+    public static class FreeTrialUnit {
     
-      @SerializedName("day")
-      DAY,
+      public static final String DAY = "day";
     
-      @SerializedName("month")
-      MONTH,
+      public static final String MONTH = "month";
     
-      @SerializedName("week")
-      WEEK,
+      public static final String WEEK = "week";
     
-    };
+    }
   
-    public enum RedemptionResource {
-      UNDEFINED,
+    public static class RedemptionResource {
     
-      @SerializedName("account")
-      ACCOUNT,
+      public static final String ACCOUNT = "account";
     
-      @SerializedName("subscription")
-      SUBSCRIPTION,
+      public static final String SUBSCRIPTION = "subscription";
     
-    };
+    }
   
-    public enum CouponType {
-      UNDEFINED,
+    public static class CouponType {
     
-      @SerializedName("bulk")
-      BULK,
+      public static final String BULK = "bulk";
     
-      @SerializedName("single_code")
-      SINGLE_CODE,
+      public static final String SINGLE_CODE = "single_code";
     
-    };
+    }
   
-    public enum DiscountType {
-      UNDEFINED,
+    public static class DiscountType {
     
-      @SerializedName("fixed")
-      FIXED,
+      public static final String FIXED = "fixed";
     
-      @SerializedName("free_trial")
-      FREE_TRIAL,
+      public static final String FREE_TRIAL = "free_trial";
     
-      @SerializedName("percent")
-      PERCENT,
+      public static final String PERCENT = "percent";
     
-    };
+    }
   
-    public enum AddOnSource {
-      UNDEFINED,
+    public static class AddOnSource {
     
-      @SerializedName("plan_add_on")
-      PLAN_ADD_ON,
+      public static final String PLAN_ADD_ON = "plan_add_on";
     
-      @SerializedName("item")
-      ITEM,
+      public static final String ITEM = "item";
     
-    };
+    }
   
-    public enum AddOnType {
-      UNDEFINED,
+    public static class AddOnType {
     
-      @SerializedName("fixed")
-      FIXED,
+      public static final String FIXED = "fixed";
     
-      @SerializedName("usage")
-      USAGE,
+      public static final String USAGE = "usage";
     
-    };
+    }
   
-    public enum AddOnTypeCreate {
-      UNDEFINED,
+    public static class AddOnTypeCreate {
     
-      @SerializedName("fixed")
-      FIXED,
+      public static final String FIXED = "fixed";
     
-      @SerializedName("usage")
-      USAGE,
+      public static final String USAGE = "usage";
     
-    };
+    }
   
-    public enum UsageTypeCreate {
-      UNDEFINED,
+    public static class UsageTypeCreate {
     
-      @SerializedName("price")
-      PRICE,
+      public static final String PRICE = "price";
     
-      @SerializedName("percentage")
-      PERCENTAGE,
+      public static final String PERCENTAGE = "percentage";
     
-    };
+    }
   
-    public enum TierType {
-      UNDEFINED,
+    public static class TierType {
     
-      @SerializedName("flat")
-      FLAT,
+      public static final String FLAT = "flat";
     
-      @SerializedName("tiered")
-      TIERED,
+      public static final String TIERED = "tiered";
     
-      @SerializedName("stairstep")
-      STAIRSTEP,
+      public static final String STAIRSTEP = "stairstep";
     
-      @SerializedName("volume")
-      VOLUME,
+      public static final String VOLUME = "volume";
     
-    };
+    }
   
-    public enum UsageTimeframe {
-      UNDEFINED,
+    public static class UsageTimeframe {
     
-      @SerializedName("billing_period")
-      BILLING_PERIOD,
+      public static final String BILLING_PERIOD = "billing_period";
     
-      @SerializedName("subscription_term")
-      SUBSCRIPTION_TERM,
+      public static final String SUBSCRIPTION_TERM = "subscription_term";
     
-    };
+    }
   
-    public enum UsageTimeframeCreate {
-      UNDEFINED,
+    public static class UsageTimeframeCreate {
     
-      @SerializedName("billing_period")
-      BILLING_PERIOD,
+      public static final String BILLING_PERIOD = "billing_period";
     
-      @SerializedName("subscription_term")
-      SUBSCRIPTION_TERM,
+      public static final String SUBSCRIPTION_TERM = "subscription_term";
     
-    };
+    }
   
-    public enum CreditPaymentAction {
-      UNDEFINED,
+    public static class CreditPaymentAction {
     
-      @SerializedName("payment")
-      PAYMENT,
+      public static final String PAYMENT = "payment";
     
-      @SerializedName("reduction")
-      REDUCTION,
+      public static final String REDUCTION = "reduction";
     
-      @SerializedName("refund")
-      REFUND,
+      public static final String REFUND = "refund";
     
-      @SerializedName("write_off")
-      WRITE_OFF,
+      public static final String WRITE_OFF = "write_off";
     
-    };
+    }
   
-    public enum UserAccess {
-      UNDEFINED,
+    public static class UserAccess {
     
-      @SerializedName("api_only")
-      API_ONLY,
+      public static final String API_ONLY = "api_only";
     
-      @SerializedName("read_only")
-      READ_ONLY,
+      public static final String READ_ONLY = "read_only";
     
-      @SerializedName("write")
-      WRITE,
+      public static final String WRITE = "write";
     
-      @SerializedName("set_only")
-      SET_ONLY,
+      public static final String SET_ONLY = "set_only";
     
-    };
+    }
   
-    public enum PricingModelType {
-      UNDEFINED,
+    public static class PricingModelType {
     
-      @SerializedName("fixed")
-      FIXED,
+      public static final String FIXED = "fixed";
     
-      @SerializedName("ramp")
-      RAMP,
+      public static final String RAMP = "ramp";
     
-    };
+    }
   
-    public enum RevenueScheduleType {
-      UNDEFINED,
+    public static class RevenueScheduleType {
     
-      @SerializedName("at_range_end")
-      AT_RANGE_END,
+      public static final String AT_RANGE_END = "at_range_end";
     
-      @SerializedName("at_range_start")
-      AT_RANGE_START,
+      public static final String AT_RANGE_START = "at_range_start";
     
-      @SerializedName("evenly")
-      EVENLY,
+      public static final String EVENLY = "evenly";
     
-      @SerializedName("never")
-      NEVER,
+      public static final String NEVER = "never";
     
-    };
+    }
   
-    public enum NetTermsType {
-      UNDEFINED,
+    public static class NetTermsType {
     
-      @SerializedName("net")
-      NET,
+      public static final String NET = "net";
     
-      @SerializedName("eom")
-      EOM,
+      public static final String EOM = "eom";
     
-    };
+    }
   
-    public enum InvoiceType {
-      UNDEFINED,
+    public static class InvoiceType {
     
-      @SerializedName("charge")
-      CHARGE,
+      public static final String CHARGE = "charge";
     
-      @SerializedName("credit")
-      CREDIT,
+      public static final String CREDIT = "credit";
     
-      @SerializedName("legacy")
-      LEGACY,
+      public static final String LEGACY = "legacy";
     
-    };
+    }
   
-    public enum Origin {
-      UNDEFINED,
+    public static class Origin {
     
-      @SerializedName("carryforward_credit")
-      CARRYFORWARD_CREDIT,
+      public static final String CARRYFORWARD_CREDIT = "carryforward_credit";
     
-      @SerializedName("carryforward_gift_credit")
-      CARRYFORWARD_GIFT_CREDIT,
+      public static final String CARRYFORWARD_GIFT_CREDIT = "carryforward_gift_credit";
     
-      @SerializedName("credit")
-      CREDIT,
+      public static final String CREDIT = "credit";
     
-      @SerializedName("external_refund")
-      EXTERNAL_REFUND,
+      public static final String EXTERNAL_REFUND = "external_refund";
     
-      @SerializedName("gift_card")
-      GIFT_CARD,
+      public static final String GIFT_CARD = "gift_card";
     
-      @SerializedName("immediate_change")
-      IMMEDIATE_CHANGE,
+      public static final String IMMEDIATE_CHANGE = "immediate_change";
     
-      @SerializedName("import")
-      IMPORT,
+      public static final String IMPORT = "import";
     
-      @SerializedName("line_item_refund")
-      LINE_ITEM_REFUND,
+      public static final String LINE_ITEM_REFUND = "line_item_refund";
     
-      @SerializedName("open_amount_refund")
-      OPEN_AMOUNT_REFUND,
+      public static final String OPEN_AMOUNT_REFUND = "open_amount_refund";
     
-      @SerializedName("prepayment")
-      PREPAYMENT,
+      public static final String PREPAYMENT = "prepayment";
     
-      @SerializedName("purchase")
-      PURCHASE,
+      public static final String PURCHASE = "purchase";
     
-      @SerializedName("refund")
-      REFUND,
+      public static final String REFUND = "refund";
     
-      @SerializedName("renewal")
-      RENEWAL,
+      public static final String RENEWAL = "renewal";
     
-      @SerializedName("termination")
-      TERMINATION,
+      public static final String TERMINATION = "termination";
     
-      @SerializedName("usage_correction")
-      USAGE_CORRECTION,
+      public static final String USAGE_CORRECTION = "usage_correction";
     
-      @SerializedName("write_off")
-      WRITE_OFF,
+      public static final String WRITE_OFF = "write_off";
     
-    };
+    }
   
-    public enum InvoiceState {
-      UNDEFINED,
+    public static class InvoiceState {
     
-      @SerializedName("open")
-      OPEN,
+      public static final String OPEN = "open";
     
-      @SerializedName("pending")
-      PENDING,
+      public static final String PENDING = "pending";
     
-      @SerializedName("processing")
-      PROCESSING,
+      public static final String PROCESSING = "processing";
     
-      @SerializedName("past_due")
-      PAST_DUE,
+      public static final String PAST_DUE = "past_due";
     
-      @SerializedName("paid")
-      PAID,
+      public static final String PAID = "paid";
     
-      @SerializedName("closed")
-      CLOSED,
+      public static final String CLOSED = "closed";
     
-      @SerializedName("failed")
-      FAILED,
+      public static final String FAILED = "failed";
     
-      @SerializedName("voided")
-      VOIDED,
+      public static final String VOIDED = "voided";
     
-    };
+    }
   
-    public enum InvoiceStateQueryParam {
-      UNDEFINED,
+    public static class InvoiceStateQueryParam {
     
-      @SerializedName("pending")
-      PENDING,
+      public static final String PENDING = "pending";
     
-      @SerializedName("processing")
-      PROCESSING,
+      public static final String PROCESSING = "processing";
     
-      @SerializedName("past_due")
-      PAST_DUE,
+      public static final String PAST_DUE = "past_due";
     
-      @SerializedName("paid")
-      PAID,
+      public static final String PAID = "paid";
     
-      @SerializedName("failed")
-      FAILED,
+      public static final String FAILED = "failed";
     
-      @SerializedName("open")
-      OPEN,
+      public static final String OPEN = "open";
     
-      @SerializedName("closed")
-      CLOSED,
+      public static final String CLOSED = "closed";
     
-      @SerializedName("voided")
-      VOIDED,
+      public static final String VOIDED = "voided";
     
-    };
+    }
   
-    public enum CollectionMethod {
-      UNDEFINED,
+    public static class CollectionMethod {
     
-      @SerializedName("automatic")
-      AUTOMATIC,
+      public static final String AUTOMATIC = "automatic";
     
-      @SerializedName("manual")
-      MANUAL,
+      public static final String MANUAL = "manual";
     
-    };
+    }
   
-    public enum CreditApplicationMode {
-      UNDEFINED,
+    public static class CreditApplicationMode {
     
-      @SerializedName("all")
-      ALL,
+      public static final String ALL = "all";
     
-      @SerializedName("none")
-      NONE,
+      public static final String NONE = "none";
     
-    };
+    }
   
-    public enum CreditApplicationAllowedOriginType {
-      UNDEFINED,
+    public static class CreditApplicationAllowedOriginType {
     
-      @SerializedName("line_item_refund")
-      LINE_ITEM_REFUND,
+      public static final String LINE_ITEM_REFUND = "line_item_refund";
     
-      @SerializedName("open_amount_refund")
-      OPEN_AMOUNT_REFUND,
+      public static final String OPEN_AMOUNT_REFUND = "open_amount_refund";
     
-      @SerializedName("immediate_change")
-      IMMEDIATE_CHANGE,
+      public static final String IMMEDIATE_CHANGE = "immediate_change";
     
-      @SerializedName("termination")
-      TERMINATION,
+      public static final String TERMINATION = "termination";
     
-      @SerializedName("credit")
-      CREDIT,
+      public static final String CREDIT = "credit";
     
-      @SerializedName("write_off")
-      WRITE_OFF,
+      public static final String WRITE_OFF = "write_off";
     
-      @SerializedName("refund")
-      REFUND,
+      public static final String REFUND = "refund";
     
-      @SerializedName("external_refund")
-      EXTERNAL_REFUND,
+      public static final String EXTERNAL_REFUND = "external_refund";
     
-      @SerializedName("carryforward_credit")
-      CARRYFORWARD_CREDIT,
+      public static final String CARRYFORWARD_CREDIT = "carryforward_credit";
     
-      @SerializedName("usage_correction")
-      USAGE_CORRECTION,
+      public static final String USAGE_CORRECTION = "usage_correction";
     
-      @SerializedName("prepayment")
-      PREPAYMENT,
+      public static final String PREPAYMENT = "prepayment";
     
-      @SerializedName("gift_card")
-      GIFT_CARD,
+      public static final String GIFT_CARD = "gift_card";
     
-      @SerializedName("carryforward_gift_credit")
-      CARRYFORWARD_GIFT_CREDIT,
+      public static final String CARRYFORWARD_GIFT_CREDIT = "carryforward_gift_credit";
     
-    };
+    }
   
-    public enum InvoiceRefundType {
-      UNDEFINED,
+    public static class InvoiceRefundType {
     
-      @SerializedName("amount")
-      AMOUNT,
+      public static final String AMOUNT = "amount";
     
-      @SerializedName("percentage")
-      PERCENTAGE,
+      public static final String PERCENTAGE = "percentage";
     
-      @SerializedName("line_items")
-      LINE_ITEMS,
+      public static final String LINE_ITEMS = "line_items";
     
-    };
+    }
   
-    public enum RefundMethod {
-      UNDEFINED,
+    public static class RefundMethod {
     
-      @SerializedName("all_credit")
-      ALL_CREDIT,
+      public static final String ALL_CREDIT = "all_credit";
     
-      @SerializedName("all_transaction")
-      ALL_TRANSACTION,
+      public static final String ALL_TRANSACTION = "all_transaction";
     
-      @SerializedName("credit_first")
-      CREDIT_FIRST,
+      public static final String CREDIT_FIRST = "credit_first";
     
-      @SerializedName("transaction_first")
-      TRANSACTION_FIRST,
+      public static final String TRANSACTION_FIRST = "transaction_first";
     
-    };
+    }
   
-    public enum ExternalPaymentMethod {
-      UNDEFINED,
+    public static class ExternalPaymentMethod {
     
-      @SerializedName("bacs")
-      BACS,
+      public static final String BACS = "bacs";
     
-      @SerializedName("ach")
-      ACH,
+      public static final String ACH = "ach";
     
-      @SerializedName("amazon")
-      AMAZON,
+      public static final String AMAZON = "amazon";
     
-      @SerializedName("apple_pay")
-      APPLE_PAY,
+      public static final String APPLE_PAY = "apple_pay";
     
-      @SerializedName("braintree_apple_pay")
-      BRAINTREE_APPLE_PAY,
+      public static final String BRAINTREE_APPLE_PAY = "braintree_apple_pay";
     
-      @SerializedName("check")
-      CHECK,
+      public static final String CHECK = "check";
     
-      @SerializedName("credit_card")
-      CREDIT_CARD,
+      public static final String CREDIT_CARD = "credit_card";
     
-      @SerializedName("eft")
-      EFT,
+      public static final String EFT = "eft";
     
-      @SerializedName("google_pay")
-      GOOGLE_PAY,
+      public static final String GOOGLE_PAY = "google_pay";
     
-      @SerializedName("mercadopago")
-      MERCADOPAGO,
+      public static final String MERCADOPAGO = "mercadopago";
     
-      @SerializedName("money_order")
-      MONEY_ORDER,
+      public static final String MONEY_ORDER = "money_order";
     
-      @SerializedName("other")
-      OTHER,
+      public static final String OTHER = "other";
     
-      @SerializedName("paypal")
-      PAYPAL,
+      public static final String PAYPAL = "paypal";
     
-      @SerializedName("pix_automatico")
-      PIX_AUTOMATICO,
+      public static final String PIX_AUTOMATICO = "pix_automatico";
     
-      @SerializedName("roku")
-      ROKU,
+      public static final String ROKU = "roku";
     
-      @SerializedName("sepadirectdebit")
-      SEPADIRECTDEBIT,
+      public static final String SEPADIRECTDEBIT = "sepadirectdebit";
     
-      @SerializedName("wire_transfer")
-      WIRE_TRANSFER,
+      public static final String WIRE_TRANSFER = "wire_transfer";
     
-    };
+    }
   
-    public enum LineItemRevenueScheduleType {
-      UNDEFINED,
+    public static class LineItemRevenueScheduleType {
     
-      @SerializedName("at_invoice")
-      AT_INVOICE,
+      public static final String AT_INVOICE = "at_invoice";
     
-      @SerializedName("at_range_end")
-      AT_RANGE_END,
+      public static final String AT_RANGE_END = "at_range_end";
     
-      @SerializedName("at_range_start")
-      AT_RANGE_START,
+      public static final String AT_RANGE_START = "at_range_start";
     
-      @SerializedName("evenly")
-      EVENLY,
+      public static final String EVENLY = "evenly";
     
-      @SerializedName("never")
-      NEVER,
+      public static final String NEVER = "never";
     
-    };
+    }
   
-    public enum LegacyCategory {
-      UNDEFINED,
+    public static class LegacyCategory {
     
-      @SerializedName("applied_credit")
-      APPLIED_CREDIT,
+      public static final String APPLIED_CREDIT = "applied_credit";
     
-      @SerializedName("carryforward")
-      CARRYFORWARD,
+      public static final String CARRYFORWARD = "carryforward";
     
-      @SerializedName("charge")
-      CHARGE,
+      public static final String CHARGE = "charge";
     
-      @SerializedName("credit")
-      CREDIT,
+      public static final String CREDIT = "credit";
     
-    };
+    }
   
-    public enum LineItemOrigin {
-      UNDEFINED,
+    public static class LineItemOrigin {
     
-      @SerializedName("add_on")
-      ADD_ON,
+      public static final String ADD_ON = "add_on";
     
-      @SerializedName("add_on_trial")
-      ADD_ON_TRIAL,
+      public static final String ADD_ON_TRIAL = "add_on_trial";
     
-      @SerializedName("carryforward")
-      CARRYFORWARD,
+      public static final String CARRYFORWARD = "carryforward";
     
-      @SerializedName("coupon")
-      COUPON,
+      public static final String COUPON = "coupon";
     
-      @SerializedName("credit")
-      CREDIT,
+      public static final String CREDIT = "credit";
     
-      @SerializedName("debit")
-      DEBIT,
+      public static final String DEBIT = "debit";
     
-      @SerializedName("one_time")
-      ONE_TIME,
+      public static final String ONE_TIME = "one_time";
     
-      @SerializedName("plan")
-      PLAN,
+      public static final String PLAN = "plan";
     
-      @SerializedName("plan_trial")
-      PLAN_TRIAL,
+      public static final String PLAN_TRIAL = "plan_trial";
     
-      @SerializedName("setup_fee")
-      SETUP_FEE,
+      public static final String SETUP_FEE = "setup_fee";
     
-      @SerializedName("prepayment")
-      PREPAYMENT,
+      public static final String PREPAYMENT = "prepayment";
     
-    };
+    }
   
-    public enum FullCreditReasonCode {
-      UNDEFINED,
+    public static class FullCreditReasonCode {
     
-      @SerializedName("general")
-      GENERAL,
+      public static final String GENERAL = "general";
     
-      @SerializedName("gift_card")
-      GIFT_CARD,
+      public static final String GIFT_CARD = "gift_card";
     
-      @SerializedName("promotional")
-      PROMOTIONAL,
+      public static final String PROMOTIONAL = "promotional";
     
-      @SerializedName("refund")
-      REFUND,
+      public static final String REFUND = "refund";
     
-      @SerializedName("service")
-      SERVICE,
+      public static final String SERVICE = "service";
     
-      @SerializedName("write_off")
-      WRITE_OFF,
+      public static final String WRITE_OFF = "write_off";
     
-    };
+    }
   
-    public enum PartialCreditReasonCode {
-      UNDEFINED,
+    public static class PartialCreditReasonCode {
     
-      @SerializedName("general")
-      GENERAL,
+      public static final String GENERAL = "general";
     
-      @SerializedName("promotional")
-      PROMOTIONAL,
+      public static final String PROMOTIONAL = "promotional";
     
-      @SerializedName("service")
-      SERVICE,
+      public static final String SERVICE = "service";
     
-    };
+    }
   
-    public enum LineItemCreateOrigin {
-      UNDEFINED,
+    public static class LineItemCreateOrigin {
     
-      @SerializedName("external_gift_card")
-      EXTERNAL_GIFT_CARD,
+      public static final String EXTERNAL_GIFT_CARD = "external_gift_card";
     
-      @SerializedName("prepayment")
-      PREPAYMENT,
+      public static final String PREPAYMENT = "prepayment";
     
-    };
+    }
   
-    public enum IntervalUnit {
-      UNDEFINED,
+    public static class IntervalUnit {
     
-      @SerializedName("days")
-      DAYS,
+      public static final String DAYS = "days";
     
-      @SerializedName("months")
-      MONTHS,
+      public static final String MONTHS = "months";
     
-    };
+    }
   
-    public enum AddressRequirement {
-      UNDEFINED,
+    public static class AddressRequirement {
     
-      @SerializedName("full")
-      FULL,
+      public static final String FULL = "full";
     
-      @SerializedName("none")
-      NONE,
+      public static final String NONE = "none";
     
-      @SerializedName("streetzip")
-      STREETZIP,
+      public static final String STREETZIP = "streetzip";
     
-      @SerializedName("zip")
-      ZIP,
+      public static final String ZIP = "zip";
     
-    };
+    }
   
-    public enum SiteMode {
-      UNDEFINED,
+    public static class SiteMode {
     
-      @SerializedName("development")
-      DEVELOPMENT,
+      public static final String DEVELOPMENT = "development";
     
-      @SerializedName("production")
-      PRODUCTION,
+      public static final String PRODUCTION = "production";
     
-      @SerializedName("sandbox")
-      SANDBOX,
+      public static final String SANDBOX = "sandbox";
     
-    };
+    }
   
-    public enum Features {
-      UNDEFINED,
+    public static class Features {
     
-      @SerializedName("credit_memos")
-      CREDIT_MEMOS,
+      public static final String CREDIT_MEMOS = "credit_memos";
     
-      @SerializedName("manual_invoicing")
-      MANUAL_INVOICING,
+      public static final String MANUAL_INVOICING = "manual_invoicing";
     
-      @SerializedName("only_bill_what_changed")
-      ONLY_BILL_WHAT_CHANGED,
+      public static final String ONLY_BILL_WHAT_CHANGED = "only_bill_what_changed";
     
-      @SerializedName("subscription_terms")
-      SUBSCRIPTION_TERMS,
+      public static final String SUBSCRIPTION_TERMS = "subscription_terms";
     
-    };
+    }
   
-    public enum SubscriptionState {
-      UNDEFINED,
+    public static class SubscriptionState {
     
-      @SerializedName("active")
-      ACTIVE,
+      public static final String ACTIVE = "active";
     
-      @SerializedName("canceled")
-      CANCELED,
+      public static final String CANCELED = "canceled";
     
-      @SerializedName("expired")
-      EXPIRED,
+      public static final String EXPIRED = "expired";
     
-      @SerializedName("failed")
-      FAILED,
+      public static final String FAILED = "failed";
     
-      @SerializedName("future")
-      FUTURE,
+      public static final String FUTURE = "future";
     
-      @SerializedName("paused")
-      PAUSED,
+      public static final String PAUSED = "paused";
     
-    };
+    }
   
-    public enum Timeframe {
-      UNDEFINED,
+    public static class Timeframe {
     
-      @SerializedName("bill_date")
-      BILL_DATE,
+      public static final String BILL_DATE = "bill_date";
     
-      @SerializedName("term_end")
-      TERM_END,
+      public static final String TERM_END = "term_end";
     
-    };
+    }
   
-    public enum ChangeTimeframe {
-      UNDEFINED,
+    public static class ChangeTimeframe {
     
-      @SerializedName("bill_date")
-      BILL_DATE,
+      public static final String BILL_DATE = "bill_date";
     
-      @SerializedName("now")
-      NOW,
+      public static final String NOW = "now";
     
-      @SerializedName("renewal")
-      RENEWAL,
+      public static final String RENEWAL = "renewal";
     
-      @SerializedName("term_end")
-      TERM_END,
+      public static final String TERM_END = "term_end";
     
-    };
+    }
   
-    public enum TransactionType {
-      UNDEFINED,
+    public static class TransactionType {
     
-      @SerializedName("authorization")
-      AUTHORIZATION,
+      public static final String AUTHORIZATION = "authorization";
     
-      @SerializedName("capture")
-      CAPTURE,
+      public static final String CAPTURE = "capture";
     
-      @SerializedName("purchase")
-      PURCHASE,
+      public static final String PURCHASE = "purchase";
     
-      @SerializedName("refund")
-      REFUND,
+      public static final String REFUND = "refund";
     
-      @SerializedName("verify")
-      VERIFY,
+      public static final String VERIFY = "verify";
     
-    };
+    }
   
-    public enum TransactionOrigin {
-      UNDEFINED,
+    public static class TransactionOrigin {
     
-      @SerializedName("api")
-      API,
+      public static final String API = "api";
     
-      @SerializedName("chargeback")
-      CHARGEBACK,
+      public static final String CHARGEBACK = "chargeback";
     
-      @SerializedName("external_recovery")
-      EXTERNAL_RECOVERY,
+      public static final String EXTERNAL_RECOVERY = "external_recovery";
     
-      @SerializedName("force_collect")
-      FORCE_COLLECT,
+      public static final String FORCE_COLLECT = "force_collect";
     
-      @SerializedName("hpp")
-      HPP,
+      public static final String HPP = "hpp";
     
-      @SerializedName("merchant")
-      MERCHANT,
+      public static final String MERCHANT = "merchant";
     
-      @SerializedName("recurly_admin")
-      RECURLY_ADMIN,
+      public static final String RECURLY_ADMIN = "recurly_admin";
     
-      @SerializedName("recurlyjs")
-      RECURLYJS,
+      public static final String RECURLYJS = "recurlyjs";
     
-      @SerializedName("recurring")
-      RECURRING,
+      public static final String RECURRING = "recurring";
     
-      @SerializedName("refunded_externally")
-      REFUNDED_EXTERNALLY,
+      public static final String REFUNDED_EXTERNALLY = "refunded_externally";
     
-      @SerializedName("transparent")
-      TRANSPARENT,
+      public static final String TRANSPARENT = "transparent";
     
-      @SerializedName("token_api")
-      TOKEN_API,
+      public static final String TOKEN_API = "token_api";
     
-      @SerializedName("api_force_collect")
-      API_FORCE_COLLECT,
+      public static final String API_FORCE_COLLECT = "api_force_collect";
     
-      @SerializedName("api_sub_change")
-      API_SUB_CHANGE,
+      public static final String API_SUB_CHANGE = "api_sub_change";
     
-      @SerializedName("api_verify_card")
-      API_VERIFY_CARD,
+      public static final String API_VERIFY_CARD = "api_verify_card";
     
-      @SerializedName("refund_balance")
-      REFUND_BALANCE,
+      public static final String REFUND_BALANCE = "refund_balance";
     
-      @SerializedName("amazon_v2_ipn")
-      AMAZON_V2_IPN,
+      public static final String AMAZON_V2_IPN = "amazon_v2_ipn";
     
-    };
+    }
   
-    public enum TransactionStatus {
-      UNDEFINED,
+    public static class TransactionStatus {
     
-      @SerializedName("chargeback")
-      CHARGEBACK,
+      public static final String CHARGEBACK = "chargeback";
     
-      @SerializedName("declined")
-      DECLINED,
+      public static final String DECLINED = "declined";
     
-      @SerializedName("error")
-      ERROR,
+      public static final String ERROR = "error";
     
-      @SerializedName("pending")
-      PENDING,
+      public static final String PENDING = "pending";
     
-      @SerializedName("processing")
-      PROCESSING,
+      public static final String PROCESSING = "processing";
     
-      @SerializedName("scheduled")
-      SCHEDULED,
+      public static final String SCHEDULED = "scheduled";
     
-      @SerializedName("success")
-      SUCCESS,
+      public static final String SUCCESS = "success";
     
-      @SerializedName("void")
-      VOID,
+      public static final String VOID = "void";
     
-    };
+    }
   
-    public enum NextActionType {
-      UNDEFINED,
+    public static class NextActionType {
     
-      @SerializedName("qr_code")
-      QR_CODE,
+      public static final String QR_CODE = "qr_code";
     
-    };
+    }
   
-    public enum CvvCheck {
-      UNDEFINED,
+    public static class CvvCheck {
     
-      @SerializedName("D")
-      D,
+      public static final String D = "D";
     
-      @SerializedName("I")
-      I,
+      public static final String I = "I";
     
-      @SerializedName("M")
-      M,
+      public static final String M = "M";
     
-      @SerializedName("N")
-      N,
+      public static final String N = "N";
     
-      @SerializedName("P")
-      P,
+      public static final String P = "P";
     
-      @SerializedName("S")
-      S,
+      public static final String S = "S";
     
-      @SerializedName("U")
-      U,
+      public static final String U = "U";
     
-      @SerializedName("X")
-      X,
+      public static final String X = "X";
     
-    };
+    }
   
-    public enum AvsCheck {
-      UNDEFINED,
+    public static class AvsCheck {
     
-      @SerializedName("A")
-      A,
+      public static final String A = "A";
     
-      @SerializedName("B")
-      B,
+      public static final String B = "B";
     
-      @SerializedName("C")
-      C,
+      public static final String C = "C";
     
-      @SerializedName("D")
-      D,
+      public static final String D = "D";
     
-      @SerializedName("E")
-      E,
+      public static final String E = "E";
     
-      @SerializedName("F")
-      F,
+      public static final String F = "F";
     
-      @SerializedName("G")
-      G,
+      public static final String G = "G";
     
-      @SerializedName("H")
-      H,
+      public static final String H = "H";
     
-      @SerializedName("I")
-      I,
+      public static final String I = "I";
     
-      @SerializedName("J")
-      J,
+      public static final String J = "J";
     
-      @SerializedName("K")
-      K,
+      public static final String K = "K";
     
-      @SerializedName("L")
-      L,
+      public static final String L = "L";
     
-      @SerializedName("M")
-      M,
+      public static final String M = "M";
     
-      @SerializedName("N")
-      N,
+      public static final String N = "N";
     
-      @SerializedName("O")
-      O,
+      public static final String O = "O";
     
-      @SerializedName("P")
-      P,
+      public static final String P = "P";
     
-      @SerializedName("Q")
-      Q,
+      public static final String Q = "Q";
     
-      @SerializedName("R")
-      R,
+      public static final String R = "R";
     
-      @SerializedName("S")
-      S,
+      public static final String S = "S";
     
-      @SerializedName("T")
-      T,
+      public static final String T = "T";
     
-      @SerializedName("U")
-      U,
+      public static final String U = "U";
     
-      @SerializedName("V")
-      V,
+      public static final String V = "V";
     
-      @SerializedName("W")
-      W,
+      public static final String W = "W";
     
-      @SerializedName("X")
-      X,
+      public static final String X = "X";
     
-      @SerializedName("Y")
-      Y,
+      public static final String Y = "Y";
     
-      @SerializedName("Z")
-      Z,
+      public static final String Z = "Z";
     
-    };
+    }
   
-    public enum CouponCodeState {
-      UNDEFINED,
+    public static class CouponCodeState {
     
-      @SerializedName("expired")
-      EXPIRED,
+      public static final String EXPIRED = "expired";
     
-      @SerializedName("inactive")
-      INACTIVE,
+      public static final String INACTIVE = "inactive";
     
-      @SerializedName("maxed_out")
-      MAXED_OUT,
+      public static final String MAXED_OUT = "maxed_out";
     
-      @SerializedName("redeemable")
-      REDEEMABLE,
+      public static final String REDEEMABLE = "redeemable";
     
-    };
+    }
   
-    public enum PaymentMethod {
-      UNDEFINED,
+    public static class PaymentMethod {
     
-      @SerializedName("bacs")
-      BACS,
+      public static final String BACS = "bacs";
     
-      @SerializedName("amazon")
-      AMAZON,
+      public static final String AMAZON = "amazon";
     
-      @SerializedName("amazon_billing_agreement")
-      AMAZON_BILLING_AGREEMENT,
+      public static final String AMAZON_BILLING_AGREEMENT = "amazon_billing_agreement";
     
-      @SerializedName("apple_pay")
-      APPLE_PAY,
+      public static final String APPLE_PAY = "apple_pay";
     
-      @SerializedName("apple_pay_merchant_token")
-      APPLE_PAY_MERCHANT_TOKEN,
+      public static final String APPLE_PAY_MERCHANT_TOKEN = "apple_pay_merchant_token";
     
-      @SerializedName("bank_account_info")
-      BANK_ACCOUNT_INFO,
+      public static final String BANK_ACCOUNT_INFO = "bank_account_info";
     
-      @SerializedName("braintree_apple_pay")
-      BRAINTREE_APPLE_PAY,
+      public static final String BRAINTREE_APPLE_PAY = "braintree_apple_pay";
     
-      @SerializedName("check")
-      CHECK,
+      public static final String CHECK = "check";
     
-      @SerializedName("credit_card")
-      CREDIT_CARD,
+      public static final String CREDIT_CARD = "credit_card";
     
-      @SerializedName("eft")
-      EFT,
+      public static final String EFT = "eft";
     
-      @SerializedName("gateway_token")
-      GATEWAY_TOKEN,
+      public static final String GATEWAY_TOKEN = "gateway_token";
     
-      @SerializedName("google_pay")
-      GOOGLE_PAY,
+      public static final String GOOGLE_PAY = "google_pay";
     
-      @SerializedName("google_pay_device_pan")
-      GOOGLE_PAY_DEVICE_PAN,
+      public static final String GOOGLE_PAY_DEVICE_PAN = "google_pay_device_pan";
     
-      @SerializedName("iban_bank_account")
-      IBAN_BANK_ACCOUNT,
+      public static final String IBAN_BANK_ACCOUNT = "iban_bank_account";
     
-      @SerializedName("money_order")
-      MONEY_ORDER,
+      public static final String MONEY_ORDER = "money_order";
     
-      @SerializedName("other")
-      OTHER,
+      public static final String OTHER = "other";
     
-      @SerializedName("paypal")
-      PAYPAL,
+      public static final String PAYPAL = "paypal";
     
-      @SerializedName("paypal_billing_agreement")
-      PAYPAL_BILLING_AGREEMENT,
+      public static final String PAYPAL_BILLING_AGREEMENT = "paypal_billing_agreement";
     
-      @SerializedName("roku")
-      ROKU,
+      public static final String ROKU = "roku";
     
-      @SerializedName("sepadirectdebit")
-      SEPADIRECTDEBIT,
+      public static final String SEPADIRECTDEBIT = "sepadirectdebit";
     
-      @SerializedName("venmo")
-      VENMO,
+      public static final String VENMO = "venmo";
     
-      @SerializedName("wire_transfer")
-      WIRE_TRANSFER,
+      public static final String WIRE_TRANSFER = "wire_transfer";
     
-      @SerializedName("braintree_v_zero")
-      BRAINTREE_V_ZERO,
+      public static final String BRAINTREE_V_ZERO = "braintree_v_zero";
     
-      @SerializedName("boleto")
-      BOLETO,
+      public static final String BOLETO = "boleto";
     
-      @SerializedName("cash_app")
-      CASH_APP,
+      public static final String CASH_APP = "cash_app";
     
-      @SerializedName("upi_autopay")
-      UPI_AUTOPAY,
+      public static final String UPI_AUTOPAY = "upi_autopay";
     
-      @SerializedName("pix_automatico")
-      PIX_AUTOMATICO,
+      public static final String PIX_AUTOMATICO = "pix_automatico";
     
-      @SerializedName("mercadopago")
-      MERCADOPAGO,
+      public static final String MERCADOPAGO = "mercadopago";
     
-      @SerializedName("klarna")
-      KLARNA,
+      public static final String KLARNA = "klarna";
     
-      @SerializedName("braintree_google_pay")
-      BRAINTREE_GOOGLE_PAY,
+      public static final String BRAINTREE_GOOGLE_PAY = "braintree_google_pay";
     
-    };
+    }
   
-    public enum CardType {
-      UNDEFINED,
+    public static class CardType {
     
-      @SerializedName("American Express")
-      AMERICAN_EXPRESS,
+      public static final String AMERICAN_EXPRESS = "American Express";
     
-      @SerializedName("Dankort")
-      DANKORT,
+      public static final String DANKORT = "Dankort";
     
-      @SerializedName("Diners Club")
-      DINERS_CLUB,
+      public static final String DINERS_CLUB = "Diners Club";
     
-      @SerializedName("Discover")
-      DISCOVER,
+      public static final String DISCOVER = "Discover";
     
-      @SerializedName("ELO")
-      ELO,
+      public static final String ELO = "ELO";
     
-      @SerializedName("Forbrugsforeningen")
-      FORBRUGSFORENINGEN,
+      public static final String FORBRUGSFORENINGEN = "Forbrugsforeningen";
     
-      @SerializedName("Hipercard")
-      HIPERCARD,
+      public static final String HIPERCARD = "Hipercard";
     
-      @SerializedName("JCB")
-      JCB,
+      public static final String JCB = "JCB";
     
-      @SerializedName("Laser")
-      LASER,
+      public static final String LASER = "Laser";
     
-      @SerializedName("Maestro")
-      MAESTRO,
+      public static final String MAESTRO = "Maestro";
     
-      @SerializedName("MasterCard")
-      MASTERCARD,
+      public static final String MASTERCARD = "MasterCard";
     
-      @SerializedName("Test Card")
-      TEST_CARD,
+      public static final String TEST_CARD = "Test Card";
     
-      @SerializedName("Union Pay")
-      UNION_PAY,
+      public static final String UNION_PAY = "Union Pay";
     
-      @SerializedName("Unknown")
-      UNKNOWN,
+      public static final String UNKNOWN = "Unknown";
     
-      @SerializedName("Visa")
-      VISA,
+      public static final String VISA = "Visa";
     
-      @SerializedName("Tarjeta Naranja")
-      TARJETA_NARANJA,
+      public static final String TARJETA_NARANJA = "Tarjeta Naranja";
     
-    };
+    }
   
-    public enum CardNetwork {
-      UNDEFINED,
+    public static class CardNetwork {
     
-      @SerializedName("Bancontact")
-      BANCONTACT,
+      public static final String BANCONTACT = "Bancontact";
     
-      @SerializedName("CartesBancaires")
-      CARTESBANCAIRES,
+      public static final String CARTESBANCAIRES = "CartesBancaires";
     
-      @SerializedName("Dankort")
-      DANKORT,
+      public static final String DANKORT = "Dankort";
     
-      @SerializedName("MasterCard")
-      MASTERCARD,
+      public static final String MASTERCARD = "MasterCard";
     
-      @SerializedName("Visa")
-      VISA,
+      public static final String VISA = "Visa";
     
-    };
+    }
   
-    public enum CardFundingSource {
-      UNDEFINED,
+    public static class CardFundingSource {
     
-      @SerializedName("credit")
-      CREDIT,
+      public static final String CREDIT = "credit";
     
-      @SerializedName("debit")
-      DEBIT,
+      public static final String DEBIT = "debit";
     
-      @SerializedName("charge")
-      CHARGE,
+      public static final String CHARGE = "charge";
     
-      @SerializedName("prepaid")
-      PREPAID,
+      public static final String PREPAID = "prepaid";
     
-      @SerializedName("deferred_debit")
-      DEFERRED_DEBIT,
+      public static final String DEFERRED_DEBIT = "deferred_debit";
     
-    };
+    }
   
-    public enum AccountType {
-      UNDEFINED,
+    public static class AccountType {
     
-      @SerializedName("checking")
-      CHECKING,
+      public static final String CHECKING = "checking";
     
-      @SerializedName("savings")
-      SAVINGS,
+      public static final String SAVINGS = "savings";
     
-    };
+    }
   
-    public enum ErrorType {
-      UNDEFINED,
+    public static class ErrorType {
     
-      @SerializedName("bad_request")
-      BAD_REQUEST,
+      public static final String BAD_REQUEST = "bad_request";
     
-      @SerializedName("immutable_subscription")
-      IMMUTABLE_SUBSCRIPTION,
+      public static final String IMMUTABLE_SUBSCRIPTION = "immutable_subscription";
     
-      @SerializedName("internal_server_error")
-      INTERNAL_SERVER_ERROR,
+      public static final String INTERNAL_SERVER_ERROR = "internal_server_error";
     
-      @SerializedName("invalid_api_key")
-      INVALID_API_KEY,
+      public static final String INVALID_API_KEY = "invalid_api_key";
     
-      @SerializedName("invalid_api_version")
-      INVALID_API_VERSION,
+      public static final String INVALID_API_VERSION = "invalid_api_version";
     
-      @SerializedName("invalid_content_type")
-      INVALID_CONTENT_TYPE,
+      public static final String INVALID_CONTENT_TYPE = "invalid_content_type";
     
-      @SerializedName("invalid_permissions")
-      INVALID_PERMISSIONS,
+      public static final String INVALID_PERMISSIONS = "invalid_permissions";
     
-      @SerializedName("invalid_token")
-      INVALID_TOKEN,
+      public static final String INVALID_TOKEN = "invalid_token";
     
-      @SerializedName("missing_feature")
-      MISSING_FEATURE,
+      public static final String MISSING_FEATURE = "missing_feature";
     
-      @SerializedName("not_found")
-      NOT_FOUND,
+      public static final String NOT_FOUND = "not_found";
     
-      @SerializedName("rate_limited")
-      RATE_LIMITED,
+      public static final String RATE_LIMITED = "rate_limited";
     
-      @SerializedName("service_not_available")
-      SERVICE_NOT_AVAILABLE,
+      public static final String SERVICE_NOT_AVAILABLE = "service_not_available";
     
-      @SerializedName("simultaneous_request")
-      SIMULTANEOUS_REQUEST,
+      public static final String SIMULTANEOUS_REQUEST = "simultaneous_request";
     
-      @SerializedName("tax_service_error")
-      TAX_SERVICE_ERROR,
+      public static final String TAX_SERVICE_ERROR = "tax_service_error";
     
-      @SerializedName("transaction")
-      TRANSACTION,
+      public static final String TRANSACTION = "transaction";
     
-      @SerializedName("unauthorized")
-      UNAUTHORIZED,
+      public static final String UNAUTHORIZED = "unauthorized";
     
-      @SerializedName("unavailable_in_api_version")
-      UNAVAILABLE_IN_API_VERSION,
+      public static final String UNAVAILABLE_IN_API_VERSION = "unavailable_in_api_version";
     
-      @SerializedName("unknown_api_version")
-      UNKNOWN_API_VERSION,
+      public static final String UNKNOWN_API_VERSION = "unknown_api_version";
     
-      @SerializedName("validation")
-      VALIDATION,
+      public static final String VALIDATION = "validation";
     
-    };
+    }
   
-    public enum ErrorCategory {
-      UNDEFINED,
+    public static class ErrorCategory {
     
-      @SerializedName("three_d_secure_required")
-      THREE_D_SECURE_REQUIRED,
+      public static final String THREE_D_SECURE_REQUIRED = "three_d_secure_required";
     
-      @SerializedName("three_d_secure_action_required")
-      THREE_D_SECURE_ACTION_REQUIRED,
+      public static final String THREE_D_SECURE_ACTION_REQUIRED = "three_d_secure_action_required";
     
-      @SerializedName("amazon")
-      AMAZON,
+      public static final String AMAZON = "amazon";
     
-      @SerializedName("api_error")
-      API_ERROR,
+      public static final String API_ERROR = "api_error";
     
-      @SerializedName("approved")
-      APPROVED,
+      public static final String APPROVED = "approved";
     
-      @SerializedName("communication")
-      COMMUNICATION,
+      public static final String COMMUNICATION = "communication";
     
-      @SerializedName("configuration")
-      CONFIGURATION,
+      public static final String CONFIGURATION = "configuration";
     
-      @SerializedName("duplicate")
-      DUPLICATE,
+      public static final String DUPLICATE = "duplicate";
     
-      @SerializedName("fraud")
-      FRAUD,
+      public static final String FRAUD = "fraud";
     
-      @SerializedName("hard")
-      HARD,
+      public static final String HARD = "hard";
     
-      @SerializedName("invalid")
-      INVALID,
+      public static final String INVALID = "invalid";
     
-      @SerializedName("not_enabled")
-      NOT_ENABLED,
+      public static final String NOT_ENABLED = "not_enabled";
     
-      @SerializedName("not_supported")
-      NOT_SUPPORTED,
+      public static final String NOT_SUPPORTED = "not_supported";
     
-      @SerializedName("recurly")
-      RECURLY,
+      public static final String RECURLY = "recurly";
     
-      @SerializedName("referral")
-      REFERRAL,
+      public static final String REFERRAL = "referral";
     
-      @SerializedName("skles")
-      SKLES,
+      public static final String SKLES = "skles";
     
-      @SerializedName("soft")
-      SOFT,
+      public static final String SOFT = "soft";
     
-      @SerializedName("unknown")
-      UNKNOWN,
+      public static final String UNKNOWN = "unknown";
     
-    };
+    }
   
-    public enum ErrorCode {
-      UNDEFINED,
+    public static class ErrorCode {
     
-      @SerializedName("ach_cancel")
-      ACH_CANCEL,
+      public static final String ACH_CANCEL = "ach_cancel";
     
-      @SerializedName("ach_chargeback")
-      ACH_CHARGEBACK,
+      public static final String ACH_CHARGEBACK = "ach_chargeback";
     
-      @SerializedName("ach_credit_return")
-      ACH_CREDIT_RETURN,
+      public static final String ACH_CREDIT_RETURN = "ach_credit_return";
     
-      @SerializedName("ach_exception")
-      ACH_EXCEPTION,
+      public static final String ACH_EXCEPTION = "ach_exception";
     
-      @SerializedName("ach_return")
-      ACH_RETURN,
+      public static final String ACH_RETURN = "ach_return";
     
-      @SerializedName("ach_transactions_not_supported")
-      ACH_TRANSACTIONS_NOT_SUPPORTED,
+      public static final String ACH_TRANSACTIONS_NOT_SUPPORTED = "ach_transactions_not_supported";
     
-      @SerializedName("ach_validation_exception")
-      ACH_VALIDATION_EXCEPTION,
+      public static final String ACH_VALIDATION_EXCEPTION = "ach_validation_exception";
     
-      @SerializedName("amazon_amount_exceeded")
-      AMAZON_AMOUNT_EXCEEDED,
+      public static final String AMAZON_AMOUNT_EXCEEDED = "amazon_amount_exceeded";
     
-      @SerializedName("amazon_declined_review")
-      AMAZON_DECLINED_REVIEW,
+      public static final String AMAZON_DECLINED_REVIEW = "amazon_declined_review";
     
-      @SerializedName("amazon_invalid_authorization_status")
-      AMAZON_INVALID_AUTHORIZATION_STATUS,
+      public static final String AMAZON_INVALID_AUTHORIZATION_STATUS = "amazon_invalid_authorization_status";
     
-      @SerializedName("amazon_invalid_close_attempt")
-      AMAZON_INVALID_CLOSE_ATTEMPT,
+      public static final String AMAZON_INVALID_CLOSE_ATTEMPT = "amazon_invalid_close_attempt";
     
-      @SerializedName("amazon_invalid_create_order_reference")
-      AMAZON_INVALID_CREATE_ORDER_REFERENCE,
+      public static final String AMAZON_INVALID_CREATE_ORDER_REFERENCE = "amazon_invalid_create_order_reference";
     
-      @SerializedName("amazon_invalid_order_status")
-      AMAZON_INVALID_ORDER_STATUS,
+      public static final String AMAZON_INVALID_ORDER_STATUS = "amazon_invalid_order_status";
     
-      @SerializedName("amazon_not_authorized")
-      AMAZON_NOT_AUTHORIZED,
+      public static final String AMAZON_NOT_AUTHORIZED = "amazon_not_authorized";
     
-      @SerializedName("amazon_order_not_modifiable")
-      AMAZON_ORDER_NOT_MODIFIABLE,
+      public static final String AMAZON_ORDER_NOT_MODIFIABLE = "amazon_order_not_modifiable";
     
-      @SerializedName("amazon_transaction_count_exceeded")
-      AMAZON_TRANSACTION_COUNT_EXCEEDED,
+      public static final String AMAZON_TRANSACTION_COUNT_EXCEEDED = "amazon_transaction_count_exceeded";
     
-      @SerializedName("api_error")
-      API_ERROR,
+      public static final String API_ERROR = "api_error";
     
-      @SerializedName("approved")
-      APPROVED,
+      public static final String APPROVED = "approved";
     
-      @SerializedName("approved_fraud_review")
-      APPROVED_FRAUD_REVIEW,
+      public static final String APPROVED_FRAUD_REVIEW = "approved_fraud_review";
     
-      @SerializedName("authorization_already_captured")
-      AUTHORIZATION_ALREADY_CAPTURED,
+      public static final String AUTHORIZATION_ALREADY_CAPTURED = "authorization_already_captured";
     
-      @SerializedName("authorization_amount_depleted")
-      AUTHORIZATION_AMOUNT_DEPLETED,
+      public static final String AUTHORIZATION_AMOUNT_DEPLETED = "authorization_amount_depleted";
     
-      @SerializedName("authorization_expired")
-      AUTHORIZATION_EXPIRED,
+      public static final String AUTHORIZATION_EXPIRED = "authorization_expired";
     
-      @SerializedName("batch_processing_error")
-      BATCH_PROCESSING_ERROR,
+      public static final String BATCH_PROCESSING_ERROR = "batch_processing_error";
     
-      @SerializedName("billing_agreement_already_accepted")
-      BILLING_AGREEMENT_ALREADY_ACCEPTED,
+      public static final String BILLING_AGREEMENT_ALREADY_ACCEPTED = "billing_agreement_already_accepted";
     
-      @SerializedName("billing_agreement_not_accepted")
-      BILLING_AGREEMENT_NOT_ACCEPTED,
+      public static final String BILLING_AGREEMENT_NOT_ACCEPTED = "billing_agreement_not_accepted";
     
-      @SerializedName("billing_agreement_not_found")
-      BILLING_AGREEMENT_NOT_FOUND,
+      public static final String BILLING_AGREEMENT_NOT_FOUND = "billing_agreement_not_found";
     
-      @SerializedName("billing_agreement_replaced")
-      BILLING_AGREEMENT_REPLACED,
+      public static final String BILLING_AGREEMENT_REPLACED = "billing_agreement_replaced";
     
-      @SerializedName("call_issuer")
-      CALL_ISSUER,
+      public static final String CALL_ISSUER = "call_issuer";
     
-      @SerializedName("call_issuer_update_cardholder_data")
-      CALL_ISSUER_UPDATE_CARDHOLDER_DATA,
+      public static final String CALL_ISSUER_UPDATE_CARDHOLDER_DATA = "call_issuer_update_cardholder_data";
     
-      @SerializedName("cancelled")
-      CANCELLED,
+      public static final String CANCELLED = "cancelled";
     
-      @SerializedName("cannot_refund_unsettled_transactions")
-      CANNOT_REFUND_UNSETTLED_TRANSACTIONS,
+      public static final String CANNOT_REFUND_UNSETTLED_TRANSACTIONS = "cannot_refund_unsettled_transactions";
     
-      @SerializedName("card_not_activated")
-      CARD_NOT_ACTIVATED,
+      public static final String CARD_NOT_ACTIVATED = "card_not_activated";
     
-      @SerializedName("card_type_not_accepted")
-      CARD_TYPE_NOT_ACCEPTED,
+      public static final String CARD_TYPE_NOT_ACCEPTED = "card_type_not_accepted";
     
-      @SerializedName("cardholder_requested_stop")
-      CARDHOLDER_REQUESTED_STOP,
+      public static final String CARDHOLDER_REQUESTED_STOP = "cardholder_requested_stop";
     
-      @SerializedName("contact_gateway")
-      CONTACT_GATEWAY,
+      public static final String CONTACT_GATEWAY = "contact_gateway";
     
-      @SerializedName("contract_not_found")
-      CONTRACT_NOT_FOUND,
+      public static final String CONTRACT_NOT_FOUND = "contract_not_found";
     
-      @SerializedName("currency_not_supported")
-      CURRENCY_NOT_SUPPORTED,
+      public static final String CURRENCY_NOT_SUPPORTED = "currency_not_supported";
     
-      @SerializedName("customer_canceled_transaction")
-      CUSTOMER_CANCELED_TRANSACTION,
+      public static final String CUSTOMER_CANCELED_TRANSACTION = "customer_canceled_transaction";
     
-      @SerializedName("cvv_required")
-      CVV_REQUIRED,
+      public static final String CVV_REQUIRED = "cvv_required";
     
-      @SerializedName("declined")
-      DECLINED,
+      public static final String DECLINED = "declined";
     
-      @SerializedName("declined_card_number")
-      DECLINED_CARD_NUMBER,
+      public static final String DECLINED_CARD_NUMBER = "declined_card_number";
     
-      @SerializedName("declined_exception")
-      DECLINED_EXCEPTION,
+      public static final String DECLINED_EXCEPTION = "declined_exception";
     
-      @SerializedName("declined_expiration_date")
-      DECLINED_EXPIRATION_DATE,
+      public static final String DECLINED_EXPIRATION_DATE = "declined_expiration_date";
     
-      @SerializedName("declined_missing_data")
-      DECLINED_MISSING_DATA,
+      public static final String DECLINED_MISSING_DATA = "declined_missing_data";
     
-      @SerializedName("declined_saveable")
-      DECLINED_SAVEABLE,
+      public static final String DECLINED_SAVEABLE = "declined_saveable";
     
-      @SerializedName("declined_security_code")
-      DECLINED_SECURITY_CODE,
+      public static final String DECLINED_SECURITY_CODE = "declined_security_code";
     
-      @SerializedName("deposit_referenced_chargeback")
-      DEPOSIT_REFERENCED_CHARGEBACK,
+      public static final String DEPOSIT_REFERENCED_CHARGEBACK = "deposit_referenced_chargeback";
     
-      @SerializedName("direct_debit_type_not_accepted")
-      DIRECT_DEBIT_TYPE_NOT_ACCEPTED,
+      public static final String DIRECT_DEBIT_TYPE_NOT_ACCEPTED = "direct_debit_type_not_accepted";
     
-      @SerializedName("duplicate_transaction")
-      DUPLICATE_TRANSACTION,
+      public static final String DUPLICATE_TRANSACTION = "duplicate_transaction";
     
-      @SerializedName("exceeds_daily_limit")
-      EXCEEDS_DAILY_LIMIT,
+      public static final String EXCEEDS_DAILY_LIMIT = "exceeds_daily_limit";
     
-      @SerializedName("exceeds_max_amount")
-      EXCEEDS_MAX_AMOUNT,
+      public static final String EXCEEDS_MAX_AMOUNT = "exceeds_max_amount";
     
-      @SerializedName("expired_card")
-      EXPIRED_CARD,
+      public static final String EXPIRED_CARD = "expired_card";
     
-      @SerializedName("finbot_disconnect")
-      FINBOT_DISCONNECT,
+      public static final String FINBOT_DISCONNECT = "finbot_disconnect";
     
-      @SerializedName("finbot_unavailable")
-      FINBOT_UNAVAILABLE,
+      public static final String FINBOT_UNAVAILABLE = "finbot_unavailable";
     
-      @SerializedName("fraud_address")
-      FRAUD_ADDRESS,
+      public static final String FRAUD_ADDRESS = "fraud_address";
     
-      @SerializedName("fraud_address_recurly")
-      FRAUD_ADDRESS_RECURLY,
+      public static final String FRAUD_ADDRESS_RECURLY = "fraud_address_recurly";
     
-      @SerializedName("fraud_advanced_verification")
-      FRAUD_ADVANCED_VERIFICATION,
+      public static final String FRAUD_ADVANCED_VERIFICATION = "fraud_advanced_verification";
     
-      @SerializedName("fraud_gateway")
-      FRAUD_GATEWAY,
+      public static final String FRAUD_GATEWAY = "fraud_gateway";
     
-      @SerializedName("fraud_generic")
-      FRAUD_GENERIC,
+      public static final String FRAUD_GENERIC = "fraud_generic";
     
-      @SerializedName("fraud_ip_address")
-      FRAUD_IP_ADDRESS,
+      public static final String FRAUD_IP_ADDRESS = "fraud_ip_address";
     
-      @SerializedName("fraud_manual_decision")
-      FRAUD_MANUAL_DECISION,
+      public static final String FRAUD_MANUAL_DECISION = "fraud_manual_decision";
     
-      @SerializedName("fraud_risk_check")
-      FRAUD_RISK_CHECK,
+      public static final String FRAUD_RISK_CHECK = "fraud_risk_check";
     
-      @SerializedName("fraud_security_code")
-      FRAUD_SECURITY_CODE,
+      public static final String FRAUD_SECURITY_CODE = "fraud_security_code";
     
-      @SerializedName("fraud_stolen_card")
-      FRAUD_STOLEN_CARD,
+      public static final String FRAUD_STOLEN_CARD = "fraud_stolen_card";
     
-      @SerializedName("fraud_too_many_attempts")
-      FRAUD_TOO_MANY_ATTEMPTS,
+      public static final String FRAUD_TOO_MANY_ATTEMPTS = "fraud_too_many_attempts";
     
-      @SerializedName("fraud_velocity")
-      FRAUD_VELOCITY,
+      public static final String FRAUD_VELOCITY = "fraud_velocity";
     
-      @SerializedName("gateway_account_setup_incomplete")
-      GATEWAY_ACCOUNT_SETUP_INCOMPLETE,
+      public static final String GATEWAY_ACCOUNT_SETUP_INCOMPLETE = "gateway_account_setup_incomplete";
     
-      @SerializedName("gateway_error")
-      GATEWAY_ERROR,
+      public static final String GATEWAY_ERROR = "gateway_error";
     
-      @SerializedName("gateway_rate_limited")
-      GATEWAY_RATE_LIMITED,
+      public static final String GATEWAY_RATE_LIMITED = "gateway_rate_limited";
     
-      @SerializedName("gateway_timeout")
-      GATEWAY_TIMEOUT,
+      public static final String GATEWAY_TIMEOUT = "gateway_timeout";
     
-      @SerializedName("gateway_token_not_found")
-      GATEWAY_TOKEN_NOT_FOUND,
+      public static final String GATEWAY_TOKEN_NOT_FOUND = "gateway_token_not_found";
     
-      @SerializedName("gateway_unavailable")
-      GATEWAY_UNAVAILABLE,
+      public static final String GATEWAY_UNAVAILABLE = "gateway_unavailable";
     
-      @SerializedName("gateway_validation_exception")
-      GATEWAY_VALIDATION_EXCEPTION,
+      public static final String GATEWAY_VALIDATION_EXCEPTION = "gateway_validation_exception";
     
-      @SerializedName("insufficient_funds")
-      INSUFFICIENT_FUNDS,
+      public static final String INSUFFICIENT_FUNDS = "insufficient_funds";
     
-      @SerializedName("invalid_account_number")
-      INVALID_ACCOUNT_NUMBER,
+      public static final String INVALID_ACCOUNT_NUMBER = "invalid_account_number";
     
-      @SerializedName("invalid_amount")
-      INVALID_AMOUNT,
+      public static final String INVALID_AMOUNT = "invalid_amount";
     
-      @SerializedName("invalid_billing_agreement_status")
-      INVALID_BILLING_AGREEMENT_STATUS,
+      public static final String INVALID_BILLING_AGREEMENT_STATUS = "invalid_billing_agreement_status";
     
-      @SerializedName("invalid_card_number")
-      INVALID_CARD_NUMBER,
+      public static final String INVALID_CARD_NUMBER = "invalid_card_number";
     
-      @SerializedName("invalid_data")
-      INVALID_DATA,
+      public static final String INVALID_DATA = "invalid_data";
     
-      @SerializedName("invalid_email")
-      INVALID_EMAIL,
+      public static final String INVALID_EMAIL = "invalid_email";
     
-      @SerializedName("invalid_gateway_access_token")
-      INVALID_GATEWAY_ACCESS_TOKEN,
+      public static final String INVALID_GATEWAY_ACCESS_TOKEN = "invalid_gateway_access_token";
     
-      @SerializedName("invalid_gateway_configuration")
-      INVALID_GATEWAY_CONFIGURATION,
+      public static final String INVALID_GATEWAY_CONFIGURATION = "invalid_gateway_configuration";
     
-      @SerializedName("invalid_issuer")
-      INVALID_ISSUER,
+      public static final String INVALID_ISSUER = "invalid_issuer";
     
-      @SerializedName("invalid_login")
-      INVALID_LOGIN,
+      public static final String INVALID_LOGIN = "invalid_login";
     
-      @SerializedName("invalid_merchant_type")
-      INVALID_MERCHANT_TYPE,
+      public static final String INVALID_MERCHANT_TYPE = "invalid_merchant_type";
     
-      @SerializedName("invalid_name")
-      INVALID_NAME,
+      public static final String INVALID_NAME = "invalid_name";
     
-      @SerializedName("invalid_payment_method")
-      INVALID_PAYMENT_METHOD,
+      public static final String INVALID_PAYMENT_METHOD = "invalid_payment_method";
     
-      @SerializedName("invalid_payment_method_hard")
-      INVALID_PAYMENT_METHOD_HARD,
+      public static final String INVALID_PAYMENT_METHOD_HARD = "invalid_payment_method_hard";
     
-      @SerializedName("invalid_transaction")
-      INVALID_TRANSACTION,
+      public static final String INVALID_TRANSACTION = "invalid_transaction";
     
-      @SerializedName("issuer_unavailable")
-      ISSUER_UNAVAILABLE,
+      public static final String ISSUER_UNAVAILABLE = "issuer_unavailable";
     
-      @SerializedName("lifecycle_decline")
-      LIFECYCLE_DECLINE,
+      public static final String LIFECYCLE_DECLINE = "lifecycle_decline";
     
-      @SerializedName("merch_max_transaction_limit_exceeded")
-      MERCH_MAX_TRANSACTION_LIMIT_EXCEEDED,
+      public static final String MERCH_MAX_TRANSACTION_LIMIT_EXCEEDED = "merch_max_transaction_limit_exceeded";
     
-      @SerializedName("moneybot_disconnect")
-      MONEYBOT_DISCONNECT,
+      public static final String MONEYBOT_DISCONNECT = "moneybot_disconnect";
     
-      @SerializedName("moneybot_unavailable")
-      MONEYBOT_UNAVAILABLE,
+      public static final String MONEYBOT_UNAVAILABLE = "moneybot_unavailable";
     
-      @SerializedName("no_billing_information")
-      NO_BILLING_INFORMATION,
+      public static final String NO_BILLING_INFORMATION = "no_billing_information";
     
-      @SerializedName("no_gateway")
-      NO_GATEWAY,
+      public static final String NO_GATEWAY = "no_gateway";
     
-      @SerializedName("no_gateway_found_for_transaction_amount")
-      NO_GATEWAY_FOUND_FOR_TRANSACTION_AMOUNT,
+      public static final String NO_GATEWAY_FOUND_FOR_TRANSACTION_AMOUNT = "no_gateway_found_for_transaction_amount";
     
-      @SerializedName("partial_approval")
-      PARTIAL_APPROVAL,
+      public static final String PARTIAL_APPROVAL = "partial_approval";
     
-      @SerializedName("partial_credits_not_supported")
-      PARTIAL_CREDITS_NOT_SUPPORTED,
+      public static final String PARTIAL_CREDITS_NOT_SUPPORTED = "partial_credits_not_supported";
     
-      @SerializedName("payer_authentication_rejected")
-      PAYER_AUTHENTICATION_REJECTED,
+      public static final String PAYER_AUTHENTICATION_REJECTED = "payer_authentication_rejected";
     
-      @SerializedName("payment_cannot_void_authorization")
-      PAYMENT_CANNOT_VOID_AUTHORIZATION,
+      public static final String PAYMENT_CANNOT_VOID_AUTHORIZATION = "payment_cannot_void_authorization";
     
-      @SerializedName("payment_not_accepted")
-      PAYMENT_NOT_ACCEPTED,
+      public static final String PAYMENT_NOT_ACCEPTED = "payment_not_accepted";
     
-      @SerializedName("paypal_account_issue")
-      PAYPAL_ACCOUNT_ISSUE,
+      public static final String PAYPAL_ACCOUNT_ISSUE = "paypal_account_issue";
     
-      @SerializedName("paypal_cannot_pay_self")
-      PAYPAL_CANNOT_PAY_SELF,
+      public static final String PAYPAL_CANNOT_PAY_SELF = "paypal_cannot_pay_self";
     
-      @SerializedName("paypal_declined_use_alternate")
-      PAYPAL_DECLINED_USE_ALTERNATE,
+      public static final String PAYPAL_DECLINED_USE_ALTERNATE = "paypal_declined_use_alternate";
     
-      @SerializedName("paypal_expired_reference_id")
-      PAYPAL_EXPIRED_REFERENCE_ID,
+      public static final String PAYPAL_EXPIRED_REFERENCE_ID = "paypal_expired_reference_id";
     
-      @SerializedName("paypal_hard_decline")
-      PAYPAL_HARD_DECLINE,
+      public static final String PAYPAL_HARD_DECLINE = "paypal_hard_decline";
     
-      @SerializedName("paypal_invalid_billing_agreement")
-      PAYPAL_INVALID_BILLING_AGREEMENT,
+      public static final String PAYPAL_INVALID_BILLING_AGREEMENT = "paypal_invalid_billing_agreement";
     
-      @SerializedName("paypal_primary_declined")
-      PAYPAL_PRIMARY_DECLINED,
+      public static final String PAYPAL_PRIMARY_DECLINED = "paypal_primary_declined";
     
-      @SerializedName("processor_not_available")
-      PROCESSOR_NOT_AVAILABLE,
+      public static final String PROCESSOR_NOT_AVAILABLE = "processor_not_available";
     
-      @SerializedName("processor_unavailable")
-      PROCESSOR_UNAVAILABLE,
+      public static final String PROCESSOR_UNAVAILABLE = "processor_unavailable";
     
-      @SerializedName("recurly_credentials_not_found")
-      RECURLY_CREDENTIALS_NOT_FOUND,
+      public static final String RECURLY_CREDENTIALS_NOT_FOUND = "recurly_credentials_not_found";
     
-      @SerializedName("recurly_error")
-      RECURLY_ERROR,
+      public static final String RECURLY_ERROR = "recurly_error";
     
-      @SerializedName("recurly_failed_to_get_token")
-      RECURLY_FAILED_TO_GET_TOKEN,
+      public static final String RECURLY_FAILED_TO_GET_TOKEN = "recurly_failed_to_get_token";
     
-      @SerializedName("recurly_token_mismatch")
-      RECURLY_TOKEN_MISMATCH,
+      public static final String RECURLY_TOKEN_MISMATCH = "recurly_token_mismatch";
     
-      @SerializedName("recurly_token_not_found")
-      RECURLY_TOKEN_NOT_FOUND,
+      public static final String RECURLY_TOKEN_NOT_FOUND = "recurly_token_not_found";
     
-      @SerializedName("reference_transactions_not_enabled")
-      REFERENCE_TRANSACTIONS_NOT_ENABLED,
+      public static final String REFERENCE_TRANSACTIONS_NOT_ENABLED = "reference_transactions_not_enabled";
     
-      @SerializedName("restricted_card")
-      RESTRICTED_CARD,
+      public static final String RESTRICTED_CARD = "restricted_card";
     
-      @SerializedName("restricted_card_chargeback")
-      RESTRICTED_CARD_CHARGEBACK,
+      public static final String RESTRICTED_CARD_CHARGEBACK = "restricted_card_chargeback";
     
-      @SerializedName("rjs_token_expired")
-      RJS_TOKEN_EXPIRED,
+      public static final String RJS_TOKEN_EXPIRED = "rjs_token_expired";
     
-      @SerializedName("roku_invalid_card_number")
-      ROKU_INVALID_CARD_NUMBER,
+      public static final String ROKU_INVALID_CARD_NUMBER = "roku_invalid_card_number";
     
-      @SerializedName("roku_invalid_cib")
-      ROKU_INVALID_CIB,
+      public static final String ROKU_INVALID_CIB = "roku_invalid_cib";
     
-      @SerializedName("roku_invalid_payment_method")
-      ROKU_INVALID_PAYMENT_METHOD,
+      public static final String ROKU_INVALID_PAYMENT_METHOD = "roku_invalid_payment_method";
     
-      @SerializedName("roku_zip_code_mismatch")
-      ROKU_ZIP_CODE_MISMATCH,
+      public static final String ROKU_ZIP_CODE_MISMATCH = "roku_zip_code_mismatch";
     
-      @SerializedName("simultaneous")
-      SIMULTANEOUS,
+      public static final String SIMULTANEOUS = "simultaneous";
     
-      @SerializedName("ssl_error")
-      SSL_ERROR,
+      public static final String SSL_ERROR = "ssl_error";
     
-      @SerializedName("temporary_hold")
-      TEMPORARY_HOLD,
+      public static final String TEMPORARY_HOLD = "temporary_hold";
     
-      @SerializedName("three_d_secure_action_required")
-      THREE_D_SECURE_ACTION_REQUIRED,
+      public static final String THREE_D_SECURE_ACTION_REQUIRED = "three_d_secure_action_required";
     
-      @SerializedName("three_d_secure_action_result_token_mismatch")
-      THREE_D_SECURE_ACTION_RESULT_TOKEN_MISMATCH,
+      public static final String THREE_D_SECURE_ACTION_RESULT_TOKEN_MISMATCH = "three_d_secure_action_result_token_mismatch";
     
-      @SerializedName("three_d_secure_authentication")
-      THREE_D_SECURE_AUTHENTICATION,
+      public static final String THREE_D_SECURE_AUTHENTICATION = "three_d_secure_authentication";
     
-      @SerializedName("three_d_secure_connection_error")
-      THREE_D_SECURE_CONNECTION_ERROR,
+      public static final String THREE_D_SECURE_CONNECTION_ERROR = "three_d_secure_connection_error";
     
-      @SerializedName("three_d_secure_credential_error")
-      THREE_D_SECURE_CREDENTIAL_ERROR,
+      public static final String THREE_D_SECURE_CREDENTIAL_ERROR = "three_d_secure_credential_error";
     
-      @SerializedName("three_d_secure_not_supported")
-      THREE_D_SECURE_NOT_SUPPORTED,
+      public static final String THREE_D_SECURE_NOT_SUPPORTED = "three_d_secure_not_supported";
     
-      @SerializedName("too_busy")
-      TOO_BUSY,
+      public static final String TOO_BUSY = "too_busy";
     
-      @SerializedName("too_many_attempts")
-      TOO_MANY_ATTEMPTS,
+      public static final String TOO_MANY_ATTEMPTS = "too_many_attempts";
     
-      @SerializedName("total_credit_exceeds_capture")
-      TOTAL_CREDIT_EXCEEDS_CAPTURE,
+      public static final String TOTAL_CREDIT_EXCEEDS_CAPTURE = "total_credit_exceeds_capture";
     
-      @SerializedName("transaction_already_refunded")
-      TRANSACTION_ALREADY_REFUNDED,
+      public static final String TRANSACTION_ALREADY_REFUNDED = "transaction_already_refunded";
     
-      @SerializedName("transaction_already_voided")
-      TRANSACTION_ALREADY_VOIDED,
+      public static final String TRANSACTION_ALREADY_VOIDED = "transaction_already_voided";
     
-      @SerializedName("transaction_cannot_be_authorized")
-      TRANSACTION_CANNOT_BE_AUTHORIZED,
+      public static final String TRANSACTION_CANNOT_BE_AUTHORIZED = "transaction_cannot_be_authorized";
     
-      @SerializedName("transaction_cannot_be_refunded")
-      TRANSACTION_CANNOT_BE_REFUNDED,
+      public static final String TRANSACTION_CANNOT_BE_REFUNDED = "transaction_cannot_be_refunded";
     
-      @SerializedName("transaction_cannot_be_refunded_currently")
-      TRANSACTION_CANNOT_BE_REFUNDED_CURRENTLY,
+      public static final String TRANSACTION_CANNOT_BE_REFUNDED_CURRENTLY = "transaction_cannot_be_refunded_currently";
     
-      @SerializedName("transaction_cannot_be_voided")
-      TRANSACTION_CANNOT_BE_VOIDED,
+      public static final String TRANSACTION_CANNOT_BE_VOIDED = "transaction_cannot_be_voided";
     
-      @SerializedName("transaction_failed_to_settle")
-      TRANSACTION_FAILED_TO_SETTLE,
+      public static final String TRANSACTION_FAILED_TO_SETTLE = "transaction_failed_to_settle";
     
-      @SerializedName("transaction_not_found")
-      TRANSACTION_NOT_FOUND,
+      public static final String TRANSACTION_NOT_FOUND = "transaction_not_found";
     
-      @SerializedName("transaction_service_v2_disconnect")
-      TRANSACTION_SERVICE_V2_DISCONNECT,
+      public static final String TRANSACTION_SERVICE_V2_DISCONNECT = "transaction_service_v2_disconnect";
     
-      @SerializedName("transaction_service_v2_unavailable")
-      TRANSACTION_SERVICE_V2_UNAVAILABLE,
+      public static final String TRANSACTION_SERVICE_V2_UNAVAILABLE = "transaction_service_v2_unavailable";
     
-      @SerializedName("transaction_settled")
-      TRANSACTION_SETTLED,
+      public static final String TRANSACTION_SETTLED = "transaction_settled";
     
-      @SerializedName("transaction_stale_at_gateway")
-      TRANSACTION_STALE_AT_GATEWAY,
+      public static final String TRANSACTION_STALE_AT_GATEWAY = "transaction_stale_at_gateway";
     
-      @SerializedName("try_again")
-      TRY_AGAIN,
+      public static final String TRY_AGAIN = "try_again";
     
-      @SerializedName("unknown")
-      UNKNOWN,
+      public static final String UNKNOWN = "unknown";
     
-      @SerializedName("unmapped_partner_error")
-      UNMAPPED_PARTNER_ERROR,
+      public static final String UNMAPPED_PARTNER_ERROR = "unmapped_partner_error";
     
-      @SerializedName("vaultly_service_unavailable")
-      VAULTLY_SERVICE_UNAVAILABLE,
+      public static final String VAULTLY_SERVICE_UNAVAILABLE = "vaultly_service_unavailable";
     
-      @SerializedName("zero_dollar_auth_not_supported")
-      ZERO_DOLLAR_AUTH_NOT_SUPPORTED,
+      public static final String ZERO_DOLLAR_AUTH_NOT_SUPPORTED = "zero_dollar_auth_not_supported";
     
-    };
+    }
   
-    public enum DeclineCode {
-      UNDEFINED,
+    public static class DeclineCode {
     
-      @SerializedName("account_closed")
-      ACCOUNT_CLOSED,
+      public static final String ACCOUNT_CLOSED = "account_closed";
     
-      @SerializedName("call_issuer")
-      CALL_ISSUER,
+      public static final String CALL_ISSUER = "call_issuer";
     
-      @SerializedName("card_not_activated")
-      CARD_NOT_ACTIVATED,
+      public static final String CARD_NOT_ACTIVATED = "card_not_activated";
     
-      @SerializedName("card_not_supported")
-      CARD_NOT_SUPPORTED,
+      public static final String CARD_NOT_SUPPORTED = "card_not_supported";
     
-      @SerializedName("cardholder_requested_stop")
-      CARDHOLDER_REQUESTED_STOP,
+      public static final String CARDHOLDER_REQUESTED_STOP = "cardholder_requested_stop";
     
-      @SerializedName("do_not_honor")
-      DO_NOT_HONOR,
+      public static final String DO_NOT_HONOR = "do_not_honor";
     
-      @SerializedName("do_not_try_again")
-      DO_NOT_TRY_AGAIN,
+      public static final String DO_NOT_TRY_AGAIN = "do_not_try_again";
     
-      @SerializedName("exceeds_daily_limit")
-      EXCEEDS_DAILY_LIMIT,
+      public static final String EXCEEDS_DAILY_LIMIT = "exceeds_daily_limit";
     
-      @SerializedName("generic_decline")
-      GENERIC_DECLINE,
+      public static final String GENERIC_DECLINE = "generic_decline";
     
-      @SerializedName("expired_card")
-      EXPIRED_CARD,
+      public static final String EXPIRED_CARD = "expired_card";
     
-      @SerializedName("fraudulent")
-      FRAUDULENT,
+      public static final String FRAUDULENT = "fraudulent";
     
-      @SerializedName("insufficient_funds")
-      INSUFFICIENT_FUNDS,
+      public static final String INSUFFICIENT_FUNDS = "insufficient_funds";
     
-      @SerializedName("incorrect_address")
-      INCORRECT_ADDRESS,
+      public static final String INCORRECT_ADDRESS = "incorrect_address";
     
-      @SerializedName("incorrect_security_code")
-      INCORRECT_SECURITY_CODE,
+      public static final String INCORRECT_SECURITY_CODE = "incorrect_security_code";
     
-      @SerializedName("invalid_amount")
-      INVALID_AMOUNT,
+      public static final String INVALID_AMOUNT = "invalid_amount";
     
-      @SerializedName("invalid_number")
-      INVALID_NUMBER,
+      public static final String INVALID_NUMBER = "invalid_number";
     
-      @SerializedName("invalid_transaction")
-      INVALID_TRANSACTION,
+      public static final String INVALID_TRANSACTION = "invalid_transaction";
     
-      @SerializedName("issuer_unavailable")
-      ISSUER_UNAVAILABLE,
+      public static final String ISSUER_UNAVAILABLE = "issuer_unavailable";
     
-      @SerializedName("lifecycle_decline")
-      LIFECYCLE_DECLINE,
+      public static final String LIFECYCLE_DECLINE = "lifecycle_decline";
     
-      @SerializedName("lost_card")
-      LOST_CARD,
+      public static final String LOST_CARD = "lost_card";
     
-      @SerializedName("pickup_card")
-      PICKUP_CARD,
+      public static final String PICKUP_CARD = "pickup_card";
     
-      @SerializedName("policy_decline")
-      POLICY_DECLINE,
+      public static final String POLICY_DECLINE = "policy_decline";
     
-      @SerializedName("restricted_card")
-      RESTRICTED_CARD,
+      public static final String RESTRICTED_CARD = "restricted_card";
     
-      @SerializedName("restricted_card_chargeback")
-      RESTRICTED_CARD_CHARGEBACK,
+      public static final String RESTRICTED_CARD_CHARGEBACK = "restricted_card_chargeback";
     
-      @SerializedName("security_decline")
-      SECURITY_DECLINE,
+      public static final String SECURITY_DECLINE = "security_decline";
     
-      @SerializedName("stolen_card")
-      STOLEN_CARD,
+      public static final String STOLEN_CARD = "stolen_card";
     
-      @SerializedName("try_again")
-      TRY_AGAIN,
+      public static final String TRY_AGAIN = "try_again";
     
-      @SerializedName("update_cardholder_data")
-      UPDATE_CARDHOLDER_DATA,
+      public static final String UPDATE_CARDHOLDER_DATA = "update_cardholder_data";
     
-      @SerializedName("requires_3d_secure")
-      REQUIRES_3D_SECURE,
+      public static final String REQUIRES_3D_SECURE = "requires_3d_secure";
     
-    };
+    }
   
-    public enum TaxIdentifierType {
-      UNDEFINED,
+    public static class TaxIdentifierType {
     
-      @SerializedName("cpf")
-      CPF,
+      public static final String CPF = "cpf";
     
-      @SerializedName("cnpj")
-      CNPJ,
+      public static final String CNPJ = "cnpj";
     
-      @SerializedName("cuit")
-      CUIT,
+      public static final String CUIT = "cuit";
     
-    };
+    }
   
-    public enum DunningCycleType {
-      UNDEFINED,
+    public static class DunningCycleType {
     
-      @SerializedName("automatic")
-      AUTOMATIC,
+      public static final String AUTOMATIC = "automatic";
     
-      @SerializedName("manual")
-      MANUAL,
+      public static final String MANUAL = "manual";
     
-      @SerializedName("trial")
-      TRIAL,
+      public static final String TRIAL = "trial";
     
-    };
+    }
   
-    public enum AchType {
-      UNDEFINED,
+    public static class AchType {
     
-      @SerializedName("bacs")
-      BACS,
+      public static final String BACS = "bacs";
     
-      @SerializedName("becs")
-      BECS,
+      public static final String BECS = "becs";
     
-      @SerializedName("pix-automatico")
-      PIX_AUTOMATICO,
+      public static final String PIX_AUTOMATICO = "pix-automatico";
     
-      @SerializedName("mercadopago")
-      MERCADOPAGO,
+      public static final String MERCADOPAGO = "mercadopago";
     
-    };
+    }
   
-    public enum AchAccountType {
-      UNDEFINED,
+    public static class AchAccountType {
     
-      @SerializedName("checking")
-      CHECKING,
+      public static final String CHECKING = "checking";
     
-      @SerializedName("savings")
-      SAVINGS,
+      public static final String SAVINGS = "savings";
     
-    };
+    }
   
-    public enum ExternalHppType {
-      UNDEFINED,
+    public static class ExternalHppType {
     
-      @SerializedName("adyen")
-      ADYEN,
+      public static final String ADYEN = "adyen";
     
-    };
+    }
   
-    public enum OnlineBankingPaymentType {
-      UNDEFINED,
+    public static class OnlineBankingPaymentType {
     
-      @SerializedName("ideal")
-      IDEAL,
+      public static final String IDEAL = "ideal";
     
-      @SerializedName("sofort")
-      SOFORT,
+      public static final String SOFORT = "sofort";
     
-    };
+    }
   
-    public enum ExternalInvoiceState {
-      UNDEFINED,
+    public static class ExternalInvoiceState {
     
-      @SerializedName("paid")
-      PAID,
+      public static final String PAID = "paid";
     
-    };
+    }
   
-    public enum GeneralLedgerAccountType {
-      UNDEFINED,
+    public static class GeneralLedgerAccountType {
     
-      @SerializedName("liability")
-      LIABILITY,
+      public static final String LIABILITY = "liability";
     
-      @SerializedName("revenue")
-      REVENUE,
+      public static final String REVENUE = "revenue";
     
-    };
+    }
   
-    public enum OriginTaxAddressSource {
-      UNDEFINED,
+    public static class OriginTaxAddressSource {
     
-      @SerializedName("origin")
-      ORIGIN,
+      public static final String ORIGIN = "origin";
     
-      @SerializedName("destination")
-      DESTINATION,
+      public static final String DESTINATION = "destination";
     
-    };
+    }
   
-    public enum DestinationTaxAddressSource {
-      UNDEFINED,
+    public static class DestinationTaxAddressSource {
     
-      @SerializedName("destination")
-      DESTINATION,
+      public static final String DESTINATION = "destination";
     
-      @SerializedName("origin")
-      ORIGIN,
+      public static final String ORIGIN = "origin";
     
-    };
+    }
   
-    public enum TransactionMerchantReasonCode {
-      UNDEFINED,
+    public static class TransactionMerchantReasonCode {
     
-      @SerializedName("incremental")
-      INCREMENTAL,
+      public static final String INCREMENTAL = "incremental";
     
-      @SerializedName("no_show")
-      NO_SHOW,
+      public static final String NO_SHOW = "no_show";
     
-      @SerializedName("resubmission")
-      RESUBMISSION,
+      public static final String RESUBMISSION = "resubmission";
     
-      @SerializedName("service_extension")
-      SERVICE_EXTENSION,
+      public static final String SERVICE_EXTENSION = "service_extension";
     
-      @SerializedName("split_shipment")
-      SPLIT_SHIPMENT,
+      public static final String SPLIT_SHIPMENT = "split_shipment";
     
-      @SerializedName("top_up")
-      TOP_UP,
+      public static final String TOP_UP = "top_up";
     
-    };
+    }
   
-    public enum TransactionInitiator {
-      UNDEFINED,
+    public static class TransactionInitiator {
     
-      @SerializedName("customer")
-      CUSTOMER,
+      public static final String CUSTOMER = "customer";
     
-      @SerializedName("merchant")
-      MERCHANT,
+      public static final String MERCHANT = "merchant";
     
-    };
+    }
   
 }

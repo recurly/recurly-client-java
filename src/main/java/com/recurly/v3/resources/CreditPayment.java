@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -22,7 +21,7 @@ public class CreditPayment extends Resource {
   /** The action for which the credit was created. */
   @SerializedName("action")
   @Expose
-  private Constants.CreditPaymentAction action;
+  private String action;
 
   /** Total credit payment amount applied to the charge invoice. */
   @SerializedName("amount")
@@ -96,12 +95,12 @@ public class CreditPayment extends Resource {
   }
 
   /** The action for which the credit was created. */
-  public Constants.CreditPaymentAction getAction() {
+  public String getAction() {
     return this.action;
   }
 
   /** @param action The action for which the credit was created. */
-  public void setAction(final Constants.CreditPaymentAction action) {
+  public void setAction(final String action) {
     this.action = action;
   }
 

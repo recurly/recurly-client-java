@@ -1,21 +1,11 @@
 package com.recurly.v3.fixtures;
 
-import com.google.gson.annotations.SerializedName;
-
 public class FixtureConstants {
-  
-    public enum ConstantType {
-      UNDEFINED,
-    
-      @SerializedName("one")
-      ONE,
-    
-      @SerializedName("two")
-      TWO,
-    
-      @SerializedName("twenty-three")
-      TWENTY_THREE,
-    
-    };
-    
+
+  public static class ConstantType {
+    public static final String ONE = "one";
+    public static final String TWO = "two";
+    public static final String TWENTY_THREE = "twenty-three";
+  }
+
 }

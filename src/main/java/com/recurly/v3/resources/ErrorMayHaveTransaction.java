@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +31,7 @@ public class ErrorMayHaveTransaction extends Resource {
   /** Type */
   @SerializedName("type")
   @Expose
-  private Constants.ErrorType type;
+  private String type;
 
   /** Message */
   public String getMessage() {
@@ -65,12 +64,12 @@ public class ErrorMayHaveTransaction extends Resource {
   }
 
   /** Type */
-  public Constants.ErrorType getType() {
+  public String getType() {
     return this.type;
   }
 
   /** @param type Type */
-  public void setType(final Constants.ErrorType type) {
+  public void setType(final String type) {
     this.type = type;
   }
 }

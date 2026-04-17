@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.time.ZonedDateTime;
 
@@ -45,7 +44,7 @@ public class GiftCardDelivery extends Resource {
   /** Whether the delivery method is email or postal service. */
   @SerializedName("method")
   @Expose
-  private Constants.DeliveryMethod method;
+  private String method;
 
   /** The personal message from the gifter to the recipient. */
   @SerializedName("personal_message")
@@ -119,12 +118,12 @@ public class GiftCardDelivery extends Resource {
   }
 
   /** Whether the delivery method is email or postal service. */
-  public Constants.DeliveryMethod getMethod() {
+  public String getMethod() {
     return this.method;
   }
 
   /** @param method Whether the delivery method is email or postal service. */
-  public void setMethod(final Constants.DeliveryMethod method) {
+  public void setMethod(final String method) {
     this.method = method;
   }
 

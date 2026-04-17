@@ -7,7 +7,6 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.util.List;
@@ -57,7 +56,7 @@ public class PurchaseCreate extends Request {
    */
   @SerializedName("collection_method")
   @Expose
-  private Constants.CollectionMethod collectionMethod;
+  private String collectionMethod;
 
   /** A list of coupon_codes to be redeemed on the subscription or account during the purchase. */
   @SerializedName("coupon_codes")
@@ -140,7 +139,7 @@ public class PurchaseCreate extends Request {
    */
   @SerializedName("net_terms_type")
   @Expose
-  private Constants.NetTermsType netTermsType;
+  private String netTermsType;
 
   /** For manual invoicing, this identifies the PO number associated with the subscription. */
   @SerializedName("po_number")
@@ -175,7 +174,7 @@ public class PurchaseCreate extends Request {
    */
   @SerializedName("transaction_type")
   @Expose
-  private Constants.GatewayTransactionType transactionType;
+  private String transactionType;
 
   /** VAT reverse charge notes for cross border European tax settlement. */
   @SerializedName("vat_reverse_charge_notes")
@@ -185,7 +184,7 @@ public class PurchaseCreate extends Request {
   /** Used by Vertex for tax calculations. Possible values are sale, rental, lease. */
   @SerializedName("vertex_transaction_type")
   @Expose
-  private Constants.VertexTransactionType vertexTransactionType;
+  private String vertexTransactionType;
 
   public AccountPurchase getAccount() {
     return this.account;
@@ -266,7 +265,7 @@ public class PurchaseCreate extends Request {
    * Must be set to manual in order to preview a purchase for an Account that does not have payment
    * information associated with the Billing Info.
    */
-  public Constants.CollectionMethod getCollectionMethod() {
+  public String getCollectionMethod() {
     return this.collectionMethod;
   }
 
@@ -274,7 +273,7 @@ public class PurchaseCreate extends Request {
    * @param collectionMethod Must be set to manual in order to preview a purchase for an Account
    *     that does not have payment information associated with the Billing Info.
    */
-  public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
+  public void setCollectionMethod(final String collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
 
@@ -439,7 +438,7 @@ public class PurchaseCreate extends Request {
    * `eom` an invoice becomes past due the specified number of `Net Terms` days from the last day of
    * the current month.
    */
-  public Constants.NetTermsType getNetTermsType() {
+  public String getNetTermsType() {
     return this.netTermsType;
   }
 
@@ -449,7 +448,7 @@ public class PurchaseCreate extends Request {
    *     days from the current date. When `eom` an invoice becomes past due the specified number of
    *     `Net Terms` days from the last day of the current month.
    */
-  public void setNetTermsType(final Constants.NetTermsType netTermsType) {
+  public void setNetTermsType(final String netTermsType) {
     this.netTermsType = netTermsType;
   }
 
@@ -515,7 +514,7 @@ public class PurchaseCreate extends Request {
    * An optional type designation for the payment gateway transaction created by this request.
    * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
    */
-  public Constants.GatewayTransactionType getTransactionType() {
+  public String getTransactionType() {
     return this.transactionType;
   }
 
@@ -524,7 +523,7 @@ public class PurchaseCreate extends Request {
    *     by this request. Supports 'moto' value, which is the acronym for mail order and telephone
    *     transactions.
    */
-  public void setTransactionType(final Constants.GatewayTransactionType transactionType) {
+  public void setTransactionType(final String transactionType) {
     this.transactionType = transactionType;
   }
 
@@ -541,7 +540,7 @@ public class PurchaseCreate extends Request {
   }
 
   /** Used by Vertex for tax calculations. Possible values are sale, rental, lease. */
-  public Constants.VertexTransactionType getVertexTransactionType() {
+  public String getVertexTransactionType() {
     return this.vertexTransactionType;
   }
 
@@ -549,8 +548,7 @@ public class PurchaseCreate extends Request {
    * @param vertexTransactionType Used by Vertex for tax calculations. Possible values are sale,
    *     rental, lease.
    */
-  public void setVertexTransactionType(
-      final Constants.VertexTransactionType vertexTransactionType) {
+  public void setVertexTransactionType(final String vertexTransactionType) {
     this.vertexTransactionType = vertexTransactionType;
   }
 }

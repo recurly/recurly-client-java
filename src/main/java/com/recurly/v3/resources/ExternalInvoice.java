@@ -7,7 +7,6 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -63,7 +62,7 @@ public class ExternalInvoice extends Resource {
 
   @SerializedName("state")
   @Expose
-  private Constants.ExternalInvoiceState state;
+  private String state;
 
   /** Total */
   @SerializedName("total")
@@ -175,12 +174,12 @@ public class ExternalInvoice extends Resource {
     this.purchasedAt = purchasedAt;
   }
 
-  public Constants.ExternalInvoiceState getState() {
+  public String getState() {
     return this.state;
   }
 
   /** @param state */
-  public void setState(final Constants.ExternalInvoiceState state) {
+  public void setState(final String state) {
     this.state = state;
   }
 
