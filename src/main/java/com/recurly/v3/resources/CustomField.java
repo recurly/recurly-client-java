@@ -7,6 +7,7 @@ package com.recurly.v3.resources;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 
 public class CustomField extends Resource {
@@ -15,6 +16,22 @@ public class CustomField extends Resource {
   @SerializedName("name")
   @Expose
   private String name;
+
+  /**
+   * The UUID of the record this custom field was automatically copied from. Only present when the
+   * field was copied from another record.
+   */
+  @SerializedName("source_record_id")
+  @Expose
+  private String sourceRecordId;
+
+  /**
+   * The type of record this custom field was automatically copied from. Only present when the field
+   * was copied from another record.
+   */
+  @SerializedName("source_record_type")
+  @Expose
+  private Constants.SourceRecordType sourceRecordType;
 
   /** Any values that resemble a credit card number or security code (CVV/CVC) will be rejected. */
   @SerializedName("value")
@@ -29,6 +46,38 @@ public class CustomField extends Resource {
   /** @param name Fields must be created in the UI before values can be assigned to them. */
   public void setName(final String name) {
     this.name = name;
+  }
+
+  /**
+   * The UUID of the record this custom field was automatically copied from. Only present when the
+   * field was copied from another record.
+   */
+  public String getSourceRecordId() {
+    return this.sourceRecordId;
+  }
+
+  /**
+   * @param sourceRecordId The UUID of the record this custom field was automatically copied from.
+   *     Only present when the field was copied from another record.
+   */
+  public void setSourceRecordId(final String sourceRecordId) {
+    this.sourceRecordId = sourceRecordId;
+  }
+
+  /**
+   * The type of record this custom field was automatically copied from. Only present when the field
+   * was copied from another record.
+   */
+  public Constants.SourceRecordType getSourceRecordType() {
+    return this.sourceRecordType;
+  }
+
+  /**
+   * @param sourceRecordType The type of record this custom field was automatically copied from.
+   *     Only present when the field was copied from another record.
+   */
+  public void setSourceRecordType(final Constants.SourceRecordType sourceRecordType) {
+    this.sourceRecordType = sourceRecordType;
   }
 
   /** Any values that resemble a credit card number or security code (CVV/CVC) will be rejected. */

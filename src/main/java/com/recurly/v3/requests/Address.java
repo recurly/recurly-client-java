@@ -23,8 +23,8 @@ public class Address extends Request {
   private String country;
 
   /**
-   * Code that represents a geographic entity (location or object). Only returned for Sling Vertex
-   * Integration
+   * Code that represents a geographic entity (location or object). Only returned when Vertex or
+   * Avalara for Communications is enabled.
    */
   @SerializedName("geo_code")
   @Expose
@@ -76,16 +76,16 @@ public class Address extends Request {
   }
 
   /**
-   * Code that represents a geographic entity (location or object). Only returned for Sling Vertex
-   * Integration
+   * Code that represents a geographic entity (location or object). Only returned when Vertex or
+   * Avalara for Communications is enabled.
    */
   public String getGeoCode() {
     return this.geoCode;
   }
 
   /**
-   * @param geoCode Code that represents a geographic entity (location or object). Only returned for
-   *     Sling Vertex Integration
+   * @param geoCode Code that represents a geographic entity (location or object). Only returned
+   *     when Vertex or Avalara for Communications is enabled.
    */
   public void setGeoCode(final String geoCode) {
     this.geoCode = geoCode;

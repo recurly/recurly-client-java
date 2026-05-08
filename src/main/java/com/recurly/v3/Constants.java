@@ -2531,4 +2531,21 @@ public class Constants {
     
     };
   
+    public enum SourceRecordType {
+      UNDEFINED,
+    
+      @SerializedName("account")
+      ACCOUNT,
+    
+      @SerializedName("plan")
+      PLAN,
+    
+      @SerializedName("product")
+      PRODUCT,
+    
+      @SerializedName("subscription")
+      SUBSCRIPTION,
+    
+    };
+  
 }
