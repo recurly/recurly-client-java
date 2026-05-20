@@ -544,6 +544,9 @@ public class Constants {
       @SerializedName("year")
       YEAR,
     
+      @SerializedName("billing_period")
+      BILLING_PERIOD,
+    
     };
   
     public enum FreeTrialUnit {
@@ -2528,6 +2531,23 @@ public class Constants {
     
       @SerializedName("merchant")
       MERCHANT,
+    
+    };
+  
+    public enum SourceRecordType {
+      UNDEFINED,
+    
+      @SerializedName("account")
+      ACCOUNT,
+    
+      @SerializedName("plan")
+      PLAN,
+    
+      @SerializedName("product")
+      PRODUCT,
+    
+      @SerializedName("subscription")
+      SUBSCRIPTION,
     
     };
   

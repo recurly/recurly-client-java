@@ -166,7 +166,8 @@ public class CouponCreate extends Request {
 
   /**
    * If `duration` is "temporal" than `temporal_amount` is an integer which is multiplied by
-   * `temporal_unit` to define the duration that the coupon will be applied to invoices for.
+   * `temporal_unit` to define the duration that the coupon will be applied to invoices for. When
+   * `temporal_unit` is "billing_period", this is the number of complete billing cycles.
    */
   @SerializedName("temporal_amount")
   @Expose
@@ -174,7 +175,8 @@ public class CouponCreate extends Request {
 
   /**
    * If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define
-   * the duration that the coupon will be applied to invoices for.
+   * the duration that the coupon will be applied to invoices for. Use "billing_period" to apply the
+   * coupon for a fixed number of billing cycles. Requires `redemption_resource=subscription`.
    */
   @SerializedName("temporal_unit")
   @Expose
@@ -502,7 +504,8 @@ public class CouponCreate extends Request {
 
   /**
    * If `duration` is "temporal" than `temporal_amount` is an integer which is multiplied by
-   * `temporal_unit` to define the duration that the coupon will be applied to invoices for.
+   * `temporal_unit` to define the duration that the coupon will be applied to invoices for. When
+   * `temporal_unit` is "billing_period", this is the number of complete billing cycles.
    */
   public Integer getTemporalAmount() {
     return this.temporalAmount;
@@ -511,7 +514,8 @@ public class CouponCreate extends Request {
   /**
    * @param temporalAmount If `duration` is "temporal" than `temporal_amount` is an integer which is
    *     multiplied by `temporal_unit` to define the duration that the coupon will be applied to
-   *     invoices for.
+   *     invoices for. When `temporal_unit` is "billing_period", this is the number of complete
+   *     billing cycles.
    */
   public void setTemporalAmount(final Integer temporalAmount) {
     this.temporalAmount = temporalAmount;
@@ -519,7 +523,8 @@ public class CouponCreate extends Request {
 
   /**
    * If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define
-   * the duration that the coupon will be applied to invoices for.
+   * the duration that the coupon will be applied to invoices for. Use "billing_period" to apply the
+   * coupon for a fixed number of billing cycles. Requires `redemption_resource=subscription`.
    */
   public Constants.TemporalUnit getTemporalUnit() {
     return this.temporalUnit;
@@ -528,6 +533,8 @@ public class CouponCreate extends Request {
   /**
    * @param temporalUnit If `duration` is "temporal" than `temporal_unit` is multiplied by
    *     `temporal_amount` to define the duration that the coupon will be applied to invoices for.
+   *     Use "billing_period" to apply the coupon for a fixed number of billing cycles. Requires
+   *     `redemption_resource=subscription`.
    */
   public void setTemporalUnit(final Constants.TemporalUnit temporalUnit) {
     this.temporalUnit = temporalUnit;
