@@ -79,6 +79,14 @@ public class Invoice extends Resource {
   private String currency;
 
   /**
+   * A list of custom fields that were on the account at the time of invoice creation and were
+   * marked to be displayed on invoices. Read-only; cannot be set directly on the invoice.
+   */
+  @SerializedName("custom_fields")
+  @Expose
+  private List<CustomField> customFields;
+
+  /**
    * This will default to the Customer Notes text specified on the Invoice Settings. Specify custom
    * notes to add or override Customer Notes.
    */
@@ -443,6 +451,23 @@ public class Invoice extends Resource {
   /** @param currency 3-letter ISO 4217 currency code. */
   public void setCurrency(final String currency) {
     this.currency = currency;
+  }
+
+  /**
+   * A list of custom fields that were on the account at the time of invoice creation and were
+   * marked to be displayed on invoices. Read-only; cannot be set directly on the invoice.
+   */
+  public List<CustomField> getCustomFields() {
+    return this.customFields;
+  }
+
+  /**
+   * @param customFields A list of custom fields that were on the account at the time of invoice
+   *     creation and were marked to be displayed on invoices. Read-only; cannot be set directly on
+   *     the invoice.
+   */
+  public void setCustomFields(final List<CustomField> customFields) {
+    this.customFields = customFields;
   }
 
   /**
