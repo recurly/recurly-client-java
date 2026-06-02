@@ -2957,7 +2957,6 @@ paths:
       - lang: Java
         source: |
           ListAccountCouponRedemptionsParams params = new ListAccountCouponRedemptionsParams();
-          params.setLimit(200); // Pull 200 records at a time
           final Pager<CouponRedemption> redemptions = client.listAccountCouponRedemptions(accountId, params);
 
           for (CouponRedemption redemption : redemptions) {
@@ -4501,7 +4500,6 @@ paths:
       - lang: Java
         source: |
           ListAccountNotesParams params = new ListAccountNotesParams();
-          params.setLimit(200); // Pull 200 records at a time
           final Pager<AccountNote> notes = client.listAccountNotes(accountId, params);
 
           for (AccountNote note : notes) {
@@ -10132,7 +10130,6 @@ paths:
       - lang: Java
         source: |
           ListInvoiceCouponRedemptionsParams params = new ListInvoiceCouponRedemptionsParams();
-          params.setLimit(200); // Pull 200 records at a time
           final Pager<CouponRedemption> redemptions = client.listInvoiceCouponRedemptions(invoiceId, params);
 
           for (CouponRedemption redemption : redemptions) {
@@ -14787,7 +14784,6 @@ paths:
       - lang: Java
         source: |
           ListSubscriptionCouponRedemptionsParams params = new ListSubscriptionCouponRedemptionsParams();
-          params.setLimit(200); // Pull 200 records at a time
           final Pager<CouponRedemption> redemptions = client.listSubscriptionCouponRedemptions(subscriptionId, params);
 
           for (CouponRedemption redemption : redemptions) {

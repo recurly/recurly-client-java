@@ -32,6 +32,16 @@ public class Client extends BaseClient {
    * List sites
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_sites">list_sites api documentation</a>
+     * @return A list of sites.
+   */
+  public Pager<Site> listSites() {
+    return listSites(new ListSitesParams());
+  }
+
+  /**
+   * List sites
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_sites">list_sites api documentation</a>
    * @param queryParams The {@link ListSitesParams} for this endpoint.
      * @return A list of sites.
    */
@@ -59,6 +69,16 @@ public class Client extends BaseClient {
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Site.class;
     return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * List a site's accounts
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_accounts">list_accounts api documentation</a>
+     * @return A list of the site's accounts.
+   */
+  public Pager<Account> listAccounts() {
+    return listAccounts(new ListAccountsParams());
   }
 
   /**
@@ -323,6 +343,17 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_billing_infos">list_billing_infos api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of the the billing information for an account's
+   */
+  public Pager<BillingInfo> listBillingInfos(String accountId) {
+    return listBillingInfos(accountId, new ListBillingInfosParams());
+  }
+
+  /**
+   * Get the list of billing information associated with an account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_billing_infos">list_billing_infos api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link ListBillingInfosParams} for this endpoint.
      * @return A list of the the billing information for an account's
    */
@@ -468,6 +499,17 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_coupon_redemptions">list_account_coupon_redemptions api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of the the coupon redemptions on an account.
+   */
+  public Pager<CouponRedemption> listAccountCouponRedemptions(String accountId) {
+    return listAccountCouponRedemptions(accountId, new ListAccountCouponRedemptionsParams());
+  }
+
+  /**
+   * List the coupon redemptions for an account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_coupon_redemptions">list_account_coupon_redemptions api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link ListAccountCouponRedemptionsParams} for this endpoint.
      * @return A list of the the coupon redemptions on an account.
    */
@@ -565,6 +607,17 @@ public class Client extends BaseClient {
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = CouponRedemption.class;
     return this.makeRequest("DELETE", path, returnType);
+  }
+
+  /**
+   * List an account's credit payments
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_credit_payments">list_account_credit_payments api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of the account's credit payments.
+   */
+  public Pager<CreditPayment> listAccountCreditPayments(String accountId) {
+    return listAccountCreditPayments(accountId, new ListAccountCreditPaymentsParams());
   }
 
   /**
@@ -679,6 +732,17 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_external_invoices">list_account_external_invoices api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of the the external_invoices on an account.
+   */
+  public Pager<ExternalInvoice> listAccountExternalInvoices(String accountId) {
+    return listAccountExternalInvoices(accountId, new ListAccountExternalInvoicesParams());
+  }
+
+  /**
+   * List the external invoices on an account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_external_invoices">list_account_external_invoices api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link ListAccountExternalInvoicesParams} for this endpoint.
      * @return A list of the the external_invoices on an account.
    */
@@ -691,6 +755,17 @@ public class Client extends BaseClient {
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, ExternalInvoice.class).getType();
     return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * List an account's invoices
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_invoices">list_account_invoices api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of the account's invoices.
+   */
+  public Pager<Invoice> listAccountInvoices(String accountId) {
+    return listAccountInvoices(accountId, new ListAccountInvoicesParams());
   }
 
   /**
@@ -751,6 +826,17 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_line_items">list_account_line_items api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of the account's line items.
+   */
+  public Pager<LineItem> listAccountLineItems(String accountId) {
+    return listAccountLineItems(accountId, new ListAccountLineItemsParams());
+  }
+
+  /**
+   * List an account's line items
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_line_items">list_account_line_items api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link ListAccountLineItemsParams} for this endpoint.
      * @return A list of the account's line items.
    */
@@ -780,6 +866,17 @@ public class Client extends BaseClient {
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = LineItem.class;
     return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * List an account's notes
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_notes">list_account_notes api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of an account's notes.
+   */
+  public Pager<AccountNote> listAccountNotes(String accountId) {
+    return listAccountNotes(accountId, new ListAccountNotesParams());
   }
 
   /**
@@ -850,6 +947,17 @@ public class Client extends BaseClient {
     urlParams.put("account_note_id", accountNoteId);
     final String path = this.interpolatePath(url, urlParams);
     this.makeRequest("DELETE", path);
+  }
+
+  /**
+   * Fetch a list of an account's shipping addresses
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_shipping_addresses">list_shipping_addresses api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of an account's shipping addresses.
+   */
+  public Pager<ShippingAddress> listShippingAddresses(String accountId) {
+    return listShippingAddresses(accountId, new ListShippingAddressesParams());
   }
 
   /**
@@ -946,6 +1054,17 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_subscriptions">list_account_subscriptions api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of the account's subscriptions.
+   */
+  public Pager<Subscription> listAccountSubscriptions(String accountId) {
+    return listAccountSubscriptions(accountId, new ListAccountSubscriptionsParams());
+  }
+
+  /**
+   * List an account's subscriptions
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_subscriptions">list_account_subscriptions api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link ListAccountSubscriptionsParams} for this endpoint.
      * @return A list of the account's subscriptions.
    */
@@ -958,6 +1077,17 @@ public class Client extends BaseClient {
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Subscription.class).getType();
     return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * List an account's transactions
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_transactions">list_account_transactions api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of the account's transactions.
+   */
+  public Pager<Transaction> listAccountTransactions(String accountId) {
+    return listAccountTransactions(accountId, new ListAccountTransactionsParams());
   }
 
   /**
@@ -984,6 +1114,17 @@ public class Client extends BaseClient {
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_child_accounts">list_child_accounts api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of an account's child accounts.
+   */
+  public Pager<Account> listChildAccounts(String accountId) {
+    return listChildAccounts(accountId, new ListChildAccountsParams());
+  }
+
+  /**
+   * List an account's child accounts
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_child_accounts">list_child_accounts api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link ListChildAccountsParams} for this endpoint.
      * @return A list of an account's child accounts.
    */
@@ -1002,6 +1143,16 @@ public class Client extends BaseClient {
    * List a site's account acquisition data
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_acquisition">list_account_acquisition api documentation</a>
+     * @return A list of the site's account acquisition data.
+   */
+  public Pager<AccountAcquisition> listAccountAcquisition() {
+    return listAccountAcquisition(new ListAccountAcquisitionParams());
+  }
+
+  /**
+   * List a site's account acquisition data
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_acquisition">list_account_acquisition api documentation</a>
    * @param queryParams The {@link ListAccountAcquisitionParams} for this endpoint.
      * @return A list of the site's account acquisition data.
    */
@@ -1013,6 +1164,16 @@ public class Client extends BaseClient {
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, AccountAcquisition.class).getType();
     return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * List a site's coupons
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_coupons">list_coupons api documentation</a>
+     * @return A list of the site's coupons.
+   */
+  public Pager<Coupon> listCoupons() {
+    return listCoupons(new ListCouponsParams());
   }
 
   /**
@@ -1137,6 +1298,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_unique_coupon_codes">list_unique_coupon_codes api documentation</a>
    * @param couponId Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
+     * @return A list of unique coupon codes that were generated
+   */
+  public Pager<UniqueCouponCode> listUniqueCouponCodes(String couponId) {
+    return listUniqueCouponCodes(couponId, new ListUniqueCouponCodesParams());
+  }
+
+  /**
+   * List unique coupon codes associated with a bulk coupon
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_unique_coupon_codes">list_unique_coupon_codes api documentation</a>
+   * @param couponId Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
    * @param queryParams The {@link ListUniqueCouponCodesParams} for this endpoint.
      * @return A list of unique coupon codes that were generated
    */
@@ -1149,6 +1321,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, UniqueCouponCode.class).getType();
     return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * List a site's credit payments
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_credit_payments">list_credit_payments api documentation</a>
+     * @return A list of the site's credit payments.
+   */
+  public Pager<CreditPayment> listCreditPayments() {
+    return listCreditPayments(new ListCreditPaymentsParams());
   }
 
   /**
@@ -1182,6 +1364,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = CreditPayment.class;
     return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * List a site's custom field definitions
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_custom_field_definitions">list_custom_field_definitions api documentation</a>
+     * @return A list of the site's custom field definitions.
+   */
+  public Pager<CustomFieldDefinition> listCustomFieldDefinitions() {
+    return listCustomFieldDefinitions(new ListCustomFieldDefinitionsParams());
   }
 
   /**
@@ -1230,6 +1422,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = GeneralLedgerAccount.class;
     return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * List a site's general ledger accounts
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_general_ledger_accounts">list_general_ledger_accounts api documentation</a>
+     * @return A list of the site's general ledger accounts.
+   */
+  public Pager<GeneralLedgerAccount> listGeneralLedgerAccounts() {
+    return listGeneralLedgerAccounts(new ListGeneralLedgerAccountsParams());
   }
 
   /**
@@ -1317,6 +1519,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_template_accounts">list_invoice_template_accounts api documentation</a>
    * @param invoiceTemplateId Invoice template ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of an invoice template's associated accounts.
+   */
+  public Pager<Account> listInvoiceTemplateAccounts(String invoiceTemplateId) {
+    return listInvoiceTemplateAccounts(invoiceTemplateId, new ListInvoiceTemplateAccountsParams());
+  }
+
+  /**
+   * List an invoice template's associated accounts
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_template_accounts">list_invoice_template_accounts api documentation</a>
+   * @param invoiceTemplateId Invoice template ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link ListInvoiceTemplateAccountsParams} for this endpoint.
      * @return A list of an invoice template's associated accounts.
    */
@@ -1329,6 +1542,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Account.class).getType();
     return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * List a site's items
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_items">list_items api documentation</a>
+     * @return A list of the site's items.
+   */
+  public Pager<Item> listItems() {
+    return listItems(new ListItemsParams());
   }
 
   /**
@@ -1432,6 +1655,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's measured units
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_measured_unit">list_measured_unit api documentation</a>
+     * @return A list of the site's measured units.
+   */
+  public Pager<MeasuredUnit> listMeasuredUnit() {
+    return listMeasuredUnit(new ListMeasuredUnitParams());
+  }
+
+  /**
+   * List a site's measured units
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_measured_unit">list_measured_unit api documentation</a>
    * @param queryParams The {@link ListMeasuredUnitParams} for this endpoint.
      * @return A list of the site's measured units.
    */
@@ -1513,6 +1746,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's external products
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_products">list_external_products api documentation</a>
+     * @return A list of the the external_products on a site.
+   */
+  public Pager<ExternalProduct> listExternalProducts() {
+    return listExternalProducts(new ListExternalProductsParams());
+  }
+
+  /**
+   * List a site's external products
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_products">list_external_products api documentation</a>
    * @param queryParams The {@link ListExternalProductsParams} for this endpoint.
      * @return A list of the the external_products on a site.
    */
@@ -1588,6 +1831,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = ExternalProduct.class;
     return this.makeRequest("DELETE", path, returnType);
+  }
+
+  /**
+   * List the external product references for an external product
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_product_external_product_references">list_external_product_external_product_references api documentation</a>
+   * @param externalProductId External product id
+     * @return A list of the the external product references for an external product.
+   */
+  public Pager<ExternalProductReferenceCollection> listExternalProductExternalProductReferences(String externalProductId) {
+    return listExternalProductExternalProductReferences(externalProductId, new ListExternalProductExternalProductReferencesParams());
   }
 
   /**
@@ -1681,6 +1935,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List the external subscriptions on a site
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_subscriptions">list_external_subscriptions api documentation</a>
+     * @return A list of the the external_subscriptions on a site.
+   */
+  public Pager<ExternalSubscription> listExternalSubscriptions() {
+    return listExternalSubscriptions(new ListExternalSubscriptionsParams());
+  }
+
+  /**
+   * List the external subscriptions on a site
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_subscriptions">list_external_subscriptions api documentation</a>
    * @param queryParams The {@link ListExternalSubscriptionsParams} for this endpoint.
      * @return A list of the the external_subscriptions on a site.
    */
@@ -1748,6 +2012,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_subscription_external_invoices">list_external_subscription_external_invoices api documentation</a>
    * @param externalSubscriptionId External subscription id
+     * @return A list of the the external_invoices on a site.
+   */
+  public Pager<ExternalInvoice> listExternalSubscriptionExternalInvoices(String externalSubscriptionId) {
+    return listExternalSubscriptionExternalInvoices(externalSubscriptionId, new ListExternalSubscriptionExternalInvoicesParams());
+  }
+
+  /**
+   * List the external invoices on an external subscription
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_subscription_external_invoices">list_external_subscription_external_invoices api documentation</a>
+   * @param externalSubscriptionId External subscription id
    * @param queryParams The {@link ListExternalSubscriptionExternalInvoicesParams} for this endpoint.
      * @return A list of the the external_invoices on a site.
    */
@@ -1777,6 +2052,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = ExternalInvoice.class;
     return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * List a site's invoices
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoices">list_invoices api documentation</a>
+     * @return A list of the site's invoices.
+   */
+  public Pager<Invoice> listInvoices() {
+    return listInvoices(new ListInvoicesParams());
   }
 
   /**
@@ -1980,6 +2265,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_line_items">list_invoice_line_items api documentation</a>
    * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
+     * @return A list of the invoice's line items.
+   */
+  public Pager<LineItem> listInvoiceLineItems(String invoiceId) {
+    return listInvoiceLineItems(invoiceId, new ListInvoiceLineItemsParams());
+  }
+
+  /**
+   * List an invoice's line items
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_line_items">list_invoice_line_items api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
    * @param queryParams The {@link ListInvoiceLineItemsParams} for this endpoint.
      * @return A list of the invoice's line items.
    */
@@ -1992,6 +2288,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
     return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * List the coupon redemptions applied to an invoice
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_coupon_redemptions">list_invoice_coupon_redemptions api documentation</a>
+   * @param invoiceId Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
+     * @return A list of the the coupon redemptions associated with the invoice.
+   */
+  public Pager<CouponRedemption> listInvoiceCouponRedemptions(String invoiceId) {
+    return listInvoiceCouponRedemptions(invoiceId, new ListInvoiceCouponRedemptionsParams());
   }
 
   /**
@@ -2050,6 +2357,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's line items
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_line_items">list_line_items api documentation</a>
+     * @return A list of the site's line items.
+   */
+  public Pager<LineItem> listLineItems() {
+    return listLineItems(new ListLineItemsParams());
+  }
+
+  /**
+   * List a site's line items
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_line_items">list_line_items api documentation</a>
    * @param queryParams The {@link ListLineItemsParams} for this endpoint.
      * @return A list of the site's line items.
    */
@@ -2091,6 +2408,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     urlParams.put("line_item_id", lineItemId);
     final String path = this.interpolatePath(url, urlParams);
     this.makeRequest("DELETE", path);
+  }
+
+  /**
+   * List a site's plans
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_plans">list_plans api documentation</a>
+     * @return A list of plans.
+   */
+  public Pager<Plan> listPlans() {
+    return listPlans(new ListPlansParams());
   }
 
   /**
@@ -2172,6 +2499,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Plan.class;
     return this.makeRequest("DELETE", path, returnType);
+  }
+
+  /**
+   * List a plan's add-ons
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_plan_add_ons">list_plan_add_ons api documentation</a>
+   * @param planId Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
+     * @return A list of add-ons.
+   */
+  public Pager<AddOn> listPlanAddOns(String planId) {
+    return listPlanAddOns(planId, new ListPlanAddOnsParams());
   }
 
   /**
@@ -2269,6 +2607,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's price segments
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_price_segments">list_price_segments api documentation</a>
+     * @return A list of price segments.
+   */
+  public Pager<PriceSegment> listPriceSegments() {
+    return listPriceSegments(new ListPriceSegmentsParams());
+  }
+
+  /**
+   * List a site's price segments
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_price_segments">list_price_segments api documentation</a>
    * @param queryParams The {@link ListPriceSegmentsParams} for this endpoint.
      * @return A list of price segments.
    */
@@ -2302,6 +2650,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's add-ons
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_add_ons">list_add_ons api documentation</a>
+     * @return A list of add-ons.
+   */
+  public Pager<AddOn> listAddOns() {
+    return listAddOns(new ListAddOnsParams());
+  }
+
+  /**
+   * List a site's add-ons
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_add_ons">list_add_ons api documentation</a>
    * @param queryParams The {@link ListAddOnsParams} for this endpoint.
      * @return A list of add-ons.
    */
@@ -2329,6 +2687,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = AddOn.class;
     return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * List a site's shipping methods
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_shipping_methods">list_shipping_methods api documentation</a>
+     * @return A list of the site's shipping methods.
+   */
+  public Pager<ShippingMethod> listShippingMethods() {
+    return listShippingMethods(new ListShippingMethodsParams());
   }
 
   /**
@@ -2416,6 +2784,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List a site's subscriptions
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_subscriptions">list_subscriptions api documentation</a>
+     * @return A list of the site's subscriptions.
+   */
+  public Pager<Subscription> listSubscriptions() {
+    return listSubscriptions(new ListSubscriptionsParams());
+  }
+
+  /**
+   * List a site's subscriptions
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_subscriptions">list_subscriptions api documentation</a>
    * @param queryParams The {@link ListSubscriptionsParams} for this endpoint.
      * @return A list of the site's subscriptions.
    */
@@ -2475,6 +2853,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Subscription.class;
     return this.makeRequest("PUT", path, body, returnType);
+  }
+
+  /**
+   * Terminate a subscription
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/terminate_subscription">terminate_subscription api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @return An expired subscription.
+   */
+  public Subscription terminateSubscription(String subscriptionId) {
+    return terminateSubscription(subscriptionId, new TerminateSubscriptionParams());
   }
 
   /**
@@ -2679,6 +3068,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_invoices">list_subscription_invoices api documentation</a>
    * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @return A list of the subscription's invoices.
+   */
+  public Pager<Invoice> listSubscriptionInvoices(String subscriptionId) {
+    return listSubscriptionInvoices(subscriptionId, new ListSubscriptionInvoicesParams());
+  }
+
+  /**
+   * List a subscription's invoices
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_invoices">list_subscription_invoices api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
    * @param queryParams The {@link ListSubscriptionInvoicesParams} for this endpoint.
      * @return A list of the subscription's invoices.
    */
@@ -2698,6 +3098,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_line_items">list_subscription_line_items api documentation</a>
    * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @return A list of the subscription's line items.
+   */
+  public Pager<LineItem> listSubscriptionLineItems(String subscriptionId) {
+    return listSubscriptionLineItems(subscriptionId, new ListSubscriptionLineItemsParams());
+  }
+
+  /**
+   * List a subscription's line items
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_line_items">list_subscription_line_items api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
    * @param queryParams The {@link ListSubscriptionLineItemsParams} for this endpoint.
      * @return A list of the subscription's line items.
    */
@@ -2710,6 +3121,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, LineItem.class).getType();
     return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * List the coupon redemptions for a subscription
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_coupon_redemptions">list_subscription_coupon_redemptions api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @return A list of the the coupon redemptions on a subscription.
+   */
+  public Pager<CouponRedemption> listSubscriptionCouponRedemptions(String subscriptionId) {
+    return listSubscriptionCouponRedemptions(subscriptionId, new ListSubscriptionCouponRedemptionsParams());
   }
 
   /**
@@ -2765,6 +3187,18 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = CouponRedemption.class;
     return this.makeRequest("DELETE", path, returnType);
+  }
+
+  /**
+   * List a subscription add-on's usage records
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_usage">list_usage api documentation</a>
+   * @param subscriptionId Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+   * @param addOnId Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
+     * @return A list of the subscription add-on's usage records.
+   */
+  public Pager<Usage> listUsage(String subscriptionId, String addOnId) {
+    return listUsage(subscriptionId, addOnId, new ListUsageParams());
   }
 
   /**
@@ -2852,6 +3286,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     urlParams.put("usage_id", usageId);
     final String path = this.interpolatePath(url, urlParams);
     this.makeRequest("DELETE", path);
+  }
+
+  /**
+   * List a site's transactions
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_transactions">list_transactions api documentation</a>
+     * @return A list of the site's transactions.
+   */
+  public Pager<Transaction> listTransactions() {
+    return listTransactions(new ListTransactionsParams());
   }
 
   /**
@@ -3061,6 +3505,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List the dunning campaigns for a site
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_dunning_campaigns">list_dunning_campaigns api documentation</a>
+     * @return A list of the the dunning_campaigns on an account.
+   */
+  public Pager<DunningCampaign> listDunningCampaigns() {
+    return listDunningCampaigns(new ListDunningCampaignsParams());
+  }
+
+  /**
+   * List the dunning campaigns for a site
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_dunning_campaigns">list_dunning_campaigns api documentation</a>
    * @param queryParams The {@link ListDunningCampaignsParams} for this endpoint.
      * @return A list of the the dunning_campaigns on an account.
    */
@@ -3111,6 +3565,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * Show the invoice templates for a site
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_templates">list_invoice_templates api documentation</a>
+     * @return A list of the the invoice templates on a site.
+   */
+  public Pager<InvoiceTemplate> listInvoiceTemplates() {
+    return listInvoiceTemplates(new ListInvoiceTemplatesParams());
+  }
+
+  /**
+   * Show the invoice templates for a site
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_templates">list_invoice_templates api documentation</a>
    * @param queryParams The {@link ListInvoiceTemplatesParams} for this endpoint.
      * @return A list of the the invoice templates on a site.
    */
@@ -3144,6 +3608,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * List the external invoices on a site
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_invoices">list_external_invoices api documentation</a>
+     * @return A list of the the external_invoices on a site.
+   */
+  public Pager<ExternalInvoice> listExternalInvoices() {
+    return listExternalInvoices(new ListExternalInvoicesParams());
+  }
+
+  /**
+   * List the external invoices on a site
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_invoices">list_external_invoices api documentation</a>
    * @param queryParams The {@link ListExternalInvoicesParams} for this endpoint.
      * @return A list of the the external_invoices on a site.
    */
@@ -3171,6 +3645,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = ExternalInvoice.class;
     return this.makeRequest("GET", path, returnType);
+  }
+
+  /**
+   * List the external payment phases on an external subscription
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_external_subscription_external_payment_phases">list_external_subscription_external_payment_phases api documentation</a>
+   * @param externalSubscriptionId External subscription id
+     * @return A list of the the external_payment_phases on a site.
+   */
+  public Pager<ExternalPaymentPhase> listExternalSubscriptionExternalPaymentPhases(String externalSubscriptionId) {
+    return listExternalSubscriptionExternalPaymentPhases(externalSubscriptionId, new ListExternalSubscriptionExternalPaymentPhasesParams());
   }
 
   /**
@@ -3215,6 +3700,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_entitlements">list_entitlements api documentation</a>
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of the entitlements granted to an account.
+   */
+  public Pager<Entitlements> listEntitlements(String accountId) {
+    return listEntitlements(accountId, new ListEntitlementsParams());
+  }
+
+  /**
+   * List entitlements granted to an account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_entitlements">list_entitlements api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
    * @param queryParams The {@link ListEntitlementsParams} for this endpoint.
      * @return A list of the entitlements granted to an account.
    */
@@ -3227,6 +3723,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, Entitlements.class).getType();
     return new Pager<>(path, paramsMap, this, parameterizedType);
+  }
+
+  /**
+   * List an account's external subscriptions
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_account_external_subscriptions">list_account_external_subscriptions api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @return A list of the the external_subscriptions on an account.
+   */
+  public Pager<ExternalSubscription> listAccountExternalSubscriptions(String accountId) {
+    return listAccountExternalSubscriptions(accountId, new ListAccountExternalSubscriptionsParams());
   }
 
   /**
@@ -3353,6 +3860,17 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = GiftCard.class;
     return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * List a business entity's invoices
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_business_entity_invoices">list_business_entity_invoices api documentation</a>
+   * @param businessEntityId Business Entity ID. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-entity1`.
+     * @return A list of the business entity's invoices.
+   */
+  public Pager<Invoice> listBusinessEntityInvoices(String businessEntityId) {
+    return listBusinessEntityInvoices(businessEntityId, new ListBusinessEntityInvoicesParams());
   }
 
   /**
