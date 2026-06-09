@@ -50,6 +50,10 @@ public class CouponRedemption extends Resource {
   @Expose
   private String object;
 
+  @SerializedName("remaining_duration")
+  @Expose
+  private CouponRedemptionRemainingDuration remainingDuration;
+
   /** The date and time the redemption was removed from the account (un-redeemed). */
   @SerializedName("removed_at")
   @Expose
@@ -149,6 +153,15 @@ public class CouponRedemption extends Resource {
   /** @param object Will always be `coupon`. */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  public CouponRedemptionRemainingDuration getRemainingDuration() {
+    return this.remainingDuration;
+  }
+
+  /** @param remainingDuration */
+  public void setRemainingDuration(final CouponRedemptionRemainingDuration remainingDuration) {
+    this.remainingDuration = remainingDuration;
   }
 
   /** The date and time the redemption was removed from the account (un-redeemed). */

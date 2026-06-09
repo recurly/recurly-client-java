@@ -2079,6 +2079,21 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
+   * Create an invoice for revenue recovery
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_invoice_retry">create_invoice_retry api documentation</a>
+   * @param body The body of the request.
+     * @return Returns the new invoices.
+   */
+  public InvoiceCollection createInvoiceRetry(RecoveryInvoiceCreate body) {
+    final String url = "/invoices/recovery";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = InvoiceCollection.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
    * List a site's line items
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_line_items">list_line_items api documentation</a>

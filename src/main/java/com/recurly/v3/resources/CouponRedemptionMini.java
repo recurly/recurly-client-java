@@ -40,7 +40,11 @@ public class CouponRedemptionMini extends Resource {
   @Expose
   private String object;
 
-  /** Invoice state */
+  @SerializedName("remaining_duration")
+  @Expose
+  private CouponRedemptionRemainingDuration remainingDuration;
+
+  /** Coupon Redemption state */
   @SerializedName("state")
   @Expose
   private Constants.ActiveState state;
@@ -99,12 +103,21 @@ public class CouponRedemptionMini extends Resource {
     this.object = object;
   }
 
-  /** Invoice state */
+  public CouponRedemptionRemainingDuration getRemainingDuration() {
+    return this.remainingDuration;
+  }
+
+  /** @param remainingDuration */
+  public void setRemainingDuration(final CouponRedemptionRemainingDuration remainingDuration) {
+    this.remainingDuration = remainingDuration;
+  }
+
+  /** Coupon Redemption state */
   public Constants.ActiveState getState() {
     return this.state;
   }
 
-  /** @param state Invoice state */
+  /** @param state Coupon Redemption state */
   public void setState(final Constants.ActiveState state) {
     this.state = state;
   }

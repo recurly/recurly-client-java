@@ -17,7 +17,10 @@ public class CouponDiscountTrial extends Resource {
   @Expose
   private Integer length;
 
-  /** Temporal unit of the free trial */
+  /**
+   * Temporal unit of the free trial. When `billing_period`, `length` represents the number of
+   * billing cycles.
+   */
   @SerializedName("unit")
   @Expose
   private Constants.FreeTrialUnit unit;
@@ -32,12 +35,18 @@ public class CouponDiscountTrial extends Resource {
     this.length = length;
   }
 
-  /** Temporal unit of the free trial */
+  /**
+   * Temporal unit of the free trial. When `billing_period`, `length` represents the number of
+   * billing cycles.
+   */
   public Constants.FreeTrialUnit getUnit() {
     return this.unit;
   }
 
-  /** @param unit Temporal unit of the free trial */
+  /**
+   * @param unit Temporal unit of the free trial. When `billing_period`, `length` represents the
+   *     number of billing cycles.
+   */
   public void setUnit(final Constants.FreeTrialUnit unit) {
     this.unit = unit;
   }
