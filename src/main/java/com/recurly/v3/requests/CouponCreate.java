@@ -90,7 +90,8 @@ public class CouponCreate extends Request {
 
   /**
    * Description of the unit of time the coupon is for. Used with `free_trial_amount` to determine
-   * the duration of time the coupon is for. Required if `discount_type` is `free_trial`.
+   * the duration of time the coupon is for. Required if `discount_type` is `free_trial`. Use
+   * `billing_period` to grant a free trial for a number of billing cycles.
    */
   @SerializedName("free_trial_unit")
   @Expose
@@ -176,7 +177,9 @@ public class CouponCreate extends Request {
   /**
    * If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define
    * the duration that the coupon will be applied to invoices for. Use "billing_period" to apply the
-   * coupon for a fixed number of billing cycles. Requires `redemption_resource=subscription`.
+   * coupon for a fixed number of billing cycles. Requires `redemption_resource=subscription`. Not
+   * compatible with `discount_type=free_trial`; use `free_trial_unit=billing_period` and
+   * `free_trial_amount` instead.
    */
   @SerializedName("temporal_unit")
   @Expose
@@ -349,7 +352,8 @@ public class CouponCreate extends Request {
 
   /**
    * Description of the unit of time the coupon is for. Used with `free_trial_amount` to determine
-   * the duration of time the coupon is for. Required if `discount_type` is `free_trial`.
+   * the duration of time the coupon is for. Required if `discount_type` is `free_trial`. Use
+   * `billing_period` to grant a free trial for a number of billing cycles.
    */
   public Constants.FreeTrialUnit getFreeTrialUnit() {
     return this.freeTrialUnit;
@@ -358,7 +362,8 @@ public class CouponCreate extends Request {
   /**
    * @param freeTrialUnit Description of the unit of time the coupon is for. Used with
    *     `free_trial_amount` to determine the duration of time the coupon is for. Required if
-   *     `discount_type` is `free_trial`.
+   *     `discount_type` is `free_trial`. Use `billing_period` to grant a free trial for a number of
+   *     billing cycles.
    */
   public void setFreeTrialUnit(final Constants.FreeTrialUnit freeTrialUnit) {
     this.freeTrialUnit = freeTrialUnit;
@@ -524,7 +529,9 @@ public class CouponCreate extends Request {
   /**
    * If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define
    * the duration that the coupon will be applied to invoices for. Use "billing_period" to apply the
-   * coupon for a fixed number of billing cycles. Requires `redemption_resource=subscription`.
+   * coupon for a fixed number of billing cycles. Requires `redemption_resource=subscription`. Not
+   * compatible with `discount_type=free_trial`; use `free_trial_unit=billing_period` and
+   * `free_trial_amount` instead.
    */
   public Constants.TemporalUnit getTemporalUnit() {
     return this.temporalUnit;
@@ -534,7 +541,8 @@ public class CouponCreate extends Request {
    * @param temporalUnit If `duration` is "temporal" than `temporal_unit` is multiplied by
    *     `temporal_amount` to define the duration that the coupon will be applied to invoices for.
    *     Use "billing_period" to apply the coupon for a fixed number of billing cycles. Requires
-   *     `redemption_resource=subscription`.
+   *     `redemption_resource=subscription`. Not compatible with `discount_type=free_trial`; use
+   *     `free_trial_unit=billing_period` and `free_trial_amount` instead.
    */
   public void setTemporalUnit(final Constants.TemporalUnit temporalUnit) {
     this.temporalUnit = temporalUnit;

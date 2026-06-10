@@ -116,10 +116,15 @@ public class LineItem extends Resource {
   @Expose
   private Constants.DestinationTaxAddressSource destinationTaxAddressSource;
 
-  /** The discount applied to the line item. */
+  /** The sum of all discounts applied to the line item. */
   @SerializedName("discount")
   @Expose
   private BigDecimal discount;
+
+  /** The breakdown of discounts applied to the line item by coupon redemption. */
+  @SerializedName("discounts")
+  @Expose
+  private List<LineItemDiscount> discounts;
 
   /** If this date is provided, it indicates the end of a time range. */
   @SerializedName("end_date")
@@ -634,14 +639,24 @@ public class LineItem extends Resource {
     this.destinationTaxAddressSource = destinationTaxAddressSource;
   }
 
-  /** The discount applied to the line item. */
+  /** The sum of all discounts applied to the line item. */
   public BigDecimal getDiscount() {
     return this.discount;
   }
 
-  /** @param discount The discount applied to the line item. */
+  /** @param discount The sum of all discounts applied to the line item. */
   public void setDiscount(final BigDecimal discount) {
     this.discount = discount;
+  }
+
+  /** The breakdown of discounts applied to the line item by coupon redemption. */
+  public List<LineItemDiscount> getDiscounts() {
+    return this.discounts;
+  }
+
+  /** @param discounts The breakdown of discounts applied to the line item by coupon redemption. */
+  public void setDiscounts(final List<LineItemDiscount> discounts) {
+    this.discounts = discounts;
   }
 
   /** If this date is provided, it indicates the end of a time range. */

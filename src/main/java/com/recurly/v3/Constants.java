@@ -561,6 +561,9 @@ public class Constants {
       @SerializedName("week")
       WEEK,
     
+      @SerializedName("billing_period")
+      BILLING_PERIOD,
+    
     };
   
     public enum RedemptionResource {

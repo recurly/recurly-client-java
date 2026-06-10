@@ -63,6 +63,11 @@ public class Invoice extends Resource {
   @Expose
   private Constants.CollectionMethod collectionMethod;
 
+  /** The coupon redemptions applied to this invoice. */
+  @SerializedName("coupon_redemptions")
+  @Expose
+  private List<CouponRedemptionMini> couponRedemptions;
+
   /** Created at */
   @SerializedName("created_at")
   @Expose
@@ -421,6 +426,16 @@ public class Invoice extends Resource {
    */
   public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
     this.collectionMethod = collectionMethod;
+  }
+
+  /** The coupon redemptions applied to this invoice. */
+  public List<CouponRedemptionMini> getCouponRedemptions() {
+    return this.couponRedemptions;
+  }
+
+  /** @param couponRedemptions The coupon redemptions applied to this invoice. */
+  public void setCouponRedemptions(final List<CouponRedemptionMini> couponRedemptions) {
+    this.couponRedemptions = couponRedemptions;
   }
 
   /** Created at */
