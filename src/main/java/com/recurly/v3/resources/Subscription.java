@@ -273,6 +273,14 @@ public class Subscription extends Resource {
   @Expose
   private Integer renewalBillingCycles;
 
+  /**
+   * The date the subscription billing resumes following a pause. Null unless the subscription is
+   * paused or scheduled to be paused.
+   */
+  @SerializedName("resume_at")
+  @Expose
+  private DateTime resumeAt;
+
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
   @Expose
@@ -894,6 +902,22 @@ public class Subscription extends Resource {
    */
   public void setRenewalBillingCycles(final Integer renewalBillingCycles) {
     this.renewalBillingCycles = renewalBillingCycles;
+  }
+
+  /**
+   * The date the subscription billing resumes following a pause. Null unless the subscription is
+   * paused or scheduled to be paused.
+   */
+  public DateTime getResumeAt() {
+    return this.resumeAt;
+  }
+
+  /**
+   * @param resumeAt The date the subscription billing resumes following a pause. Null unless the
+   *     subscription is paused or scheduled to be paused.
+   */
+  public void setResumeAt(final DateTime resumeAt) {
+    this.resumeAt = resumeAt;
   }
 
   /** Revenue schedule type */

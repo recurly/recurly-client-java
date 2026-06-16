@@ -83,6 +83,11 @@ public class Transaction extends Resource {
   @Expose
   private Constants.CvvCheck cvvCheck;
 
+  /** The description that gets sent to the gateway. */
+  @SerializedName("description")
+  @Expose
+  private String description;
+
   /** Fraud information */
   @SerializedName("fraud_info")
   @Expose
@@ -431,6 +436,16 @@ public class Transaction extends Resource {
   /** @param cvvCheck When processed, result from checking the CVV/CVC value on the transaction. */
   public void setCvvCheck(final Constants.CvvCheck cvvCheck) {
     this.cvvCheck = cvvCheck;
+  }
+
+  /** The description that gets sent to the gateway. */
+  public String getDescription() {
+    return this.description;
+  }
+
+  /** @param description The description that gets sent to the gateway. */
+  public void setDescription(final String description) {
+    this.description = description;
   }
 
   /** Fraud information */
