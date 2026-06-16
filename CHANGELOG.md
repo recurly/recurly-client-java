@@ -1,5 +1,16 @@
 # Changelog
 
+## [5.16.0](https://github.com/recurly/recurly-client-java/tree/5.16.0) (2026-06-16)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/5.15.0...5.16.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 [#328](https://github.com/recurly/recurly-client-java/pull/328) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [5.15.0](https://github.com/recurly/recurly-client-java/tree/5.15.0) (2026-06-10)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/5.14.0...5.15.0)
