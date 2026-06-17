@@ -8,8 +8,8 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import java.time.ZonedDateTime;
 import java.util.List;
+import org.joda.time.DateTime;
 
 public class BillingInfo extends Resource {
 
@@ -36,7 +36,7 @@ public class BillingInfo extends Resource {
   /** When the billing information was created. */
   @SerializedName("created_at")
   @Expose
-  private ZonedDateTime createdAt;
+  private DateTime createdAt;
 
   @SerializedName("first_name")
   @Expose
@@ -84,7 +84,7 @@ public class BillingInfo extends Resource {
   /** When the billing information was last changed. */
   @SerializedName("updated_at")
   @Expose
-  private ZonedDateTime updatedAt;
+  private DateTime updatedAt;
 
   @SerializedName("updated_by")
   @Expose
@@ -147,12 +147,12 @@ public class BillingInfo extends Resource {
   }
 
   /** When the billing information was created. */
-  public ZonedDateTime getCreatedAt() {
+  public DateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt When the billing information was created. */
-  public void setCreatedAt(final ZonedDateTime createdAt) {
+  public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -248,12 +248,12 @@ public class BillingInfo extends Resource {
   }
 
   /** When the billing information was last changed. */
-  public ZonedDateTime getUpdatedAt() {
+  public DateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt When the billing information was last changed. */
-  public void setUpdatedAt(final ZonedDateTime updatedAt) {
+  public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 

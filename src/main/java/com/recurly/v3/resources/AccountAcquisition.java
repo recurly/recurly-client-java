@@ -9,7 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
-import java.time.ZonedDateTime;
+import org.joda.time.DateTime;
 
 public class AccountAcquisition extends Resource {
 
@@ -24,7 +24,7 @@ public class AccountAcquisition extends Resource {
    */
   @SerializedName("acquired_at")
   @Expose
-  private ZonedDateTime acquiredAt;
+  private DateTime acquiredAt;
 
   /**
    * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.
@@ -46,7 +46,7 @@ public class AccountAcquisition extends Resource {
   /** When the account acquisition data was created. */
   @SerializedName("created_at")
   @Expose
-  private ZonedDateTime createdAt;
+  private DateTime createdAt;
 
   @SerializedName("id")
   @Expose
@@ -67,7 +67,7 @@ public class AccountAcquisition extends Resource {
   /** When the account acquisition data was last changed. */
   @SerializedName("updated_at")
   @Expose
-  private ZonedDateTime updatedAt;
+  private DateTime updatedAt;
 
   /** Account mini details */
   public AccountMini getAccount() {
@@ -83,7 +83,7 @@ public class AccountAcquisition extends Resource {
    * Date the account was first created if different than the account.created_at. ie Importing
    * accounts.
    */
-  public ZonedDateTime getAcquiredAt() {
+  public DateTime getAcquiredAt() {
     return this.acquiredAt;
   }
 
@@ -91,7 +91,7 @@ public class AccountAcquisition extends Resource {
    * @param acquiredAt Date the account was first created if different than the account.created_at.
    *     ie Importing accounts.
    */
-  public void setAcquiredAt(final ZonedDateTime acquiredAt) {
+  public void setAcquiredAt(final DateTime acquiredAt) {
     this.acquiredAt = acquiredAt;
   }
 
@@ -131,12 +131,12 @@ public class AccountAcquisition extends Resource {
   }
 
   /** When the account acquisition data was created. */
-  public ZonedDateTime getCreatedAt() {
+  public DateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt When the account acquisition data was created. */
-  public void setCreatedAt(final ZonedDateTime createdAt) {
+  public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -175,12 +175,12 @@ public class AccountAcquisition extends Resource {
   }
 
   /** When the account acquisition data was last changed. */
-  public ZonedDateTime getUpdatedAt() {
+  public DateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt When the account acquisition data was last changed. */
-  public void setUpdatedAt(final ZonedDateTime updatedAt) {
+  public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 }

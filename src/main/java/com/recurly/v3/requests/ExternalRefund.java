@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
-import java.time.ZonedDateTime;
+import org.joda.time.DateTime;
 
 public class ExternalRefund extends Request {
 
@@ -27,7 +27,7 @@ public class ExternalRefund extends Request {
   /** Date the external refund payment was made. Defaults to the current date-time. */
   @SerializedName("refunded_at")
   @Expose
-  private ZonedDateTime refundedAt;
+  private DateTime refundedAt;
 
   /** Used as the refund transactions' description. */
   public String getDescription() {
@@ -50,14 +50,14 @@ public class ExternalRefund extends Request {
   }
 
   /** Date the external refund payment was made. Defaults to the current date-time. */
-  public ZonedDateTime getRefundedAt() {
+  public DateTime getRefundedAt() {
     return this.refundedAt;
   }
 
   /**
    * @param refundedAt Date the external refund payment was made. Defaults to the current date-time.
    */
-  public void setRefundedAt(final ZonedDateTime refundedAt) {
+  public void setRefundedAt(final DateTime refundedAt) {
     this.refundedAt = refundedAt;
   }
 }

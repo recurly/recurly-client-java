@@ -9,8 +9,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
-import java.time.ZonedDateTime;
 import java.util.List;
+import org.joda.time.DateTime;
 
 public class Site extends Resource {
 
@@ -21,12 +21,12 @@ public class Site extends Resource {
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private ZonedDateTime createdAt;
+  private DateTime createdAt;
 
   /** Deleted at */
   @SerializedName("deleted_at")
   @Expose
-  private ZonedDateTime deletedAt;
+  private DateTime deletedAt;
 
   /** A list of features enabled for the site. */
   @SerializedName("features")
@@ -64,7 +64,7 @@ public class Site extends Resource {
   /** Updated at */
   @SerializedName("updated_at")
   @Expose
-  private ZonedDateTime updatedAt;
+  private DateTime updatedAt;
 
   public Address getAddress() {
     return this.address;
@@ -76,22 +76,22 @@ public class Site extends Resource {
   }
 
   /** Created at */
-  public ZonedDateTime getCreatedAt() {
+  public DateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final ZonedDateTime createdAt) {
+  public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
   /** Deleted at */
-  public ZonedDateTime getDeletedAt() {
+  public DateTime getDeletedAt() {
     return this.deletedAt;
   }
 
   /** @param deletedAt Deleted at */
-  public void setDeletedAt(final ZonedDateTime deletedAt) {
+  public void setDeletedAt(final DateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
 
@@ -167,12 +167,12 @@ public class Site extends Resource {
   }
 
   /** Updated at */
-  public ZonedDateTime getUpdatedAt() {
+  public DateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Updated at */
-  public void setUpdatedAt(final ZonedDateTime updatedAt) {
+  public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 }

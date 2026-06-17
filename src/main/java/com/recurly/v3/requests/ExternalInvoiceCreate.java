@@ -10,8 +10,8 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
-import java.time.ZonedDateTime;
 import java.util.List;
+import org.joda.time.DateTime;
 
 public class ExternalInvoiceCreate extends Request {
 
@@ -44,7 +44,7 @@ public class ExternalInvoiceCreate extends Request {
   /** When the invoice was created in the external platform. */
   @SerializedName("purchased_at")
   @Expose
-  private ZonedDateTime purchasedAt;
+  private DateTime purchasedAt;
 
   @SerializedName("state")
   @Expose
@@ -109,12 +109,12 @@ public class ExternalInvoiceCreate extends Request {
   }
 
   /** When the invoice was created in the external platform. */
-  public ZonedDateTime getPurchasedAt() {
+  public DateTime getPurchasedAt() {
     return this.purchasedAt;
   }
 
   /** @param purchasedAt When the invoice was created in the external platform. */
-  public void setPurchasedAt(final ZonedDateTime purchasedAt) {
+  public void setPurchasedAt(final DateTime purchasedAt) {
     this.purchasedAt = purchasedAt;
   }
 

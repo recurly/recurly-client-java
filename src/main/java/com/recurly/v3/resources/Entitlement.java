@@ -8,15 +8,15 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import java.time.ZonedDateTime;
 import java.util.List;
+import org.joda.time.DateTime;
 
 public class Entitlement extends Resource {
 
   /** Time object was created. */
   @SerializedName("created_at")
   @Expose
-  private ZonedDateTime createdAt;
+  private DateTime createdAt;
 
   @SerializedName("customer_permission")
   @Expose
@@ -35,15 +35,15 @@ public class Entitlement extends Resource {
   /** Time the object was last updated */
   @SerializedName("updated_at")
   @Expose
-  private ZonedDateTime updatedAt;
+  private DateTime updatedAt;
 
   /** Time object was created. */
-  public ZonedDateTime getCreatedAt() {
+  public DateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Time object was created. */
-  public void setCreatedAt(final ZonedDateTime createdAt) {
+  public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -77,12 +77,12 @@ public class Entitlement extends Resource {
   }
 
   /** Time the object was last updated */
-  public ZonedDateTime getUpdatedAt() {
+  public DateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Time the object was last updated */
-  public void setUpdatedAt(final ZonedDateTime updatedAt) {
+  public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 }

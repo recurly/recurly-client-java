@@ -9,14 +9,14 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
-import java.time.ZonedDateTime;
+import org.joda.time.DateTime;
 
 public class RecoveryTransactionCreate extends Request {
 
   /** The date the original payment collection was attempted. */
   @SerializedName("attempted_collection_date")
   @Expose
-  private ZonedDateTime attemptedCollectionDate;
+  private DateTime attemptedCollectionDate;
 
   /** The error code returned by the payment gateway for the original payment collection attempt. */
   @SerializedName("gateway_error_code")
@@ -32,12 +32,12 @@ public class RecoveryTransactionCreate extends Request {
   private String merchantAdviceCode;
 
   /** The date the original payment collection was attempted. */
-  public ZonedDateTime getAttemptedCollectionDate() {
+  public DateTime getAttemptedCollectionDate() {
     return this.attemptedCollectionDate;
   }
 
   /** @param attemptedCollectionDate The date the original payment collection was attempted. */
-  public void setAttemptedCollectionDate(final ZonedDateTime attemptedCollectionDate) {
+  public void setAttemptedCollectionDate(final DateTime attemptedCollectionDate) {
     this.attemptedCollectionDate = attemptedCollectionDate;
   }
 

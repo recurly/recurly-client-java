@@ -8,8 +8,8 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import java.time.ZonedDateTime;
 import java.util.List;
+import org.joda.time.DateTime;
 
 public class DunningCampaign extends Resource {
 
@@ -21,7 +21,7 @@ public class DunningCampaign extends Resource {
   /** When the current campaign was created in Recurly. */
   @SerializedName("created_at")
   @Expose
-  private ZonedDateTime createdAt;
+  private DateTime createdAt;
 
   /**
    * Whether or not this is the default campaign for accounts or plans without an assigned dunning
@@ -34,7 +34,7 @@ public class DunningCampaign extends Resource {
   /** When the current campaign was deleted in Recurly. */
   @SerializedName("deleted_at")
   @Expose
-  private ZonedDateTime deletedAt;
+  private DateTime deletedAt;
 
   /** Campaign description. */
   @SerializedName("description")
@@ -63,7 +63,7 @@ public class DunningCampaign extends Resource {
   /** When the current campaign was updated in Recurly. */
   @SerializedName("updated_at")
   @Expose
-  private ZonedDateTime updatedAt;
+  private DateTime updatedAt;
 
   /** Campaign code. */
   public String getCode() {
@@ -76,12 +76,12 @@ public class DunningCampaign extends Resource {
   }
 
   /** When the current campaign was created in Recurly. */
-  public ZonedDateTime getCreatedAt() {
+  public DateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt When the current campaign was created in Recurly. */
-  public void setCreatedAt(final ZonedDateTime createdAt) {
+  public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -102,12 +102,12 @@ public class DunningCampaign extends Resource {
   }
 
   /** When the current campaign was deleted in Recurly. */
-  public ZonedDateTime getDeletedAt() {
+  public DateTime getDeletedAt() {
     return this.deletedAt;
   }
 
   /** @param deletedAt When the current campaign was deleted in Recurly. */
-  public void setDeletedAt(final ZonedDateTime deletedAt) {
+  public void setDeletedAt(final DateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
 
@@ -161,12 +161,12 @@ public class DunningCampaign extends Resource {
   }
 
   /** When the current campaign was updated in Recurly. */
-  public ZonedDateTime getUpdatedAt() {
+  public DateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt When the current campaign was updated in Recurly. */
-  public void setUpdatedAt(final ZonedDateTime updatedAt) {
+  public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 }

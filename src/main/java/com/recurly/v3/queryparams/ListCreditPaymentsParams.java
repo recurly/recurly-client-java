@@ -7,7 +7,7 @@ package com.recurly.v3.queryparams;
 
 import com.recurly.v3.AbstractQueryParams;
 import com.recurly.v3.Constants;
-import java.time.ZonedDateTime;
+import org.joda.time.DateTime;
 
 public class ListCreditPaymentsParams extends AbstractQueryParams {
 
@@ -23,11 +23,11 @@ public class ListCreditPaymentsParams extends AbstractQueryParams {
     this.add("sort", sort);
   }
 
-  public void setBeginTime(final ZonedDateTime beginTime) {
+  public void setBeginTime(final DateTime beginTime) {
     this.add("begin_time", beginTime);
   }
 
-  public void setEndTime(final ZonedDateTime endTime) {
+  public void setEndTime(final DateTime endTime) {
     this.add("end_time", endTime);
   }
 }

@@ -11,8 +11,8 @@ import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
 import java.util.List;
+import org.joda.time.DateTime;
 
 public class SubscriptionChangeCreate extends Request {
 
@@ -118,7 +118,7 @@ public class SubscriptionChangeCreate extends Request {
    */
   @SerializedName("next_bill_date")
   @Expose
-  private ZonedDateTime nextBillDate;
+  private DateTime nextBillDate;
 
   /**
    * If you want to change to a new plan, you can provide the plan's code or id. If both are
@@ -405,7 +405,7 @@ public class SubscriptionChangeCreate extends Request {
    * (`current_period_ends_at`). When combined with proration_settings, proration calculation should
    * occur, only supported when timeframe is now.
    */
-  public ZonedDateTime getNextBillDate() {
+  public DateTime getNextBillDate() {
     return this.nextBillDate;
   }
 
@@ -414,7 +414,7 @@ public class SubscriptionChangeCreate extends Request {
    *     start (`current_period_ends_at`). When combined with proration_settings, proration
    *     calculation should occur, only supported when timeframe is now.
    */
-  public void setNextBillDate(final ZonedDateTime nextBillDate) {
+  public void setNextBillDate(final DateTime nextBillDate) {
     this.nextBillDate = nextBillDate;
   }
 

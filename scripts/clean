@@ -6,3 +6,4 @@ rm -f src/main/java/com/recurly/v3/Constants.java
 rm -f src/main/java/com/recurly/v3/requests/*
 rm -f src/main/java/com/recurly/v3/resources/*
 rm -f src/main/java/com/recurly/v3/exception/*
+rm -f src/main/java/com/recurly/v3/queryparams/*

@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import org.joda.time.DateTime;
 
 public class CouponRedemption extends Resource {
 
@@ -26,7 +26,7 @@ public class CouponRedemption extends Resource {
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private ZonedDateTime createdAt;
+  private DateTime createdAt;
 
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
@@ -57,7 +57,7 @@ public class CouponRedemption extends Resource {
   /** The date and time the redemption was removed from the account (un-redeemed). */
   @SerializedName("removed_at")
   @Expose
-  private ZonedDateTime removedAt;
+  private DateTime removedAt;
 
   /** Coupon Redemption state */
   @SerializedName("state")
@@ -72,7 +72,7 @@ public class CouponRedemption extends Resource {
   /** Last updated at */
   @SerializedName("updated_at")
   @Expose
-  private ZonedDateTime updatedAt;
+  private DateTime updatedAt;
 
   /**
    * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
@@ -101,12 +101,12 @@ public class CouponRedemption extends Resource {
   }
 
   /** Created at */
-  public ZonedDateTime getCreatedAt() {
+  public DateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final ZonedDateTime createdAt) {
+  public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -165,14 +165,14 @@ public class CouponRedemption extends Resource {
   }
 
   /** The date and time the redemption was removed from the account (un-redeemed). */
-  public ZonedDateTime getRemovedAt() {
+  public DateTime getRemovedAt() {
     return this.removedAt;
   }
 
   /**
    * @param removedAt The date and time the redemption was removed from the account (un-redeemed).
    */
-  public void setRemovedAt(final ZonedDateTime removedAt) {
+  public void setRemovedAt(final DateTime removedAt) {
     this.removedAt = removedAt;
   }
 
@@ -197,12 +197,12 @@ public class CouponRedemption extends Resource {
   }
 
   /** Last updated at */
-  public ZonedDateTime getUpdatedAt() {
+  public DateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Last updated at */
-  public void setUpdatedAt(final ZonedDateTime updatedAt) {
+  public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 

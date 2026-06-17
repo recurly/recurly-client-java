@@ -9,7 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
-import java.time.ZonedDateTime;
+import org.joda.time.DateTime;
 
 public class CouponMini extends Resource {
 
@@ -37,7 +37,7 @@ public class CouponMini extends Resource {
   /** The date and time the coupon was expired early or reached its `max_redemptions`. */
   @SerializedName("expired_at")
   @Expose
-  private ZonedDateTime expiredAt;
+  private DateTime expiredAt;
 
   /** Coupon ID */
   @SerializedName("id")
@@ -102,7 +102,7 @@ public class CouponMini extends Resource {
   }
 
   /** The date and time the coupon was expired early or reached its `max_redemptions`. */
-  public ZonedDateTime getExpiredAt() {
+  public DateTime getExpiredAt() {
     return this.expiredAt;
   }
 
@@ -110,7 +110,7 @@ public class CouponMini extends Resource {
    * @param expiredAt The date and time the coupon was expired early or reached its
    *     `max_redemptions`.
    */
-  public void setExpiredAt(final ZonedDateTime expiredAt) {
+  public void setExpiredAt(final DateTime expiredAt) {
     this.expiredAt = expiredAt;
   }
 

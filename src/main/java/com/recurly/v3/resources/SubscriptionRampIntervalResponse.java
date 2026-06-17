@@ -9,14 +9,14 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import org.joda.time.DateTime;
 
 public class SubscriptionRampIntervalResponse extends Resource {
 
   /** Date the ramp interval ends */
   @SerializedName("ending_on")
   @Expose
-  private ZonedDateTime endingOn;
+  private DateTime endingOn;
 
   /** Represents how many billing cycles are left in a ramp interval. */
   @SerializedName("remaining_billing_cycles")
@@ -31,7 +31,7 @@ public class SubscriptionRampIntervalResponse extends Resource {
   /** Date the ramp interval starts */
   @SerializedName("starting_on")
   @Expose
-  private ZonedDateTime startingOn;
+  private DateTime startingOn;
 
   /** Represents the price for the ramp interval. */
   @SerializedName("unit_amount")
@@ -39,12 +39,12 @@ public class SubscriptionRampIntervalResponse extends Resource {
   private BigDecimal unitAmount;
 
   /** Date the ramp interval ends */
-  public ZonedDateTime getEndingOn() {
+  public DateTime getEndingOn() {
     return this.endingOn;
   }
 
   /** @param endingOn Date the ramp interval ends */
-  public void setEndingOn(final ZonedDateTime endingOn) {
+  public void setEndingOn(final DateTime endingOn) {
     this.endingOn = endingOn;
   }
 
@@ -71,12 +71,12 @@ public class SubscriptionRampIntervalResponse extends Resource {
   }
 
   /** Date the ramp interval starts */
-  public ZonedDateTime getStartingOn() {
+  public DateTime getStartingOn() {
     return this.startingOn;
   }
 
   /** @param startingOn Date the ramp interval starts */
-  public void setStartingOn(final ZonedDateTime startingOn) {
+  public void setStartingOn(final DateTime startingOn) {
     this.startingOn = startingOn;
   }
 

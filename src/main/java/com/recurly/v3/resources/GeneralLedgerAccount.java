@@ -9,7 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
-import java.time.ZonedDateTime;
+import org.joda.time.DateTime;
 
 public class GeneralLedgerAccount extends Resource {
 
@@ -28,7 +28,7 @@ public class GeneralLedgerAccount extends Resource {
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private ZonedDateTime createdAt;
+  private DateTime createdAt;
 
   /** Optional description. */
   @SerializedName("description")
@@ -51,7 +51,7 @@ public class GeneralLedgerAccount extends Resource {
   /** Last updated at */
   @SerializedName("updated_at")
   @Expose
-  private ZonedDateTime updatedAt;
+  private DateTime updatedAt;
 
   public Constants.GeneralLedgerAccountType getAccountType() {
     return this.accountType;
@@ -79,12 +79,12 @@ public class GeneralLedgerAccount extends Resource {
   }
 
   /** Created at */
-  public ZonedDateTime getCreatedAt() {
+  public DateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final ZonedDateTime createdAt) {
+  public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -125,12 +125,12 @@ public class GeneralLedgerAccount extends Resource {
   }
 
   /** Last updated at */
-  public ZonedDateTime getUpdatedAt() {
+  public DateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Last updated at */
-  public void setUpdatedAt(final ZonedDateTime updatedAt) {
+  public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 }

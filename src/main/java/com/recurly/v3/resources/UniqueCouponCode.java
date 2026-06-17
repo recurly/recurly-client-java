@@ -9,7 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
-import java.time.ZonedDateTime;
+import org.joda.time.DateTime;
 
 public class UniqueCouponCode extends Resource {
 
@@ -31,12 +31,12 @@ public class UniqueCouponCode extends Resource {
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private ZonedDateTime createdAt;
+  private DateTime createdAt;
 
   /** The date and time the coupon was expired early or reached its `max_redemptions`. */
   @SerializedName("expired_at")
   @Expose
-  private ZonedDateTime expiredAt;
+  private DateTime expiredAt;
 
   /** Unique Coupon Code ID */
   @SerializedName("id")
@@ -51,7 +51,7 @@ public class UniqueCouponCode extends Resource {
   /** The date and time the unique coupon code was redeemed. */
   @SerializedName("redeemed_at")
   @Expose
-  private ZonedDateTime redeemedAt;
+  private DateTime redeemedAt;
 
   /** Indicates if the unique coupon code is redeemable or why not. */
   @SerializedName("state")
@@ -61,7 +61,7 @@ public class UniqueCouponCode extends Resource {
   /** Updated at */
   @SerializedName("updated_at")
   @Expose
-  private ZonedDateTime updatedAt;
+  private DateTime updatedAt;
 
   /** The Coupon code of the parent Bulk Coupon */
   public String getBulkCouponCode() {
@@ -94,17 +94,17 @@ public class UniqueCouponCode extends Resource {
   }
 
   /** Created at */
-  public ZonedDateTime getCreatedAt() {
+  public DateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final ZonedDateTime createdAt) {
+  public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
   /** The date and time the coupon was expired early or reached its `max_redemptions`. */
-  public ZonedDateTime getExpiredAt() {
+  public DateTime getExpiredAt() {
     return this.expiredAt;
   }
 
@@ -112,7 +112,7 @@ public class UniqueCouponCode extends Resource {
    * @param expiredAt The date and time the coupon was expired early or reached its
    *     `max_redemptions`.
    */
-  public void setExpiredAt(final ZonedDateTime expiredAt) {
+  public void setExpiredAt(final DateTime expiredAt) {
     this.expiredAt = expiredAt;
   }
 
@@ -137,12 +137,12 @@ public class UniqueCouponCode extends Resource {
   }
 
   /** The date and time the unique coupon code was redeemed. */
-  public ZonedDateTime getRedeemedAt() {
+  public DateTime getRedeemedAt() {
     return this.redeemedAt;
   }
 
   /** @param redeemedAt The date and time the unique coupon code was redeemed. */
-  public void setRedeemedAt(final ZonedDateTime redeemedAt) {
+  public void setRedeemedAt(final DateTime redeemedAt) {
     this.redeemedAt = redeemedAt;
   }
 
@@ -157,12 +157,12 @@ public class UniqueCouponCode extends Resource {
   }
 
   /** Updated at */
-  public ZonedDateTime getUpdatedAt() {
+  public DateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Updated at */
-  public void setUpdatedAt(final ZonedDateTime updatedAt) {
+  public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 }

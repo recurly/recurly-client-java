@@ -9,7 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
-import java.time.ZonedDateTime;
+import org.joda.time.DateTime;
 
 public class GiftCardDelivery extends Resource {
 
@@ -20,7 +20,7 @@ public class GiftCardDelivery extends Resource {
    */
   @SerializedName("deliver_at")
   @Expose
-  private ZonedDateTime deliverAt;
+  private DateTime deliverAt;
 
   /** The email address of the recipient. */
   @SerializedName("email_address")
@@ -62,7 +62,7 @@ public class GiftCardDelivery extends Resource {
    * delivered immediately. If a datetime is provided, the delivery will be in an hourly window,
    * rounding down. For example, 6:23 pm will be in the 6:00 pm hourly batch.
    */
-  public ZonedDateTime getDeliverAt() {
+  public DateTime getDeliverAt() {
     return this.deliverAt;
   }
 
@@ -71,7 +71,7 @@ public class GiftCardDelivery extends Resource {
    *     card will be delivered immediately. If a datetime is provided, the delivery will be in an
    *     hourly window, rounding down. For example, 6:23 pm will be in the 6:00 pm hourly batch.
    */
-  public void setDeliverAt(final ZonedDateTime deliverAt) {
+  public void setDeliverAt(final DateTime deliverAt) {
     this.deliverAt = deliverAt;
   }
 

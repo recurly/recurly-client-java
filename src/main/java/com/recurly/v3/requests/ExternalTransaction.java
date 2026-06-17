@@ -11,7 +11,7 @@ import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import org.joda.time.DateTime;
 
 public class ExternalTransaction extends Request {
 
@@ -23,7 +23,7 @@ public class ExternalTransaction extends Request {
   /** Datetime that the external payment was collected. Defaults to current datetime. */
   @SerializedName("collected_at")
   @Expose
-  private ZonedDateTime collectedAt;
+  private DateTime collectedAt;
 
   /** Used as the transaction's description. */
   @SerializedName("description")
@@ -46,7 +46,7 @@ public class ExternalTransaction extends Request {
   }
 
   /** Datetime that the external payment was collected. Defaults to current datetime. */
-  public ZonedDateTime getCollectedAt() {
+  public DateTime getCollectedAt() {
     return this.collectedAt;
   }
 
@@ -54,7 +54,7 @@ public class ExternalTransaction extends Request {
    * @param collectedAt Datetime that the external payment was collected. Defaults to current
    *     datetime.
    */
-  public void setCollectedAt(final ZonedDateTime collectedAt) {
+  public void setCollectedAt(final DateTime collectedAt) {
     this.collectedAt = collectedAt;
   }
 

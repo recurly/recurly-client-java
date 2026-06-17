@@ -9,14 +9,14 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
-import java.time.ZonedDateTime;
+import org.joda.time.DateTime;
 
 public class ExternalSubscriptionUpdate extends Request {
 
   /** When the external subscription was activated in the external platform. */
   @SerializedName("activated_at")
   @Expose
-  private ZonedDateTime activatedAt;
+  private DateTime activatedAt;
 
   /** Identifier of the app that generated the external subscription. */
   @SerializedName("app_identifier")
@@ -34,7 +34,7 @@ public class ExternalSubscriptionUpdate extends Request {
   /** When the external subscription expires in the external platform. */
   @SerializedName("expires_at")
   @Expose
-  private ZonedDateTime expiresAt;
+  private DateTime expiresAt;
 
   /** Id of the subscription in the external system, i.e. Apple App Store or Google Play Store. */
   @SerializedName("external_id")
@@ -59,7 +59,7 @@ public class ExternalSubscriptionUpdate extends Request {
    */
   @SerializedName("last_purchased")
   @Expose
-  private ZonedDateTime lastPurchased;
+  private DateTime lastPurchased;
 
   /** An indication of the quantity of a subscribed item's quantity. */
   @SerializedName("quantity")
@@ -76,20 +76,20 @@ public class ExternalSubscriptionUpdate extends Request {
   /** When the external subscription trial period ends in the external platform. */
   @SerializedName("trial_ends_at")
   @Expose
-  private ZonedDateTime trialEndsAt;
+  private DateTime trialEndsAt;
 
   /** When the external subscription trial period started in the external platform. */
   @SerializedName("trial_started_at")
   @Expose
-  private ZonedDateTime trialStartedAt;
+  private DateTime trialStartedAt;
 
   /** When the external subscription was activated in the external platform. */
-  public ZonedDateTime getActivatedAt() {
+  public DateTime getActivatedAt() {
     return this.activatedAt;
   }
 
   /** @param activatedAt When the external subscription was activated in the external platform. */
-  public void setActivatedAt(final ZonedDateTime activatedAt) {
+  public void setActivatedAt(final DateTime activatedAt) {
     this.activatedAt = activatedAt;
   }
 
@@ -120,12 +120,12 @@ public class ExternalSubscriptionUpdate extends Request {
   }
 
   /** When the external subscription expires in the external platform. */
-  public ZonedDateTime getExpiresAt() {
+  public DateTime getExpiresAt() {
     return this.expiresAt;
   }
 
   /** @param expiresAt When the external subscription expires in the external platform. */
-  public void setExpiresAt(final ZonedDateTime expiresAt) {
+  public void setExpiresAt(final DateTime expiresAt) {
     this.expiresAt = expiresAt;
   }
 
@@ -172,7 +172,7 @@ public class ExternalSubscriptionUpdate extends Request {
    * When a new billing event occurred on the external subscription in conjunction with a recent
    * billing period, reactivation or upgrade/downgrade.
    */
-  public ZonedDateTime getLastPurchased() {
+  public DateTime getLastPurchased() {
     return this.lastPurchased;
   }
 
@@ -180,7 +180,7 @@ public class ExternalSubscriptionUpdate extends Request {
    * @param lastPurchased When a new billing event occurred on the external subscription in
    *     conjunction with a recent billing period, reactivation or upgrade/downgrade.
    */
-  public void setLastPurchased(final ZonedDateTime lastPurchased) {
+  public void setLastPurchased(final DateTime lastPurchased) {
     this.lastPurchased = lastPurchased;
   }
 
@@ -210,19 +210,19 @@ public class ExternalSubscriptionUpdate extends Request {
   }
 
   /** When the external subscription trial period ends in the external platform. */
-  public ZonedDateTime getTrialEndsAt() {
+  public DateTime getTrialEndsAt() {
     return this.trialEndsAt;
   }
 
   /**
    * @param trialEndsAt When the external subscription trial period ends in the external platform.
    */
-  public void setTrialEndsAt(final ZonedDateTime trialEndsAt) {
+  public void setTrialEndsAt(final DateTime trialEndsAt) {
     this.trialEndsAt = trialEndsAt;
   }
 
   /** When the external subscription trial period started in the external platform. */
-  public ZonedDateTime getTrialStartedAt() {
+  public DateTime getTrialStartedAt() {
     return this.trialStartedAt;
   }
 
@@ -230,7 +230,7 @@ public class ExternalSubscriptionUpdate extends Request {
    * @param trialStartedAt When the external subscription trial period started in the external
    *     platform.
    */
-  public void setTrialStartedAt(final ZonedDateTime trialStartedAt) {
+  public void setTrialStartedAt(final DateTime trialStartedAt) {
     this.trialStartedAt = trialStartedAt;
   }
 }

@@ -10,15 +10,15 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
 import java.util.List;
+import org.joda.time.DateTime;
 
 public class SubscriptionChange extends Resource {
 
   /** Activated at */
   @SerializedName("activate_at")
   @Expose
-  private ZonedDateTime activateAt;
+  private DateTime activateAt;
 
   /** Returns `true` if the subscription change is activated. */
   @SerializedName("activated")
@@ -43,7 +43,7 @@ public class SubscriptionChange extends Resource {
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private ZonedDateTime createdAt;
+  private DateTime createdAt;
 
   /**
    * The custom fields will only be altered when they are included in a request. Sending an empty
@@ -57,7 +57,7 @@ public class SubscriptionChange extends Resource {
   /** Deleted at */
   @SerializedName("deleted_at")
   @Expose
-  private ZonedDateTime deletedAt;
+  private DateTime deletedAt;
 
   /** The ID of the Subscription Change. */
   @SerializedName("id")
@@ -76,7 +76,7 @@ public class SubscriptionChange extends Resource {
    */
   @SerializedName("next_bill_date")
   @Expose
-  private ZonedDateTime nextBillDate;
+  private DateTime nextBillDate;
 
   /** Object type */
   @SerializedName("object")
@@ -126,15 +126,15 @@ public class SubscriptionChange extends Resource {
   /** Updated at */
   @SerializedName("updated_at")
   @Expose
-  private ZonedDateTime updatedAt;
+  private DateTime updatedAt;
 
   /** Activated at */
-  public ZonedDateTime getActivateAt() {
+  public DateTime getActivateAt() {
     return this.activateAt;
   }
 
   /** @param activateAt Activated at */
-  public void setActivateAt(final ZonedDateTime activateAt) {
+  public void setActivateAt(final DateTime activateAt) {
     this.activateAt = activateAt;
   }
 
@@ -179,12 +179,12 @@ public class SubscriptionChange extends Resource {
   }
 
   /** Created at */
-  public ZonedDateTime getCreatedAt() {
+  public DateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final ZonedDateTime createdAt) {
+  public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -207,12 +207,12 @@ public class SubscriptionChange extends Resource {
   }
 
   /** Deleted at */
-  public ZonedDateTime getDeletedAt() {
+  public DateTime getDeletedAt() {
     return this.deletedAt;
   }
 
   /** @param deletedAt Deleted at */
-  public void setDeletedAt(final ZonedDateTime deletedAt) {
+  public void setDeletedAt(final DateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
 
@@ -241,7 +241,7 @@ public class SubscriptionChange extends Resource {
    * (`current_period_ends_at`). When combined with proration_settings, proration calculation should
    * occur, only supported when timeframe is now.
    */
-  public ZonedDateTime getNextBillDate() {
+  public DateTime getNextBillDate() {
     return this.nextBillDate;
   }
 
@@ -250,7 +250,7 @@ public class SubscriptionChange extends Resource {
    *     start (`current_period_ends_at`). When combined with proration_settings, proration
    *     calculation should occur, only supported when timeframe is now.
    */
-  public void setNextBillDate(final ZonedDateTime nextBillDate) {
+  public void setNextBillDate(final DateTime nextBillDate) {
     this.nextBillDate = nextBillDate;
   }
 
@@ -347,12 +347,12 @@ public class SubscriptionChange extends Resource {
   }
 
   /** Updated at */
-  public ZonedDateTime getUpdatedAt() {
+  public DateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Updated at */
-  public void setUpdatedAt(final ZonedDateTime updatedAt) {
+  public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 }

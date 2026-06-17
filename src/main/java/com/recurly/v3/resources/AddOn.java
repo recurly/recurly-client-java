@@ -10,8 +10,8 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
 import java.util.List;
+import org.joda.time.DateTime;
 
 public class AddOn extends Resource {
 
@@ -56,7 +56,7 @@ public class AddOn extends Resource {
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private ZonedDateTime createdAt;
+  private DateTime createdAt;
 
   /** Add-on pricing */
   @SerializedName("currencies")
@@ -71,7 +71,7 @@ public class AddOn extends Resource {
   /** Deleted at */
   @SerializedName("deleted_at")
   @Expose
-  private ZonedDateTime deletedAt;
+  private DateTime deletedAt;
 
   /** Determines if the quantity field is displayed on the hosted pages for the add-on. */
   @SerializedName("display_quantity")
@@ -209,7 +209,7 @@ public class AddOn extends Resource {
   /** Last updated at */
   @SerializedName("updated_at")
   @Expose
-  private ZonedDateTime updatedAt;
+  private DateTime updatedAt;
 
   /**
    * The type of calculation to be employed for an add-on. Cumulative billing will sum all usage
@@ -316,12 +316,12 @@ public class AddOn extends Resource {
   }
 
   /** Created at */
-  public ZonedDateTime getCreatedAt() {
+  public DateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final ZonedDateTime createdAt) {
+  public void setCreatedAt(final DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -346,12 +346,12 @@ public class AddOn extends Resource {
   }
 
   /** Deleted at */
-  public ZonedDateTime getDeletedAt() {
+  public DateTime getDeletedAt() {
     return this.deletedAt;
   }
 
   /** @param deletedAt Deleted at */
-  public void setDeletedAt(final ZonedDateTime deletedAt) {
+  public void setDeletedAt(final DateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
 
@@ -632,12 +632,12 @@ public class AddOn extends Resource {
   }
 
   /** Last updated at */
-  public ZonedDateTime getUpdatedAt() {
+  public DateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Last updated at */
-  public void setUpdatedAt(final ZonedDateTime updatedAt) {
+  public void setUpdatedAt(final DateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 
