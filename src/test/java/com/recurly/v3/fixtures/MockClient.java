@@ -3,8 +3,8 @@ package com.recurly.v3.fixtures;
 import com.google.gson.reflect.TypeToken;
 import com.recurly.v3.BaseClient;
 import com.recurly.v3.Pager;
-import com.recurly.v3.QueryParams;
 import com.recurly.v3.ClientOptions;
+import com.recurly.v3.fixtures.MockQueryParams;
 
 import org.mockito.stubbing.Answer;
 
@@ -51,10 +51,10 @@ public class MockClient extends BaseClient {
     return this.makeRequest("GET", path, returnType);
   }
 
-  public Pager<MyResource> listResources(QueryParams queryParams) {
+  public Pager<MyResource> listResources(MockQueryParams queryParams) {
     final String url = "/resources";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    if (queryParams == null) queryParams = new QueryParams();
+    if (queryParams == null) queryParams = new MockQueryParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type parameterizedType = TypeToken.getParameterized(Pager.class, MyResource.class).getType();

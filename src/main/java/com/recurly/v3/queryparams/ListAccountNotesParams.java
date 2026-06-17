@@ -3,9 +3,14 @@
  * make by hand will be lost. If you wish to make a change to this file, please create a Github
  * issue explaining the changes you need and we will usher them to the appropriate places.
  */
-package com.recurly.v3.requests;
+package com.recurly.v3.queryparams;
 
-import com.recurly.v3.Request;
-import com.recurly.v3.resources.*;
+import com.recurly.v3.AbstractQueryParams;
+import java.util.List;
 
-public class ExternalProductReferenceConnectionType extends Request {}
+public class ListAccountNotesParams extends AbstractQueryParams {
+
+  public void setIds(final List<String> ids) {
+    this.add("ids", String.join(",", ids));
+  }
+}
