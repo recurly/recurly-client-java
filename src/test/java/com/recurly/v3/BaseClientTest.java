@@ -21,7 +21,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import org.apache.commons.io.IOUtils;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.mockito.stubbing.Answer;
@@ -132,14 +133,14 @@ public class BaseClientTest {
 
   @Test
   public void testMakeRequestWithQueryParams() throws IOException {
-    DateTime dateTime = new DateTime();
+    ZonedDateTime dateTime = ZonedDateTime.now();
 
     final Call mCall = mock(Call.class);
     Answer answer = (i) -> {
       Request request = i.getArgument(0);
       HttpUrl url = request.url();
       assertEquals("Aaron", url.queryParameter("my_string"));
-      assertEquals(dateTime.toString(), url.queryParameter("my_date_time"));
+      assertEquals(DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(dateTime), url.queryParameter("my_date_time"));
       assertEquals("1", url.queryParameter("my_integer"));
       assertEquals("2.3", url.queryParameter("my_float"));
       assertEquals("4.5", url.queryParameter("my_double"));

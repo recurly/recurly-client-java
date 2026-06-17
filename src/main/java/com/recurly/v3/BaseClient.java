@@ -22,7 +22,8 @@ import java.util.stream.Collectors;
 import okhttp3.*;
 import okhttp3.Request.Builder;
 import okhttp3.logging.HttpLoggingInterceptor;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 public abstract class BaseClient {
   private static final List<String> BINARY_TYPES = Arrays.asList("application/pdf");
@@ -34,11 +35,11 @@ public abstract class BaseClient {
   private String apiUrl;
 
   protected BaseClient(final String apiKey) {
-    this(apiKey, newHttpClient(apiKey), new ClientOptions());
+    this(apiKey, newHttpClient(validateApiKey(apiKey)), new ClientOptions());
   }
 
   protected BaseClient(final String apiKey, final ClientOptions clientOptions) {
-    this(apiKey, newHttpClient(apiKey), clientOptions);
+    this(apiKey, newHttpClient(validateApiKey(apiKey)), clientOptions);
   }
 
   protected BaseClient(final String apiKey, final OkHttpClient client) {
@@ -46,13 +47,16 @@ public abstract class BaseClient {
   }
 
   protected BaseClient(final String apiKey, final OkHttpClient client, final ClientOptions clientOptions) {
+    this.apiKey = validateApiKey(apiKey);
+    this.client = client;
+    this.apiUrl = clientOptions.getBaseUrl();
+  }
+
+  private static String validateApiKey(final String apiKey) {
     if (apiKey == null || apiKey.isEmpty()) {
       throw new IllegalArgumentException("apiKey cannot be null or empty");
     }
-
-    this.apiKey = apiKey;
-    this.client = client;
-    this.apiUrl = clientOptions.getBaseUrl();
+    return apiKey;
   }
 
   private static OkHttpClient newHttpClient(final String apiKey) {
@@ -207,8 +211,8 @@ public abstract class BaseClient {
           continue;
         } else if (value instanceof String) {
           stringValue = value.toString();
-        } else if (value instanceof DateTime) {
-          stringValue = value.toString();
+        } else if (value instanceof ZonedDateTime) {
+          stringValue = DateTimeFormatter.ISO_OFFSET_DATE_TIME.format((ZonedDateTime) value);
         } else if (value instanceof Integer) {
           stringValue = Integer.toString((Integer) value);
         } else if (value instanceof Float) {
