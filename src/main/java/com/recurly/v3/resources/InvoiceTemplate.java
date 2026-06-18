@@ -8,7 +8,7 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class InvoiceTemplate extends Resource {
 
@@ -20,7 +20,7 @@ public class InvoiceTemplate extends Resource {
   /** When the invoice template was created in Recurly. */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /** Invoice template description. */
   @SerializedName("description")
@@ -39,7 +39,7 @@ public class InvoiceTemplate extends Resource {
   /** When the invoice template was updated in Recurly. */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /** Invoice template code. */
   public String getCode() {
@@ -52,12 +52,12 @@ public class InvoiceTemplate extends Resource {
   }
 
   /** When the invoice template was created in Recurly. */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt When the invoice template was created in Recurly. */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -91,12 +91,12 @@ public class InvoiceTemplate extends Resource {
   }
 
   /** When the invoice template was updated in Recurly. */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt When the invoice template was updated in Recurly. */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 }

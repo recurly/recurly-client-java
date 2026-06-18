@@ -11,8 +11,8 @@ import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.List;
-import org.joda.time.DateTime;
 
 public class SubscriptionPurchase extends Request {
 
@@ -62,7 +62,7 @@ public class SubscriptionPurchase extends Request {
    */
   @SerializedName("next_bill_date")
   @Expose
-  private DateTime nextBillDate;
+  private ZonedDateTime nextBillDate;
 
   /** Plan code */
   @SerializedName("plan_code")
@@ -122,7 +122,7 @@ public class SubscriptionPurchase extends Request {
    */
   @SerializedName("starts_at")
   @Expose
-  private DateTime startsAt;
+  private ZonedDateTime startsAt;
 
   /**
    * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature
@@ -149,7 +149,7 @@ public class SubscriptionPurchase extends Request {
    */
   @SerializedName("trial_ends_at")
   @Expose
-  private DateTime trialEndsAt;
+  private ZonedDateTime trialEndsAt;
 
   /**
    * Override the unit amount of the subscription plan by setting this value. If not provided, the
@@ -240,7 +240,7 @@ public class SubscriptionPurchase extends Request {
    * based off the plan interval. For a subscription with a trial period, this will change when the
    * trial expires.
    */
-  public DateTime getNextBillDate() {
+  public ZonedDateTime getNextBillDate() {
     return this.nextBillDate;
   }
 
@@ -252,7 +252,7 @@ public class SubscriptionPurchase extends Request {
    *     based off the plan interval. For a subscription with a trial period, this will change when
    *     the trial expires.
    */
-  public void setNextBillDate(final DateTime nextBillDate) {
+  public void setNextBillDate(final ZonedDateTime nextBillDate) {
     this.nextBillDate = nextBillDate;
   }
 
@@ -368,7 +368,7 @@ public class SubscriptionPurchase extends Request {
    * setup fee and trial period, unless the plan has no trial. Omit this field if the subscription
    * should be started immediately.
    */
-  public DateTime getStartsAt() {
+  public ZonedDateTime getStartsAt() {
     return this.startsAt;
   }
 
@@ -377,7 +377,7 @@ public class SubscriptionPurchase extends Request {
    *     will apply the setup fee and trial period, unless the plan has no trial. Omit this field if
    *     the subscription should be started immediately.
    */
-  public void setStartsAt(final DateTime startsAt) {
+  public void setStartsAt(final ZonedDateTime startsAt) {
     this.startsAt = startsAt;
   }
 
@@ -422,7 +422,7 @@ public class SubscriptionPurchase extends Request {
    * plan default trial). When a future date time is provided the subscription will begin with a
    * trial phase ending at the specified date time.
    */
-  public DateTime getTrialEndsAt() {
+  public ZonedDateTime getTrialEndsAt() {
     return this.trialEndsAt;
   }
 
@@ -432,7 +432,7 @@ public class SubscriptionPurchase extends Request {
    *     phase (overriding any plan default trial). When a future date time is provided the
    *     subscription will begin with a trial phase ending at the specified date time.
    */
-  public void setTrialEndsAt(final DateTime trialEndsAt) {
+  public void setTrialEndsAt(final ZonedDateTime trialEndsAt) {
     this.trialEndsAt = trialEndsAt;
   }
 

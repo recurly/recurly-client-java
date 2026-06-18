@@ -9,7 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class CouponRedemptionRemainingDuration extends Resource {
 
@@ -19,7 +19,7 @@ public class CouponRedemptionRemainingDuration extends Resource {
    */
   @SerializedName("expires_at")
   @Expose
-  private DateTime expiresAt;
+  private ZonedDateTime expiresAt;
 
   /**
    * The coupon's duration type. `temporal` includes an `expires_at` timestamp. `forever` and
@@ -33,7 +33,7 @@ public class CouponRedemptionRemainingDuration extends Resource {
    * Present when `type` is `temporal`. The datetime after which this redemption will no longer
    * apply.
    */
-  public DateTime getExpiresAt() {
+  public ZonedDateTime getExpiresAt() {
     return this.expiresAt;
   }
 
@@ -41,7 +41,7 @@ public class CouponRedemptionRemainingDuration extends Resource {
    * @param expiresAt Present when `type` is `temporal`. The datetime after which this redemption
    *     will no longer apply.
    */
-  public void setExpiresAt(final DateTime expiresAt) {
+  public void setExpiresAt(final ZonedDateTime expiresAt) {
     this.expiresAt = expiresAt;
   }
 

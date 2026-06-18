@@ -10,8 +10,8 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.List;
-import org.joda.time.DateTime;
 
 public class Invoice extends Resource {
 
@@ -50,7 +50,7 @@ public class Invoice extends Resource {
   /** Date invoice was marked paid or failed. */
   @SerializedName("closed_at")
   @Expose
-  private DateTime closedAt;
+  private ZonedDateTime closedAt;
 
   /**
    * An automatic invoice means a corresponding transaction is run using the account's billing
@@ -71,7 +71,7 @@ public class Invoice extends Resource {
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /** Credit payments */
   @SerializedName("credit_payments")
@@ -107,7 +107,7 @@ public class Invoice extends Resource {
   /** Date invoice is due. This is the date the net terms are reached. */
   @SerializedName("due_at")
   @Expose
-  private DateTime dueAt;
+  private ZonedDateTime dueAt;
 
   /**
    * Unique ID to identify the dunning campaign used when dunning the invoice. For sites without
@@ -295,7 +295,7 @@ public class Invoice extends Resource {
   /** Last updated at */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /**
    * Will be `true` when the invoice had a successful response from the tax service and `false` when
@@ -397,12 +397,12 @@ public class Invoice extends Resource {
   }
 
   /** Date invoice was marked paid or failed. */
-  public DateTime getClosedAt() {
+  public ZonedDateTime getClosedAt() {
     return this.closedAt;
   }
 
   /** @param closedAt Date invoice was marked paid or failed. */
-  public void setClosedAt(final DateTime closedAt) {
+  public void setClosedAt(final ZonedDateTime closedAt) {
     this.closedAt = closedAt;
   }
 
@@ -439,12 +439,12 @@ public class Invoice extends Resource {
   }
 
   /** Created at */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -512,12 +512,12 @@ public class Invoice extends Resource {
   }
 
   /** Date invoice is due. This is the date the net terms are reached. */
-  public DateTime getDueAt() {
+  public ZonedDateTime getDueAt() {
     return this.dueAt;
   }
 
   /** @param dueAt Date invoice is due. This is the date the net terms are reached. */
-  public void setDueAt(final DateTime dueAt) {
+  public void setDueAt(final ZonedDateTime dueAt) {
     this.dueAt = dueAt;
   }
 
@@ -899,12 +899,12 @@ public class Invoice extends Resource {
   }
 
   /** Last updated at */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Last updated at */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 

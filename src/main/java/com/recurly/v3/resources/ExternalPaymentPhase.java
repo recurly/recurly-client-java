@@ -8,7 +8,7 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class ExternalPaymentPhase extends Resource {
 
@@ -20,7 +20,7 @@ public class ExternalPaymentPhase extends Resource {
   /** When the external subscription was created in Recurly. */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /** 3-letter ISO 4217 currency code. */
   @SerializedName("currency")
@@ -35,7 +35,7 @@ public class ExternalPaymentPhase extends Resource {
   /** Ends At */
   @SerializedName("ends_at")
   @Expose
-  private DateTime endsAt;
+  private ZonedDateTime endsAt;
 
   /** System-generated unique identifier for an external payment phase ID, e.g. `e28zov4fw0v2`. */
   @SerializedName("id")
@@ -70,7 +70,7 @@ public class ExternalPaymentPhase extends Resource {
   /** Started At */
   @SerializedName("started_at")
   @Expose
-  private DateTime startedAt;
+  private ZonedDateTime startedAt;
 
   /** Starting Billing Period Index */
   @SerializedName("starting_billing_period_index")
@@ -80,7 +80,7 @@ public class ExternalPaymentPhase extends Resource {
   /** When the external subscription was updated in Recurly. */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /** Allows up to 9 decimal places */
   public String getAmount() {
@@ -93,12 +93,12 @@ public class ExternalPaymentPhase extends Resource {
   }
 
   /** When the external subscription was created in Recurly. */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt When the external subscription was created in Recurly. */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -123,12 +123,12 @@ public class ExternalPaymentPhase extends Resource {
   }
 
   /** Ends At */
-  public DateTime getEndsAt() {
+  public ZonedDateTime getEndsAt() {
     return this.endsAt;
   }
 
   /** @param endsAt Ends At */
-  public void setEndsAt(final DateTime endsAt) {
+  public void setEndsAt(final ZonedDateTime endsAt) {
     this.endsAt = endsAt;
   }
 
@@ -196,12 +196,12 @@ public class ExternalPaymentPhase extends Resource {
   }
 
   /** Started At */
-  public DateTime getStartedAt() {
+  public ZonedDateTime getStartedAt() {
     return this.startedAt;
   }
 
   /** @param startedAt Started At */
-  public void setStartedAt(final DateTime startedAt) {
+  public void setStartedAt(final ZonedDateTime startedAt) {
     this.startedAt = startedAt;
   }
 
@@ -216,12 +216,12 @@ public class ExternalPaymentPhase extends Resource {
   }
 
   /** When the external subscription was updated in Recurly. */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt When the external subscription was updated in Recurly. */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 }

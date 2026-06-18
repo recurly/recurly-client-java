@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class AccountAcquisitionUpdate extends Request {
 
@@ -20,7 +20,7 @@ public class AccountAcquisitionUpdate extends Request {
    */
   @SerializedName("acquired_at")
   @Expose
-  private DateTime acquiredAt;
+  private ZonedDateTime acquiredAt;
 
   /**
    * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.
@@ -50,7 +50,7 @@ public class AccountAcquisitionUpdate extends Request {
    * Date the account was first created if different than the account.created_at. ie Importing
    * accounts.
    */
-  public DateTime getAcquiredAt() {
+  public ZonedDateTime getAcquiredAt() {
     return this.acquiredAt;
   }
 
@@ -58,7 +58,7 @@ public class AccountAcquisitionUpdate extends Request {
    * @param acquiredAt Date the account was first created if different than the account.created_at.
    *     ie Importing accounts.
    */
-  public void setAcquiredAt(final DateTime acquiredAt) {
+  public void setAcquiredAt(final ZonedDateTime acquiredAt) {
     this.acquiredAt = acquiredAt;
   }
 

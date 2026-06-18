@@ -8,7 +8,7 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class ShippingMethod extends Resource {
 
@@ -25,12 +25,12 @@ public class ShippingMethod extends Resource {
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /** Deleted at */
   @SerializedName("deleted_at")
   @Expose
-  private DateTime deletedAt;
+  private ZonedDateTime deletedAt;
 
   /** Shipping Method ID */
   @SerializedName("id")
@@ -87,7 +87,7 @@ public class ShippingMethod extends Resource {
   /** Last updated at */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /** Accounting code for shipping method. */
   public String getAccountingCode() {
@@ -110,22 +110,22 @@ public class ShippingMethod extends Resource {
   }
 
   /** Created at */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
   /** Deleted at */
-  public DateTime getDeletedAt() {
+  public ZonedDateTime getDeletedAt() {
     return this.deletedAt;
   }
 
   /** @param deletedAt Deleted at */
-  public void setDeletedAt(final DateTime deletedAt) {
+  public void setDeletedAt(final ZonedDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
 
@@ -235,12 +235,12 @@ public class ShippingMethod extends Resource {
   }
 
   /** Last updated at */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Last updated at */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 }
