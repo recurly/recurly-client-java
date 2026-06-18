@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class SubscriptionShippingPurchase extends Request {
 
@@ -25,7 +25,7 @@ public class SubscriptionShippingPurchase extends Request {
   /** The expected date of the first delivery for the subscription. */
   @SerializedName("expected_first_delivery_at")
   @Expose
-  private DateTime expectedFirstDeliveryAt;
+  private ZonedDateTime expectedFirstDeliveryAt;
 
   /**
    * The code of the shipping method used to deliver the subscription. If `method_id` and
@@ -60,14 +60,14 @@ public class SubscriptionShippingPurchase extends Request {
   }
 
   /** The expected date of the first delivery for the subscription. */
-  public DateTime getExpectedFirstDeliveryAt() {
+  public ZonedDateTime getExpectedFirstDeliveryAt() {
     return this.expectedFirstDeliveryAt;
   }
 
   /**
    * @param expectedFirstDeliveryAt The expected date of the first delivery for the subscription.
    */
-  public void setExpectedFirstDeliveryAt(final DateTime expectedFirstDeliveryAt) {
+  public void setExpectedFirstDeliveryAt(final ZonedDateTime expectedFirstDeliveryAt) {
     this.expectedFirstDeliveryAt = expectedFirstDeliveryAt;
   }
 

@@ -1301,6 +1301,15 @@ paths:
         and cancels any active subscriptions (canceled subscriptions will remain active
         until the end of the current billing cycle before expiring). We recommend
         closing accounts only when all business is concluded with a customer.
+      parameters:
+      - in: query
+        name: redact
+        schema:
+          type: boolean
+        description: Permanently removes all personally identifiable information (PII)
+          from this account after it has been deactivated, to fulfill a data subject's
+          right to erasure under GDPR and similar privacy regulations (e.g. CCPA).
+          Cannot be undone.
       responses:
         '200':
           description: An account.
@@ -16931,7 +16940,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/Entitlements"
+                "$ref": "#/components/schemas/EntitlementList"
         '404':
           description: Incorrect site or account ID.
           content:
@@ -25990,7 +25999,7 @@ components:
           maxItems: 200
           items:
             "$ref": "#/components/schemas/Plan"
-    Entitlements:
+    EntitlementList:
       type: object
       description: A list of privileges granted to a customer through the purchase
         of a plan or item.

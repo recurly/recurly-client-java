@@ -10,9 +10,9 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Map;
-import org.joda.time.DateTime;
 
 public class Subscription extends Resource {
 
@@ -32,7 +32,7 @@ public class Subscription extends Resource {
   /** Activated at */
   @SerializedName("activated_at")
   @Expose
-  private DateTime activatedAt;
+  private ZonedDateTime activatedAt;
 
   /** The invoice ID of the latest invoice created for an active subscription. */
   @SerializedName("active_invoice_id")
@@ -61,7 +61,7 @@ public class Subscription extends Resource {
    */
   @SerializedName("bank_account_authorized_at")
   @Expose
-  private DateTime bankAccountAuthorizedAt;
+  private ZonedDateTime bankAccountAuthorizedAt;
 
   /** Billing Info ID. */
   @SerializedName("billing_info_id")
@@ -79,7 +79,7 @@ public class Subscription extends Resource {
   /** Canceled at */
   @SerializedName("canceled_at")
   @Expose
-  private DateTime canceledAt;
+  private ZonedDateTime canceledAt;
 
   /** Collection method */
   @SerializedName("collection_method")
@@ -89,7 +89,7 @@ public class Subscription extends Resource {
   /** When the subscription was converted from a gift card. */
   @SerializedName("converted_at")
   @Expose
-  private DateTime convertedAt;
+  private ZonedDateTime convertedAt;
 
   /** Returns subscription level coupon redemptions that are tied to this subscription. */
   @SerializedName("coupon_redemptions")
@@ -99,7 +99,7 @@ public class Subscription extends Resource {
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   /**
    * Controls whether credit invoices are automatically applied to new invoices. The `mode` field
@@ -118,12 +118,12 @@ public class Subscription extends Resource {
   /** Current billing period ends at */
   @SerializedName("current_period_ends_at")
   @Expose
-  private DateTime currentPeriodEndsAt;
+  private ZonedDateTime currentPeriodEndsAt;
 
   /** Current billing period started at */
   @SerializedName("current_period_started_at")
   @Expose
-  private DateTime currentPeriodStartedAt;
+  private ZonedDateTime currentPeriodStartedAt;
 
   /**
    * When the term ends. This is calculated by a plan's interval and `total_billing_cycles` in a
@@ -131,7 +131,7 @@ public class Subscription extends Resource {
    */
   @SerializedName("current_term_ends_at")
   @Expose
-  private DateTime currentTermEndsAt;
+  private ZonedDateTime currentTermEndsAt;
 
   /**
    * The start date of the term when the first billing period starts. The subscription term is the
@@ -140,7 +140,7 @@ public class Subscription extends Resource {
    */
   @SerializedName("current_term_started_at")
   @Expose
-  private DateTime currentTermStartedAt;
+  private ZonedDateTime currentTermStartedAt;
 
   /**
    * The custom fields will only be altered when they are included in a request. Sending an empty
@@ -164,7 +164,7 @@ public class Subscription extends Resource {
   /** Expires at */
   @SerializedName("expires_at")
   @Expose
-  private DateTime expiresAt;
+  private ZonedDateTime expiresAt;
 
   /** If present, this subscription's transactions will use the payment gateway with this code. */
   @SerializedName("gateway_code")
@@ -220,7 +220,7 @@ public class Subscription extends Resource {
   /** Null unless subscription is paused or will pause at the end of the current billing period. */
   @SerializedName("paused_at")
   @Expose
-  private DateTime pausedAt;
+  private ZonedDateTime pausedAt;
 
   /** Subscription Change */
   @SerializedName("pending_change")
@@ -279,7 +279,7 @@ public class Subscription extends Resource {
    */
   @SerializedName("resume_at")
   @Expose
-  private DateTime resumeAt;
+  private ZonedDateTime resumeAt;
 
   /** Revenue schedule type */
   @SerializedName("revenue_schedule_type")
@@ -346,12 +346,12 @@ public class Subscription extends Resource {
   /** Trial period ends at */
   @SerializedName("trial_ends_at")
   @Expose
-  private DateTime trialEndsAt;
+  private ZonedDateTime trialEndsAt;
 
   /** Trial period started at */
   @SerializedName("trial_started_at")
   @Expose
-  private DateTime trialStartedAt;
+  private ZonedDateTime trialStartedAt;
 
   /** Subscription unit price */
   @SerializedName("unit_amount")
@@ -361,7 +361,7 @@ public class Subscription extends Resource {
   /** Last updated at */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /**
    * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
@@ -397,12 +397,12 @@ public class Subscription extends Resource {
   }
 
   /** Activated at */
-  public DateTime getActivatedAt() {
+  public ZonedDateTime getActivatedAt() {
     return this.activatedAt;
   }
 
   /** @param activatedAt Activated at */
-  public void setActivatedAt(final DateTime activatedAt) {
+  public void setActivatedAt(final ZonedDateTime activatedAt) {
     this.activatedAt = activatedAt;
   }
 
@@ -453,7 +453,7 @@ public class Subscription extends Resource {
    * alerting customers to reauthorize in 3 years in accordance with NACHA rules. If a subscription
    * becomes inactive or the billing info is no longer a bank account, this timestamp is cleared.
    */
-  public DateTime getBankAccountAuthorizedAt() {
+  public ZonedDateTime getBankAccountAuthorizedAt() {
     return this.bankAccountAuthorizedAt;
   }
 
@@ -463,7 +463,7 @@ public class Subscription extends Resource {
    *     with NACHA rules. If a subscription becomes inactive or the billing info is no longer a
    *     bank account, this timestamp is cleared.
    */
-  public void setBankAccountAuthorizedAt(final DateTime bankAccountAuthorizedAt) {
+  public void setBankAccountAuthorizedAt(final ZonedDateTime bankAccountAuthorizedAt) {
     this.bankAccountAuthorizedAt = bankAccountAuthorizedAt;
   }
 
@@ -494,12 +494,12 @@ public class Subscription extends Resource {
   }
 
   /** Canceled at */
-  public DateTime getCanceledAt() {
+  public ZonedDateTime getCanceledAt() {
     return this.canceledAt;
   }
 
   /** @param canceledAt Canceled at */
-  public void setCanceledAt(final DateTime canceledAt) {
+  public void setCanceledAt(final ZonedDateTime canceledAt) {
     this.canceledAt = canceledAt;
   }
 
@@ -514,12 +514,12 @@ public class Subscription extends Resource {
   }
 
   /** When the subscription was converted from a gift card. */
-  public DateTime getConvertedAt() {
+  public ZonedDateTime getConvertedAt() {
     return this.convertedAt;
   }
 
   /** @param convertedAt When the subscription was converted from a gift card. */
-  public void setConvertedAt(final DateTime convertedAt) {
+  public void setConvertedAt(final ZonedDateTime convertedAt) {
     this.convertedAt = convertedAt;
   }
 
@@ -537,12 +537,12 @@ public class Subscription extends Resource {
   }
 
   /** Created at */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -575,22 +575,22 @@ public class Subscription extends Resource {
   }
 
   /** Current billing period ends at */
-  public DateTime getCurrentPeriodEndsAt() {
+  public ZonedDateTime getCurrentPeriodEndsAt() {
     return this.currentPeriodEndsAt;
   }
 
   /** @param currentPeriodEndsAt Current billing period ends at */
-  public void setCurrentPeriodEndsAt(final DateTime currentPeriodEndsAt) {
+  public void setCurrentPeriodEndsAt(final ZonedDateTime currentPeriodEndsAt) {
     this.currentPeriodEndsAt = currentPeriodEndsAt;
   }
 
   /** Current billing period started at */
-  public DateTime getCurrentPeriodStartedAt() {
+  public ZonedDateTime getCurrentPeriodStartedAt() {
     return this.currentPeriodStartedAt;
   }
 
   /** @param currentPeriodStartedAt Current billing period started at */
-  public void setCurrentPeriodStartedAt(final DateTime currentPeriodStartedAt) {
+  public void setCurrentPeriodStartedAt(final ZonedDateTime currentPeriodStartedAt) {
     this.currentPeriodStartedAt = currentPeriodStartedAt;
   }
 
@@ -598,7 +598,7 @@ public class Subscription extends Resource {
    * When the term ends. This is calculated by a plan's interval and `total_billing_cycles` in a
    * term. Subscription changes with a `timeframe=renewal` will be applied on this date.
    */
-  public DateTime getCurrentTermEndsAt() {
+  public ZonedDateTime getCurrentTermEndsAt() {
     return this.currentTermEndsAt;
   }
 
@@ -607,7 +607,7 @@ public class Subscription extends Resource {
    *     `total_billing_cycles` in a term. Subscription changes with a `timeframe=renewal` will be
    *     applied on this date.
    */
-  public void setCurrentTermEndsAt(final DateTime currentTermEndsAt) {
+  public void setCurrentTermEndsAt(final ZonedDateTime currentTermEndsAt) {
     this.currentTermEndsAt = currentTermEndsAt;
   }
 
@@ -616,7 +616,7 @@ public class Subscription extends Resource {
    * length of time that a customer will be committed to a subscription. A term can span multiple
    * billing periods.
    */
-  public DateTime getCurrentTermStartedAt() {
+  public ZonedDateTime getCurrentTermStartedAt() {
     return this.currentTermStartedAt;
   }
 
@@ -625,7 +625,7 @@ public class Subscription extends Resource {
    *     The subscription term is the length of time that a customer will be committed to a
    *     subscription. A term can span multiple billing periods.
    */
-  public void setCurrentTermStartedAt(final DateTime currentTermStartedAt) {
+  public void setCurrentTermStartedAt(final ZonedDateTime currentTermStartedAt) {
     this.currentTermStartedAt = currentTermStartedAt;
   }
 
@@ -668,12 +668,12 @@ public class Subscription extends Resource {
   }
 
   /** Expires at */
-  public DateTime getExpiresAt() {
+  public ZonedDateTime getExpiresAt() {
     return this.expiresAt;
   }
 
   /** @param expiresAt Expires at */
-  public void setExpiresAt(final DateTime expiresAt) {
+  public void setExpiresAt(final ZonedDateTime expiresAt) {
     this.expiresAt = expiresAt;
   }
 
@@ -780,7 +780,7 @@ public class Subscription extends Resource {
   }
 
   /** Null unless subscription is paused or will pause at the end of the current billing period. */
-  public DateTime getPausedAt() {
+  public ZonedDateTime getPausedAt() {
     return this.pausedAt;
   }
 
@@ -788,7 +788,7 @@ public class Subscription extends Resource {
    * @param pausedAt Null unless subscription is paused or will pause at the end of the current
    *     billing period.
    */
-  public void setPausedAt(final DateTime pausedAt) {
+  public void setPausedAt(final ZonedDateTime pausedAt) {
     this.pausedAt = pausedAt;
   }
 
@@ -908,7 +908,7 @@ public class Subscription extends Resource {
    * The date the subscription billing resumes following a pause. Null unless the subscription is
    * paused or scheduled to be paused.
    */
-  public DateTime getResumeAt() {
+  public ZonedDateTime getResumeAt() {
     return this.resumeAt;
   }
 
@@ -916,7 +916,7 @@ public class Subscription extends Resource {
    * @param resumeAt The date the subscription billing resumes following a pause. Null unless the
    *     subscription is paused or scheduled to be paused.
    */
-  public void setResumeAt(final DateTime resumeAt) {
+  public void setResumeAt(final ZonedDateTime resumeAt) {
     this.resumeAt = resumeAt;
   }
 
@@ -1046,22 +1046,22 @@ public class Subscription extends Resource {
   }
 
   /** Trial period ends at */
-  public DateTime getTrialEndsAt() {
+  public ZonedDateTime getTrialEndsAt() {
     return this.trialEndsAt;
   }
 
   /** @param trialEndsAt Trial period ends at */
-  public void setTrialEndsAt(final DateTime trialEndsAt) {
+  public void setTrialEndsAt(final ZonedDateTime trialEndsAt) {
     this.trialEndsAt = trialEndsAt;
   }
 
   /** Trial period started at */
-  public DateTime getTrialStartedAt() {
+  public ZonedDateTime getTrialStartedAt() {
     return this.trialStartedAt;
   }
 
   /** @param trialStartedAt Trial period started at */
-  public void setTrialStartedAt(final DateTime trialStartedAt) {
+  public void setTrialStartedAt(final ZonedDateTime trialStartedAt) {
     this.trialStartedAt = trialStartedAt;
   }
 
@@ -1076,12 +1076,12 @@ public class Subscription extends Resource {
   }
 
   /** Last updated at */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Last updated at */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 

@@ -10,8 +10,8 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Resource;
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.List;
-import org.joda.time.DateTime;
 
 public class Usage extends Resource {
 
@@ -28,12 +28,12 @@ public class Usage extends Resource {
   /** When the usage record was billed on an invoice. */
   @SerializedName("billed_at")
   @Expose
-  private DateTime billedAt;
+  private ZonedDateTime billedAt;
 
   /** When the usage record was created in Recurly. */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   @SerializedName("id")
   @Expose
@@ -69,7 +69,7 @@ public class Usage extends Resource {
   /** When the usage was recorded in your system. */
   @SerializedName("recording_timestamp")
   @Expose
-  private DateTime recordingTimestamp;
+  private ZonedDateTime recordingTimestamp;
 
   /**
    * The pricing model for the add-on. For more information, [click
@@ -102,7 +102,7 @@ public class Usage extends Resource {
   /** When the usage record was billed on an invoice. */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   /**
    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal
@@ -118,7 +118,7 @@ public class Usage extends Resource {
    */
   @SerializedName("usage_timestamp")
   @Expose
-  private DateTime usageTimestamp;
+  private ZonedDateTime usageTimestamp;
 
   /** Type of usage, returns usage type if `add_on_type` is `usage`. */
   @SerializedName("usage_type")
@@ -147,22 +147,22 @@ public class Usage extends Resource {
   }
 
   /** When the usage record was billed on an invoice. */
-  public DateTime getBilledAt() {
+  public ZonedDateTime getBilledAt() {
     return this.billedAt;
   }
 
   /** @param billedAt When the usage record was billed on an invoice. */
-  public void setBilledAt(final DateTime billedAt) {
+  public void setBilledAt(final ZonedDateTime billedAt) {
     this.billedAt = billedAt;
   }
 
   /** When the usage record was created in Recurly. */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt When the usage record was created in Recurly. */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -234,12 +234,12 @@ public class Usage extends Resource {
   }
 
   /** When the usage was recorded in your system. */
-  public DateTime getRecordingTimestamp() {
+  public ZonedDateTime getRecordingTimestamp() {
     return this.recordingTimestamp;
   }
 
   /** @param recordingTimestamp When the usage was recorded in your system. */
-  public void setRecordingTimestamp(final DateTime recordingTimestamp) {
+  public void setRecordingTimestamp(final ZonedDateTime recordingTimestamp) {
     this.recordingTimestamp = recordingTimestamp;
   }
 
@@ -300,12 +300,12 @@ public class Usage extends Resource {
   }
 
   /** When the usage record was billed on an invoice. */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt When the usage record was billed on an invoice. */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 
@@ -329,7 +329,7 @@ public class Usage extends Resource {
    * When the usage actually happened. This will define the line item dates this usage is billed
    * under and is important for revenue recognition.
    */
-  public DateTime getUsageTimestamp() {
+  public ZonedDateTime getUsageTimestamp() {
     return this.usageTimestamp;
   }
 
@@ -337,7 +337,7 @@ public class Usage extends Resource {
    * @param usageTimestamp When the usage actually happened. This will define the line item dates
    *     this usage is billed under and is important for revenue recognition.
    */
-  public void setUsageTimestamp(final DateTime usageTimestamp) {
+  public void setUsageTimestamp(final ZonedDateTime usageTimestamp) {
     this.usageTimestamp = usageTimestamp;
   }
 

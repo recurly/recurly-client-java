@@ -11,7 +11,7 @@ import com.recurly.v3.requests.*;
 import com.recurly.v3.resources.*;
 import com.recurly.v3.queryparams.*;
 import okhttp3.OkHttpClient;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -154,12 +154,26 @@ public class Client extends BaseClient {
      * @return An account.
    */
   public Account deactivateAccount(String accountId) {
+    return deactivateAccount(accountId, new DeactivateAccountParams());
+  }
+
+  /**
+   * Deactivate an account
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/deactivate_account">deactivate_account api documentation</a>
+   * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+   * @param queryParams The {@link DeactivateAccountParams} for this endpoint.
+     * @return An account.
+   */
+  public Account deactivateAccount(String accountId, DeactivateAccountParams queryParams) {
     final String url = "/accounts/{account_id}";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
+    if (queryParams == null) queryParams = new DeactivateAccountParams();
+    final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = Account.class;
-    return this.makeRequest("DELETE", path, returnType);
+    return this.makeRequest("DELETE", path, paramsMap, returnType);
   }
 
   /**
@@ -3750,7 +3764,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * @param accountId Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @return A list of the entitlements granted to an account.
    */
-  public Pager<Entitlements> listEntitlements(String accountId) {
+  public Pager<Entitlement> listEntitlements(String accountId) {
     return listEntitlements(accountId, new ListEntitlementsParams());
   }
 
@@ -3762,14 +3776,14 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
    * @param queryParams The {@link ListEntitlementsParams} for this endpoint.
      * @return A list of the entitlements granted to an account.
    */
-  public Pager<Entitlements> listEntitlements(String accountId, ListEntitlementsParams queryParams) {
+  public Pager<Entitlement> listEntitlements(String accountId, ListEntitlementsParams queryParams) {
     final String url = "/accounts/{account_id}/entitlements";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
     urlParams.put("account_id", accountId);
     if (queryParams == null) queryParams = new ListEntitlementsParams();
     final HashMap<String, Object> paramsMap = queryParams.getParams();
     final String path = this.interpolatePath(url, urlParams);
-    Type parameterizedType = TypeToken.getParameterized(Pager.class, Entitlements.class).getType();
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, Entitlement.class).getType();
     return new Pager<>(path, paramsMap, this, parameterizedType);
   }
 

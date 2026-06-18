@@ -11,8 +11,8 @@ import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.List;
-import org.joda.time.DateTime;
 
 public class LineItemCreate extends Request {
 
@@ -94,7 +94,7 @@ public class LineItemCreate extends Request {
   /** If this date is provided, it indicates the end of a time range. */
   @SerializedName("end_date")
   @Expose
-  private DateTime endDate;
+  private ZonedDateTime endDate;
 
   /**
    * The Harmonized System (HS) code is an internationally standardized system of names and numbers
@@ -196,7 +196,7 @@ public class LineItemCreate extends Request {
    */
   @SerializedName("start_date")
   @Expose
-  private DateTime startDate;
+  private ZonedDateTime startDate;
 
   /**
    * Optional field used by Avalara, Vertex, and Recurly's In-the-Box tax solution to determine
@@ -401,12 +401,12 @@ public class LineItemCreate extends Request {
   }
 
   /** If this date is provided, it indicates the end of a time range. */
-  public DateTime getEndDate() {
+  public ZonedDateTime getEndDate() {
     return this.endDate;
   }
 
   /** @param endDate If this date is provided, it indicates the end of a time range. */
-  public void setEndDate(final DateTime endDate) {
+  public void setEndDate(final ZonedDateTime endDate) {
     this.endDate = endDate;
   }
 
@@ -609,7 +609,7 @@ public class LineItemCreate extends Request {
    * end date is present it indicates billing for a specific date. Defaults to the current
    * date-time.
    */
-  public DateTime getStartDate() {
+  public ZonedDateTime getStartDate() {
     return this.startDate;
   }
 
@@ -618,7 +618,7 @@ public class LineItemCreate extends Request {
    *     time range. If no end date is present it indicates billing for a specific date. Defaults to
    *     the current date-time.
    */
-  public void setStartDate(final DateTime startDate) {
+  public void setStartDate(final ZonedDateTime startDate) {
     this.startDate = startDate;
   }
 

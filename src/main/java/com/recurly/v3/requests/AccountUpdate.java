@@ -10,8 +10,8 @@ import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
+import java.time.ZonedDateTime;
 import java.util.List;
-import org.joda.time.DateTime;
 
 public class AccountUpdate extends Request {
 
@@ -25,7 +25,7 @@ public class AccountUpdate extends Request {
    */
   @SerializedName("bill_date")
   @Expose
-  private DateTime billDate;
+  private ZonedDateTime billDate;
 
   /**
    * An enumerable describing the billing behavior of the account, specifically whether the account
@@ -201,7 +201,7 @@ public class AccountUpdate extends Request {
    * The preferred billing date for the account. This date will be used as the billing date for when
    * activating new subscriptions on the account.
    */
-  public DateTime getBillDate() {
+  public ZonedDateTime getBillDate() {
     return this.billDate;
   }
 
@@ -209,7 +209,7 @@ public class AccountUpdate extends Request {
    * @param billDate The preferred billing date for the account. This date will be used as the
    *     billing date for when activating new subscriptions on the account.
    */
-  public void setBillDate(final DateTime billDate) {
+  public void setBillDate(final ZonedDateTime billDate) {
     this.billDate = billDate;
   }
 

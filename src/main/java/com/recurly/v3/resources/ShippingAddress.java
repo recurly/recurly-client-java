@@ -8,7 +8,7 @@ package com.recurly.v3.resources;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.Resource;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public class ShippingAddress extends Resource {
 
@@ -33,7 +33,7 @@ public class ShippingAddress extends Resource {
   /** Created at */
   @SerializedName("created_at")
   @Expose
-  private DateTime createdAt;
+  private ZonedDateTime createdAt;
 
   @SerializedName("email")
   @Expose
@@ -94,7 +94,7 @@ public class ShippingAddress extends Resource {
   /** Updated at */
   @SerializedName("updated_at")
   @Expose
-  private DateTime updatedAt;
+  private ZonedDateTime updatedAt;
 
   @SerializedName("vat_number")
   @Expose
@@ -139,12 +139,12 @@ public class ShippingAddress extends Resource {
   }
 
   /** Created at */
-  public DateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return this.createdAt;
   }
 
   /** @param createdAt Created at */
-  public void setCreatedAt(final DateTime createdAt) {
+  public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -268,12 +268,12 @@ public class ShippingAddress extends Resource {
   }
 
   /** Updated at */
-  public DateTime getUpdatedAt() {
+  public ZonedDateTime getUpdatedAt() {
     return this.updatedAt;
   }
 
   /** @param updatedAt Updated at */
-  public void setUpdatedAt(final DateTime updatedAt) {
+  public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 
