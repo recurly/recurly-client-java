@@ -2,54 +2,54 @@ package com.recurly.v3;
 
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.exception.ExceptionFactory;
-import com.recurly.v3.http.HeaderInterceptor;
-import com.recurly.v3.ClientOptions;
+import com.recurly.v3.http.DefaultHttpAdapter;
+import com.recurly.v3.http.HttpAdapter;
+import com.recurly.v3.http.HttpResponse;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
-import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
 import java.util.Arrays;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
-import okhttp3.*;
-import okhttp3.Request.Builder;
-import okhttp3.logging.HttpLoggingInterceptor;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 public abstract class BaseClient {
   private static final List<String> BINARY_TYPES = Arrays.asList("application/pdf");
+  private static final Set<String> VALID_METHODS =
+      new HashSet<>(Arrays.asList("GET", "POST", "PUT", "DELETE", "HEAD"));
+  private static final String USER_AGENT = buildUserAgent();
 
   private static final JsonSerializer jsonSerializer = new JsonSerializer();
   private static final FileSerializer fileSerializer = new FileSerializer();
-  private final String apiKey;
-  private final OkHttpClient client;
+
+  private final String authToken;
+  private final HttpAdapter httpAdapter;
   private String apiUrl;
 
   protected BaseClient(final String apiKey) {
-    this(apiKey, newHttpClient(validateApiKey(apiKey)), new ClientOptions());
+    this(apiKey, new ClientOptions());
   }
 
   protected BaseClient(final String apiKey, final ClientOptions clientOptions) {
-    this(apiKey, newHttpClient(validateApiKey(apiKey)), clientOptions);
-  }
-
-  protected BaseClient(final String apiKey, final OkHttpClient client) {
-    this(apiKey, client, new ClientOptions());
-  }
-
-  protected BaseClient(final String apiKey, final OkHttpClient client, final ClientOptions clientOptions) {
-    this.apiKey = validateApiKey(apiKey);
-    this.client = client;
+    this.authToken = buildAuthToken(validateApiKey(apiKey));
     this.apiUrl = clientOptions.getBaseUrl();
+    this.httpAdapter =
+        clientOptions.getHttpAdapter() != null
+            ? clientOptions.getHttpAdapter()
+            : new DefaultHttpAdapter();
   }
 
   private static String validateApiKey(final String apiKey) {
@@ -59,21 +59,70 @@ public abstract class BaseClient {
     return apiKey;
   }
 
-  private static OkHttpClient newHttpClient(final String apiKey) {
-    final OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
-    
-    final String authToken = Credentials.basic(apiKey, "");
-    final HeaderInterceptor headerInterceptor =
-        new HeaderInterceptor(authToken, Client.API_VERSION);
-    httpClientBuilder.addInterceptor(headerInterceptor);
+  private static String buildAuthToken(final String apiKey) {
+    return "Basic "
+        + Base64.getEncoder()
+            .encodeToString((apiKey + ":").getBytes(StandardCharsets.ISO_8859_1));
+  }
 
-    if (envEnabled("RECURLY_INSECURE") && envEnabled("RECURLY_DEBUG")) {
-      final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-      logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
-      httpClientBuilder.addInterceptor(logging);
+  private Map<String, String> buildHeaders() {
+    final Map<String, String> headers = new HashMap<>();
+    headers.put("Authorization", authToken);
+    headers.put("Accept", "application/vnd.recurly." + Client.API_VERSION);
+    headers.put("Content-Type", "application/json");
+    headers.put("User-Agent", USER_AGENT);
+    return headers;
+  }
+
+  private String buildUrl(final String path, final HashMap<String, Object> queryParams) {
+    if (queryParams == null || queryParams.isEmpty()) {
+      return this.apiUrl + path;
     }
 
-    return httpClientBuilder.build();
+    final StringBuilder sb = new StringBuilder(this.apiUrl).append(path);
+    boolean first = true;
+
+    for (final Map.Entry<String, Object> param : queryParams.entrySet()) {
+      final Object value = param.getValue();
+      if (value == null) continue;
+
+      final String stringValue;
+      if (value instanceof String) {
+        stringValue = value.toString();
+      } else if (value instanceof ZonedDateTime) {
+        stringValue = DateTimeFormatter.ISO_OFFSET_DATE_TIME.format((ZonedDateTime) value);
+      } else if (value instanceof Integer) {
+        stringValue = Integer.toString((Integer) value);
+      } else if (value instanceof Float) {
+        stringValue = Float.toString((Float) value);
+      } else if (value instanceof Double) {
+        stringValue = Double.toString((Double) value);
+      } else if (value instanceof Long) {
+        stringValue = Long.toString((Long) value);
+      } else if (value instanceof Enum) {
+        stringValue = getSerializedEnumName((Enum<?>) value);
+      } else {
+        stringValue = value.toString();
+      }
+
+      if (stringValue == null) continue;
+
+      try {
+        sb.append(first ? "?" : "&")
+            .append(param.getKey())
+            .append("=")
+            .append(URLEncoder.encode(stringValue, StandardCharsets.UTF_8.toString()));
+        first = false;
+      } catch (UnsupportedEncodingException ex) {
+        throw new RecurlyException(ex.getCause());
+      }
+    }
+
+    return sb.toString();
+  }
+
+  private static boolean isSuccessful(final int statusCode) {
+    return statusCode >= 200 && statusCode < 300;
   }
 
   protected static boolean envEnabled(final String envVar) {
@@ -81,26 +130,19 @@ public abstract class BaseClient {
   }
 
   protected void makeRequest(final String method, final String url) {
-    final okhttp3.Request request = buildRequest(method, url, null, null);
+    validateMethod(method);
+    final String fullUrl = buildUrl(url, null);
+    final Map<String, String> headers = buildHeaders();
 
-    try (final Response response = client.newCall(request).execute()) {
-      if (!response.isSuccessful()) {
-        String responseString = response.body().string();
-        if (envEnabled("RECURLY_INSECURE") && envEnabled("RECURLY_DEBUG")) {
-          System.out.println(responseString);
-        }
-        throw jsonSerializer.deserializeError(responseString);
+    try {
+      final HttpResponse response = httpAdapter.execute(method, fullUrl, headers, null);
+
+      if (!isSuccessful(response.getStatusCode())) {
+        throw jsonSerializer.deserializeError(
+            new String(response.getBody(), StandardCharsets.UTF_8));
       }
 
-      final Headers responseHeaders = response.headers();
-
-      if (envEnabled("RECURLY_INSECURE") && envEnabled("RECURLY_DEBUG")) {
-        for (int i = 0; i < responseHeaders.size(); i++) {
-          System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
-        }
-      }
-
-      this.warnIfDeprecated(responseHeaders);
+      warnIfDeprecated(response.getHeaders());
 
     } catch (IOException e) {
       throw new NetworkException(e);
@@ -130,28 +172,34 @@ public abstract class BaseClient {
       final Request body,
       final HashMap<String, Object> queryParams,
       final Type resourceClass) {
-    final okhttp3.Request request = buildRequest(method, url, body, queryParams);
+    validateMethod(method);
+    final String fullUrl = buildUrl(url, queryParams);
+    final String bodyString = body != null ? jsonSerializer.serialize(body) : null;
+    final Map<String, String> headers = buildHeaders();
 
-    try (final Response response = client.newCall(request).execute()) {
+    try {
+      final HttpResponse response = httpAdapter.execute(method, fullUrl, headers, bodyString);
 
-      final Headers responseHeaders = response.headers();
-      final ResponseBody responseBody = response.body();
-      MediaType contentType = responseBody.contentType();
+      final int statusCode = response.getStatusCode();
+      final String contentType =
+          response.getHeaders().getOrDefault("content-type", "application/json");
 
-      if (!response.isSuccessful()) {
-        if (contentType.type().equals("application") && contentType.subtype().equals("json")) {
-          throw jsonSerializer.deserializeError(responseBody.string());
+      if (!isSuccessful(statusCode)) {
+        if (contentType.contains("application/json")) {
+          throw jsonSerializer.deserializeError(
+              new String(response.getBody(), StandardCharsets.UTF_8));
         } else {
           throw ExceptionFactory.getExceptionClass(response);
         }
       }
 
-      this.warnIfDeprecated(responseHeaders);
+      warnIfDeprecated(response.getHeaders());
 
-      if (BINARY_TYPES.contains(contentType.type() + "/" + contentType.subtype())) {
-        return fileSerializer.deserialize(responseBody.bytes(), resourceClass);
+      if (BINARY_TYPES.stream().anyMatch(contentType::startsWith)) {
+        return fileSerializer.deserialize(response.getBody(), resourceClass);
       } else {
-        return jsonSerializer.deserialize(responseBody.string(), resourceClass);
+        return jsonSerializer.deserialize(
+            new String(response.getBody(), StandardCharsets.UTF_8), resourceClass);
       }
 
     } catch (IOException e) {
@@ -160,111 +208,47 @@ public abstract class BaseClient {
   }
 
   public int getRecordCount(final String url, final HashMap<String, Object> queryParams) {
-    final okhttp3.Request request = buildRequest("HEAD", url, null, queryParams);
+    final String fullUrl = buildUrl(url, queryParams);
+    final Map<String, String> headers = buildHeaders();
 
-    try (final Response response = client.newCall(request).execute()) {
+    try {
+      final HttpResponse response = httpAdapter.execute("HEAD", fullUrl, headers, null);
 
-      final Headers responseHeaders = response.headers();
-      final ResponseBody responseBody = response.body();
-
-      if (!response.isSuccessful()) {
-        throw jsonSerializer.deserializeError(responseBody.string());
+      if (!isSuccessful(response.getStatusCode())) {
+        throw jsonSerializer.deserializeError(
+            new String(response.getBody(), StandardCharsets.UTF_8));
       }
 
-      this.warnIfDeprecated(responseHeaders);
+      warnIfDeprecated(response.getHeaders());
 
-      String count = responseHeaders.get("Recurly-Total-Records");
-      return Integer.parseInt(count);
+      return Integer.parseInt(response.getHeaders().get("recurly-total-records"));
 
     } catch (IOException e) {
       throw new NetworkException(e);
     }
   }
 
-  private String getSerializedEnumName(Enum<?> e) {
+  private static void validateMethod(final String method) {
+    if (!VALID_METHODS.contains(method)) {
+      throw new IllegalArgumentException(method + " is not a valid Recurly HTTP method");
+    }
+  }
+
+  private String getSerializedEnumName(final Enum<?> e) {
     try {
-      Field f = e.getClass().getField(e.name());
-      SerializedName a = f.getAnnotation(SerializedName.class);
+      final Field f = e.getClass().getField(e.name());
+      final SerializedName a = f.getAnnotation(SerializedName.class);
       return a == null ? null : a.value();
     } catch (NoSuchFieldException ignored) {
       return null;
     }
   }
 
-  private okhttp3.Request buildRequest(
-      final String method,
-      final String url,
-      final Request body,
-      final HashMap<String, Object> queryParams) {
-    final HttpUrl.Builder httpBuilder = HttpUrl.parse(this.apiUrl + url).newBuilder();
-
-    final RequestBody requestBody =
-      RequestBody.create(
-        jsonSerializer.serialize(body), MediaType.parse("application/json; charset=utf-8"));
-
-    if (queryParams != null) {
-      for (Map.Entry<String, Object> param : queryParams.entrySet()) {
-        final Object value = param.getValue();
-        final String stringValue;
-
-        if (value == null) {
-          continue;
-        } else if (value instanceof String) {
-          stringValue = value.toString();
-        } else if (value instanceof ZonedDateTime) {
-          stringValue = DateTimeFormatter.ISO_OFFSET_DATE_TIME.format((ZonedDateTime) value);
-        } else if (value instanceof Integer) {
-          stringValue = Integer.toString((Integer) value);
-        } else if (value instanceof Float) {
-          stringValue = Float.toString((Float) value);
-        } else if (value instanceof Double) {
-          stringValue = Double.toString((Double) value);
-        } else if (value instanceof Long) {
-          stringValue = Long.toString((Long) value);
-        } else if (value instanceof Enum) {
-          stringValue = getSerializedEnumName((Enum<?>)value);
-        } else {
-          stringValue = value.toString();
-        }
-
-        httpBuilder.addQueryParameter(param.getKey(), stringValue);
-      }
-    }
-
-    final HttpUrl requestUrl = httpBuilder.build();
-
-    if (envEnabled("RECURLY_INSECURE") && envEnabled("RECURLY_DEBUG")) {
-      System.out.println("Performing " + method + " request to " + requestUrl);
-    }
-
-    final Builder requestBuilder = new okhttp3.Request.Builder().url(requestUrl);
-
-    switch (method) {
-      case "HEAD":
-        return requestBuilder.head().build();
-
-      case "GET":
-        return requestBuilder.build();
-
-      case "POST":
-        return requestBuilder.post(requestBody).build();
-
-      case "PUT":
-        return requestBuilder.put(requestBody).build();
-
-      case "DELETE":
-        return requestBuilder.delete().build();
-
-      default:
-        String message = method + " is not a valid Recurly HTTP method";
-        throw new IllegalArgumentException(message);
-    }
-  }
-
   private void validatePathParameters(final HashMap<String, String> urlParams) {
-    Map<String, String> invalidParams = urlParams.entrySet().stream()
-        .filter(p -> p.getValue() == null || p.getValue().trim().isEmpty())
-        .collect(Collectors.toMap(e->e.getKey(),e->e.getValue()));
+    Map<String, String> invalidParams =
+        urlParams.entrySet().stream()
+            .filter(p -> p.getValue() == null || p.getValue().trim().isEmpty())
+            .collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue()));
     if (!invalidParams.isEmpty()) {
       String invalidKeys = String.join(",", invalidParams.keySet());
       throw new RecurlyException(invalidKeys + " cannot be an empty value");
@@ -283,10 +267,11 @@ public abstract class BaseClient {
     while (m.find()) {
       final String key = m.group(1).replace("{", "").replace("}", "");
       try {
-        final String value = URLEncoder.encode(urlParams.get(key), StandardCharsets.UTF_8.toString());
+        final String value =
+            URLEncoder.encode(urlParams.get(key), StandardCharsets.UTF_8.toString());
         path = path.replace(m.group(1), value);
       } catch (UnsupportedEncodingException ex) {
-          throw new RecurlyException(ex.getCause());
+        throw new RecurlyException(ex.getCause());
       }
     }
 
@@ -309,19 +294,37 @@ public abstract class BaseClient {
     return this.apiUrl;
   }
 
-  private void warnIfDeprecated(Headers responseHeaders) {
-    String deprecated = responseHeaders.get("Recurly-Deprecated");
+  private void warnIfDeprecated(final Map<String, String> headers) {
+    final String deprecated = headers.get("recurly-deprecated");
 
-    if (deprecated != null && deprecated.toUpperCase() == "TRUE") {
-      String sunset = responseHeaders.get("Recurly-Sunset-Date");
-
-      String warning =
+    if (deprecated != null && "TRUE".equalsIgnoreCase(deprecated)) {
+      final String sunset = headers.get("recurly-sunset-date");
+      System.out.println(
           "[recurly-client-java] WARNING: Your current API version \""
               + Client.API_VERSION
               + "\" is deprecated and will be sunset on "
-              + sunset;
-
-      System.out.println(warning);
+              + sunset);
     }
+  }
+
+  private static String buildUserAgent() {
+    final String defaultVersion = "3.?.?";
+    final String defaultJvmInfo = "?";
+    final Properties properties = new Properties();
+
+    try {
+      final InputStream inputStream = BaseClient.class.getResourceAsStream("/version.properties");
+      if (inputStream != null) {
+        properties.load(inputStream);
+        final String version = properties.getProperty("version", defaultVersion);
+        final String jvmInfo = System.getProperty("java.version", defaultJvmInfo);
+        return String.format("Recurly/%s; java %s", version, jvmInfo);
+      }
+    } catch (Exception e) {
+      System.out.println("[Recurly][WARNING] " + e.getStackTrace().toString());
+    }
+
+    System.out.println("[Recurly][WARNING] Could not set user agent header.");
+    return String.format("Recurly/%s; java %s", defaultVersion, defaultJvmInfo);
   }
 }
