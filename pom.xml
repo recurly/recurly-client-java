@@ -58,10 +58,9 @@
     </distributionManagement>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <okhttp3.version>4.12.0</okhttp3.version>
         <wiremock.version>3.13.2</wiremock.version>
         <surefire.version>3.5.5</surefire.version>
         <jacoco.version>0.8.13</jacoco.version>
@@ -87,8 +86,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.15.0</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <release>${java.version}</release>
                 </configuration>
             </plugin>
             <plugin>
@@ -156,6 +154,7 @@
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-jar-plugin</artifactId>
+              <version>3.5.0</version>
               <executions>
                 <execution>
                   <id>test-jar</id>
@@ -234,21 +233,44 @@
         </plugins>
     </build>
 
+    <profiles>
+      <profile>
+        <!--
+          WireMock 3.x ships class files compiled for Java 11 (class file version 55), which
+          javac running on a JDK 8 toolchain cannot read from the classpath at all, regardless of
+          <source>/<target>. HttpAdapterContract and DefaultHttpAdapterGzipTest are already
+          @DisabledOnJre(JRE.JAVA_8) at runtime, but that annotation only skips execution, not
+          compilation, so they must be excluded from testCompile on JDK 8 to keep the build green.
+        -->
+        <id>jdk8-exclude-wiremock-tests</id>
+        <activation>
+          <jdk>1.8</jdk>
+        </activation>
+        <build>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <configuration>
+                <testExcludes>
+                  <exclude>**/http/HttpAdapterContract.java</exclude>
+                  <exclude>**/http/DefaultHttpAdapterContractTest.java</exclude>
+                  <exclude>**/http/DefaultHttpAdapterGzipTest.java</exclude>
+                  <exclude>**/http/DefaultHttpAdapterTimeoutTest.java</exclude>
+                  <exclude>**/http/WireMockTestSupport.java</exclude>
+                </testExcludes>
+              </configuration>
+            </plugin>
+          </plugins>
+        </build>
+      </profile>
+    </profiles>
+
     <dependencies>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.13.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
-            <version>${okhttp3.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>logging-interceptor</artifactId>
-            <version>${okhttp3.version}</version>
         </dependency>
         <dependency>
             <groupId>org.wiremock</groupId>

@@ -2,9 +2,9 @@ package com.recurly.v3;
 
 import com.google.gson.annotations.SerializedName;
 import com.recurly.v3.exception.ExceptionFactory;
-import com.recurly.v3.http.DefaultHttpAdapter;
 import com.recurly.v3.http.HttpAdapter;
 import com.recurly.v3.http.HttpResponse;
+import com.recurly.v3.internal.Utils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -40,16 +40,13 @@ public abstract class BaseClient {
   private String apiUrl;
 
   protected BaseClient(final String apiKey) {
-    this(apiKey, new ClientOptions());
+    this(apiKey, ClientOptions.builder().build());
   }
 
   protected BaseClient(final String apiKey, final ClientOptions clientOptions) {
     this.authToken = buildAuthToken(validateApiKey(apiKey));
     this.apiUrl = clientOptions.getBaseUrl();
-    this.httpAdapter =
-        clientOptions.getHttpAdapter() != null
-            ? clientOptions.getHttpAdapter()
-            : new DefaultHttpAdapter();
+    this.httpAdapter = clientOptions.getHttpAdapter();
   }
 
   private static String validateApiKey(final String apiKey) {
@@ -71,17 +68,18 @@ public abstract class BaseClient {
 
   private Map<String, String> buildHeaders(final RequestOptions options) {
     final Map<String, String> headers = new HashMap<>();
-    headers.put("Authorization", authToken);
-    headers.put("Accept", "application/vnd.recurly." + Client.API_VERSION);
-    headers.put("Content-Type", "application/json");
-    headers.put("User-Agent", USER_AGENT);
 
     if (options != null) {
       headers.putAll(options.getHeaders());
       if (options.getIdempotencyKey() != null) {
-        headers.put("Idempotency-Key", options.getIdempotencyKey());
+        headers.put("idempotency-key", options.getIdempotencyKey());
       }
     }
+
+    headers.put("authorization", authToken);
+    headers.put("accept", "application/vnd.recurly." + Client.API_VERSION);
+    headers.put("content-type", "application/json");
+    headers.put("user-agent", USER_AGENT);
 
     return headers;
   }
@@ -92,7 +90,7 @@ public abstract class BaseClient {
     }
 
     final StringBuilder sb = new StringBuilder(this.apiUrl).append(path);
-    boolean first = true;
+    boolean first = !path.contains("?");
 
     for (final Map.Entry<String, Object> param : queryParams.entrySet()) {
       final Object value = param.getValue();
@@ -124,10 +122,10 @@ public abstract class BaseClient {
             .append(param.getKey())
             .append("=")
             .append(URLEncoder.encode(stringValue, StandardCharsets.UTF_8.toString()));
-        first = false;
       } catch (UnsupportedEncodingException ex) {
         throw new RecurlyException(ex.getCause());
       }
+      first = false;
     }
 
     return sb.toString();
@@ -137,9 +135,7 @@ public abstract class BaseClient {
     return statusCode >= 200 && statusCode < 300;
   }
 
-  protected static boolean envEnabled(final String envVar) {
-    return "true".equals(System.getenv(envVar));
-  }
+  
 
   protected void makeRequest(final String method, final String url) {
     makeRequest(method, url, (RequestOptions) null);
@@ -154,14 +150,7 @@ public abstract class BaseClient {
       final HttpResponse response = httpAdapter.execute(method, fullUrl, headers, null);
 
       if (!isSuccessful(response.getStatusCode())) {
-        final String contentType =
-            response.getHeaders().getOrDefault("content-type", "application/json");
-        if (contentType.contains("application/json")) {
-          throw jsonSerializer.deserializeError(
-              new String(response.getBody(), StandardCharsets.UTF_8));
-        } else {
-          throw ExceptionFactory.getExceptionClass(response);
-        }
+        throwForErrorResponse(response);
       }
 
       warnIfDeprecated(response.getHeaders());
@@ -231,16 +220,10 @@ public abstract class BaseClient {
       final HttpResponse response = httpAdapter.execute(method, fullUrl, headers, bodyString);
 
       final int statusCode = response.getStatusCode();
-      final String contentType =
-          response.getHeaders().getOrDefault("content-type", "application/json");
+      final String contentType = getContentType(response);
 
       if (!isSuccessful(statusCode)) {
-        if (contentType.contains("application/json")) {
-          throw jsonSerializer.deserializeError(
-              new String(response.getBody(), StandardCharsets.UTF_8));
-        } else {
-          throw ExceptionFactory.getExceptionClass(response);
-        }
+        throwForErrorResponse(response);
       }
 
       warnIfDeprecated(response.getHeaders());
@@ -257,6 +240,20 @@ public abstract class BaseClient {
     }
   }
 
+  private static String getContentType(final HttpResponse response) {
+    return response.getHeaders().getOrDefault("content-type", "application/json");
+  }
+
+  private void throwForErrorResponse(final HttpResponse response) {
+    final byte[] body = response.getBody();
+    final String contentType = getContentType(response);
+    if (body.length > 0 && contentType.startsWith("application/json")) {
+      throw jsonSerializer.deserializeError(new String(body, StandardCharsets.UTF_8));
+    } else {
+      throw ExceptionFactory.getExceptionClass(response);
+    }
+  }
+
   public int getRecordCount(final String url, final HashMap<String, Object> queryParams) {
     final String fullUrl = buildUrl(url, queryParams);
     final Map<String, String> headers = buildHeaders();
@@ -265,7 +262,7 @@ public abstract class BaseClient {
       final HttpResponse response = httpAdapter.execute("HEAD", fullUrl, headers, null);
 
       if (!isSuccessful(response.getStatusCode())) {
-        throw ExceptionFactory.getExceptionClass(response);
+        throwForErrorResponse(response);
       }
 
       warnIfDeprecated(response.getHeaders());
@@ -321,8 +318,7 @@ public abstract class BaseClient {
     while (m.find()) {
       final String key = m.group(1).replace("{", "").replace("}", "");
       try {
-        final String value =
-            URLEncoder.encode(urlParams.get(key), StandardCharsets.UTF_8.toString());
+        final String value = URLEncoder.encode(urlParams.get(key), StandardCharsets.UTF_8.toString());
         path = path.replace(m.group(1), value);
       } catch (UnsupportedEncodingException ex) {
         throw new RecurlyException(ex.getCause());
@@ -336,7 +332,7 @@ public abstract class BaseClient {
     System.out.println(
         "[SECURITY WARNING] _setApiUrl is for testing only and not supported in production.");
 
-    if (envEnabled("RECURLY_INSECURE")) {
+    if (Utils.envEnabled("RECURLY_INSECURE")) {
       this.apiUrl = uri;
     } else {
       System.out.println(

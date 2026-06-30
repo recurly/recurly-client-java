@@ -1,7 +1,6 @@
 package com.recurly.v3.http;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
-import com.github.tomakehurst.wiremock.stubbing.ServeEvent;
 import com.github.tomakehurst.wiremock.verification.LoggedRequest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +11,6 @@ import org.junit.jupiter.api.condition.JRE;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -73,14 +71,14 @@ public abstract class HttpAdapterContract {
   protected abstract HttpAdapter createAdapter();
 
   @BeforeEach
-  void setUp() {
+  final void setUp() {
     server = new WireMockServer(wireMockConfig().dynamicPort());
     server.start();
     adapter = createAdapter();
   }
 
   @AfterEach
-  void tearDown() {
+  final void tearDown() {
     server.stop();
   }
 
@@ -172,6 +170,7 @@ public abstract class HttpAdapterContract {
     assertEquals("HEAD", req.getMethod().getName());
     assertEquals(0, req.getBody().length, "HEAD must not send a body");
     assertNotNull(response.getBody(), "HEAD response body must be a non-null byte array");
+    assertEquals(0, response.getBody().length, "HEAD response body must be empty");
   }
 
   // ---------------------------------------------------------------------------
@@ -352,7 +351,7 @@ public abstract class HttpAdapterContract {
   // ---------------------------------------------------------------------------
 
   private String url(final String path) {
-    return "http://localhost:" + server.port() + path;
+    return WireMockTestSupport.url(server, path);
   }
 
   private static Map<String, String> noHeaders() {
@@ -366,8 +365,6 @@ public abstract class HttpAdapterContract {
   }
 
   private LoggedRequest singleRequest() {
-    List<ServeEvent> events = server.getAllServeEvents();
-    assertFalse(events.isEmpty(), "No request was received by the mock server");
-    return events.get(0).getRequest();
+    return WireMockTestSupport.singleRequest(server);
   }
 }

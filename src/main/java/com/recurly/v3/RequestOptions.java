@@ -2,6 +2,7 @@ package com.recurly.v3;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class RequestOptions {
@@ -37,7 +38,7 @@ public class RequestOptions {
     }
 
     public Builder header(final String name, final String value) {
-      this.headers.put(name, value);
+      this.headers.put(name == null ? null : name.toLowerCase(Locale.ROOT), value);
       return this;
     }
 

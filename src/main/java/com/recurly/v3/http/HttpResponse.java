@@ -13,6 +13,10 @@ public class HttpResponse {
   /**
    * Constructs an immutable HTTP response snapshot. The {@code body} array is defensively copied;
    * callers may not observe mutations to the original array through this object.
+   *
+   * @param headers response headers, keyed by name (case-insensitive). Only one value per name is
+   *     supported; if a server sends multiple values for the same header name, pass the first
+   *     value.
    */
   public HttpResponse(final int statusCode, final Map<String, String> headers, final byte[] body) {
     Objects.requireNonNull(headers, "headers must not be null");

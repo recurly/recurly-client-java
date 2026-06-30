@@ -1,5 +1,7 @@
 package com.recurly.v3;
 
+import static com.recurly.v3.fixtures.HttpTestFixtures.jsonResponse;
+import static com.recurly.v3.fixtures.HttpTestFixtures.mockClientWith;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -8,7 +10,6 @@ import com.recurly.v3.fixtures.MyResource;
 import com.recurly.v3.http.HttpAdapter;
 import com.recurly.v3.http.HttpResponse;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -16,18 +17,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.Test;
 
 public class PagerTest {
-
-  private static HttpResponse jsonResponse(final int statusCode, final String body) {
-    final Map<String, String> headers = new HashMap<>();
-    headers.put("content-type", "application/json; charset=utf-8");
-    return new HttpResponse(statusCode, headers, body.getBytes(StandardCharsets.UTF_8));
-  }
-
-  private static MockClient mockClientWith(final HttpAdapter adapter) {
-    final ClientOptions options = new ClientOptions();
-    options.setHttpAdapter(adapter);
-    return new MockClient("apiKey", options);
-  }
 
   @Test
   public void testForEach() throws IOException {

@@ -7,12 +7,14 @@ import com.recurly.v3.exception.NotFoundException;
 import com.recurly.v3.exception.TransactionException;
 import com.recurly.v3.exception.ValidationException;
 import com.recurly.v3.fixtures.FixtureConstants;
+import com.recurly.v3.fixtures.HttpTestFixtures;
 import com.recurly.v3.fixtures.MockClient;
 import com.recurly.v3.fixtures.MockQueryParams;
 import com.recurly.v3.fixtures.MyRequest;
 import com.recurly.v3.fixtures.MyResource;
 import com.recurly.v3.RequestOptions;
 import com.recurly.v3.http.HttpAdapter;
+import com.recurly.v3.internal.Utils;
 import com.recurly.v3.http.HttpResponse;
 import org.apache.commons.io.IOUtils;
 import java.time.ZonedDateTime;
@@ -23,6 +25,7 @@ import org.mockito.MockedStatic;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,33 +36,17 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static com.recurly.v3.fixtures.HttpTestFixtures.jsonResponse;
+import static com.recurly.v3.fixtures.HttpTestFixtures.mockClientWith;
 import static org.mockito.Mockito.*;
 
 @SuppressWarnings("unchecked")
 public class BaseClientTest {
 
-  private static HttpResponse jsonResponse(final int statusCode, final String body) {
-    final Map<String, String> headers = new HashMap<>();
-    headers.put("content-type", "application/json; charset=utf-8");
-    return new HttpResponse(statusCode, headers, body.getBytes(StandardCharsets.UTF_8));
-  }
-
   private static HttpResponse htmlResponse(final int statusCode, final String body) {
     final Map<String, String> headers = new HashMap<>();
     headers.put("content-type", "text/html; charset=UTF-8");
     return new HttpResponse(statusCode, headers, body.getBytes(StandardCharsets.UTF_8));
-  }
-
-  private static HttpResponse headResponse(final int statusCode, final String recordCount) {
-    final Map<String, String> headers = new HashMap<>();
-    headers.put("recurly-total-records", recordCount);
-    return new HttpResponse(statusCode, headers, new byte[0]);
-  }
-
-  private static MockClient mockClientWith(final HttpAdapter adapter) {
-    final ClientOptions options = new ClientOptions();
-    options.setHttpAdapter(adapter);
-    return new MockClient("apiKey", options);
   }
 
   @Test
@@ -104,6 +91,75 @@ public class BaseClientTest {
   }
 
   @Test
+  public void testBuildHeadersSendsCorrectAuthAcceptAndUserAgent() throws IOException {
+    final HttpAdapter mockAdapter = mock(HttpAdapter.class);
+    when(mockAdapter.execute(any(), any(), any(), any())).thenReturn(jsonResponse(200, "{}"));
+    final ArgumentCaptor<Map<String, String>> headersCaptor = ArgumentCaptor.forClass(Map.class);
+
+    mockClientWith(mockAdapter).getResource("resource-id");
+
+    verify(mockAdapter).execute(any(), any(), headersCaptor.capture(), any());
+    final Map<String, String> headers = headersCaptor.getValue();
+
+    assertEquals(
+        "Basic " + java.util.Base64.getEncoder().encodeToString("apiKey:".getBytes(StandardCharsets.ISO_8859_1)),
+        headers.get("authorization"));
+    assertEquals("application/vnd.recurly." + Client.API_VERSION, headers.get("accept"));
+    assertTrue(
+        headers.get("user-agent").matches("Recurly/\\d+\\.\\d+\\.\\d+(-SNAPSHOT)?;\\s+java\\s+\\d+.*"),
+        "User-Agent header should match the expected format, was: " + headers.get("user-agent"));
+  }
+
+  @Test
+  public void testWarnIfDeprecatedPrintsWarningWhenHeaderPresent() throws IOException {
+    final HttpAdapter mockAdapter = mock(HttpAdapter.class);
+    final Map<String, String> responseHeaders = new HashMap<>();
+    responseHeaders.put("content-type", "application/json; charset=utf-8");
+    responseHeaders.put("recurly-deprecated", "true");
+    responseHeaders.put("recurly-sunset-date", "2026-01-01");
+    when(mockAdapter.execute(any(), any(), any(), any()))
+        .thenReturn(new HttpResponse(200, responseHeaders, "{}".getBytes(StandardCharsets.UTF_8)));
+
+    final java.io.PrintStream originalOut = System.out;
+    final java.io.ByteArrayOutputStream captured = new java.io.ByteArrayOutputStream();
+    System.setOut(new java.io.PrintStream(captured));
+    try {
+      mockClientWith(mockAdapter).getResource("resource-id");
+    } finally {
+      System.setOut(originalOut);
+    }
+
+    final String output = captured.toString(StandardCharsets.UTF_8.name());
+    assertTrue(output.contains("WARNING"), "Expected a deprecation warning, got: " + output);
+    assertTrue(output.contains("2026-01-01"), "Expected the sunset date in the warning, got: " + output);
+  }
+
+
+  @Test
+  public void testWarnIfDeprecatedPrintsWarningWhenHeaderPresentOnVoidResponse() throws IOException {
+    final HttpAdapter mockAdapter = mock(HttpAdapter.class);
+    final Map<String, String> responseHeaders = new HashMap<>();
+    responseHeaders.put("content-type", "application/json; charset=utf-8");
+    responseHeaders.put("recurly-deprecated", "true");
+    responseHeaders.put("recurly-sunset-date", "2026-01-01");
+    when(mockAdapter.execute(any(), any(), any(), any()))
+        .thenReturn(new HttpResponse(200, responseHeaders, "{}".getBytes(StandardCharsets.UTF_8)));
+
+    final java.io.PrintStream originalOut = System.out;
+    final java.io.ByteArrayOutputStream captured = new java.io.ByteArrayOutputStream();
+    System.setOut(new java.io.PrintStream(captured));
+    try {
+      mockClientWith(mockAdapter).removeResource("resource-id");
+    } finally {
+      System.setOut(originalOut);
+    }
+
+    final String output = captured.toString(StandardCharsets.UTF_8.name());
+    assertTrue(output.contains("WARNING"), "Expected a deprecation warning, got: " + output);
+    assertTrue(output.contains("2026-01-01"), "Expected the sunset date in the warning, got: " + output);
+  }
+
+  @Test
   public void testMakeRequestWithQueryParams() throws IOException {
     final ZonedDateTime dateTime = ZonedDateTime.now();
     final HttpAdapter mockAdapter = mock(HttpAdapter.class);
@@ -128,7 +184,11 @@ public class BaseClientTest {
     final String url = urlCaptor.getValue();
 
     assertTrue(url.contains("my_string=Aaron"));
-    assertTrue(url.contains("my_date_time=" + DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(dateTime).replace(":", "%3A").replace("+", "%2B")));
+    assertTrue(
+        url.contains(
+            "my_date_time="
+                + URLEncoder.encode(
+                    DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(dateTime), "UTF-8")));
     assertTrue(url.contains("my_integer=1"));
     assertTrue(url.contains("my_float=2.3"));
     assertTrue(url.contains("my_double=4.5"));
@@ -156,6 +216,17 @@ public class BaseClientTest {
     assertThrows(
         InternalServerException.class,
         () -> mockClientWith(mockAdapter).getResource("code-aaron"));
+  }
+
+  @Test
+  public void testNonJsonErrorViaRemoveResource() throws IOException {
+    final HttpAdapter mockAdapter = mock(HttpAdapter.class);
+    when(mockAdapter.execute(any(), any(), any(), any()))
+        .thenReturn(htmlResponse(500, "<html>badness</html>"));
+
+    assertThrows(
+        InternalServerException.class,
+        () -> mockClientWith(mockAdapter).removeResource("code-aaron"));
   }
 
   @Test
@@ -246,8 +317,8 @@ public class BaseClientTest {
 
   @Test
   public void testSetApiUrl() {
-    try (MockedStatic<BaseClient> theMock = mockStatic(BaseClient.class)) {
-      theMock.when(() -> BaseClient.envEnabled(eq("RECURLY_INSECURE"))).thenReturn(true);
+    try (MockedStatic<Utils> theMock = mockStatic(Utils.class)) {
+      theMock.when(() -> Utils.envEnabled(eq("RECURLY_INSECURE"))).thenReturn(true);
 
       final MockClient client = new MockClient("apiKey");
       final String newApiUrl = "https://my.base.url/";
@@ -259,8 +330,8 @@ public class BaseClientTest {
 
   @Test
   public void testCantSetApiUrlWithoutRecurlyInsecure() {
-    try (MockedStatic<BaseClient> theMock = mockStatic(BaseClient.class)) {
-      theMock.when(() -> BaseClient.envEnabled(eq("RECURLY_INSECURE"))).thenReturn(false);
+    try (MockedStatic<Utils> theMock = mockStatic(Utils.class)) {
+      theMock.when(() -> Utils.envEnabled(eq("RECURLY_INSECURE"))).thenReturn(false);
 
       final MockClient client = new MockClient("apiKey");
       final String originalUrl = client.getApiUrl();
@@ -277,74 +348,90 @@ public class BaseClientTest {
 
   @Test
   public void testUsingRegionUSClientOptions() {
-    final ClientOptions options = new ClientOptions();
-    options.setRegion(ClientOptions.Regions.US);
+    final ClientOptions options = ClientOptions.builder().region(ClientOptions.Regions.US).build();
     assertEquals("https://v3.recurly.com", new MockClient("apiKey", options).getApiUrl());
   }
 
   @Test
   public void testUsingRegionEUClientOptions() {
-    final ClientOptions options = new ClientOptions();
-    options.setRegion(ClientOptions.Regions.EU);
+    final ClientOptions options = ClientOptions.builder().region(ClientOptions.Regions.EU).build();
     assertEquals("https://v3.eu.recurly.com", new MockClient("apiKey", options).getApiUrl());
   }
 
   @Test
   public void testIdempotencyKeyHeader() throws IOException {
-    final Call mCall = mock(Call.class);
+    final HttpAdapter mockAdapter = mock(HttpAdapter.class);
+    when(mockAdapter.execute(any(), any(), any(), any())).thenReturn(jsonResponse(200, getResponseJson()));
+    final ArgumentCaptor<Map<String, String>> headersCaptor = ArgumentCaptor.forClass(Map.class);
+
     final String idempotencyKey = "test-idempotency-key-123";
-    Answer answer = (i) -> {
-      Request request = i.getArgument(0);
-      assertEquals(idempotencyKey, request.header("Idempotency-Key"));
-      return mCall;
-    };
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getResponseJson()));
-
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = mockClientWith(mockAdapter);
     final MyRequest body = new MyRequest();
     final RequestOptions options = RequestOptions.builder().idempotencyKey(idempotencyKey).build();
     client.createResource(body, options);
+
+    verify(mockAdapter).execute(any(), any(), headersCaptor.capture(), any());
+    assertEquals(idempotencyKey, headersCaptor.getValue().get("idempotency-key"));
   }
 
   @Test
   public void testRawHeaders() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> {
-      Request request = i.getArgument(0);
-      assertEquals("bar", request.header("X-Custom-Foo"));
-      assertEquals("baz", request.header("X-Custom-Qux"));
-      return mCall;
-    };
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getResponseJson()));
+    final HttpAdapter mockAdapter = mock(HttpAdapter.class);
+    when(mockAdapter.execute(any(), any(), any(), any())).thenReturn(jsonResponse(200, getResponseJson()));
+    final ArgumentCaptor<Map<String, String>> headersCaptor = ArgumentCaptor.forClass(Map.class);
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = mockClientWith(mockAdapter);
     final MyRequest body = new MyRequest();
     final RequestOptions options = RequestOptions.builder()
         .header("X-Custom-Foo", "bar")
         .header("X-Custom-Qux", "baz")
         .build();
     client.createResource(body, options);
+
+    verify(mockAdapter).execute(any(), any(), headersCaptor.capture(), any());
+    final Map<String, String> headers = headersCaptor.getValue();
+    assertEquals("bar", headers.get("x-custom-foo"));
+    assertEquals("baz", headers.get("x-custom-qux"));
+  }
+
+  @Test
+  public void testRequestOptionsCannotOverrideBuiltInHeaders() throws IOException {
+    final HttpAdapter mockAdapter = mock(HttpAdapter.class);
+    when(mockAdapter.execute(any(), any(), any(), any())).thenReturn(jsonResponse(200, getResponseJson()));
+    final ArgumentCaptor<Map<String, String>> headersCaptor = ArgumentCaptor.forClass(Map.class);
+
+    final MockClient client = mockClientWith(mockAdapter);
+    final MyRequest body = new MyRequest();
+    // Caller supplies the reserved headers in two different casings: Title-case
+    // ("Authorization") and lower-case ("content-type"). Both must be overridden by the
+    // client's built-in values, and neither casing may survive as a stray duplicate.
+    final RequestOptions options = RequestOptions.builder()
+        .header("Authorization", "Bearer evil")
+        .header("content-type", "text/plain")
+        .build();
+    client.createResource(body, options);
+
+    verify(mockAdapter).execute(any(), any(), headersCaptor.capture(), any());
+    final Map<String, String> headers = headersCaptor.getValue();
+    assertFalse(headers.get("authorization").contains("evil"));
+    assertEquals("application/json", headers.get("content-type"));
+    // No Title-cased duplicate lingers, so the effective header is deterministic.
+    assertEquals(null, headers.get("Authorization"));
+    assertEquals(null, headers.get("Content-Type"));
   }
 
   @Test
   public void testNoIdempotencyKeyHeader() throws IOException {
-    final Call mCall = mock(Call.class);
-    Answer answer = (i) -> {
-      Request request = i.getArgument(0);
-      assertEquals(null, request.header("Idempotency-Key"));
-      return mCall;
-    };
-    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getResponseJson()));
+    final HttpAdapter mockAdapter = mock(HttpAdapter.class);
+    when(mockAdapter.execute(any(), any(), any(), any())).thenReturn(jsonResponse(200, getResponseJson()));
+    final ArgumentCaptor<Map<String, String>> headersCaptor = ArgumentCaptor.forClass(Map.class);
 
-    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
-
-    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MockClient client = mockClientWith(mockAdapter);
     final MyRequest body = new MyRequest();
     client.createResource(body);
+
+    verify(mockAdapter).execute(any(), any(), headersCaptor.capture(), any());
+    assertEquals(null, headersCaptor.getValue().get("idempotency-key"));
   }
 
   @Test
@@ -384,6 +471,28 @@ public class BaseClientTest {
     assertThrows(
         RecurlyException.class,
         () -> mockClientWith(mockAdapter).getRecordCount("/resources", null));
+  }
+
+  @Test
+  public void testGetRecordCountMergesQueryParamsIntoPathWithExistingQueryString() throws IOException {
+    final HttpAdapter mockAdapter = mock(HttpAdapter.class);
+    final Map<String, String> headers = new HashMap<>();
+    headers.put("recurly-total-records", "5");
+    when(mockAdapter.execute(eq("HEAD"), any(), any(), isNull()))
+        .thenReturn(new HttpResponse(200, headers, new byte[0]));
+
+    final HashMap<String, Object> queryParams = new HashMap<>();
+    queryParams.put("limit", 20);
+
+    final ArgumentCaptor<String> urlCaptor = ArgumentCaptor.forClass(String.class);
+    mockClientWith(mockAdapter).getRecordCount("/resources?cursor=xyz", queryParams);
+
+    verify(mockAdapter).execute(eq("HEAD"), urlCaptor.capture(), any(), isNull());
+    final String url = urlCaptor.getValue();
+
+    assertEquals(1, url.length() - url.replace("?", "").length());
+    assertTrue(url.contains("cursor=xyz"));
+    assertTrue(url.contains("limit=20"));
   }
 
   @Test

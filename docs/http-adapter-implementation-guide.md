@@ -11,8 +11,7 @@ middleware you prefer. Common reasons to do this:
 ## Registering your implementation
 
 ```java
-ClientOptions options = new ClientOptions();
-options.setHttpAdapter(new MyHttpAdapter());
+ClientOptions options = ClientOptions.builder().httpAdapter(new MyHttpAdapter()).build();
 Client client = new Client(apiKey, options);
 ```
 
@@ -47,16 +46,16 @@ All headers the client wants to send, including:
 | `Content-Type`  | `application/json`                                 |
 | `User-Agent`    | `Recurly/<version>; java <jvm-version>`            |
 
-**Forward every entry without modification.** Do not add, remove, or override headers in the
-adapter. The client owns header construction; the adapter owns transport.
+**Forward every client-supplied entry unmodified.** Do not remove or override a header the client
+set. The client owns header construction; the adapter owns transport. You may add your own
+transport-layer headers (e.g. `Accept-Encoding`) as long as they don't conflict with a header the
+client already set — `DefaultHttpAdapter` does this to negotiate gzip.
 
 ### Body
 
-- `POST` and `PUT` requests: a UTF-8-encoded JSON string.
-- `GET`, `HEAD`, `DELETE` requests: `null`.
-
-When `body` is `null` and the HTTP method requires a body (e.g. `DELETE` with some servers), send
-an empty body (`Content-Length: 0`).
+- `POST` and `PUT` requests: typically a UTF-8-encoded JSON string, but may be `null` (e.g. no
+  request object was passed) — send the request with `Content-Length: 0` in that case.
+- `GET`, `HEAD`, `DELETE` requests: always `null`.
 
 ---
 
@@ -76,6 +75,9 @@ status codes.
 
 Pass a `Map<String, String>` of all response headers. `HttpResponse` normalises keys to lower-case
 internally, so you do not need to do it yourself — but passing lower-case keys is fine too.
+
+Only one value per header name is supported. When a server sends multiple values for a single
+header name (e.g. `Set-Cookie`), pass just the first value.
 
 The client reads these specific headers:
 
@@ -159,59 +161,38 @@ public class MyHttpAdapter implements HttpAdapter {
 The Recurly client does not enforce timeouts. Set connect, read, and write timeouts inside your
 adapter and adjust to your SLA requirements.
 
+`DefaultHttpAdapter` sets its connect and read timeouts from its `timeoutMs` constructor argument
+(10 seconds by default). `java.net.HttpURLConnection` has no write-timeout API, so a stalled
+request-body upload is not bounded by `timeoutMs` and can block until the underlying OS-level TCP
+timeout is reached. If your SLA requires a bounded write phase, implement a custom `HttpAdapter`
+(e.g. using OkHttp, which supports `writeTimeout` directly) instead of relying on the default.
+
 ---
 
-## Minimal example
+## Full example implementations
 
-```java
-import com.recurly.v3.http.HttpAdapter;
-import com.recurly.v3.http.HttpResponse;
+The examples below are documentation only — they are not compiled as part of this library, so
+their dependencies (where applicable) are not dependencies of this project. Copy the one you want
+into your own project.
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpRequest.BodyPublishers;
-import java.time.Duration;
-import java.util.HashMap;
-import java.util.Map;
+### OkHttp
 
-public class JavaNetHttpAdapter implements HttpAdapter {
+[`docs/examples/OkHttpAdapter.java`](examples/OkHttpAdapter.java) — useful if your SLA requires a
+bounded write-timeout (see [Timeouts](#timeouts) above). Add the OkHttp dependency to use it:
 
-    private final HttpClient client = HttpClient.newBuilder()
-            .connectTimeout(Duration.ofSeconds(30))
-            .build();
-
-    @Override
-    public HttpResponse execute(String method, String url,
-                                Map<String, String> headers, String body) throws IOException {
-        HttpRequest.Builder builder = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .method(method, body != null
-                        ? BodyPublishers.ofString(body)
-                        : BodyPublishers.noBody());
-
-        headers.forEach(builder::header);
-
-        try {
-            java.net.http.HttpResponse<byte[]> resp =
-                    client.send(builder.build(), java.net.http.HttpResponse.BodyHandlers.ofByteArray());
-
-            Map<String, String> responseHeaders = new HashMap<>();
-            resp.headers().map().forEach((k, vs) -> {
-                if (k != null && !vs.isEmpty()) responseHeaders.put(k, vs.get(0));
-            });
-
-            return new HttpResponse(resp.statusCode(), responseHeaders,
-                    resp.body() != null ? resp.body() : new byte[0]);
-
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            throw new IOException("HTTP request interrupted", e);
-        }
-    }
-}
+```xml
+<dependency>
+    <groupId>com.squareup.okhttp3</groupId>
+    <artifactId>okhttp</artifactId>
+    <version>4.12.0</version>
+</dependency>
 ```
+
+### `java.net.http.HttpClient` (JDK 11+)
+
+[`docs/examples/JdkHttpClientAdapter.java`](examples/JdkHttpClientAdapter.java) — no third-party
+dependency required, but needs Java 11+ at compile and run time (this library itself targets Java
+8, which is why this example isn't part of `src/main`).
 
 ---
 
@@ -274,4 +255,4 @@ public class FakeHttpAdapter implements HttpAdapter {
 }
 ```
 
-See `DefaultHttpAdapter` for the complete production reference implementation.
+See `DefaultHttpAdapter` for the `HttpURLConnection`-based reference implementation.
