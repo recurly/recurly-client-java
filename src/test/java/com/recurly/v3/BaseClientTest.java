@@ -16,7 +16,6 @@ import com.recurly.v3.http.HttpResponse;
 import org.apache.commons.io.IOUtils;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.MockedStatic;
@@ -28,8 +27,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
@@ -131,7 +131,7 @@ public class BaseClientTest {
     assertTrue(url.contains("my_double=4.5"));
     assertTrue(url.contains("my_long=6"));
     assertTrue(url.contains("my_enum=twenty-three"));
-    Assert.assertFalse(url.contains("my_random"));
+    assertFalse(url.contains("my_random"));
   }
 
   @Test

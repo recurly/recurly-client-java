@@ -1,41 +1,28 @@
 package com.recurly.v3.http;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Headers;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import okhttp3.logging.HttpLoggingInterceptor;
 
 public class DefaultHttpAdapter implements HttpAdapter {
   private static final int DEFAULT_TIMEOUT_MS = 60_000;
 
-  private final OkHttpClient httpClient;
+  private final int timeoutMs;
+  private final boolean debugLogging;
 
   public DefaultHttpAdapter() {
     this(DEFAULT_TIMEOUT_MS);
   }
 
   public DefaultHttpAdapter(final int timeoutMs) {
-    final OkHttpClient.Builder builder =
-        new OkHttpClient.Builder()
-            .connectTimeout(timeoutMs, TimeUnit.MILLISECONDS)
-            .readTimeout(timeoutMs, TimeUnit.MILLISECONDS)
-            .writeTimeout(timeoutMs, TimeUnit.MILLISECONDS);
-
-    if (envEnabled("RECURLY_INSECURE") && envEnabled("RECURLY_DEBUG")) {
-      final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-      logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
-      builder.addInterceptor(logging);
-    }
-
-    this.httpClient = builder.build();
+    this.timeoutMs = timeoutMs;
+    this.debugLogging = envEnabled("RECURLY_INSECURE") && envEnabled("RECURLY_DEBUG");
   }
 
   @Override
@@ -45,51 +32,72 @@ public class DefaultHttpAdapter implements HttpAdapter {
       final Map<String, String> headers,
       final String body)
       throws IOException {
-    final Request.Builder requestBuilder = new Request.Builder().url(url);
+    if (!isValidMethod(method)) {
+      throw new IllegalArgumentException(method + " is not a valid Recurly HTTP method");
+    }
+
+    final HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+    conn.setRequestMethod(method);
+    conn.setConnectTimeout(timeoutMs);
+    conn.setReadTimeout(timeoutMs);
+    conn.setUseCaches(false);
 
     for (final Map.Entry<String, String> header : headers.entrySet()) {
-      requestBuilder.header(header.getKey(), header.getValue());
+      conn.setRequestProperty(header.getKey(), header.getValue());
     }
 
-    final RequestBody requestBody =
-        body != null
-            ? RequestBody.create(body, MediaType.parse("application/json; charset=utf-8"))
-            : null;
+    if (body != null) {
+      conn.setDoOutput(true);
+      conn.getOutputStream().write(body.getBytes(StandardCharsets.UTF_8));
+      conn.getOutputStream().close();
+    }
 
+    if (debugLogging) {
+      System.err.println("--> " + method + " " + url);
+    }
+
+    final int statusCode = conn.getResponseCode();
+
+    final Map<String, String> responseHeaders = new HashMap<>();
+    for (final Map.Entry<String, List<String>> entry : conn.getHeaderFields().entrySet()) {
+      if (entry.getKey() != null && !entry.getValue().isEmpty()) {
+        responseHeaders.put(
+            entry.getKey().toLowerCase(), entry.getValue().get(entry.getValue().size() - 1));
+      }
+    }
+
+    final InputStream responseStream =
+        statusCode >= 400 ? conn.getErrorStream() : conn.getInputStream();
+    final byte[] responseBodyBytes = responseStream != null ? readAllBytes(responseStream) : new byte[0];
+
+    if (debugLogging) {
+      System.err.println("<-- " + statusCode + " " + url);
+    }
+
+    return new HttpResponse(statusCode, responseHeaders, responseBodyBytes);
+  }
+
+  private static boolean isValidMethod(final String method) {
     switch (method) {
       case "HEAD":
-        requestBuilder.head();
-        break;
       case "GET":
-        requestBuilder.get();
-        break;
       case "POST":
-        requestBuilder.post(requestBody);
-        break;
       case "PUT":
-        requestBuilder.put(requestBody);
-        break;
       case "DELETE":
-        requestBuilder.delete();
-        break;
+        return true;
       default:
-        throw new IllegalArgumentException(method + " is not a valid Recurly HTTP method");
+        return false;
     }
+  }
 
-    try (final Response response = httpClient.newCall(requestBuilder.build()).execute()) {
-      final int statusCode = response.code();
-
-      final Map<String, String> responseHeaders = new HashMap<>();
-      final Headers okHeaders = response.headers();
-      for (int i = 0; i < okHeaders.size(); i++) {
-        responseHeaders.put(okHeaders.name(i).toLowerCase(), okHeaders.value(i));
-      }
-
-      final ResponseBody responseBody = response.body();
-      final byte[] responseBodyBytes = responseBody != null ? responseBody.bytes() : new byte[0];
-
-      return new HttpResponse(statusCode, responseHeaders, responseBodyBytes);
+  private static byte[] readAllBytes(final InputStream is) throws IOException {
+    final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+    final byte[] chunk = new byte[8192];
+    int n;
+    while ((n = is.read(chunk)) != -1) {
+      buffer.write(chunk, 0, n);
     }
+    return buffer.toByteArray();
   }
 
   private static boolean envEnabled(final String envVar) {
