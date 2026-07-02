@@ -24,8 +24,8 @@ public class TierPricing extends Request {
   private BigDecimal unitAmount;
 
   /**
-   * Allows up to 9 decimal places. Only supported when `add_on_type` = `usage`. If
-   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+   * Allows up to 9 decimal places. If `unit_amount_decimal` is provided, `unit_amount` cannot be
+   * provided.
    */
   @SerializedName("unit_amount_decimal")
   @Expose
@@ -55,16 +55,16 @@ public class TierPricing extends Request {
   }
 
   /**
-   * Allows up to 9 decimal places. Only supported when `add_on_type` = `usage`. If
-   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+   * Allows up to 9 decimal places. If `unit_amount_decimal` is provided, `unit_amount` cannot be
+   * provided.
    */
   public String getUnitAmountDecimal() {
     return this.unitAmountDecimal;
   }
 
   /**
-   * @param unitAmountDecimal Allows up to 9 decimal places. Only supported when `add_on_type` =
-   *     `usage`. If `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+   * @param unitAmountDecimal Allows up to 9 decimal places. If `unit_amount_decimal` is provided,
+   *     `unit_amount` cannot be provided.
    */
   public void setUnitAmountDecimal(final String unitAmountDecimal) {
     this.unitAmountDecimal = unitAmountDecimal;

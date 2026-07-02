@@ -78,8 +78,7 @@ public class SubscriptionAddOnCreate extends Request {
   /**
    * Allows up to 9 decimal places. Optionally, override the add-on's default unit amount. If the
    * plan add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then `unit_amount_decimal`
-   * cannot be provided. Only supported when the plan add-on's `add_on_type` = `usage`. If
-   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+   * cannot be provided. If `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
    */
   @SerializedName("unit_amount_decimal")
   @Expose
@@ -221,8 +220,7 @@ public class SubscriptionAddOnCreate extends Request {
   /**
    * Allows up to 9 decimal places. Optionally, override the add-on's default unit amount. If the
    * plan add-on's `tier_type` is `tiered`, `volume`, or `stairstep`, then `unit_amount_decimal`
-   * cannot be provided. Only supported when the plan add-on's `add_on_type` = `usage`. If
-   * `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+   * cannot be provided. If `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
    */
   public String getUnitAmountDecimal() {
     return this.unitAmountDecimal;
@@ -231,9 +229,8 @@ public class SubscriptionAddOnCreate extends Request {
   /**
    * @param unitAmountDecimal Allows up to 9 decimal places. Optionally, override the add-on's
    *     default unit amount. If the plan add-on's `tier_type` is `tiered`, `volume`, or
-   *     `stairstep`, then `unit_amount_decimal` cannot be provided. Only supported when the plan
-   *     add-on's `add_on_type` = `usage`. If `unit_amount_decimal` is provided, `unit_amount`
-   *     cannot be provided.
+   *     `stairstep`, then `unit_amount_decimal` cannot be provided. If `unit_amount_decimal` is
+   *     provided, `unit_amount` cannot be provided.
    */
   public void setUnitAmountDecimal(final String unitAmountDecimal) {
     this.unitAmountDecimal = unitAmountDecimal;

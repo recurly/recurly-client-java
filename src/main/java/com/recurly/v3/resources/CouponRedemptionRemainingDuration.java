@@ -21,9 +21,15 @@ public class CouponRedemptionRemainingDuration extends Resource {
   @Expose
   private ZonedDateTime expiresAt;
 
+  /** The number of redemption periods remaining for which this coupon will still apply. */
+  @SerializedName("redemptions_remaining")
+  @Expose
+  private Integer redemptionsRemaining;
+
   /**
-   * The coupon's duration type. `temporal` includes an `expires_at` timestamp. `forever` and
-   * `single_use` have no additional fields.
+   * The coupon's duration type. `temporal` includes an `expires_at` timestamp. `billing_periods`
+   * includes a `redemptions_remaining` count of billing cycles. `forever` and `single_use` have no
+   * additional fields.
    */
   @SerializedName("type")
   @Expose
@@ -45,9 +51,23 @@ public class CouponRedemptionRemainingDuration extends Resource {
     this.expiresAt = expiresAt;
   }
 
+  /** The number of redemption periods remaining for which this coupon will still apply. */
+  public Integer getRedemptionsRemaining() {
+    return this.redemptionsRemaining;
+  }
+
   /**
-   * The coupon's duration type. `temporal` includes an `expires_at` timestamp. `forever` and
-   * `single_use` have no additional fields.
+   * @param redemptionsRemaining The number of redemption periods remaining for which this coupon
+   *     will still apply.
+   */
+  public void setRedemptionsRemaining(final Integer redemptionsRemaining) {
+    this.redemptionsRemaining = redemptionsRemaining;
+  }
+
+  /**
+   * The coupon's duration type. `temporal` includes an `expires_at` timestamp. `billing_periods`
+   * includes a `redemptions_remaining` count of billing cycles. `forever` and `single_use` have no
+   * additional fields.
    */
   public Constants.CouponDuration getType() {
     return this.type;
@@ -55,7 +75,8 @@ public class CouponRedemptionRemainingDuration extends Resource {
 
   /**
    * @param type The coupon's duration type. `temporal` includes an `expires_at` timestamp.
-   *     `forever` and `single_use` have no additional fields.
+   *     `billing_periods` includes a `redemptions_remaining` count of billing cycles. `forever` and
+   *     `single_use` have no additional fields.
    */
   public void setType(final Constants.CouponDuration type) {
     this.type = type;

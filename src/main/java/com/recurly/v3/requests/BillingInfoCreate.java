@@ -42,6 +42,14 @@ public class BillingInfoCreate extends Request {
   private String amazonBillingAgreementId;
 
   /**
+   * UPI Autopay authentication method. Specifies how the customer authorizes the enrollment
+   * mandate. Defaults to 'vpa' if omitted.
+   */
+  @SerializedName("authentication_method")
+  @Expose
+  private Constants.UpiAutopayAuthenticationMethod authenticationMethod;
+
+  /**
    * The `backup_payment_method` field is used to designate a billing info as a backup on the
    * account that will be tried if the initial billing info used for an invoice is declined. All
    * payment methods, including the billing info marked `primary_payment_method` can be set as a
@@ -249,7 +257,7 @@ public class BillingInfoCreate extends Request {
 
   /**
    * The payment method type for a non-credit card based billing info. `bacs`, `becs`,
-   * `pix-automatico`, `mercadopago` are the only accepted values.
+   * `pix-automatico`, `mercadopago`, `upi-autopay` are the only accepted values.
    */
   @SerializedName("type")
   @Expose
@@ -321,6 +329,23 @@ public class BillingInfoCreate extends Request {
    */
   public void setAmazonBillingAgreementId(final String amazonBillingAgreementId) {
     this.amazonBillingAgreementId = amazonBillingAgreementId;
+  }
+
+  /**
+   * UPI Autopay authentication method. Specifies how the customer authorizes the enrollment
+   * mandate. Defaults to 'vpa' if omitted.
+   */
+  public Constants.UpiAutopayAuthenticationMethod getAuthenticationMethod() {
+    return this.authenticationMethod;
+  }
+
+  /**
+   * @param authenticationMethod UPI Autopay authentication method. Specifies how the customer
+   *     authorizes the enrollment mandate. Defaults to 'vpa' if omitted.
+   */
+  public void setAuthenticationMethod(
+      final Constants.UpiAutopayAuthenticationMethod authenticationMethod) {
+    this.authenticationMethod = authenticationMethod;
   }
 
   /**
@@ -751,7 +776,7 @@ public class BillingInfoCreate extends Request {
 
   /**
    * The payment method type for a non-credit card based billing info. `bacs`, `becs`,
-   * `pix-automatico`, `mercadopago` are the only accepted values.
+   * `pix-automatico`, `mercadopago`, `upi-autopay` are the only accepted values.
    */
   public Constants.AchType getType() {
     return this.type;
@@ -759,7 +784,7 @@ public class BillingInfoCreate extends Request {
 
   /**
    * @param type The payment method type for a non-credit card based billing info. `bacs`, `becs`,
-   *     `pix-automatico`, `mercadopago` are the only accepted values.
+   *     `pix-automatico`, `mercadopago`, `upi-autopay` are the only accepted values.
    */
   public void setType(final Constants.AchType type) {
     this.type = type;
