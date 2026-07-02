@@ -527,6 +527,9 @@ public class Constants {
       @SerializedName("temporal")
       TEMPORAL,
     
+      @SerializedName("billing_periods")
+      BILLING_PERIODS,
+    
     };
   
     public enum TemporalUnit {
@@ -2429,6 +2432,23 @@ public class Constants {
     
       @SerializedName("mercadopago")
       MERCADOPAGO,
+    
+      @SerializedName("upi-autopay")
+      UPI_AUTOPAY,
+    
+    };
+  
+    public enum UpiAutopayAuthenticationMethod {
+      UNDEFINED,
+    
+      @SerializedName("vpa")
+      VPA,
+    
+      @SerializedName("qr-code")
+      QR_CODE,
+    
+      @SerializedName("app-deep-links")
+      APP_DEEP_LINKS,
     
     };
   
