@@ -12,6 +12,7 @@ import com.recurly.v3.fixtures.MockClient;
 import com.recurly.v3.fixtures.MockQueryParams;
 import com.recurly.v3.fixtures.MyRequest;
 import com.recurly.v3.fixtures.MyResource;
+import com.recurly.v3.RequestOptions;
 import okhttp3.Call;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
@@ -395,6 +396,64 @@ public class BaseClientTest {
     options.setRegion(ClientOptions.Regions.EU);
     final MockClient client = new MockClient("apiKey", options);
     assertEquals("https://v3.eu.recurly.com", client.getApiUrl());
+  }
+
+  @Test
+  public void testIdempotencyKeyHeader() throws IOException {
+    final Call mCall = mock(Call.class);
+    final String idempotencyKey = "test-idempotency-key-123";
+    Answer answer = (i) -> {
+      Request request = i.getArgument(0);
+      assertEquals(idempotencyKey, request.header("Idempotency-Key"));
+      return mCall;
+    };
+    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getResponseJson()));
+
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
+
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MyRequest body = new MyRequest();
+    final RequestOptions options = RequestOptions.builder().idempotencyKey(idempotencyKey).build();
+    client.createResource(body, options);
+  }
+
+  @Test
+  public void testRawHeaders() throws IOException {
+    final Call mCall = mock(Call.class);
+    Answer answer = (i) -> {
+      Request request = i.getArgument(0);
+      assertEquals("bar", request.header("X-Custom-Foo"));
+      assertEquals("baz", request.header("X-Custom-Qux"));
+      return mCall;
+    };
+    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getResponseJson()));
+
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
+
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MyRequest body = new MyRequest();
+    final RequestOptions options = RequestOptions.builder()
+        .header("X-Custom-Foo", "bar")
+        .header("X-Custom-Qux", "baz")
+        .build();
+    client.createResource(body, options);
+  }
+
+  @Test
+  public void testNoIdempotencyKeyHeader() throws IOException {
+    final Call mCall = mock(Call.class);
+    Answer answer = (i) -> {
+      Request request = i.getArgument(0);
+      assertEquals(null, request.header("Idempotency-Key"));
+      return mCall;
+    };
+    when(mCall.execute()).thenReturn(MockClient.buildResponse(200, "OK", getResponseJson()));
+
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
+
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+    final MyRequest body = new MyRequest();
+    client.createResource(body);
   }
 
   @Test

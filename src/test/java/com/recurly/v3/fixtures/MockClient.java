@@ -4,6 +4,7 @@ import com.google.gson.reflect.TypeToken;
 import com.recurly.v3.BaseClient;
 import com.recurly.v3.Pager;
 import com.recurly.v3.ClientOptions;
+import com.recurly.v3.RequestOptions;
 import com.recurly.v3.fixtures.MockQueryParams;
 
 import org.mockito.stubbing.Answer;
@@ -64,10 +65,17 @@ public class MockClient extends BaseClient {
   public MyResource createResource(MyRequest body) {
     final String url = "/resources";
     final HashMap<String, String> urlParams = new HashMap<String, String>();
-    final HashMap<String, Object> queryParams = new HashMap<String, Object>();
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = MyResource.class;
     return this.makeRequest("POST", path, body, returnType);
+  }
+
+  public MyResource createResource(MyRequest body, RequestOptions options) {
+    final String url = "/resources";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = MyResource.class;
+    return this.makeRequest("POST", path, body, options, returnType);
   }
 
   public MyResource updateResource(String resourceId, MyRequest body) {
