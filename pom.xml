@@ -62,7 +62,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <okhttp3.version>4.7.2</okhttp3.version>
-        <surefire.version>3.0.0-M4</surefire.version>
+        <surefire.version>3.5.5</surefire.version>
         <jacoco.version>0.8.5</jacoco.version>
     </properties>
 
@@ -285,6 +285,21 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-inline</artifactId>
             <version>4.4.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Override Byte Buddy to a version that supports Java 21 (65) and above.
+             Mockito 4.4.0 bundles Byte Buddy 1.12.x which only supports up to Java 18 (62).
+             Byte Buddy 1.14.9+ supports Java 21 while remaining compatible with Java 8. -->
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <version>1.18.8</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy-agent</artifactId>
+            <version>1.18.8</version>
             <scope>test</scope>
         </dependency>
         <dependency>
