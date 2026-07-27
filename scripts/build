@@ -7,9 +7,9 @@ if [ ! -d ./bin ]; then
   mkdir -p ./bin;
 fi
 
-FORMAT=./bin/google-java-format-1.7-all-deps.jar
+FORMAT=./bin/google-java-format-1.35.0-all-deps.jar
 if test -f $FORMAT; then
     echo "Formatter file exists"
 else
-    curl -L https://github.com/google/google-java-format/releases/download/google-java-format-1.7/google-java-format-1.7-all-deps.jar > ./bin/google-java-format-1.7-all-deps.jar
+    curl -L https://github.com/google/google-java-format/releases/download/v1.35.0/google-java-format-1.35.0-all-deps.jar > $FORMAT
 fi

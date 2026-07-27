@@ -81,7 +81,11 @@ public abstract class BaseClient {
   }
 
   protected void makeRequest(final String method, final String url) {
-    final okhttp3.Request request = buildRequest(method, url, null, null);
+    makeRequest(method, url, (RequestOptions) null);
+  }
+
+  protected void makeRequest(final String method, final String url, final RequestOptions options) {
+    final okhttp3.Request request = buildRequest(method, url, null, null, options);
 
     try (final Response response = client.newCall(request).execute()) {
       if (!response.isSuccessful()) {
@@ -108,12 +112,21 @@ public abstract class BaseClient {
   }
 
   protected <T> T makeRequest(final String method, final String url, final Type resourceClass) {
-    return makeRequest(method, url, null, null, resourceClass);
+    return makeRequest(method, url, null, null, null, resourceClass);
+  }
+
+  protected <T> T makeRequest(final String method, final String url, final RequestOptions options, final Type resourceClass) {
+    return makeRequest(method, url, null, null, options, resourceClass);
   }
 
   protected <T> T makeRequest(
       final String method, final String url, final Request body, final Type resourceClass) {
-    return makeRequest(method, url, body, null, resourceClass);
+    return makeRequest(method, url, body, null, null, resourceClass);
+  }
+
+  protected <T> T makeRequest(
+      final String method, final String url, final Request body, final RequestOptions options, final Type resourceClass) {
+    return makeRequest(method, url, body, null, options, resourceClass);
   }
 
   protected <T> T makeRequest(
@@ -121,7 +134,16 @@ public abstract class BaseClient {
       final String url,
       final HashMap<String, Object> queryParams,
       final Type resourceClass) {
-    return makeRequest(method, url, null, queryParams, resourceClass);
+    return makeRequest(method, url, null, queryParams, null, resourceClass);
+  }
+
+  protected <T> T makeRequest(
+      final String method,
+      final String url,
+      final HashMap<String, Object> queryParams,
+      final RequestOptions options,
+      final Type resourceClass) {
+    return makeRequest(method, url, null, queryParams, options, resourceClass);
   }
 
   protected <T> T makeRequest(
@@ -130,7 +152,17 @@ public abstract class BaseClient {
       final Request body,
       final HashMap<String, Object> queryParams,
       final Type resourceClass) {
-    final okhttp3.Request request = buildRequest(method, url, body, queryParams);
+    return makeRequest(method, url, body, queryParams, null, resourceClass);
+  }
+
+  protected <T> T makeRequest(
+      final String method,
+      final String url,
+      final Request body,
+      final HashMap<String, Object> queryParams,
+      final RequestOptions options,
+      final Type resourceClass) {
+    final okhttp3.Request request = buildRequest(method, url, body, queryParams, options);
 
     try (final Response response = client.newCall(request).execute()) {
 
@@ -160,7 +192,7 @@ public abstract class BaseClient {
   }
 
   public int getRecordCount(final String url, final HashMap<String, Object> queryParams) {
-    final okhttp3.Request request = buildRequest("HEAD", url, null, queryParams);
+    final okhttp3.Request request = buildRequest("HEAD", url, null, queryParams, null);
 
     try (final Response response = client.newCall(request).execute()) {
 
@@ -195,7 +227,8 @@ public abstract class BaseClient {
       final String method,
       final String url,
       final Request body,
-      final HashMap<String, Object> queryParams) {
+      final HashMap<String, Object> queryParams,
+      final RequestOptions options) {
     final HttpUrl.Builder httpBuilder = HttpUrl.parse(this.apiUrl + url).newBuilder();
 
     final RequestBody requestBody =
@@ -238,6 +271,15 @@ public abstract class BaseClient {
     }
 
     final Builder requestBuilder = new okhttp3.Request.Builder().url(requestUrl);
+
+    if (options != null) {
+      for (Map.Entry<String, String> entry : options.getHeaders().entrySet()) {
+        requestBuilder.header(entry.getKey(), entry.getValue());
+      }
+      if (options.getIdempotencyKey() != null) {
+        requestBuilder.header("Idempotency-Key", options.getIdempotencyKey());
+      }
+    }
 
     switch (method) {
       case "HEAD":

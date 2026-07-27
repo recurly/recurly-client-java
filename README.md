@@ -232,8 +232,54 @@ try {
 } catch (NetworkException e) {
     // You may want to find out the root cause
     System.out.println(e.getCause().getCause());
-} 
+}
 ```
+### Request Options
+
+Every operation on the client has an overload that accepts a `RequestOptions` object. Use it to set
+per-request options such as an idempotency key.
+
+#### Idempotency Keys
+
+[Idempotency keys](https://developers.recurly.com/api/latest/#section/Getting-Started/Idempotent-Requests)
+allow you to safely retry mutating requests (POST, PUT, DELETE) without the risk of performing the same
+operation twice. Pass a unique value per logical operation — Recurly will deduplicate requests that
+share a key.
+
+```java
+import com.recurly.v3.RequestOptions;
+import com.recurly.v3.requests.AccountCreate;
+import com.recurly.v3.resources.Account;
+
+final AccountCreate accountReq = new AccountCreate();
+accountReq.setCode("myaccountcode");
+
+final RequestOptions options = RequestOptions.builder()
+    .idempotencyKey("unique-key-for-this-operation");
+
+final Account account = client.createAccount(accountReq, options);
+```
+
+#### Custom Headers
+
+You can also set arbitrary request headers via `RequestOptions`:
+
+```java
+final RequestOptions options = RequestOptions.builder()
+    .header("X-Custom-Header", "value")
+    .header("X-Another-Header", "other-value");
+
+final Account account = client.createAccount(accountReq, options);
+```
+
+Options can be combined — `idempotencyKey` and `header` calls chain together:
+
+```java
+final RequestOptions options = RequestOptions.builder()
+    .idempotencyKey("unique-key")
+    .header("X-Custom-Header", "value");
+```
+
 ## Support
 
 Looking for help? Please contact [support@recurly.com](mailto:support@recurly.com) or visit
