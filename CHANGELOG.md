@@ -1,5 +1,17 @@
 # Changelog
 
+## [6.2.0](https://github.com/recurly/recurly-client-java/tree/6.2.0) (2026-07-27)
+
+[Full Changelog](https://github.com/recurly/recurly-client-java/compare/6.1.0...6.2.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 [#337](https://github.com/recurly/recurly-client-java/pull/337) ([recurly-integrations](https://github.com/recurly-integrations))
+- feat: add support for customer headers / idemptotency key [#335](https://github.com/recurly/recurly-client-java/pull/335) ([cbarton](https://github.com/cbarton))
+
+
+
 ## [6.1.0](https://github.com/recurly/recurly-client-java/tree/6.1.0) (2026-07-02)
 
 [Full Changelog](https://github.com/recurly/recurly-client-java/compare/6.0.0...6.1.0)
