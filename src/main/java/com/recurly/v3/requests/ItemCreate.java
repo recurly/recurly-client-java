@@ -136,7 +136,9 @@ public class ItemCreate extends Request {
     return this.accountingCode;
   }
 
-  /** @param accountingCode Accounting code for invoice line items. */
+  /**
+   * @param accountingCode Accounting code for invoice line items.
+   */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
   }
@@ -186,7 +188,9 @@ public class ItemCreate extends Request {
     return this.code;
   }
 
-  /** @param code Unique code to identify the item. */
+  /**
+   * @param code Unique code to identify the item.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -196,7 +200,9 @@ public class ItemCreate extends Request {
     return this.currencies;
   }
 
-  /** @param currencies Item Pricing */
+  /**
+   * @param currencies Item Pricing
+   */
   public void setCurrencies(final List<Pricing> currencies) {
     this.currencies = currencies;
   }
@@ -224,7 +230,9 @@ public class ItemCreate extends Request {
     return this.description;
   }
 
-  /** @param description Optional, description. */
+  /**
+   * @param description Optional, description.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -334,7 +342,9 @@ public class ItemCreate extends Request {
     return this.revenueScheduleType;
   }
 
-  /** @param revenueScheduleType Revenue schedule type */
+  /**
+   * @param revenueScheduleType Revenue schedule type
+   */
   public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
@@ -364,7 +374,9 @@ public class ItemCreate extends Request {
     return this.taxExempt;
   }
 
-  /** @param taxExempt `true` exempts tax on the item, `false` applies tax on the item. */
+  /**
+   * @param taxExempt `true` exempts tax on the item, `false` applies tax on the item.
+   */
   public void setTaxExempt(final Boolean taxExempt) {
     this.taxExempt = taxExempt;
   }

@@ -47,7 +47,9 @@ public class LineItemDiscount extends Resource {
     return this.couponId;
   }
 
-  /** @param couponId The ID of the coupon that generated this discount. */
+  /**
+   * @param couponId The ID of the coupon that generated this discount.
+   */
   public void setCouponId(final String couponId) {
     this.couponId = couponId;
   }
@@ -57,7 +59,9 @@ public class LineItemDiscount extends Resource {
     return this.couponRedemptionId;
   }
 
-  /** @param couponRedemptionId The ID of the coupon redemption that generated this discount. */
+  /**
+   * @param couponRedemptionId The ID of the coupon redemption that generated this discount.
+   */
   public void setCouponRedemptionId(final String couponRedemptionId) {
     this.couponRedemptionId = couponRedemptionId;
   }
@@ -67,7 +71,9 @@ public class LineItemDiscount extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -77,7 +83,9 @@ public class LineItemDiscount extends Resource {
     return this.discountAmount;
   }
 
-  /** @param discountAmount The amount discounted on this line item by this coupon redemption. */
+  /**
+   * @param discountAmount The amount discounted on this line item by this coupon redemption.
+   */
   public void setDiscountAmount(final BigDecimal discountAmount) {
     this.discountAmount = discountAmount;
   }
@@ -87,7 +95,9 @@ public class LineItemDiscount extends Resource {
     return this.object;
   }
 
-  /** @param object Will always be `line_item_discount`. */
+  /**
+   * @param object Will always be `line_item_discount`.
+   */
   public void setObject(final String object) {
     this.object = object;
   }

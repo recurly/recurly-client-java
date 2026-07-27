@@ -39,7 +39,9 @@ public class ErrorMayHaveTransaction extends Resource {
     return this.message;
   }
 
-  /** @param message Message */
+  /**
+   * @param message Message
+   */
   public void setMessage(final String message) {
     this.message = message;
   }
@@ -49,7 +51,9 @@ public class ErrorMayHaveTransaction extends Resource {
     return this.params;
   }
 
-  /** @param params Parameter specific errors */
+  /**
+   * @param params Parameter specific errors
+   */
   public void setParams(final List<Map> params) {
     this.params = params;
   }
@@ -59,7 +63,9 @@ public class ErrorMayHaveTransaction extends Resource {
     return this.transactionError;
   }
 
-  /** @param transactionError This is only included on errors with `type=transaction`. */
+  /**
+   * @param transactionError This is only included on errors with `type=transaction`.
+   */
   public void setTransactionError(final TransactionError transactionError) {
     this.transactionError = transactionError;
   }
@@ -69,7 +75,9 @@ public class ErrorMayHaveTransaction extends Resource {
     return this.type;
   }
 
-  /** @param type Type */
+  /**
+   * @param type Type
+   */
   public void setType(final Constants.ErrorType type) {
     this.type = type;
   }

@@ -26,7 +26,9 @@ public class DunningInterval extends Resource {
     return this.days;
   }
 
-  /** @param days Number of days before sending the next email. */
+  /**
+   * @param days Number of days before sending the next email.
+   */
   public void setDays(final Integer days) {
     this.days = days;
   }
@@ -36,7 +38,9 @@ public class DunningInterval extends Resource {
     return this.emailTemplate;
   }
 
-  /** @param emailTemplate Email template being used. */
+  /**
+   * @param emailTemplate Email template being used.
+   */
   public void setEmailTemplate(final String emailTemplate) {
     this.emailTemplate = emailTemplate;
   }

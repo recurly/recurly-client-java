@@ -49,11 +49,23 @@ public class RecoveryInvoiceCreate extends Request {
   @Expose
   private String poNumber;
 
+  /**
+   * Optionally overrides the suffix component of the composed transaction descriptor. If omitted,
+   * the suffix is derived from the subscription's plan name or the invoice description, with a
+   * Trial prefix on Visa trial conversions. Subject to gateway availability and payment method
+   * support.
+   */
+  @SerializedName("transaction_descriptor_suffix")
+  @Expose
+  private String transactionDescriptorSuffix;
+
   public RecoveryAccountCreate getAccount() {
     return this.account;
   }
 
-  /** @param account */
+  /**
+   * @param account
+   */
   public void setAccount(final RecoveryAccountCreate account) {
     this.account = account;
   }
@@ -63,7 +75,9 @@ public class RecoveryInvoiceCreate extends Request {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -73,7 +87,9 @@ public class RecoveryInvoiceCreate extends Request {
     return this.dueAt;
   }
 
-  /** @param dueAt Date invoice was originally due. Must be in the past. */
+  /**
+   * @param dueAt Date invoice was originally due. Must be in the past.
+   */
   public void setDueAt(final ZonedDateTime dueAt) {
     this.dueAt = dueAt;
   }
@@ -116,8 +132,30 @@ public class RecoveryInvoiceCreate extends Request {
     return this.poNumber;
   }
 
-  /** @param poNumber This identifies the PO number associated with the subscription. */
+  /**
+   * @param poNumber This identifies the PO number associated with the subscription.
+   */
   public void setPoNumber(final String poNumber) {
     this.poNumber = poNumber;
+  }
+
+  /**
+   * Optionally overrides the suffix component of the composed transaction descriptor. If omitted,
+   * the suffix is derived from the subscription's plan name or the invoice description, with a
+   * Trial prefix on Visa trial conversions. Subject to gateway availability and payment method
+   * support.
+   */
+  public String getTransactionDescriptorSuffix() {
+    return this.transactionDescriptorSuffix;
+  }
+
+  /**
+   * @param transactionDescriptorSuffix Optionally overrides the suffix component of the composed
+   *     transaction descriptor. If omitted, the suffix is derived from the subscription's plan name
+   *     or the invoice description, with a Trial prefix on Visa trial conversions. Subject to
+   *     gateway availability and payment method support.
+   */
+  public void setTransactionDescriptorSuffix(final String transactionDescriptorSuffix) {
+    this.transactionDescriptorSuffix = transactionDescriptorSuffix;
   }
 }

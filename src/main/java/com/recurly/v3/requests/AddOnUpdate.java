@@ -304,7 +304,9 @@ public class AddOnUpdate extends Request {
     return this.defaultQuantity;
   }
 
-  /** @param defaultQuantity Default quantity for the hosted pages. */
+  /**
+   * @param defaultQuantity Default quantity for the hosted pages.
+   */
   public void setDefaultQuantity(final Integer defaultQuantity) {
     this.defaultQuantity = defaultQuantity;
   }
@@ -349,7 +351,9 @@ public class AddOnUpdate extends Request {
     return this.id;
   }
 
-  /** @param id Add-on ID */
+  /**
+   * @param id Add-on ID
+   */
   public void setId(final String id) {
     this.id = id;
   }

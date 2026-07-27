@@ -40,7 +40,9 @@ public class PerformanceObligation extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created At */
+  /**
+   * @param createdAt Created At
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -66,7 +68,9 @@ public class PerformanceObligation extends Resource {
     return this.name;
   }
 
-  /** @param name Performance Obligation Name */
+  /**
+   * @param name Performance Obligation Name
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -76,7 +80,9 @@ public class PerformanceObligation extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

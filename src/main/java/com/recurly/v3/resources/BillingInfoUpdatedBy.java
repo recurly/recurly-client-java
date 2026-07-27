@@ -43,7 +43,9 @@ public class BillingInfoUpdatedBy extends Resource {
     return this.ip;
   }
 
-  /** @param ip Customer's IP address when updating their billing information. */
+  /**
+   * @param ip Customer's IP address when updating their billing information.
+   */
   public void setIp(final String ip) {
     this.ip = ip;
   }

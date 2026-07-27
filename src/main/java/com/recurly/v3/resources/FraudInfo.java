@@ -33,7 +33,9 @@ public class FraudInfo extends Resource {
     return this.decision;
   }
 
-  /** @param decision Kount decision */
+  /**
+   * @param decision Kount decision
+   */
   public void setDecision(final Constants.KountDecision decision) {
     this.decision = decision;
   }
@@ -43,7 +45,9 @@ public class FraudInfo extends Resource {
     return this.riskRulesTriggered;
   }
 
-  /** @param riskRulesTriggered Kount rules */
+  /**
+   * @param riskRulesTriggered Kount rules
+   */
   public void setRiskRulesTriggered(final Map riskRulesTriggered) {
     this.riskRulesTriggered = riskRulesTriggered;
   }
@@ -53,7 +57,9 @@ public class FraudInfo extends Resource {
     return this.score;
   }
 
-  /** @param score Kount score */
+  /**
+   * @param score Kount score
+   */
   public void setScore(final Integer score) {
     this.score = score;
   }

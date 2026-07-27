@@ -151,7 +151,9 @@ public class Usage extends Resource {
     return this.billedAt;
   }
 
-  /** @param billedAt When the usage record was billed on an invoice. */
+  /**
+   * @param billedAt When the usage record was billed on an invoice.
+   */
   public void setBilledAt(final ZonedDateTime billedAt) {
     this.billedAt = billedAt;
   }
@@ -161,7 +163,9 @@ public class Usage extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt When the usage record was created in Recurly. */
+  /**
+   * @param createdAt When the usage record was created in Recurly.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -170,7 +174,9 @@ public class Usage extends Resource {
     return this.id;
   }
 
-  /** @param id */
+  /**
+   * @param id
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -210,7 +216,9 @@ public class Usage extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -238,7 +246,9 @@ public class Usage extends Resource {
     return this.recordingTimestamp;
   }
 
-  /** @param recordingTimestamp When the usage was recorded in your system. */
+  /**
+   * @param recordingTimestamp When the usage was recorded in your system.
+   */
   public void setRecordingTimestamp(final ZonedDateTime recordingTimestamp) {
     this.recordingTimestamp = recordingTimestamp;
   }
@@ -284,7 +294,9 @@ public class Usage extends Resource {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Unit price */
+  /**
+   * @param unitAmount Unit price
+   */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
@@ -294,7 +306,9 @@ public class Usage extends Resource {
     return this.unitAmountDecimal;
   }
 
-  /** @param unitAmountDecimal Unit price that can optionally support a sub-cent value. */
+  /**
+   * @param unitAmountDecimal Unit price that can optionally support a sub-cent value.
+   */
   public void setUnitAmountDecimal(final String unitAmountDecimal) {
     this.unitAmountDecimal = unitAmountDecimal;
   }
@@ -304,7 +318,9 @@ public class Usage extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt When the usage record was billed on an invoice. */
+  /**
+   * @param updatedAt When the usage record was billed on an invoice.
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -346,7 +362,9 @@ public class Usage extends Resource {
     return this.usageType;
   }
 
-  /** @param usageType Type of usage, returns usage type if `add_on_type` is `usage`. */
+  /**
+   * @param usageType Type of usage, returns usage type if `add_on_type` is `usage`.
+   */
   public void setUsageType(final Constants.UsageType usageType) {
     this.usageType = usageType;
   }

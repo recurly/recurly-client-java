@@ -28,7 +28,9 @@ public class CouponPricing extends Request {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -38,7 +40,9 @@ public class CouponPricing extends Request {
     return this.discount;
   }
 
-  /** @param discount The fixed discount (in dollars) for the corresponding currency. */
+  /**
+   * @param discount The fixed discount (in dollars) for the corresponding currency.
+   */
   public void setDiscount(final BigDecimal discount) {
     this.discount = discount;
   }

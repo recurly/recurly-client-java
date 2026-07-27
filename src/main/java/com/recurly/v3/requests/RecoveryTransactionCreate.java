@@ -36,7 +36,9 @@ public class RecoveryTransactionCreate extends Request {
     return this.attemptedCollectionDate;
   }
 
-  /** @param attemptedCollectionDate The date the original payment collection was attempted. */
+  /**
+   * @param attemptedCollectionDate The date the original payment collection was attempted.
+   */
   public void setAttemptedCollectionDate(final ZonedDateTime attemptedCollectionDate) {
     this.attemptedCollectionDate = attemptedCollectionDate;
   }

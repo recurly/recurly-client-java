@@ -59,7 +59,9 @@ public class ExternalInvoiceCreate extends Request {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -84,7 +86,9 @@ public class ExternalInvoiceCreate extends Request {
     return this.externalPaymentPhase;
   }
 
-  /** @param externalPaymentPhase */
+  /**
+   * @param externalPaymentPhase
+   */
   public void setExternalPaymentPhase(final ExternalPaymentPhaseBase externalPaymentPhase) {
     this.externalPaymentPhase = externalPaymentPhase;
   }
@@ -94,7 +98,9 @@ public class ExternalInvoiceCreate extends Request {
     return this.externalPaymentPhaseId;
   }
 
-  /** @param externalPaymentPhaseId External payment phase ID, e.g. `a34ypb2ef9w1`. */
+  /**
+   * @param externalPaymentPhaseId External payment phase ID, e.g. `a34ypb2ef9w1`.
+   */
   public void setExternalPaymentPhaseId(final String externalPaymentPhaseId) {
     this.externalPaymentPhaseId = externalPaymentPhaseId;
   }
@@ -103,7 +109,9 @@ public class ExternalInvoiceCreate extends Request {
     return this.lineItems;
   }
 
-  /** @param lineItems */
+  /**
+   * @param lineItems
+   */
   public void setLineItems(final List<ExternalChargeCreate> lineItems) {
     this.lineItems = lineItems;
   }
@@ -113,7 +121,9 @@ public class ExternalInvoiceCreate extends Request {
     return this.purchasedAt;
   }
 
-  /** @param purchasedAt When the invoice was created in the external platform. */
+  /**
+   * @param purchasedAt When the invoice was created in the external platform.
+   */
   public void setPurchasedAt(final ZonedDateTime purchasedAt) {
     this.purchasedAt = purchasedAt;
   }
@@ -122,7 +132,9 @@ public class ExternalInvoiceCreate extends Request {
     return this.state;
   }
 
-  /** @param state */
+  /**
+   * @param state
+   */
   public void setState(final Constants.ExternalInvoiceState state) {
     this.state = state;
   }
@@ -131,7 +143,9 @@ public class ExternalInvoiceCreate extends Request {
     return this.total;
   }
 
-  /** @param total */
+  /**
+   * @param total
+   */
   public void setTotal(final String total) {
     this.total = total;
   }

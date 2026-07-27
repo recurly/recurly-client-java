@@ -46,7 +46,9 @@ public class InvoiceTemplate extends Resource {
     return this.code;
   }
 
-  /** @param code Invoice template code. */
+  /**
+   * @param code Invoice template code.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -56,7 +58,9 @@ public class InvoiceTemplate extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt When the invoice template was created in Recurly. */
+  /**
+   * @param createdAt When the invoice template was created in Recurly.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -66,7 +70,9 @@ public class InvoiceTemplate extends Resource {
     return this.description;
   }
 
-  /** @param description Invoice template description. */
+  /**
+   * @param description Invoice template description.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -75,7 +81,9 @@ public class InvoiceTemplate extends Resource {
     return this.id;
   }
 
-  /** @param id */
+  /**
+   * @param id
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -85,7 +93,9 @@ public class InvoiceTemplate extends Resource {
     return this.name;
   }
 
-  /** @param name Invoice template name. */
+  /**
+   * @param name Invoice template name.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -95,7 +105,9 @@ public class InvoiceTemplate extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt When the invoice template was updated in Recurly. */
+  /**
+   * @param updatedAt When the invoice template was updated in Recurly.
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

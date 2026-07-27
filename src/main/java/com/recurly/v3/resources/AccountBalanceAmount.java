@@ -37,7 +37,9 @@ public class AccountBalanceAmount extends Resource {
     return this.amount;
   }
 
-  /** @param amount Total amount the account is past due. */
+  /**
+   * @param amount Total amount the account is past due.
+   */
   public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
@@ -60,7 +62,9 @@ public class AccountBalanceAmount extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }

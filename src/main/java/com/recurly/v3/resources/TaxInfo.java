@@ -53,7 +53,9 @@ public class TaxInfo extends Resource {
     return this.rate;
   }
 
-  /** @param rate The combined tax rate. Not present when Avalara for Communications is enabled. */
+  /**
+   * @param rate The combined tax rate. Not present when Avalara for Communications is enabled.
+   */
   public void setRate(final BigDecimal rate) {
     this.rate = rate;
   }

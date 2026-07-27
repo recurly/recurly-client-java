@@ -36,7 +36,9 @@ public class ShippingMethodMini extends Resource {
     return this.code;
   }
 
-  /** @param code The internal name used identify the shipping method. */
+  /**
+   * @param code The internal name used identify the shipping method.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -46,7 +48,9 @@ public class ShippingMethodMini extends Resource {
     return this.id;
   }
 
-  /** @param id Shipping Method ID */
+  /**
+   * @param id Shipping Method ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -56,7 +60,9 @@ public class ShippingMethodMini extends Resource {
     return this.name;
   }
 
-  /** @param name The name of the shipping method displayed to customers. */
+  /**
+   * @param name The name of the shipping method displayed to customers.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -66,7 +72,9 @@ public class ShippingMethodMini extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }

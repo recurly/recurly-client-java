@@ -57,7 +57,9 @@ public class GeneralLedgerAccount extends Resource {
     return this.accountType;
   }
 
-  /** @param accountType */
+  /**
+   * @param accountType
+   */
   public void setAccountType(final Constants.GeneralLedgerAccountType accountType) {
     this.accountType = accountType;
   }
@@ -83,7 +85,9 @@ public class GeneralLedgerAccount extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -93,7 +97,9 @@ public class GeneralLedgerAccount extends Resource {
     return this.description;
   }
 
-  /** @param description Optional description. */
+  /**
+   * @param description Optional description.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -119,7 +125,9 @@ public class GeneralLedgerAccount extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -129,7 +137,9 @@ public class GeneralLedgerAccount extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

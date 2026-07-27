@@ -34,7 +34,9 @@ public class ExternalRefund extends Request {
     return this.description;
   }
 
-  /** @param description Used as the refund transactions' description. */
+  /**
+   * @param description Used as the refund transactions' description.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -44,7 +46,9 @@ public class ExternalRefund extends Request {
     return this.paymentMethod;
   }
 
-  /** @param paymentMethod Payment method used for external refund transaction. */
+  /**
+   * @param paymentMethod Payment method used for external refund transaction.
+   */
   public void setPaymentMethod(final Constants.ExternalPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }

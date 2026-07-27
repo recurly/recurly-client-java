@@ -53,7 +53,9 @@ public class ExternalProduct extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt When the external product was created in Recurly. */
+  /**
+   * @param createdAt When the external product was created in Recurly.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -88,7 +90,9 @@ public class ExternalProduct extends Resource {
     return this.name;
   }
 
-  /** @param name Name to identify the external product in Recurly. */
+  /**
+   * @param name Name to identify the external product in Recurly.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -98,7 +102,9 @@ public class ExternalProduct extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -108,7 +114,9 @@ public class ExternalProduct extends Resource {
     return this.plan;
   }
 
-  /** @param plan Just the important parts. */
+  /**
+   * @param plan Just the important parts.
+   */
   public void setPlan(final PlanMini plan) {
     this.plan = plan;
   }
@@ -118,7 +126,9 @@ public class ExternalProduct extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt When the external product was updated in Recurly. */
+  /**
+   * @param updatedAt When the external product was updated in Recurly.
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

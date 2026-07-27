@@ -53,7 +53,9 @@ public class CouponRedemptionMini extends Resource {
     return this.coupon;
   }
 
-  /** @param coupon */
+  /**
+   * @param coupon
+   */
   public void setCoupon(final CouponMini coupon) {
     this.coupon = coupon;
   }
@@ -63,7 +65,9 @@ public class CouponRedemptionMini extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -88,7 +92,9 @@ public class CouponRedemptionMini extends Resource {
     return this.id;
   }
 
-  /** @param id Coupon Redemption ID */
+  /**
+   * @param id Coupon Redemption ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -98,7 +104,9 @@ public class CouponRedemptionMini extends Resource {
     return this.object;
   }
 
-  /** @param object Will always be `coupon`. */
+  /**
+   * @param object Will always be `coupon`.
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -107,7 +115,9 @@ public class CouponRedemptionMini extends Resource {
     return this.remainingDuration;
   }
 
-  /** @param remainingDuration */
+  /**
+   * @param remainingDuration
+   */
   public void setRemainingDuration(final CouponRedemptionRemainingDuration remainingDuration) {
     this.remainingDuration = remainingDuration;
   }
@@ -117,7 +127,9 @@ public class CouponRedemptionMini extends Resource {
     return this.state;
   }
 
-  /** @param state Coupon Redemption state */
+  /**
+   * @param state Coupon Redemption state
+   */
   public void setState(final Constants.ActiveState state) {
     this.state = state;
   }

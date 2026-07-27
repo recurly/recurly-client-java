@@ -52,7 +52,9 @@ public class RecoveryAddress extends Request {
     return this.city;
   }
 
-  /** @param city City */
+  /**
+   * @param city City
+   */
   public void setCity(final String city) {
     this.city = city;
   }
@@ -62,7 +64,9 @@ public class RecoveryAddress extends Request {
     return this.country;
   }
 
-  /** @param country Country, 2-letter ISO 3166-1 alpha-2 code. */
+  /**
+   * @param country Country, 2-letter ISO 3166-1 alpha-2 code.
+   */
   public void setCountry(final String country) {
     this.country = country;
   }
@@ -72,7 +76,9 @@ public class RecoveryAddress extends Request {
     return this.phone;
   }
 
-  /** @param phone Phone number */
+  /**
+   * @param phone Phone number
+   */
   public void setPhone(final String phone) {
     this.phone = phone;
   }
@@ -82,7 +88,9 @@ public class RecoveryAddress extends Request {
     return this.postalCode;
   }
 
-  /** @param postalCode Zip or postal code. */
+  /**
+   * @param postalCode Zip or postal code.
+   */
   public void setPostalCode(final String postalCode) {
     this.postalCode = postalCode;
   }
@@ -92,7 +100,9 @@ public class RecoveryAddress extends Request {
     return this.region;
   }
 
-  /** @param region State or province. */
+  /**
+   * @param region State or province.
+   */
   public void setRegion(final String region) {
     this.region = region;
   }
@@ -102,7 +112,9 @@ public class RecoveryAddress extends Request {
     return this.street1;
   }
 
-  /** @param street1 Street 1 */
+  /**
+   * @param street1 Street 1
+   */
   public void setStreet1(final String street1) {
     this.street1 = street1;
   }
@@ -112,7 +124,9 @@ public class RecoveryAddress extends Request {
     return this.street2;
   }
 
-  /** @param street2 Street 2 */
+  /**
+   * @param street2 Street 2
+   */
   public void setStreet2(final String street2) {
     this.street2 = street2;
   }

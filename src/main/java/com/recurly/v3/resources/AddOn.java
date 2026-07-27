@@ -260,7 +260,9 @@ public class AddOn extends Resource {
     return this.addOnType;
   }
 
-  /** @param addOnType Whether the add-on type is fixed, or usage-based. */
+  /**
+   * @param addOnType Whether the add-on type is fixed, or usage-based.
+   */
   public void setAddOnType(final Constants.AddOnType addOnType) {
     this.addOnType = addOnType;
   }
@@ -310,7 +312,9 @@ public class AddOn extends Resource {
     return this.code;
   }
 
-  /** @param code The unique identifier for the add-on within its plan. */
+  /**
+   * @param code The unique identifier for the add-on within its plan.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -320,7 +324,9 @@ public class AddOn extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -330,7 +336,9 @@ public class AddOn extends Resource {
     return this.currencies;
   }
 
-  /** @param currencies Add-on pricing */
+  /**
+   * @param currencies Add-on pricing
+   */
   public void setCurrencies(final List<AddOnPricing> currencies) {
     this.currencies = currencies;
   }
@@ -340,7 +348,9 @@ public class AddOn extends Resource {
     return this.defaultQuantity;
   }
 
-  /** @param defaultQuantity Default quantity for the hosted pages. */
+  /**
+   * @param defaultQuantity Default quantity for the hosted pages.
+   */
   public void setDefaultQuantity(final Integer defaultQuantity) {
     this.defaultQuantity = defaultQuantity;
   }
@@ -350,7 +360,9 @@ public class AddOn extends Resource {
     return this.deletedAt;
   }
 
-  /** @param deletedAt Deleted at */
+  /**
+   * @param deletedAt Deleted at
+   */
   public void setDeletedAt(final ZonedDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
@@ -407,7 +419,9 @@ public class AddOn extends Resource {
     return this.id;
   }
 
-  /** @param id Add-on ID */
+  /**
+   * @param id Add-on ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -417,7 +431,9 @@ public class AddOn extends Resource {
     return this.item;
   }
 
-  /** @param item Just the important parts. */
+  /**
+   * @param item Just the important parts.
+   */
   public void setItem(final ItemMini item) {
     this.item = item;
   }
@@ -457,7 +473,9 @@ public class AddOn extends Resource {
     return this.name;
   }
 
-  /** @param name Describes your add-on and will appear in subscribers' invoices. */
+  /**
+   * @param name Describes your add-on and will appear in subscribers' invoices.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -467,7 +485,9 @@ public class AddOn extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -530,7 +550,9 @@ public class AddOn extends Resource {
     return this.planId;
   }
 
-  /** @param planId Plan ID */
+  /**
+   * @param planId Plan ID
+   */
   public void setPlanId(final String planId) {
     this.planId = planId;
   }
@@ -574,7 +596,9 @@ public class AddOn extends Resource {
     return this.state;
   }
 
-  /** @param state Add-ons can be either active or inactive. */
+  /**
+   * @param state Add-ons can be either active or inactive.
+   */
   public void setState(final Constants.ActiveState state) {
     this.state = state;
   }
@@ -626,7 +650,9 @@ public class AddOn extends Resource {
     return this.tiers;
   }
 
-  /** @param tiers Tiers */
+  /**
+   * @param tiers Tiers
+   */
   public void setTiers(final List<Tier> tiers) {
     this.tiers = tiers;
   }
@@ -636,7 +662,9 @@ public class AddOn extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -682,7 +710,9 @@ public class AddOn extends Resource {
     return this.usageTimeframe;
   }
 
-  /** @param usageTimeframe The time at which usage totals are reset for billing purposes. */
+  /**
+   * @param usageTimeframe The time at which usage totals are reset for billing purposes.
+   */
   public void setUsageTimeframe(final Constants.UsageTimeframe usageTimeframe) {
     this.usageTimeframe = usageTimeframe;
   }
@@ -692,7 +722,9 @@ public class AddOn extends Resource {
     return this.usageType;
   }
 
-  /** @param usageType Type of usage, returns usage type if `add_on_type` is `usage`. */
+  /**
+   * @param usageType Type of usage, returns usage type if `add_on_type` is `usage`.
+   */
   public void setUsageType(final Constants.UsageType usageType) {
     this.usageType = usageType;
   }

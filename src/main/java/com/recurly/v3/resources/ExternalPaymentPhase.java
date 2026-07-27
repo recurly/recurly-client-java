@@ -87,7 +87,9 @@ public class ExternalPaymentPhase extends Resource {
     return this.amount;
   }
 
-  /** @param amount Allows up to 9 decimal places */
+  /**
+   * @param amount Allows up to 9 decimal places
+   */
   public void setAmount(final String amount) {
     this.amount = amount;
   }
@@ -97,7 +99,9 @@ public class ExternalPaymentPhase extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt When the external subscription was created in Recurly. */
+  /**
+   * @param createdAt When the external subscription was created in Recurly.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -107,7 +111,9 @@ public class ExternalPaymentPhase extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -117,7 +123,9 @@ public class ExternalPaymentPhase extends Resource {
     return this.endingBillingPeriodIndex;
   }
 
-  /** @param endingBillingPeriodIndex Ending Billing Period Index */
+  /**
+   * @param endingBillingPeriodIndex Ending Billing Period Index
+   */
   public void setEndingBillingPeriodIndex(final Integer endingBillingPeriodIndex) {
     this.endingBillingPeriodIndex = endingBillingPeriodIndex;
   }
@@ -127,7 +135,9 @@ public class ExternalPaymentPhase extends Resource {
     return this.endsAt;
   }
 
-  /** @param endsAt Ends At */
+  /**
+   * @param endsAt Ends At
+   */
   public void setEndsAt(final ZonedDateTime endsAt) {
     this.endsAt = endsAt;
   }
@@ -150,7 +160,9 @@ public class ExternalPaymentPhase extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -160,7 +172,9 @@ public class ExternalPaymentPhase extends Resource {
     return this.offerName;
   }
 
-  /** @param offerName Name of the discount offer given, e.g. "introductory" */
+  /**
+   * @param offerName Name of the discount offer given, e.g. "introductory"
+   */
   public void setOfferName(final String offerName) {
     this.offerName = offerName;
   }
@@ -170,7 +184,9 @@ public class ExternalPaymentPhase extends Resource {
     return this.offerType;
   }
 
-  /** @param offerType Type of discount offer given, e.g. "FREE_TRIAL" */
+  /**
+   * @param offerType Type of discount offer given, e.g. "FREE_TRIAL"
+   */
   public void setOfferType(final String offerType) {
     this.offerType = offerType;
   }
@@ -180,7 +196,9 @@ public class ExternalPaymentPhase extends Resource {
     return this.periodCount;
   }
 
-  /** @param periodCount Number of billing periods */
+  /**
+   * @param periodCount Number of billing periods
+   */
   public void setPeriodCount(final Integer periodCount) {
     this.periodCount = periodCount;
   }
@@ -190,7 +208,9 @@ public class ExternalPaymentPhase extends Resource {
     return this.periodLength;
   }
 
-  /** @param periodLength Billing cycle length */
+  /**
+   * @param periodLength Billing cycle length
+   */
   public void setPeriodLength(final String periodLength) {
     this.periodLength = periodLength;
   }
@@ -200,7 +220,9 @@ public class ExternalPaymentPhase extends Resource {
     return this.startedAt;
   }
 
-  /** @param startedAt Started At */
+  /**
+   * @param startedAt Started At
+   */
   public void setStartedAt(final ZonedDateTime startedAt) {
     this.startedAt = startedAt;
   }
@@ -210,7 +232,9 @@ public class ExternalPaymentPhase extends Resource {
     return this.startingBillingPeriodIndex;
   }
 
-  /** @param startingBillingPeriodIndex Starting Billing Period Index */
+  /**
+   * @param startingBillingPeriodIndex Starting Billing Period Index
+   */
   public void setStartingBillingPeriodIndex(final Integer startingBillingPeriodIndex) {
     this.startingBillingPeriodIndex = startingBillingPeriodIndex;
   }
@@ -220,7 +244,9 @@ public class ExternalPaymentPhase extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt When the external subscription was updated in Recurly. */
+  /**
+   * @param updatedAt When the external subscription was updated in Recurly.
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

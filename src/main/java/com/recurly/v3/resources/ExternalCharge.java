@@ -65,7 +65,9 @@ public class ExternalCharge extends Resource {
     return this.account;
   }
 
-  /** @param account Account mini details */
+  /**
+   * @param account Account mini details
+   */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -75,7 +77,9 @@ public class ExternalCharge extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt When the external charge was created in Recurly. */
+  /**
+   * @param createdAt When the external charge was created in Recurly.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -85,7 +89,9 @@ public class ExternalCharge extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -94,7 +100,9 @@ public class ExternalCharge extends Resource {
     return this.description;
   }
 
-  /** @param description */
+  /**
+   * @param description
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -104,7 +112,9 @@ public class ExternalCharge extends Resource {
     return this.externalProductReference;
   }
 
-  /** @param externalProductReference External Product Reference details */
+  /**
+   * @param externalProductReference External Product Reference details
+   */
   public void setExternalProductReference(
       final ExternalProductReferenceMini externalProductReference) {
     this.externalProductReference = externalProductReference;
@@ -127,7 +137,9 @@ public class ExternalCharge extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -136,7 +148,9 @@ public class ExternalCharge extends Resource {
     return this.quantity;
   }
 
-  /** @param quantity */
+  /**
+   * @param quantity
+   */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
   }
@@ -146,7 +160,9 @@ public class ExternalCharge extends Resource {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Unit Amount */
+  /**
+   * @param unitAmount Unit Amount
+   */
   public void setUnitAmount(final String unitAmount) {
     this.unitAmount = unitAmount;
   }
@@ -156,7 +172,9 @@ public class ExternalCharge extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt When the external charge was updated in Recurly. */
+  /**
+   * @param updatedAt When the external charge was updated in Recurly.
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

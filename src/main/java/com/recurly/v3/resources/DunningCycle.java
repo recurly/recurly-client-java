@@ -101,7 +101,9 @@ public class DunningCycle extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt When the current settings were created in Recurly. */
+  /**
+   * @param createdAt When the current settings were created in Recurly.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -124,7 +126,9 @@ public class DunningCycle extends Resource {
     return this.failInvoice;
   }
 
-  /** @param failInvoice Whether the invoice should be failed at the end of the dunning cycle. */
+  /**
+   * @param failInvoice Whether the invoice should be failed at the end of the dunning cycle.
+   */
   public void setFailInvoice(final Boolean failInvoice) {
     this.failInvoice = failInvoice;
   }
@@ -147,7 +151,9 @@ public class DunningCycle extends Resource {
     return this.intervals;
   }
 
-  /** @param intervals Dunning intervals. */
+  /**
+   * @param intervals Dunning intervals.
+   */
   public void setIntervals(final List<DunningInterval> intervals) {
     this.intervals = intervals;
   }
@@ -202,7 +208,9 @@ public class DunningCycle extends Resource {
     return this.type;
   }
 
-  /** @param type The type of invoice this cycle applies to. */
+  /**
+   * @param type The type of invoice this cycle applies to.
+   */
   public void setType(final Constants.DunningCycleType type) {
     this.type = type;
   }
@@ -212,7 +220,9 @@ public class DunningCycle extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt When the current settings were updated in Recurly. */
+  /**
+   * @param updatedAt When the current settings were updated in Recurly.
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -222,7 +232,9 @@ public class DunningCycle extends Resource {
     return this.version;
   }
 
-  /** @param version Current campaign version. */
+  /**
+   * @param version Current campaign version.
+   */
   public void setVersion(final Integer version) {
     this.version = version;
   }

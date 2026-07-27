@@ -35,7 +35,9 @@ public class InvoiceCollection extends Resource {
     return this.chargeInvoice;
   }
 
-  /** @param chargeInvoice */
+  /**
+   * @param chargeInvoice
+   */
   public void setChargeInvoice(final Invoice chargeInvoice) {
     this.chargeInvoice = chargeInvoice;
   }
@@ -45,7 +47,9 @@ public class InvoiceCollection extends Resource {
     return this.creditInvoices;
   }
 
-  /** @param creditInvoices Credit invoices */
+  /**
+   * @param creditInvoices Credit invoices
+   */
   public void setCreditInvoices(final List<Invoice> creditInvoices) {
     this.creditInvoices = creditInvoices;
   }
@@ -55,7 +59,9 @@ public class InvoiceCollection extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }

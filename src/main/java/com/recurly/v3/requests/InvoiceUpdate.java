@@ -62,7 +62,9 @@ public class InvoiceUpdate extends Request {
     return this.address;
   }
 
-  /** @param address */
+  /**
+   * @param address
+   */
   public void setAddress(final InvoiceAddress address) {
     this.address = address;
   }
@@ -72,7 +74,9 @@ public class InvoiceUpdate extends Request {
     return this.customerNotes;
   }
 
-  /** @param customerNotes Customer notes are an optional note field. */
+  /**
+   * @param customerNotes Customer notes are an optional note field.
+   */
   public void setCustomerNotes(final String customerNotes) {
     this.customerNotes = customerNotes;
   }

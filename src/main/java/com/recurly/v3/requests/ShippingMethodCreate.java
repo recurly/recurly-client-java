@@ -69,7 +69,9 @@ public class ShippingMethodCreate extends Request {
     return this.accountingCode;
   }
 
-  /** @param accountingCode Accounting code for shipping method. */
+  /**
+   * @param accountingCode Accounting code for shipping method.
+   */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
   }
@@ -79,7 +81,9 @@ public class ShippingMethodCreate extends Request {
     return this.code;
   }
 
-  /** @param code The internal name used identify the shipping method. */
+  /**
+   * @param code The internal name used identify the shipping method.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -106,7 +110,9 @@ public class ShippingMethodCreate extends Request {
     return this.name;
   }
 
-  /** @param name The name of the shipping method displayed to customers. */
+  /**
+   * @param name The name of the shipping method displayed to customers.
+   */
   public void setName(final String name) {
     this.name = name;
   }

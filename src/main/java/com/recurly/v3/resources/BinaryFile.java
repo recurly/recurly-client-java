@@ -19,7 +19,9 @@ public class BinaryFile extends Resource {
     return this.data;
   }
 
-  /** @param data */
+  /**
+   * @param data
+   */
   public void setData(final byte[] data) {
     this.data = data;
   }

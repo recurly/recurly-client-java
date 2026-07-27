@@ -28,7 +28,9 @@ public class PercentageTiersByCurrency extends Request {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -38,7 +40,9 @@ public class PercentageTiersByCurrency extends Request {
     return this.tiers;
   }
 
-  /** @param tiers Tiers */
+  /**
+   * @param tiers Tiers
+   */
   public void setTiers(final List<PercentageTier> tiers) {
     this.tiers = tiers;
   }

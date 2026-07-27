@@ -66,7 +66,9 @@ public class MeasuredUnit extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -76,7 +78,9 @@ public class MeasuredUnit extends Resource {
     return this.deletedAt;
   }
 
-  /** @param deletedAt Deleted at */
+  /**
+   * @param deletedAt Deleted at
+   */
   public void setDeletedAt(final ZonedDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
@@ -86,7 +90,9 @@ public class MeasuredUnit extends Resource {
     return this.description;
   }
 
-  /** @param description Optional internal description. */
+  /**
+   * @param description Optional internal description.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -112,7 +118,9 @@ public class MeasuredUnit extends Resource {
     return this.id;
   }
 
-  /** @param id Item ID */
+  /**
+   * @param id Item ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -122,7 +130,9 @@ public class MeasuredUnit extends Resource {
     return this.name;
   }
 
-  /** @param name Unique internal name of the measured unit on your site. */
+  /**
+   * @param name Unique internal name of the measured unit on your site.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -132,7 +142,9 @@ public class MeasuredUnit extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -142,7 +154,9 @@ public class MeasuredUnit extends Resource {
     return this.state;
   }
 
-  /** @param state The current state of the measured unit. */
+  /**
+   * @param state The current state of the measured unit.
+   */
   public void setState(final Constants.ActiveState state) {
     this.state = state;
   }
@@ -152,7 +166,9 @@ public class MeasuredUnit extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

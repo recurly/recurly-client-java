@@ -43,7 +43,9 @@ public class TransactionFraudInfo extends Resource {
     return this.decision;
   }
 
-  /** @param decision Kount decision */
+  /**
+   * @param decision Kount decision
+   */
   public void setDecision(final Constants.KountDecision decision) {
     this.decision = decision;
   }
@@ -53,7 +55,9 @@ public class TransactionFraudInfo extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -63,7 +67,9 @@ public class TransactionFraudInfo extends Resource {
     return this.reference;
   }
 
-  /** @param reference Kount transaction reference ID */
+  /**
+   * @param reference Kount transaction reference ID
+   */
   public void setReference(final String reference) {
     this.reference = reference;
   }
@@ -85,7 +91,9 @@ public class TransactionFraudInfo extends Resource {
     return this.score;
   }
 
-  /** @param score Kount score */
+  /**
+   * @param score Kount score
+   */
   public void setScore(final Integer score) {
     this.score = score;
   }

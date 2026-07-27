@@ -144,7 +144,9 @@ public class ExternalSubscription extends Resource {
     return this.account;
   }
 
-  /** @param account Account mini details */
+  /**
+   * @param account Account mini details
+   */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -154,7 +156,9 @@ public class ExternalSubscription extends Resource {
     return this.activatedAt;
   }
 
-  /** @param activatedAt When the external subscription was activated in the external platform. */
+  /**
+   * @param activatedAt When the external subscription was activated in the external platform.
+   */
   public void setActivatedAt(final ZonedDateTime activatedAt) {
     this.activatedAt = activatedAt;
   }
@@ -164,7 +168,9 @@ public class ExternalSubscription extends Resource {
     return this.appIdentifier;
   }
 
-  /** @param appIdentifier Identifier of the app that generated the external subscription. */
+  /**
+   * @param appIdentifier Identifier of the app that generated the external subscription.
+   */
   public void setAppIdentifier(final String appIdentifier) {
     this.appIdentifier = appIdentifier;
   }
@@ -190,7 +196,9 @@ public class ExternalSubscription extends Resource {
     return this.canceledAt;
   }
 
-  /** @param canceledAt When the external subscription was canceled in the external platform. */
+  /**
+   * @param canceledAt When the external subscription was canceled in the external platform.
+   */
   public void setCanceledAt(final ZonedDateTime canceledAt) {
     this.canceledAt = canceledAt;
   }
@@ -200,7 +208,9 @@ public class ExternalSubscription extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt When the external subscription was created in Recurly. */
+  /**
+   * @param createdAt When the external subscription was created in Recurly.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -210,7 +220,9 @@ public class ExternalSubscription extends Resource {
     return this.expiresAt;
   }
 
-  /** @param expiresAt When the external subscription expires in the external platform. */
+  /**
+   * @param expiresAt When the external subscription expires in the external platform.
+   */
   public void setExpiresAt(final ZonedDateTime expiresAt) {
     this.expiresAt = expiresAt;
   }
@@ -235,7 +247,9 @@ public class ExternalSubscription extends Resource {
     return this.externalPaymentPhases;
   }
 
-  /** @param externalPaymentPhases The phases of the external subscription payment lifecycle. */
+  /**
+   * @param externalPaymentPhases The phases of the external subscription payment lifecycle.
+   */
   public void setExternalPaymentPhases(final List<ExternalPaymentPhase> externalPaymentPhases) {
     this.externalPaymentPhases = externalPaymentPhases;
   }
@@ -245,7 +259,9 @@ public class ExternalSubscription extends Resource {
     return this.externalProductReference;
   }
 
-  /** @param externalProductReference External Product Reference details */
+  /**
+   * @param externalProductReference External Product Reference details
+   */
   public void setExternalProductReference(
       final ExternalProductReferenceMini externalProductReference) {
     this.externalProductReference = externalProductReference;
@@ -314,7 +330,9 @@ public class ExternalSubscription extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -324,7 +342,9 @@ public class ExternalSubscription extends Resource {
     return this.quantity;
   }
 
-  /** @param quantity An indication of the quantity of a subscribed item's quantity. */
+  /**
+   * @param quantity An indication of the quantity of a subscribed item's quantity.
+   */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
   }
@@ -390,7 +410,9 @@ public class ExternalSubscription extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt When the external subscription was updated in Recurly. */
+  /**
+   * @param updatedAt When the external subscription was updated in Recurly.
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -400,7 +422,9 @@ public class ExternalSubscription extends Resource {
     return this.uuid;
   }
 
-  /** @param uuid Universally Unique Identifier created automatically. */
+  /**
+   * @param uuid Universally Unique Identifier created automatically.
+   */
   public void setUuid(final String uuid) {
     this.uuid = uuid;
   }

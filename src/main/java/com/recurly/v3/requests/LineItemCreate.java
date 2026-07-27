@@ -405,7 +405,9 @@ public class LineItemCreate extends Request {
     return this.endDate;
   }
 
-  /** @param endDate If this date is provided, it indicates the end of a time range. */
+  /**
+   * @param endDate If this date is provided, it indicates the end of a time range.
+   */
   public void setEndDate(final ZonedDateTime endDate) {
     this.endDate = endDate;
   }
@@ -598,7 +600,9 @@ public class LineItemCreate extends Request {
     return this.revenueScheduleType;
   }
 
-  /** @param revenueScheduleType Revenue schedule type */
+  /**
+   * @param revenueScheduleType Revenue schedule type
+   */
   public void setRevenueScheduleType(
       final Constants.LineItemRevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;

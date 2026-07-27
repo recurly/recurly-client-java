@@ -27,7 +27,9 @@ public class DunningCampaignsBulkUpdateResponse extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -37,7 +39,9 @@ public class DunningCampaignsBulkUpdateResponse extends Resource {
     return this.plans;
   }
 
-  /** @param plans An array containing all of the `Plan` resources that have been updated. */
+  /**
+   * @param plans An array containing all of the `Plan` resources that have been updated.
+   */
   public void setPlans(final List<Plan> plans) {
     this.plans = plans;
   }

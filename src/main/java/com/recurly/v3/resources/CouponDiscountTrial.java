@@ -30,7 +30,9 @@ public class CouponDiscountTrial extends Resource {
     return this.length;
   }
 
-  /** @param length Trial length measured in the units specified by the sibling `unit` property */
+  /**
+   * @param length Trial length measured in the units specified by the sibling `unit` property
+   */
   public void setLength(final Integer length) {
     this.length = length;
   }

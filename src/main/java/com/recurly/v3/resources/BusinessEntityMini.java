@@ -36,7 +36,9 @@ public class BusinessEntityMini extends Resource {
     return this.code;
   }
 
-  /** @param code The entity code of the business entity. */
+  /**
+   * @param code The entity code of the business entity.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -46,7 +48,9 @@ public class BusinessEntityMini extends Resource {
     return this.id;
   }
 
-  /** @param id Business entity ID */
+  /**
+   * @param id Business entity ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -56,7 +60,9 @@ public class BusinessEntityMini extends Resource {
     return this.name;
   }
 
-  /** @param name This name describes your business entity and will appear on the invoice. */
+  /**
+   * @param name This name describes your business entity and will appear on the invoice.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -66,7 +72,9 @@ public class BusinessEntityMini extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }

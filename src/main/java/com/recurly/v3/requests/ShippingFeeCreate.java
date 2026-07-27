@@ -39,7 +39,9 @@ public class ShippingFeeCreate extends Request {
     return this.amount;
   }
 
-  /** @param amount This is priced in the purchase's currency. */
+  /**
+   * @param amount This is priced in the purchase's currency.
+   */
   public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }

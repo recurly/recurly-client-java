@@ -336,7 +336,9 @@ public class Invoice extends Resource {
     return this.account;
   }
 
-  /** @param account Account mini details */
+  /**
+   * @param account Account mini details
+   */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -345,7 +347,9 @@ public class Invoice extends Resource {
     return this.address;
   }
 
-  /** @param address */
+  /**
+   * @param address
+   */
   public void setAddress(final InvoiceAddress address) {
     this.address = address;
   }
@@ -355,7 +359,9 @@ public class Invoice extends Resource {
     return this.balance;
   }
 
-  /** @param balance The outstanding balance remaining on this invoice. */
+  /**
+   * @param balance The outstanding balance remaining on this invoice.
+   */
   public void setBalance(final BigDecimal balance) {
     this.balance = balance;
   }
@@ -401,7 +407,9 @@ public class Invoice extends Resource {
     return this.closedAt;
   }
 
-  /** @param closedAt Date invoice was marked paid or failed. */
+  /**
+   * @param closedAt Date invoice was marked paid or failed.
+   */
   public void setClosedAt(final ZonedDateTime closedAt) {
     this.closedAt = closedAt;
   }
@@ -433,7 +441,9 @@ public class Invoice extends Resource {
     return this.couponRedemptions;
   }
 
-  /** @param couponRedemptions The coupon redemptions applied to this invoice. */
+  /**
+   * @param couponRedemptions The coupon redemptions applied to this invoice.
+   */
   public void setCouponRedemptions(final List<CouponRedemptionMini> couponRedemptions) {
     this.couponRedemptions = couponRedemptions;
   }
@@ -443,7 +453,9 @@ public class Invoice extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -453,7 +465,9 @@ public class Invoice extends Resource {
     return this.creditPayments;
   }
 
-  /** @param creditPayments Credit payments */
+  /**
+   * @param creditPayments Credit payments
+   */
   public void setCreditPayments(final List<CreditPayment> creditPayments) {
     this.creditPayments = creditPayments;
   }
@@ -463,7 +477,9 @@ public class Invoice extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -506,7 +522,9 @@ public class Invoice extends Resource {
     return this.discount;
   }
 
-  /** @param discount Total discounts applied to this invoice. */
+  /**
+   * @param discount Total discounts applied to this invoice.
+   */
   public void setDiscount(final BigDecimal discount) {
     this.discount = discount;
   }
@@ -516,7 +534,9 @@ public class Invoice extends Resource {
     return this.dueAt;
   }
 
-  /** @param dueAt Date invoice is due. This is the date the net terms are reached. */
+  /**
+   * @param dueAt Date invoice is due. This is the date the net terms are reached.
+   */
   public void setDueAt(final ZonedDateTime dueAt) {
     this.dueAt = dueAt;
   }
@@ -543,7 +563,9 @@ public class Invoice extends Resource {
     return this.dunningEventsSent;
   }
 
-  /** @param dunningEventsSent Number of times the event was sent. */
+  /**
+   * @param dunningEventsSent Number of times the event was sent.
+   */
   public void setDunningEventsSent(final Integer dunningEventsSent) {
     this.dunningEventsSent = dunningEventsSent;
   }
@@ -553,7 +575,9 @@ public class Invoice extends Resource {
     return this.finalDunningEvent;
   }
 
-  /** @param finalDunningEvent Last communication attempt. */
+  /**
+   * @param finalDunningEvent Last communication attempt.
+   */
   public void setFinalDunningEvent(final Boolean finalDunningEvent) {
     this.finalDunningEvent = finalDunningEvent;
   }
@@ -581,7 +605,9 @@ public class Invoice extends Resource {
     return this.id;
   }
 
-  /** @param id Invoice ID */
+  /**
+   * @param id Invoice ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -591,7 +617,9 @@ public class Invoice extends Resource {
     return this.lineItems;
   }
 
-  /** @param lineItems Line Items */
+  /**
+   * @param lineItems Line Items
+   */
   public void setLineItems(final List<LineItem> lineItems) {
     this.lineItems = lineItems;
   }
@@ -688,7 +716,9 @@ public class Invoice extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -698,7 +728,9 @@ public class Invoice extends Resource {
     return this.origin;
   }
 
-  /** @param origin The event that created the invoice. */
+  /**
+   * @param origin The event that created the invoice.
+   */
   public void setOrigin(final Constants.Origin origin) {
     this.origin = origin;
   }
@@ -708,7 +740,9 @@ public class Invoice extends Resource {
     return this.paid;
   }
 
-  /** @param paid The total amount of successful payments transaction on this invoice. */
+  /**
+   * @param paid The total amount of successful payments transaction on this invoice.
+   */
   public void setPaid(final BigDecimal paid) {
     this.paid = paid;
   }
@@ -755,7 +789,9 @@ public class Invoice extends Resource {
     return this.referenceOnlyCurrencyConversion;
   }
 
-  /** @param referenceOnlyCurrencyConversion Reference Only Currency Conversion */
+  /**
+   * @param referenceOnlyCurrencyConversion Reference Only Currency Conversion
+   */
   public void setReferenceOnlyCurrencyConversion(
       final ReferenceOnlyCurrencyConversion referenceOnlyCurrencyConversion) {
     this.referenceOnlyCurrencyConversion = referenceOnlyCurrencyConversion;
@@ -778,7 +814,9 @@ public class Invoice extends Resource {
     return this.shippingAddress;
   }
 
-  /** @param shippingAddress */
+  /**
+   * @param shippingAddress
+   */
   public void setShippingAddress(final ShippingAddress shippingAddress) {
     this.shippingAddress = shippingAddress;
   }
@@ -788,7 +826,9 @@ public class Invoice extends Resource {
     return this.state;
   }
 
-  /** @param state Invoice state */
+  /**
+   * @param state Invoice state
+   */
   public void setState(final Constants.InvoiceState state) {
     this.state = state;
   }
@@ -811,7 +851,9 @@ public class Invoice extends Resource {
     return this.subtotal;
   }
 
-  /** @param subtotal The summation of charges and credits, before discounts and taxes. */
+  /**
+   * @param subtotal The summation of charges and credits, before discounts and taxes.
+   */
   public void setSubtotal(final BigDecimal subtotal) {
     this.subtotal = subtotal;
   }
@@ -821,7 +863,9 @@ public class Invoice extends Resource {
     return this.subtotalAfterDiscount;
   }
 
-  /** @param subtotalAfterDiscount The summation of charges and credits, after discounts applied. */
+  /**
+   * @param subtotalAfterDiscount The summation of charges and credits, after discounts applied.
+   */
   public void setSubtotalAfterDiscount(final BigDecimal subtotalAfterDiscount) {
     this.subtotalAfterDiscount = subtotalAfterDiscount;
   }
@@ -831,7 +875,9 @@ public class Invoice extends Resource {
     return this.tax;
   }
 
-  /** @param tax The total tax on this invoice. */
+  /**
+   * @param tax The total tax on this invoice.
+   */
   public void setTax(final BigDecimal tax) {
     this.tax = tax;
   }
@@ -841,7 +887,9 @@ public class Invoice extends Resource {
     return this.taxInfo;
   }
 
-  /** @param taxInfo Only for merchants using Recurly's In-The-Box taxes. */
+  /**
+   * @param taxInfo Only for merchants using Recurly's In-The-Box taxes.
+   */
   public void setTaxInfo(final TaxInfo taxInfo) {
     this.taxInfo = taxInfo;
   }
@@ -883,7 +931,9 @@ public class Invoice extends Resource {
     return this.transactions;
   }
 
-  /** @param transactions Transactions */
+  /**
+   * @param transactions Transactions
+   */
   public void setTransactions(final List<Transaction> transactions) {
     this.transactions = transactions;
   }
@@ -893,7 +943,9 @@ public class Invoice extends Resource {
     return this.type;
   }
 
-  /** @param type Invoices are either charge, credit, or legacy invoices. */
+  /**
+   * @param type Invoices are either charge, credit, or legacy invoices.
+   */
   public void setType(final Constants.InvoiceType type) {
     this.type = type;
   }
@@ -903,7 +955,9 @@ public class Invoice extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -932,7 +986,9 @@ public class Invoice extends Resource {
     return this.uuid;
   }
 
-  /** @param uuid Invoice UUID */
+  /**
+   * @param uuid Invoice UUID
+   */
   public void setUuid(final String uuid) {
     this.uuid = uuid;
   }

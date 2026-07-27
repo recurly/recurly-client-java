@@ -59,7 +59,9 @@ public class SubscriptionShippingCreate extends Request {
     return this.address;
   }
 
-  /** @param address */
+  /**
+   * @param address
+   */
   public void setAddress(final ShippingAddressCreate address) {
     this.address = address;
   }

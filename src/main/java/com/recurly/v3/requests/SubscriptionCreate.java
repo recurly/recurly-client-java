@@ -277,6 +277,16 @@ public class SubscriptionCreate extends Request {
   private Integer totalBillingCycles;
 
   /**
+   * Optionally overrides the suffix component of the composed transaction descriptor. If omitted,
+   * the suffix is derived from the subscription's plan name or the invoice description, with a
+   * Trial prefix on Visa trial conversions. Subject to gateway availability and payment method
+   * support.
+   */
+  @SerializedName("transaction_descriptor_suffix")
+  @Expose
+  private String transactionDescriptorSuffix;
+
+  /**
    * An optional type designation for the payment gateway transaction created by this request.
    * Supports 'moto' value, which is the acronym for mail order and telephone transactions.
    */
@@ -306,7 +316,9 @@ public class SubscriptionCreate extends Request {
     return this.account;
   }
 
-  /** @param account */
+  /**
+   * @param account
+   */
   public void setAccount(final AccountCreate account) {
     this.account = account;
   }
@@ -316,7 +328,9 @@ public class SubscriptionCreate extends Request {
     return this.addOns;
   }
 
-  /** @param addOns Add-ons */
+  /**
+   * @param addOns Add-ons
+   */
   public void setAddOns(final List<SubscriptionAddOnCreate> addOns) {
     this.addOns = addOns;
   }
@@ -326,7 +340,9 @@ public class SubscriptionCreate extends Request {
     return this.autoRenew;
   }
 
-  /** @param autoRenew Whether the subscription renews at the end of its term. */
+  /**
+   * @param autoRenew Whether the subscription renews at the end of its term.
+   */
   public void setAutoRenew(final Boolean autoRenew) {
     this.autoRenew = autoRenew;
   }
@@ -419,7 +435,9 @@ public class SubscriptionCreate extends Request {
     return this.collectionMethod;
   }
 
-  /** @param collectionMethod Collection method */
+  /**
+   * @param collectionMethod Collection method
+   */
   public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
@@ -477,7 +495,9 @@ public class SubscriptionCreate extends Request {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -692,7 +712,9 @@ public class SubscriptionCreate extends Request {
     return this.priceSegmentId;
   }
 
-  /** @param priceSegmentId The price segment ID, e.g. `e28zov4fw0v2`. */
+  /**
+   * @param priceSegmentId The price segment ID, e.g. `e28zov4fw0v2`.
+   */
   public void setPriceSegmentId(final String priceSegmentId) {
     this.priceSegmentId = priceSegmentId;
   }
@@ -715,7 +737,9 @@ public class SubscriptionCreate extends Request {
     return this.quantity;
   }
 
-  /** @param quantity Optionally override the default quantity of 1. */
+  /**
+   * @param quantity Optionally override the default quantity of 1.
+   */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
   }
@@ -725,7 +749,9 @@ public class SubscriptionCreate extends Request {
     return this.rampIntervals;
   }
 
-  /** @param rampIntervals The new set of ramp intervals for the subscription. */
+  /**
+   * @param rampIntervals The new set of ramp intervals for the subscription.
+   */
   public void setRampIntervals(final List<SubscriptionRampInterval> rampIntervals) {
     this.rampIntervals = rampIntervals;
   }
@@ -752,7 +778,9 @@ public class SubscriptionCreate extends Request {
     return this.revenueScheduleType;
   }
 
-  /** @param revenueScheduleType Revenue schedule type */
+  /**
+   * @param revenueScheduleType Revenue schedule type
+   */
   public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
@@ -762,7 +790,9 @@ public class SubscriptionCreate extends Request {
     return this.shipping;
   }
 
-  /** @param shipping Create a shipping address on the account and assign it to the subscription. */
+  /**
+   * @param shipping Create a shipping address on the account and assign it to the subscription.
+   */
   public void setShipping(final SubscriptionShippingCreate shipping) {
     this.shipping = shipping;
   }
@@ -836,6 +866,26 @@ public class SubscriptionCreate extends Request {
    */
   public void setTotalBillingCycles(final Integer totalBillingCycles) {
     this.totalBillingCycles = totalBillingCycles;
+  }
+
+  /**
+   * Optionally overrides the suffix component of the composed transaction descriptor. If omitted,
+   * the suffix is derived from the subscription's plan name or the invoice description, with a
+   * Trial prefix on Visa trial conversions. Subject to gateway availability and payment method
+   * support.
+   */
+  public String getTransactionDescriptorSuffix() {
+    return this.transactionDescriptorSuffix;
+  }
+
+  /**
+   * @param transactionDescriptorSuffix Optionally overrides the suffix component of the composed
+   *     transaction descriptor. If omitted, the suffix is derived from the subscription's plan name
+   *     or the invoice description, with a Trial prefix on Visa trial conversions. Subject to
+   *     gateway availability and payment method support.
+   */
+  public void setTransactionDescriptorSuffix(final String transactionDescriptorSuffix) {
+    this.transactionDescriptorSuffix = transactionDescriptorSuffix;
   }
 
   /**

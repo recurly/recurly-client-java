@@ -27,7 +27,9 @@ public class CouponDiscountPricing extends Resource {
     return this.amount;
   }
 
-  /** @param amount Value of the fixed discount that this coupon applies. */
+  /**
+   * @param amount Value of the fixed discount that this coupon applies.
+   */
   public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
@@ -37,7 +39,9 @@ public class CouponDiscountPricing extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }

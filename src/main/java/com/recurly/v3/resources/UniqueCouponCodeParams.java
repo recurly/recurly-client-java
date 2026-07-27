@@ -37,7 +37,9 @@ public class UniqueCouponCodeParams extends Resource {
     return this.beginTime;
   }
 
-  /** @param beginTime The date-time to be included when listing UniqueCouponCodes */
+  /**
+   * @param beginTime The date-time to be included when listing UniqueCouponCodes
+   */
   public void setBeginTime(final ZonedDateTime beginTime) {
     this.beginTime = beginTime;
   }
@@ -47,7 +49,9 @@ public class UniqueCouponCodeParams extends Resource {
     return this.limit;
   }
 
-  /** @param limit The number of UniqueCouponCodes that will be generated */
+  /**
+   * @param limit The number of UniqueCouponCodes that will be generated
+   */
   public void setLimit(final Integer limit) {
     this.limit = limit;
   }
@@ -57,7 +61,9 @@ public class UniqueCouponCodeParams extends Resource {
     return this.order;
   }
 
-  /** @param order Sort order to list newly generated UniqueCouponCodes (should always be `asc`) */
+  /**
+   * @param order Sort order to list newly generated UniqueCouponCodes (should always be `asc`)
+   */
   public void setOrder(final String order) {
     this.order = order;
   }

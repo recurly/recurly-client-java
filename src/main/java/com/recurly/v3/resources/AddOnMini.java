@@ -95,7 +95,9 @@ public class AddOnMini extends Resource {
     return this.addOnType;
   }
 
-  /** @param addOnType Whether the add-on type is fixed, or usage-based. */
+  /**
+   * @param addOnType Whether the add-on type is fixed, or usage-based.
+   */
   public void setAddOnType(final Constants.AddOnType addOnType) {
     this.addOnType = addOnType;
   }
@@ -105,7 +107,9 @@ public class AddOnMini extends Resource {
     return this.code;
   }
 
-  /** @param code The unique identifier for the add-on within its plan. */
+  /**
+   * @param code The unique identifier for the add-on within its plan.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -127,7 +131,9 @@ public class AddOnMini extends Resource {
     return this.id;
   }
 
-  /** @param id Add-on ID */
+  /**
+   * @param id Add-on ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -137,7 +143,9 @@ public class AddOnMini extends Resource {
     return this.itemId;
   }
 
-  /** @param itemId Item ID */
+  /**
+   * @param itemId Item ID
+   */
   public void setItemId(final String itemId) {
     this.itemId = itemId;
   }
@@ -160,7 +168,9 @@ public class AddOnMini extends Resource {
     return this.name;
   }
 
-  /** @param name Describes your add-on and will appear in subscribers' invoices. */
+  /**
+   * @param name Describes your add-on and will appear in subscribers' invoices.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -170,7 +180,9 @@ public class AddOnMini extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -196,7 +208,9 @@ public class AddOnMini extends Resource {
     return this.usageType;
   }
 
-  /** @param usageType Type of usage, returns usage type if `add_on_type` is `usage`. */
+  /**
+   * @param usageType Type of usage, returns usage type if `add_on_type` is `usage`.
+   */
   public void setUsageType(final Constants.UsageType usageType) {
     this.usageType = usageType;
   }

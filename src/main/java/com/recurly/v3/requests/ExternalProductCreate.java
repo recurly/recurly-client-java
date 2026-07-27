@@ -46,7 +46,9 @@ public class ExternalProductCreate extends Request {
     return this.name;
   }
 
-  /** @param name External product name. */
+  /**
+   * @param name External product name.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -56,7 +58,9 @@ public class ExternalProductCreate extends Request {
     return this.planId;
   }
 
-  /** @param planId Recurly plan UUID. */
+  /**
+   * @param planId Recurly plan UUID.
+   */
   public void setPlanId(final String planId) {
     this.planId = planId;
   }

@@ -36,7 +36,9 @@ public class Tier extends Request {
     return this.currencies;
   }
 
-  /** @param currencies Tier pricing */
+  /**
+   * @param currencies Tier pricing
+   */
   public void setCurrencies(final List<TierPricing> currencies) {
     this.currencies = currencies;
   }
@@ -62,7 +64,9 @@ public class Tier extends Request {
     return this.usagePercentage;
   }
 
-  /** @param usagePercentage (deprecated) -- Use the percentage_tiers object instead. */
+  /**
+   * @param usagePercentage (deprecated) -- Use the percentage_tiers object instead.
+   */
   public void setUsagePercentage(final String usagePercentage) {
     this.usagePercentage = usagePercentage;
   }

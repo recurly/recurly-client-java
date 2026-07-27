@@ -32,7 +32,9 @@ public class MeasuredUnitCreate extends Request {
     return this.description;
   }
 
-  /** @param description Optional internal description. */
+  /**
+   * @param description Optional internal description.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -42,7 +44,9 @@ public class MeasuredUnitCreate extends Request {
     return this.displayName;
   }
 
-  /** @param displayName Display name for the measured unit. */
+  /**
+   * @param displayName Display name for the measured unit.
+   */
   public void setDisplayName(final String displayName) {
     this.displayName = displayName;
   }
@@ -52,7 +56,9 @@ public class MeasuredUnitCreate extends Request {
     return this.name;
   }
 
-  /** @param name Unique internal name of the measured unit on your site. */
+  /**
+   * @param name Unique internal name of the measured unit on your site.
+   */
   public void setName(final String name) {
     this.name = name;
   }

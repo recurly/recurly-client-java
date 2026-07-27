@@ -91,7 +91,9 @@ public class ExternalSubscriptionCreate extends Request {
     return this.account;
   }
 
-  /** @param account */
+  /**
+   * @param account
+   */
   public void setAccount(final AccountExternalSubscription account) {
     this.account = account;
   }
@@ -101,7 +103,9 @@ public class ExternalSubscriptionCreate extends Request {
     return this.activatedAt;
   }
 
-  /** @param activatedAt When the external subscription was activated in the external platform. */
+  /**
+   * @param activatedAt When the external subscription was activated in the external platform.
+   */
   public void setActivatedAt(final ZonedDateTime activatedAt) {
     this.activatedAt = activatedAt;
   }
@@ -111,7 +115,9 @@ public class ExternalSubscriptionCreate extends Request {
     return this.appIdentifier;
   }
 
-  /** @param appIdentifier Identifier of the app that generated the external subscription. */
+  /**
+   * @param appIdentifier Identifier of the app that generated the external subscription.
+   */
   public void setAppIdentifier(final String appIdentifier) {
     this.appIdentifier = appIdentifier;
   }
@@ -137,7 +143,9 @@ public class ExternalSubscriptionCreate extends Request {
     return this.expiresAt;
   }
 
-  /** @param expiresAt When the external subscription expires in the external platform. */
+  /**
+   * @param expiresAt When the external subscription expires in the external platform.
+   */
   public void setExpiresAt(final ZonedDateTime expiresAt) {
     this.expiresAt = expiresAt;
   }
@@ -159,7 +167,9 @@ public class ExternalSubscriptionCreate extends Request {
     return this.externalProductReference;
   }
 
-  /** @param externalProductReference */
+  /**
+   * @param externalProductReference
+   */
   public void setExternalProductReference(
       final ExternalProductReferenceCreate externalProductReference) {
     this.externalProductReference = externalProductReference;
@@ -202,7 +212,9 @@ public class ExternalSubscriptionCreate extends Request {
     return this.quantity;
   }
 
-  /** @param quantity An indication of the quantity of a subscribed item's quantity. */
+  /**
+   * @param quantity An indication of the quantity of a subscribed item's quantity.
+   */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
   }

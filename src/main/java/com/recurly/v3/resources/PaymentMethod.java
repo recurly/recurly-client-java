@@ -114,7 +114,9 @@ public class PaymentMethod extends Resource {
     return this.accountType;
   }
 
-  /** @param accountType The bank account type. Only present for ACH payment methods. */
+  /**
+   * @param accountType The bank account type. Only present for ACH payment methods.
+   */
   public void setAccountType(final Constants.AccountType accountType) {
     this.accountType = accountType;
   }
@@ -153,7 +155,9 @@ public class PaymentMethod extends Resource {
     return this.cardType;
   }
 
-  /** @param cardType Visa, MasterCard, American Express, Discover, JCB, etc. */
+  /**
+   * @param cardType Visa, MasterCard, American Express, Discover, JCB, etc.
+   */
   public void setCardType(final Constants.CardType cardType) {
     this.cardType = cardType;
   }
@@ -176,7 +180,9 @@ public class PaymentMethod extends Resource {
     return this.expMonth;
   }
 
-  /** @param expMonth Expiration month. */
+  /**
+   * @param expMonth Expiration month.
+   */
   public void setExpMonth(final Integer expMonth) {
     this.expMonth = expMonth;
   }
@@ -186,7 +192,9 @@ public class PaymentMethod extends Resource {
     return this.expYear;
   }
 
-  /** @param expYear Expiration year. */
+  /**
+   * @param expYear Expiration year.
+   */
   public void setExpYear(final Integer expYear) {
     this.expYear = expYear;
   }
@@ -196,7 +204,9 @@ public class PaymentMethod extends Resource {
     return this.firstSix;
   }
 
-  /** @param firstSix Credit card number's first six digits. */
+  /**
+   * @param firstSix Credit card number's first six digits.
+   */
   public void setFirstSix(final String firstSix) {
     this.firstSix = firstSix;
   }
@@ -206,7 +216,9 @@ public class PaymentMethod extends Resource {
     return this.fundingSource;
   }
 
-  /** @param fundingSource The funding source of the card, if known. */
+  /**
+   * @param fundingSource The funding source of the card, if known.
+   */
   public void setFundingSource(final Constants.CardFundingSource fundingSource) {
     this.fundingSource = fundingSource;
   }
@@ -216,7 +228,9 @@ public class PaymentMethod extends Resource {
     return this.gatewayAttributes;
   }
 
-  /** @param gatewayAttributes Gateway specific attributes associated with this PaymentMethod */
+  /**
+   * @param gatewayAttributes Gateway specific attributes associated with this PaymentMethod
+   */
   public void setGatewayAttributes(final GatewayAttributes gatewayAttributes) {
     this.gatewayAttributes = gatewayAttributes;
   }
@@ -226,7 +240,9 @@ public class PaymentMethod extends Resource {
     return this.gatewayCode;
   }
 
-  /** @param gatewayCode An identifier for a specific payment gateway. */
+  /**
+   * @param gatewayCode An identifier for a specific payment gateway.
+   */
   public void setGatewayCode(final String gatewayCode) {
     this.gatewayCode = gatewayCode;
   }
@@ -261,7 +277,9 @@ public class PaymentMethod extends Resource {
     return this.lastTwo;
   }
 
-  /** @param lastTwo The IBAN bank account's last two digits. */
+  /**
+   * @param lastTwo The IBAN bank account's last two digits.
+   */
   public void setLastTwo(final String lastTwo) {
     this.lastTwo = lastTwo;
   }
@@ -271,7 +289,9 @@ public class PaymentMethod extends Resource {
     return this.nameOnAccount;
   }
 
-  /** @param nameOnAccount The name associated with the bank account. */
+  /**
+   * @param nameOnAccount The name associated with the bank account.
+   */
   public void setNameOnAccount(final String nameOnAccount) {
     this.nameOnAccount = nameOnAccount;
   }
@@ -280,7 +300,9 @@ public class PaymentMethod extends Resource {
     return this.object;
   }
 
-  /** @param object */
+  /**
+   * @param object
+   */
   public void setObject(final Constants.PaymentMethod object) {
     this.object = object;
   }
@@ -302,7 +324,9 @@ public class PaymentMethod extends Resource {
     return this.routingNumberBank;
   }
 
-  /** @param routingNumberBank The bank name of this routing number. */
+  /**
+   * @param routingNumberBank The bank name of this routing number.
+   */
   public void setRoutingNumberBank(final String routingNumberBank) {
     this.routingNumberBank = routingNumberBank;
   }

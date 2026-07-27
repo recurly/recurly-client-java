@@ -34,7 +34,9 @@ public class SubscriptionShipping extends Resource {
     return this.address;
   }
 
-  /** @param address */
+  /**
+   * @param address
+   */
   public void setAddress(final ShippingAddress address) {
     this.address = address;
   }
@@ -44,7 +46,9 @@ public class SubscriptionShipping extends Resource {
     return this.amount;
   }
 
-  /** @param amount Subscription's shipping cost */
+  /**
+   * @param amount Subscription's shipping cost
+   */
   public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
@@ -53,7 +57,9 @@ public class SubscriptionShipping extends Resource {
     return this.method;
   }
 
-  /** @param method */
+  /**
+   * @param method
+   */
   public void setMethod(final ShippingMethodMini method) {
     this.method = method;
   }
@@ -63,7 +69,9 @@ public class SubscriptionShipping extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }

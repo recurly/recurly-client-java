@@ -34,7 +34,9 @@ public class GeneralLedgerAccountCreate extends Request {
     return this.accountType;
   }
 
-  /** @param accountType */
+  /**
+   * @param accountType
+   */
   public void setAccountType(final Constants.GeneralLedgerAccountType accountType) {
     this.accountType = accountType;
   }
@@ -60,7 +62,9 @@ public class GeneralLedgerAccountCreate extends Request {
     return this.description;
   }
 
-  /** @param description Optional description. */
+  /**
+   * @param description Optional description.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }

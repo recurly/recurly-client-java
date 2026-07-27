@@ -1607,6 +1607,9 @@ public class Constants {
       @SerializedName("braintree_google_pay")
       BRAINTREE_GOOGLE_PAY,
     
+      @SerializedName("stripe_link")
+      STRIPE_LINK,
+    
     };
   
     public enum CardType {

@@ -58,7 +58,9 @@ public class PlanMini extends Resource {
     return this.id;
   }
 
-  /** @param id Plan ID */
+  /**
+   * @param id Plan ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -84,7 +86,9 @@ public class PlanMini extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }

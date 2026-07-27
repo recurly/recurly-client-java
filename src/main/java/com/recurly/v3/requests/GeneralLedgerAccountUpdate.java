@@ -46,7 +46,9 @@ public class GeneralLedgerAccountUpdate extends Request {
     return this.description;
   }
 
-  /** @param description Optional description. */
+  /**
+   * @param description Optional description.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }

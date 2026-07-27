@@ -82,7 +82,9 @@ public class AccountAcquisitionUpdate extends Request {
     return this.channel;
   }
 
-  /** @param channel The channel through which the account was acquired. */
+  /**
+   * @param channel The channel through which the account was acquired.
+   */
   public void setChannel(final Constants.Channel channel) {
     this.channel = channel;
   }
@@ -92,7 +94,9 @@ public class AccountAcquisitionUpdate extends Request {
     return this.cost;
   }
 
-  /** @param cost Account balance */
+  /**
+   * @param cost Account balance
+   */
   public void setCost(final AccountAcquisitionCost cost) {
     this.cost = cost;
   }

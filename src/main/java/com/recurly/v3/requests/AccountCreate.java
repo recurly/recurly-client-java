@@ -210,7 +210,9 @@ public class AccountCreate extends Request {
     return this.acquisition;
   }
 
-  /** @param acquisition */
+  /**
+   * @param acquisition
+   */
   public void setAcquisition(final AccountAcquisitionUpdate acquisition) {
     this.acquisition = acquisition;
   }
@@ -219,7 +221,9 @@ public class AccountCreate extends Request {
     return this.address;
   }
 
-  /** @param address */
+  /**
+   * @param address
+   */
   public void setAddress(final Address address) {
     this.address = address;
   }
@@ -260,7 +264,9 @@ public class AccountCreate extends Request {
     return this.billingInfo;
   }
 
-  /** @param billingInfo */
+  /**
+   * @param billingInfo
+   */
   public void setBillingInfo(final BillingInfoCreate billingInfo) {
     this.billingInfo = billingInfo;
   }
@@ -299,7 +305,9 @@ public class AccountCreate extends Request {
     return this.company;
   }
 
-  /** @param company */
+  /**
+   * @param company
+   */
   public void setCompany(final String company) {
     this.company = company;
   }
@@ -398,7 +406,9 @@ public class AccountCreate extends Request {
     return this.externalAccounts;
   }
 
-  /** @param externalAccounts External Accounts */
+  /**
+   * @param externalAccounts External Accounts
+   */
   public void setExternalAccounts(final List<ExternalAccountCreate> externalAccounts) {
     this.externalAccounts = externalAccounts;
   }
@@ -407,7 +417,9 @@ public class AccountCreate extends Request {
     return this.firstName;
   }
 
-  /** @param firstName */
+  /**
+   * @param firstName
+   */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
   }
@@ -434,7 +446,9 @@ public class AccountCreate extends Request {
     return this.lastName;
   }
 
-  /** @param lastName */
+  /**
+   * @param lastName
+   */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
   }
@@ -538,7 +552,9 @@ public class AccountCreate extends Request {
     return this.shippingAddresses;
   }
 
-  /** @param shippingAddresses */
+  /**
+   * @param shippingAddresses
+   */
   public void setShippingAddresses(final List<ShippingAddressCreate> shippingAddresses) {
     this.shippingAddresses = shippingAddresses;
   }
@@ -581,7 +597,9 @@ public class AccountCreate extends Request {
     return this.username;
   }
 
-  /** @param username A secondary value for the account. */
+  /**
+   * @param username A secondary value for the account.
+   */
   public void setUsername(final String username) {
     this.username = username;
   }

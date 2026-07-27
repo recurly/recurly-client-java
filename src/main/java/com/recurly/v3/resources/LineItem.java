@@ -438,7 +438,9 @@ public class LineItem extends Resource {
     return this.account;
   }
 
-  /** @param account Account mini details */
+  /**
+   * @param account Account mini details
+   */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -468,7 +470,9 @@ public class LineItem extends Resource {
     return this.addOnCode;
   }
 
-  /** @param addOnCode If the line item is a charge or credit for an add-on, this is its code. */
+  /**
+   * @param addOnCode If the line item is a charge or credit for an add-on, this is its code.
+   */
   public void setAddOnCode(final String addOnCode) {
     this.addOnCode = addOnCode;
   }
@@ -478,7 +482,9 @@ public class LineItem extends Resource {
     return this.addOnId;
   }
 
-  /** @param addOnId If the line item is a charge or credit for an add-on this is its ID. */
+  /**
+   * @param addOnId If the line item is a charge or credit for an add-on this is its ID.
+   */
   public void setAddOnId(final String addOnId) {
     this.addOnId = addOnId;
   }
@@ -488,7 +494,9 @@ public class LineItem extends Resource {
     return this.amount;
   }
 
-  /** @param amount `(quantity * unit_amount) - discount + tax` */
+  /**
+   * @param amount `(quantity * unit_amount) - discount + tax`
+   */
   public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
@@ -538,7 +546,9 @@ public class LineItem extends Resource {
     return this.billForAccountId;
   }
 
-  /** @param billForAccountId The UUID of the account responsible for originating the line item. */
+  /**
+   * @param billForAccountId The UUID of the account responsible for originating the line item.
+   */
   public void setBillForAccountId(final String billForAccountId) {
     this.billForAccountId = billForAccountId;
   }
@@ -548,7 +558,9 @@ public class LineItem extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt When the line item was created. */
+  /**
+   * @param createdAt When the line item was created.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -570,7 +582,9 @@ public class LineItem extends Resource {
     return this.creditReasonCode;
   }
 
-  /** @param creditReasonCode The reason the credit was given when line item is `type=credit`. */
+  /**
+   * @param creditReasonCode The reason the credit was given when line item is `type=credit`.
+   */
   public void setCreditReasonCode(final Constants.FullCreditReasonCode creditReasonCode) {
     this.creditReasonCode = creditReasonCode;
   }
@@ -580,7 +594,9 @@ public class LineItem extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -644,7 +660,9 @@ public class LineItem extends Resource {
     return this.discount;
   }
 
-  /** @param discount The sum of all discounts applied to the line item. */
+  /**
+   * @param discount The sum of all discounts applied to the line item.
+   */
   public void setDiscount(final BigDecimal discount) {
     this.discount = discount;
   }
@@ -654,7 +672,9 @@ public class LineItem extends Resource {
     return this.discounts;
   }
 
-  /** @param discounts The breakdown of discounts applied to the line item by coupon redemption. */
+  /**
+   * @param discounts The breakdown of discounts applied to the line item by coupon redemption.
+   */
   public void setDiscounts(final List<LineItemDiscount> discounts) {
     this.discounts = discounts;
   }
@@ -664,7 +684,9 @@ public class LineItem extends Resource {
     return this.endDate;
   }
 
-  /** @param endDate If this date is provided, it indicates the end of a time range. */
+  /**
+   * @param endDate If this date is provided, it indicates the end of a time range.
+   */
   public void setEndDate(final ZonedDateTime endDate) {
     this.endDate = endDate;
   }
@@ -712,7 +734,9 @@ public class LineItem extends Resource {
     return this.id;
   }
 
-  /** @param id Line item ID */
+  /**
+   * @param id Line item ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -722,7 +746,9 @@ public class LineItem extends Resource {
     return this.invoiceId;
   }
 
-  /** @param invoiceId Once the line item has been invoiced this will be the invoice's ID. */
+  /**
+   * @param invoiceId Once the line item has been invoiced this will be the invoice's ID.
+   */
   public void setInvoiceId(final String invoiceId) {
     this.invoiceId = invoiceId;
   }
@@ -822,7 +848,9 @@ public class LineItem extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -1013,7 +1041,9 @@ public class LineItem extends Resource {
     return this.refund;
   }
 
-  /** @param refund Refund? */
+  /**
+   * @param refund Refund?
+   */
   public void setRefund(final Boolean refund) {
     this.refund = refund;
   }
@@ -1074,7 +1104,9 @@ public class LineItem extends Resource {
     return this.revenueScheduleType;
   }
 
-  /** @param revenueScheduleType Revenue schedule type */
+  /**
+   * @param revenueScheduleType Revenue schedule type
+   */
   public void setRevenueScheduleType(
       final Constants.LineItemRevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
@@ -1084,7 +1116,9 @@ public class LineItem extends Resource {
     return this.shippingAddress;
   }
 
-  /** @param shippingAddress */
+  /**
+   * @param shippingAddress
+   */
   public void setShippingAddress(final ShippingAddress shippingAddress) {
     this.shippingAddress = shippingAddress;
   }
@@ -1139,7 +1173,9 @@ public class LineItem extends Resource {
     return this.subtotal;
   }
 
-  /** @param subtotal `quantity * unit_amount` */
+  /**
+   * @param subtotal `quantity * unit_amount`
+   */
   public void setSubtotal(final BigDecimal subtotal) {
     this.subtotal = subtotal;
   }
@@ -1149,7 +1185,9 @@ public class LineItem extends Resource {
     return this.tax;
   }
 
-  /** @param tax The tax amount for the line item. */
+  /**
+   * @param tax The tax amount for the line item.
+   */
   public void setTax(final BigDecimal tax) {
     this.tax = tax;
   }
@@ -1215,7 +1253,9 @@ public class LineItem extends Resource {
     return this.taxInfo;
   }
 
-  /** @param taxInfo Only for merchants using Recurly's In-The-Box taxes. */
+  /**
+   * @param taxInfo Only for merchants using Recurly's In-The-Box taxes.
+   */
   public void setTaxInfo(final TaxInfo taxInfo) {
     this.taxInfo = taxInfo;
   }
@@ -1225,7 +1265,9 @@ public class LineItem extends Resource {
     return this.taxable;
   }
 
-  /** @param taxable `true` if the line item is taxable, `false` if it is not. */
+  /**
+   * @param taxable `true` if the line item is taxable, `false` if it is not.
+   */
   public void setTaxable(final Boolean taxable) {
     this.taxable = taxable;
   }
@@ -1251,7 +1293,9 @@ public class LineItem extends Resource {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Positive amount for a charge, negative amount for a credit. */
+  /**
+   * @param unitAmount Positive amount for a charge, negative amount for a credit.
+   */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
@@ -1261,7 +1305,9 @@ public class LineItem extends Resource {
     return this.unitAmountDecimal;
   }
 
-  /** @param unitAmountDecimal Positive amount for a charge, negative amount for a credit. */
+  /**
+   * @param unitAmountDecimal Positive amount for a charge, negative amount for a credit.
+   */
   public void setUnitAmountDecimal(final String unitAmountDecimal) {
     this.unitAmountDecimal = unitAmountDecimal;
   }
@@ -1271,7 +1317,9 @@ public class LineItem extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt When the line item was last changed. */
+  /**
+   * @param updatedAt When the line item was last changed.
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

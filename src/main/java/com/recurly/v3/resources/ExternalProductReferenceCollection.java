@@ -35,7 +35,9 @@ public class ExternalProductReferenceCollection extends Resource {
     return this.data;
   }
 
-  /** @param data */
+  /**
+   * @param data
+   */
   public void setData(final List<ExternalProductReferenceMini> data) {
     this.data = data;
   }
@@ -45,7 +47,9 @@ public class ExternalProductReferenceCollection extends Resource {
     return this.hasMore;
   }
 
-  /** @param hasMore Indicates there are more results on subsequent pages. */
+  /**
+   * @param hasMore Indicates there are more results on subsequent pages.
+   */
   public void setHasMore(final Boolean hasMore) {
     this.hasMore = hasMore;
   }
@@ -55,7 +59,9 @@ public class ExternalProductReferenceCollection extends Resource {
     return this.next;
   }
 
-  /** @param next Path to subsequent page of results. */
+  /**
+   * @param next Path to subsequent page of results.
+   */
   public void setNext(final String next) {
     this.next = next;
   }
@@ -65,7 +71,9 @@ public class ExternalProductReferenceCollection extends Resource {
     return this.object;
   }
 
-  /** @param object Will always be List. */
+  /**
+   * @param object Will always be List.
+   */
   public void setObject(final String object) {
     this.object = object;
   }

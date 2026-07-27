@@ -81,7 +81,9 @@ public class CustomFieldDefinition extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -120,7 +122,9 @@ public class CustomFieldDefinition extends Resource {
     return this.id;
   }
 
-  /** @param id Custom field definition ID */
+  /**
+   * @param id Custom field definition ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -146,7 +150,9 @@ public class CustomFieldDefinition extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -156,7 +162,9 @@ public class CustomFieldDefinition extends Resource {
     return this.relatedType;
   }
 
-  /** @param relatedType Related Recurly object type */
+  /**
+   * @param relatedType Related Recurly object type
+   */
   public void setRelatedType(final Constants.RelatedType relatedType) {
     this.relatedType = relatedType;
   }
@@ -166,7 +174,9 @@ public class CustomFieldDefinition extends Resource {
     return this.tooltip;
   }
 
-  /** @param tooltip Displayed as a tooltip when editing the field in the Recurly admin UI. */
+  /**
+   * @param tooltip Displayed as a tooltip when editing the field in the Recurly admin UI.
+   */
   public void setTooltip(final String tooltip) {
     this.tooltip = tooltip;
   }
@@ -176,7 +186,9 @@ public class CustomFieldDefinition extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

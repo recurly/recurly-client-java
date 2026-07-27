@@ -34,7 +34,9 @@ public class Error extends Resource {
     return this.message;
   }
 
-  /** @param message Message */
+  /**
+   * @param message Message
+   */
   public void setMessage(final String message) {
     this.message = message;
   }
@@ -44,7 +46,9 @@ public class Error extends Resource {
     return this.params;
   }
 
-  /** @param params Parameter specific errors */
+  /**
+   * @param params Parameter specific errors
+   */
   public void setParams(final List<Map> params) {
     this.params = params;
   }
@@ -54,7 +58,9 @@ public class Error extends Resource {
     return this.type;
   }
 
-  /** @param type Type */
+  /**
+   * @param type Type
+   */
   public void setType(final Constants.ErrorType type) {
     this.type = type;
   }

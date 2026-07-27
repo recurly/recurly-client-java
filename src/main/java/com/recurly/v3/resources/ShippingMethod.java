@@ -94,7 +94,9 @@ public class ShippingMethod extends Resource {
     return this.accountingCode;
   }
 
-  /** @param accountingCode Accounting code for shipping method. */
+  /**
+   * @param accountingCode Accounting code for shipping method.
+   */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
   }
@@ -104,7 +106,9 @@ public class ShippingMethod extends Resource {
     return this.code;
   }
 
-  /** @param code The internal name used identify the shipping method. */
+  /**
+   * @param code The internal name used identify the shipping method.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -114,7 +118,9 @@ public class ShippingMethod extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -124,7 +130,9 @@ public class ShippingMethod extends Resource {
     return this.deletedAt;
   }
 
-  /** @param deletedAt Deleted at */
+  /**
+   * @param deletedAt Deleted at
+   */
   public void setDeletedAt(final ZonedDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
@@ -134,7 +142,9 @@ public class ShippingMethod extends Resource {
     return this.id;
   }
 
-  /** @param id Shipping Method ID */
+  /**
+   * @param id Shipping Method ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -161,7 +171,9 @@ public class ShippingMethod extends Resource {
     return this.name;
   }
 
-  /** @param name The name of the shipping method displayed to customers. */
+  /**
+   * @param name The name of the shipping method displayed to customers.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -171,7 +183,9 @@ public class ShippingMethod extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -239,7 +253,9 @@ public class ShippingMethod extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

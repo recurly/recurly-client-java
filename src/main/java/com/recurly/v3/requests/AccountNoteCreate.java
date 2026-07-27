@@ -22,7 +22,9 @@ public class AccountNoteCreate extends Request {
     return this.message;
   }
 
-  /** @param message The content of the account note. */
+  /**
+   * @param message The content of the account note.
+   */
   public void setMessage(final String message) {
     this.message = message;
   }

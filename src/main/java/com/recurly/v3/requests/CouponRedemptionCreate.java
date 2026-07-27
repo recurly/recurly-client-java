@@ -32,7 +32,9 @@ public class CouponRedemptionCreate extends Request {
     return this.couponId;
   }
 
-  /** @param couponId Coupon ID */
+  /**
+   * @param couponId Coupon ID
+   */
   public void setCouponId(final String couponId) {
     this.couponId = couponId;
   }
@@ -42,7 +44,9 @@ public class CouponRedemptionCreate extends Request {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -52,7 +56,9 @@ public class CouponRedemptionCreate extends Request {
     return this.subscriptionId;
   }
 
-  /** @param subscriptionId Subscription ID */
+  /**
+   * @param subscriptionId Subscription ID
+   */
   public void setSubscriptionId(final String subscriptionId) {
     this.subscriptionId = subscriptionId;
   }

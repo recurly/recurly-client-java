@@ -364,7 +364,9 @@ public class PlanUpdate extends Request {
     return this.currencies;
   }
 
-  /** @param currencies Required only when `pricing_model` is `'fixed'`. */
+  /**
+   * @param currencies Required only when `pricing_model` is `'fixed'`.
+   */
   public void setCurrencies(final List<PlanPricing> currencies) {
     this.currencies = currencies;
   }
@@ -392,7 +394,9 @@ public class PlanUpdate extends Request {
     return this.description;
   }
 
-  /** @param description Optional description, not displayed. */
+  /**
+   * @param description Optional description, not displayed.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -442,7 +446,9 @@ public class PlanUpdate extends Request {
     return this.hostedPages;
   }
 
-  /** @param hostedPages Hosted pages settings */
+  /**
+   * @param hostedPages Hosted pages settings
+   */
   public void setHostedPages(final PlanHostedPages hostedPages) {
     this.hostedPages = hostedPages;
   }
@@ -452,7 +458,9 @@ public class PlanUpdate extends Request {
     return this.id;
   }
 
-  /** @param id This field has no effect on the request/response. */
+  /**
+   * @param id This field has no effect on the request/response.
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -512,7 +520,9 @@ public class PlanUpdate extends Request {
     return this.rampIntervals;
   }
 
-  /** @param rampIntervals Ramp Intervals */
+  /**
+   * @param rampIntervals Ramp Intervals
+   */
   public void setRampIntervals(final List<PlanRampInterval> rampIntervals) {
     this.rampIntervals = rampIntervals;
   }
@@ -538,7 +548,9 @@ public class PlanUpdate extends Request {
     return this.revenueScheduleType;
   }
 
-  /** @param revenueScheduleType Revenue schedule type */
+  /**
+   * @param revenueScheduleType Revenue schedule type
+   */
   public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
@@ -615,7 +627,9 @@ public class PlanUpdate extends Request {
     return this.setupFeeRevenueScheduleType;
   }
 
-  /** @param setupFeeRevenueScheduleType Setup fee revenue schedule type */
+  /**
+   * @param setupFeeRevenueScheduleType Setup fee revenue schedule type
+   */
   public void setSetupFeeRevenueScheduleType(
       final Constants.RevenueScheduleType setupFeeRevenueScheduleType) {
     this.setupFeeRevenueScheduleType = setupFeeRevenueScheduleType;
@@ -626,7 +640,9 @@ public class PlanUpdate extends Request {
     return this.setupFees;
   }
 
-  /** @param setupFees Setup Fees */
+  /**
+   * @param setupFees Setup Fees
+   */
   public void setSetupFees(final List<PlanSetupPricingCreate> setupFees) {
     this.setupFees = setupFees;
   }
@@ -656,7 +672,9 @@ public class PlanUpdate extends Request {
     return this.taxExempt;
   }
 
-  /** @param taxExempt `true` exempts tax on the plan, `false` applies tax on the plan. */
+  /**
+   * @param taxExempt `true` exempts tax on the plan, `false` applies tax on the plan.
+   */
   public void setTaxExempt(final Boolean taxExempt) {
     this.taxExempt = taxExempt;
   }
@@ -684,7 +702,9 @@ public class PlanUpdate extends Request {
     return this.trialLength;
   }
 
-  /** @param trialLength Length of plan's trial period in `trial_units`. `0` means `no trial`. */
+  /**
+   * @param trialLength Length of plan's trial period in `trial_units`. `0` means `no trial`.
+   */
   public void setTrialLength(final Integer trialLength) {
     this.trialLength = trialLength;
   }
@@ -711,7 +731,9 @@ public class PlanUpdate extends Request {
     return this.trialUnit;
   }
 
-  /** @param trialUnit Units for the plan's trial period. */
+  /**
+   * @param trialUnit Units for the plan's trial period.
+   */
   public void setTrialUnit(final Constants.IntervalUnit trialUnit) {
     this.trialUnit = trialUnit;
   }

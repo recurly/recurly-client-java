@@ -55,7 +55,9 @@ public class PlanHostedPages extends Resource {
     return this.cancelUrl;
   }
 
-  /** @param cancelUrl URL to redirect to on canceled signup on the hosted payment pages. */
+  /**
+   * @param cancelUrl URL to redirect to on canceled signup on the hosted payment pages.
+   */
   public void setCancelUrl(final String cancelUrl) {
     this.cancelUrl = cancelUrl;
   }
@@ -78,7 +80,9 @@ public class PlanHostedPages extends Resource {
     return this.successUrl;
   }
 
-  /** @param successUrl URL to redirect to after signup on the hosted payment pages. */
+  /**
+   * @param successUrl URL to redirect to after signup on the hosted payment pages.
+   */
   public void setSuccessUrl(final String successUrl) {
     this.successUrl = successUrl;
   }

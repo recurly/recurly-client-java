@@ -24,7 +24,9 @@ public class AccountReference extends Request {
     return this.code;
   }
 
-  /** @param code */
+  /**
+   * @param code
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -33,7 +35,9 @@ public class AccountReference extends Request {
     return this.id;
   }
 
-  /** @param id */
+  /**
+   * @param id
+   */
   public void setId(final String id) {
     this.id = id;
   }

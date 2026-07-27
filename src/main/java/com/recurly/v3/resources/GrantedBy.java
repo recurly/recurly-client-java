@@ -43,7 +43,9 @@ public class GrantedBy extends Resource {
     return this.object;
   }
 
-  /** @param object Object Type */
+  /**
+   * @param object Object Type
+   */
   public void setObject(final String object) {
     this.object = object;
   }

@@ -58,7 +58,9 @@ public class RecoveryAccountCreate extends Request {
     return this.address;
   }
 
-  /** @param address */
+  /**
+   * @param address
+   */
   public void setAddress(final RecoveryAddress address) {
     this.address = address;
   }
@@ -135,7 +137,9 @@ public class RecoveryAccountCreate extends Request {
     return this.email;
   }
 
-  /** @param email The email address used for communicating with this customer. */
+  /**
+   * @param email The email address used for communicating with this customer.
+   */
   public void setEmail(final String email) {
     this.email = email;
   }
