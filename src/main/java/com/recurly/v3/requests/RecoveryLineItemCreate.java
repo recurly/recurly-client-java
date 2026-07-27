@@ -88,7 +88,9 @@ public class RecoveryLineItemCreate extends Request {
     return this.description;
   }
 
-  /** @param description Description that appears on the invoice. */
+  /**
+   * @param description Description that appears on the invoice.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -152,7 +154,9 @@ public class RecoveryLineItemCreate extends Request {
     return this.tax;
   }
 
-  /** @param tax The tax amount for the line item. */
+  /**
+   * @param tax The tax amount for the line item.
+   */
   public void setTax(final BigDecimal tax) {
     this.tax = tax;
   }
@@ -162,7 +166,9 @@ public class RecoveryLineItemCreate extends Request {
     return this.unitAmount;
   }
 
-  /** @param unitAmount A positive or negative amount will result in a positive `unit_amount`. */
+  /**
+   * @param unitAmount A positive or negative amount will result in a positive `unit_amount`.
+   */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }

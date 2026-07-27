@@ -54,7 +54,9 @@ public class GiftCardCreate extends Request {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -64,7 +66,9 @@ public class GiftCardCreate extends Request {
     return this.delivery;
   }
 
-  /** @param delivery The delivery details for the gift card. */
+  /**
+   * @param delivery The delivery details for the gift card.
+   */
   public void setDelivery(final GiftCardDeliveryCreate delivery) {
     this.delivery = delivery;
   }
@@ -87,7 +91,9 @@ public class GiftCardCreate extends Request {
     return this.productCode;
   }
 
-  /** @param productCode The product code or SKU of the gift card product. */
+  /**
+   * @param productCode The product code or SKU of the gift card product.
+   */
   public void setProductCode(final String productCode) {
     this.productCode = productCode;
   }

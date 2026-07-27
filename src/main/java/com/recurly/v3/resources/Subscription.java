@@ -375,7 +375,9 @@ public class Subscription extends Resource {
     return this.account;
   }
 
-  /** @param account Account mini details */
+  /**
+   * @param account Account mini details
+   */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -401,7 +403,9 @@ public class Subscription extends Resource {
     return this.activatedAt;
   }
 
-  /** @param activatedAt Activated at */
+  /**
+   * @param activatedAt Activated at
+   */
   public void setActivatedAt(final ZonedDateTime activatedAt) {
     this.activatedAt = activatedAt;
   }
@@ -423,7 +427,9 @@ public class Subscription extends Resource {
     return this.addOns;
   }
 
-  /** @param addOns Add-ons */
+  /**
+   * @param addOns Add-ons
+   */
   public void setAddOns(final List<SubscriptionAddOn> addOns) {
     this.addOns = addOns;
   }
@@ -433,7 +439,9 @@ public class Subscription extends Resource {
     return this.addOnsTotal;
   }
 
-  /** @param addOnsTotal Total price of add-ons */
+  /**
+   * @param addOnsTotal Total price of add-ons
+   */
   public void setAddOnsTotal(final BigDecimal addOnsTotal) {
     this.addOnsTotal = addOnsTotal;
   }
@@ -443,7 +451,9 @@ public class Subscription extends Resource {
     return this.autoRenew;
   }
 
-  /** @param autoRenew Whether the subscription renews at the end of its term. */
+  /**
+   * @param autoRenew Whether the subscription renews at the end of its term.
+   */
   public void setAutoRenew(final Boolean autoRenew) {
     this.autoRenew = autoRenew;
   }
@@ -472,7 +482,9 @@ public class Subscription extends Resource {
     return this.billingInfoId;
   }
 
-  /** @param billingInfoId Billing Info ID. */
+  /**
+   * @param billingInfoId Billing Info ID.
+   */
   public void setBillingInfoId(final String billingInfoId) {
     this.billingInfoId = billingInfoId;
   }
@@ -498,7 +510,9 @@ public class Subscription extends Resource {
     return this.canceledAt;
   }
 
-  /** @param canceledAt Canceled at */
+  /**
+   * @param canceledAt Canceled at
+   */
   public void setCanceledAt(final ZonedDateTime canceledAt) {
     this.canceledAt = canceledAt;
   }
@@ -508,7 +522,9 @@ public class Subscription extends Resource {
     return this.collectionMethod;
   }
 
-  /** @param collectionMethod Collection method */
+  /**
+   * @param collectionMethod Collection method
+   */
   public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
@@ -518,7 +534,9 @@ public class Subscription extends Resource {
     return this.convertedAt;
   }
 
-  /** @param convertedAt When the subscription was converted from a gift card. */
+  /**
+   * @param convertedAt When the subscription was converted from a gift card.
+   */
   public void setConvertedAt(final ZonedDateTime convertedAt) {
     this.convertedAt = convertedAt;
   }
@@ -541,7 +559,9 @@ public class Subscription extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -569,7 +589,9 @@ public class Subscription extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -579,7 +601,9 @@ public class Subscription extends Resource {
     return this.currentPeriodEndsAt;
   }
 
-  /** @param currentPeriodEndsAt Current billing period ends at */
+  /**
+   * @param currentPeriodEndsAt Current billing period ends at
+   */
   public void setCurrentPeriodEndsAt(final ZonedDateTime currentPeriodEndsAt) {
     this.currentPeriodEndsAt = currentPeriodEndsAt;
   }
@@ -589,7 +613,9 @@ public class Subscription extends Resource {
     return this.currentPeriodStartedAt;
   }
 
-  /** @param currentPeriodStartedAt Current billing period started at */
+  /**
+   * @param currentPeriodStartedAt Current billing period started at
+   */
   public void setCurrentPeriodStartedAt(final ZonedDateTime currentPeriodStartedAt) {
     this.currentPeriodStartedAt = currentPeriodStartedAt;
   }
@@ -652,7 +678,9 @@ public class Subscription extends Resource {
     return this.customerNotes;
   }
 
-  /** @param customerNotes Customer notes */
+  /**
+   * @param customerNotes Customer notes
+   */
   public void setCustomerNotes(final String customerNotes) {
     this.customerNotes = customerNotes;
   }
@@ -662,7 +690,9 @@ public class Subscription extends Resource {
     return this.expirationReason;
   }
 
-  /** @param expirationReason Expiration reason */
+  /**
+   * @param expirationReason Expiration reason
+   */
   public void setExpirationReason(final String expirationReason) {
     this.expirationReason = expirationReason;
   }
@@ -672,7 +702,9 @@ public class Subscription extends Resource {
     return this.expiresAt;
   }
 
-  /** @param expiresAt Expires at */
+  /**
+   * @param expiresAt Expires at
+   */
   public void setExpiresAt(final ZonedDateTime expiresAt) {
     this.expiresAt = expiresAt;
   }
@@ -695,7 +727,9 @@ public class Subscription extends Resource {
     return this.id;
   }
 
-  /** @param id Subscription ID */
+  /**
+   * @param id Subscription ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -774,7 +808,9 @@ public class Subscription extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -797,7 +833,9 @@ public class Subscription extends Resource {
     return this.pendingChange;
   }
 
-  /** @param pendingChange Subscription Change */
+  /**
+   * @param pendingChange Subscription Change
+   */
   public void setPendingChange(final SubscriptionChange pendingChange) {
     this.pendingChange = pendingChange;
   }
@@ -807,7 +845,9 @@ public class Subscription extends Resource {
     return this.plan;
   }
 
-  /** @param plan Just the important parts. */
+  /**
+   * @param plan Just the important parts.
+   */
   public void setPlan(final PlanMini plan) {
     this.plan = plan;
   }
@@ -847,7 +887,9 @@ public class Subscription extends Resource {
     return this.quantity;
   }
 
-  /** @param quantity Subscription quantity */
+  /**
+   * @param quantity Subscription quantity
+   */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
   }
@@ -869,7 +911,9 @@ public class Subscription extends Resource {
     return this.remainingBillingCycles;
   }
 
-  /** @param remainingBillingCycles The remaining billing cycles in the current term. */
+  /**
+   * @param remainingBillingCycles The remaining billing cycles in the current term.
+   */
   public void setRemainingBillingCycles(final Integer remainingBillingCycles) {
     this.remainingBillingCycles = remainingBillingCycles;
   }
@@ -925,7 +969,9 @@ public class Subscription extends Resource {
     return this.revenueScheduleType;
   }
 
-  /** @param revenueScheduleType Revenue schedule type */
+  /**
+   * @param revenueScheduleType Revenue schedule type
+   */
   public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
@@ -935,7 +981,9 @@ public class Subscription extends Resource {
     return this.shipping;
   }
 
-  /** @param shipping Subscription shipping details */
+  /**
+   * @param shipping Subscription shipping details
+   */
   public void setShipping(final SubscriptionShipping shipping) {
     this.shipping = shipping;
   }
@@ -945,7 +993,9 @@ public class Subscription extends Resource {
     return this.startedWithGift;
   }
 
-  /** @param startedWithGift Whether the subscription was started with a gift certificate. */
+  /**
+   * @param startedWithGift Whether the subscription was started with a gift certificate.
+   */
   public void setStartedWithGift(final Boolean startedWithGift) {
     this.startedWithGift = startedWithGift;
   }
@@ -955,7 +1005,9 @@ public class Subscription extends Resource {
     return this.state;
   }
 
-  /** @param state State */
+  /**
+   * @param state State
+   */
   public void setState(final Constants.SubscriptionState state) {
     this.state = state;
   }
@@ -965,7 +1017,9 @@ public class Subscription extends Resource {
     return this.subtotal;
   }
 
-  /** @param subtotal Estimated total, before tax. */
+  /**
+   * @param subtotal Estimated total, before tax.
+   */
   public void setSubtotal(final BigDecimal subtotal) {
     this.subtotal = subtotal;
   }
@@ -975,7 +1029,9 @@ public class Subscription extends Resource {
     return this.tax;
   }
 
-  /** @param tax Only for merchants using Recurly's In-The-Box taxes. */
+  /**
+   * @param tax Only for merchants using Recurly's In-The-Box taxes.
+   */
   public void setTax(final BigDecimal tax) {
     this.tax = tax;
   }
@@ -1002,7 +1058,9 @@ public class Subscription extends Resource {
     return this.taxInfo;
   }
 
-  /** @param taxInfo Only for merchants using Recurly's In-The-Box taxes. */
+  /**
+   * @param taxInfo Only for merchants using Recurly's In-The-Box taxes.
+   */
   public void setTaxInfo(final TaxInfo taxInfo) {
     this.taxInfo = taxInfo;
   }
@@ -1012,7 +1070,9 @@ public class Subscription extends Resource {
     return this.termsAndConditions;
   }
 
-  /** @param termsAndConditions Terms and conditions */
+  /**
+   * @param termsAndConditions Terms and conditions
+   */
   public void setTermsAndConditions(final String termsAndConditions) {
     this.termsAndConditions = termsAndConditions;
   }
@@ -1022,7 +1082,9 @@ public class Subscription extends Resource {
     return this.total;
   }
 
-  /** @param total Estimated total */
+  /**
+   * @param total Estimated total
+   */
   public void setTotal(final BigDecimal total) {
     this.total = total;
   }
@@ -1050,7 +1112,9 @@ public class Subscription extends Resource {
     return this.trialEndsAt;
   }
 
-  /** @param trialEndsAt Trial period ends at */
+  /**
+   * @param trialEndsAt Trial period ends at
+   */
   public void setTrialEndsAt(final ZonedDateTime trialEndsAt) {
     this.trialEndsAt = trialEndsAt;
   }
@@ -1060,7 +1124,9 @@ public class Subscription extends Resource {
     return this.trialStartedAt;
   }
 
-  /** @param trialStartedAt Trial period started at */
+  /**
+   * @param trialStartedAt Trial period started at
+   */
   public void setTrialStartedAt(final ZonedDateTime trialStartedAt) {
     this.trialStartedAt = trialStartedAt;
   }
@@ -1070,7 +1136,9 @@ public class Subscription extends Resource {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Subscription unit price */
+  /**
+   * @param unitAmount Subscription unit price
+   */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
@@ -1080,7 +1148,9 @@ public class Subscription extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

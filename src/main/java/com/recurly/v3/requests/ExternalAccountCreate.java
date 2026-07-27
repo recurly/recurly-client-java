@@ -27,7 +27,9 @@ public class ExternalAccountCreate extends Request {
     return this.externalAccountCode;
   }
 
-  /** @param externalAccountCode Represents the account code for the external account. */
+  /**
+   * @param externalAccountCode Represents the account code for the external account.
+   */
   public void setExternalAccountCode(final String externalAccountCode) {
     this.externalAccountCode = externalAccountCode;
   }

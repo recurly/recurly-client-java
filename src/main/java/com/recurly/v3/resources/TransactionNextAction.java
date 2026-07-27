@@ -27,7 +27,9 @@ public class TransactionNextAction extends Resource {
     return this.type;
   }
 
-  /** @param type The type of next action required. */
+  /**
+   * @param type The type of next action required.
+   */
   public void setType(final Constants.NextActionType type) {
     this.type = type;
   }
@@ -37,7 +39,9 @@ public class TransactionNextAction extends Resource {
     return this.value;
   }
 
-  /** @param value The value associated with the next action type. */
+  /**
+   * @param value The value associated with the next action type.
+   */
   public void setValue(final String value) {
     this.value = value;
   }

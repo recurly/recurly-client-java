@@ -252,7 +252,9 @@ public class SubscriptionChangeCreate extends Request {
     return this.billingInfo;
   }
 
-  /** @param billingInfo */
+  /**
+   * @param billingInfo
+   */
   public void setBillingInfo(final SubscriptionChangeBillingInfoCreate billingInfo) {
     this.billingInfo = billingInfo;
   }
@@ -310,7 +312,9 @@ public class SubscriptionChangeCreate extends Request {
     return this.collectionMethod;
   }
 
-  /** @param collectionMethod Collection method */
+  /**
+   * @param collectionMethod Collection method
+   */
   public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
@@ -468,7 +472,9 @@ public class SubscriptionChangeCreate extends Request {
     return this.priceSegmentId;
   }
 
-  /** @param priceSegmentId The price segment ID, e.g. `e28zov4fw0v2`. */
+  /**
+   * @param priceSegmentId The price segment ID, e.g. `e28zov4fw0v2`.
+   */
   public void setPriceSegmentId(final String priceSegmentId) {
     this.priceSegmentId = priceSegmentId;
   }
@@ -493,7 +499,9 @@ public class SubscriptionChangeCreate extends Request {
     return this.quantity;
   }
 
-  /** @param quantity Optionally override the default quantity of 1. */
+  /**
+   * @param quantity Optionally override the default quantity of 1.
+   */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
   }
@@ -503,7 +511,9 @@ public class SubscriptionChangeCreate extends Request {
     return this.rampIntervals;
   }
 
-  /** @param rampIntervals The new set of ramp intervals for the subscription. */
+  /**
+   * @param rampIntervals The new set of ramp intervals for the subscription.
+   */
   public void setRampIntervals(final List<SubscriptionRampInterval> rampIntervals) {
     this.rampIntervals = rampIntervals;
   }
@@ -513,7 +523,9 @@ public class SubscriptionChangeCreate extends Request {
     return this.revenueScheduleType;
   }
 
-  /** @param revenueScheduleType Revenue schedule type */
+  /**
+   * @param revenueScheduleType Revenue schedule type
+   */
   public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
@@ -541,7 +553,9 @@ public class SubscriptionChangeCreate extends Request {
     return this.taxInclusive;
   }
 
-  /** @param taxInclusive This field is deprecated. Please do not use it. */
+  /**
+   * @param taxInclusive This field is deprecated. Please do not use it.
+   */
   public void setTaxInclusive(final Boolean taxInclusive) {
     this.taxInclusive = taxInclusive;
   }

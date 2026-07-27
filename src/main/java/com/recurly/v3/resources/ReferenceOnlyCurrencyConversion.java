@@ -47,7 +47,9 @@ public class ReferenceOnlyCurrencyConversion extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -57,7 +59,9 @@ public class ReferenceOnlyCurrencyConversion extends Resource {
     return this.date;
   }
 
-  /** @param date The date of the conversion rate. */
+  /**
+   * @param date The date of the conversion rate.
+   */
   public void setDate(final String date) {
     this.date = date;
   }
@@ -67,7 +71,9 @@ public class ReferenceOnlyCurrencyConversion extends Resource {
     return this.rate;
   }
 
-  /** @param rate The conversion rate to the currency. */
+  /**
+   * @param rate The conversion rate to the currency.
+   */
   public void setRate(final String rate) {
     this.rate = rate;
   }
@@ -77,7 +83,9 @@ public class ReferenceOnlyCurrencyConversion extends Resource {
     return this.source;
   }
 
-  /** @param source The source of the conversion rate. */
+  /**
+   * @param source The source of the conversion rate.
+   */
   public void setSource(final String source) {
     this.source = source;
   }
@@ -87,7 +95,9 @@ public class ReferenceOnlyCurrencyConversion extends Resource {
     return this.subtotalInCents;
   }
 
-  /** @param subtotalInCents The subtotal converted to the currency. */
+  /**
+   * @param subtotalInCents The subtotal converted to the currency.
+   */
   public void setSubtotalInCents(final BigDecimal subtotalInCents) {
     this.subtotalInCents = subtotalInCents;
   }
@@ -97,7 +107,9 @@ public class ReferenceOnlyCurrencyConversion extends Resource {
     return this.taxInCents;
   }
 
-  /** @param taxInCents The tax converted to the currency. */
+  /**
+   * @param taxInCents The tax converted to the currency.
+   */
   public void setTaxInCents(final BigDecimal taxInCents) {
     this.taxInCents = taxInCents;
   }

@@ -50,7 +50,9 @@ public class ExternalProductReferenceMini extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt When the external product was created in Recurly. */
+  /**
+   * @param createdAt When the external product was created in Recurly.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -60,7 +62,9 @@ public class ExternalProductReferenceMini extends Resource {
     return this.externalConnectionType;
   }
 
-  /** @param externalConnectionType Source connection platform. */
+  /**
+   * @param externalConnectionType Source connection platform.
+   */
   public void setExternalConnectionType(final String externalConnectionType) {
     this.externalConnectionType = externalConnectionType;
   }
@@ -82,7 +86,9 @@ public class ExternalProductReferenceMini extends Resource {
     return this.object;
   }
 
-  /** @param object object */
+  /**
+   * @param object object
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -108,7 +114,9 @@ public class ExternalProductReferenceMini extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt When the external product was updated in Recurly. */
+  /**
+   * @param updatedAt When the external product was updated in Recurly.
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

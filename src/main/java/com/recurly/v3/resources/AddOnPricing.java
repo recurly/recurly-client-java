@@ -40,7 +40,9 @@ public class AddOnPricing extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -50,7 +52,9 @@ public class AddOnPricing extends Resource {
     return this.taxInclusive;
   }
 
-  /** @param taxInclusive This field is deprecated. Please do not use it. */
+  /**
+   * @param taxInclusive This field is deprecated. Please do not use it.
+   */
   public void setTaxInclusive(final Boolean taxInclusive) {
     this.taxInclusive = taxInclusive;
   }

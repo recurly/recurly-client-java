@@ -22,7 +22,9 @@ public class ExternalProductUpdate extends Request {
     return this.planId;
   }
 
-  /** @param planId Recurly plan UUID. */
+  /**
+   * @param planId Recurly plan UUID.
+   */
   public void setPlanId(final String planId) {
     this.planId = planId;
   }

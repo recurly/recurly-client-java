@@ -159,12 +159,24 @@ public class SubscriptionUpdate extends Request {
   @Expose
   private String termsAndConditions;
 
+  /**
+   * Optionally overrides the suffix component of the composed transaction descriptor. If omitted,
+   * the suffix is derived from the subscription's plan name or the invoice description, with a
+   * Trial prefix on Visa trial conversions. Subject to gateway availability and payment method
+   * support.
+   */
+  @SerializedName("transaction_descriptor_suffix")
+  @Expose
+  private String transactionDescriptorSuffix;
+
   /** Whether the subscription renews at the end of its term. */
   public Boolean getAutoRenew() {
     return this.autoRenew;
   }
 
-  /** @param autoRenew Whether the subscription renews at the end of its term. */
+  /**
+   * @param autoRenew Whether the subscription renews at the end of its term.
+   */
   public void setAutoRenew(final Boolean autoRenew) {
     this.autoRenew = autoRenew;
   }
@@ -194,7 +206,9 @@ public class SubscriptionUpdate extends Request {
     return this.collectionMethod;
   }
 
-  /** @param collectionMethod Change collection method */
+  /**
+   * @param collectionMethod Change collection method
+   */
   public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
@@ -373,7 +387,9 @@ public class SubscriptionUpdate extends Request {
     return this.priceSegmentId;
   }
 
-  /** @param priceSegmentId The price segment ID, e.g. `e28zov4fw0v2`. */
+  /**
+   * @param priceSegmentId The price segment ID, e.g. `e28zov4fw0v2`.
+   */
   public void setPriceSegmentId(final String priceSegmentId) {
     this.priceSegmentId = priceSegmentId;
   }
@@ -383,7 +399,9 @@ public class SubscriptionUpdate extends Request {
     return this.remainingBillingCycles;
   }
 
-  /** @param remainingBillingCycles The remaining billing cycles in the current term. */
+  /**
+   * @param remainingBillingCycles The remaining billing cycles in the current term.
+   */
   public void setRemainingBillingCycles(final Integer remainingBillingCycles) {
     this.remainingBillingCycles = remainingBillingCycles;
   }
@@ -410,7 +428,9 @@ public class SubscriptionUpdate extends Request {
     return this.revenueScheduleType;
   }
 
-  /** @param revenueScheduleType Revenue schedule type */
+  /**
+   * @param revenueScheduleType Revenue schedule type
+   */
   public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
@@ -420,7 +440,9 @@ public class SubscriptionUpdate extends Request {
     return this.shipping;
   }
 
-  /** @param shipping Subscription shipping details */
+  /**
+   * @param shipping Subscription shipping details
+   */
   public void setShipping(final SubscriptionShippingUpdate shipping) {
     this.shipping = shipping;
   }
@@ -430,7 +452,9 @@ public class SubscriptionUpdate extends Request {
     return this.taxInclusive;
   }
 
-  /** @param taxInclusive This field is deprecated. Please do not use it. */
+  /**
+   * @param taxInclusive This field is deprecated. Please do not use it.
+   */
   public void setTaxInclusive(final Boolean taxInclusive) {
     this.taxInclusive = taxInclusive;
   }
@@ -449,5 +473,25 @@ public class SubscriptionUpdate extends Request {
    */
   public void setTermsAndConditions(final String termsAndConditions) {
     this.termsAndConditions = termsAndConditions;
+  }
+
+  /**
+   * Optionally overrides the suffix component of the composed transaction descriptor. If omitted,
+   * the suffix is derived from the subscription's plan name or the invoice description, with a
+   * Trial prefix on Visa trial conversions. Subject to gateway availability and payment method
+   * support.
+   */
+  public String getTransactionDescriptorSuffix() {
+    return this.transactionDescriptorSuffix;
+  }
+
+  /**
+   * @param transactionDescriptorSuffix Optionally overrides the suffix component of the composed
+   *     transaction descriptor. If omitted, the suffix is derived from the subscription's plan name
+   *     or the invoice description, with a Trial prefix on Visa trial conversions. Subject to
+   *     gateway availability and payment method support.
+   */
+  public void setTransactionDescriptorSuffix(final String transactionDescriptorSuffix) {
+    this.transactionDescriptorSuffix = transactionDescriptorSuffix;
   }
 }

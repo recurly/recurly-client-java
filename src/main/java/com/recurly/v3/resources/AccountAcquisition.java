@@ -74,7 +74,9 @@ public class AccountAcquisition extends Resource {
     return this.account;
   }
 
-  /** @param account Account mini details */
+  /**
+   * @param account Account mini details
+   */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -115,7 +117,9 @@ public class AccountAcquisition extends Resource {
     return this.channel;
   }
 
-  /** @param channel The channel through which the account was acquired. */
+  /**
+   * @param channel The channel through which the account was acquired.
+   */
   public void setChannel(final Constants.Channel channel) {
     this.channel = channel;
   }
@@ -125,7 +129,9 @@ public class AccountAcquisition extends Resource {
     return this.cost;
   }
 
-  /** @param cost Account balance */
+  /**
+   * @param cost Account balance
+   */
   public void setCost(final AccountAcquisitionCost cost) {
     this.cost = cost;
   }
@@ -135,7 +141,9 @@ public class AccountAcquisition extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt When the account acquisition data was created. */
+  /**
+   * @param createdAt When the account acquisition data was created.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -144,7 +152,9 @@ public class AccountAcquisition extends Resource {
     return this.id;
   }
 
-  /** @param id */
+  /**
+   * @param id
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -154,7 +164,9 @@ public class AccountAcquisition extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -179,7 +191,9 @@ public class AccountAcquisition extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt When the account acquisition data was last changed. */
+  /**
+   * @param updatedAt When the account acquisition data was last changed.
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

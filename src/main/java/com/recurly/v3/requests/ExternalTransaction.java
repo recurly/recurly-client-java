@@ -40,7 +40,9 @@ public class ExternalTransaction extends Request {
     return this.amount;
   }
 
-  /** @param amount The total amount of the transcaction. Cannot excceed the invoice total. */
+  /**
+   * @param amount The total amount of the transcaction. Cannot excceed the invoice total.
+   */
   public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
@@ -63,7 +65,9 @@ public class ExternalTransaction extends Request {
     return this.description;
   }
 
-  /** @param description Used as the transaction's description. */
+  /**
+   * @param description Used as the transaction's description.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -73,7 +77,9 @@ public class ExternalTransaction extends Request {
     return this.paymentMethod;
   }
 
-  /** @param paymentMethod Payment method used for external transaction. */
+  /**
+   * @param paymentMethod Payment method used for external transaction.
+   */
   public void setPaymentMethod(final Constants.ExternalPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }

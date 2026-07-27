@@ -278,7 +278,9 @@ public class BillingInfoCreate extends Request {
     return this.accountNumber;
   }
 
-  /** @param accountNumber The bank account number. (ACH, Bacs only) */
+  /**
+   * @param accountNumber The bank account number. (ACH, Bacs only)
+   */
   public void setAccountNumber(final String accountNumber) {
     this.accountNumber = accountNumber;
   }
@@ -288,7 +290,9 @@ public class BillingInfoCreate extends Request {
     return this.accountType;
   }
 
-  /** @param accountType The bank account type. (ACH only) */
+  /**
+   * @param accountType The bank account type. (ACH only)
+   */
   public void setAccountType(final Constants.AchAccountType accountType) {
     this.accountType = accountType;
   }
@@ -297,7 +301,9 @@ public class BillingInfoCreate extends Request {
     return this.address;
   }
 
-  /** @param address */
+  /**
+   * @param address
+   */
   public void setAddress(final Address address) {
     this.address = address;
   }
@@ -391,7 +397,9 @@ public class BillingInfoCreate extends Request {
     return this.cardType;
   }
 
-  /** @param cardType */
+  /**
+   * @param cardType
+   */
   public void setCardType(final Constants.CardType cardType) {
     this.cardType = cardType;
   }
@@ -401,7 +409,9 @@ public class BillingInfoCreate extends Request {
     return this.company;
   }
 
-  /** @param company Company name */
+  /**
+   * @param company Company name
+   */
   public void setCompany(final String company) {
     this.company = company;
   }
@@ -411,7 +421,9 @@ public class BillingInfoCreate extends Request {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -421,7 +433,9 @@ public class BillingInfoCreate extends Request {
     return this.cvv;
   }
 
-  /** @param cvv *STRONGLY RECOMMENDED* */
+  /**
+   * @param cvv *STRONGLY RECOMMENDED*
+   */
   public void setCvv(final String cvv) {
     this.cvv = cvv;
   }
@@ -447,7 +461,9 @@ public class BillingInfoCreate extends Request {
     return this.firstName;
   }
 
-  /** @param firstName First name */
+  /**
+   * @param firstName First name
+   */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
   }
@@ -457,7 +473,9 @@ public class BillingInfoCreate extends Request {
     return this.fraudSessionId;
   }
 
-  /** @param fraudSessionId Fraud Session ID */
+  /**
+   * @param fraudSessionId Fraud Session ID
+   */
   public void setFraudSessionId(final String fraudSessionId) {
     this.fraudSessionId = fraudSessionId;
   }
@@ -467,7 +485,9 @@ public class BillingInfoCreate extends Request {
     return this.gatewayAttributes;
   }
 
-  /** @param gatewayAttributes Additional attributes to send to the gateway. */
+  /**
+   * @param gatewayAttributes Additional attributes to send to the gateway.
+   */
   public void setGatewayAttributes(final GatewayAttributes gatewayAttributes) {
     this.gatewayAttributes = gatewayAttributes;
   }
@@ -477,7 +497,9 @@ public class BillingInfoCreate extends Request {
     return this.gatewayCode;
   }
 
-  /** @param gatewayCode An identifier for a specific payment gateway. */
+  /**
+   * @param gatewayCode An identifier for a specific payment gateway.
+   */
   public void setGatewayCode(final String gatewayCode) {
     this.gatewayCode = gatewayCode;
   }
@@ -534,7 +556,9 @@ public class BillingInfoCreate extends Request {
     return this.lastName;
   }
 
-  /** @param lastName Last name */
+  /**
+   * @param lastName Last name
+   */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
   }
@@ -544,7 +568,9 @@ public class BillingInfoCreate extends Request {
     return this.month;
   }
 
-  /** @param month Expiration month */
+  /**
+   * @param month Expiration month
+   */
   public void setMonth(final String month) {
     this.month = month;
   }
@@ -554,7 +580,9 @@ public class BillingInfoCreate extends Request {
     return this.nameOnAccount;
   }
 
-  /** @param nameOnAccount The name associated with the bank account (ACH, SEPA, Bacs only) */
+  /**
+   * @param nameOnAccount The name associated with the bank account (ACH, SEPA, Bacs only)
+   */
   public void setNameOnAccount(final String nameOnAccount) {
     this.nameOnAccount = nameOnAccount;
   }
@@ -564,7 +592,9 @@ public class BillingInfoCreate extends Request {
     return this.number;
   }
 
-  /** @param number Credit card number, spaces and dashes are accepted. */
+  /**
+   * @param number Credit card number, spaces and dashes are accepted.
+   */
   public void setNumber(final String number) {
     this.number = number;
   }
@@ -609,7 +639,9 @@ public class BillingInfoCreate extends Request {
     return this.paypalBillingAgreementId;
   }
 
-  /** @param paypalBillingAgreementId PayPal billing agreement ID */
+  /**
+   * @param paypalBillingAgreementId PayPal billing agreement ID
+   */
   public void setPaypalBillingAgreementId(final String paypalBillingAgreementId) {
     this.paypalBillingAgreementId = paypalBillingAgreementId;
   }
@@ -662,7 +694,9 @@ public class BillingInfoCreate extends Request {
     return this.rokuBillingAgreementId;
   }
 
-  /** @param rokuBillingAgreementId Roku's CIB if billing through Roku */
+  /**
+   * @param rokuBillingAgreementId Roku's CIB if billing through Roku
+   */
   public void setRokuBillingAgreementId(final String rokuBillingAgreementId) {
     this.rokuBillingAgreementId = rokuBillingAgreementId;
   }
@@ -672,7 +706,9 @@ public class BillingInfoCreate extends Request {
     return this.routingNumber;
   }
 
-  /** @param routingNumber The bank's rounting number. (ACH only) */
+  /**
+   * @param routingNumber The bank's rounting number. (ACH only)
+   */
   public void setRoutingNumber(final String routingNumber) {
     this.routingNumber = routingNumber;
   }
@@ -795,7 +831,9 @@ public class BillingInfoCreate extends Request {
     return this.vatNumber;
   }
 
-  /** @param vatNumber VAT number */
+  /**
+   * @param vatNumber VAT number
+   */
   public void setVatNumber(final String vatNumber) {
     this.vatNumber = vatNumber;
   }
@@ -805,7 +843,9 @@ public class BillingInfoCreate extends Request {
     return this.year;
   }
 
-  /** @param year Expiration year */
+  /**
+   * @param year Expiration year
+   */
   public void setYear(final String year) {
     this.year = year;
   }

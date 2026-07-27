@@ -300,7 +300,9 @@ public class Transaction extends Resource {
     return this.account;
   }
 
-  /** @param account Account mini details */
+  /**
+   * @param account Account mini details
+   */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -326,7 +328,9 @@ public class Transaction extends Resource {
     return this.amount;
   }
 
-  /** @param amount Total transaction amount sent to the payment gateway. */
+  /**
+   * @param amount Total transaction amount sent to the payment gateway.
+   */
   public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
@@ -336,7 +340,9 @@ public class Transaction extends Resource {
     return this.avsCheck;
   }
 
-  /** @param avsCheck When processed, result from checking the overall AVS on the transaction. */
+  /**
+   * @param avsCheck When processed, result from checking the overall AVS on the transaction.
+   */
   public void setAvsCheck(final Constants.AvsCheck avsCheck) {
     this.avsCheck = avsCheck;
   }
@@ -358,7 +364,9 @@ public class Transaction extends Resource {
     return this.billingAddress;
   }
 
-  /** @param billingAddress */
+  /**
+   * @param billingAddress
+   */
   public void setBillingAddress(final AddressWithName billingAddress) {
     this.billingAddress = billingAddress;
   }
@@ -380,7 +388,9 @@ public class Transaction extends Resource {
     return this.collectionMethod;
   }
 
-  /** @param collectionMethod The method by which the payment was collected. */
+  /**
+   * @param collectionMethod The method by which the payment was collected.
+   */
   public void setCollectionMethod(final Constants.CollectionMethod collectionMethod) {
     this.collectionMethod = collectionMethod;
   }
@@ -390,7 +400,9 @@ public class Transaction extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -400,7 +412,9 @@ public class Transaction extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -423,7 +437,9 @@ public class Transaction extends Resource {
     return this.customerMessageLocale;
   }
 
-  /** @param customerMessageLocale Language code for the message */
+  /**
+   * @param customerMessageLocale Language code for the message
+   */
   public void setCustomerMessageLocale(final String customerMessageLocale) {
     this.customerMessageLocale = customerMessageLocale;
   }
@@ -433,7 +449,9 @@ public class Transaction extends Resource {
     return this.cvvCheck;
   }
 
-  /** @param cvvCheck When processed, result from checking the CVV/CVC value on the transaction. */
+  /**
+   * @param cvvCheck When processed, result from checking the CVV/CVC value on the transaction.
+   */
   public void setCvvCheck(final Constants.CvvCheck cvvCheck) {
     this.cvvCheck = cvvCheck;
   }
@@ -443,7 +461,9 @@ public class Transaction extends Resource {
     return this.description;
   }
 
-  /** @param description The description that gets sent to the gateway. */
+  /**
+   * @param description The description that gets sent to the gateway.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -453,7 +473,9 @@ public class Transaction extends Resource {
     return this.fraudInfo;
   }
 
-  /** @param fraudInfo Fraud information */
+  /**
+   * @param fraudInfo Fraud information
+   */
   public void setFraudInfo(final TransactionFraudInfo fraudInfo) {
     this.fraudInfo = fraudInfo;
   }
@@ -463,7 +485,9 @@ public class Transaction extends Resource {
     return this.gatewayApprovalCode;
   }
 
-  /** @param gatewayApprovalCode Transaction approval code from the payment gateway. */
+  /**
+   * @param gatewayApprovalCode Transaction approval code from the payment gateway.
+   */
   public void setGatewayApprovalCode(final String gatewayApprovalCode) {
     this.gatewayApprovalCode = gatewayApprovalCode;
   }
@@ -473,7 +497,9 @@ public class Transaction extends Resource {
     return this.gatewayMessage;
   }
 
-  /** @param gatewayMessage Transaction message from the payment gateway. */
+  /**
+   * @param gatewayMessage Transaction message from the payment gateway.
+   */
   public void setGatewayMessage(final String gatewayMessage) {
     this.gatewayMessage = gatewayMessage;
   }
@@ -483,7 +509,9 @@ public class Transaction extends Resource {
     return this.gatewayReference;
   }
 
-  /** @param gatewayReference Transaction reference number from the payment gateway. */
+  /**
+   * @param gatewayReference Transaction reference number from the payment gateway.
+   */
   public void setGatewayReference(final String gatewayReference) {
     this.gatewayReference = gatewayReference;
   }
@@ -506,7 +534,9 @@ public class Transaction extends Resource {
     return this.gatewayResponseTime;
   }
 
-  /** @param gatewayResponseTime Time, in seconds, for gateway to process the transaction. */
+  /**
+   * @param gatewayResponseTime Time, in seconds, for gateway to process the transaction.
+   */
   public void setGatewayResponseTime(final BigDecimal gatewayResponseTime) {
     this.gatewayResponseTime = gatewayResponseTime;
   }
@@ -516,7 +546,9 @@ public class Transaction extends Resource {
     return this.gatewayResponseValues;
   }
 
-  /** @param gatewayResponseValues The values in this field will vary from gateway to gateway. */
+  /**
+   * @param gatewayResponseValues The values in this field will vary from gateway to gateway.
+   */
   public void setGatewayResponseValues(final Map gatewayResponseValues) {
     this.gatewayResponseValues = gatewayResponseValues;
   }
@@ -526,7 +558,9 @@ public class Transaction extends Resource {
     return this.id;
   }
 
-  /** @param id Transaction ID */
+  /**
+   * @param id Transaction ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -556,7 +590,9 @@ public class Transaction extends Resource {
     return this.invoice;
   }
 
-  /** @param invoice Invoice mini details */
+  /**
+   * @param invoice Invoice mini details
+   */
   public void setInvoice(final InvoiceMini invoice) {
     this.invoice = invoice;
   }
@@ -668,7 +704,9 @@ public class Transaction extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -678,7 +716,9 @@ public class Transaction extends Resource {
     return this.origin;
   }
 
-  /** @param origin Describes how the transaction was triggered. */
+  /**
+   * @param origin Describes how the transaction was triggered.
+   */
   public void setOrigin(final Constants.TransactionOrigin origin) {
     this.origin = origin;
   }
@@ -703,7 +743,9 @@ public class Transaction extends Resource {
     return this.paymentGateway;
   }
 
-  /** @param paymentGateway */
+  /**
+   * @param paymentGateway
+   */
   public void setPaymentGateway(final TransactionPaymentGateway paymentGateway) {
     this.paymentGateway = paymentGateway;
   }
@@ -712,7 +754,9 @@ public class Transaction extends Resource {
     return this.paymentMethod;
   }
 
-  /** @param paymentMethod */
+  /**
+   * @param paymentMethod
+   */
   public void setPaymentMethod(final PaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
@@ -722,7 +766,9 @@ public class Transaction extends Resource {
     return this.refunded;
   }
 
-  /** @param refunded Indicates if part or all of this transaction was refunded. */
+  /**
+   * @param refunded Indicates if part or all of this transaction was refunded.
+   */
   public void setRefunded(final Boolean refunded) {
     this.refunded = refunded;
   }
@@ -748,7 +794,9 @@ public class Transaction extends Resource {
     return this.statusCode;
   }
 
-  /** @param statusCode Status code */
+  /**
+   * @param statusCode Status code
+   */
   public void setStatusCode(final String statusCode) {
     this.statusCode = statusCode;
   }
@@ -786,7 +834,9 @@ public class Transaction extends Resource {
     return this.success;
   }
 
-  /** @param success Did this transaction complete successfully? */
+  /**
+   * @param success Did this transaction complete successfully?
+   */
   public void setSuccess(final Boolean success) {
     this.success = success;
   }
@@ -819,7 +869,9 @@ public class Transaction extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Updated at */
+  /**
+   * @param updatedAt Updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -862,7 +914,9 @@ public class Transaction extends Resource {
     return this.voidedAt;
   }
 
-  /** @param voidedAt Voided at */
+  /**
+   * @param voidedAt Voided at
+   */
   public void setVoidedAt(final ZonedDateTime voidedAt) {
     this.voidedAt = voidedAt;
   }
@@ -872,7 +926,9 @@ public class Transaction extends Resource {
     return this.voidedByInvoice;
   }
 
-  /** @param voidedByInvoice Invoice mini details */
+  /**
+   * @param voidedByInvoice Invoice mini details
+   */
   public void setVoidedByInvoice(final InvoiceMini voidedByInvoice) {
     this.voidedByInvoice = voidedByInvoice;
   }

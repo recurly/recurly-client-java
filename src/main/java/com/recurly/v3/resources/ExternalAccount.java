@@ -46,7 +46,9 @@ public class ExternalAccount extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -56,7 +58,9 @@ public class ExternalAccount extends Resource {
     return this.externalAccountCode;
   }
 
-  /** @param externalAccountCode Represents the account code for the external account. */
+  /**
+   * @param externalAccountCode Represents the account code for the external account.
+   */
   public void setExternalAccountCode(final String externalAccountCode) {
     this.externalAccountCode = externalAccountCode;
   }
@@ -79,7 +83,9 @@ public class ExternalAccount extends Resource {
     return this.id;
   }
 
-  /** @param id UUID of the external_account . */
+  /**
+   * @param id UUID of the external_account .
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -88,7 +94,9 @@ public class ExternalAccount extends Resource {
     return this.object;
   }
 
-  /** @param object */
+  /**
+   * @param object
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -98,7 +106,9 @@ public class ExternalAccount extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

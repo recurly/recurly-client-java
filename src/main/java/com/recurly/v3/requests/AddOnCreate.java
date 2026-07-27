@@ -281,7 +281,9 @@ public class AddOnCreate extends Request {
     return this.addOnType;
   }
 
-  /** @param addOnType Whether the add-on type is fixed, or usage-based. */
+  /**
+   * @param addOnType Whether the add-on type is fixed, or usage-based.
+   */
   public void setAddOnType(final Constants.AddOnTypeCreate addOnType) {
     this.addOnType = addOnType;
   }
@@ -374,7 +376,9 @@ public class AddOnCreate extends Request {
     return this.defaultQuantity;
   }
 
-  /** @param defaultQuantity Default quantity for the hosted pages. */
+  /**
+   * @param defaultQuantity Default quantity for the hosted pages.
+   */
   public void setDefaultQuantity(final Integer defaultQuantity) {
     this.defaultQuantity = defaultQuantity;
   }
@@ -583,7 +587,9 @@ public class AddOnCreate extends Request {
     return this.planId;
   }
 
-  /** @param planId Plan ID */
+  /**
+   * @param planId Plan ID
+   */
   public void setPlanId(final String planId) {
     this.planId = planId;
   }

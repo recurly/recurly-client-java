@@ -30,7 +30,9 @@ public class BillingInfoVerify extends Request {
     return this.gatewayCode;
   }
 
-  /** @param gatewayCode An identifier for a specific payment gateway. */
+  /**
+   * @param gatewayCode An identifier for a specific payment gateway.
+   */
   public void setGatewayCode(final String gatewayCode) {
     this.gatewayCode = gatewayCode;
   }

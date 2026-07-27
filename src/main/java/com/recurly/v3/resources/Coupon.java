@@ -245,7 +245,9 @@ public class Coupon extends Resource {
     return this.appliesToNonPlanCharges;
   }
 
-  /** @param appliesToNonPlanCharges The coupon is valid for one-time, non-plan charges if true. */
+  /**
+   * @param appliesToNonPlanCharges The coupon is valid for one-time, non-plan charges if true.
+   */
   public void setAppliesToNonPlanCharges(final Boolean appliesToNonPlanCharges) {
     this.appliesToNonPlanCharges = appliesToNonPlanCharges;
   }
@@ -255,7 +257,9 @@ public class Coupon extends Resource {
     return this.code;
   }
 
-  /** @param code The code the customer enters to redeem the coupon. */
+  /**
+   * @param code The code the customer enters to redeem the coupon.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -281,7 +285,9 @@ public class Coupon extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -337,7 +343,9 @@ public class Coupon extends Resource {
     return this.freeTrialAmount;
   }
 
-  /** @param freeTrialAmount Sets the duration of time the `free_trial_unit` is for. */
+  /**
+   * @param freeTrialAmount Sets the duration of time the `free_trial_unit` is for.
+   */
   public void setFreeTrialAmount(final Integer freeTrialAmount) {
     this.freeTrialAmount = freeTrialAmount;
   }
@@ -380,7 +388,9 @@ public class Coupon extends Resource {
     return this.id;
   }
 
-  /** @param id Coupon ID */
+  /**
+   * @param id Coupon ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -390,7 +400,9 @@ public class Coupon extends Resource {
     return this.invoiceDescription;
   }
 
-  /** @param invoiceDescription Description of the coupon on the invoice. */
+  /**
+   * @param invoiceDescription Description of the coupon on the invoice.
+   */
   public void setInvoiceDescription(final String invoiceDescription) {
     this.invoiceDescription = invoiceDescription;
   }
@@ -451,7 +463,9 @@ public class Coupon extends Resource {
     return this.name;
   }
 
-  /** @param name The internal name for the coupon. */
+  /**
+   * @param name The internal name for the coupon.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -461,7 +475,9 @@ public class Coupon extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -519,7 +535,9 @@ public class Coupon extends Resource {
     return this.state;
   }
 
-  /** @param state Indicates if the coupon is redeemable, and if it is not, why. */
+  /**
+   * @param state Indicates if the coupon is redeemable, and if it is not, why.
+   */
   public void setState(final Constants.CouponState state) {
     this.state = state;
   }
@@ -606,7 +624,9 @@ public class Coupon extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

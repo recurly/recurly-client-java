@@ -35,7 +35,9 @@ public class AccountBalance extends Resource {
     return this.account;
   }
 
-  /** @param account Account mini details */
+  /**
+   * @param account Account mini details
+   */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -44,7 +46,9 @@ public class AccountBalance extends Resource {
     return this.balances;
   }
 
-  /** @param balances */
+  /**
+   * @param balances
+   */
   public void setBalances(final List<AccountBalanceAmount> balances) {
     this.balances = balances;
   }
@@ -54,7 +58,9 @@ public class AccountBalance extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -63,7 +69,9 @@ public class AccountBalance extends Resource {
     return this.pastDue;
   }
 
-  /** @param pastDue */
+  /**
+   * @param pastDue
+   */
   public void setPastDue(final Boolean pastDue) {
     this.pastDue = pastDue;
   }

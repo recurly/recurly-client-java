@@ -116,7 +116,9 @@ public class TaxDetail extends Resource {
     return this.rate;
   }
 
-  /** @param rate Provides the tax rate for the region. */
+  /**
+   * @param rate Provides the tax rate for the region.
+   */
   public void setRate(final BigDecimal rate) {
     this.rate = rate;
   }
@@ -143,7 +145,9 @@ public class TaxDetail extends Resource {
     return this.tax;
   }
 
-  /** @param tax The total tax applied for this tax type. */
+  /**
+   * @param tax The total tax applied for this tax type.
+   */
   public void setTax(final BigDecimal tax) {
     this.tax = tax;
   }

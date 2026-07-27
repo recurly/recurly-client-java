@@ -166,7 +166,9 @@ public class Item extends Resource {
     return this.accountingCode;
   }
 
-  /** @param accountingCode Accounting code for invoice line items. */
+  /**
+   * @param accountingCode Accounting code for invoice line items.
+   */
   public void setAccountingCode(final String accountingCode) {
     this.accountingCode = accountingCode;
   }
@@ -216,7 +218,9 @@ public class Item extends Resource {
     return this.code;
   }
 
-  /** @param code Unique code to identify the item. */
+  /**
+   * @param code Unique code to identify the item.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -226,7 +230,9 @@ public class Item extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -236,7 +242,9 @@ public class Item extends Resource {
     return this.currencies;
   }
 
-  /** @param currencies Item Pricing */
+  /**
+   * @param currencies Item Pricing
+   */
   public void setCurrencies(final List<Pricing> currencies) {
     this.currencies = currencies;
   }
@@ -264,7 +272,9 @@ public class Item extends Resource {
     return this.deletedAt;
   }
 
-  /** @param deletedAt Deleted at */
+  /**
+   * @param deletedAt Deleted at
+   */
   public void setDeletedAt(final ZonedDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
@@ -274,7 +284,9 @@ public class Item extends Resource {
     return this.description;
   }
 
-  /** @param description Optional, description. */
+  /**
+   * @param description Optional, description.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -318,7 +330,9 @@ public class Item extends Resource {
     return this.id;
   }
 
-  /** @param id Item ID */
+  /**
+   * @param id Item ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -361,7 +375,9 @@ public class Item extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -404,7 +420,9 @@ public class Item extends Resource {
     return this.revenueScheduleType;
   }
 
-  /** @param revenueScheduleType Revenue schedule type */
+  /**
+   * @param revenueScheduleType Revenue schedule type
+   */
   public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
@@ -414,7 +432,9 @@ public class Item extends Resource {
     return this.state;
   }
 
-  /** @param state The current state of the item. */
+  /**
+   * @param state The current state of the item.
+   */
   public void setState(final Constants.ActiveState state) {
     this.state = state;
   }
@@ -444,7 +464,9 @@ public class Item extends Resource {
     return this.taxExempt;
   }
 
-  /** @param taxExempt `true` exempts tax on the item, `false` applies tax on the item. */
+  /**
+   * @param taxExempt `true` exempts tax on the item, `false` applies tax on the item.
+   */
   public void setTaxExempt(final Boolean taxExempt) {
     this.taxExempt = taxExempt;
   }
@@ -454,7 +476,9 @@ public class Item extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

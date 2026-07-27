@@ -98,7 +98,9 @@ public class SubscriptionAddOnTier extends Resource {
     return this.usagePercentage;
   }
 
-  /** @param usagePercentage (deprecated) -- Use the percentage_tiers object instead. */
+  /**
+   * @param usagePercentage (deprecated) -- Use the percentage_tiers object instead.
+   */
   public void setUsagePercentage(final String usagePercentage) {
     this.usagePercentage = usagePercentage;
   }

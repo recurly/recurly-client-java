@@ -84,7 +84,9 @@ public class ShippingAddressUpdate extends Request {
     return this.city;
   }
 
-  /** @param city */
+  /**
+   * @param city
+   */
   public void setCity(final String city) {
     this.city = city;
   }
@@ -93,7 +95,9 @@ public class ShippingAddressUpdate extends Request {
     return this.company;
   }
 
-  /** @param company */
+  /**
+   * @param company
+   */
   public void setCompany(final String company) {
     this.company = company;
   }
@@ -103,7 +107,9 @@ public class ShippingAddressUpdate extends Request {
     return this.country;
   }
 
-  /** @param country Country, 2-letter ISO 3166-1 alpha-2 code. */
+  /**
+   * @param country Country, 2-letter ISO 3166-1 alpha-2 code.
+   */
   public void setCountry(final String country) {
     this.country = country;
   }
@@ -112,7 +118,9 @@ public class ShippingAddressUpdate extends Request {
     return this.email;
   }
 
-  /** @param email */
+  /**
+   * @param email
+   */
   public void setEmail(final String email) {
     this.email = email;
   }
@@ -121,7 +129,9 @@ public class ShippingAddressUpdate extends Request {
     return this.firstName;
   }
 
-  /** @param firstName */
+  /**
+   * @param firstName
+   */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
   }
@@ -147,7 +157,9 @@ public class ShippingAddressUpdate extends Request {
     return this.id;
   }
 
-  /** @param id Shipping Address ID */
+  /**
+   * @param id Shipping Address ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -156,7 +168,9 @@ public class ShippingAddressUpdate extends Request {
     return this.lastName;
   }
 
-  /** @param lastName */
+  /**
+   * @param lastName
+   */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
   }
@@ -165,7 +179,9 @@ public class ShippingAddressUpdate extends Request {
     return this.nickname;
   }
 
-  /** @param nickname */
+  /**
+   * @param nickname
+   */
   public void setNickname(final String nickname) {
     this.nickname = nickname;
   }
@@ -174,7 +190,9 @@ public class ShippingAddressUpdate extends Request {
     return this.phone;
   }
 
-  /** @param phone */
+  /**
+   * @param phone
+   */
   public void setPhone(final String phone) {
     this.phone = phone;
   }
@@ -184,7 +202,9 @@ public class ShippingAddressUpdate extends Request {
     return this.postalCode;
   }
 
-  /** @param postalCode Zip or postal code. */
+  /**
+   * @param postalCode Zip or postal code.
+   */
   public void setPostalCode(final String postalCode) {
     this.postalCode = postalCode;
   }
@@ -194,7 +214,9 @@ public class ShippingAddressUpdate extends Request {
     return this.region;
   }
 
-  /** @param region State or province. */
+  /**
+   * @param region State or province.
+   */
   public void setRegion(final String region) {
     this.region = region;
   }
@@ -203,7 +225,9 @@ public class ShippingAddressUpdate extends Request {
     return this.street1;
   }
 
-  /** @param street1 */
+  /**
+   * @param street1
+   */
   public void setStreet1(final String street1) {
     this.street1 = street1;
   }
@@ -212,7 +236,9 @@ public class ShippingAddressUpdate extends Request {
     return this.street2;
   }
 
-  /** @param street2 */
+  /**
+   * @param street2
+   */
   public void setStreet2(final String street2) {
     this.street2 = street2;
   }
@@ -221,7 +247,9 @@ public class ShippingAddressUpdate extends Request {
     return this.vatNumber;
   }
 
-  /** @param vatNumber */
+  /**
+   * @param vatNumber
+   */
   public void setVatNumber(final String vatNumber) {
     this.vatNumber = vatNumber;
   }

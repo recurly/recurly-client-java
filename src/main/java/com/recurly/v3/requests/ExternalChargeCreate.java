@@ -38,7 +38,9 @@ public class ExternalChargeCreate extends Request {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -47,7 +49,9 @@ public class ExternalChargeCreate extends Request {
     return this.description;
   }
 
-  /** @param description */
+  /**
+   * @param description
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -56,7 +60,9 @@ public class ExternalChargeCreate extends Request {
     return this.externalProductReference;
   }
 
-  /** @param externalProductReference */
+  /**
+   * @param externalProductReference
+   */
   public void setExternalProductReference(
       final ExternalProductReferenceCreate externalProductReference) {
     this.externalProductReference = externalProductReference;
@@ -66,7 +72,9 @@ public class ExternalChargeCreate extends Request {
     return this.quantity;
   }
 
-  /** @param quantity */
+  /**
+   * @param quantity
+   */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
   }
@@ -75,7 +83,9 @@ public class ExternalChargeCreate extends Request {
     return this.unitAmount;
   }
 
-  /** @param unitAmount */
+  /**
+   * @param unitAmount
+   */
   public void setUnitAmount(final String unitAmount) {
     this.unitAmount = unitAmount;
   }

@@ -140,7 +140,9 @@ public class SubscriptionAddOn extends Resource {
     return this.addOn;
   }
 
-  /** @param addOn Just the important parts. */
+  /**
+   * @param addOn Just the important parts.
+   */
   public void setAddOn(final AddOnMini addOn) {
     this.addOn = addOn;
   }
@@ -171,7 +173,9 @@ public class SubscriptionAddOn extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -181,7 +185,9 @@ public class SubscriptionAddOn extends Resource {
     return this.expiredAt;
   }
 
-  /** @param expiredAt Expired at */
+  /**
+   * @param expiredAt Expired at
+   */
   public void setExpiredAt(final ZonedDateTime expiredAt) {
     this.expiredAt = expiredAt;
   }
@@ -191,7 +197,9 @@ public class SubscriptionAddOn extends Resource {
     return this.id;
   }
 
-  /** @param id Subscription Add-on ID */
+  /**
+   * @param id Subscription Add-on ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -201,7 +209,9 @@ public class SubscriptionAddOn extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -234,7 +244,9 @@ public class SubscriptionAddOn extends Resource {
     return this.quantity;
   }
 
-  /** @param quantity Add-on quantity */
+  /**
+   * @param quantity Add-on quantity
+   */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
   }
@@ -244,7 +256,9 @@ public class SubscriptionAddOn extends Resource {
     return this.revenueScheduleType;
   }
 
-  /** @param revenueScheduleType Revenue schedule type */
+  /**
+   * @param revenueScheduleType Revenue schedule type
+   */
   public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
@@ -254,7 +268,9 @@ public class SubscriptionAddOn extends Resource {
     return this.subscriptionId;
   }
 
-  /** @param subscriptionId Subscription ID */
+  /**
+   * @param subscriptionId Subscription ID
+   */
   public void setSubscriptionId(final String subscriptionId) {
     this.subscriptionId = subscriptionId;
   }
@@ -304,7 +320,9 @@ public class SubscriptionAddOn extends Resource {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Supports up to 2 decimal places. */
+  /**
+   * @param unitAmount Supports up to 2 decimal places.
+   */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
@@ -314,7 +332,9 @@ public class SubscriptionAddOn extends Resource {
     return this.unitAmountDecimal;
   }
 
-  /** @param unitAmountDecimal Supports up to 9 decimal places. */
+  /**
+   * @param unitAmountDecimal Supports up to 9 decimal places.
+   */
   public void setUnitAmountDecimal(final String unitAmountDecimal) {
     this.unitAmountDecimal = unitAmountDecimal;
   }
@@ -324,7 +344,9 @@ public class SubscriptionAddOn extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Updated at */
+  /**
+   * @param updatedAt Updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -372,7 +394,9 @@ public class SubscriptionAddOn extends Resource {
     return this.usageTimeframe;
   }
 
-  /** @param usageTimeframe The time at which usage totals are reset for billing purposes. */
+  /**
+   * @param usageTimeframe The time at which usage totals are reset for billing purposes.
+   */
   public void setUsageTimeframe(final Constants.UsageTimeframe usageTimeframe) {
     this.usageTimeframe = usageTimeframe;
   }

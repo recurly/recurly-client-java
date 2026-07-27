@@ -70,7 +70,9 @@ public class Site extends Resource {
     return this.address;
   }
 
-  /** @param address */
+  /**
+   * @param address
+   */
   public void setAddress(final Address address) {
     this.address = address;
   }
@@ -80,7 +82,9 @@ public class Site extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -90,7 +94,9 @@ public class Site extends Resource {
     return this.deletedAt;
   }
 
-  /** @param deletedAt Deleted at */
+  /**
+   * @param deletedAt Deleted at
+   */
   public void setDeletedAt(final ZonedDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
@@ -100,7 +106,9 @@ public class Site extends Resource {
     return this.features;
   }
 
-  /** @param features A list of features enabled for the site. */
+  /**
+   * @param features A list of features enabled for the site.
+   */
   public void setFeatures(final List<Constants.Features> features) {
     this.features = features;
   }
@@ -110,7 +118,9 @@ public class Site extends Resource {
     return this.id;
   }
 
-  /** @param id Site ID */
+  /**
+   * @param id Site ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -120,7 +130,9 @@ public class Site extends Resource {
     return this.mode;
   }
 
-  /** @param mode Mode */
+  /**
+   * @param mode Mode
+   */
   public void setMode(final Constants.SiteMode mode) {
     this.mode = mode;
   }
@@ -130,7 +142,9 @@ public class Site extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -152,7 +166,9 @@ public class Site extends Resource {
     return this.settings;
   }
 
-  /** @param settings */
+  /**
+   * @param settings
+   */
   public void setSettings(final Settings settings) {
     this.settings = settings;
   }
@@ -161,7 +177,9 @@ public class Site extends Resource {
     return this.subdomain;
   }
 
-  /** @param subdomain */
+  /**
+   * @param subdomain
+   */
   public void setSubdomain(final String subdomain) {
     this.subdomain = subdomain;
   }
@@ -171,7 +189,9 @@ public class Site extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Updated at */
+  /**
+   * @param updatedAt Updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

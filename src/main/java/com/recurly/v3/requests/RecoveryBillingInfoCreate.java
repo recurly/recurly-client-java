@@ -91,7 +91,9 @@ public class RecoveryBillingInfoCreate extends Request {
     return this.address;
   }
 
-  /** @param address */
+  /**
+   * @param address
+   */
   public void setAddress(final RecoveryAddress address) {
     this.address = address;
   }
@@ -124,7 +126,9 @@ public class RecoveryBillingInfoCreate extends Request {
     return this.company;
   }
 
-  /** @param company Company name */
+  /**
+   * @param company Company name
+   */
   public void setCompany(final String company) {
     this.company = company;
   }
@@ -134,7 +138,9 @@ public class RecoveryBillingInfoCreate extends Request {
     return this.firstName;
   }
 
-  /** @param firstName First name */
+  /**
+   * @param firstName First name
+   */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
   }
@@ -144,7 +150,9 @@ public class RecoveryBillingInfoCreate extends Request {
     return this.gatewayCode;
   }
 
-  /** @param gatewayCode An identifier for a specific payment gateway. */
+  /**
+   * @param gatewayCode An identifier for a specific payment gateway.
+   */
   public void setGatewayCode(final String gatewayCode) {
     this.gatewayCode = gatewayCode;
   }
@@ -167,7 +175,9 @@ public class RecoveryBillingInfoCreate extends Request {
     return this.lastName;
   }
 
-  /** @param lastName Last name */
+  /**
+   * @param lastName Last name
+   */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
   }
@@ -236,7 +246,9 @@ public class RecoveryBillingInfoCreate extends Request {
     return this.transactions;
   }
 
-  /** @param transactions Transactions from previous collection attempts for this payment method. */
+  /**
+   * @param transactions Transactions from previous collection attempts for this payment method.
+   */
   public void setTransactions(final List<RecoveryTransactionCreate> transactions) {
     this.transactions = transactions;
   }

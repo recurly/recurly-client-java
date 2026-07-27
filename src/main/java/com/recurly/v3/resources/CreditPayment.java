@@ -90,7 +90,9 @@ public class CreditPayment extends Resource {
     return this.account;
   }
 
-  /** @param account Account mini details */
+  /**
+   * @param account Account mini details
+   */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -100,7 +102,9 @@ public class CreditPayment extends Resource {
     return this.action;
   }
 
-  /** @param action The action for which the credit was created. */
+  /**
+   * @param action The action for which the credit was created.
+   */
   public void setAction(final Constants.CreditPaymentAction action) {
     this.action = action;
   }
@@ -110,7 +114,9 @@ public class CreditPayment extends Resource {
     return this.amount;
   }
 
-  /** @param amount Total credit payment amount applied to the charge invoice. */
+  /**
+   * @param amount Total credit payment amount applied to the charge invoice.
+   */
   public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
@@ -120,7 +126,9 @@ public class CreditPayment extends Resource {
     return this.appliedToInvoice;
   }
 
-  /** @param appliedToInvoice Invoice mini details */
+  /**
+   * @param appliedToInvoice Invoice mini details
+   */
   public void setAppliedToInvoice(final InvoiceMini appliedToInvoice) {
     this.appliedToInvoice = appliedToInvoice;
   }
@@ -130,7 +138,9 @@ public class CreditPayment extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -140,7 +150,9 @@ public class CreditPayment extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -150,7 +162,9 @@ public class CreditPayment extends Resource {
     return this.id;
   }
 
-  /** @param id Credit Payment ID */
+  /**
+   * @param id Credit Payment ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -160,7 +174,9 @@ public class CreditPayment extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -183,7 +199,9 @@ public class CreditPayment extends Resource {
     return this.originalInvoice;
   }
 
-  /** @param originalInvoice Invoice mini details */
+  /**
+   * @param originalInvoice Invoice mini details
+   */
   public void setOriginalInvoice(final InvoiceMini originalInvoice) {
     this.originalInvoice = originalInvoice;
   }
@@ -192,7 +210,9 @@ public class CreditPayment extends Resource {
     return this.refundTransaction;
   }
 
-  /** @param refundTransaction */
+  /**
+   * @param refundTransaction
+   */
   public void setRefundTransaction(final Transaction refundTransaction) {
     this.refundTransaction = refundTransaction;
   }
@@ -202,7 +222,9 @@ public class CreditPayment extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -227,7 +249,9 @@ public class CreditPayment extends Resource {
     return this.voidedAt;
   }
 
-  /** @param voidedAt Voided at */
+  /**
+   * @param voidedAt Voided at
+   */
   public void setVoidedAt(final ZonedDateTime voidedAt) {
     this.voidedAt = voidedAt;
   }

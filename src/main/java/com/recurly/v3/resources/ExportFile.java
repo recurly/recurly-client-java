@@ -31,7 +31,9 @@ public class ExportFile extends Resource {
     return this.href;
   }
 
-  /** @param href A presigned link to download the export file. */
+  /**
+   * @param href A presigned link to download the export file.
+   */
   public void setHref(final String href) {
     this.href = href;
   }
@@ -41,7 +43,9 @@ public class ExportFile extends Resource {
     return this.md5sum;
   }
 
-  /** @param md5sum MD5 hash of the export file. */
+  /**
+   * @param md5sum MD5 hash of the export file.
+   */
   public void setMd5sum(final String md5sum) {
     this.md5sum = md5sum;
   }
@@ -51,7 +55,9 @@ public class ExportFile extends Resource {
     return this.name;
   }
 
-  /** @param name Name of the export file. */
+  /**
+   * @param name Name of the export file.
+   */
   public void setName(final String name) {
     this.name = name;
   }

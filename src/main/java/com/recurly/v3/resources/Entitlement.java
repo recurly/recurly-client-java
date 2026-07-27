@@ -42,7 +42,9 @@ public class Entitlement extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Time object was created. */
+  /**
+   * @param createdAt Time object was created.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -51,7 +53,9 @@ public class Entitlement extends Resource {
     return this.customerPermission;
   }
 
-  /** @param customerPermission */
+  /**
+   * @param customerPermission
+   */
   public void setCustomerPermission(final CustomerPermission customerPermission) {
     this.customerPermission = customerPermission;
   }
@@ -61,7 +65,9 @@ public class Entitlement extends Resource {
     return this.grantedBy;
   }
 
-  /** @param grantedBy Subscription or item that granted the customer permission. */
+  /**
+   * @param grantedBy Subscription or item that granted the customer permission.
+   */
   public void setGrantedBy(final List<GrantedBy> grantedBy) {
     this.grantedBy = grantedBy;
   }
@@ -71,7 +77,9 @@ public class Entitlement extends Resource {
     return this.object;
   }
 
-  /** @param object Entitlement */
+  /**
+   * @param object Entitlement
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -81,7 +89,9 @@ public class Entitlement extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Time the object was last updated */
+  /**
+   * @param updatedAt Time the object was last updated
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

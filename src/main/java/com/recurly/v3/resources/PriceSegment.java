@@ -31,7 +31,9 @@ public class PriceSegment extends Resource {
     return this.code;
   }
 
-  /** @param code The price segment code, e.g. `my-price-segment`. */
+  /**
+   * @param code The price segment code, e.g. `my-price-segment`.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -41,7 +43,9 @@ public class PriceSegment extends Resource {
     return this.id;
   }
 
-  /** @param id The price segment ID, e.g. `e28zov4fw0v2`. */
+  /**
+   * @param id The price segment ID, e.g. `e28zov4fw0v2`.
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -51,7 +55,9 @@ public class PriceSegment extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }

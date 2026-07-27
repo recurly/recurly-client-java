@@ -28,7 +28,9 @@ public class AccountAcquisitionCost extends Request {
     return this.amount;
   }
 
-  /** @param amount The amount of the corresponding currency used to acquire the account. */
+  /**
+   * @param amount The amount of the corresponding currency used to acquire the account.
+   */
   public void setAmount(final BigDecimal amount) {
     this.amount = amount;
   }
@@ -38,7 +40,9 @@ public class AccountAcquisitionCost extends Request {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }

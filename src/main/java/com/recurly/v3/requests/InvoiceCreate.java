@@ -124,6 +124,16 @@ public class InvoiceCreate extends Request {
   private String termsAndConditions;
 
   /**
+   * Optionally overrides the suffix component of the composed transaction descriptor. If omitted,
+   * the suffix is derived from the subscription's plan name or the invoice description, with a
+   * Trial prefix on Visa trial conversions. Subject to gateway availability and payment method
+   * support.
+   */
+  @SerializedName("transaction_descriptor_suffix")
+  @Expose
+  private String transactionDescriptorSuffix;
+
+  /**
    * VAT Reverse Charge Notes only appear if you have EU VAT enabled or are using your own Avalara
    * AvaTax account and the customer is in the EU, has a VAT number, and is in a different country
    * than your own. This will default to the VAT Reverse Charge Notes text specified on the Tax
@@ -258,7 +268,9 @@ public class InvoiceCreate extends Request {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -360,6 +372,26 @@ public class InvoiceCreate extends Request {
    */
   public void setTermsAndConditions(final String termsAndConditions) {
     this.termsAndConditions = termsAndConditions;
+  }
+
+  /**
+   * Optionally overrides the suffix component of the composed transaction descriptor. If omitted,
+   * the suffix is derived from the subscription's plan name or the invoice description, with a
+   * Trial prefix on Visa trial conversions. Subject to gateway availability and payment method
+   * support.
+   */
+  public String getTransactionDescriptorSuffix() {
+    return this.transactionDescriptorSuffix;
+  }
+
+  /**
+   * @param transactionDescriptorSuffix Optionally overrides the suffix component of the composed
+   *     transaction descriptor. If omitted, the suffix is derived from the subscription's plan name
+   *     or the invoice description, with a Trial prefix on Visa trial conversions. Subject to
+   *     gateway availability and payment method support.
+   */
+  public void setTransactionDescriptorSuffix(final String transactionDescriptorSuffix) {
+    this.transactionDescriptorSuffix = transactionDescriptorSuffix;
   }
 
   /**

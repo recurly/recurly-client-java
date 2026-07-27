@@ -188,7 +188,9 @@ public class SubscriptionAddOnUpdate extends Request {
     return this.quantity;
   }
 
-  /** @param quantity Quantity */
+  /**
+   * @param quantity Quantity
+   */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
   }
@@ -198,7 +200,9 @@ public class SubscriptionAddOnUpdate extends Request {
     return this.revenueScheduleType;
   }
 
-  /** @param revenueScheduleType Revenue schedule type */
+  /**
+   * @param revenueScheduleType Revenue schedule type
+   */
   public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }

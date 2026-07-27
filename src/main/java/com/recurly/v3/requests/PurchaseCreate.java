@@ -191,7 +191,9 @@ public class PurchaseCreate extends Request {
     return this.account;
   }
 
-  /** @param account */
+  /**
+   * @param account
+   */
   public void setAccount(final AccountPurchase account) {
     this.account = account;
   }
@@ -329,7 +331,9 @@ public class PurchaseCreate extends Request {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -339,7 +343,9 @@ public class PurchaseCreate extends Request {
     return this.customerNotes;
   }
 
-  /** @param customerNotes Customer notes */
+  /**
+   * @param customerNotes Customer notes
+   */
   public void setCustomerNotes(final String customerNotes) {
     this.customerNotes = customerNotes;
   }
@@ -379,7 +385,9 @@ public class PurchaseCreate extends Request {
     return this.lineItems;
   }
 
-  /** @param lineItems A list of one time charges or credits to be created with the purchase. */
+  /**
+   * @param lineItems A list of one time charges or credits to be created with the purchase.
+   */
   public void setLineItems(final List<LineItemCreate> lineItems) {
     this.lineItems = lineItems;
   }
@@ -470,7 +478,9 @@ public class PurchaseCreate extends Request {
     return this.shipping;
   }
 
-  /** @param shipping */
+  /**
+   * @param shipping
+   */
   public void setShipping(final ShippingPurchase shipping) {
     this.shipping = shipping;
   }
@@ -480,7 +490,9 @@ public class PurchaseCreate extends Request {
     return this.subscriptions;
   }
 
-  /** @param subscriptions A list of subscriptions to be created with the purchase. */
+  /**
+   * @param subscriptions A list of subscriptions to be created with the purchase.
+   */
   public void setSubscriptions(final List<SubscriptionPurchase> subscriptions) {
     this.subscriptions = subscriptions;
   }
@@ -490,7 +502,9 @@ public class PurchaseCreate extends Request {
     return this.termsAndConditions;
   }
 
-  /** @param termsAndConditions Terms and conditions to be put on the purchase invoice. */
+  /**
+   * @param termsAndConditions Terms and conditions to be put on the purchase invoice.
+   */
   public void setTermsAndConditions(final String termsAndConditions) {
     this.termsAndConditions = termsAndConditions;
   }

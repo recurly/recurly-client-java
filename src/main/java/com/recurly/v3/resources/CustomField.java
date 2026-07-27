@@ -43,7 +43,9 @@ public class CustomField extends Resource {
     return this.name;
   }
 
-  /** @param name Fields must be created in the UI before values can be assigned to them. */
+  /**
+   * @param name Fields must be created in the UI before values can be assigned to them.
+   */
   public void setName(final String name) {
     this.name = name;
   }

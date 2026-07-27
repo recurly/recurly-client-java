@@ -80,7 +80,9 @@ public class ExternalInvoice extends Resource {
     return this.account;
   }
 
-  /** @param account Account mini details */
+  /**
+   * @param account Account mini details
+   */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -90,7 +92,9 @@ public class ExternalInvoice extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt When the external invoice was created in Recurly. */
+  /**
+   * @param createdAt When the external invoice was created in Recurly.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -100,7 +104,9 @@ public class ExternalInvoice extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -150,7 +156,9 @@ public class ExternalInvoice extends Resource {
     return this.lineItems;
   }
 
-  /** @param lineItems */
+  /**
+   * @param lineItems
+   */
   public void setLineItems(final List<ExternalCharge> lineItems) {
     this.lineItems = lineItems;
   }
@@ -160,7 +168,9 @@ public class ExternalInvoice extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -170,7 +180,9 @@ public class ExternalInvoice extends Resource {
     return this.purchasedAt;
   }
 
-  /** @param purchasedAt When the invoice was created in the external platform. */
+  /**
+   * @param purchasedAt When the invoice was created in the external platform.
+   */
   public void setPurchasedAt(final ZonedDateTime purchasedAt) {
     this.purchasedAt = purchasedAt;
   }
@@ -179,7 +191,9 @@ public class ExternalInvoice extends Resource {
     return this.state;
   }
 
-  /** @param state */
+  /**
+   * @param state
+   */
   public void setState(final Constants.ExternalInvoiceState state) {
     this.state = state;
   }
@@ -189,7 +203,9 @@ public class ExternalInvoice extends Resource {
     return this.total;
   }
 
-  /** @param total Total */
+  /**
+   * @param total Total
+   */
   public void setTotal(final String total) {
     this.total = total;
   }
@@ -199,7 +215,9 @@ public class ExternalInvoice extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt When the external invoice was updated in Recurly. */
+  /**
+   * @param updatedAt When the external invoice was updated in Recurly.
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

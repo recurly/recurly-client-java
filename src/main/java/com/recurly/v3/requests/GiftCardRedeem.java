@@ -22,7 +22,9 @@ public class GiftCardRedeem extends Request {
     return this.recipientAccount;
   }
 
-  /** @param recipientAccount The account for the recipient of the gift card. */
+  /**
+   * @param recipientAccount The account for the recipient of the gift card.
+   */
   public void setRecipientAccount(final AccountReference recipientAccount) {
     this.recipientAccount = recipientAccount;
   }

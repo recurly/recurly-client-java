@@ -34,7 +34,9 @@ public class ShippingPurchase extends Request {
     return this.address;
   }
 
-  /** @param address */
+  /**
+   * @param address
+   */
   public void setAddress(final ShippingAddressCreate address) {
     this.address = address;
   }
@@ -60,7 +62,9 @@ public class ShippingPurchase extends Request {
     return this.fees;
   }
 
-  /** @param fees A list of shipping fees to be created as charges with the purchase. */
+  /**
+   * @param fees A list of shipping fees to be created as charges with the purchase.
+   */
   public void setFees(final List<ShippingFeeCreate> fees) {
     this.fees = fees;
   }

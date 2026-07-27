@@ -68,7 +68,9 @@ public class UniqueCouponCode extends Resource {
     return this.bulkCouponCode;
   }
 
-  /** @param bulkCouponCode The Coupon code of the parent Bulk Coupon */
+  /**
+   * @param bulkCouponCode The Coupon code of the parent Bulk Coupon
+   */
   public void setBulkCouponCode(final String bulkCouponCode) {
     this.bulkCouponCode = bulkCouponCode;
   }
@@ -78,7 +80,9 @@ public class UniqueCouponCode extends Resource {
     return this.bulkCouponId;
   }
 
-  /** @param bulkCouponId The Coupon ID of the parent Bulk Coupon */
+  /**
+   * @param bulkCouponId The Coupon ID of the parent Bulk Coupon
+   */
   public void setBulkCouponId(final String bulkCouponId) {
     this.bulkCouponId = bulkCouponId;
   }
@@ -88,7 +92,9 @@ public class UniqueCouponCode extends Resource {
     return this.code;
   }
 
-  /** @param code The code the customer enters to redeem the coupon. */
+  /**
+   * @param code The code the customer enters to redeem the coupon.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -98,7 +104,9 @@ public class UniqueCouponCode extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -121,7 +129,9 @@ public class UniqueCouponCode extends Resource {
     return this.id;
   }
 
-  /** @param id Unique Coupon Code ID */
+  /**
+   * @param id Unique Coupon Code ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -131,7 +141,9 @@ public class UniqueCouponCode extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -141,7 +153,9 @@ public class UniqueCouponCode extends Resource {
     return this.redeemedAt;
   }
 
-  /** @param redeemedAt The date and time the unique coupon code was redeemed. */
+  /**
+   * @param redeemedAt The date and time the unique coupon code was redeemed.
+   */
   public void setRedeemedAt(final ZonedDateTime redeemedAt) {
     this.redeemedAt = redeemedAt;
   }
@@ -151,7 +165,9 @@ public class UniqueCouponCode extends Resource {
     return this.state;
   }
 
-  /** @param state Indicates if the unique coupon code is redeemable or why not. */
+  /**
+   * @param state Indicates if the unique coupon code is redeemable or why not.
+   */
   public void setState(final Constants.CouponCodeState state) {
     this.state = state;
   }
@@ -161,7 +177,9 @@ public class UniqueCouponCode extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Updated at */
+  /**
+   * @param updatedAt Updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

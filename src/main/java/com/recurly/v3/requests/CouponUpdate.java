@@ -76,7 +76,9 @@ public class CouponUpdate extends Request {
     return this.invoiceDescription;
   }
 
-  /** @param invoiceDescription Description of the coupon on the invoice. */
+  /**
+   * @param invoiceDescription Description of the coupon on the invoice.
+   */
   public void setInvoiceDescription(final String invoiceDescription) {
     this.invoiceDescription = invoiceDescription;
   }
@@ -121,7 +123,9 @@ public class CouponUpdate extends Request {
     return this.name;
   }
 
-  /** @param name The internal name for the coupon. */
+  /**
+   * @param name The internal name for the coupon.
+   */
   public void setName(final String name) {
     this.name = name;
   }

@@ -133,7 +133,9 @@ public class SubscriptionChange extends Resource {
     return this.activateAt;
   }
 
-  /** @param activateAt Activated at */
+  /**
+   * @param activateAt Activated at
+   */
   public void setActivateAt(final ZonedDateTime activateAt) {
     this.activateAt = activateAt;
   }
@@ -143,7 +145,9 @@ public class SubscriptionChange extends Resource {
     return this.activated;
   }
 
-  /** @param activated Returns `true` if the subscription change is activated. */
+  /**
+   * @param activated Returns `true` if the subscription change is activated.
+   */
   public void setActivated(final Boolean activated) {
     this.activated = activated;
   }
@@ -153,7 +157,9 @@ public class SubscriptionChange extends Resource {
     return this.addOns;
   }
 
-  /** @param addOns These add-ons will be used when the subscription renews. */
+  /**
+   * @param addOns These add-ons will be used when the subscription renews.
+   */
   public void setAddOns(final List<SubscriptionAddOn> addOns) {
     this.addOns = addOns;
   }
@@ -163,7 +169,9 @@ public class SubscriptionChange extends Resource {
     return this.billingInfo;
   }
 
-  /** @param billingInfo Accept nested attributes for three_d_secure_action_result_token_id */
+  /**
+   * @param billingInfo Accept nested attributes for three_d_secure_action_result_token_id
+   */
   public void setBillingInfo(final SubscriptionChangeBillingInfo billingInfo) {
     this.billingInfo = billingInfo;
   }
@@ -173,7 +181,9 @@ public class SubscriptionChange extends Resource {
     return this.businessEntity;
   }
 
-  /** @param businessEntity Business entity details */
+  /**
+   * @param businessEntity Business entity details
+   */
   public void setBusinessEntity(final BusinessEntityMini businessEntity) {
     this.businessEntity = businessEntity;
   }
@@ -183,7 +193,9 @@ public class SubscriptionChange extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -211,7 +223,9 @@ public class SubscriptionChange extends Resource {
     return this.deletedAt;
   }
 
-  /** @param deletedAt Deleted at */
+  /**
+   * @param deletedAt Deleted at
+   */
   public void setDeletedAt(final ZonedDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
@@ -221,7 +235,9 @@ public class SubscriptionChange extends Resource {
     return this.id;
   }
 
-  /** @param id The ID of the Subscription Change. */
+  /**
+   * @param id The ID of the Subscription Change.
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -231,7 +247,9 @@ public class SubscriptionChange extends Resource {
     return this.invoiceCollection;
   }
 
-  /** @param invoiceCollection Invoice Collection */
+  /**
+   * @param invoiceCollection Invoice Collection
+   */
   public void setInvoiceCollection(final InvoiceCollection invoiceCollection) {
     this.invoiceCollection = invoiceCollection;
   }
@@ -259,7 +277,9 @@ public class SubscriptionChange extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -269,7 +289,9 @@ public class SubscriptionChange extends Resource {
     return this.plan;
   }
 
-  /** @param plan Just the important parts. */
+  /**
+   * @param plan Just the important parts.
+   */
   public void setPlan(final PlanMini plan) {
     this.plan = plan;
   }
@@ -279,7 +301,9 @@ public class SubscriptionChange extends Resource {
     return this.quantity;
   }
 
-  /** @param quantity Subscription quantity */
+  /**
+   * @param quantity Subscription quantity
+   */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
   }
@@ -301,7 +325,9 @@ public class SubscriptionChange extends Resource {
     return this.revenueScheduleType;
   }
 
-  /** @param revenueScheduleType Revenue schedule type */
+  /**
+   * @param revenueScheduleType Revenue schedule type
+   */
   public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
@@ -311,7 +337,9 @@ public class SubscriptionChange extends Resource {
     return this.shipping;
   }
 
-  /** @param shipping Subscription shipping details */
+  /**
+   * @param shipping Subscription shipping details
+   */
   public void setShipping(final SubscriptionShipping shipping) {
     this.shipping = shipping;
   }
@@ -321,7 +349,9 @@ public class SubscriptionChange extends Resource {
     return this.subscriptionId;
   }
 
-  /** @param subscriptionId The ID of the subscription that is going to be changed. */
+  /**
+   * @param subscriptionId The ID of the subscription that is going to be changed.
+   */
   public void setSubscriptionId(final String subscriptionId) {
     this.subscriptionId = subscriptionId;
   }
@@ -331,7 +361,9 @@ public class SubscriptionChange extends Resource {
     return this.taxInclusive;
   }
 
-  /** @param taxInclusive This field is deprecated. Please do not use it. */
+  /**
+   * @param taxInclusive This field is deprecated. Please do not use it.
+   */
   public void setTaxInclusive(final Boolean taxInclusive) {
     this.taxInclusive = taxInclusive;
   }
@@ -341,7 +373,9 @@ public class SubscriptionChange extends Resource {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Unit amount */
+  /**
+   * @param unitAmount Unit amount
+   */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }
@@ -351,7 +385,9 @@ public class SubscriptionChange extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Updated at */
+  /**
+   * @param updatedAt Updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

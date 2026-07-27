@@ -28,7 +28,9 @@ public class SubscriptionRampInterval extends Request {
     return this.startingBillingCycle;
   }
 
-  /** @param startingBillingCycle Represents the billing cycle where a ramp interval starts. */
+  /**
+   * @param startingBillingCycle Represents the billing cycle where a ramp interval starts.
+   */
   public void setStartingBillingCycle(final Integer startingBillingCycle) {
     this.startingBillingCycle = startingBillingCycle;
   }
@@ -38,7 +40,9 @@ public class SubscriptionRampInterval extends Request {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Represents the price for the ramp interval. */
+  /**
+   * @param unitAmount Represents the price for the ramp interval.
+   */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }

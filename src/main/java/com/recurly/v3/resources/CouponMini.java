@@ -64,7 +64,9 @@ public class CouponMini extends Resource {
     return this.code;
   }
 
-  /** @param code The code the customer enters to redeem the coupon. */
+  /**
+   * @param code The code the customer enters to redeem the coupon.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -119,7 +121,9 @@ public class CouponMini extends Resource {
     return this.id;
   }
 
-  /** @param id Coupon ID */
+  /**
+   * @param id Coupon ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -129,7 +133,9 @@ public class CouponMini extends Resource {
     return this.name;
   }
 
-  /** @param name The internal name for the coupon. */
+  /**
+   * @param name The internal name for the coupon.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -139,7 +145,9 @@ public class CouponMini extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -149,7 +157,9 @@ public class CouponMini extends Resource {
     return this.state;
   }
 
-  /** @param state Indicates if the coupon is redeemable, and if it is not, why. */
+  /**
+   * @param state Indicates if the coupon is redeemable, and if it is not, why.
+   */
   public void setState(final Constants.CouponState state) {
     this.state = state;
   }

@@ -43,7 +43,9 @@ public class SubscriptionRampIntervalResponse extends Resource {
     return this.endingOn;
   }
 
-  /** @param endingOn Date the ramp interval ends */
+  /**
+   * @param endingOn Date the ramp interval ends
+   */
   public void setEndingOn(final ZonedDateTime endingOn) {
     this.endingOn = endingOn;
   }
@@ -65,7 +67,9 @@ public class SubscriptionRampIntervalResponse extends Resource {
     return this.startingBillingCycle;
   }
 
-  /** @param startingBillingCycle Represents the billing cycle where a ramp interval starts. */
+  /**
+   * @param startingBillingCycle Represents the billing cycle where a ramp interval starts.
+   */
   public void setStartingBillingCycle(final Integer startingBillingCycle) {
     this.startingBillingCycle = startingBillingCycle;
   }
@@ -75,7 +79,9 @@ public class SubscriptionRampIntervalResponse extends Resource {
     return this.startingOn;
   }
 
-  /** @param startingOn Date the ramp interval starts */
+  /**
+   * @param startingOn Date the ramp interval starts
+   */
   public void setStartingOn(final ZonedDateTime startingOn) {
     this.startingOn = startingOn;
   }
@@ -85,7 +91,9 @@ public class SubscriptionRampIntervalResponse extends Resource {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Represents the price for the ramp interval. */
+  /**
+   * @param unitAmount Represents the price for the ramp interval.
+   */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }

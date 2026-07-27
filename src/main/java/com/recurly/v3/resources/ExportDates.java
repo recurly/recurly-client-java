@@ -27,7 +27,9 @@ public class ExportDates extends Resource {
     return this.dates;
   }
 
-  /** @param dates An array of dates that have available exports. */
+  /**
+   * @param dates An array of dates that have available exports.
+   */
   public void setDates(final List<String> dates) {
     this.dates = dates;
   }
@@ -37,7 +39,9 @@ public class ExportDates extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }

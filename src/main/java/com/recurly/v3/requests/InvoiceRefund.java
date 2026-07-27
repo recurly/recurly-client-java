@@ -148,7 +148,9 @@ public class InvoiceRefund extends Request {
     return this.lineItems;
   }
 
-  /** @param lineItems The line items to be refunded. This is required when `type=line_items`. */
+  /**
+   * @param lineItems The line items to be refunded. This is required when `type=line_items`.
+   */
   public void setLineItems(final List<LineItemRefund> lineItems) {
     this.lineItems = lineItems;
   }

@@ -66,7 +66,9 @@ public class InvoiceMini extends Resource {
     return this.id;
   }
 
-  /** @param id Invoice ID */
+  /**
+   * @param id Invoice ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -76,7 +78,9 @@ public class InvoiceMini extends Resource {
     return this.number;
   }
 
-  /** @param number Invoice number */
+  /**
+   * @param number Invoice number
+   */
   public void setNumber(final String number) {
     this.number = number;
   }
@@ -86,7 +90,9 @@ public class InvoiceMini extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -96,7 +102,9 @@ public class InvoiceMini extends Resource {
     return this.state;
   }
 
-  /** @param state Invoice state */
+  /**
+   * @param state Invoice state
+   */
   public void setState(final Constants.InvoiceState state) {
     this.state = state;
   }
@@ -106,7 +114,9 @@ public class InvoiceMini extends Resource {
     return this.type;
   }
 
-  /** @param type Invoice type */
+  /**
+   * @param type Invoice type
+   */
   public void setType(final Constants.InvoiceType type) {
     this.type = type;
   }

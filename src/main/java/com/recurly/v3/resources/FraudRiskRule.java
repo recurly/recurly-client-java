@@ -26,7 +26,9 @@ public class FraudRiskRule extends Resource {
     return this.code;
   }
 
-  /** @param code The Kount rule number. */
+  /**
+   * @param code The Kount rule number.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -36,7 +38,9 @@ public class FraudRiskRule extends Resource {
     return this.message;
   }
 
-  /** @param message Description of why the rule was triggered */
+  /**
+   * @param message Description of why the rule was triggered
+   */
   public void setMessage(final String message) {
     this.message = message;
   }

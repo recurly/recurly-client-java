@@ -105,7 +105,9 @@ public class ShippingAddress extends Resource {
     return this.accountId;
   }
 
-  /** @param accountId Account ID */
+  /**
+   * @param accountId Account ID
+   */
   public void setAccountId(final String accountId) {
     this.accountId = accountId;
   }
@@ -114,7 +116,9 @@ public class ShippingAddress extends Resource {
     return this.city;
   }
 
-  /** @param city */
+  /**
+   * @param city
+   */
   public void setCity(final String city) {
     this.city = city;
   }
@@ -123,7 +127,9 @@ public class ShippingAddress extends Resource {
     return this.company;
   }
 
-  /** @param company */
+  /**
+   * @param company
+   */
   public void setCompany(final String company) {
     this.company = company;
   }
@@ -133,7 +139,9 @@ public class ShippingAddress extends Resource {
     return this.country;
   }
 
-  /** @param country Country, 2-letter ISO 3166-1 alpha-2 code. */
+  /**
+   * @param country Country, 2-letter ISO 3166-1 alpha-2 code.
+   */
   public void setCountry(final String country) {
     this.country = country;
   }
@@ -143,7 +151,9 @@ public class ShippingAddress extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -152,7 +162,9 @@ public class ShippingAddress extends Resource {
     return this.email;
   }
 
-  /** @param email */
+  /**
+   * @param email
+   */
   public void setEmail(final String email) {
     this.email = email;
   }
@@ -161,7 +173,9 @@ public class ShippingAddress extends Resource {
     return this.firstName;
   }
 
-  /** @param firstName */
+  /**
+   * @param firstName
+   */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
   }
@@ -187,7 +201,9 @@ public class ShippingAddress extends Resource {
     return this.id;
   }
 
-  /** @param id Shipping Address ID */
+  /**
+   * @param id Shipping Address ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -196,7 +212,9 @@ public class ShippingAddress extends Resource {
     return this.lastName;
   }
 
-  /** @param lastName */
+  /**
+   * @param lastName
+   */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
   }
@@ -205,7 +223,9 @@ public class ShippingAddress extends Resource {
     return this.nickname;
   }
 
-  /** @param nickname */
+  /**
+   * @param nickname
+   */
   public void setNickname(final String nickname) {
     this.nickname = nickname;
   }
@@ -215,7 +235,9 @@ public class ShippingAddress extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -224,7 +246,9 @@ public class ShippingAddress extends Resource {
     return this.phone;
   }
 
-  /** @param phone */
+  /**
+   * @param phone
+   */
   public void setPhone(final String phone) {
     this.phone = phone;
   }
@@ -234,7 +258,9 @@ public class ShippingAddress extends Resource {
     return this.postalCode;
   }
 
-  /** @param postalCode Zip or postal code. */
+  /**
+   * @param postalCode Zip or postal code.
+   */
   public void setPostalCode(final String postalCode) {
     this.postalCode = postalCode;
   }
@@ -244,7 +270,9 @@ public class ShippingAddress extends Resource {
     return this.region;
   }
 
-  /** @param region State or province. */
+  /**
+   * @param region State or province.
+   */
   public void setRegion(final String region) {
     this.region = region;
   }
@@ -253,7 +281,9 @@ public class ShippingAddress extends Resource {
     return this.street1;
   }
 
-  /** @param street1 */
+  /**
+   * @param street1
+   */
   public void setStreet1(final String street1) {
     this.street1 = street1;
   }
@@ -262,7 +292,9 @@ public class ShippingAddress extends Resource {
     return this.street2;
   }
 
-  /** @param street2 */
+  /**
+   * @param street2
+   */
   public void setStreet2(final String street2) {
     this.street2 = street2;
   }
@@ -272,7 +304,9 @@ public class ShippingAddress extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Updated at */
+  /**
+   * @param updatedAt Updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -281,7 +315,9 @@ public class ShippingAddress extends Resource {
     return this.vatNumber;
   }
 
-  /** @param vatNumber */
+  /**
+   * @param vatNumber
+   */
   public void setVatNumber(final String vatNumber) {
     this.vatNumber = vatNumber;
   }

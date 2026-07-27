@@ -27,7 +27,9 @@ public class PlanRampInterval extends Resource {
     return this.currencies;
   }
 
-  /** @param currencies Represents the price for the ramp interval. */
+  /**
+   * @param currencies Represents the price for the ramp interval.
+   */
   public void setCurrencies(final List<PlanRampPricing> currencies) {
     this.currencies = currencies;
   }
@@ -37,7 +39,9 @@ public class PlanRampInterval extends Resource {
     return this.startingBillingCycle;
   }
 
-  /** @param startingBillingCycle Represents the billing cycle where a ramp interval starts. */
+  /**
+   * @param startingBillingCycle Represents the billing cycle where a ramp interval starts.
+   */
   public void setStartingBillingCycle(final Integer startingBillingCycle) {
     this.startingBillingCycle = startingBillingCycle;
   }

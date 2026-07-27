@@ -252,7 +252,9 @@ public class Account extends Resource {
     return this.address;
   }
 
-  /** @param address */
+  /**
+   * @param address
+   */
   public void setAddress(final Address address) {
     this.address = address;
   }
@@ -293,7 +295,9 @@ public class Account extends Resource {
     return this.billingInfo;
   }
 
-  /** @param billingInfo */
+  /**
+   * @param billingInfo
+   */
   public void setBillingInfo(final BillingInfo billingInfo) {
     this.billingInfo = billingInfo;
   }
@@ -332,7 +336,9 @@ public class Account extends Resource {
     return this.company;
   }
 
-  /** @param company */
+  /**
+   * @param company
+   */
   public void setCompany(final String company) {
     this.company = company;
   }
@@ -342,7 +348,9 @@ public class Account extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt When the account was created. */
+  /**
+   * @param createdAt When the account was created.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -370,7 +378,9 @@ public class Account extends Resource {
     return this.deletedAt;
   }
 
-  /** @param deletedAt If present, when the account was last marked inactive. */
+  /**
+   * @param deletedAt If present, when the account was last marked inactive.
+   */
   public void setDeletedAt(final ZonedDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
@@ -451,7 +461,9 @@ public class Account extends Resource {
     return this.externalAccounts;
   }
 
-  /** @param externalAccounts The external accounts belonging to this account */
+  /**
+   * @param externalAccounts The external accounts belonging to this account
+   */
   public void setExternalAccounts(final List<ExternalAccount> externalAccounts) {
     this.externalAccounts = externalAccounts;
   }
@@ -460,7 +472,9 @@ public class Account extends Resource {
     return this.firstName;
   }
 
-  /** @param firstName */
+  /**
+   * @param firstName
+   */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
   }
@@ -470,7 +484,9 @@ public class Account extends Resource {
     return this.hasActiveSubscription;
   }
 
-  /** @param hasActiveSubscription Indicates if the account has an active subscription. */
+  /**
+   * @param hasActiveSubscription Indicates if the account has an active subscription.
+   */
   public void setHasActiveSubscription(final Boolean hasActiveSubscription) {
     this.hasActiveSubscription = hasActiveSubscription;
   }
@@ -480,7 +496,9 @@ public class Account extends Resource {
     return this.hasCanceledSubscription;
   }
 
-  /** @param hasCanceledSubscription Indicates if the account has a canceled subscription. */
+  /**
+   * @param hasCanceledSubscription Indicates if the account has a canceled subscription.
+   */
   public void setHasCanceledSubscription(final Boolean hasCanceledSubscription) {
     this.hasCanceledSubscription = hasCanceledSubscription;
   }
@@ -490,7 +508,9 @@ public class Account extends Resource {
     return this.hasFutureSubscription;
   }
 
-  /** @param hasFutureSubscription Indicates if the account has a future subscription. */
+  /**
+   * @param hasFutureSubscription Indicates if the account has a future subscription.
+   */
   public void setHasFutureSubscription(final Boolean hasFutureSubscription) {
     this.hasFutureSubscription = hasFutureSubscription;
   }
@@ -515,7 +535,9 @@ public class Account extends Resource {
     return this.hasPastDueInvoice;
   }
 
-  /** @param hasPastDueInvoice Indicates if the account has a past due invoice. */
+  /**
+   * @param hasPastDueInvoice Indicates if the account has a past due invoice.
+   */
   public void setHasPastDueInvoice(final Boolean hasPastDueInvoice) {
     this.hasPastDueInvoice = hasPastDueInvoice;
   }
@@ -525,7 +547,9 @@ public class Account extends Resource {
     return this.hasPausedSubscription;
   }
 
-  /** @param hasPausedSubscription Indicates if the account has a paused subscription. */
+  /**
+   * @param hasPausedSubscription Indicates if the account has a paused subscription.
+   */
   public void setHasPausedSubscription(final Boolean hasPausedSubscription) {
     this.hasPausedSubscription = hasPausedSubscription;
   }
@@ -552,7 +576,9 @@ public class Account extends Resource {
     return this.id;
   }
 
-  /** @param id */
+  /**
+   * @param id
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -581,7 +607,9 @@ public class Account extends Resource {
     return this.lastName;
   }
 
-  /** @param lastName */
+  /**
+   * @param lastName
+   */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
   }
@@ -591,7 +619,9 @@ public class Account extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -617,7 +647,9 @@ public class Account extends Resource {
     return this.parentAccountId;
   }
 
-  /** @param parentAccountId The UUID of the parent account associated with this account. */
+  /**
+   * @param parentAccountId The UUID of the parent account associated with this account.
+   */
   public void setParentAccountId(final String parentAccountId) {
     this.parentAccountId = parentAccountId;
   }
@@ -661,7 +693,9 @@ public class Account extends Resource {
     return this.shippingAddresses;
   }
 
-  /** @param shippingAddresses The shipping addresses on the account. */
+  /**
+   * @param shippingAddresses The shipping addresses on the account.
+   */
   public void setShippingAddresses(final List<ShippingAddress> shippingAddresses) {
     this.shippingAddresses = shippingAddresses;
   }
@@ -671,7 +705,9 @@ public class Account extends Resource {
     return this.state;
   }
 
-  /** @param state Accounts can be either active or inactive. */
+  /**
+   * @param state Accounts can be either active or inactive.
+   */
   public void setState(final Constants.ActiveState state) {
     this.state = state;
   }
@@ -697,7 +733,9 @@ public class Account extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt When the account was last changed. */
+  /**
+   * @param updatedAt When the account was last changed.
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -707,7 +745,9 @@ public class Account extends Resource {
     return this.username;
   }
 
-  /** @param username A secondary value for the account. */
+  /**
+   * @param username A secondary value for the account.
+   */
   public void setUsername(final String username) {
     this.username = username;
   }

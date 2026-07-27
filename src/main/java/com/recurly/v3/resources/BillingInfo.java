@@ -106,7 +106,9 @@ public class BillingInfo extends Resource {
     return this.accountId;
   }
 
-  /** @param accountId */
+  /**
+   * @param accountId
+   */
   public void setAccountId(final String accountId) {
     this.accountId = accountId;
   }
@@ -115,7 +117,9 @@ public class BillingInfo extends Resource {
     return this.address;
   }
 
-  /** @param address */
+  /**
+   * @param address
+   */
   public void setAddress(final Address address) {
     this.address = address;
   }
@@ -141,7 +145,9 @@ public class BillingInfo extends Resource {
     return this.company;
   }
 
-  /** @param company */
+  /**
+   * @param company
+   */
   public void setCompany(final String company) {
     this.company = company;
   }
@@ -151,7 +157,9 @@ public class BillingInfo extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt When the billing information was created. */
+  /**
+   * @param createdAt When the billing information was created.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -160,7 +168,9 @@ public class BillingInfo extends Resource {
     return this.firstName;
   }
 
-  /** @param firstName */
+  /**
+   * @param firstName
+   */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
   }
@@ -170,7 +180,9 @@ public class BillingInfo extends Resource {
     return this.fraud;
   }
 
-  /** @param fraud Most recent fraud result. */
+  /**
+   * @param fraud Most recent fraud result.
+   */
   public void setFraud(final FraudInfo fraud) {
     this.fraud = fraud;
   }
@@ -179,7 +191,9 @@ public class BillingInfo extends Resource {
     return this.id;
   }
 
-  /** @param id */
+  /**
+   * @param id
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -188,7 +202,9 @@ public class BillingInfo extends Resource {
     return this.lastName;
   }
 
-  /** @param lastName */
+  /**
+   * @param lastName
+   */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
   }
@@ -198,7 +214,9 @@ public class BillingInfo extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -224,7 +242,9 @@ public class BillingInfo extends Resource {
     return this.paymentMethod;
   }
 
-  /** @param paymentMethod */
+  /**
+   * @param paymentMethod
+   */
   public void setPaymentMethod(final PaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
@@ -252,7 +272,9 @@ public class BillingInfo extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt When the billing information was last changed. */
+  /**
+   * @param updatedAt When the billing information was last changed.
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -261,7 +283,9 @@ public class BillingInfo extends Resource {
     return this.updatedBy;
   }
 
-  /** @param updatedBy */
+  /**
+   * @param updatedBy
+   */
   public void setUpdatedBy(final BillingInfoUpdatedBy updatedBy) {
     this.updatedBy = updatedBy;
   }
@@ -270,7 +294,9 @@ public class BillingInfo extends Resource {
     return this.valid;
   }
 
-  /** @param valid */
+  /**
+   * @param valid
+   */
   public void setValid(final Boolean valid) {
     this.valid = valid;
   }

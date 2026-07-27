@@ -86,7 +86,9 @@ public class CouponRedemption extends Resource {
     return this.account;
   }
 
-  /** @param account The Account on which the coupon was applied. */
+  /**
+   * @param account The Account on which the coupon was applied.
+   */
   public void setAccount(final AccountMini account) {
     this.account = account;
   }
@@ -95,7 +97,9 @@ public class CouponRedemption extends Resource {
     return this.coupon;
   }
 
-  /** @param coupon */
+  /**
+   * @param coupon
+   */
   public void setCoupon(final Coupon coupon) {
     this.coupon = coupon;
   }
@@ -105,7 +109,9 @@ public class CouponRedemption extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -115,7 +121,9 @@ public class CouponRedemption extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -140,7 +148,9 @@ public class CouponRedemption extends Resource {
     return this.id;
   }
 
-  /** @param id Coupon Redemption ID */
+  /**
+   * @param id Coupon Redemption ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -150,7 +160,9 @@ public class CouponRedemption extends Resource {
     return this.object;
   }
 
-  /** @param object Will always be `coupon`. */
+  /**
+   * @param object Will always be `coupon`.
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -159,7 +171,9 @@ public class CouponRedemption extends Resource {
     return this.remainingDuration;
   }
 
-  /** @param remainingDuration */
+  /**
+   * @param remainingDuration
+   */
   public void setRemainingDuration(final CouponRedemptionRemainingDuration remainingDuration) {
     this.remainingDuration = remainingDuration;
   }
@@ -181,7 +195,9 @@ public class CouponRedemption extends Resource {
     return this.state;
   }
 
-  /** @param state Coupon Redemption state */
+  /**
+   * @param state Coupon Redemption state
+   */
   public void setState(final Constants.ActiveState state) {
     this.state = state;
   }
@@ -191,7 +207,9 @@ public class CouponRedemption extends Resource {
     return this.subscriptionId;
   }
 
-  /** @param subscriptionId Subscription ID */
+  /**
+   * @param subscriptionId Subscription ID
+   */
   public void setSubscriptionId(final String subscriptionId) {
     this.subscriptionId = subscriptionId;
   }
@@ -201,7 +219,9 @@ public class CouponRedemption extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

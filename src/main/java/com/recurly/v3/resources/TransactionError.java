@@ -65,7 +65,9 @@ public class TransactionError extends Resource {
     return this.category;
   }
 
-  /** @param category Category */
+  /**
+   * @param category Category
+   */
   public void setCategory(final Constants.ErrorCategory category) {
     this.category = category;
   }
@@ -75,7 +77,9 @@ public class TransactionError extends Resource {
     return this.code;
   }
 
-  /** @param code Code */
+  /**
+   * @param code Code
+   */
   public void setCode(final Constants.ErrorCode code) {
     this.code = code;
   }
@@ -85,7 +89,9 @@ public class TransactionError extends Resource {
     return this.declineCode;
   }
 
-  /** @param declineCode Decline code */
+  /**
+   * @param declineCode Decline code
+   */
   public void setDeclineCode(final Constants.DeclineCode declineCode) {
     this.declineCode = declineCode;
   }
@@ -95,7 +101,9 @@ public class TransactionError extends Resource {
     return this.fraudInfo;
   }
 
-  /** @param fraudInfo Fraud information */
+  /**
+   * @param fraudInfo Fraud information
+   */
   public void setFraudInfo(final TransactionFraudInfo fraudInfo) {
     this.fraudInfo = fraudInfo;
   }
@@ -105,7 +113,9 @@ public class TransactionError extends Resource {
     return this.merchantAdvice;
   }
 
-  /** @param merchantAdvice Merchant message */
+  /**
+   * @param merchantAdvice Merchant message
+   */
   public void setMerchantAdvice(final String merchantAdvice) {
     this.merchantAdvice = merchantAdvice;
   }
@@ -115,7 +125,9 @@ public class TransactionError extends Resource {
     return this.message;
   }
 
-  /** @param message Customer message */
+  /**
+   * @param message Customer message
+   */
   public void setMessage(final String message) {
     this.message = message;
   }
@@ -125,7 +137,9 @@ public class TransactionError extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -151,7 +165,9 @@ public class TransactionError extends Resource {
     return this.transactionId;
   }
 
-  /** @param transactionId Transaction ID */
+  /**
+   * @param transactionId Transaction ID
+   */
   public void setTransactionId(final String transactionId) {
     this.transactionId = transactionId;
   }

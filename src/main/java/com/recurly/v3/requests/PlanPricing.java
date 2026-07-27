@@ -51,7 +51,9 @@ public class PlanPricing extends Request {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -98,7 +100,9 @@ public class PlanPricing extends Request {
     return this.taxInclusive;
   }
 
-  /** @param taxInclusive This field is deprecated. Please do not use it. */
+  /**
+   * @param taxInclusive This field is deprecated. Please do not use it.
+   */
   public void setTaxInclusive(final Boolean taxInclusive) {
     this.taxInclusive = taxInclusive;
   }
@@ -108,7 +112,9 @@ public class PlanPricing extends Request {
     return this.unitAmount;
   }
 
-  /** @param unitAmount This field should not be sent when the pricing model is `'ramp'`. */
+  /**
+   * @param unitAmount This field should not be sent when the pricing model is `'ramp'`.
+   */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }

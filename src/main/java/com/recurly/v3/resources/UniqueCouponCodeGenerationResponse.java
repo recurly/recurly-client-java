@@ -27,7 +27,9 @@ public class UniqueCouponCodeGenerationResponse extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -37,7 +39,9 @@ public class UniqueCouponCodeGenerationResponse extends Resource {
     return this.uniqueCouponCodes;
   }
 
-  /** @param uniqueCouponCodes An array containing the newly generated unique coupon codes. */
+  /**
+   * @param uniqueCouponCodes An array containing the newly generated unique coupon codes.
+   */
   public void setUniqueCouponCodes(final List<UniqueCouponCode> uniqueCouponCodes) {
     this.uniqueCouponCodes = uniqueCouponCodes;
   }

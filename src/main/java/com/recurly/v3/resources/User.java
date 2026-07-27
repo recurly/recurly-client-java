@@ -49,7 +49,9 @@ public class User extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt */
+  /**
+   * @param createdAt
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -58,7 +60,9 @@ public class User extends Resource {
     return this.deletedAt;
   }
 
-  /** @param deletedAt */
+  /**
+   * @param deletedAt
+   */
   public void setDeletedAt(final ZonedDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
@@ -67,7 +71,9 @@ public class User extends Resource {
     return this.email;
   }
 
-  /** @param email */
+  /**
+   * @param email
+   */
   public void setEmail(final String email) {
     this.email = email;
   }
@@ -76,7 +82,9 @@ public class User extends Resource {
     return this.firstName;
   }
 
-  /** @param firstName */
+  /**
+   * @param firstName
+   */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
   }
@@ -85,7 +93,9 @@ public class User extends Resource {
     return this.id;
   }
 
-  /** @param id */
+  /**
+   * @param id
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -94,7 +104,9 @@ public class User extends Resource {
     return this.lastName;
   }
 
-  /** @param lastName */
+  /**
+   * @param lastName
+   */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
   }
@@ -104,7 +116,9 @@ public class User extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -113,7 +127,9 @@ public class User extends Resource {
     return this.timeZone;
   }
 
-  /** @param timeZone */
+  /**
+   * @param timeZone
+   */
   public void setTimeZone(final String timeZone) {
     this.timeZone = timeZone;
   }

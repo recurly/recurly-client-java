@@ -239,7 +239,9 @@ public class CouponCreate extends Request {
     return this.appliesToNonPlanCharges;
   }
 
-  /** @param appliesToNonPlanCharges The coupon is valid for one-time, non-plan charges if true. */
+  /**
+   * @param appliesToNonPlanCharges The coupon is valid for one-time, non-plan charges if true.
+   */
   public void setAppliesToNonPlanCharges(final Boolean appliesToNonPlanCharges) {
     this.appliesToNonPlanCharges = appliesToNonPlanCharges;
   }
@@ -249,7 +251,9 @@ public class CouponCreate extends Request {
     return this.code;
   }
 
-  /** @param code The code the customer enters to redeem the coupon. */
+  /**
+   * @param code The code the customer enters to redeem the coupon.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -390,7 +394,9 @@ public class CouponCreate extends Request {
     return this.invoiceDescription;
   }
 
-  /** @param invoiceDescription Description of the coupon on the invoice. */
+  /**
+   * @param invoiceDescription Description of the coupon on the invoice.
+   */
   public void setInvoiceDescription(final String invoiceDescription) {
     this.invoiceDescription = invoiceDescription;
   }
@@ -453,7 +459,9 @@ public class CouponCreate extends Request {
     return this.name;
   }
 
-  /** @param name The internal name for the coupon. */
+  /**
+   * @param name The internal name for the coupon.
+   */
   public void setName(final String name) {
     this.name = name;
   }

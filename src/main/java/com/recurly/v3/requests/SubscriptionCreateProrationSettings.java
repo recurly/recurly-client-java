@@ -23,7 +23,9 @@ public class SubscriptionCreateProrationSettings extends Request {
     return this.charge;
   }
 
-  /** @param charge Determines how the amount charged is determined for this change */
+  /**
+   * @param charge Determines how the amount charged is determined for this change
+   */
   public void setCharge(final Constants.SubscriptionCreateProrationSettingsCharge charge) {
     this.charge = charge;
   }

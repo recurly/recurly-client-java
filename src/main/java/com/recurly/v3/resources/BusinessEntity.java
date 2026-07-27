@@ -108,7 +108,9 @@ public class BusinessEntity extends Resource {
     return this.code;
   }
 
-  /** @param code The entity code of the business entity. */
+  /**
+   * @param code The entity code of the business entity.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -118,7 +120,9 @@ public class BusinessEntity extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -145,7 +149,9 @@ public class BusinessEntity extends Resource {
     return this.defaultRegistrationNumber;
   }
 
-  /** @param defaultRegistrationNumber Registration number for the customer used on the invoice. */
+  /**
+   * @param defaultRegistrationNumber Registration number for the customer used on the invoice.
+   */
   public void setDefaultRegistrationNumber(final String defaultRegistrationNumber) {
     this.defaultRegistrationNumber = defaultRegistrationNumber;
   }
@@ -172,7 +178,9 @@ public class BusinessEntity extends Resource {
     return this.defaultVatNumber;
   }
 
-  /** @param defaultVatNumber VAT number for the customer used on the invoice. */
+  /**
+   * @param defaultVatNumber VAT number for the customer used on the invoice.
+   */
   public void setDefaultVatNumber(final String defaultVatNumber) {
     this.defaultVatNumber = defaultVatNumber;
   }
@@ -202,7 +210,9 @@ public class BusinessEntity extends Resource {
     return this.id;
   }
 
-  /** @param id Business entity ID */
+  /**
+   * @param id Business entity ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -225,7 +235,9 @@ public class BusinessEntity extends Resource {
     return this.name;
   }
 
-  /** @param name This name describes your business entity and will appear on the invoice. */
+  /**
+   * @param name This name describes your business entity and will appear on the invoice.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -235,7 +247,9 @@ public class BusinessEntity extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -291,7 +305,9 @@ public class BusinessEntity extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

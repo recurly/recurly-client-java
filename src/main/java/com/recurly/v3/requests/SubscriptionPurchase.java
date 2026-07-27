@@ -164,7 +164,9 @@ public class SubscriptionPurchase extends Request {
     return this.addOns;
   }
 
-  /** @param addOns Add-ons */
+  /**
+   * @param addOns Add-ons
+   */
   public void setAddOns(final List<SubscriptionAddOnCreate> addOns) {
     this.addOns = addOns;
   }
@@ -174,7 +176,9 @@ public class SubscriptionPurchase extends Request {
     return this.autoRenew;
   }
 
-  /** @param autoRenew Whether the subscription renews at the end of its term. */
+  /**
+   * @param autoRenew Whether the subscription renews at the end of its term.
+   */
   public void setAutoRenew(final Boolean autoRenew) {
     this.autoRenew = autoRenew;
   }
@@ -261,7 +265,9 @@ public class SubscriptionPurchase extends Request {
     return this.planCode;
   }
 
-  /** @param planCode Plan code */
+  /**
+   * @param planCode Plan code
+   */
   public void setPlanCode(final String planCode) {
     this.planCode = planCode;
   }
@@ -271,7 +277,9 @@ public class SubscriptionPurchase extends Request {
     return this.planId;
   }
 
-  /** @param planId Plan ID */
+  /**
+   * @param planId Plan ID
+   */
   public void setPlanId(final String planId) {
     this.planId = planId;
   }
@@ -311,7 +319,9 @@ public class SubscriptionPurchase extends Request {
     return this.quantity;
   }
 
-  /** @param quantity Optionally override the default quantity of 1. */
+  /**
+   * @param quantity Optionally override the default quantity of 1.
+   */
   public void setQuantity(final Integer quantity) {
     this.quantity = quantity;
   }
@@ -321,7 +331,9 @@ public class SubscriptionPurchase extends Request {
     return this.rampIntervals;
   }
 
-  /** @param rampIntervals The new set of ramp intervals for the subscription. */
+  /**
+   * @param rampIntervals The new set of ramp intervals for the subscription.
+   */
   public void setRampIntervals(final List<SubscriptionRampInterval> rampIntervals) {
     this.rampIntervals = rampIntervals;
   }
@@ -348,7 +360,9 @@ public class SubscriptionPurchase extends Request {
     return this.revenueScheduleType;
   }
 
-  /** @param revenueScheduleType Revenue schedule type */
+  /**
+   * @param revenueScheduleType Revenue schedule type
+   */
   public void setRevenueScheduleType(final Constants.RevenueScheduleType revenueScheduleType) {
     this.revenueScheduleType = revenueScheduleType;
   }
@@ -358,7 +372,9 @@ public class SubscriptionPurchase extends Request {
     return this.shipping;
   }
 
-  /** @param shipping Create a shipping address on the account and assign it to the subscription. */
+  /**
+   * @param shipping Create a shipping address on the account and assign it to the subscription.
+   */
   public void setShipping(final SubscriptionShippingPurchase shipping) {
     this.shipping = shipping;
   }

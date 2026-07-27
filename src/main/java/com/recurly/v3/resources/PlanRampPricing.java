@@ -35,7 +35,9 @@ public class PlanRampPricing extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -62,7 +64,9 @@ public class PlanRampPricing extends Resource {
     return this.unitAmount;
   }
 
-  /** @param unitAmount Represents the price for the Ramp Interval. */
+  /**
+   * @param unitAmount Represents the price for the Ramp Interval.
+   */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
   }

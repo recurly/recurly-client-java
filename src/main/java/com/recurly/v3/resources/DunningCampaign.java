@@ -70,7 +70,9 @@ public class DunningCampaign extends Resource {
     return this.code;
   }
 
-  /** @param code Campaign code. */
+  /**
+   * @param code Campaign code.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -80,7 +82,9 @@ public class DunningCampaign extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt When the current campaign was created in Recurly. */
+  /**
+   * @param createdAt When the current campaign was created in Recurly.
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -106,7 +110,9 @@ public class DunningCampaign extends Resource {
     return this.deletedAt;
   }
 
-  /** @param deletedAt When the current campaign was deleted in Recurly. */
+  /**
+   * @param deletedAt When the current campaign was deleted in Recurly.
+   */
   public void setDeletedAt(final ZonedDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
@@ -116,7 +122,9 @@ public class DunningCampaign extends Resource {
     return this.description;
   }
 
-  /** @param description Campaign description. */
+  /**
+   * @param description Campaign description.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -126,7 +134,9 @@ public class DunningCampaign extends Resource {
     return this.dunningCycles;
   }
 
-  /** @param dunningCycles Dunning Cycle settings. */
+  /**
+   * @param dunningCycles Dunning Cycle settings.
+   */
   public void setDunningCycles(final List<DunningCycle> dunningCycles) {
     this.dunningCycles = dunningCycles;
   }
@@ -135,7 +145,9 @@ public class DunningCampaign extends Resource {
     return this.id;
   }
 
-  /** @param id */
+  /**
+   * @param id
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -145,7 +157,9 @@ public class DunningCampaign extends Resource {
     return this.name;
   }
 
-  /** @param name Campaign name. */
+  /**
+   * @param name Campaign name.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -155,7 +169,9 @@ public class DunningCampaign extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -165,7 +181,9 @@ public class DunningCampaign extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt When the current campaign was updated in Recurly. */
+  /**
+   * @param updatedAt When the current campaign was updated in Recurly.
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

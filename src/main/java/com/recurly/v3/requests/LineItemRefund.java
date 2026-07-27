@@ -90,7 +90,9 @@ public class LineItemRefund extends Request {
     return this.id;
   }
 
-  /** @param id Line item ID */
+  /**
+   * @param id Line item ID
+   */
   public void setId(final String id) {
     this.id = id;
   }

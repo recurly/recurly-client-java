@@ -68,7 +68,9 @@ public class ExternalPaymentPhaseBase extends Request {
     return this.amount;
   }
 
-  /** @param amount Allows up to 9 decimal places */
+  /**
+   * @param amount Allows up to 9 decimal places
+   */
   public void setAmount(final String amount) {
     this.amount = amount;
   }
@@ -78,7 +80,9 @@ public class ExternalPaymentPhaseBase extends Request {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -88,7 +92,9 @@ public class ExternalPaymentPhaseBase extends Request {
     return this.endingBillingPeriodIndex;
   }
 
-  /** @param endingBillingPeriodIndex Ending Billing Period Index */
+  /**
+   * @param endingBillingPeriodIndex Ending Billing Period Index
+   */
   public void setEndingBillingPeriodIndex(final Integer endingBillingPeriodIndex) {
     this.endingBillingPeriodIndex = endingBillingPeriodIndex;
   }
@@ -98,7 +104,9 @@ public class ExternalPaymentPhaseBase extends Request {
     return this.endsAt;
   }
 
-  /** @param endsAt Ends At */
+  /**
+   * @param endsAt Ends At
+   */
   public void setEndsAt(final ZonedDateTime endsAt) {
     this.endsAt = endsAt;
   }
@@ -108,7 +116,9 @@ public class ExternalPaymentPhaseBase extends Request {
     return this.offerName;
   }
 
-  /** @param offerName Name of the discount offer given, e.g. "introductory" */
+  /**
+   * @param offerName Name of the discount offer given, e.g. "introductory"
+   */
   public void setOfferName(final String offerName) {
     this.offerName = offerName;
   }
@@ -118,7 +128,9 @@ public class ExternalPaymentPhaseBase extends Request {
     return this.offerType;
   }
 
-  /** @param offerType Type of discount offer given, e.g. "FREE_TRIAL" */
+  /**
+   * @param offerType Type of discount offer given, e.g. "FREE_TRIAL"
+   */
   public void setOfferType(final String offerType) {
     this.offerType = offerType;
   }
@@ -128,7 +140,9 @@ public class ExternalPaymentPhaseBase extends Request {
     return this.periodCount;
   }
 
-  /** @param periodCount Number of billing periods */
+  /**
+   * @param periodCount Number of billing periods
+   */
   public void setPeriodCount(final Integer periodCount) {
     this.periodCount = periodCount;
   }
@@ -138,7 +152,9 @@ public class ExternalPaymentPhaseBase extends Request {
     return this.periodLength;
   }
 
-  /** @param periodLength Billing cycle length */
+  /**
+   * @param periodLength Billing cycle length
+   */
   public void setPeriodLength(final String periodLength) {
     this.periodLength = periodLength;
   }
@@ -148,7 +164,9 @@ public class ExternalPaymentPhaseBase extends Request {
     return this.startedAt;
   }
 
-  /** @param startedAt Started At */
+  /**
+   * @param startedAt Started At
+   */
   public void setStartedAt(final ZonedDateTime startedAt) {
     this.startedAt = startedAt;
   }
@@ -158,7 +176,9 @@ public class ExternalPaymentPhaseBase extends Request {
     return this.startingBillingPeriodIndex;
   }
 
-  /** @param startingBillingPeriodIndex Starting Billing Period Index */
+  /**
+   * @param startingBillingPeriodIndex Starting Billing Period Index
+   */
   public void setStartingBillingPeriodIndex(final Integer startingBillingPeriodIndex) {
     this.startingBillingPeriodIndex = startingBillingPeriodIndex;
   }

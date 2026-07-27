@@ -28,7 +28,9 @@ public class ProrationSettings extends Request {
     return this.charge;
   }
 
-  /** @param charge Determines how the amount charged is determined for this change */
+  /**
+   * @param charge Determines how the amount charged is determined for this change
+   */
   public void setCharge(final Constants.ProrationSettingsCharge charge) {
     this.charge = charge;
   }
@@ -38,7 +40,9 @@ public class ProrationSettings extends Request {
     return this.credit;
   }
 
-  /** @param credit Determines how the amount credited is determined for this change */
+  /**
+   * @param credit Determines how the amount credited is determined for this change
+   */
   public void setCredit(final Constants.ProrationSettingsCredit credit) {
     this.credit = credit;
   }

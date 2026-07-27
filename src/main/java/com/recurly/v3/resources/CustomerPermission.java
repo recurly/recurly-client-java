@@ -41,7 +41,9 @@ public class CustomerPermission extends Resource {
     return this.code;
   }
 
-  /** @param code Customer permission code. */
+  /**
+   * @param code Customer permission code.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -51,7 +53,9 @@ public class CustomerPermission extends Resource {
     return this.description;
   }
 
-  /** @param description Description of customer permission. */
+  /**
+   * @param description Description of customer permission.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -61,7 +65,9 @@ public class CustomerPermission extends Resource {
     return this.id;
   }
 
-  /** @param id Customer permission ID. */
+  /**
+   * @param id Customer permission ID.
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -71,7 +77,9 @@ public class CustomerPermission extends Resource {
     return this.name;
   }
 
-  /** @param name Customer permission name. */
+  /**
+   * @param name Customer permission name.
+   */
   public void setName(final String name) {
     this.name = name;
   }
@@ -81,7 +89,9 @@ public class CustomerPermission extends Resource {
     return this.object;
   }
 
-  /** @param object It will always be "customer_permission". */
+  /**
+   * @param object It will always be "customer_permission".
+   */
   public void setObject(final String object) {
     this.object = object;
   }

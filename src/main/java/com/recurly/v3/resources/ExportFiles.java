@@ -25,7 +25,9 @@ public class ExportFiles extends Resource {
     return this.files;
   }
 
-  /** @param files */
+  /**
+   * @param files
+   */
   public void setFiles(final List<ExportFile> files) {
     this.files = files;
   }
@@ -35,7 +37,9 @@ public class ExportFiles extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }

@@ -81,7 +81,9 @@ public class GiftCardDeliveryCreate extends Request {
     return this.emailAddress;
   }
 
-  /** @param emailAddress The email address of the recipient. Required if `method` is `email`. */
+  /**
+   * @param emailAddress The email address of the recipient. Required if `method` is `email`.
+   */
   public void setEmailAddress(final String emailAddress) {
     this.emailAddress = emailAddress;
   }
@@ -91,7 +93,9 @@ public class GiftCardDeliveryCreate extends Request {
     return this.firstName;
   }
 
-  /** @param firstName The first name of the recipient. */
+  /**
+   * @param firstName The first name of the recipient.
+   */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
   }
@@ -114,7 +118,9 @@ public class GiftCardDeliveryCreate extends Request {
     return this.lastName;
   }
 
-  /** @param lastName The last name of the recipient. */
+  /**
+   * @param lastName The last name of the recipient.
+   */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
   }
@@ -124,7 +130,9 @@ public class GiftCardDeliveryCreate extends Request {
     return this.method;
   }
 
-  /** @param method Whether the delivery method is email or postal service. */
+  /**
+   * @param method Whether the delivery method is email or postal service.
+   */
   public void setMethod(final Constants.DeliveryMethod method) {
     this.method = method;
   }
@@ -134,7 +142,9 @@ public class GiftCardDeliveryCreate extends Request {
     return this.personalMessage;
   }
 
-  /** @param personalMessage The personal message from the gifter to the recipient. */
+  /**
+   * @param personalMessage The personal message from the gifter to the recipient.
+   */
   public void setPersonalMessage(final String personalMessage) {
     this.personalMessage = personalMessage;
   }

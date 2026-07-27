@@ -30,7 +30,9 @@ public class SubscriptionShippingUpdate extends Request {
     return this.address;
   }
 
-  /** @param address */
+  /**
+   * @param address
+   */
   public void setAddress(final ShippingAddressCreate address) {
     this.address = address;
   }
@@ -40,7 +42,9 @@ public class SubscriptionShippingUpdate extends Request {
     return this.addressId;
   }
 
-  /** @param addressId Assign a shipping address from the account's existing shipping addresses. */
+  /**
+   * @param addressId Assign a shipping address from the account's existing shipping addresses.
+   */
   public void setAddressId(final String addressId) {
     this.addressId = addressId;
   }
@@ -50,7 +54,9 @@ public class SubscriptionShippingUpdate extends Request {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }

@@ -37,7 +37,9 @@ public class CouponDiscount extends Resource {
     return this.currencies;
   }
 
-  /** @param currencies This is only present when `type=fixed`. */
+  /**
+   * @param currencies This is only present when `type=fixed`.
+   */
   public void setCurrencies(final List<CouponDiscountPricing> currencies) {
     this.currencies = currencies;
   }
@@ -47,7 +49,9 @@ public class CouponDiscount extends Resource {
     return this.percent;
   }
 
-  /** @param percent This is only present when `type=percent`. */
+  /**
+   * @param percent This is only present when `type=percent`.
+   */
   public void setPercent(final Integer percent) {
     this.percent = percent;
   }
@@ -57,7 +61,9 @@ public class CouponDiscount extends Resource {
     return this.trial;
   }
 
-  /** @param trial This is only present when `type=free_trial`. */
+  /**
+   * @param trial This is only present when `type=free_trial`.
+   */
   public void setTrial(final CouponDiscountTrial trial) {
     this.trial = trial;
   }
@@ -66,7 +72,9 @@ public class CouponDiscount extends Resource {
     return this.type;
   }
 
-  /** @param type */
+  /**
+   * @param type
+   */
   public void setType(final Constants.DiscountType type) {
     this.type = type;
   }

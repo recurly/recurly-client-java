@@ -43,7 +43,9 @@ public class BillingInfoVerifyCVV extends Request {
     return this.gatewayCode;
   }
 
-  /** @param gatewayCode An identifier for a specific payment gateway. */
+  /**
+   * @param gatewayCode An identifier for a specific payment gateway.
+   */
   public void setGatewayCode(final String gatewayCode) {
     this.gatewayCode = gatewayCode;
   }
@@ -85,7 +87,9 @@ public class BillingInfoVerifyCVV extends Request {
     return this.verificationValue;
   }
 
-  /** @param verificationValue Unique security code for a credit card. */
+  /**
+   * @param verificationValue Unique security code for a credit card.
+   */
   public void setVerificationValue(final String verificationValue) {
     this.verificationValue = verificationValue;
   }

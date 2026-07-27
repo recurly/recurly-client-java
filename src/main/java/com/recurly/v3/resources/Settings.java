@@ -34,7 +34,9 @@ public class Settings extends Resource {
     return this.acceptedCurrencies;
   }
 
-  /** @param acceptedCurrencies */
+  /**
+   * @param acceptedCurrencies
+   */
   public void setAcceptedCurrencies(final List<String> acceptedCurrencies) {
     this.acceptedCurrencies = acceptedCurrencies;
   }
@@ -62,7 +64,9 @@ public class Settings extends Resource {
     return this.defaultCurrency;
   }
 
-  /** @param defaultCurrency The default 3-letter ISO 4217 currency code. */
+  /**
+   * @param defaultCurrency The default 3-letter ISO 4217 currency code.
+   */
   public void setDefaultCurrency(final String defaultCurrency) {
     this.defaultCurrency = defaultCurrency;
   }

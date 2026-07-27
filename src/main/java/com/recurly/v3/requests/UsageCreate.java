@@ -88,7 +88,9 @@ public class UsageCreate extends Request {
     return this.recordingTimestamp;
   }
 
-  /** @param recordingTimestamp When the usage was recorded in your system. */
+  /**
+   * @param recordingTimestamp When the usage was recorded in your system.
+   */
   public void setRecordingTimestamp(final ZonedDateTime recordingTimestamp) {
     this.recordingTimestamp = recordingTimestamp;
   }

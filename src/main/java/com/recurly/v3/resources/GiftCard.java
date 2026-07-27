@@ -166,7 +166,9 @@ public class GiftCard extends Resource {
     return this.canceledAt;
   }
 
-  /** @param canceledAt When the gift card was canceled. */
+  /**
+   * @param canceledAt When the gift card was canceled.
+   */
   public void setCanceledAt(final ZonedDateTime canceledAt) {
     this.canceledAt = canceledAt;
   }
@@ -176,7 +178,9 @@ public class GiftCard extends Resource {
     return this.createdAt;
   }
 
-  /** @param createdAt Created at */
+  /**
+   * @param createdAt Created at
+   */
   public void setCreatedAt(final ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -186,7 +190,9 @@ public class GiftCard extends Resource {
     return this.currency;
   }
 
-  /** @param currency 3-letter ISO 4217 currency code. */
+  /**
+   * @param currency 3-letter ISO 4217 currency code.
+   */
   public void setCurrency(final String currency) {
     this.currency = currency;
   }
@@ -214,7 +220,9 @@ public class GiftCard extends Resource {
     return this.delivery;
   }
 
-  /** @param delivery The delivery details for the gift card. */
+  /**
+   * @param delivery The delivery details for the gift card.
+   */
   public void setDelivery(final GiftCardDelivery delivery) {
     this.delivery = delivery;
   }
@@ -224,7 +232,9 @@ public class GiftCard extends Resource {
     return this.gifterAccountId;
   }
 
-  /** @param gifterAccountId The ID of the account that purchased the gift card. */
+  /**
+   * @param gifterAccountId The ID of the account that purchased the gift card.
+   */
   public void setGifterAccountId(final String gifterAccountId) {
     this.gifterAccountId = gifterAccountId;
   }
@@ -234,7 +244,9 @@ public class GiftCard extends Resource {
     return this.id;
   }
 
-  /** @param id Gift card ID */
+  /**
+   * @param id Gift card ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -261,7 +273,9 @@ public class GiftCard extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -288,7 +302,9 @@ public class GiftCard extends Resource {
     return this.productCode;
   }
 
-  /** @param productCode The product code or SKU of the gift card product. */
+  /**
+   * @param productCode The product code or SKU of the gift card product.
+   */
   public void setProductCode(final String productCode) {
     this.productCode = productCode;
   }
@@ -326,7 +342,9 @@ public class GiftCard extends Resource {
     return this.redeemedAt;
   }
 
-  /** @param redeemedAt When the gift card was redeemed by the recipient. */
+  /**
+   * @param redeemedAt When the gift card was redeemed by the recipient.
+   */
   public void setRedeemedAt(final ZonedDateTime redeemedAt) {
     this.redeemedAt = redeemedAt;
   }
@@ -404,7 +422,9 @@ public class GiftCard extends Resource {
     return this.updatedAt;
   }
 
-  /** @param updatedAt Last updated at */
+  /**
+   * @param updatedAt Last updated at
+   */
   public void setUpdatedAt(final ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }

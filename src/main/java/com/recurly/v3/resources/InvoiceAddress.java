@@ -79,7 +79,9 @@ public class InvoiceAddress extends Resource {
     return this.city;
   }
 
-  /** @param city City */
+  /**
+   * @param city City
+   */
   public void setCity(final String city) {
     this.city = city;
   }
@@ -89,7 +91,9 @@ public class InvoiceAddress extends Resource {
     return this.company;
   }
 
-  /** @param company Company */
+  /**
+   * @param company Company
+   */
   public void setCompany(final String company) {
     this.company = company;
   }
@@ -99,7 +103,9 @@ public class InvoiceAddress extends Resource {
     return this.country;
   }
 
-  /** @param country Country, 2-letter ISO 3166-1 alpha-2 code. */
+  /**
+   * @param country Country, 2-letter ISO 3166-1 alpha-2 code.
+   */
   public void setCountry(final String country) {
     this.country = country;
   }
@@ -109,7 +115,9 @@ public class InvoiceAddress extends Resource {
     return this.firstName;
   }
 
-  /** @param firstName First name */
+  /**
+   * @param firstName First name
+   */
   public void setFirstName(final String firstName) {
     this.firstName = firstName;
   }
@@ -135,7 +143,9 @@ public class InvoiceAddress extends Resource {
     return this.lastName;
   }
 
-  /** @param lastName Last name */
+  /**
+   * @param lastName Last name
+   */
   public void setLastName(final String lastName) {
     this.lastName = lastName;
   }
@@ -145,7 +155,9 @@ public class InvoiceAddress extends Resource {
     return this.nameOnAccount;
   }
 
-  /** @param nameOnAccount Name on account */
+  /**
+   * @param nameOnAccount Name on account
+   */
   public void setNameOnAccount(final String nameOnAccount) {
     this.nameOnAccount = nameOnAccount;
   }
@@ -155,7 +167,9 @@ public class InvoiceAddress extends Resource {
     return this.phone;
   }
 
-  /** @param phone Phone number */
+  /**
+   * @param phone Phone number
+   */
   public void setPhone(final String phone) {
     this.phone = phone;
   }
@@ -165,7 +179,9 @@ public class InvoiceAddress extends Resource {
     return this.postalCode;
   }
 
-  /** @param postalCode Zip or postal code. */
+  /**
+   * @param postalCode Zip or postal code.
+   */
   public void setPostalCode(final String postalCode) {
     this.postalCode = postalCode;
   }
@@ -175,7 +191,9 @@ public class InvoiceAddress extends Resource {
     return this.region;
   }
 
-  /** @param region State or province. */
+  /**
+   * @param region State or province.
+   */
   public void setRegion(final String region) {
     this.region = region;
   }
@@ -185,7 +203,9 @@ public class InvoiceAddress extends Resource {
     return this.street1;
   }
 
-  /** @param street1 Street 1 */
+  /**
+   * @param street1 Street 1
+   */
   public void setStreet1(final String street1) {
     this.street1 = street1;
   }
@@ -195,7 +215,9 @@ public class InvoiceAddress extends Resource {
     return this.street2;
   }
 
-  /** @param street2 Street 2 */
+  /**
+   * @param street2 Street 2
+   */
   public void setStreet2(final String street2) {
     this.street2 = street2;
   }

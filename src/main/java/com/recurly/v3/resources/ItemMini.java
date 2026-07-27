@@ -50,7 +50,9 @@ public class ItemMini extends Resource {
     return this.code;
   }
 
-  /** @param code Unique code to identify the item. */
+  /**
+   * @param code Unique code to identify the item.
+   */
   public void setCode(final String code) {
     this.code = code;
   }
@@ -60,7 +62,9 @@ public class ItemMini extends Resource {
     return this.description;
   }
 
-  /** @param description Optional, description. */
+  /**
+   * @param description Optional, description.
+   */
   public void setDescription(final String description) {
     this.description = description;
   }
@@ -70,7 +74,9 @@ public class ItemMini extends Resource {
     return this.id;
   }
 
-  /** @param id Item ID */
+  /**
+   * @param id Item ID
+   */
   public void setId(final String id) {
     this.id = id;
   }
@@ -96,7 +102,9 @@ public class ItemMini extends Resource {
     return this.object;
   }
 
-  /** @param object Object type */
+  /**
+   * @param object Object type
+   */
   public void setObject(final String object) {
     this.object = object;
   }
@@ -106,7 +114,9 @@ public class ItemMini extends Resource {
     return this.state;
   }
 
-  /** @param state The current state of the item. */
+  /**
+   * @param state The current state of the item.
+   */
   public void setState(final Constants.ActiveState state) {
     this.state = state;
   }
