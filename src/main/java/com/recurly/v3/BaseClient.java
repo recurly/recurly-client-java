@@ -171,7 +171,9 @@ public abstract class BaseClient {
       MediaType contentType = responseBody.contentType();
 
       if (!response.isSuccessful()) {
-        if (contentType.type().equals("application") && contentType.subtype().equals("json")) {
+        if (contentType != null
+            && contentType.type().equals("application")
+            && contentType.subtype().equals("json")) {
           throw jsonSerializer.deserializeError(responseBody.string());
         } else {
           throw ExceptionFactory.getExceptionClass(response);
@@ -180,7 +182,8 @@ public abstract class BaseClient {
 
       this.warnIfDeprecated(responseHeaders);
 
-      if (BINARY_TYPES.contains(contentType.type() + "/" + contentType.subtype())) {
+      if (contentType != null
+          && BINARY_TYPES.contains(contentType.type() + "/" + contentType.subtype())) {
         return fileSerializer.deserialize(responseBody.bytes(), resourceClass);
       } else {
         return jsonSerializer.deserialize(responseBody.string(), resourceClass);

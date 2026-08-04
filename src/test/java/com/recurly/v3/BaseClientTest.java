@@ -1,5 +1,6 @@
 package com.recurly.v3;
 
+import com.recurly.v3.exception.BadGatewayException;
 import com.recurly.v3.exception.ExceptionFactory;
 import com.recurly.v3.exception.InternalServerException;
 import com.recurly.v3.exception.InvalidApiKeyException;
@@ -41,6 +42,7 @@ import org.mockito.MockedStatic;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.mockStatic;
@@ -206,6 +208,38 @@ public class BaseClientTest {
         () -> {
           client.getResource("code-aaron");
         });
+  }
+
+  @Test
+  public void testMissingContentTypeError502() throws IOException {
+    final Call mCall = mock(Call.class);
+    Answer answer = (i) -> { return mCall; };
+    Headers headers = new Headers.Builder().build();
+    when(mCall.execute()).thenReturn(MockClient.buildResponse(502, "Bad Gateway", "", headers, null));
+
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
+
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+
+    assertThrows(
+        BadGatewayException.class,
+        () -> {
+          client.getResource("code-aaron");
+        });
+  }
+
+  @Test
+  public void testMissingContentTypeNoContent() throws IOException {
+    final Call mCall = mock(Call.class);
+    Answer answer = (i) -> { return mCall; };
+    Headers headers = new Headers.Builder().build();
+    when(mCall.execute()).thenReturn(MockClient.buildResponse(204, "No Content", "", headers, null));
+
+    OkHttpClient mockOkHttpClient = MockClient.getMockOkHttpClient(answer);
+
+    final MockClient client = new MockClient("apiKey", mockOkHttpClient);
+
+    assertNull(client.getResource("code-aaron"));
   }
 
   @Test
