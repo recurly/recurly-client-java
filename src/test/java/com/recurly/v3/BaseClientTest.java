@@ -22,6 +22,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import org.apache.commons.io.IOUtils;
+import java.time.Duration;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import org.junit.Assert;
@@ -501,6 +502,64 @@ public class BaseClientTest {
 
     final String interpolatedPath = client.interpolatePath(path, urlParams);
     assertEquals("/url_path/replacement", interpolatedPath);
+  }
+
+  @Test
+  public void testDefaultTimeoutsAreUnchangedWhenNoneAreConfigured() {
+    final OkHttpClient httpClient = BaseClient.newHttpClient("apiKey", new ClientOptions());
+
+    assertEquals(10_000, httpClient.connectTimeoutMillis());
+    assertEquals(10_000, httpClient.readTimeoutMillis());
+    assertEquals(10_000, httpClient.writeTimeoutMillis());
+    assertEquals(0, httpClient.callTimeoutMillis());
+  }
+
+  @Test
+  public void testConfiguredTimeoutsAreAppliedToTheHttpClient() {
+    final ClientOptions clientOptions = new ClientOptions();
+    clientOptions.setConnectTimeout(Duration.ofSeconds(5));
+    clientOptions.setReadTimeout(Duration.ofSeconds(30));
+    clientOptions.setWriteTimeout(Duration.ofSeconds(20));
+    clientOptions.setCallTimeout(Duration.ofSeconds(60));
+
+    final OkHttpClient httpClient = BaseClient.newHttpClient("apiKey", clientOptions);
+
+    assertEquals(5_000, httpClient.connectTimeoutMillis());
+    assertEquals(30_000, httpClient.readTimeoutMillis());
+    assertEquals(20_000, httpClient.writeTimeoutMillis());
+    assertEquals(60_000, httpClient.callTimeoutMillis());
+  }
+
+  @Test
+  public void testTimeoutsAreAppliedIndividually() {
+    final ClientOptions clientOptions = new ClientOptions();
+    clientOptions.setReadTimeout(Duration.ofSeconds(45));
+
+    final OkHttpClient httpClient = BaseClient.newHttpClient("apiKey", clientOptions);
+
+    assertEquals(45_000, httpClient.readTimeoutMillis());
+    assertEquals(10_000, httpClient.connectTimeoutMillis());
+    assertEquals(10_000, httpClient.writeTimeoutMillis());
+  }
+
+  @Test
+  public void testConfiguredTimeoutsSurviveClientConstruction() {
+    final ClientOptions clientOptions = new ClientOptions();
+    clientOptions.setReadTimeout(Duration.ofSeconds(30));
+
+    final Client client = new Client("apiKey", clientOptions);
+
+    assertEquals(30_000, httpClientOf(client).readTimeoutMillis());
+  }
+
+  private static OkHttpClient httpClientOf(final BaseClient client) {
+    try {
+      final Field field = BaseClient.class.getDeclaredField("client");
+      field.setAccessible(true);
+      return (OkHttpClient) field.get(client);
+    } catch (ReflectiveOperationException e) {
+      throw new IllegalStateException(e.getMessage(), e);
+    }
   }
 
   private static String getResponseJson() {

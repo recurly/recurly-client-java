@@ -35,11 +35,11 @@ public abstract class BaseClient {
   private String apiUrl;
 
   protected BaseClient(final String apiKey) {
-    this(apiKey, newHttpClient(validateApiKey(apiKey)), new ClientOptions());
+    this(apiKey, new ClientOptions());
   }
 
   protected BaseClient(final String apiKey, final ClientOptions clientOptions) {
-    this(apiKey, newHttpClient(validateApiKey(apiKey)), clientOptions);
+    this(apiKey, newHttpClient(validateApiKey(apiKey), clientOptions), clientOptions);
   }
 
   protected BaseClient(final String apiKey, final OkHttpClient client) {
@@ -59,9 +59,22 @@ public abstract class BaseClient {
     return apiKey;
   }
 
-  private static OkHttpClient newHttpClient(final String apiKey) {
+  static OkHttpClient newHttpClient(final String apiKey, final ClientOptions clientOptions) {
     final OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
-    
+
+    if (clientOptions.getConnectTimeout() != null) {
+      httpClientBuilder.connectTimeout(clientOptions.getConnectTimeout());
+    }
+    if (clientOptions.getReadTimeout() != null) {
+      httpClientBuilder.readTimeout(clientOptions.getReadTimeout());
+    }
+    if (clientOptions.getWriteTimeout() != null) {
+      httpClientBuilder.writeTimeout(clientOptions.getWriteTimeout());
+    }
+    if (clientOptions.getCallTimeout() != null) {
+      httpClientBuilder.callTimeout(clientOptions.getCallTimeout());
+    }
+
     final String authToken = Credentials.basic(apiKey, "");
     final HeaderInterceptor headerInterceptor =
         new HeaderInterceptor(authToken, Client.API_VERSION);
