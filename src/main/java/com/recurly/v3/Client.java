@@ -10,7 +10,6 @@ import com.google.gson.reflect.TypeToken;
 import com.recurly.v3.requests.*;
 import com.recurly.v3.resources.*;
 import com.recurly.v3.queryparams.*;
-import okhttp3.OkHttpClient;
 import java.time.ZonedDateTime;
 
 import java.lang.reflect.Type;

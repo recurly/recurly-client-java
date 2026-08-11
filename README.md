@@ -280,6 +280,14 @@ final RequestOptions options = RequestOptions.builder()
     .header("X-Custom-Header", "value");
 ```
 
+### Custom HTTP Transport
+
+By default, the client uses `DefaultHttpAdapter` to make HTTP requests. If you need to route
+requests through a proxy, use a specific HTTP library, or add observability, you can supply your
+own implementation of the `HttpAdapter` interface via `ClientOptions`. See the
+[HttpAdapter implementation guide](docs/http-adapter-implementation-guide.md) for details, which
+includes a full example implementation using OkHttp (the library's original default transport).
+
 ## Support
 
 Looking for help? Please contact [support@recurly.com](mailto:support@recurly.com) or visit
