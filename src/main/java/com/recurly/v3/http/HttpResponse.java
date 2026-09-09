@@ -36,7 +36,9 @@ public class HttpResponse {
     return headers;
   }
 
-  /** Returns a copy of the response body. Mutations to the returned array do not affect this object. */
+  /**
+   * Returns a copy of the response body. Mutations to the returned array do not affect this object.
+   */
   public byte[] getBody() {
     return body.clone();
   }

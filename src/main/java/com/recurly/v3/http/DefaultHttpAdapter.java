@@ -36,10 +36,7 @@ public class DefaultHttpAdapter implements HttpAdapter {
 
   @Override
   public HttpResponse execute(
-      final String method,
-      final String url,
-      final Map<String, String> headers,
-      final String body)
+      final String method, final String url, final Map<String, String> headers, final String body)
       throws IOException {
     final boolean debug = Utils.envEnabled("RECURLY_INSECURE") && Utils.envEnabled("RECURLY_DEBUG");
     if (debug) {
@@ -93,7 +90,8 @@ public class DefaultHttpAdapter implements HttpAdapter {
       }
 
       final String contentEncoding = findHeaderIgnoreCase(responseHeaders, "Content-Encoding");
-      final boolean gzipEncoded = contentEncoding != null && "gzip".equalsIgnoreCase(contentEncoding.trim());
+      final boolean gzipEncoded =
+          contentEncoding != null && "gzip".equalsIgnoreCase(contentEncoding.trim());
 
       final byte[] responseBodyBytes;
       if (inputStream == null) {
@@ -112,10 +110,17 @@ public class DefaultHttpAdapter implements HttpAdapter {
 
       if (debug) {
         System.out.println(
-            "<-- " + statusCode + " " + url + " (" + (System.currentTimeMillis() - startMs) + "ms)");
+            "<-- "
+                + statusCode
+                + " "
+                + url
+                + " ("
+                + (System.currentTimeMillis() - startMs)
+                + "ms)");
       }
 
-      final HttpResponse response = new HttpResponse(statusCode, responseHeaders, responseBodyBytes);
+      final HttpResponse response =
+          new HttpResponse(statusCode, responseHeaders, responseBodyBytes);
       success = true;
       return response;
     } finally {
@@ -147,6 +152,4 @@ public class DefaultHttpAdapter implements HttpAdapter {
     }
     return buffer.toByteArray();
   }
-
-  
 }

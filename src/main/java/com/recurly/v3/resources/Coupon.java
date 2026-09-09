@@ -151,11 +151,29 @@ public class Coupon extends Resource {
 
   /**
    * The date and time the coupon will expire and can no longer be redeemed. Time is always
-   * 11:59:59, the end-of-day Pacific time.
+   * 11:59:59, the end-of-day Pacific time. Null for bulk coupons configured with a relative
+   * redeem-by interval (see redeem_by_interval_unit and redeem_by_interval_amount).
    */
   @SerializedName("redeem_by")
   @Expose
   private ZonedDateTime redeemBy;
+
+  /**
+   * For a bulk coupon with a relative redeem-by, the number of redeem_by_interval_unit intervals
+   * after a code's generation that it remains redeemable. Null unless the coupon uses a relative
+   * redeem-by.
+   */
+  @SerializedName("redeem_by_interval_amount")
+  @Expose
+  private Integer redeemByIntervalAmount;
+
+  /**
+   * For a bulk coupon with a relative redeem-by, the unit of the interval after which each
+   * generated unique code expires. Null unless the coupon uses a relative redeem-by.
+   */
+  @SerializedName("redeem_by_interval_unit")
+  @Expose
+  private Constants.CouponRedeemByIntervalUnit redeemByIntervalUnit;
 
   /**
    * Whether the discount is for all eligible charges on the account, or only a specific
@@ -500,7 +518,8 @@ public class Coupon extends Resource {
 
   /**
    * The date and time the coupon will expire and can no longer be redeemed. Time is always
-   * 11:59:59, the end-of-day Pacific time.
+   * 11:59:59, the end-of-day Pacific time. Null for bulk coupons configured with a relative
+   * redeem-by interval (see redeem_by_interval_unit and redeem_by_interval_amount).
    */
   public ZonedDateTime getRedeemBy() {
     return this.redeemBy;
@@ -508,10 +527,47 @@ public class Coupon extends Resource {
 
   /**
    * @param redeemBy The date and time the coupon will expire and can no longer be redeemed. Time is
-   *     always 11:59:59, the end-of-day Pacific time.
+   *     always 11:59:59, the end-of-day Pacific time. Null for bulk coupons configured with a
+   *     relative redeem-by interval (see redeem_by_interval_unit and redeem_by_interval_amount).
    */
   public void setRedeemBy(final ZonedDateTime redeemBy) {
     this.redeemBy = redeemBy;
+  }
+
+  /**
+   * For a bulk coupon with a relative redeem-by, the number of redeem_by_interval_unit intervals
+   * after a code's generation that it remains redeemable. Null unless the coupon uses a relative
+   * redeem-by.
+   */
+  public Integer getRedeemByIntervalAmount() {
+    return this.redeemByIntervalAmount;
+  }
+
+  /**
+   * @param redeemByIntervalAmount For a bulk coupon with a relative redeem-by, the number of
+   *     redeem_by_interval_unit intervals after a code's generation that it remains redeemable.
+   *     Null unless the coupon uses a relative redeem-by.
+   */
+  public void setRedeemByIntervalAmount(final Integer redeemByIntervalAmount) {
+    this.redeemByIntervalAmount = redeemByIntervalAmount;
+  }
+
+  /**
+   * For a bulk coupon with a relative redeem-by, the unit of the interval after which each
+   * generated unique code expires. Null unless the coupon uses a relative redeem-by.
+   */
+  public Constants.CouponRedeemByIntervalUnit getRedeemByIntervalUnit() {
+    return this.redeemByIntervalUnit;
+  }
+
+  /**
+   * @param redeemByIntervalUnit For a bulk coupon with a relative redeem-by, the unit of the
+   *     interval after which each generated unique code expires. Null unless the coupon uses a
+   *     relative redeem-by.
+   */
+  public void setRedeemByIntervalUnit(
+      final Constants.CouponRedeemByIntervalUnit redeemByIntervalUnit) {
+    this.redeemByIntervalUnit = redeemByIntervalUnit;
   }
 
   /**

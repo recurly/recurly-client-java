@@ -50,7 +50,13 @@ public class PaymentMethod extends Resource {
   @Expose
   private Integer expYear;
 
-  /** Credit card number's first six digits. */
+  /**
+   * Credit card number's first six digits.
+   *
+   * <p>For a tokenized wallet payment (`apple_pay`, `google_pay`, or `google_pay_device_pan`), this
+   * is the DPAN's (the wallet/device token's own number) first six digits, not the underlying
+   * card's (FPAN).
+   */
   @SerializedName("first_six")
   @Expose
   private String firstSix;
@@ -75,7 +81,12 @@ public class PaymentMethod extends Resource {
   @Expose
   private String gatewayToken;
 
-  /** Credit card number's last four digits. Will refer to bank account if payment method is ACH. */
+  /**
+   * Credit card number's last four digits. Will refer to bank account if payment method is ACH.
+   *
+   * <p>For a tokenized wallet payment (`apple_pay`, `google_pay`, or `google_pay_device_pan`), this
+   * is the DPAN's last four digits, not the underlying card's (FPAN).
+   */
   @SerializedName("last_four")
   @Expose
   private String lastFour;
@@ -199,13 +210,22 @@ public class PaymentMethod extends Resource {
     this.expYear = expYear;
   }
 
-  /** Credit card number's first six digits. */
+  /**
+   * Credit card number's first six digits.
+   *
+   * <p>For a tokenized wallet payment (`apple_pay`, `google_pay`, or `google_pay_device_pan`), this
+   * is the DPAN's (the wallet/device token's own number) first six digits, not the underlying
+   * card's (FPAN).
+   */
   public String getFirstSix() {
     return this.firstSix;
   }
 
   /**
    * @param firstSix Credit card number's first six digits.
+   *     <p>For a tokenized wallet payment (`apple_pay`, `google_pay`, or `google_pay_device_pan`),
+   *     this is the DPAN's (the wallet/device token's own number) first six digits, not the
+   *     underlying card's (FPAN).
    */
   public void setFirstSix(final String firstSix) {
     this.firstSix = firstSix;
@@ -259,7 +279,12 @@ public class PaymentMethod extends Resource {
     this.gatewayToken = gatewayToken;
   }
 
-  /** Credit card number's last four digits. Will refer to bank account if payment method is ACH. */
+  /**
+   * Credit card number's last four digits. Will refer to bank account if payment method is ACH.
+   *
+   * <p>For a tokenized wallet payment (`apple_pay`, `google_pay`, or `google_pay_device_pan`), this
+   * is the DPAN's last four digits, not the underlying card's (FPAN).
+   */
   public String getLastFour() {
     return this.lastFour;
   }
@@ -267,6 +292,8 @@ public class PaymentMethod extends Resource {
   /**
    * @param lastFour Credit card number's last four digits. Will refer to bank account if payment
    *     method is ACH.
+   *     <p>For a tokenized wallet payment (`apple_pay`, `google_pay`, or `google_pay_device_pan`),
+   *     this is the DPAN's last four digits, not the underlying card's (FPAN).
    */
   public void setLastFour(final String lastFour) {
     this.lastFour = lastFour;
