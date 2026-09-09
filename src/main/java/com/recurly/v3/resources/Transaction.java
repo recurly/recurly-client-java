@@ -214,6 +214,14 @@ public class Transaction extends Resource {
   @Expose
   private TransactionPaymentGateway paymentGateway;
 
+  /**
+   * Array of Payment Gateway References captured at transaction time, each a reference to a
+   * third-party gateway object of varying types.
+   */
+  @SerializedName("payment_gateway_references")
+  @Expose
+  private List<PaymentGatewayReferences> paymentGatewayReferences;
+
   @SerializedName("payment_method")
   @Expose
   private PaymentMethod paymentMethod;
@@ -748,6 +756,23 @@ public class Transaction extends Resource {
    */
   public void setPaymentGateway(final TransactionPaymentGateway paymentGateway) {
     this.paymentGateway = paymentGateway;
+  }
+
+  /**
+   * Array of Payment Gateway References captured at transaction time, each a reference to a
+   * third-party gateway object of varying types.
+   */
+  public List<PaymentGatewayReferences> getPaymentGatewayReferences() {
+    return this.paymentGatewayReferences;
+  }
+
+  /**
+   * @param paymentGatewayReferences Array of Payment Gateway References captured at transaction
+   *     time, each a reference to a third-party gateway object of varying types.
+   */
+  public void setPaymentGatewayReferences(
+      final List<PaymentGatewayReferences> paymentGatewayReferences) {
+    this.paymentGatewayReferences = paymentGatewayReferences;
   }
 
   public PaymentMethod getPaymentMethod() {

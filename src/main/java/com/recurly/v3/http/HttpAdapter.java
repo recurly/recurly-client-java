@@ -29,8 +29,8 @@ import java.util.Map;
  * The client imposes no timeout of its own. Set connect, read, and write timeouts inside the
  * implementation.
  *
- * <p>See {@code docs/http-adapter-implementation-guide.md} for a full contract reference and
- * worked examples.
+ * <p>See {@code docs/http-adapter-implementation-guide.md} for a full contract reference and worked
+ * examples.
  */
 public interface HttpAdapter {
 
@@ -44,16 +44,16 @@ public interface HttpAdapter {
    *       {@code HEAD}.
    *   <li>{@code url} — fully-qualified URL including scheme, host, path, and any query string.
    *       Never {@code null}.
-   *   <li>{@code headers} — all request headers the client wants sent (Authorization,
-   *       Accept, Content-Type, User-Agent, etc.). Forward every client-supplied entry
-   *       unmodified — do not remove or override them. Implementations may add their own
-   *       transport-layer headers (e.g. {@code Accept-Encoding}) as long as they do not conflict
-   *       with a header the client already set.
+   *   <li>{@code headers} — all request headers the client wants sent (Authorization, Accept,
+   *       Content-Type, User-Agent, etc.). Forward every client-supplied entry unmodified — do not
+   *       remove or override them. Implementations may add their own transport-layer headers (e.g.
+   *       {@code Accept-Encoding}) as long as they do not conflict with a header the client already
+   *       set.
    *   <li>{@code body} — UTF-8 JSON string when a request payload is present; {@code null} when
-   *       there is none. {@code GET}, {@code HEAD}, and {@code DELETE} never carry a body.
-   *       {@code POST} and {@code PUT} typically carry a body but may receive {@code null} (e.g.
-   *       no request object) — implementations must still send the request with
-   *       {@code Content-Length: 0}.
+   *       there is none. {@code GET}, {@code HEAD}, and {@code DELETE} never carry a body. {@code
+   *       POST} and {@code PUT} typically carry a body but may receive {@code null} (e.g. no
+   *       request object) — implementations must still send the request with {@code Content-Length:
+   *       0}.
    * </ul>
    *
    * <p><b>Return value</b><br>
@@ -63,8 +63,8 @@ public interface HttpAdapter {
    *   <li>The HTTP status code exactly as received.
    *   <li>All response headers. {@link HttpResponse} normalises header names to lower-case
    *       internally, so case in the map passed to the constructor does not matter. The client
-   *       reads {@code content-type}, {@code x-request-id}, {@code recurly-deprecated},
-   *       {@code recurly-sunset-date}, and {@code recurly-total-records}.
+   *       reads {@code content-type}, {@code x-request-id}, {@code recurly-deprecated}, {@code
+   *       recurly-sunset-date}, and {@code recurly-total-records}.
    *   <li>The complete response body as a byte array. Read the body fully before returning; do not
    *       return a lazy or streaming reference. Pass an empty {@code byte[]} (never {@code null})
    *       when there is no body.
@@ -76,8 +76,8 @@ public interface HttpAdapter {
    * HTTP-level errors (4xx/5xx) — return the response and let the client map those to typed
    * exceptions.
    *
-   * @param method HTTP method ({@code GET}, {@code POST}, {@code PUT}, {@code DELETE},
-   *     {@code HEAD})
+   * @param method HTTP method ({@code GET}, {@code POST}, {@code PUT}, {@code DELETE}, {@code
+   *     HEAD})
    * @param url absolute URL to request
    * @param headers request headers to send; must be forwarded unmodified (adapters may add their
    *     own non-conflicting transport-layer headers)

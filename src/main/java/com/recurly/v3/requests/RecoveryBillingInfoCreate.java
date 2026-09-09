@@ -74,6 +74,15 @@ public class RecoveryBillingInfoCreate extends Request {
   private List<PaymentGatewayReferences> paymentGatewayReferences;
 
   /**
+   * Merchant-supplied fallback payment method metadata. Recurly's own gateway-token lookup is
+   * authoritative and will override any of these fields it can determine itself; these fields are
+   * only used to fill gaps when that lookup is unavailable.
+   */
+  @SerializedName("payment_method")
+  @Expose
+  private RecoveryPaymentMethodCreate paymentMethod;
+
+  /**
    * The `primary_payment_method` field is used to designate the primary billing info on the
    * account. An account can have a maximum of 1 primary. If a user sets a different payment method
    * as a primary, then the existing primary will no longer be marked as such.
@@ -82,7 +91,11 @@ public class RecoveryBillingInfoCreate extends Request {
   @Expose
   private Boolean primaryPaymentMethod;
 
-  /** Transactions from previous collection attempts for this payment method. */
+  /**
+   * Transactions from previous collection attempts for this payment method. Optional, unless this
+   * billing_info is the primary payment method and the account's dunning campaign skips Recurly's
+   * own retry attempts entirely -- in that case at least one entry is required.
+   */
   @SerializedName("transactions")
   @Expose
   private List<RecoveryTransactionCreate> transactions;
@@ -223,6 +236,24 @@ public class RecoveryBillingInfoCreate extends Request {
   }
 
   /**
+   * Merchant-supplied fallback payment method metadata. Recurly's own gateway-token lookup is
+   * authoritative and will override any of these fields it can determine itself; these fields are
+   * only used to fill gaps when that lookup is unavailable.
+   */
+  public RecoveryPaymentMethodCreate getPaymentMethod() {
+    return this.paymentMethod;
+  }
+
+  /**
+   * @param paymentMethod Merchant-supplied fallback payment method metadata. Recurly's own
+   *     gateway-token lookup is authoritative and will override any of these fields it can
+   *     determine itself; these fields are only used to fill gaps when that lookup is unavailable.
+   */
+  public void setPaymentMethod(final RecoveryPaymentMethodCreate paymentMethod) {
+    this.paymentMethod = paymentMethod;
+  }
+
+  /**
    * The `primary_payment_method` field is used to designate the primary billing info on the
    * account. An account can have a maximum of 1 primary. If a user sets a different payment method
    * as a primary, then the existing primary will no longer be marked as such.
@@ -241,13 +272,20 @@ public class RecoveryBillingInfoCreate extends Request {
     this.primaryPaymentMethod = primaryPaymentMethod;
   }
 
-  /** Transactions from previous collection attempts for this payment method. */
+  /**
+   * Transactions from previous collection attempts for this payment method. Optional, unless this
+   * billing_info is the primary payment method and the account's dunning campaign skips Recurly's
+   * own retry attempts entirely -- in that case at least one entry is required.
+   */
   public List<RecoveryTransactionCreate> getTransactions() {
     return this.transactions;
   }
 
   /**
    * @param transactions Transactions from previous collection attempts for this payment method.
+   *     Optional, unless this billing_info is the primary payment method and the account's dunning
+   *     campaign skips Recurly's own retry attempts entirely -- in that case at least one entry is
+   *     required.
    */
   public void setTransactions(final List<RecoveryTransactionCreate> transactions) {
     this.transactions = transactions;

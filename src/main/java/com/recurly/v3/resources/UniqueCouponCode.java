@@ -48,6 +48,15 @@ public class UniqueCouponCode extends Resource {
   @Expose
   private String object;
 
+  /**
+   * Absolute expiry computed and stored at code-generation time. Set only for Window (relative
+   * redeem-by) coupons. Null for Anytime coupons and Specific Date coupons — those resolve expiry
+   * from the parent coupon's redeem_by at redemption time, not at code-generation time.
+   */
+  @SerializedName("redeem_by_date")
+  @Expose
+  private ZonedDateTime redeemByDate;
+
   /** The date and time the unique coupon code was redeemed. */
   @SerializedName("redeemed_at")
   @Expose
@@ -146,6 +155,25 @@ public class UniqueCouponCode extends Resource {
    */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  /**
+   * Absolute expiry computed and stored at code-generation time. Set only for Window (relative
+   * redeem-by) coupons. Null for Anytime coupons and Specific Date coupons — those resolve expiry
+   * from the parent coupon's redeem_by at redemption time, not at code-generation time.
+   */
+  public ZonedDateTime getRedeemByDate() {
+    return this.redeemByDate;
+  }
+
+  /**
+   * @param redeemByDate Absolute expiry computed and stored at code-generation time. Set only for
+   *     Window (relative redeem-by) coupons. Null for Anytime coupons and Specific Date coupons —
+   *     those resolve expiry from the parent coupon's redeem_by at redemption time, not at
+   *     code-generation time.
+   */
+  public void setRedeemByDate(final ZonedDateTime redeemByDate) {
+    this.redeemByDate = redeemByDate;
   }
 
   /** The date and time the unique coupon code was redeemed. */

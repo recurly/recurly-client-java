@@ -10,6 +10,26 @@ import com.google.gson.annotations.SerializedName;
 
 public class Constants {
   
+    public enum RecoveryPaymentMethod {
+      UNDEFINED,
+    
+      @SerializedName("credit_card")
+      CREDIT_CARD,
+    
+      @SerializedName("apple_pay")
+      APPLE_PAY,
+    
+      @SerializedName("google_pay")
+      GOOGLE_PAY,
+    
+      @SerializedName("google_pay_device_pan")
+      GOOGLE_PAY_DEVICE_PAN,
+    
+      @SerializedName("paypal_billing_agreement")
+      PAYPAL_BILLING_AGREEMENT,
+    
+    };
+  
     public enum ProrationSettingsCharge {
       UNDEFINED,
     
@@ -1170,6 +1190,23 @@ public class Constants {
     
       @SerializedName("months")
       MONTHS,
+    
+    };
+  
+    public enum CouponRedeemByIntervalUnit {
+      UNDEFINED,
+    
+      @SerializedName("day")
+      DAY,
+    
+      @SerializedName("week")
+      WEEK,
+    
+      @SerializedName("month")
+      MONTH,
+    
+      @SerializedName("year")
+      YEAR,
     
     };
   

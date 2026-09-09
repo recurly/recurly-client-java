@@ -7,6 +7,7 @@ package com.recurly.v3.requests;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.recurly.v3.Constants;
 import com.recurly.v3.Request;
 import com.recurly.v3.resources.*;
 
@@ -49,11 +50,25 @@ public class CouponUpdate extends Request {
 
   /**
    * The date and time the coupon will expire and can no longer be redeemed. Time is always
-   * 11:59:59, the end-of-day Pacific time.
+   * 11:59:59, the end-of-day Pacific time. Mutually exclusive with
+   * redeem_by_interval_unit/redeem_by_interval_amount.
    */
   @SerializedName("redeem_by_date")
   @Expose
   private String redeemByDate;
+
+  /** Quantity of redeem_by_interval_unit. Must be paired with redeem_by_interval_unit. */
+  @SerializedName("redeem_by_interval_amount")
+  @Expose
+  private Integer redeemByIntervalAmount;
+
+  /**
+   * Unit of the relative redemption window. Must be paired with redeem_by_interval_amount. Mutually
+   * exclusive with redeem_by_date. Bulk coupons only.
+   */
+  @SerializedName("redeem_by_interval_unit")
+  @Expose
+  private Constants.CouponRedeemByIntervalUnit redeemByIntervalUnit;
 
   /**
    * This description will show up when a customer redeems a coupon on your Hosted Payment Pages, or
@@ -132,7 +147,8 @@ public class CouponUpdate extends Request {
 
   /**
    * The date and time the coupon will expire and can no longer be redeemed. Time is always
-   * 11:59:59, the end-of-day Pacific time.
+   * 11:59:59, the end-of-day Pacific time. Mutually exclusive with
+   * redeem_by_interval_unit/redeem_by_interval_amount.
    */
   public String getRedeemByDate() {
     return this.redeemByDate;
@@ -140,9 +156,40 @@ public class CouponUpdate extends Request {
 
   /**
    * @param redeemByDate The date and time the coupon will expire and can no longer be redeemed.
-   *     Time is always 11:59:59, the end-of-day Pacific time.
+   *     Time is always 11:59:59, the end-of-day Pacific time. Mutually exclusive with
+   *     redeem_by_interval_unit/redeem_by_interval_amount.
    */
   public void setRedeemByDate(final String redeemByDate) {
     this.redeemByDate = redeemByDate;
+  }
+
+  /** Quantity of redeem_by_interval_unit. Must be paired with redeem_by_interval_unit. */
+  public Integer getRedeemByIntervalAmount() {
+    return this.redeemByIntervalAmount;
+  }
+
+  /**
+   * @param redeemByIntervalAmount Quantity of redeem_by_interval_unit. Must be paired with
+   *     redeem_by_interval_unit.
+   */
+  public void setRedeemByIntervalAmount(final Integer redeemByIntervalAmount) {
+    this.redeemByIntervalAmount = redeemByIntervalAmount;
+  }
+
+  /**
+   * Unit of the relative redemption window. Must be paired with redeem_by_interval_amount. Mutually
+   * exclusive with redeem_by_date. Bulk coupons only.
+   */
+  public Constants.CouponRedeemByIntervalUnit getRedeemByIntervalUnit() {
+    return this.redeemByIntervalUnit;
+  }
+
+  /**
+   * @param redeemByIntervalUnit Unit of the relative redemption window. Must be paired with
+   *     redeem_by_interval_amount. Mutually exclusive with redeem_by_date. Bulk coupons only.
+   */
+  public void setRedeemByIntervalUnit(
+      final Constants.CouponRedeemByIntervalUnit redeemByIntervalUnit) {
+    this.redeemByIntervalUnit = redeemByIntervalUnit;
   }
 }
