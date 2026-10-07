@@ -6871,6 +6871,37 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   }
 
   /**
+   * Create a new dunning campaign
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_dunning_campaign">create_dunning_campaign api documentation</a>
+   * @param body The body of the request.
+     * @return A new dunning campaign.
+   */
+  public DunningCampaign createDunningCampaign(DunningCampaignCreate body) {
+    final String url = "/dunning_campaigns";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = DunningCampaign.class;
+    return this.makeRequest("POST", path, body, returnType);
+  }
+
+  /**
+   * Create a new dunning campaign
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/create_dunning_campaign">create_dunning_campaign api documentation</a>
+   * @param body The body of the request.
+   * @param options The {@link RequestOptions} for this request.
+     * @return A new dunning campaign.
+   */
+  public DunningCampaign createDunningCampaign(DunningCampaignCreate body, RequestOptions options) {
+    final String url = "/dunning_campaigns";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = DunningCampaign.class;
+    return this.makeRequest("POST", path, body, options, returnType);
+  }
+
+  /**
    * Fetch a dunning campaign
    *
    * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/get_dunning_campaign">get_dunning_campaign api documentation</a>
@@ -6901,6 +6932,103 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     final String path = this.interpolatePath(url, urlParams);
     Type returnType = DunningCampaign.class;
     return this.makeRequest("GET", path, options, returnType);
+  }
+
+  /**
+   * Update a dunning campaign
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/update_dunning_campaign">update_dunning_campaign api documentation</a>
+   * @param dunningCampaignId Dunning Campaign ID, e.g. `e28zov4fw0v2`.
+   * @param body The body of the request.
+     * @return The updated dunning campaign.
+   */
+  public DunningCampaign updateDunningCampaign(String dunningCampaignId, DunningCampaignUpdate body) {
+    final String url = "/dunning_campaigns/{dunning_campaign_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("dunning_campaign_id", dunningCampaignId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = DunningCampaign.class;
+    return this.makeRequest("PUT", path, body, returnType);
+  }
+
+  /**
+   * Update a dunning campaign
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/update_dunning_campaign">update_dunning_campaign api documentation</a>
+   * @param dunningCampaignId Dunning Campaign ID, e.g. `e28zov4fw0v2`.
+   * @param body The body of the request.
+   * @param options The {@link RequestOptions} for this request.
+     * @return The updated dunning campaign.
+   */
+  public DunningCampaign updateDunningCampaign(String dunningCampaignId, DunningCampaignUpdate body, RequestOptions options) {
+    final String url = "/dunning_campaigns/{dunning_campaign_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("dunning_campaign_id", dunningCampaignId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = DunningCampaign.class;
+    return this.makeRequest("PUT", path, body, options, returnType);
+  }
+
+  /**
+   * Deactivate a dunning campaign
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/deactivate_dunning_campaign">deactivate_dunning_campaign api documentation</a>
+   * @param dunningCampaignId Dunning Campaign ID, e.g. `e28zov4fw0v2`.
+     * @return The deactivated dunning campaign.
+   */
+  public DunningCampaign deactivateDunningCampaign(String dunningCampaignId) {
+    final String url = "/dunning_campaigns/{dunning_campaign_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("dunning_campaign_id", dunningCampaignId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = DunningCampaign.class;
+    return this.makeRequest("DELETE", path, returnType);
+  }
+
+  /**
+   * Deactivate a dunning campaign
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/deactivate_dunning_campaign">deactivate_dunning_campaign api documentation</a>
+   * @param dunningCampaignId Dunning Campaign ID, e.g. `e28zov4fw0v2`.
+   * @param options The {@link RequestOptions} for this request.
+     * @return The deactivated dunning campaign.
+   */
+  public DunningCampaign deactivateDunningCampaign(String dunningCampaignId, RequestOptions options) {
+    final String url = "/dunning_campaigns/{dunning_campaign_id}";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    urlParams.put("dunning_campaign_id", dunningCampaignId);
+    final String path = this.interpolatePath(url, urlParams);
+    Type returnType = DunningCampaign.class;
+    return this.makeRequest("DELETE", path, options, returnType);
+  }
+
+  /**
+   * List the custom email templates assignable to a dunning campaign interval
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_dunning_campaign_email_templates">list_dunning_campaign_email_templates api documentation</a>
+     * @return A list of the site's assignable custom email templates.
+   */
+  public Pager<DunningCampaignEmailTemplate> listDunningCampaignEmailTemplates() {
+    final String url = "/dunning_campaigns/email_templates";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, DunningCampaignEmailTemplate.class).getType();
+    return new Pager<>(path, null, this, parameterizedType);
+  }
+
+  /**
+   * List the custom email templates assignable to a dunning campaign interval
+   *
+   * @see <a href="https://developers.recurly.com/api/v2021-02-25#operation/list_dunning_campaign_email_templates">list_dunning_campaign_email_templates api documentation</a>
+   * @param options The {@link RequestOptions} for this request.
+     * @return A list of the site's assignable custom email templates.
+   */
+  public Pager<DunningCampaignEmailTemplate> listDunningCampaignEmailTemplates(RequestOptions options) {
+    final String url = "/dunning_campaigns/email_templates";
+    final HashMap<String, String> urlParams = new HashMap<String, String>();
+    final String path = this.interpolatePath(url, urlParams);
+    Type parameterizedType = TypeToken.getParameterized(Pager.class, DunningCampaignEmailTemplate.class).getType();
+    return new Pager<>(path, null, this, parameterizedType);
   }
 
   /**

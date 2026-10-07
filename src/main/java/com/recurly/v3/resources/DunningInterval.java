@@ -21,6 +21,15 @@ public class DunningInterval extends Resource {
   @Expose
   private String emailTemplate;
 
+  /**
+   * The id of the custom email template assigned to this interval, from `GET
+   * /dunning_campaigns/email_templates`. `null` means the system default template for this
+   * interval. Accepted on write; round-tripped on read.
+   */
+  @SerializedName("email_template_id")
+  @Expose
+  private String emailTemplateId;
+
   /** Number of days before sending the next email. */
   public Integer getDays() {
     return this.days;
@@ -43,5 +52,23 @@ public class DunningInterval extends Resource {
    */
   public void setEmailTemplate(final String emailTemplate) {
     this.emailTemplate = emailTemplate;
+  }
+
+  /**
+   * The id of the custom email template assigned to this interval, from `GET
+   * /dunning_campaigns/email_templates`. `null` means the system default template for this
+   * interval. Accepted on write; round-tripped on read.
+   */
+  public String getEmailTemplateId() {
+    return this.emailTemplateId;
+  }
+
+  /**
+   * @param emailTemplateId The id of the custom email template assigned to this interval, from `GET
+   *     /dunning_campaigns/email_templates`. `null` means the system default template for this
+   *     interval. Accepted on write; round-tripped on read.
+   */
+  public void setEmailTemplateId(final String emailTemplateId) {
+    this.emailTemplateId = emailTemplateId;
   }
 }
