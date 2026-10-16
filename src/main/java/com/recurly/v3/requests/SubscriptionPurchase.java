@@ -53,6 +53,14 @@ public class SubscriptionPurchase extends Request {
   private List<CustomField> customFields;
 
   /**
+   * Specify custom notes to add or override Customer Notes. Custom notes will stay with a
+   * subscription on all renewals.
+   */
+  @SerializedName("customer_notes")
+  @Expose
+  private String customerNotes;
+
+  /**
    * If present, this sets the date the subscription's next billing period will start
    * (`current_period_ends_at`). This can be used to align the subscription’s billing to a specific
    * day of the month. The initial invoice will be prorated for the period between the
@@ -133,6 +141,14 @@ public class SubscriptionPurchase extends Request {
   private Boolean taxInclusive;
 
   /**
+   * Specify custom notes to add or override Terms and Conditions. Custom notes will stay with a
+   * subscription on all renewals.
+   */
+  @SerializedName("terms_and_conditions")
+  @Expose
+  private String termsAndConditions;
+
+  /**
    * The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if
    * `auto_renew=true` the subscription will renew and a new term will begin, otherwise the
    * subscription will expire.
@@ -158,6 +174,14 @@ public class SubscriptionPurchase extends Request {
   @SerializedName("unit_amount")
   @Expose
   private BigDecimal unitAmount;
+
+  /**
+   * Specify custom notes to add or override VAT reverse charge notes. Custom notes will stay with a
+   * subscription on all renewals.
+   */
+  @SerializedName("vat_reverse_charge_notes")
+  @Expose
+  private String vatReverseChargeNotes;
 
   /** Add-ons */
   public List<SubscriptionAddOnCreate> getAddOns() {
@@ -234,6 +258,22 @@ public class SubscriptionPurchase extends Request {
    */
   public void setCustomFields(final List<CustomField> customFields) {
     this.customFields = customFields;
+  }
+
+  /**
+   * Specify custom notes to add or override Customer Notes. Custom notes will stay with a
+   * subscription on all renewals.
+   */
+  public String getCustomerNotes() {
+    return this.customerNotes;
+  }
+
+  /**
+   * @param customerNotes Specify custom notes to add or override Customer Notes. Custom notes will
+   *     stay with a subscription on all renewals.
+   */
+  public void setCustomerNotes(final String customerNotes) {
+    this.customerNotes = customerNotes;
   }
 
   /**
@@ -415,6 +455,22 @@ public class SubscriptionPurchase extends Request {
   }
 
   /**
+   * Specify custom notes to add or override Terms and Conditions. Custom notes will stay with a
+   * subscription on all renewals.
+   */
+  public String getTermsAndConditions() {
+    return this.termsAndConditions;
+  }
+
+  /**
+   * @param termsAndConditions Specify custom notes to add or override Terms and Conditions. Custom
+   *     notes will stay with a subscription on all renewals.
+   */
+  public void setTermsAndConditions(final String termsAndConditions) {
+    this.termsAndConditions = termsAndConditions;
+  }
+
+  /**
    * The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if
    * `auto_renew=true` the subscription will renew and a new term will begin, otherwise the
    * subscription will expire.
@@ -467,5 +523,21 @@ public class SubscriptionPurchase extends Request {
    */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
+  }
+
+  /**
+   * Specify custom notes to add or override VAT reverse charge notes. Custom notes will stay with a
+   * subscription on all renewals.
+   */
+  public String getVatReverseChargeNotes() {
+    return this.vatReverseChargeNotes;
+  }
+
+  /**
+   * @param vatReverseChargeNotes Specify custom notes to add or override VAT reverse charge notes.
+   *     Custom notes will stay with a subscription on all renewals.
+   */
+  public void setVatReverseChargeNotes(final String vatReverseChargeNotes) {
+    this.vatReverseChargeNotes = vatReverseChargeNotes;
   }
 }
