@@ -312,6 +312,15 @@ public class SubscriptionCreate extends Request {
   @Expose
   private BigDecimal unitAmount;
 
+  /**
+   * This will default to the VAT reverse charge notes text specified on the Invoice Settings.
+   * Specify custom notes to add or override VAT reverse charge notes. Custom notes will stay with a
+   * subscription on all renewals.
+   */
+  @SerializedName("vat_reverse_charge_notes")
+  @Expose
+  private String vatReverseChargeNotes;
+
   public AccountCreate getAccount() {
     return this.account;
   }
@@ -940,5 +949,23 @@ public class SubscriptionCreate extends Request {
    */
   public void setUnitAmount(final BigDecimal unitAmount) {
     this.unitAmount = unitAmount;
+  }
+
+  /**
+   * This will default to the VAT reverse charge notes text specified on the Invoice Settings.
+   * Specify custom notes to add or override VAT reverse charge notes. Custom notes will stay with a
+   * subscription on all renewals.
+   */
+  public String getVatReverseChargeNotes() {
+    return this.vatReverseChargeNotes;
+  }
+
+  /**
+   * @param vatReverseChargeNotes This will default to the VAT reverse charge notes text specified
+   *     on the Invoice Settings. Specify custom notes to add or override VAT reverse charge notes.
+   *     Custom notes will stay with a subscription on all renewals.
+   */
+  public void setVatReverseChargeNotes(final String vatReverseChargeNotes) {
+    this.vatReverseChargeNotes = vatReverseChargeNotes;
   }
 }

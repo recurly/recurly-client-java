@@ -169,6 +169,14 @@ public class SubscriptionUpdate extends Request {
   @Expose
   private String transactionDescriptorSuffix;
 
+  /**
+   * Specify custom notes to add or override VAT reverse charge notes. Custom notes will stay with a
+   * subscription on all renewals.
+   */
+  @SerializedName("vat_reverse_charge_notes")
+  @Expose
+  private String vatReverseChargeNotes;
+
   /** Whether the subscription renews at the end of its term. */
   public Boolean getAutoRenew() {
     return this.autoRenew;
@@ -493,5 +501,21 @@ public class SubscriptionUpdate extends Request {
    */
   public void setTransactionDescriptorSuffix(final String transactionDescriptorSuffix) {
     this.transactionDescriptorSuffix = transactionDescriptorSuffix;
+  }
+
+  /**
+   * Specify custom notes to add or override VAT reverse charge notes. Custom notes will stay with a
+   * subscription on all renewals.
+   */
+  public String getVatReverseChargeNotes() {
+    return this.vatReverseChargeNotes;
+  }
+
+  /**
+   * @param vatReverseChargeNotes Specify custom notes to add or override VAT reverse charge notes.
+   *     Custom notes will stay with a subscription on all renewals.
+   */
+  public void setVatReverseChargeNotes(final String vatReverseChargeNotes) {
+    this.vatReverseChargeNotes = vatReverseChargeNotes;
   }
 }

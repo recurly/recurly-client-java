@@ -63,6 +63,11 @@ public class ExternalSubscription extends Resource {
   @Expose
   private List<ExternalPaymentPhase> externalPaymentPhases;
 
+  /** Just the important parts. */
+  @SerializedName("external_product")
+  @Expose
+  private ExternalProductMini externalProduct;
+
   /** External Product Reference details */
   @SerializedName("external_product_reference")
   @Expose
@@ -98,6 +103,11 @@ public class ExternalSubscription extends Resource {
   @SerializedName("object")
   @Expose
   private String object;
+
+  /** Just the important parts. */
+  @SerializedName("plan")
+  @Expose
+  private PlanMini plan;
 
   /** An indication of the quantity of a subscribed item's quantity. */
   @SerializedName("quantity")
@@ -254,6 +264,18 @@ public class ExternalSubscription extends Resource {
     this.externalPaymentPhases = externalPaymentPhases;
   }
 
+  /** Just the important parts. */
+  public ExternalProductMini getExternalProduct() {
+    return this.externalProduct;
+  }
+
+  /**
+   * @param externalProduct Just the important parts.
+   */
+  public void setExternalProduct(final ExternalProductMini externalProduct) {
+    this.externalProduct = externalProduct;
+  }
+
   /** External Product Reference details */
   public ExternalProductReferenceMini getExternalProductReference() {
     return this.externalProductReference;
@@ -335,6 +357,18 @@ public class ExternalSubscription extends Resource {
    */
   public void setObject(final String object) {
     this.object = object;
+  }
+
+  /** Just the important parts. */
+  public PlanMini getPlan() {
+    return this.plan;
+  }
+
+  /**
+   * @param plan Just the important parts.
+   */
+  public void setPlan(final PlanMini plan) {
+    this.plan = plan;
   }
 
   /** An indication of the quantity of a subscribed item's quantity. */
