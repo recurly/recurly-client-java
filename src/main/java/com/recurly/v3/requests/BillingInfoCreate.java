@@ -214,6 +214,11 @@ public class BillingInfoCreate extends Request {
   @Expose
   private String sortCode;
 
+  /** Whether to store this billing info onto its associated account. Defaults to `true`. */
+  @SerializedName("store_billing_info")
+  @Expose
+  private Boolean storeBillingInfo;
+
   /**
    * Tax identifier is required if adding a billing info that is a consumer card in Brazil or in
    * Argentina. This would be the customer's CPF/CNPJ (Brazil) and CUIT (Argentina). CPF, CNPJ and
@@ -724,6 +729,19 @@ public class BillingInfoCreate extends Request {
    */
   public void setSortCode(final String sortCode) {
     this.sortCode = sortCode;
+  }
+
+  /** Whether to store this billing info onto its associated account. Defaults to `true`. */
+  public Boolean getStoreBillingInfo() {
+    return this.storeBillingInfo;
+  }
+
+  /**
+   * @param storeBillingInfo Whether to store this billing info onto its associated account.
+   *     Defaults to `true`.
+   */
+  public void setStoreBillingInfo(final Boolean storeBillingInfo) {
+    this.storeBillingInfo = storeBillingInfo;
   }
 
   /**
