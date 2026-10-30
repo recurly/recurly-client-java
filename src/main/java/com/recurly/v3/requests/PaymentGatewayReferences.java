@@ -14,7 +14,8 @@ import com.recurly.v3.resources.*;
 public class PaymentGatewayReferences extends Request {
 
   /**
-   * The type of reference token. Required if token is passed in for Stripe Gateway or Ebanx UPI.
+   * The type of reference token. The value can be omitted for gateways that only support one type
+   * of token.
    */
   @SerializedName("reference_type")
   @Expose
@@ -29,15 +30,16 @@ public class PaymentGatewayReferences extends Request {
   private String token;
 
   /**
-   * The type of reference token. Required if token is passed in for Stripe Gateway or Ebanx UPI.
+   * The type of reference token. The value can be omitted for gateways that only support one type
+   * of token.
    */
   public Constants.PaymentGatewayReferences getReferenceType() {
     return this.referenceType;
   }
 
   /**
-   * @param referenceType The type of reference token. Required if token is passed in for Stripe
-   *     Gateway or Ebanx UPI.
+   * @param referenceType The type of reference token. The value can be omitted for gateways that
+   *     only support one type of token.
    */
   public void setReferenceType(final Constants.PaymentGatewayReferences referenceType) {
     this.referenceType = referenceType;

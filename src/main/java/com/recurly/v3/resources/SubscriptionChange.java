@@ -88,6 +88,11 @@ public class SubscriptionChange extends Resource {
   @Expose
   private PlanMini plan;
 
+  /** The price segment ID, e.g. `e28zov4fw0v2`. */
+  @SerializedName("price_segment_id")
+  @Expose
+  private String priceSegmentId;
+
   /** Subscription quantity */
   @SerializedName("quantity")
   @Expose
@@ -294,6 +299,18 @@ public class SubscriptionChange extends Resource {
    */
   public void setPlan(final PlanMini plan) {
     this.plan = plan;
+  }
+
+  /** The price segment ID, e.g. `e28zov4fw0v2`. */
+  public String getPriceSegmentId() {
+    return this.priceSegmentId;
+  }
+
+  /**
+   * @param priceSegmentId The price segment ID, e.g. `e28zov4fw0v2`.
+   */
+  public void setPriceSegmentId(final String priceSegmentId) {
+    this.priceSegmentId = priceSegmentId;
   }
 
   /** Subscription quantity */
